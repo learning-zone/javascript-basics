@@ -91,3 +91,29 @@
 1. Angular 6 Modules vs. JavaScript Modules 
 1. What is the difference between a module's forRoot() and forChild() methods and why do you need it? 
 1. What are Zones? What is Change Detection? What would be a good use for NgZone service?
+
+# JavaScript Questions
+
+1. Explain datatypes in JavaScript
+1. Explain different methods for DOM manipulation in JS
+1. How to create Object in js and what are the multiple ways to create objects in js.
+1. What is Prototype in js?
+1. How AJAX works in JS and Explain about Promises in js.
+1. What is "use strict" in js?
+1. What is Closures in JS and what is its benefits?
+1. How to create NAMESPACE in js?
+1. What is difference between CALL() and APPLY() in js?
+1. What is NaN ? What is its type?
+1. How do you clone an object in js?
+1. What is function hoisting in JavaScript?
+1. What is the instanceof operator in JavaScript?
+1. What is negative infinity in JavaScript?
+1. Define event bubbling 
+1. Explain "self" vs "this" in JavaScript
+1. What is difference between append() vs appendChild()
+1. What is difference between "null" vs "undefined"
+1. What is difference between array[] vs object()
+1. What is difference between . dot vs [] brackets
+1. What is difference between async() or defer() keywords in js 
+1. What is difference between async() vs await() in ajax
+1. What is Lexical Scoping in javascript?
