@@ -69,8 +69,7 @@
 1. What are the main components of Routing in Angualr? 
 1. What Is Primeng? How Can It Be Used With Angular? 
 1. What is hidden property in Angular? 
-1. What are the difference between Renderer and ElementRef in angular? 
-1. How To Create & Call Angular  Services in Components? 
+1. What are the difference between Renderer and ElementRef in angular?  
 1. How do we create a singleton service in Angular? 
 1. How HTTP Client is Interact with Angular  Servers? 
 1. What is Async Pipe? How to create and use a custom Pipes?
