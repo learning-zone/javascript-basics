@@ -131,3 +131,4 @@
 1. Name the two functions that are used to create an HTML element dynamically.
 1. What is the use of history object?
 1. What is Currying in Javascript?
+1. what is callback() function in javascript
