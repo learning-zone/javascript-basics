@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>AJAX Request</title>
+  </head>
+  <body>
+    <button id="ajaxButton" type="button">Make a request</button>
+  </body>
+  <script>
+    /**
+     *
+     * AJAX - Asynchronous JavaScript and XML
+     *
+     * readyState() Values:-
+     *
+     * a) 0 (uninitialized) or (request not initialized)
+     * b) 1 (loading) or (server connection established)
+     * c) 2 (loaded) or (request received)
+     * d) 3 (interactive) or (processing request)
+     * e) 4 (complete) or (request finished and response is ready)
+     */
+    (function() {
+      var xhr;
+      document.getElementById('ajaxButton').addEventListener('click', makeRequest);
+
+      function makeRequest() {
+        if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xhr = new XMLHttpRequest();
+        } else {
+          // code for IE6, IE5
+          xhr = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        xhr.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            alert(this.responseText);
+          }
+        };
+        xhr.open('GET', 'message.txt', true); //this makes asynchronous true or false
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send();
+      }
+    })();
+  </script>
+</html>
