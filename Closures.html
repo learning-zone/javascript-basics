@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Closures and Lexical Scope</title>
+  </head>
+  <script>
+    /***
+     * A closure is the combination of a function bundled together (enclosed) with references
+     * to its surrounding state (the lexical environment). In other words, a closure gives
+     * you access to an outer function’s scope from an inner function.
+     *
+     * Lexical Scope:- In lexical scoping free variables must belong to a parent scope.
+     *
+     * Dynamic Scope:- In dynamic scoping free variables must belong to the calling scope
+     *
+     * ***/
+
+    var Person = function(name) {
+      var text = 'Hello ' + name; // Local variable
+      var say = function() {
+        // Closure makes this function private to this class
+        console.log("Using Closure: "+text);
+      };
+      return say;
+    };
+
+    var obj = new Person('Pradeep');
+     obj();
+
+
+    // ---------------
+    // Lexical Scope
+    // ---------------
+     function add(x) {         // template of a new scope, x is bound in this scope
+          return function (y) { // template of a new scope, x is free, y is bound
+              return x + y;     // x resolves to the parent scope
+          };
+      }
+
+      var sum = add(10);      // create a new scope for x and return a function
+      console.log("Using Lexical Scope: "+sum(20));         // create a new scope for y and return x + y
+
+  </script>
+  <body>
+    Closures
+  </body>
+</html>
