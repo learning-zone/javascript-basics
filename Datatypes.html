@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>DataTypes in JavaScript</title>
+  </head>
+  <script>
+    /**
+    * Six data types that are primitives:
+    *   Boolean
+    *   Null
+    *   Undefined
+    *   Number
+    *   String
+    *   Symbol (new in ECMAScript 6):- “Symbol” value represents a unique identifier.
+    *  and Object
+    *
+    **/
+    // ---------------
+    // Dynamic typing
+    // ---------------
+    var val = 10;             console.log("type of val: "+typeof(val)); // Number
+        val = 10.20;          console.log("type of val: "+typeof(val)); // Number
+        val = 'Hello World';  console.log("type of val: "+typeof(val)); // String
+        val = true;           console.log("type of val: "+typeof(val)); // Boolean
+        val = null;           console.log("type of val: "+typeof(val)); // Object
+        val = undefined;      console.log("type of val: "+typeof(val)); // Undefined
+
+
+    var obj = new Object();   console.log("type of obj: "+typeof(obj)); // Undefined
+    var n;                    console.log("type of n: "+typeof(n));     // null datatype
+
+    console.log("type of x: "+typeof(x));     // null datatype
+
+    // --------------
+    // let vs var
+    // --------------
+    
+     function varTest() {
+      var x = 1;
+      if (true) {
+        var x = 2;  // same variable!
+        console.log("var: Inside value of x: "+x);  // 2
+      }
+      console.log("var: Outside value of x: "+x);  // 2
+    }
+    varTest();
+
+  
+    function letTest() {
+      let x = 1;
+      if (true) {
+        let x = 2;  // different variable
+        console.log("let: Inside value of x: "+x);  // 2
+      }
+      console.log("let: Outside value of x: "+x);  // 1
+    }
+    letTest();
+
+    // ----------
+    // Symbols
+    // ----------
+
+    // id is a new symbol
+    let id = Symbol();   console.log("Type of id: "+typeof(id));
+
+    // id is a symbol with the description "id"
+    let id1 = Symbol("id");
+    let id2 = Symbol("id");
+
+    console.log("Is id1 == id2: "+(id1 == id2));
+  </script>
+  <body>
+    DataTypes in JavaScript
+  </body>
+</html>
