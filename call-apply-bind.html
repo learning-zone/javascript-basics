@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>call(), apply() and bind() function in JavaScript</title>
+  </head>
+  <script>
+    /***
+     * The call() method calls a function with a given this value and arguments provided individually.
+     *
+     * The apply() method calls a function with a given this value, and arguments provided as an array.
+     *
+     * The bind() method creates a new function that, when called, has its this keyword set to the provided value, 
+     * with a given sequence of arguments preceding any provided when the new function is called.
+     *
+     * ***/
+
+    // ------------------
+    // Normal function 
+    // ------------------
+    var person = {
+      firstName: 'Pradeep',
+      lastName: 'Kumar',
+      fullName: function() {
+        return this.firstName + ' ' + this.lastName;
+      }
+    };
+    console.log("Normal function: "+person.fullName());
+
+    // ------------------------
+    // Using call() function 
+    // ------------------------
+    var person = {
+      firstName: 'Pradeep',
+      lastName: 'Kumar',
+      fullName: function() {
+        return this.firstName + ' ' + this.lastName;
+      }
+    };
+    var myObject = {
+      firstName: 'Information Technology',
+      lastName: '& Management'
+    };
+    console.info("Using call(): "+person.fullName.call(myObject));
+    
+    // --------------------
+    // apply() function
+    // --------------------
+    var numbers = [5, 6, 2, 3, 7];
+    var max = Math.max.apply(null, numbers);
+
+    console.log("Using apply(): "+max); // expected output: 7
+
+
+    // Example - 02
+    var array = ['a', 'b'];
+    var elements = [0, 1, 2];
+    array.push.apply(array, elements);
+
+    console.info("Using apply(): "+array); // ["a", "b", 0, 1, 2]
+
+    // ------------------------
+    // Using bind() function 
+    // ------------------------
+
+    var person = {
+      firstName: 'Pradeep',
+      lastName: 'Kumar',
+      fullName: function() {
+        return this.firstName + ' ' + this.lastName;
+      }
+    };
+    var myObject = person.fullName;
+    var getFullName = myObject.bind(person);
+
+    console.info("Using bind(): "+getFullName());
+
+  </script>
+  <body>
+    call(), apply() and bind() function in JavaScript
+  </body>
+</html>
