@@ -43,3 +43,4 @@
 1. What is the use of history object?
 1. What is Currying in Javascript?
 1. what is callback() function in javascript
+1. what is shallow copy and deep copy in javascript
