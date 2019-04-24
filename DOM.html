@@ -98,5 +98,27 @@
       node.appendChild(textnode); // Append the text to <li>
       document.getElementById('items').appendChild(node); // Append <li> to <ul> with id="demo"
     }
+
+    // replaceChild()
+    var textnode = document.createTextNode("Six");
+    var item = document.getElementById("items").childNodes[0];
+    item.replaceChild(textnode,item.childNodes[0]);
+
+    // removeChild()
+    var list = document.getElementById("items");   // Get the <ul> element with id="items"
+    list.removeChild(list.childNodes[1]); 
+
+    // CloneNode()
+    let clone = document.querySelector('#items').cloneNode( true );
+    clone.setAttribute( 'id', 'newId' ); // Set new Id
+    document.getElementById('items').appendChild(clone);
+    
+    // insertBefore()
+    var newItem = document.createElement("li");
+    var textnode = document.createTextNode("One");
+    newItem.appendChild(textnode);
+    var list = document.getElementById("items");
+    list.insertBefore(newItem, list.childNodes[0]);
+    
   </script>
 </html>
