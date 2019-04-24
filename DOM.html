@@ -4,10 +4,19 @@
     <title>DOM Manipulation</title>
   </head>
   <body>
-    <div id="divId" class="main"></div>
+    <div id="divId" class="main">DOM Manipulation in JavaScript</div>
+    <br /><br />
+    <button onclick="scrollWin()">Click me to scroll</button>
+    <br /><br />
+
+    <button onclick="removeHandler()">Remove EventListener</button>
+
+    <p id="demo"></p>
+
+    <ul id="items"></ul>
   </body>
   <script>
-    document.getElementById('divId').innerHTML = 'DOM Manipulation in JavaScript !'; //Assigning new value
+    document.getElementById('divId').innerHTML = "<section><p>DOM Manipulation in JavaScript <a href='https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Client-side_web_APIs/Manipulating_documents' target='_blank'>Manipulating documents</a></p></section>"; //Assigning new value
 
     var str = document.getElementsByTagName('div').value; //Get div value
 
@@ -23,16 +32,33 @@
     console.log('title: ' + window.document.title); // The document title
     console.log('body: ' + window.document.body); // The body element
     console.log('URL: ' + window.document.URL); // Window URL
-    console.log('all: ' + window.document.all);
+    console.log('all: ' + window.document.all); // all
 
-    console.log('innerHTML: ' + document.querySelector('body').innerHTML); // Get the Content
-    console.log('outerHTML: ' + document.querySelector('body').outerHTML); // Get the Content with html tag
-    console.log('className: ' + document.querySelector('body').className); // Get the class name
-    console.log('classList: ' + document.querySelector('body').classList); // Get all class name in array
-    console.log('attributes: ' + document.querySelector('body').attributes); // Get the attributes
-    
-    document.querySelector('.main a'); // Get the main element matching specified selectors(s);
+    // window.scrollTo()
+    function scrollWin() {
+      window.scrollTo({
+        top: 100,
+        left: 100,
+        behavior: 'smooth'
+      });
+    }
+
+    // window.onload
+    window.onload = function() {
+      console.log('window.onload(): Window onload function called !');
+    };
+
+    document.querySelector('body').innerHTML; // Get the Content
+    document.querySelector('body').outerHTML; // Get the Content with html tag
+    console.log('className(): ' + document.querySelector('#divId').className); // Get the class name
+    console.log('classList(): ' + document.querySelector('#divId').classList); // Get all class name in array
+    console.log('attributes(): ' + document.querySelector('#divId').attributes); // Get the attributes
+
+    // querySelectorAll()
     document.querySelectorAll('.main p'); // Get all elements matching specified selectors(s);
+
+    // querySelector()
+    document.querySelector('.main a'); // Get the main element matching specified selectors(s);
     //document.querySelector('a').hasAttribute('target');
     //document.querySelector('a').setAttribute('target', '_blank');
     document.querySelector('.main').style.color = 'green';
@@ -41,12 +67,36 @@
     document.querySelector('body').classList.toggle('.new-class');
     document.querySelector('body').classList.contains('.new-class');
     document.querySelector('.main').style.cssText = 'padding: 1em; color: white; background-color: red;';
+
+    // getAttribute()
+    console.log('getAttribute(): ' + document.getElementById('divId').getAttribute('class'));
+
+    // setAttribute()
     document.querySelector('.main').setAttribute('style', 'padding: 2em');
 
+    // addEventListener()
     document.addEventListener('click', function() {
-      document.getElementById('divId').innerHTML = 'Click Me!';
+      document.getElementById('divId').innerHTML = 'Updated Text on click !';
     });
-    var obj = document.getElementById('divId');
-    obj.onclick = console.log('You clicked me !');
+
+    // removeEventListener()
+    document.querySelector('body').addEventListener('mousemove', getCoords);
+
+    function getCoords() {
+      document.getElementById('demo').innerHTML = 'X coords: ' + event.clientX + ', Y coords: ' + event.clientY;
+    }
+
+    function removeHandler() {
+      document.querySelector('body').removeEventListener('mousemove', getCoords);
+    }
+
+    // appendChild()
+    var arr = ['One', 'Two', 'Three', 'Four', 'Five'];
+    for (var i = 0; i < 5; i++) {
+      var node = document.createElement('li'); // Create a <li> node
+      var textnode = document.createTextNode(arr[i]); // Create a text node
+      node.appendChild(textnode); // Append the text to <li>
+      document.getElementById('items').appendChild(node); // Append <li> to <ul> with id="demo"
+    }
   </script>
 </html>
