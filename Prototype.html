@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prototype in JavaScript</title>
+  </head>
+  <script>
+    /***
+     * JavaScript does not support multiple inheritance. 
+     *
+     * Inheritance of property values occurs at run time by JavaScript searching 
+     * the prototype chain of an object to find a value. Because an object has a 
+     * single associated prototype, JavaScript cannot dynamically inherit from more 
+     * than one prototype chain.
+     *
+     ***/
+
+    // Example: Person Class
+    function PersonClass(name, address) {
+      this.name = name;
+      this.address = address;
+    }
+
+    PersonClass.prototype.message = function() {
+      //Using prototype to add new function to class Person
+      console.log(this.name + ' says Hello !');
+    };
+
+    function init() {
+      var Obj = new PersonClass('Pradeep', 'Bangalore'); //Person Object
+      console.log(Obj.message());
+    }
+
+    init(); //function call
+  </script>
+  <body>
+    Prototype in JavaScript
+  </body>
+</html>
