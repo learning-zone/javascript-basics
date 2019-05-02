@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dynamically creating HTML elements using Javascript</title>
+  </head>
+  <body>
+    <div id="container">The text above has been created dynamically.</div>
+    <script>
+      document.body.onload = addElement;
+
+      function addElement() {
+        var newDiv = document.createElement('div');
+        var newContent = document.createTextNode('Hi there and greetings!');
+        newDiv.appendChild(newContent);
+        var currentDiv = document.getElementById('container');
+        document.body.insertBefore(newDiv, currentDiv);
+      }
+    </script>
+  </body>
+</html>
