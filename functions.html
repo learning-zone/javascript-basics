@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>functions in JS</title>
+  </head>
+  <script>
+    // ----------------------
+    // Hoisting functions()
+    // ----------------------
+
+    var expression = function(name) {
+      console.log('Hi ' + name);
+    };
+    expression('Pradeep');
+
+    /* * 
+     *  Curray function
+     *
+     *  Currying is a process in functional programming in which we can transform a function with multiple arguments 
+     *  into a sequence of nesting functions. It returns a new function that expects the next argument inline.
+     * 
+     * */
+    function multiply(a) {
+      return function(b) {
+        return function(c) {
+          return a * b * c;
+        };
+      };
+    }
+    console.log('Curray function: ' + multiply(1)(2)(3)); // 6
+
+    /**
+     *  Arrow Function()
+     * 
+     *  An arrow function expression is a syntactically compact alternative to a regular function expression, 
+     *  although without its own bindings to the this, arguments, super, or new.target keywords. Arrow function 
+     *  expressions are ill suited as methods, and they cannot be used as constructors.
+     * 
+     * **/
+     
+     var materials = [
+        'Hydrogen',
+        'Helium',
+        'Lithium',
+        'Beryllium'
+    ];
+    console.log('Arrow Function: ' + materials.map(material => material.length));
+
+    const addition = (x, y) => { return x + y };
+    console.log('addition: ' + addition(10, 20));
+
+    /**
+     *   Constructor Function()
+     * 
+     *   The Function constructor creates a new Function object. Calling the constructor directly can 
+     *   create functions dynamically, but suffers from security and performance issues to eval. 
+     *   However, unlike eval, the Function constructor creates functions which 
+     *   execute in the global scope only.
+     *  
+     * **/
+
+     var sum = new Function('a', 'b', 'return a + b');
+     console.log('sum: ' + sum(10, 20)); // 30
+
+     /**
+      *   unescape() Function
+      *   
+      *   Note:- The unescape() function was deprecated in JavaScript version 1.5. Use decodeURI() or decodeURIComponent() instead.
+      * 
+      * **/
+
+        var url = "https://www.google.co.in/?gfe_rd=cr&ei=VmKuWJ_EAcqBoAOrwZ2YDg";
+        var url_esc = escape(url);
+        var url_unesc = unescape(url);
+
+        console.log('escape URL: ' + escape(url));    
+        console.log('unescape URL: ' + unescape(url));  
+
+    /***
+     *  Callback function()
+     * 
+     *  A callback is a function that is to be executed after another function has finished executing.
+     * 
+     *  A callback function is a function passed into another function as an argument, which is then 
+     *  invoked inside the outer function to complete some kind of routine or action.
+     *  
+     ***/
+        
+        function greeting(name) {
+            alert('Hello ' + name);
+        }
+        function processUserInput(callback) {
+            var name = prompt('Please enter your name: ');
+            callback(name);
+        }
+        processUserInput(greeting);
+
+  </script>
+  <body>
+    <h1>functions in JavaScript</h1>
+  </body>
+</html>
