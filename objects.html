@@ -31,9 +31,9 @@
 
     console.log('Car Model: ' + CarClass.model);
 
-    // -----------------------------------------------
-    // Multiple ways of creating object in javascript
-    // -----------------------------------------------
+    /**
+        Multiple ways of creating object in javascript
+    **/
 
     // ----------------------
     // Object() constructor
@@ -86,6 +86,28 @@
     console.log('Using Singleton Pattern: ' + sp.name);
 
     console.log('Object length: ' + Object.length); // 1
+
+
+    /** 
+      Object Clone in JS
+
+      Deep copy by performance: ( best to worst )
+
+        1) Reassignment "=" (string arrays, number arrays - only)
+        2) Slice (string arrays, number arrays - only)
+        3) Concatenation (string arrays, number arrays - only)
+        4) Custom function: for-loop or recursive copy
+        5) jQuery's $.extend
+        6) JSON.parse (string arrays, number arrays, object arrays - only)
+        7) Underscore.js's _.clone (string arrays, number arrays - only)
+        8) Lo-Dash's _.cloneDeep
+    **/
+        
+    var oldObject = [{object:'a'}, {object:'b'}];
+    var newObject = JSON.parse(JSON.stringify(oldObject));
+    var newObject = Object.assign({}, oldObject);
+
+    console.log('Cloned Object: '+ newObject[0].object); // a
   </script>
   <body>
     Objects in JavaScript
