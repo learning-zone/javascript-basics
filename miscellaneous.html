@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Miscellaneous features in JS</title>
+  </head>
+  <body>
+     <h1 id='divId'></h1>
+  </body>
+  <script>
+
+      /**
+       * ---------------------------------
+       *   HTML Collections vs NodeLists
+       * ---------------------------------
+       * 
+       *   An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node’s name or id attributes.
+       *   Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
+       * 
+       *   A NodeList object is a collection of nodes. The NodeList interface provides the abstraction of an ordered collection of nodes, without 
+       *   defining or constraining how this collection is implemented. NodeList objects in the DOM are live or static based on the interface used 
+       *   to retrieve them
+       * 
+       * **/
+
+       /**
+        * ------------------
+        *  var this = self
+        * ------------------
+        *   
+        *  self is being used to maintain a reference to the original this even as the context is changing. It's a technique often used in event 
+        *  handlers (especially in closures).
+        *  
+        * **/
+
+        var obj = {
+            outFunction: function() {
+                console.log('(this == obj): '+(this == obj)); // true
+                var self = this;
+                function innerFunction() {
+                    console.log('(this == obj): ' + (this == obj)); //false
+                    console.log('(self === obj): ' + (self === obj)); //true
+                }
+                return innerFunction;
+            }
+        }
+        // This code will return inner function and won't execute it 
+        var inner = obj.outFunction();
+        inner(); // Invoke inner function 
+
+        /**
+         * ---------------------------
+         *  append() vs appendChild()
+         * ----------------------------
+         * 
+         *  The main difference is that appendChild() is a DOM function meanwhile append() is a JavaScript function.
+         * 
+         * **/
+ 
+          var text = document.createTextNode('Miscellaneous features in JS');
+          document.getElementById("divId").appendChild(text);
+          document.getElementById("divId").append(' Example !!!');
+
+        /**
+         * ------------------------------
+         *   dot notation vs brackets
+         * ------------------------------
+         * 
+         *   1) Square bracket notation allows the use of characters that can't be used with dot notation:
+         *       var foo = myForm.foo[]; // incorrect syntax
+         *       var foo = myForm["foo[]"]; // correct syntax
+         *
+         *   2) square bracket notation is useful when dealing with property names which vary in a predictable way:
+         *       for (var i = 0; i < 10; i++) {
+         *          someFunction(myForm["myControlNumber" + i]);
+         *       }
+         *
+         *   3) Square bracket notation allows access to properties containing special characters and selection of properties using variables
+         *       var foo = myResponse.bar.Baz; // incorrect syntax
+         *       var foo = myResponse["bar.Baz"]; // correct syntax
+         * 
+         * 
+         * * */
+
+       
+
+        /**
+         * -------------------
+         *   async vs  defer
+         * -------------------
+         * 
+         * 
+         *  <script src=script.js/>
+         * 
+         *     The HTML file will be parsed until the script file is hit, at that point parsing will stop and a request 
+         *     will be made to fetch the file. The script will then be executed before parsing is resumed.
+         * 
+         *  <script async src="script.js"/>
+         *   
+         *     async downloads the file during HTML parsing and will pause the HTML parser to execute it when it has finished downloading.
+         * 
+         *  <script defer src="script.js"/>
+         * 
+         *     defer downloads the file during HTML parsing and will only execute it after the parser has completed. defer scripts are 
+         *     also guaranteed to execute in the order that they appear in the document.
+         *    
+         * **/
+
+
+        /**
+         * -------------------------------
+         *   async() vs await() in ajax
+         * -------------------------------
+         * 
+         * 
+         *   An async() function can contain an await() expression, which pauses the execution of the async() function and waits for the passed 
+         *   Promise's resolution, and then resumes the async() function's execution and returns the resolved value.
+         * 
+         * **/ 
+         function resolve() {
+            return new Promise(resolve => {
+                setTimeout(() => {
+                resolve('resolved after await() !!!');
+                }, 2000);
+            });
+         }
+
+         async function asyncCall() {
+            console.log('async() function calling !');
+            var result = await resolve();
+            console.log(result); // expected output: 'resolved'
+         }
+        asyncCall();
+
+        /* *
+         *  --------------------
+         *   Request​.headers
+         * --------------------
+         * 
+         *   The headers read-only property of the Request interface contains the Headers object associated with the request.
+         *   
+         * **/
+          var myRequest = new Request('flowers.jpg');
+          var myHeaders = myRequest.headers; // Headers {}
+          
+          var myHeaders = new Headers();
+          myHeaders.append('Content-Type', 'image/jpeg');
+
+          var myInit = { 
+            method: 'GET',
+            headers: myHeaders,
+            mode: 'cors',
+            cache: 'default' 
+          };
+
+          var myRequest = new Request('flowers.jpg', myInit);
+          myContentType = myRequest.headers.get('Content-Type'); 
+          console.log('Request​.headers: ' + myContentType); // returns 'image/jpeg'
+          
+        /**
+         * -------------------------
+         *  JavaScript Error Types
+         * -------------------------
+         * 
+         *   1) EvalError:-      Creates an instance representing an error that occurs regarding the global function eval().
+         *   2) InternalError:-  Creates an instance representing an error that occurs when an internal error in the JavaScript 
+         *                       engine is thrown. E.g. "too much recursion" 
+         *   3) RangeError:-     Creates an instance representing an error that occurs when a numeric variable or parameter is 
+         *                       outside of its valid range.
+         *   4) ReferenceError:- Creates an instance representing an error that occurs when de-referencing an invalid reference.
+         *   5) SyntaxError:-    Creates an instance representing a syntax error that occurs while parsing code in eval().
+         *   6) TypeError:-      Creates an instance representing an error that occurs when a variable or parameter is not of a valid type.
+         *   7) URIError:-       Creates an instance representing an error that occurs when encodeURI() or decodeURI() are passed invalid parameters.
+         * 
+         * 
+         *   Examples:-
+         * 
+         *   constt syntax = 'val' //SyntaxError
+         *   
+         *   const booleanVal = true;
+         *   booleanVal.slice(-1);    //TypeError
+         * 
+         *   const name = receivedName; //ReferenceError
+         * 
+         *   'string'.repeat(-1); //RangeError
+         * 
+         *    decodeURIComponent('%'); //URIError
+         * **/
+
+         /**
+          * ------------------------------
+          *   ViewState vs SessionState
+          * -------------------------------
+          * 
+          *   View State
+          *   
+          *     – Maintained at page level only.
+          *     – View state can only be visible from a single page and not multiple pages.
+          *     – Information stored on the client’s end only.
+          *     – View state will retain values in the event of a postback operation occurring.
+          *     – View state is used to allow the persistence of page-instance-specific data.
+          *
+          *   Session State
+          *         
+          *     – Maintained at session level.
+          *     – Session state value availability is in all pages available in a user session.
+          *     – Information in session state stored in the server.
+          *     – In session state, user data remains in the server.  The availability of the data is 
+          *       guaranteed until either the user closes the session or the browser is closed.
+          *     – Session state is used for the persistence of user-specific data on the server’s end.
+          *
+          * **/  
+
+          // unshift() :- The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+            var arr = [1, 2, 3];
+
+            console.log(arr.unshift(4, 5)); // expected output: 5
+            console.log('unshift(): ' + arr); // expected output: Array [4, 5, 1, 2, 3]
+            
+         // shift() :- The shift() method removes the first element from an array and returns that removed element. 
+            var arr = [1, 2, 3];
+            var firstElement = arr.shift();
+
+            console.log('shift(): ' + arr);  // expected output: Array [2, 3]
+            console.log('firstElement: ' + firstElement); // expected output: 1
+
+        /**
+         * -----------------------------------
+         *  firstchild vs firstelementchild
+         * -----------------------------------
+         * 
+         *   <ul id="myList">
+         *       <li>Coffee</li>
+         *       <li>Tea</li>
+         *   </ul>
+         *
+         *   var list = document.getElementById("myList").firstElementChild.innerHTML;
+         *   console.log('firstElementChild: ' + list); //Coffee
+         * 
+         *   
+         *   firstchild
+         * 
+         *   <ul id="myList"><li>Coffee</li><li>Tea</li></ul>
+         *   
+         *   var list = document.getElementById("myList").firstChild.innerHTML;
+         *   console.log('firstChild: ' + list); //Coffee
+         * 
+         *  Note:- If you add whitespace before the first li element, the result will be "undefined".
+         * **/  
+
+         /**
+          * -----------------
+          *  History Object
+          * -----------------
+          * 
+          * **/
+            window.history.back();          // Goes to the previous page in session history
+            window.History.forward()        // Goes to the next page in session history
+            window.History.go()             // Loads a page from the session history, identified by its relative location to the current page
+            window.History.pushState()      // Pushes the given data onto the session history stack with the specified title and, if provided, URL
+            window.History.replaceState()   // Updates the most recent entry on the history stack to have the specified data, title, and, if provided, URL
+
+        /**
+         *   ---------------------------
+         *    Shallow Copy vs Deep Copy
+         *   ---------------------------
+         *  
+         *   Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. 
+         *   If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
+         * 
+         *   A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied
+         *   along with the objects to which it refers.
+         * 
+         * **/
+     
+
+  </script>
+</html>
