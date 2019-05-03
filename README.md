@@ -16,7 +16,7 @@
 1. What is the instanceof operator in JavaScript?
 1. What is negative infinity in JavaScript?
 1. Define event bubbling in JavaScript.
-1. Explain "self" vs "this" in JavaScript
+1. Explain var self = this in JavaScript
 1. What is difference between append() vs appendChild()
 1. What is difference between "null" vs "undefined"
 1. What is difference between array[] vs object()
