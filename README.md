@@ -46,3 +46,4 @@
 1. what is shallow copy and deep copy in javascript
 1. what is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript
 1. what is event loop in javascript?
+1. what is slice(), splice() and split() in javascript?
