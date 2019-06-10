@@ -42,13 +42,13 @@
 1. Name the two functions that are used to create an HTML element dynamically.
 1. What is the use of history object?
 1. What is method chaining and currying in javascript
-1. what is callback() function in javascript
-1. what is shallow copy and deep copy in javascript
-1. what is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript
-1. what is event loop in javascript?
-1. what is slice(), splice() and split() in javascript?
+1. What is callback() function in javascript
+1. What is shallow copy and deep copy in javascript
+1. What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript
+1. What is event loop in javascript?
+1. What is slice(), splice() and split() in javascript?
 1. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]
 1. Create a Stopwatch in javascript.
 1. Write a program in javascript. abc(2)(3); // Expected output is 5
-1. what is Event delegation and event propagation in javascript?
+1. What is Event delegation and event propagation in javascript?
 
