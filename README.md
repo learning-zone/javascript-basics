@@ -41,7 +41,7 @@
 1. What is the difference between firstChild and firstElementChild?
 1. Name the two functions that are used to create an HTML element dynamically.
 1. What is the use of history object?
-1. What is Currying in Javascript?
+1. What is method chaining and currying in javascript
 1. what is callback() function in javascript
 1. what is shallow copy and deep copy in javascript
 1. what is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript
