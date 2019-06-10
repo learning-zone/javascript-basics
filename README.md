@@ -10,7 +10,7 @@
 1. What is Closures in JS and what is its benefits?
 1. How to create NAMESPACE in js?
 1. What is difference between CALL() and APPLY() in js?
-1. What is NaN ? What is its type?
+1. What is NaN? What is its type?
 1. How do you clone an object in js?
 1. What is function hoisting in JavaScript?
 1. What is the instanceof operator in JavaScript?
