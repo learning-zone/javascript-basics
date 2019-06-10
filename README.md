@@ -48,4 +48,5 @@
 1. what is event loop in javascript?
 1. what is slice(), splice() and split() in javascript?
 1. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]
+1. Create a Stopwatch in javascript.
 
