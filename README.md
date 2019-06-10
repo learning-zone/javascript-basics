@@ -24,7 +24,7 @@
 1. What is difference between async() or defer() keywords in js 
 1. What is difference between async() vs await() in ajax
 1. What is Lexical Scoping in javascript?
-1. what is curry function in javascript?
+1. What is curry function in javascript?
 1. What is arrow function in javascript?
 1. What is request header in javascript?
 1. Explain javascript Object Constructors.
