@@ -285,10 +285,48 @@
               var x = 5; // x is shadowing the outer scope's x variable
           }
 
+         
+         /**
+          *    -------------------
+          *       Yield Keyword
+          *    -------------------
+          *
+          *  The yield keyword is used to pause and resume a generator function (function* or legacy generator function).
+         **/
+
+          function* foo(index) {
+            while (index < 5) {
+            yield index++;
+            }
+          }
+
+          const iterator = foo(0);
+          console.log(iterator.next().value); // expected output: 0
+          console.log(iterator.next().value); // expected output: 1
 
 
+        /**
+          *    ------------------- 
+          *       await Keyword
+          *    -------------------
+          *   
+          *   The await operator is used to wait for a Promise. It can only be used inside an async function.
+          * 
+         **/
 
-     
+            function resolveAfter2Seconds(x) { 
+              return new Promise(resolve => {
+                setTimeout(() => {
+                  resolve(x);
+                }, 20000);
+              });
+            }
+
+            async function f1() {
+              var x = await resolveAfter2Seconds(10);
+              console.log(x); // 10
+            }
+            f1();
 
   </script>
 </html>
