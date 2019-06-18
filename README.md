@@ -51,4 +51,5 @@
 1. Create a Stopwatch in javascript.
 1. Write a program in javascript. abc(2)(3); // Expected output is 5
 1. What is Event delegation and event propagation in javascript?
+1. what is variable shadowing javascript?
 
