@@ -128,3 +128,15 @@ console.log(title);
 	console.log(symbol3.toString()); 
 
 	console.log(Symbol('foo') === Symbol('foo')); 
+
+
+// 11. Iterator
+
+/**  The iterable protocol allows JavaScript objects to define or customize their iteration behavior. **/
+
+  var title = 'ES6';
+  var iterateIt = title[Symbol.iterator]();
+
+  console.log(iterateIt.next().value); //output: E
+  console.log(iterateIt.next().value); //output: S
+  console.log(iterateIt.next().value); //output: 6
