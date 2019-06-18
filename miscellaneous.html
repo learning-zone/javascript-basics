@@ -328,5 +328,36 @@
             }
             f1();
 
+
+         /**
+          *   -----------------     
+          *     in Operator
+          *   -----------------
+          *
+          *  The "in" operator returns true if the specified property is in the specified object or its prototype chain.
+          *
+          **/
+              
+            var car = {make: 'Honda', model: 'Accord', year: 1998};
+		        console.log('make' in car);	// expected output: true
+
+
+        /** 
+          *  -----------------------
+          *    instanceof Operator
+          *  -----------------------
+          *
+          *  The instanceof operator tests whether the prototype property of a constructor appears anywhere in the prototype chain of an object.
+         **/
+
+            function Car(make, model, year) {
+              this.make = make;
+              this.model = model;
+              this.year = year;
+            }
+            var auto = new Car('Honda', 'Accord', 1998);
+
+            console.log(auto instanceof Car);  // expected output: true
+            console.log(auto instanceof Object); // expected output: true 
   </script>
 </html>
