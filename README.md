@@ -53,5 +53,6 @@
 1. What is Event delegation and event propagation in javascript?
 1. What is variable shadowing javascript?
 1. What are different types of functions in JavaScript?
-1. When to use function declarations and expressions in JavaScript
+1. When to use function declarations and expressions in JavaScript?
+1. What is difference between setTimeout() and setInterval() in JavaScript?
 
