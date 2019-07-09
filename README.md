@@ -18,7 +18,7 @@
 1. Define event bubbling, capturing and targeting in JavaScript.
 1. Explain **var self = this** in JavaScript
 1. What is difference between append() vs appendChild()?
-1. What is difference between "null" vs "undefined"?
+1. What is difference between **null** vs **undefined**?
 1. What is difference between array[] vs object()?
 1. What is difference between . dot vs [] brackets?
 1. What is difference between async() or defer() keywords in JavaScript? 
