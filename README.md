@@ -54,4 +54,29 @@
 1. What are different types of functions in JavaScript?
 1. When to use function declarations and expressions in JavaScript?
 1. What is difference between setTimeout() and setInterval() in JavaScript?
+1. How do you compare Object and Map?
+1. What are lambda or arrow functions?
+1. What is a first class function?
+1. What is a first order function?
+1. What is a higher order function?
+1. What is a unary function?
+1. What is a pure function?
+1. What is Temporal Dead Zone?
+1. What is IIFE(Immediately Invoked Function Expression)?
+1. What is the benefit of using modules?
+1. What is memoization?
+1. What is a service worker?
+1. How do you manipulate DOM using service worker?
+1. How do you reuse information across service worker restarts?
+1. What are the restrictions of web workers on DOM?
+1. What is the purpose of race method in promise?
+1. What is an event flow?
+1. What is the difference between document load and DOMContentLoaded events?
+1. What are the differences between WeakMap and Map?
+1. What is a freeze method?
+1. What is a rest parameter?
+1. What is a spread operator?
+1. How do you determine whether object is frozen or not?
+1. What are the differences between WeakSet and Set?
+1. How do you get meta data of a module?
 
