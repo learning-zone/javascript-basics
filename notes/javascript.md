@@ -1,4 +1,4 @@
-# JavaScript Notes
+## JavaScript Notes
 
 
 #### Q. What are the possible ways to create objects in JavaScript?
