@@ -81,5 +81,6 @@
 1. How do you get meta data of a module?
 1. How to do Javascript file size and extension validation before upload?
 1. How to create captcha using javascript?
+1. how to avoid callback hell in javascript?
 
 
