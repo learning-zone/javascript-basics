@@ -89,7 +89,7 @@ var object = new function(){
 
 #### Q. What is the difference between Call, Apply and Bind?
 
-**Call:** The call() method invokes a function with a given `this` value and arguments provided one by one
+**call():** The call() method invokes a function with a given `this` value and arguments provided one by one
 ```javascript
 var employee1 = {firstName: 'John', lastName: 'Rodson'};
 var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
@@ -101,7 +101,7 @@ function invite(greeting1, greeting2) {
 invite.call(employee1, 'Hello', 'How are you?'); // Hello John Rodson, How are you?
 invite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
 ```
-**Apply:** Invokes the function and allows you to pass in arguments as an array
+**apply():** Invokes the function and allows you to pass in arguments as an array
 ```javascript
 var employee1 = {firstName: 'John', lastName: 'Rodson'};
 var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
@@ -113,7 +113,7 @@ function invite(greeting1, greeting2) {
 invite.apply(employee1, ['Hello', 'How are you?']); // Hello John Rodson, How are you?
 invite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?
 ```
-**bind:** returns a new function, allowing you to pass in an array and any number of arguments
+**bind():** returns a new function, allowing you to pass in an array and any number of arguments
 ```javascript
 var employee1 = {firstName: 'John', lastName: 'Rodson'};
 var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
