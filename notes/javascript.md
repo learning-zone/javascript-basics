@@ -594,10 +594,9 @@ const promise = new Promise(function(resolve, reject) {
   // promise description
 })
 ```
-#### Q. Why do you need a promise?
+
 Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
 
-#### Q. What are the three states of promise?
 Promises have three states:
 1. **Pending:** This is an initial state of the Promise before an operation begins
 2. **Fulfilled:** This state indicates that specified operation was completed.
