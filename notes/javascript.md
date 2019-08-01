@@ -821,13 +821,7 @@ Any variable can be emptied by setting the value to undefined.
 ```javascript
 user = undefined
 ```
-#### Q. What is null value?
-The value null represents the intentional absence of any object value. It is one of JavaScript's primitive values. The type of null value is object.
-You can empty the variable by setting the value to null.
-```javascript
-var user = null;
-console.log(typeof(user)) //object
-```
+
 #### Q. What is the difference between null and undefined?
 Below are the main differences between null and undefined,
 
