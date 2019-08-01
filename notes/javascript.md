@@ -372,19 +372,19 @@ Memoization is a programming technique which attempts to increase a function’s
 Let's take an example of adding function with memoization,
 ```javascript
 const memoizAddition = () => {
-    let cache = {};
-    return (value) => {
+  let cache = {};
+  return (value) => {
     if (value in cache) {
-    console.log('Fetching from cache');
-    return cache.value;
+      console.log('Fetching from cache');
+      return cache.value;
     }
     else {
-    console.log('Calculating result');
-    let result = value + 20;
-    cache[value] = result;
-    return result;
+      console.log('Calculating result');
+      let result = value + 20;
+      cache[value] = result;
+      return result;
     }
-    }
+  }
 }
 // returned function from memoizAddition
 const addition = memoizAddition();
