@@ -587,13 +587,13 @@ WebWorkers don't have access to below javascript objects since they are defined 
 3. Parent object
 
 #### Q. What is a promise?
-    A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
-    The syntax of promise would be as below
-    ```javascript
-    const promise = new Promise(function(resolve, reject) {
-      // promise description
-    })
-    ```
+A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
+Syntax 
+```javascript
+const promise = new Promise(function(resolve, reject) {
+  // promise description
+})
+```
 #### Q. Why do you need a promise?
 Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
 
