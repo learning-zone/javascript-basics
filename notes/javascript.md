@@ -30,10 +30,10 @@
  function Person(name){
   var object = {};
   object.name=name;
-  object.age=21;
+  object.age=26;
   return object;
  }
- var object = new Person("Sudheer");
+ var object = new Person("Pradeep");
  ```
 
  5. **Function constructor with prototype:**
@@ -41,7 +41,7 @@
 
 ```javascript
 function Person(){}
-Person.prototype.name = "Sudheer";
+Person.prototype.name = "Pradeep";
 var object = new Person();
 ```
 
@@ -72,14 +72,14 @@ class Person {
  }
 }
 
-var object = new Person("Sudheer");
+var object = new Person("Pradeep");
 ```
 
 7. **Singleton pattern:**
 A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don't accidentally create multiple instances.
 ```javascript
 var object = new function(){
-  this.name = "Sudheer";
+  this.name = "Pradeep";
 }
 ```
 
