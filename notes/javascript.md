@@ -446,17 +446,16 @@ Web storage is an API that provides a mechanism by which browsers can store key/
 Post message is a method that enables cross-origin communication between Window objects.(i.e, between a page and a pop-up that it spawned, or between a page and an iframe embedded within it). Generally, scripts on different pages are allowed to access each other if and only if the pages follow same-origin policy(i.e, pages share the same protocol, port number, and host).
 
 #### Q. What is a Cookie?
-A cookie is a piece of data that is stored on your computer to be accessed by your browser. Cookies are saved as key/value pairs.
-For example, you can create a cookie named username as below,
+A cookie is a piece of data that is stored on computer to be accessed by browser. Cookies are saved as key/value pairs.
+For example 
 ```javascript
 document.cookie = "username=John";
 ```
-#### Q. Why do you need a Cookie?
+
 Cookies are used to remember information about the user profile(such as username). It basically involves two steps,
 1. When a user visits a web page, user profile can be stored in a cookie.
 2. Next time the user visits the page, the cookie remembers user profile.
 
-#### Q. What are the options in a cookie?
 There are few below options available for a cookie,
 1. By default, the cookie is deleted when the browser is closed but you can change this behavior by setting expiry date (in UTC time).
 ```javascript
