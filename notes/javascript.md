@@ -3,8 +3,6 @@
 
 #### Q. What are the possible ways to create objects in JavaScript?
 
-There are many ways to create objects in javascript as below,
-
 1. **Object constructor:**
 
  The simpliest way to create an empty object is using Object constructor. Currently this approach is not recommended.
