@@ -1,6 +1,8 @@
 ## JavaScript Notes
 
 
+#### Q. Write a program to reverse a string?
+
 #### Q. JavaScript Regular Expression to validate Email
 
 ```javascript
