@@ -1,6 +1,11 @@
 ## JavaScript Notes
 
 
+#### Q. JavaScript Regular Expression to validate Email
+
+```javascript
+var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+```
 #### Q. Use RegEx to test password strength in JavaScript?
 
 ```javascript
