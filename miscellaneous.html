@@ -13,12 +13,13 @@
        *   HTML Collections vs NodeLists
        * ---------------------------------
        * 
-       *   An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node’s name or id attributes.
-       *   Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
+       *   An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the 
+       *   node’s name or id attributes. Collections in the HTML DOM are assumed to be live meaning that they are 
+       *   automatically updated when the underlying document is changed.
        * 
-       *   A NodeList object is a collection of nodes. The NodeList interface provides the abstraction of an ordered collection of nodes, without 
-       *   defining or constraining how this collection is implemented. NodeList objects in the DOM are live or static based on the interface used 
-       *   to retrieve them
+       *   A NodeList object is a collection of nodes. The NodeList interface provides the abstraction of an ordered 
+       *   collection of nodes, without defining or constraining how this collection is implemented. NodeList objects 
+       *   in the DOM are live or static based on the interface used to retrieve them
        * 
        * **/
 
@@ -27,8 +28,8 @@
         *  var this = self
         * ------------------
         *   
-        *  self is being used to maintain a reference to the original this even as the context is changing. It's a technique often used in event 
-        *  handlers (especially in closures).
+        *  self is being used to maintain a reference to the original this even as the context is changing. It's a 
+        *  technique often used in event handlers (especially in closures).
         *  
         * **/
 
@@ -74,7 +75,8 @@
          *          someFunction(myForm["myControlNumber" + i]);
          *       }
          *
-         *   3) Square bracket notation allows access to properties containing special characters and selection of properties using variables
+         *   3) Square bracket notation allows access to properties containing special characters and selection of 
+         *      properties using variables
          *       var foo = myResponse.bar.Baz; // incorrect syntax
          *       var foo = myResponse["bar.Baz"]; // correct syntax
          * 
@@ -96,12 +98,13 @@
          * 
          *  <script async src="script.js"/>
          *   
-         *     async downloads the file during HTML parsing and will pause the HTML parser to execute it when it has finished downloading.
+         *     async downloads the file during HTML parsing and will pause the HTML parser to execute it when it has 
+         *     finished downloading.
          * 
          *  <script defer src="script.js"/>
          * 
-         *     defer downloads the file during HTML parsing and will only execute it after the parser has completed. defer scripts are 
-         *     also guaranteed to execute in the order that they appear in the document.
+         *     defer downloads the file during HTML parsing and will only execute it after the parser has completed. 
+         *     defer scripts are also guaranteed to execute in the order that they appear in the document.
          *    
          * **/
 
