@@ -1,14 +1,6 @@
 ## JavaScript Notes
 
 
-#### Q. Write the program using fatarrow function?
-```javascript
-var a = [1, 2, 3, 4]; 
-function sumUsingFunction (acc, value) {   
-  return acc + value; 
-} 
-var sumOfArrayUsingFunc = a.reduce(sumUsingFunc);
-```
 #### Q. When you should not use arrow functions in ES6?
 
 #### Q. How to create global variable in javascript?
