@@ -281,7 +281,25 @@
 
     // Example - 39:
     const arr = [1, 2];
-    arr.push(3);
+    arr.push(3);       // 1, 2, 3
+
+    // Example - 40
+    var o = new F(); 
+    o.constructor === F; 
+
+    // Example - 41
+    let sum = (a, b) => { a + b;}; 
+    console.log(sum(10, 20)); // undefined; return keyword is missing 
+
+    // Example - 42
+    var arr = ['javascript', 'typescript', 'es6']; 
+    var searchValue = (value) => {  
+          return arr.filter(item => {    
+            return item. indexOf(value) > -1; 
+          }); 
+    } 
+    console.log(searchValue ('script'));
+
   </script>
   <body>
     JS Debugging
