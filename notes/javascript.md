@@ -1,6 +1,12 @@
 ## JavaScript Notes
 
 
+#### Q. How to create global variable in javascript?
+
+#### Q. What is Hoisting in javascript?
+
+#### Q. What is the difference between reduce(), map(), foreach() and filter() in js? 
+
 #### Q. Write a program to reverse a string?
 
 #### Q. JavaScript Regular Expression to validate Email
