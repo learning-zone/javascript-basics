@@ -11,6 +11,30 @@
 
 #### Q. Write a program to reverse a string?
 
+#### Q. How do you clone an object in JavaScript?
+
+Using the object spread operator ..., the object's own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
+
+```
+const obj = { a: 1, b: 2 }
+const shallowClone = { ...obj }
+
+```
+With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original. Deep-cloning is much more complex in order to effectively clone any type of object (Date, RegExp, Function, Set, etc) that may be nested within the object.
+
+Other alternatives include:
+
+1. **JSON.parse(JSON.stringify(obj))** can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references).
+1. **Object.assign({}, obj)** is another alternative.
+1. **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
+
+#### Q. How to check if object is empty or not in javaScript?
+```javascript
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+```
+
 #### Q. JavaScript Regular Expression to validate Email
 
 ```javascript
@@ -6485,27 +6509,5 @@ ES2015 defines a module syntax which aims to replace both AMD and CommonJS. This
 
 Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
 
-#### Q. How do you clone an object in JavaScript?
 
-Using the object spread operator ..., the object's own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
-
-```
-const obj = { a: 1, b: 2 }
-const shallowClone = { ...obj }
-
-```
-With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original. Deep-cloning is much more complex in order to effectively clone any type of object (Date, RegExp, Function, Set, etc) that may be nested within the object.
-
-Other alternatives include:
-
-1. **JSON.parse(JSON.stringify(obj))** can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references).
-1. **Object.assign({}, obj)** is another alternative.
-1. **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
-
-#### Q. How to check if object is empty or not in javaScript?
-```javascript
-function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
-}
-```
 
