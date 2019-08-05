@@ -85,11 +85,7 @@ var sample = [1, 2, 3];
 var sum = sample.reduce(function(sum, elem){
     return sum + elem;
 });
-console.log(sum);
-```
-Output
-```
-6
+console.log(sum); // Output: 6
 ```
 
 #### Q. Write a program to reverse a string?
