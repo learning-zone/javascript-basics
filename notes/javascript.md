@@ -30,7 +30,7 @@ button.addEventListener('click', () => {
 });
 ```
 
-#### Q. What is the difference between reduce(), map(), foreach() and filter() in js? 
+#### Q. What is the difference between reduce(), map(), foreach() and filter() in JavaScript? 
 
 #### Q. Write a program to reverse a string?
 
