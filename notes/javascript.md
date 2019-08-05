@@ -3,13 +3,42 @@
 
 #### Q. When you should not use arrow functions in ES6?
 
-#### Q. How to create global variable in javascript?
-
-#### Q. What is Hoisting in javascript?
-
 #### Q. What is the difference between reduce(), map(), foreach() and filter() in js? 
 
 #### Q. Write a program to reverse a string?
+
+#### Q. What is Hoisting?
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
+Let's take a simple example of variable hoisting,
+```javascript
+console.log(message); //output : undefined
+var message = ’The variable Has been hoisted’;
+```
+The above code looks like as below to the interpreter,
+```javascript
+var message;
+console.log(message);
+message = ’The variable Has been hoisted’;
+```
+
+#### Q. What are closures?
+A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
+1. Own scope where variables defined between its curly brackets
+2. Outer function’s variables
+3. Global variables
+Let's take an example of closure concept,
+```javascript
+function Welcome(name){
+  var greetingInfo = function(message){
+    console.log(message+' '+name);
+  }
+return greetingInfo;
+}
+var myFunction = Welcome('John');
+myFunction('Welcome '); //Output: Welcome John
+myFunction('Hello Mr.'); //output: Hello Mr.John
+```
+As per the above code, the inner function(greetingInfo) has access to the variables in the outer function scope(Welcome) even after outer function has returned.
 
 #### Q. How do you clone an object in JavaScript?
 
@@ -451,39 +480,6 @@ const addition = memoizAddition();
 console.log(addition(20)); //output: 40 calculated
 console.log(addition(20)); //output: 40 cached
 ```
-
-#### Q. What is Hoisting?
-Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
-Let's take a simple example of variable hoisting,
-```javascript
-console.log(message); //output : undefined
-var message = ’The variable Has been hoisted’;
-```
-The above code looks like as below to the interpreter,
-```javascript
-var message;
-console.log(message);
-message = ’The variable Has been hoisted’;
-```
-
-#### Q. What are closures?
-A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
-1. Own scope where variables defined between its curly brackets
-2. Outer function’s variables
-3. Global variables
-Let's take an example of closure concept,
-```javascript
-function Welcome(name){
-  var greetingInfo = function(message){
-    console.log(message+' '+name);
-  }
-return greetingInfo;
-}
-var myFunction = Welcome('John');
-myFunction('Welcome '); //Output: Welcome John
-myFunction('Hello Mr.'); //output: Hello Mr.John
-```
-As per the above code, the inner function(greetingInfo) has access to the variables in the outer function scope(Welcome) even after outer function has returned.
 
 #### Q. What is a service worker?
 A Service worker is basically a script (JavaScript file) that runs in background, separate from a web page and provide features that don't need a web page or user interaction. Some of the major features of service workers are Rich offline experiences(offline first web application development), periodic background syncs, push notifications, intercept and handle network requests and programmatically managing a cache of responses.
@@ -946,7 +942,7 @@ Global variables are those that are available throughout the length of the code 
 ```javascript
 msg = "Hello" // var is missing, it becomes global variable
 ```
-#### Q. What are the problems with global variables?
+
 The problem with global variables is the conflict of variable names of local and global scope. It is also difficult to debug and test the code that relies on global variables.
 
 #### Q. What is NaN property?
