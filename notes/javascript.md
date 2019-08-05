@@ -30,7 +30,7 @@ button.addEventListener('click', () => {
 ```
 
 #### Q. When to use reduce(), map(), foreach() and filter() in JavaScript? 
-1. **forEach()**
+1. **forEach()**  
 <code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
 ```javascript
 var sample = [1, 2, 3];
