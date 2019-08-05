@@ -30,6 +30,21 @@ button.addEventListener('click', () => {
 ```
 
 #### Q. When to use reduce(), map(), foreach() and filter() in JavaScript? 
+1. **forEach()**
+<code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
+```javascript
+var sample = [1, 2, 3];
+
+sample.forEach(function (elem, index){
+   console.log(elem + ' comes at ' + index);
+})
+```
+Output
+```
+1 comes at 0
+2 comes at 1
+3 comes at 2
+```
 
 #### Q. Write a program to reverse a string?
 
