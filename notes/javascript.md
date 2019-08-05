@@ -1,7 +1,10 @@
 ## JavaScript Notes
 
 
-#### Q. When you should not use arrow functions in ES6?
+#### Q. What are lambda or arrow functions? When you should not use arrow functions in ES6?
+An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
+
+One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the `function` keyword. The `this` within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the `this` is determined by the object calling it. Lexically-scoped `this` is useful when invoking callbacks especially in React components.
 
 #### Q. What is the difference between reduce(), map(), foreach() and filter() in js? 
 
@@ -299,9 +302,6 @@ null === undefined // false
 []==[] or []===[] //false, refer different objects in memory
 {}=={} or {}==={} //false, refer different objects in memory
 ```
-
-#### Q. What are lambda or arrow functions?
-An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
 
 #### Q. What is a first class function?
 In Javascript, functions are first class objects. First-class functions means when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable. For example, in the below example, handler functions assigned to a listener
@@ -3465,52 +3465,6 @@ class Student extends Person {
 ```
 
 It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
-
-
-#### Q. Can you offer a use case for the new arrow => function syntax? How does this new syntax differ from other functions?
-
-One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the `function` keyword. The `this` within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the `this` is determined by the object calling it. Lexically-scoped `this` is useful when invoking callbacks especially in React components.
-
-
-
-#### Q. What advantage is there for using the arrow syntax for a method in a constructor?
-
-The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
-
-```javascript
-const Person = function(firstName) {
-  this.firstName = firstName;
-  this.sayName1 = function() { console.log(this.firstName); };
-  this.sayName2 = () => { console.log(this.firstName); };
-};
-
-const john = new Person('John');
-const dave = new Person('Dave');
-
-john.sayName1(); // John
-john.sayName2(); // John
-
-// The regular function can have its 'this' value changed, but the arrow function cannot
-john.sayName1.call(dave); // Dave (because "this" is now the dave object)
-john.sayName2.call(dave); // John
-
-john.sayName1.apply(dave); // Dave (because 'this' is now the dave object)
-john.sayName2.apply(dave); // John
-
-john.sayName1.bind(dave)(); // Dave (because 'this' is now the dave object)
-john.sayName2.bind(dave)(); // John
-
-var sayNameFromWindow1 = john.sayName1;
-sayNameFromWindow1(); // undefined (because 'this' is now the window object)
-
-var sayNameFromWindow2 = john.sayName2;
-sayNameFromWindow2(); // John
-```
-
-The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
-
-This can be particularly helpful in React class components. If you define a class method for something such as a click handler using a normal function, and then you pass that click handler down into a child component as a prop, you will need to also bind `this` in the constructor of the parent component. If you instead use an arrow function, there is no need to also bind "this", as the method will automatically get its "this" value from its enclosing lexical context. (See this article for an excellent demonstration and sample code: https://medium.com/@machnicki/handle-events-in-react-with-arrow-functions-ede88184bbb)
-
 
 #### Q. What is the definition of a higher-order function?
 
