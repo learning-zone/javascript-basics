@@ -2095,7 +2095,7 @@ add(2)(5); // 7
 ```
 
 *Answer:* A general solution for any number of parameters
-```js
+```javascript
 'use strict';
 
 let sum = (arr) => arr.reduce((a, b) => a + b);
