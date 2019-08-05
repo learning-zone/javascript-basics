@@ -10,6 +10,26 @@ One obvious benefit of arrow functions is to simplify the syntax needed to creat
 * Don't work with new
 * Fixed this bound to scope at initialisation
 
+**When you should not use Arrow Functions**
+1. Object methods
+When you call cat.jumps, the number of lives does not decrease. It is because this is not bound to anything, and will inherit the value of this from its parent scope.
+```javascript
+var cat = {
+  lives: 9,
+  jumps: () => {
+    this.lives--;
+  }
+}
+```
+2. Callback functions with dynamic context
+If we click the button, we would get a TypeError. It is because this is not bound to the button, but instead bound to its parent scope.
+```javascript
+var button = document.getElementById('press');
+button.addEventListener('click', () => {
+  this.classList.toggle('on');
+});
+```
+
 #### Q. What is the difference between reduce(), map(), foreach() and filter() in js? 
 
 #### Q. Write a program to reverse a string?
