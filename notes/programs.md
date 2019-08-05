@@ -752,7 +752,7 @@ This is why changing the property of `arrB[0]` in `arrB` will also change the `a
 3.  Type Error
 4.  ReferenceError: employeeId is not defined 
 
-Answer: 4) ReferenceError: employeeId is not defined 
+*Answer:* 4) ReferenceError: employeeId is not defined 
 
 #### Q. What would be the output of following code?
 
@@ -766,7 +766,7 @@ var employeeId = '19000';
 3.  Type Error
 4.  ReferenceError: employeeId is not defined 
 
-Answer: 2) undefined 
+*Answer:* 2) undefined 
 
 #### Q. What would be the output of following code?
 
@@ -783,7 +783,7 @@ var employeeId = '1234abe';
 3.  Type Error
 4.  ReferenceError: employeeId is not defined 
 
-Answer: 2) undefined 
+*Answer:* 2) undefined 
 
 #### Q. What would be the output of following code?
 
@@ -803,7 +803,7 @@ var employeeId = '1234abe';
 3.  '1234abe'
 4.  ReferenceError: employeeId is not defined 
 
-Answer: 2) undefined 
+*Answer:* 2) undefined 
 
 #### Q. What would be the output of following code?
 
@@ -821,7 +821,7 @@ Answer: 2) undefined
 3.  'Hi I am inside displayFunc'
 4.  ReferenceError: displayFunc is not defined 
 
-Answer: 1) undefined 
+*Answer:* 1) undefined 
 
 #### Q. What would be the output of following code?
 
@@ -840,7 +840,7 @@ console.log(employeeId);
 3.  'abc123'
 4.  ReferenceError: employeeId is not defined 
 
-Answer: 2) '123bcd' 
+*Answer:* 2) '123bcd' 
 
 #### Q. What would be the output of following code?
 
@@ -862,7 +862,7 @@ console.log(employeeId);
 3.  'abc123'
 4.  ReferenceError: employeeId is not defined 
 
-Answer: 3) 'abc123' 
+*Answer:* 3) 'abc123' 
 
 #### Q. What would be the output of following code?
 
@@ -885,7 +885,7 @@ foo();
 3.  string
 4.  ReferenceError: employeeId is not defined 
 
-Answer: 2) 'function'
+*Answer:* 2) 'function'
 
 #### Q. What would be the output of following code?
 
@@ -907,7 +907,7 @@ foo();
 3.  'Car'
 4.  ReferenceError: product is not defined 
 
-Answer: 1) undefined
+*Answer:* 1) undefined
 
 #### Q. What would be the output of following code?
 
@@ -931,7 +931,7 @@ Answer: 1) undefined
 3.  function function
 4.  ReferenceError: bar is not defined 
 
-Answer: 3) function function
+*Answer:* 3) function function
 
 
 #### Q. What would be the output of following code?
@@ -959,7 +959,7 @@ Answer: 3) function function
 3.  ["name", "salary", "country", "phoneNo"]
 4.  ["name", "salary", "country"]
 	
-Answer: 3) ["name", "salary", "country", "phoneNo"]
+*Answer:* 3) ["name", "salary", "country", "phoneNo"]
 
 #### Q. What would be the output of following code?
 
@@ -986,7 +986,7 @@ Answer: 3) ["name", "salary", "country", "phoneNo"]
 3.  ["name", "salary", "country", "phoneNo"]
 4.  ["name", "salary", "country"]
 	
-Answer: 4) ["name", "salary", "country"]
+*Answer:* 4) ["name", "salary", "country"]
 
 #### Q. What would be the output of following code?
 
@@ -1009,7 +1009,7 @@ Answer: 4) ["name", "salary", "country"]
 3.  true false
 4.  true true
 	
-Answer: 2) false false
+*Answer:* 2) false false
 
 #### Q. What would be the output of following code ?
 
@@ -1026,7 +1026,7 @@ Answer: 2) false false
 3.  true false
 4.  true true
 	
-Answer: 2) false false
+*Answer:* 2) false false
 
 #### Q. What would be the output of following code ?
 
@@ -1047,7 +1047,7 @@ Answer: 2) false false
 3.  true false
 4.  true true
 	
-Answer: 2) false false
+*Answer:* 2) false false
 
 #### Q. What would be the output of following code ?
 
@@ -1066,7 +1066,7 @@ Answer: 2) false false
 3.  true false
 4.  true true
 	
-Answer: 2) false false
+*Answer:* 2) false false
 
 #### Q. What would be the output of following code ?
 
@@ -1085,7 +1085,7 @@ Answer: 2) false false
 3.  true false
 4.  true true
 	
-Answer: 4) true true
+*Answer:* 4) true true
 
 #### Q. What would be the output of following code ?
 
@@ -1106,7 +1106,7 @@ Answer: 4) true true
 3.  true true true true
 4.  true true false false
 	
-Answer: 3) true true true true
+*Answer:* 3) true true true true
 
 #### Q. What would be the output of following code ?
 
@@ -1126,7 +1126,7 @@ Answer: 3) true true true true
 3.  foo foo
 4.  bar foo
 	
-Answer: 2) bar bar
+*Answer:* 2) bar bar
 
 #### Q. What would be the output of following code ?
 
@@ -1148,7 +1148,7 @@ Answer: 2) bar bar
 3.  foo foo
 4.  bar foo
 	
-Answer: 3) foo foo
+*Answer:* 3) foo foo
 
 #### Q. What would be the output of following code ?
 
@@ -1170,7 +1170,7 @@ Answer: 3) foo foo
 3.  foo foo
 4.  undefined bar
 	
-Answer: 2) undefined undefined 
+*Answer:* 2) undefined undefined 
 
 
 #### Q. What would be the output of following code?
@@ -1188,7 +1188,7 @@ Answer: 2) undefined undefined
 3.  ["100"] 1
 4.  ReferenceError: array is not defined 
 
-Answer: 3) ["100"] 1
+*Answer:* 3) ["100"] 1
 
 #### Q. What would be the output of following code?
 
@@ -1209,7 +1209,7 @@ Answer: 3) ["100"] 1
 3.  [] [] ['1',2,'3',4,5.6] 5
 4.  [] [] [Array[5]] 5 
 
-Answer: 1) [] [] [Array[5]] 1
+*Answer:* 1) [] [] [Array[5]] 1
 
 #### Q. What would be the output of following code?
 
@@ -1227,7 +1227,7 @@ Answer: 1) [] [] [Array[5]] 1
 3.  6
 4.  undefined
 
-Answer: 1) 11
+*Answer:* 1) 11
 
 #### Q. What would be the output of following code?
 
@@ -1245,7 +1245,7 @@ Answer: 1) 11
 3.  6
 4.  undefined
 
-Answer: 3) 6
+*Answer:* 3) 6
 
 #### Q. What would be the output of following code?
 
@@ -1263,7 +1263,7 @@ Answer: 3) 6
 3.  Type Error
 4.  undefined
 
-Answer: 1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
+*Answer:* 1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
 
 #### Q. What would be the output of following code?
 
@@ -1282,7 +1282,7 @@ Answer: 1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
 3.  1 -1 -1 -1
 4.  1 undefined -1 4
 
-Answer: 1) 1 -1 -1 4
+*Answer:* 1) 1 -1 -1 4
 
 #### Q. What would be the output of following code?
 
@@ -1300,7 +1300,7 @@ Answer: 1) 1 -1 -1 4
 3.  1 1 -1 
 4.  1 undefined undefined
 
-Answer: 2) 1 6 -1
+*Answer:* 2) 1 6 -1
 
 #### Q. What would be the output of following code?
 
@@ -1325,7 +1325,7 @@ Answer: 2) 1 6 -1
 3.  [ 2, 4, 8, 12, 16 ] true 
 4.  [ 2, 4, 8, 12, 16 ] false
 
-Answer: 3) [ 2, 4, 8, 12, 16 ] true 
+*Answer:* 3) [ 2, 4, 8, 12, 16 ] true 
 
 #### Q. What would be the output of following code?
 
@@ -1361,7 +1361,7 @@ Answer: 3) [ 2, 4, 8, 12, 16 ] true
 	[ 2, '12', true,false]
 
 
-Answer: 1) [ 2, '12', true ]
+*Answer:* 1) [ 2, '12', true ]
 			 [ 2, '12', true ]
 			 [ 2, '12', true ]
 			 [ 2, '12', true ]
@@ -1400,7 +1400,7 @@ Answer: 1) [ 2, '12', true ]
    []
    [ 'foo', 'bar', 'john', 'ritz' ]
 
-Answer: 1) [ 'bar', 'john', 'ritz' ]
+*Answer:* 1) [ 'bar', 'john', 'ritz' ]
 		 	 [ 'bar', 'john' ]
            [ 'foo', 'bar', 'john', 'ritz' ]
            []
@@ -1422,7 +1422,7 @@ Answer: 1) [ 'bar', 'john', 'ritz' ]
 3.  [ 'bar', 'john' ] [ 'bar', 'john' ] [ 'bar', 'john' ]
 4.  [ 'bar', 'john' ] [] []
 
-Answer: 1.  [ 'bar', 'john' ] [] [ 'foo' ] 
+*Answer:* 1.  [ 'bar', 'john' ] [] [ 'foo' ] 
 
 #### Q. What would be the output of following code?
 
@@ -1439,7 +1439,7 @@ Answer: 1.  [ 'bar', 'john' ] [] [ 'foo' ]
 3.  [ 15, 16, 2, 23, 42, 8 ]
 4.  [ 2, 8, 15, 16, 23, 42 ]
 
-Answer: 3.  [ 15, 16, 2, 23, 42, 8 ]
+*Answer:* 3.  [ 15, 16, 2, 23, 42, 8 ]
 
 #### Q. What would be the output of following code?
 
@@ -1464,7 +1464,7 @@ console.log(funcA());
 3.  Type Error
 4.  ReferenceError: this is not defined 
 	
-Answer: 1) 
+*Answer:* 1) 
 
 #### Q. What would be the output of following code?
 
@@ -1484,7 +1484,7 @@ console.log(obj.innerMessage);
 3.  Type Error
 4.  undefined true
 	
-Answer: 4) undefined true
+*Answer:* 4) undefined true
 
 #### Q. What would be the output of following code?
 
@@ -1504,7 +1504,7 @@ console.log(obj.innerMessage());
 3.  Type Error
 4.  ReferenceError: this.message is not defined
 	
-Answer: 1) Hello
+*Answer:* 1) Hello
 
 #### Q. What would be the output of following code?
 
@@ -1525,7 +1525,7 @@ console.log(obj.innerMessage());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-Answer: 3) undefined
+*Answer:* 3) undefined
 	
 #### Q. What would be the output of following code?
 
@@ -1547,7 +1547,7 @@ console.log(obj.innerMessage());
 3.  undefined
 4.  ReferenceError: self.message is not defined
 	
-Answer: 2) 'Hello'
+*Answer:* 2) 'Hello'
 
 #### Q. What would be the output of following code?
 
@@ -1565,7 +1565,7 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-Answer: 3) undefined
+*Answer:* 3) undefined
 
 #### Q. What would be the output of following code?
 
@@ -1583,7 +1583,7 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-Answer: 2) 'Hi John'
+*Answer:* 2) 'Hi John'
 
 #### Q. What would be the output of following code?
 
@@ -1600,7 +1600,7 @@ console.log(myFunc());
 3.  undefined
 4.  ReferenceError: this.message is not defined
 	
-Answer: 2) 'Hi John'
+*Answer:* 2) 'Hi John'
 
 #### Q. What would be the output of following code?
 
@@ -1618,7 +1618,7 @@ console.log(myFunc("a","b","c","d"));
 3.  undefined
 4.  ReferenceError
 	
-Answer: a) 2 2 2 
+*Answer:* a) 2 2 2 
 
 #### Q. What would be the output of following code?
 
@@ -1636,7 +1636,7 @@ console.log(myFunc("a","b","c","d"));
 3.  undefined
 4.  ReferenceError
 	
-Answer: 2) 0 2 4 
+*Answer:* 2) 0 2 4 
 
 #### Q. What would be the output of following code?
 
@@ -1664,7 +1664,7 @@ var person1 = new Person('John');
 3.  John undefined
 4.  John John
 	
-Answer: 1) John Person 
+*Answer:* 1) John Person 
 
 #### Q. What would be the output of following code?
 
@@ -1687,7 +1687,7 @@ console.log(userInfo.userName);
 3.  12345678 undefined
 4.  undefined undefined
 	
-Answer: 3) 12345678 undefined 
+*Answer:* 3) 12345678 undefined 
 
 #### Q. What would be the output of following code?
 
@@ -1704,7 +1704,7 @@ console.log(Employee.employeeId);
 3.  bq1uy
 4.  undefined
 	
-Answer: 4) undefined 
+*Answer:* 4) undefined 
 
 #### Q. What would be the output of following code?
 
@@ -1726,7 +1726,7 @@ console.log(new Employee().employeeId);
 3.  bq1uy 1BJKSJ kj182
 4.  undefined 1BJKSJ kj182
 	
-Answer: 2) bq1uy 1BJKSJ bq1uy 
+*Answer:* 2) bq1uy 1BJKSJ bq1uy 
 
 #### Q. What would be the output of following code?
 
@@ -1747,7 +1747,7 @@ var employeeId = 'aq123';
 3.  aq123 aq123
 4.  foo123 undefined 
 	
-Answer: 1) foo123 aq123 
+*Answer:* 1) foo123 aq123 
 
 
 #### Q. What would be the output of following code?
@@ -1767,7 +1767,7 @@ Answer: 1) foo123 aq123
 3.  World
 4.  [ 'W', 'o', 'r', 'l', 'd' ] 
 	
-Answer: 4) [ 'W', 'o', 'r', 'l', 'd' ]  
+*Answer:* 4) [ 'W', 'o', 'r', 'l', 'd' ]  
 
 #### Q. What would be the output of following code?
 
@@ -1798,7 +1798,7 @@ Answer: 4) [ 'W', 'o', 'r', 'l', 'd' ]
 3.  Total amount left in account: 3600 Total amount left in account: 3300
 4.  Total amount left in account: 5600 Total amount left in account: 5600
 	
-Answer: 1) Total amount left in account: 5600 Total amount left in account: 5300 
+*Answer:* 1) Total amount left in account: 5600 Total amount left in account: 5300 
 
 #### Q. What would be the output of following code?
 
@@ -1830,7 +1830,7 @@ Answer: 1) Total amount left in account: 5600 Total amount left in account: 5300
 3. 5600 3300 5100
 4. undefined undefined undefined
 	
-Answer: 1) 5600 5300 5100
+*Answer:* 1) 5600 5300 5100
 
 #### Q. What would be the output of following code?
 
@@ -1862,7 +1862,7 @@ Answer: 1) 5600 5300 5100
 3. 5600 3300 5100
 4. undefined undefined undefined
 	
-Answer: 2) 3600 3300 3100
+*Answer:* 2) 3600 3300 3100
 
 #### Q. What would be the output of following code?
 
@@ -1879,7 +1879,7 @@ Answer: 2) 3600 3300 3100
 3. Window
 4. undefined
 	
-Answer: 1) Hello John
+*Answer:* 1) Hello John
 
 #### Q. What would be the output of following code ?
 
@@ -1904,7 +1904,7 @@ getDataFromServer('www.google.com').then(function(name){
 3. Reference Error
 4. fn is not defined
 	
-Answer: 1) John
+*Answer:* 1) John
 
 #### Q. What would be the output of following code?
 
@@ -1948,7 +1948,7 @@ Answer: 1) John
    [42, 23, 16, 15, 8, 2]
 4. Reference Error
 	
-Answer: 1) [ 2, 8, 15, 16, 23, 42 ]
+*Answer:* 1) [ 2, 8, 15, 16, 23, 42 ]
 			 [ 2, 8, 15, 16, 23, 42 ]
 			 [ 2, 8, 15, 16, 23, 42 ]
 			
@@ -1973,7 +1973,7 @@ Answer: 1) [ 2, 8, 15, 16, 23, 42 ]
 3. Reference Error
 4. Uncaught TypeError: Cannot read property 'fullName' of undefined
 	
-Answer: 4) Uncaught TypeError: Cannot read property 'fullName' of undefined
+*Answer:* 4) Uncaught TypeError: Cannot read property 'fullName' of undefined
 
 #### Q. What would be the output of following code?
 
@@ -1991,7 +1991,7 @@ console.log(numb);
 3. 2
 4. (2,4,5)
 	
-Answer: 1) 5
+*Answer:* 1) 5
 
 #### Q. What would be the output of following code?
 
@@ -2009,7 +2009,7 @@ console.log(numb);
 3. ""
 4. 0
 	
-Answer: 2) undefined
+*Answer:* 2) undefined
 
 #### Q. What would be the output of following code?
 
@@ -2031,7 +2031,7 @@ console.log(mul(2)(3)[1](4));
 3. Reference Error
 4. 10, 6
 	
-Answer: 1) 6, 10
+*Answer:* 1) 6, 10
 
 #### Q. What would be the output of following code?
 
@@ -2055,7 +2055,7 @@ console.log(mul(2)(3).sum(4));
 3. Reference Error
 4. 10, 6
 	
-Answer: 1) 6, 10
+*Answer:* 1) 6, 10
 
 #### Q. What would be the output of following code?
 
@@ -2079,7 +2079,7 @@ console.log(mul(2)(3)(4)(5)(6));
 3. Reference Error
 4. Type Error
 	
-Answer: 1) 720
+*Answer:* 1) 720
 
 #### Q. What is the value of `foo`?
 ```javascript
