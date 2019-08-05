@@ -1619,8 +1619,6 @@ document.getElementById("title").style.fontSize = "30px";
 ```javascript
 document.getElementById("title").style.className = "custom-title";
 ```
-#### Q. What would be the result of 1+2+'3'?
-The output is going to be `33`. Since `1` and `2` are numeric values, the result of first two digits is going to be a numeric value `3`. The next digit is a string type value because of that the addition of numeric value `3` and string type value `3` is just going to be a concatenation value `33`.
 
 #### Q. What is a debugger statement?
 The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect.
@@ -2665,7 +2663,7 @@ console.log(foo); // undefined
 
 **Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
 
-```js
+```javascript
 function foo() {
   x = 1; // Throws a ReferenceError in strict mode
 }
@@ -2676,7 +2674,7 @@ console.log(x); // 1
 
 A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
 
-```js
+```javascript
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
@@ -2691,7 +2689,7 @@ console.log(baz); // undefined
 
 A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
 
-```js
+```javascript
 var foo = null;
 console.log(foo === null); // true
 console.log(typeof foo === 'object'); // true
@@ -2721,7 +2719,7 @@ To understand the differences between the two, let's look at what each function 
 * Executes a callback for each element.
 * Does not return a value.
 
-```js
+```javascript
 const a = [1, 2, 3];
 const doubled = a.forEach((num, index) => {
   // Do something with num and/or index.
@@ -2735,7 +2733,7 @@ const doubled = a.forEach((num, index) => {
 * Iterates through the elements in an array.
 * "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
 
-```js
+```javascript
 const a = [1, 2, 3];
 const doubled = a.map(num => {
   return num * 2;
@@ -2750,7 +2748,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
 
-```js
+```javascript
 (function() {
   // Some code here.
 })();
@@ -2758,7 +2756,7 @@ They can be used in IIFEs to encapsulate some code within a local scope so that 
 
 As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
 
-```js
+```javascript
 setTimeout(function() {
   console.log('Hello world!');
 }, 1000);
@@ -2766,7 +2764,7 @@ setTimeout(function() {
 
 Arguments to functional programming constructs or Lodash (similar to callbacks).
 
-```js
+```javascript
 const arr = [1, 2, 3];
 const double = arr.map(function(el) {
   return el * 2;
@@ -2798,7 +2796,7 @@ This question is pretty vague. My best guess at its intention is that it is aski
 
 `var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
 
-```js
+```javascript
 function Person(name) {
   this.name = name;
 }
@@ -2816,7 +2814,7 @@ console.log(person.name); // "john"
 
 Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
 
-```js
+```javascript
 function add(a, b) {
   return a + b;
 }
@@ -2846,7 +2844,7 @@ There are some answers online that explain `document.write()` is being used in a
 
 Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
 
-```js
+```javascript
 if ('geolocation' in navigator) {
   // Can use navigator.geolocation
 } else {
@@ -2860,7 +2858,7 @@ if ('geolocation' in navigator) {
 
 Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
 
-```js
+```javascript
 if (document.getElementsByTagName) {
   element = document.getElementById(id);
 }
@@ -2914,7 +2912,7 @@ function printData(data) {
 <script src="https://example.com?callback=printData"></script>
 ```
 
-```js
+```javascript
 // File loaded from https://example.com?callback=printData
 printData({ name: 'Yang Shun' });
 ```
@@ -2929,7 +2927,7 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 Yes. Handlebars, Underscore, Lodash, AngularJS, and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favorite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
 
-```js
+```javascript
 const template = `<div>My name is: ${name}</div>`;
 ```
 
@@ -2942,7 +2940,7 @@ Hoisting is a term used to explain the behavior of variable declarations in your
 
 Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope. Let's explain with a few examples.
 
-```js
+```javascript
 // var declarations are hoisted.
 console.log(foo); // undefined
 var foo = 1;
@@ -2956,7 +2954,7 @@ console.log(bar); // 2
 
 Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
 
-```js
+```javascript
 // Function Declaration
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
@@ -2984,7 +2982,7 @@ When an event triggers on a DOM element, it will attempt to handle the event if 
 
 Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
 
-```js
+```javascript
 const input = document.querySelector('input');
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
@@ -2992,7 +2990,7 @@ console.log(input.value); // Hello
 
 But after you change the value of the text field by adding "World!" to it, this becomes:
 
-```js
+```javascript
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
@@ -3016,7 +3014,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 `==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
 
-```js
+```javascript
 1 == '1'; // true
 1 == [1]; // true
 1 == true; // true
@@ -3027,7 +3025,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
 
-```js
+```javascript
 var a = null;
 console.log(a == null); // true
 console.log(a == undefined); // true
@@ -3040,11 +3038,11 @@ The same-origin policy prevents JavaScript from making requests across domain bo
 
 #### Q. Make this work:
 
-```js
+```javascript
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
 
-```js
+```javascript
 function duplicate(arr) {
   return arr.concat(arr);
 }
@@ -3082,25 +3080,9 @@ Disadvantages:
 Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
 
 
-#### Q. Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
-
-Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
-
-```js
-for (let i = 1; i <= 100; i++) {
-  let f = i % 3 == 0,
-    b = i % 5 == 0;
-  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
-}
-```
-
-I would not advise you to write the above during interviews though. Just stick with the long but clear approach. For more wacky versions of FizzBuzz, check out the reference link below.
-
-
 #### Q. Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
 Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
-
 
 
 #### Q. Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
@@ -3238,7 +3220,7 @@ Here are a few ways to add/simulate immutability on plain JavaScript objects.
 
 By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
 
-```js
+```javascript
 let myObject = {};
 Object.defineProperty(myObject, 'number', {
   value: 42,
@@ -3279,7 +3261,7 @@ So, not only can you not add any more properties, but you also cannot reconfigur
 
 This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).
 
-```js
+```javascript
 var immutable = Object.freeze({});
 ```
 
@@ -3294,7 +3276,7 @@ The alternative is to use `const` declarations combined with the techniques ment
 
 Examples:
 
-```js
+```javascript
 // Array Example
 const arr = [1, 2, 3];
 const newArr = [...arr, 4]; // [1, 2, 3, 4]
@@ -3327,7 +3309,7 @@ The former is a function declaration while the latter is a function expression. 
 
 **Function Declaration**
 
-```js
+```javascript
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
@@ -3336,7 +3318,7 @@ function foo() {
 
 **Function Expression**
 
-```js
+```javascript
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function() {
   console.log('FOOOOO');
@@ -3348,7 +3330,7 @@ var foo = function() {
 
 Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
-```js
+```javascript
 function foo() {
   // All variables are accessible within functions.
   var bar = 'bar';
@@ -3365,7 +3347,7 @@ console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 ```
 
-```js
+```javascript
 if (true) {
   var bar = 'bar';
   let baz = 'baz';
@@ -3381,7 +3363,7 @@ console.log(qux); // ReferenceError: qux is not defined
 
 `var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
 
-```js
+```javascript
 console.log(foo); // undefined
 
 var foo = 'foo';
@@ -3397,7 +3379,7 @@ const bar = 'bar';
 
 Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
 
-```js
+```javascript
 var foo = 'foo';
 var foo = 'bar';
 console.log(foo); // "bar"
@@ -3408,7 +3390,7 @@ let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been decl
 
 `let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
 
-```js
+```javascript
 // This is fine.
 let foo = 'foo';
 foo = 'bar';
@@ -3422,7 +3404,7 @@ baz = 'qux';
 
 Let's first look at example of each:
 
-```js
+```javascript
 // ES5 Function Constructor
 function Person(name) {
   this.name = name;
@@ -3440,7 +3422,7 @@ For simple constructors, they look pretty similar.
 
 The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
 
-```js
+```javascript
 // ES5 Function Constructor
 function Student(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
@@ -3475,7 +3457,7 @@ One obvious benefit of arrow functions is to simplify the syntax needed to creat
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
 
-```js
+```javascript
 const Person = function(firstName) {
   this.firstName = firstName;
   this.sayName1 = function() { console.log(this.firstName); };
@@ -3518,13 +3500,13 @@ A higher-order function is any function that takes one or more functions as argu
 
 Let say we have an array of names which we need to transform each string to uppercase.
 
-```js
+```javascript
 const names = ['irish', 'daisy', 'anna'];
 ```
 
 The imperative way will be as such:
 
-```js
+```javascript
 const transformNamesToUppercase = function(names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
@@ -3537,7 +3519,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 Use `.map(transformerFn)` makes the code shorter and more declarative.
 
-```js
+```javascript
 const transformNamesToUppercase = function(names) {
   return names.map(name => name.toUpperCase());
 };
@@ -3550,7 +3532,7 @@ Destructuring is an expression available in ES6 which enables a succinct and con
 
 **Array destructuring**
 
-```js
+```javascript
 // Variable assignment.
 const foo = ['one', 'two', 'three'];
 
@@ -3560,7 +3542,7 @@ console.log(two); // "two"
 console.log(three); // "three"
 ```
 
-```js
+```javascript
 // Swapping variables
 let a = 1;
 let b = 3;
@@ -3572,7 +3554,7 @@ console.log(b); // 1
 
 **Object destructuring**
 
-```js
+```javascript
 // Variable assignment.
 const o = { p: 42, q: true };
 const { p, q } = o;
@@ -3585,7 +3567,7 @@ console.log(q); // true
 
 Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
 
-```js
+```javascript
 var person = { name: 'Tyler', age: 28 };
 console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!');
 // 'Hi, my name is Tyler and I am 28 years old!'
@@ -3593,7 +3575,7 @@ console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' year
 
 With template literals, you can now create that same output like this instead:
 
-```js
+```javascript
 const person = { name: 'Tyler', age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
@@ -3603,7 +3585,7 @@ Note that you use backticks, not quotes, to indicate that you are using a templa
 
 A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
 
-```js
+```javascript
 console.log('This is line one.\nThis is line two.');
 // This is line one.
 // This is line two.
@@ -3611,7 +3593,7 @@ console.log('This is line one.\nThis is line two.');
 
 Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
 
-```js
+```javascript
 console.log('This is line one.\n' +
 	'This is line two.');
 // This is line one.
@@ -3620,7 +3602,7 @@ console.log('This is line one.\n' +
 
 Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
 
-```js
+```javascript
 console.log(`This is line one.
 This is line two.`);
 // This is line one.
@@ -3629,7 +3611,7 @@ This is line two.`);
 
 Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
 
-```js
+```javascript
 const person = { name: 'Tyler', age: 28 };
 document.body.innerHTML = `
   <div>
@@ -3646,7 +3628,7 @@ document.body.innerHTML = `
 
 Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each accepts one parameter.
 
-```js
+```javascript
 function curry(fn) {
   if (fn.length === 0) {
     return fn;
@@ -3679,7 +3661,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and rx.js projects.
 
-```js
+```javascript
 function putDookieInAnyArray(arr) {
   return [...arr, 'dookie'];
 }
@@ -3696,7 +3678,7 @@ const copyOfTodd = { ...person };
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
 
-```js
+```javascript
 function addFiveToABunchOfNumbers(...numbers) {
   return numbers.map(x => x + 5);
 }
@@ -4019,70 +4001,6 @@ Array.isArray(arrayList);
 `Array.isArray` is supported by Chrome 5, Firefox 4.0, IE 9, Opera 10.5 and Safari 5
 
 
-#### Q. What will be the output of the following code?
-
-```javascript
-var output = (function(x) {
-  delete x;
-  return x;
-})(0);
-
-console.log(output);
-```
-
-
-The code above will output `0` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **local variable**. `delete` operator doesn't affect local variables.
-
-
-#### Q. What will be the output of the following code?
-
-```javascript
-var x = 1;
-var output = (function() {
-  delete x;
-  return x;
-})();
-
-console.log(output);
-```
-
-
-The code above will output `1` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **global variable** of type `number`.
-
-
-#### Q. What will be the output of the following code?
-
-```javascript
-var x = { foo : 1};
-var output = (function() {
-  delete x.foo;
-  return x.foo;
-})();
-
-console.log(output);
-```
-
-
-The code above will output `undefined` as output. `delete` operator is used to delete a property from an object. Here `x` is an object which has foo as a property and from a self-invoking function, we are deleting the `foo` property of object `x` and after deletion, we are trying to reference deleted property `foo` which result `undefined`.
-
-
-#### Q. What will be the output of the following code?
-
-```javascript
-var Employee = {
-  company: 'xyz'
-}
-var emp1 = Object.create(Employee);
-delete emp1.company
-console.log(emp1.company);
-```
-
-
-The code above will output `xyz` as output. Here `emp1` object got company as **prototype** property. delete operator doesn't delete prototype property.
-
-`emp1` object doesn't have **company** as its own property. you can test it `console.log(emp1.hasOwnProperty('company')); //output : false` However, we can delete company property directly from `Employee` object using `delete Employee.company` or we can also delete from `emp1` object using `__proto__` property `delete emp1.__proto__.company`.
-
-
 #### Q. What is `undefined x 1` in JavaScript
 
 ```javascript
@@ -4097,98 +4015,6 @@ delete trees[3];
 Clearly we can see that Chrome has its own way of displaying uninitialized index in arrays. However when you check `trees[3] === undefined` in any browser you will get similar output as `true`.
 
 **Note:** Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome.
-
-
-
-#### Q. What will be the output of the following code?
-
-```javascript
-var trees = ["xyz", "xxxx", "test", "ryan", "apple"];
-delete trees[3];
-console.log(trees.length);
-```
-
-The code above will output `5` as output. When we used `delete` operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using `delete` operator.
-
-So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
-
-
-
-#### Q. What will be the output of the following code?
-
-```javascript
-var bar = true;
-console.log(bar + 0);   
-console.log(bar + "xyz");  
-console.log(bar + true);  
-console.log(bar + false);
-```
-
-The code above will output `1, "truexyz", 2, 1` as output. Here's a general guideline  for the plus operator:
-  - Number + Number  -> Addition
-  - Boolean + Number -> Addition
-  - Boolean + Boolean -> Addition
-  - Number + String  -> Concatenation
-  - String + Boolean -> Concatenation
-  - String + String  -> Concatenation
-  
-  
-
-#### Q. What will be the output of the following code?
-
-```javascript
-var z = 1, y = z = typeof y;
-console.log(y);
-```
-
-The code above will print string `"undefined"` as output. According to associativity rule operator with the same precedence are processed based on their associativity property of operator. Here associativity of the assignment operator is `Right to Left` so first `typeof y` will evaluate first which is string `"undefined"` and assigned to `z` and then `y` would be assigned the value of z. The overall sequence will look like that: 
-
-```javascript
-var z;
-z = 1;
-var y;
-z = typeof y;
-y = z;
-```
-
-#### Q. What will be the output of the following code?
-
-```javascript
-// NFE (Named Function Expression)
-var foo = function bar() { return 12; };
-typeof bar();
-```
-
-
-The output will be `Reference Error`. To fix the bug we can try to rewrite the code a little bit: 
-
-**Sample 1**
-
-```javascript
-var bar = function() { return 12; };
-typeof bar();
-```
-
-or
-
-**Sample 2**
-
-```javascript
-function bar() { return 12; };
-typeof bar();
-```
-
-The function definition can have only one reference variable as a function name, In **sample 1** `bar` is reference variable which is pointing to `anonymous function` and in **sample 2** we have function statement and `bar` is the function name.
-
-```javascript
-var foo = function bar() {
-  // foo is visible here
-  // bar is visible here
-  console.log(typeof bar()); // Works here :)
-};
-// foo is visible here
-// bar is undefined here
-```
 
 #### Q. What is the difference between declaring a function in the formats listed below?
 
@@ -4222,21 +4048,6 @@ function bar() {
   console.log("Hi I am inside Foo");
 }
 ```
-#### Q. What is the output of the following?
-
-```javascript
-bar();
-(function abc(){console.log('something')})();
-function bar(){console.log('bar got called')};
-```
-
-
-The output will be :
-``` 
-bar got called
-something
-```
-Since the function is called first and defined during parse time the JS engine will try to find any possible parse time definitions and start the execution loop which will mean function is called first even if the definition is post another function.
 
 #### Q. In which case the function definition is not hoisted in JavaScript?
 
@@ -4275,35 +4086,6 @@ foo = function foo() {
 foo(); // Now foo is defined here
 ```
 
-#### Q. What will be the output of the following code?
-
-```javascript
-var salary = "1000$";
-
-(function () {
-  console.log("Original salary was " + salary);
-
-  var salary = "5000$";
-
-  console.log("My New Salary " + salary);
-})();
-```
-
-The code above will output: `undefined, 5000$` because of hoisting. In the code presented above, you might be expecting `salary` to retain it values from outer scope until the point that `salary` was re-declared in the inner scope. But due to `hoisting` salary value was `undefined` instead. To understand it better have a look of the following code, here `salary` variable is hoisted and declared at the top in function scope. When we print its value using `console.log` the result is `undefined`. Afterwards the variable is redeclared and the new value `"5000$"` is assigned to it.
-
-```javascript
-var salary = "1000$";
-
-(function () {
-  var salary = undefined;
-  console.log("Original salary was " + salary);
-
-  salary = "5000$";
-
-  console.log("My New Salary " + salary);
-})();
-```
-
 #### Q. What’s the difference between `typeof` and `instanceof`?
 
 
@@ -4326,7 +4108,6 @@ Here `dog instanceof Animal` is true since `dog` inherits from `Animal.prototype
 var name = new String("xyz");
 name instanceof String; // Output : true
 ```
-
 
 #### Q. Calculate the length of the associative array
 
@@ -4434,35 +4215,6 @@ Unlike function calls and method calls, a constructor call `new Employee('John D
 
 The primary role of the constructor function is to initialize the object.
 
-
-#### Q. What would be the output of the following code?
-
-```javascript
-function User(name) {
-  this.name = name || "JsGeeks";
-}
-
-var person = new User("xyz")["location"] = "USA";
-console.log(person);
-```
-
-The output of above code would be `"USA"`. Here `new User("xyz")` creates a brand new object and created property `location` on that and `USA` has been assigned to object property location and that has been referenced by the person.
-
-Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it's `"USA"`.
- Then it will be assigned to person. 
- 
- To better understand what's going on here, try to execute this code in console, line by line:
- ```javascript
-function User(name) {
-  this.name = name || "JsGeeks";
-}
-
-var person;
-var foo = new User("xyz");
-foo["location"] = "USA";
-// the console will show you that the result of this is "USA"
-
-```
 
 #### Q. What are Service Workers and when can you use them?
 
@@ -5618,1561 +5370,6 @@ For a JS developer, it's crucially important to understand which values are pass
 and which ones are passed by value. Remember that objects, including arrays are passed by reference
 while strings, booleans and numbers are passed by value. 
 
-#### Q. What would be the output of following code?
-
-```javascript
-var strA = "hi there";
-var strB = strA;
-strB="bye there!";
-console.log (strA)
-```
-
-The output will `'hi there'` because we're dealing with strings here. Strings are 
-passed by value, that is, copied. 
- 
-#### Q. What would be the output of following code?
-```javascript
-var objA = {prop1: 42};
-var objB = objA; 
-objB.prop1 = 90;
-console.log(objA) 
-```
-The output will `{prop1: 90}` because we're dealing with objects here. Objects are 
-passed by reference, that is, `objA` and `objB` point to the same object in memory. 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var objA = {prop1: 42};
-var objB = objA;
-objB = {};
-console.log(objA)
-```
-
-The output will `{prop1: 42}`. 
-
-When we assign `objA` to `objB`, the `objB` variable will point
-to the same object as the `objB` variable.
-
-However, when we reassign `objB` to an empty object, we simply change where `objB` variable references to.
-This doesn't affect where `objA` variable references to. 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var arrA = [0,1,2,3,4,5];
-var arrB = arrA;
-arrB[0]=42;
-console.log(arrA)
-```
-
-The output will be `[42,1,2,3,4,5]`. 
-
-Arrays are object in JavaScript and they are passed and assigned by reference. This is why
-both `arrA` and `arrB` point to the same array `[0,1,2,3,4,5]`. That's why changing the first
-element of the `arrB` will also modify `arrA`: it's the same array in the memory.
-
-#### Q. What would be the output of following code?
-```javascript
-var arrA = [0,1,2,3,4,5];
-var arrB = arrA.slice();
-arrB[0]=42;
-console.log(arrA)
-```
-
-The output will be `[0,1,2,3,4,5]`. 
-
-The `slice` function copies all the elements of the array returning the new array. That's why
-`arrA` and `arrB` reference two completely different arrays. 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var arrA = [{prop1: "value of array A!!"},  {someProp: "also value of array A!"}, 3,4,5];
-var arrB = arrA;
-arrB[0].prop1=42;
-console.log(arrA);
-```
-The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`. 
-
-Arrays are object in JS, so both varaibles arrA and arrB point to the same array. Changing
-`arrB[0]` is the same as changing `arrA[0]`
-
-
-#### Q. What would be the output of following code?
-
-```javascript
-var arrA = [{prop1: "value of array A!!"}, {someProp: "also value of array A!"},3,4,5];
-var arrB = arrA.slice();
-arrB[0].prop1=42;
-arrB[3] = 20;
-console.log(arrA);
-```
-
-The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`. 
-
-The `slice` function copies all the elements of the array returning the new array. However,
-it doesn't do deep copying. Instead it does shallow copying. You can imagine slice implemented like this: 
- 
- ```javascript
-function slice(arr) {
-    var result = [];
-    for (i = 0; i< arr.length; i++) {
-        result.push(arr[i]);
-    }
-    return result; 
-}
-```
-
-Look at the line with `result.push(arr[i])`. If `arr[i]` happens to be a number or string, 
-it will be passed by value, in other words, copied. If `arr[i]` is an object, it will be passed by reference. 
-
-In case of our array `arr[0]` is an object `{prop1: "value of array A!!"}`. Only the reference
-to this object will be copied. This effectively means that arrays arrA and arrB share first
-two elements. 
-
-This is why changing the property of `arrB[0]` in `arrB` will also change the `arrA[0]`.
-
-
-
-#### Q. console.log(employeeId);
-
-1.  Some Value
-2.  Undefined 
-3.  Type Error
-4.  ReferenceError: employeeId is not defined 
-
-Answer: 4) ReferenceError: employeeId is not defined 
-
-#### Q. What would be the output of following code?
-
-```javascript
-console.log(employeeId);
-var employeeId = '19000';
-```
-
-1.  Some Value
-2.  undefined 
-3.  Type Error
-4.  ReferenceError: employeeId is not defined 
-
-Answer: 2) undefined 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var employeeId = '1234abe';
-(function(){
-	console.log(employeeId);
-	var employeeId = '122345';
-})();
-```
-
-1.  '122345'
-2.  undefined 
-3.  Type Error
-4.  ReferenceError: employeeId is not defined 
-
-Answer: 2) undefined 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var employeeId = '1234abe';
-(function() {
-	console.log(employeeId);
-	var employeeId = '122345';
-	(function() {
-		var employeeId = 'abc1234';
-	}());
-}());
-```
-
-1.  '122345'
-2.  undefined 
-3.  '1234abe'
-4.  ReferenceError: employeeId is not defined 
-
-Answer: 2) undefined 
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	console.log(typeof displayFunc);
-	var displayFunc = function(){
-		console.log("Hi I am inside displayFunc");
-	}
-}());
-```
-
-1.  undefined
-2.  function 
-3.  'Hi I am inside displayFunc'
-4.  ReferenceError: displayFunc is not defined 
-
-Answer: 1) undefined 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var employeeId = 'abc123';
-function foo(){
-	employeeId = '123bcd';
-	return;
-}
-foo();
-console.log(employeeId);
-```
-
-1.  undefined
-2.  '123bcd' 
-3.  'abc123'
-4.  ReferenceError: employeeId is not defined 
-
-Answer: 2) '123bcd' 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var employeeId = 'abc123';
-
-function foo() {
-	employeeId = '123bcd';
-	return;
-
-	function employeeId() {}
-}
-foo();
-console.log(employeeId);
-```
-
-1.  undefined
-2.  '123bcd' 
-3.  'abc123'
-4.  ReferenceError: employeeId is not defined 
-
-Answer: 3) 'abc123' 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var employeeId = 'abc123';
-
-function foo() {
-	employeeId();
-	return;
-
-	function employeeId() {
-		console.log(typeof employeeId);
-	}
-}
-foo();
-```
-
-1.  undefined
-2.  function 
-3.  string
-4.  ReferenceError: employeeId is not defined 
-
-Answer: 2) 'function'
-
-#### Q. What would be the output of following code?
-
-```javascript
-function foo() {
-	employeeId();
-	var product = 'Car'; 
-	return;
-
-	function employeeId() {
-		console.log(product);
-	}
-}
-foo();
-```
-
-1.  undefined
-2.  Type Error 
-3.  'Car'
-4.  ReferenceError: product is not defined 
-
-Answer: 1) undefined
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function foo() {
-	bar();
-
-	function bar() {
-		abc();
-		console.log(typeof abc);
-	}
-
-	function abc() {
-		console.log(typeof bar);
-	}
-}());
-```
-
-1.  undefined undefined
-2.  Type Error 
-3.  function function
-4.  ReferenceError: bar is not defined 
-
-Answer: 3) function function
-
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	'use strict';
-
-	var person = {
-		name: 'John'
-	};
-	person.salary = '10000$';
-	person['country'] = 'USA';
-
-	Object.defineProperty(person, 'phoneNo', {
-		value: '8888888888',
-		enumerable: true
-	})
-
-	console.log(Object.keys(person)); 
-})();
-```
-1.  Type Error
-2.  undefined 
-3.  ["name", "salary", "country", "phoneNo"]
-4.  ["name", "salary", "country"]
-	
-Answer: 3) ["name", "salary", "country", "phoneNo"]
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	'use strict';
-
-	var person = {
-		name: 'John'
-	};
-	person.salary = '10000$';
-	person['country'] = 'USA';
-
-	Object.defineProperty(person, 'phoneNo', {
-		value: '8888888888',
-		enumerable: false
-	})
-
-	console.log(Object.keys(person)); 
-})();
-```
-1.  Type Error
-2.  undefined 
-3.  ["name", "salary", "country", "phoneNo"]
-4.  ["name", "salary", "country"]
-	
-Answer: 4) ["name", "salary", "country"]
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var objA = {
-		foo: 'foo',
-		bar: 'bar'
-	};
-	var objB = {
-		foo: 'foo',
-		bar: 'bar'
-	};
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-Answer: 2) false false
-
-#### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = new Object({foo: "foo"});
-	var objB = new Object({foo: "foo"});
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-Answer: 2) false false
-
-#### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = Object.create({
-		foo: 'foo'
-	});
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-Answer: 2) false false
-
-#### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = Object.create(objA);
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-Answer: 2) false false
-
-#### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = Object.create(objA);
-	console.log(objA.toString() == objB.toString());
-	console.log(objA.toString() === objB.toString());
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-Answer: 4) true true
-
-#### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	console.log(objA == objB);
-	console.log(objA === objB);
-	console.log(objA.toString() == objB.toString());
-	console.log(objA.toString() === objB.toString());
-}());
-```
-1.  true true true false
-2.  true false true true 
-3.  true true true true
-4.  true true false false
-	
-Answer: 3) true true true true
-
-#### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	objB.foo = 'bar';
-	console.log(objA.foo);
-	console.log(objB.foo);
-}());
-```
-1.  foo bar
-2.  bar bar 
-3.  foo foo
-4.  bar foo
-	
-Answer: 2) bar bar
-
-#### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	objB.foo = 'bar';
-
-	delete objA.foo;
-	console.log(objA.foo);
-	console.log(objB.foo);
-}());
-```
-1.  foo bar
-2.  bar bar 
-3.  foo foo
-4.  bar foo
-	
-Answer: 3) foo foo
-
-#### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = {
-		foo: 'foo'
-	};
-	var objB = objA;
-	objB.foo = 'bar';
-
-	delete objA.foo;
-	console.log(objA.foo);
-	console.log(objB.foo);
-}());
-```
-1.  foo bar
-2.  undefined undefined 
-3.  foo foo
-4.  undefined bar
-	
-Answer: 2) undefined undefined 
-
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var array = new Array('100');
-	console.log(array);
-	console.log(array.length);
-}());
-```
-
-1.  undefined undefined
-2.  [undefined × 100] 100 
-3.  ["100"] 1
-4.  ReferenceError: array is not defined 
-
-Answer: 3) ["100"] 1
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var array1 = [];
-	var array2 = new Array(100);
-	var array3 = new Array(['1',2,'3',4,5.6]);
-	console.log(array1);
-	console.log(array2);
-	console.log(array3);
-	console.log(array3.length);
-}());
-```
-
-1.  [] [] [Array[5]] 1
-2.  [] [undefined × 100] Array[5] 1
-3.  [] [] ['1',2,'3',4,5.6] 5
-4.  [] [] [Array[5]] 5 
-
-Answer: 1) [] [] [Array[5]] 1
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function () {
-  var array = new Array('a', 'b', 'c', 'd', 'e');
-  array[10] = 'f';
-  delete array[10];
-  console.log(array.length);
-}());
-```
-
-1.  11
-2.  5
-3.  6
-4.  undefined
-
-Answer: 1) 11
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var animal = ['cow','horse'];
-		animal.push('cat');
-		animal.push('dog','rat','goat');
-		console.log(animal.length);
-})();
-```
-
-1.  4
-2.  5
-3.  6
-4.  undefined
-
-Answer: 3) 6
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var animal = ['cow','horse'];
-		animal.push('cat');
-		animal.unshift('dog','rat','goat');
-		console.log(animal);
-})();
-```
-
-1.  [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
-2.  [ 'cow', 'horse', 'cat', 'dog', 'rat', 'goat' ]
-3.  Type Error
-4.  undefined
-
-Answer: 1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var array = [1,2,3,4,5];
-	console.log(array.indexOf(2));
-	console.log([{name: 'John'},{name : 'John'}].indexOf({name:'John'}));
-	console.log([[1],[2],[3],[4]].indexOf([3]));
-	console.log("abcdefgh".indexOf('e'));
-})();
-```
-
-1.  1 -1 -1 4
-2.  1 0 -1 4
-3.  1 -1 -1 -1
-4.  1 undefined -1 4
-
-Answer: 1) 1 -1 -1 4
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var array = [1,2,3,4,5,1,2,3,4,5,6];
-	console.log(array.indexOf(2));
-	console.log(array.indexOf(2,3));
-	console.log(array.indexOf(2,10));
-})();
-```
-
-1.  1 -1 -1
-2.  1 6 -1
-3.  1 1 -1 
-4.  1 undefined undefined
-
-Answer: 2) 1 6 -1
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var numbers = [2,3,4,8,9,11,13,12,16];
-	var even = numbers.filter(function(element, index){
-		return element % 2 === 0; 
-	});
-	console.log(even);
-
-	var containsDivisibleby3 = numbers.some(function(element, index){
-		return element % 3 === 0;
-	});
-
-	console.log(containsDivisibleby3);	
-})();
-```
-
-1.  [ 2, 4, 8, 12, 16 ] [ 0, 3, 0, 0, 9, 0, 12]
-2.  [ 2, 4, 8, 12, 16 ] [ 3, 9, 12]
-3.  [ 2, 4, 8, 12, 16 ] true 
-4.  [ 2, 4, 8, 12, 16 ] false
-
-Answer: 3) [ 2, 4, 8, 12, 16 ] true 
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var containers = [2,0,false,"", '12', true];
-	var containers = containers.filter(Boolean);
-	console.log(containers);
-	var containers = containers.filter(Number);
-	console.log(containers);
-	var containers = containers.filter(String);
-	console.log(containers);
-	var containers = containers.filter(Object);
-	console.log(containers);		
-})();
-```
-
-1.	[ 2, '12', true ]
-	[ 2, '12', true ]
-	[ 2, '12', true ]
-	[ 2, '12', true ]
-2.	[false, true]
-	[ 2 ]
-	['12']
-	[ ]
-3.	[2,0,false,"", '12', true]
-	[2,0,false,"", '12', true]
-	[2,0,false,"", '12', true]
-	[2,0,false,"", '12', true]
-4. [ 2, '12', true ]
-	[ 2, '12', true, false ]
-	[ 2, '12', true,false ]
-	[ 2, '12', true,false]
-
-
-Answer: 1) [ 2, '12', true ]
-			 [ 2, '12', true ]
-			 [ 2, '12', true ]
-			 [ 2, '12', true ]
-			 
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var list = ['foo','bar','john','ritz'];
-	    console.log(list.slice(1));	
-	    console.log(list.slice(1,3));
-	    console.log(list.slice());
-	    console.log(list.slice(2,2));
-	    console.log(list);				
-})();
-```
-
-1. [ 'bar', 'john', 'ritz' ]
-   [ 'bar', 'john' ]
-   [ 'foo', 'bar', 'john', 'ritz' ]
-   []
-   [ 'foo', 'bar', 'john', 'ritz' ]
-2. [ 'bar', 'john', 'ritz' ]
-   [ 'bar', 'john','ritz ]
-   [ 'foo', 'bar', 'john', 'ritz' ]
-   []
-   [ 'foo', 'bar', 'john', 'ritz' ]
-3. [ 'john', 'ritz' ]
-   [ 'bar', 'john' ]
-   [ 'foo', 'bar', 'john', 'ritz' ]
-   []
-   [ 'foo', 'bar', 'john', 'ritz' ]
-4. [ 'foo' ]
-   [ 'bar', 'john' ]
-   [ 'foo', 'bar', 'john', 'ritz' ]
-   []
-   [ 'foo', 'bar', 'john', 'ritz' ]
-
-Answer: 1) [ 'bar', 'john', 'ritz' ]
-		 	 [ 'bar', 'john' ]
-           [ 'foo', 'bar', 'john', 'ritz' ]
-           []
-           [ 'foo', 'bar', 'john', 'ritz' ]		
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var list = ['foo','bar','john'];
-	    console.log(list.splice(1));		
-	    console.log(list.splice(1,2));
-	    console.log(list);			
-})();
-```
-
-1.  [ 'bar', 'john' ] [] [ 'foo' ]
-2.  [ 'bar', 'john' ] [] [ 'bar', 'john' ]
-3.  [ 'bar', 'john' ] [ 'bar', 'john' ] [ 'bar', 'john' ]
-4.  [ 'bar', 'john' ] [] []
-
-Answer: 1.  [ 'bar', 'john' ] [] [ 'foo' ] 
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var arrayNumb = [2, 8, 15, 16, 23, 42];
-	arrayNumb.sort();
-	console.log(arrayNumb);
-})();
-```
-
-1.  [2, 8, 15, 16, 23, 42]
-2.  [42, 23, 26, 15, 8, 2]
-3.  [ 15, 16, 2, 23, 42, 8 ]
-4.  [ 2, 8, 15, 16, 23, 42 ]
-
-Answer: 3.  [ 15, 16, 2, 23, 42, 8 ]
-
-#### Q. What would be the output of following code?
-
-```javascript
-function funcA(){
-	console.log("funcA ", this);
-	(function innerFuncA1(){
-		console.log("innerFunc1", this);
-		(function innerFunA11(){
-			console.log("innerFunA11", this);
-		})();
-	})();
-}
-	
-console.log(funcA());
-```
-
-1.  funcA  Window {...} 
-    innerFunc1 Window {...} 
-    innerFunA11 Window {...}
-2.  undefined 
-3.  Type Error
-4.  ReferenceError: this is not defined 
-	
-Answer: 1) 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var obj = {
-	message: "Hello",
-	innerMessage: !(function() {
-		console.log(this.message);
-	})()
-};
-	
-console.log(obj.innerMessage);
-```
-
-1.  ReferenceError: this.message is not defined 
-2.  undefined 
-3.  Type Error
-4.  undefined true
-	
-Answer: 4) undefined true
-
-#### Q. What would be the output of following code?
-
-```javascript
-var obj = {
-	message: "Hello",
-	innerMessage: function() {
-		return this.message;
-	}
-};
-	
-console.log(obj.innerMessage());
-```
-
-1.  Hello 
-2.  undefined 
-3.  Type Error
-4.  ReferenceError: this.message is not defined
-	
-Answer: 1) Hello
-
-#### Q. What would be the output of following code?
-
-```javascript
-var obj = {
-  message: 'Hello',
-  innerMessage: function () {
-    (function () {
-      console.log(this.message);
-    }());
-  }
-};
-console.log(obj.innerMessage());
-```
-
-1.  Type Error 
-2.  Hello 
-3.  undefined
-4.  ReferenceError: this.message is not defined
-	
-Answer: 3) undefined
-	
-#### Q. What would be the output of following code?
-
-```javascript
-var obj = {
-  message: 'Hello',
-  innerMessage: function () {
-  	var self = this;
-    (function () {
-      console.log(self.message);
-    }());
-  }
-};
-console.log(obj.innerMessage());
-```
-
-1.  Type Error 
-2.  'Hello' 
-3.  undefined
-4.  ReferenceError: self.message is not defined
-	
-Answer: 2) 'Hello'
-
-#### Q. What would be the output of following code?
-
-```javascript
-function myFunc(){
-	console.log(this.message);
-}
-myFunc.message = "Hi John";
-	
-console.log(myFunc());
-```
-
-1.  Type Error 
-2.  'Hi John' 
-3.  undefined
-4.  ReferenceError: this.message is not defined
-	
-Answer: 3) undefined
-
-#### Q. What would be the output of following code?
-
-```javascript
-function myFunc(){
-	console.log(myFunc.message);
-}
-myFunc.message = "Hi John";
-	
-console.log(myFunc());
-```
-
-1.  Type Error 
-2.  'Hi John' 
-3.  undefined
-4.  ReferenceError: this.message is not defined
-	
-Answer: 2) 'Hi John'
-
-#### Q. What would be the output of following code?
-
-```javascript
-function myFunc() {
-  myFunc.message = 'Hi John';
-  console.log(myFunc.message);
-}
-console.log(myFunc());
-```
-
-1.  Type Error 
-2.  'Hi John' 
-3.  undefined
-4.  ReferenceError: this.message is not defined
-	
-Answer: 2) 'Hi John'
-
-#### Q. What would be the output of following code?
-
-```javascript
-function myFunc(param1,param2) {
-  console.log(myFunc.length);
-}
-console.log(myFunc());
-console.log(myFunc("a","b"));
-console.log(myFunc("a","b","c","d"));
-```
-
-1.  2 2 2 
-2.  0 2 4
-3.  undefined
-4.  ReferenceError
-	
-Answer: a) 2 2 2 
-
-#### Q. What would be the output of following code?
-
-```javascript
-function myFunc() {
-  console.log(arguments.length);
-}
-console.log(myFunc());
-console.log(myFunc("a","b"));
-console.log(myFunc("a","b","c","d"));
-```
-
-1.  2 2 2 
-2.  0 2 4
-3.  undefined
-4.  ReferenceError
-	
-Answer: 2) 0 2 4 
-
-#### Q. What would be the output of following code?
-
-```javascript
-function Person(name, age){
-	this.name = name || "John";
-	this.age = age || 24;
-	this.displayName = function(){
-		console.log(this.name);
-	}
-}
-
-Person.name = "John";
-Person.displayName = function(){
-	console.log(this.name);
-}
-
-var person1 = new Person('John');
-	person1.displayName();
-	Person.displayName();
-```
-
-1.  John Person
-2.  John John
-3.  John undefined
-4.  John John
-	
-Answer: 1) John Person 
-
-#### Q. What would be the output of following code?
-
-```javascript
-function passWordMngr() {
-	var password = '12345678';
-	this.userName = 'John';
-	return {
-		pwd: password
-	};
-}
-// Block End
-var userInfo = passWordMngr();
-console.log(userInfo.pwd);
-console.log(userInfo.userName);
-```
-
-1.  12345678 Window
-2.  12345678 John
-3.  12345678 undefined
-4.  undefined undefined
-	
-Answer: 3) 12345678 undefined 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var employeeId = 'aq123';
-function Employee() {
-  this.employeeId = 'bq1uy';
-}
-console.log(Employee.employeeId);
-```
-
-1.  Reference Error
-2.  aq123
-3.  bq1uy
-4.  undefined
-	
-Answer: 4) undefined 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var employeeId = 'aq123';
-
-function Employee() {
-	this.employeeId = 'bq1uy';
-}
-console.log(new Employee().employeeId);
-Employee.prototype.employeeId = 'kj182';
-Employee.prototype.JobId = '1BJKSJ';
-console.log(new Employee().JobId);
-console.log(new Employee().employeeId);
-```
-
-1.  bq1uy 1BJKSJ bq1uy undefined
-2.  bq1uy 1BJKSJ bq1uy
-3.  bq1uy 1BJKSJ kj182
-4.  undefined 1BJKSJ kj182
-	
-Answer: 2) bq1uy 1BJKSJ bq1uy 
-
-#### Q. What would be the output of following code?
-
-```javascript
-var employeeId = 'aq123';
-(function Employee() {
-	try {
-		throw 'foo123';
-	} catch (employeeId) {
-		console.log(employeeId);
-	}
-	console.log(employeeId);
-}());
-```
-
-1.  foo123 aq123
-2.  foo123 foo123
-3.  aq123 aq123
-4.  foo123 undefined 
-	
-Answer: 1) foo123 aq123 
-
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var greet = 'Hello World';
-	var toGreet = [].filter.call(greet, function(element, index) {
-		return index > 5;
-	});
-	console.log(toGreet);
-}());
-```
-
-1.  Hello World
-2.  undefined
-3.  World
-4.  [ 'W', 'o', 'r', 'l', 'd' ] 
-	
-Answer: 4) [ 'W', 'o', 'r', 'l', 'd' ]  
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var fooAccount = {
-		name: 'John',
-		amount: 4000,
-		deductAmount: function(amount) {
-			this.amount -= amount;
-			return 'Total amount left in account: ' + this.amount;
-		}
-	};
-	var barAccount = {
-		name: 'John',
-		amount: 6000
-	};
-	var withdrawAmountBy = function(totalAmount) {
-		return fooAccount.deductAmount.bind(barAccount, totalAmount);
-	};
-	console.log(withdrawAmountBy(400)());
-	console.log(withdrawAmountBy(300)());
-}());
-```
-
-1. Total amount left in account: 5600 Total amount left in account: 5300
-2.  undefined undefined
-3.  Total amount left in account: 3600 Total amount left in account: 3300
-4.  Total amount left in account: 5600 Total amount left in account: 5600
-	
-Answer: 1) Total amount left in account: 5600 Total amount left in account: 5300 
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var fooAccount = {
-		name: 'John',
-		amount: 4000,
-		deductAmount: function(amount) {
-			this.amount -= amount;
-			return this.amount;
-		}
-	};
-	var barAccount = {
-		name: 'John',
-		amount: 6000
-	};
-	var withdrawAmountBy = function(totalAmount) {
-		return fooAccount.deductAmount.apply(barAccount, [totalAmount]);
-	};
-	console.log(withdrawAmountBy(400));
-	console.log(withdrawAmountBy(300));
-	console.log(withdrawAmountBy(200));
-}());
-```
-
-1. 5600 5300 5100
-2. 3600 3300 3100
-3. 5600 3300 5100
-4. undefined undefined undefined
-	
-Answer: 1) 5600 5300 5100
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var fooAccount = {
-		name: 'John',
-		amount: 6000,
-		deductAmount: function(amount) {
-			this.amount -= amount;
-			return this.amount;
-		}
-	};
-	var barAccount = {
-		name: 'John',
-		amount: 4000
-	};
-	var withdrawAmountBy = function(totalAmount) {
-		return fooAccount.deductAmount.call(barAccount, totalAmount);
-	};
-	console.log(withdrawAmountBy(400));
-	console.log(withdrawAmountBy(300));
-	console.log(withdrawAmountBy(200));
-}());
-```
-
-1. 5600 5300 5100
-2. 3600 3300 3100
-3. 5600 3300 5100
-4. undefined undefined undefined
-	
-Answer: 2) 3600 3300 3100
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function greetNewCustomer() {
-	console.log('Hello ' + this.name);
-}.bind({
-	name: 'John'
-})());
-```
-
-1. Hello John
-2. Reference Error
-3. Window
-4. undefined
-	
-Answer: 1) Hello John
-
-#### Q. What would be the output of following code ?
-
-```javascript
-function getDataFromServer(apiUrl){
-    var name = "John";
-	return {
-		then : function(fn){
-			fn(name);
-		}
-	}
-}
-
-getDataFromServer('www.google.com').then(function(name){
-	console.log(name);
-});
-
-```
-
-1. John
-2. undefined
-3. Reference Error
-4. fn is not defined
-	
-Answer: 1) John
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	var arrayNumb = [2, 8, 15, 16, 23, 42];
-	Array.prototype.sort = function(a,b){
-		return a - b;
-	};
-	arrayNumb.sort();
-	console.log(arrayNumb);
-})();
-
-(function(){
-	var numberArray = [2, 8, 15, 16, 23, 42];
-	numberArray.sort(function(a,b){
-		if(a == b){
-			return 0;
-		}else{
-			return a < b ? -1 : 1;
-		}
-	});
-	console.log(numberArray);
-})();
-
-(function(){
-	var numberArray = [2, 8, 15, 16, 23, 42];
-	numberArray.sort(function(a,b){
-		return a-b;
-	});
-	console.log(numberArray);
-})();
-```
-
-1. [ 2, 8, 15, 16, 23, 42 ]
-   [ 2, 8, 15, 16, 23, 42 ]
-   [ 2, 8, 15, 16, 23, 42 ]
-2. undefined undefined undefined
-3. [42, 23, 16, 15, 8, 2]
-   [42, 23, 16, 15, 8, 2]
-   [42, 23, 16, 15, 8, 2]
-4. Reference Error
-	
-Answer: 1) [ 2, 8, 15, 16, 23, 42 ]
-			 [ 2, 8, 15, 16, 23, 42 ]
-			 [ 2, 8, 15, 16, 23, 42 ]
-			
-## Return Statement
-
-#### Q. What would be the output of following code?
-
-```javascript
-(function(){
-	function sayHello(){
-		var name = "Hi John";
-		return 
-		{
-			fullName: name
-		}
-	}
-	console.log(sayHello().fullName);
-})();
-```
-
-1. Hi John
-2. undefined
-3. Reference Error
-4. Uncaught TypeError: Cannot read property 'fullName' of undefined
-	
-Answer: 4) Uncaught TypeError: Cannot read property 'fullName' of undefined
-
-#### Q. What would be the output of following code?
-
-```javascript
-function getNumber(){
-	return (2,4,5);
-}
-
-var numb = getNumber();
-console.log(numb);
-```
-
-1. 5
-2. undefined
-3. 2
-4. (2,4,5)
-	
-Answer: 1) 5
-
-#### Q. What would be the output of following code?
-
-```javascript
-function getNumber(){
-	return;
-}
-
-var numb = getNumber();
-console.log(numb);
-```
-
-1. null
-2. undefined
-3. ""
-4. 0
-	
-Answer: 2) undefined
-
-#### Q. What would be the output of following code?
-
-```javascript
-function mul(x){
-	return function(y){
-		return [x*y, function(z){
-			return x*y + z;
-		}];
-	}
-}
-
-console.log(mul(2)(3)[0]);
-console.log(mul(2)(3)[1](4));
-```
-
-1. 6, 10
-2. undefined undefined
-3. Reference Error
-4. 10, 6
-	
-Answer: 1) 6, 10
-
-#### Q. What would be the output of following code?
-
-```javascript
-function mul(x) {
-	return function(y) {
-		return {
-			result: x * y,
-			sum: function(z) {
-				return x * y + z;
-			}
-		};
-	};
-}
-console.log(mul(2)(3).result);
-console.log(mul(2)(3).sum(4));
-```
-
-1. 6, 10
-2. undefined undefined
-3. Reference Error
-4. 10, 6
-	
-Answer: 1) 6, 10
-
-#### Q. What would be the output of following code?
-
-```javascript
-function mul(x) {
-	return function(y) {
-		return function(z) {
-			return function(w) {
-				return function(p) {
-					return x * y * z * w * p;
-				};
-			};
-		};
-	};
-}
-console.log(mul(2)(3)(4)(5)(6));
-```
-
-1. 720
-2. undefined
-3. Reference Error
-4. Type Error
-	
-Answer: 1) 720
-
-#### Q. What is the value of `foo`?
-```javascript
-var foo = 10 + '20';
-```
-
-*Answer:* `'1020'`, because of type coercion from Number to String
-
-#### Q. How would you make this work?
-```javascript
-add(2, 5); // 7
-add(2)(5); // 7
-```
-
-*Answer:* A general solution for any number of parameters
-```js
-'use strict';
-
-let sum = (arr) => arr.reduce((a, b) => a + b);
-let addGenerator = (numArgs, prevArgs) => {
-  return function () {
-    let totalArgs = prevArgs.concat(Array.from(arguments));
-    if (totalArgs.length === numArgs) {
-      return sum(totalArgs);
-    }
-    return addGenerator(numArgs, totalArgs);
-  };
-};
-
-let add = addGenerator(2, []);
-
-add(2, 5); // 7
-add(2)(5); // 7
-add()(2, 5); // 7
-add()(2)(5); // 7
-add()()(2)(5); // 7
-```
-
-#### Q. What value is returned from the following statement?
-```javascript
-"i'm a lasagna hog".split("").reverse().join("");
-```
-
-*Answer:* It's actually a reverse method for a string - `'goh angasal a m\'i'`
-
-#### Q. What is the value of `window.foo`?
-```javascript
-( window.foo || ( window.foo = "bar" ) );
-```
-
-*Answer:* Always `'bar'`
-
-#### Q. What is the outcome of the two alerts below?
-```javascript
-var foo = "Hello";
-(function() {
-  var bar = " World";
-  alert(foo + bar);
-})();
-alert(foo + bar);
-```
-
-*Answer:*
-- First: `Hello World`
-- Second: Throws an exception, `ReferenceError: bar is not defined`
-
-#### Q. What is the value of `foo.length`?
-```javascript
-var foo = [];
-foo.push(1);
-foo.push(2);
-```
-
-*Answer:* `.push` is mutable - `2`
-
-#### Q. What is the value of `foo.x`?
-```javascript
-var foo = {n: 1};
-var bar = foo;
-foo.x = foo = {n: 2};
-```
-
-*Answer:* `undefined`. Rather, `bar.x` is `{n: 2}`.
-
-`foo.x = foo = {n: 2}` is the same as `foo.x = (foo = {n: 2})`. It is because
-a left term is first referenced and then a right term is evaluated when an
-assignment is performed in JavaScript. When `foo.x` is referenced, it refers
-to an original object, `{n: 1}`. So, when the result of the right term, `{n:
-2}`, is evaluated, it will assigned to the original object, which is at the
-moment referenced by `bar`.
-
-#### Q. What does the following code print?*
-```javascript
-console.log('one');
-setTimeout(function() {
-  console.log('two');
-}, 0);
-console.log('three');
-```
-
-*Answer:* `one`, `three` and `two`. It's because `console.log('two');` will be
-invoked in the next event loop.
 
 #### Q. Explain event delegation
 
@@ -7305,7 +5502,7 @@ console.log(foo); // undefined
 
 **Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
 
-```js
+```javascript
 function foo() {
   x = 1; // Throws a ReferenceError in strict mode
 }
@@ -7316,7 +5513,7 @@ console.log(x); // 1
 
 A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
 
-```js
+```javascript
 var foo;
 console.log(foo); // undefined
 console.log(foo === undefined); // true
@@ -7331,7 +5528,7 @@ console.log(baz); // undefined
 
 A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
 
-```js
+```javascript
 var foo = null;
 console.log(foo === null); // true
 console.log(typeof foo === 'object'); // true
@@ -7361,7 +5558,7 @@ To understand the differences between the two, let's look at what each function 
 * Executes a callback for each element.
 * Does not return a value.
 
-```js
+```javascript
 const a = [1, 2, 3];
 const doubled = a.forEach((num, index) => {
   // Do something with num and/or index.
@@ -7375,7 +5572,7 @@ const doubled = a.forEach((num, index) => {
 * Iterates through the elements in an array.
 * "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
 
-```js
+```javascript
 const a = [1, 2, 3];
 const doubled = a.map(num => {
   return num * 2;
@@ -7390,7 +5587,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
 
-```js
+```javascript
 (function() {
   // Some code here.
 })();
@@ -7398,7 +5595,7 @@ They can be used in IIFEs to encapsulate some code within a local scope so that 
 
 As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
 
-```js
+```javascript
 setTimeout(function() {
   console.log('Hello world!');
 }, 1000);
@@ -7406,7 +5603,7 @@ setTimeout(function() {
 
 Arguments to functional programming constructs or Lodash (similar to callbacks).
 
-```js
+```javascript
 const arr = [1, 2, 3];
 const double = arr.map(function(el) {
   return el * 2;
@@ -7438,7 +5635,7 @@ This question is pretty vague. My best guess at its intention is that it is aski
 
 `var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
 
-```js
+```javascript
 function Person(name) {
   this.name = name;
 }
@@ -7456,7 +5653,7 @@ console.log(person.name); // "john"
 
 Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
 
-```js
+```javascript
 function add(a, b) {
   return a + b;
 }
@@ -7488,7 +5685,7 @@ There are some answers online that explain `document.write()` is being used in a
 
 Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
 
-```js
+```javascript
 if ('geolocation' in navigator) {
   // Can use navigator.geolocation
 } else {
@@ -7496,13 +5693,12 @@ if ('geolocation' in navigator) {
 }
 ```
 
-[Modernizr](https://modernizr.com/) is a great library to handle feature detection.
 
 **Feature Inference**
 
 Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
 
-```js
+```javascript
 if (document.getElementsByTagName) {
   element = document.getElementById(id);
 }
@@ -7557,7 +5753,7 @@ function printData(data) {
 <script src="https://example.com?callback=printData"></script>
 ```
 
-```js
+```javascript
 // File loaded from https://example.com?callback=printData
 printData({ name: 'Yang Shun' });
 ```
@@ -7573,7 +5769,7 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
 
 Yes. Handlebars, Underscore, Lodash, AngularJS, and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favorite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
 
-```js
+```javascript
 const template = `<div>My name is: ${name}</div>`;
 ```
 
@@ -7587,7 +5783,7 @@ Hoisting is a term used to explain the behavior of variable declarations in your
 
 Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope. Let's explain with a few examples.
 
-```js
+```javascript
 // var declarations are hoisted.
 console.log(foo); // undefined
 var foo = 1;
@@ -7601,7 +5797,7 @@ console.log(bar); // 2
 
 Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
 
-```js
+```javascript
 // Function Declaration
 console.log(foo); // [Function: foo]
 foo(); // 'FOOOOO'
@@ -7631,7 +5827,7 @@ When an event triggers on a DOM element, it will attempt to handle the event if 
 
 Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
 
-```js
+```javascript
 const input = document.querySelector('input');
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello
@@ -7639,7 +5835,7 @@ console.log(input.value); // Hello
 
 But after you change the value of the text field by adding "World!" to it, this becomes:
 
-```js
+```javascript
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
@@ -7662,7 +5858,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 `==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
 
-```js
+```javascript
 1 == '1'; // true
 1 == [1]; // true
 1 == true; // true
@@ -7673,7 +5869,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
 
-```js
+```javascript
 var a = null;
 console.log(a == null); // true
 console.log(a == undefined); // true
@@ -7682,21 +5878,6 @@ console.log(a == undefined); // true
 #### Q. Explain the same-origin policy with regards to JavaScript.
 
 The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
-
-#### Q. Make this work:
-
-```js
-duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
-```
-
-```js
-function duplicate(arr) {
-  return arr.concat(arr);
-}
-
-duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
-```
-
 
 
 #### Q. Why is it called a Ternary expression, what does the word "Ternary" indicate?
@@ -7722,22 +5903,6 @@ Disadvantages:
 * Many missing features that some developers might be used to.
 * No more access to `function.caller` and `function.arguments`.
 * Concatenation of scripts written in different strict modes might cause issues.
-
-Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
-
-#### Q. Create a for loop that iterates up to `100` while outputting **"fizz"** at multiples of `3`, **"buzz"** at multiples of `5` and **"fizzbuzz"** at multiples of `3` and `5`.
-
-Check out this version of FizzBuzz by [Paul Irish](https://gist.github.com/jaysonrowe/1592432#gistcomment-790724).
-
-```js
-for (let i = 1; i <= 100; i++) {
-  let f = i % 3 == 0,
-    b = i % 5 == 0;
-  console.log(f ? (b ? 'FizzBuzz' : 'Fizz') : b ? 'Buzz' : i);
-}
-```
-
-I would not advise you to write the above during interviews though. Just stick with the long but clear approach. For more wacky versions of FizzBuzz, check out the reference link below.
 
 
 #### Q. Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
@@ -7834,7 +5999,7 @@ Here are a few ways to add/simulate immutability on plain JavaScript objects.
 
 By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
 
-```js
+```javascript
 let myObject = {};
 Object.defineProperty(myObject, 'number', {
   value: 42,
@@ -7875,7 +6040,7 @@ So, not only can you not add any more properties, but you also cannot reconfigur
 
 This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).
 
-```js
+```javascript
 var immutable = Object.freeze({});
 ```
 
@@ -7890,7 +6055,7 @@ The alternative is to use `const` declarations combined with the techniques ment
 
 Examples:
 
-```js
+```javascript
 // Array Example
 const arr = [1, 2, 3];
 const newArr = [...arr, 4]; // [1, 2, 3, 4]
@@ -7922,7 +6087,7 @@ The former is a function declaration while the latter is a function expression. 
 
 **Function Declaration**
 
-```js
+```javascript
 foo(); // 'FOOOOO'
 function foo() {
   console.log('FOOOOO');
@@ -7931,7 +6096,7 @@ function foo() {
 
 **Function Expression**
 
-```js
+```javascript
 foo(); // Uncaught TypeError: foo is not a function
 var foo = function() {
   console.log('FOOOOO');
@@ -7942,7 +6107,7 @@ var foo = function() {
 
 Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
-```js
+```javascript
 function foo() {
   // All variables are accessible within functions.
   var bar = 'bar';
@@ -7959,7 +6124,7 @@ console.log(baz); // ReferenceError: baz is not defined
 console.log(qux); // ReferenceError: qux is not defined
 ```
 
-```js
+```javascript
 if (true) {
   var bar = 'bar';
   let baz = 'baz';
@@ -7975,7 +6140,7 @@ console.log(qux); // ReferenceError: qux is not defined
 
 `var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
 
-```js
+```javascript
 console.log(foo); // undefined
 
 var foo = 'foo';
@@ -7991,7 +6156,7 @@ const bar = 'bar';
 
 Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
 
-```js
+```javascript
 var foo = 'foo';
 var foo = 'bar';
 console.log(foo); // "bar"
@@ -8002,7 +6167,7 @@ let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been decl
 
 `let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
 
-```js
+```javascript
 // This is fine.
 let foo = 'foo';
 foo = 'bar';
@@ -8016,7 +6181,7 @@ baz = 'qux';
 
 Let's first look at example of each:
 
-```js
+```javascript
 // ES5 Function Constructor
 function Person(name) {
   this.name = name;
@@ -8034,7 +6199,7 @@ For simple constructors, they look pretty similar.
 
 The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
 
-```js
+```javascript
 // ES5 Function Constructor
 function Student(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
@@ -8068,7 +6233,7 @@ One obvious benefit of arrow functions is to simplify the syntax needed to creat
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
 
-```js
+```javascript
 const Person = function(firstName) {
   this.firstName = firstName;
   this.sayName1 = function() { console.log(this.firstName); };
@@ -8110,13 +6275,13 @@ A higher-order function is any function that takes one or more functions as argu
 
 Let say we have an array of names which we need to transform each string to uppercase.
 
-```js
+```javascript
 const names = ['irish', 'daisy', 'anna'];
 ```
 
 The imperative way will be as such:
 
-```js
+```javascript
 const transformNamesToUppercase = function(names) {
   const results = [];
   for (let i = 0; i < names.length; i++) {
@@ -8129,7 +6294,7 @@ transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 
 Use `.map(transformerFn)` makes the code shorter and more declarative.
 
-```js
+```javascript
 const transformNamesToUppercase = function(names) {
   return names.map(name => name.toUpperCase());
 };
@@ -8142,7 +6307,7 @@ Destructuring is an expression available in ES6 which enables a succinct and con
 
 **Array destructuring**
 
-```js
+```javascript
 // Variable assignment.
 const foo = ['one', 'two', 'three'];
 
@@ -8152,7 +6317,7 @@ console.log(two); // "two"
 console.log(three); // "three"
 ```
 
-```js
+```javascript
 // Swapping variables
 let a = 1;
 let b = 3;
@@ -8164,7 +6329,7 @@ console.log(b); // 1
 
 **Object destructuring**
 
-```js
+```javascript
 // Variable assignment.
 const o = { p: 42, q: true };
 const { p, q } = o;
@@ -8177,7 +6342,7 @@ console.log(q); // true
 
 Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
 
-```js
+```javascript
 var person = { name: 'Tyler', age: 28 };
 console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!');
 // 'Hi, my name is Tyler and I am 28 years old!'
@@ -8185,7 +6350,7 @@ console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' year
 
 With template literals, you can now create that same output like this instead:
 
-```js
+```javascript
 const person = { name: 'Tyler', age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
@@ -8195,7 +6360,7 @@ Note that you use backticks, not quotes, to indicate that you are using a templa
 
 A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
 
-```js
+```javascript
 console.log('This is line one.\nThis is line two.');
 // This is line one.
 // This is line two.
@@ -8203,7 +6368,7 @@ console.log('This is line one.\nThis is line two.');
 
 Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
 
-```js
+```javascript
 console.log('This is line one.\n' +
 	'This is line two.');
 // This is line one.
@@ -8212,7 +6377,7 @@ console.log('This is line one.\n' +
 
 Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
 
-```js
+```javascript
 console.log(`This is line one.
 This is line two.`);
 // This is line one.
@@ -8221,7 +6386,7 @@ This is line two.`);
 
 Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
 
-```js
+```javascript
 const person = { name: 'Tyler', age: 28 };
 document.body.innerHTML = `
   <div>
@@ -8238,7 +6403,7 @@ document.body.innerHTML = `
 
 Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each accepts one parameter.
 
-```js
+```javascript
 function curry(fn) {
   if (fn.length === 0) {
     return fn;
@@ -8271,7 +6436,7 @@ var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 
 ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and rx.js projects.
 
-```js
+```javascript
 function putDookieInAnyArray(arr) {
   return [...arr, 'dookie'];
 }
@@ -8288,7 +6453,7 @@ const copyOfTodd = { ...person };
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
 
-```js
+```javascript
 function addFiveToABunchOfNumbers(...numbers) {
   return numbers.map(x => x + 5);
 }
@@ -8337,4 +6502,10 @@ Other alternatives include:
 1. **Object.assign({}, obj)** is another alternative.
 1. **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
 
+#### Q. How to check if object is empty or not in javaScript?
+```javascript
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+```
 
