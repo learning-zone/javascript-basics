@@ -30,8 +30,7 @@ button.addEventListener('click', () => {
 ```
 
 #### Q. When to use reduce(), map(), foreach() and filter() in JavaScript? 
-1. **forEach()**  
-<code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
+**forEach()**:  <code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
 
 Basically forEach works as a traditional for loop looping over the array and providing array elements to do operations on them.
 ```javascript
@@ -46,6 +45,51 @@ Output
 1 comes at 0
 2 comes at 1
 3 comes at 2
+```
+
+**filter()**: The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
+
+**Note**: filter does not update the existing array it will return a new filtered array every time.
+```javascript
+var sample = [1, 2, 3]; 
+
+var result = sample.filter(function(elem){
+    return elem !== 2;
+})
+console.log(result)
+```
+Output
+```
+[1, 3]
+```
+
+**map()**: map() like filter() & forEach() takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
+
+Like filter(), map() also returns an array. The provided callback to map modifies the array elements and save them into the new array upon completion that array get returned as the mapped array.
+```javascript
+var sample = [1, 2, 3];
+
+var mapped = sample.map(function(elem) {
+    return elem * 10;
+});
+```
+Output
+```
+[10, 20, 30]
+```
+
+**reduce()**: reduce() method of the array object is used to reduce the array to one single value.
+```javascript
+var sample = [1, 2, 3];
+
+var sum = sample.reduce(function(sum, elem){
+    return sum + elem;
+});
+console.log(sum);
+```
+Output
+```
+6
 ```
 
 #### Q. Write a program to reverse a string?
