@@ -4,7 +4,6 @@
 #### Q. What are lambda / arrow / fat arrow functions? When you should not use arrow functions in ES6?
 An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
 
-One obvious benefit of arrow functions is to simplify the syntax needed to create functions, without a need for the `function` keyword. The `this` within arrow functions is also bound to the enclosing scope which is different compared to regular functions where the `this` is determined by the object calling it. Lexically-scoped `this` is useful when invoking callbacks especially in React components.
 
 **Arrow functions in ES6 has two limitations**:
 * Don't work with new
