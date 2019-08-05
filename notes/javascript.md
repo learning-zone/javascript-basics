@@ -93,6 +93,16 @@ Output
 ```
 
 #### Q. Write a program to reverse a string?
+```javascript
+  function reverseString(str){
+      let stringRev ="";
+      for(let i= 0; i<str.length; i++){
+          stringRev = str[i] + stringRev;
+      }
+      return stringRev;
+  }
+  alert(reverseString("Pradeep")); // Output: peedarP
+```
 
 #### Q. What is Hoisting?
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
