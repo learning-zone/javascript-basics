@@ -310,63 +310,6 @@ inviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you?
 inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
 ```
 
-#### Q. What is JSON and its common operations?
-
-**JSON** is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
-Parsing: **Converting a string to a native object
-```javascript
-JSON.parse(text)
-```
-Stringification: **converting a native object to a string so it can be transmitted across the network
-```javascript
-JSON.stringify(object)
-```
-
-#### Q. What is the purpose of array slice method?
-
-The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
-```javascript
-let arrayIntegers = [1, 2, 3, 4, 5];
-let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
-let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
-let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
-```
-**Note:** Slice method won't mutate the original array but it returns the subset as new array.
-
-#### Q. What is the purpose of array splice method?
-
-The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the option second argument indicates the number of elements to be deleted. Each additional argument is added to the array. Some of the examples of this method are,
-```javascript
-let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
-let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
-let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
-
-let arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array: [3, 4, 5]
-let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
-let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
-```
-**Note:** Splice method modifies the original array and returns the deleted array.
-
-#### Q. What is the difference between slice and splice?
-
-Some of the major difference in a tabular form
-
-| Slice | Splice |
-|---- | ---------
-| Doesn't modify the original array(immutable)  | Modifies the original array(mutable) |
-| Returns the subset of original array | Returns the deleted elements as array  |
-| Used to pick the elements from array | Used to insert or delete elements to/from array|
-
-#### Q. How do you compare Object and Map?
-**Objects** are similar to **Maps** in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
-
-1. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map, including functions, objects, and any primitive.
-2. The keys in Map are ordered while keys added to object are not. Thus, when iterating over it, a Map object returns keys in order of insertion.
-3. You can get the size of a Map easily with the size property, while the number of properties in an Object must be determined manually.
-4. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
-5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
-6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
-
 #### Q. What is the difference between == and === operators?
 JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators takes type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
 1. Two strings are strictly equal when they have the same sequence of characters, same length, and same characters in corresponding positions.
@@ -452,69 +395,7 @@ console.log (numberArray); // returns [6]
 As per above code snippets, Push function is impure itself by altering the array and returning an push number index which is independent of parameter value. Whereas Concat on the other hand takes the array and concatenates it with the other array producing a whole new array without side effects. Also, the return value is a concatenation of previous array.
 Remember that Pure functions are important as they simplify unit testing without any side effects and no need for dependency injection. They also avoid tight coupling and makes harder to break your application by not having any side effects. These principles are coming together with **Immutability** concept of ES6 by giving preference to **const** over **let** usage.
 
-#### Q. What is the purpose of let keyword?
 
-The let statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the var keyword used to define a variable globally, or locally to an entire function regardless of block scope. Let's take an example to demonstrate the usage,
-```javascript
-let counter = 30;
-if (counter === 30) {
-  let counter = 31;
-  console.log(counter); // 31
-}
-console.log(counter); // 30 (because if block variable won't exist here)
-```
-
-#### Q. What is the difference between let and var?
-You can list out the differences in a tabular format
-
-| var | let |
-|---- | ---------
-| It is been available from the beginning of JavaScript  | Introduced as part of ES6 |
-| It has function scope | It has block scope  |
-| Variables will be hoisted | Won't get hoisted|
-
-Let's take an example to see the difference,
-```javascript
-function userDetails(username) {
-   if(username) {
-     console.log(salary); // undefined(due to hoisting)
-     console.log(age); // error: age is not defined
-     let age = 30;
-     var salary = 10000;
-   }
-   console.log(salary); //10000 (accessible to due function scope)
-   console.log(age); //error: age is not defined(due to block scope)
-}
-```
-
-#### Q.How do you redeclare variables in switch block without an error?
-If you try to redeclare variables in a `switch block` then it will cause errors because there is only one block. For example, the below code block throws a syntax error as below,
-```javascript
-let counter = 1;
-switch(x) {
-    case 0:
-    let name;
-    break;
-
-    case 1:
-    let name; // SyntaxError for redeclaration.
-    break;
-}
-```
-To avoid this error, you can create a nested block inside a case clause will create a new block scoped lexical environment.
-```javascript
-let counter = 1;
-    switch(x) {
-        case 0: {
-        let name;
-        break;
-        }
-        case 1: {
-        let name; // No SyntaxError for redeclaration.
-        break;
-        }
-    }
-```
 #### Q. What is Temporal Dead Zone?
 The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone. Let's see this behavior with an example,
 ```javascript
@@ -540,11 +421,6 @@ The primary reason to use an IIFE is to obtain data privacy because any variable
 })();
 console.log(message); //Error: message is not defined
 ```
-#### Q. What is the benefit of using modules?
-There are a lot of benefits to using modules in favour of a sprawling. Some of the benefits are,
-1. Maintainablity
-2. Reusability
-3. Namespacing
 
 #### Q. What is memoization?
 Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results.  Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
@@ -669,8 +545,6 @@ window.onstorage = function(e) {
     ' to ' + e.newValue + '.');
 };
 ```
-#### Q. Why do you need web storage?
-Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance. Also, the information is never transferred to the server. Hence this is recommended approach than Cookies.
 
 #### Q. How do you check web storage browser support?
 You need to check browser support for localStorage and sessionStorage before using web storage,
@@ -1082,12 +956,6 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 `Host objects` are objects provided by the browser or runtime environment (Node). For example, window, XmlHttpRequest, DOM nodes etc considered as host objects.
 `User objects` are objects defined in the javascript code. For example, User object created for profile information.
 
-#### Q. What are the tools or techniques used for debugging JavaScript code?
-You can use below tools or techniques for debugging javascript
-1. Chrome Devtools
-2. debugger statement
-3. Good old console.log statement
-
 #### Q. What are the pros and cons of promises over callbacks?
 Below are the list of pros and cons of promises over callbacks,
 **Pros:**
@@ -1102,7 +970,7 @@ Below are the list of pros and cons of promises over callbacks,
 
 #### Q. What is the difference between an attribute and a property?
 Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
-```javascript
+```html
 <input type="text" value="Name:">
 ```
 You can retrieve the attribute value as below,
@@ -1122,7 +990,7 @@ The same-origin policy is a policy that prevents JavaScript from making requests
 #### Q. What is the purpose of void 0?
 Void(0) is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML document that uses href="JavaScript:Void(0);" within an <a> element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.
 For example, the below link notify the message without reloading the page
-```javascript
+```html
 <a href="JavaScript:void(0);" onclick="alert('Well done!')">Click Me!</a>
 ```
 #### Q. Is JavaScript a compiled or interpreted language?
@@ -1130,9 +998,6 @@ JavaScript is an interpreted language, not a compiled language. An interpreter i
 
 #### Q. Is JavaScript a case-sensitive language?
 Yes, JavaScript is a case sensitive language. The language keywords, variables, function & object names, and any other identifiers must always be typed with a consistent capitalization of letters.
-
-#### Q. Is there any relation between Java and JavaScript?
-No, they are entirely two different programming languages and has nothing to do with each other. But both of them are Object Oriented Programming languages and like many other languages, they follow similar syntax for basic features(if, else, for, switch, break, continue etc).
 
 #### Q. What are events?
 Events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can `react` on these events. Some of the examples of HTML events are,
@@ -1143,7 +1008,7 @@ Events are "things" that happen to HTML elements. When JavaScript is used in HTM
 
 Let's describe the behavior of click event for button element,
 
-```javascript
+```html
 <!doctype html>
 <html>
 <head>
@@ -1158,8 +1023,6 @@ Let's describe the behavior of click event for button element,
 </body>
 </html>
 ```
-#### Q. Who created javascript?
-JavaScript was created by Brendan Eich in 1995 during his time at Netscape Communications. Initially it was developed under the name `Mocha`, but later the language was officially called `LiveScript` when it first shipped in beta releases of Netscape.
 
 #### Q. What is the use of preventDefault method?
 The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
@@ -1172,7 +1035,7 @@ document.getElementById("link").addEventListener("click", function(event) {
 
 #### Q. What is the use of stopPropagation method?
 The stopPropagation method is used to stop the event from bubbling up the event chain. For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
-```javascript
+```html
 <p>Click DIV1 Element</p>
 <div onclick="secondFunc()">DIV 2
   <div onclick="firstFunc(event)">DIV 1</div>
@@ -6542,5 +6405,123 @@ ES2015 defines a module syntax which aims to replace both AMD and CommonJS. This
 
 Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
 
+#### Q. What is JSON and its common operations?
 
+**JSON** is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
+Parsing: **Converting a string to a native object
+```javascript
+JSON.parse(text)
+```
+Stringification: **converting a native object to a string so it can be transmitted across the network
+```javascript
+JSON.stringify(object)
+```
 
+#### Q. What is the purpose of array slice method?
+
+The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
+```javascript
+let arrayIntegers = [1, 2, 3, 4, 5];
+let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
+let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
+let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
+```
+**Note:** Slice method won't mutate the original array but it returns the subset as new array.
+
+#### Q. What is the purpose of array splice method?
+
+The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the option second argument indicates the number of elements to be deleted. Each additional argument is added to the array. Some of the examples of this method are,
+```javascript
+let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
+let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
+let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
+
+let arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array: [3, 4, 5]
+let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
+let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
+```
+**Note:** Splice method modifies the original array and returns the deleted array.
+
+#### Q. What is the difference between slice and splice?
+
+Some of the major difference in a tabular form
+
+| Slice | Splice |
+|---- | ---------
+| Doesn't modify the original array(immutable)  | Modifies the original array(mutable) |
+| Returns the subset of original array | Returns the deleted elements as array  |
+| Used to pick the elements from array | Used to insert or delete elements to/from array|
+
+#### Q. How do you compare Object and Map?
+**Objects** are similar to **Maps** in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
+
+1. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map, including functions, objects, and any primitive.
+2. The keys in Map are ordered while keys added to object are not. Thus, when iterating over it, a Map object returns keys in order of insertion.
+3. You can get the size of a Map easily with the size property, while the number of properties in an Object must be determined manually.
+4. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
+5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
+6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
+
+#### Q. What is the purpose of let keyword?
+
+The let statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the var keyword used to define a variable globally, or locally to an entire function regardless of block scope. Let's take an example to demonstrate the usage,
+```javascript
+let counter = 30;
+if (counter === 30) {
+  let counter = 31;
+  console.log(counter); // 31
+}
+console.log(counter); // 30 (because if block variable won't exist here)
+```
+
+#### Q. What is the difference between let and var?
+You can list out the differences in a tabular format
+
+| var | let |
+|---- | ---------
+| It is been available from the beginning of JavaScript  | Introduced as part of ES6 |
+| It has function scope | It has block scope  |
+| Variables will be hoisted | Won't get hoisted|
+
+Let's take an example to see the difference,
+```javascript
+function userDetails(username) {
+   if(username) {
+     console.log(salary); // undefined(due to hoisting)
+     console.log(age); // error: age is not defined
+     let age = 30;
+     var salary = 10000;
+   }
+   console.log(salary); //10000 (accessible to due function scope)
+   console.log(age); //error: age is not defined(due to block scope)
+}
+```
+
+#### Q.How do you redeclare variables in switch block without an error?
+If you try to redeclare variables in a `switch block` then it will cause errors because there is only one block. For example, the below code block throws a syntax error as below,
+```javascript
+let counter = 1;
+switch(x) {
+    case 0:
+    let name;
+    break;
+
+    case 1:
+    let name; // SyntaxError for redeclaration.
+    break;
+}
+```
+To avoid this error, you can create a nested block inside a case clause will create a new block scoped lexical environment.
+```javascript
+let counter = 1;
+    switch(x) {
+        case 0: {
+        let name;
+        break;
+        }
+        case 1: {
+        let name; // No SyntaxError for redeclaration.
+        break;
+        }
+    }
+```
