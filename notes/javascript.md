@@ -82,7 +82,7 @@ Output
 ```javascript
 var sample = [1, 2, 3];
 
-var sum = sample.reduce(function(sum, elem){
+var sum = sample.reduce(function(sum, elem) {
     return sum + elem;
 });
 console.log(sum); // Output: 6
@@ -90,14 +90,14 @@ console.log(sum); // Output: 6
 
 #### Q. Write a program to reverse a string?
 ```javascript
-  function reverseString(str){
-      let stringRev ="";
-      for(let i= 0; i<str.length; i++){
-          stringRev = str[i] + stringRev;
-      }
-      return stringRev;
-  }
-  alert(reverseString("Pradeep")); // Output: peedarP
+function reverseString(str){
+    let stringRev ="";
+    for(let i = str.length; i >= 0; i--) {
+        stringRev = stringRev + str.charAt(i);
+    }
+    return stringRev;
+}
+alert(reverseString("Pradeep")); // Output: peedarP
 ```
 
 #### Q. What is Hoisting?
@@ -121,8 +121,8 @@ A closure is the combination of a function and the lexical environment within wh
 3. Global variables
 Let's take an example of closure concept,
 ```javascript
-function Welcome(name){
-  var greetingInfo = function(message){
+function Welcome(name) {
+  var greetingInfo = function(message) {
     console.log(message+' '+name);
   }
 return greetingInfo;
@@ -209,7 +209,7 @@ if(!regularExpression.test(newPassword)) {
  4. **Function constructor:**
  Create any function and apply the new operator to create object instances,
  ```javascript
- function Person(name){
+ function Person(name) {
   var object = {};
   object.name = name;
   object.age = 26;
@@ -260,7 +260,7 @@ var object = new Person("Pradeep");
 7. **Singleton pattern:**
 A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don't accidentally create multiple instances.
 ```javascript
-var object = new function(){
+var object = new function() {
   this.name = "Pradeep";
 }
 ```
@@ -528,7 +528,7 @@ function somemethod() {
 #### Q. What is IIFE(Immediately Invoked Function Expression)?
 IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,
 ```javascript
-(function (){
+(function () {
     // logic here
 })();
 ```
@@ -767,13 +767,13 @@ outerFunction(callbackFunction);
 The callbacks are needed because javascript is a event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
 Let's take an example with first function invoking an API call(simulated by setTimeout) and next function which logs the message.
 ```javascript
-function firstFunction(){
+function firstFunction() {
   // Simulate a code delay
-  setTimeout( function(){
+  setTimeout( function() {
     console.log('First function called');
   }, 1000 );
 }
-function secondFunction(){
+function secondFunction() {
   console.log('Second function called');
 }
 firstFunction();
@@ -788,10 +788,10 @@ As observed from the output, javascript didn't wait for the response of first fu
 #### Q. What is a callback hell?
 Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
 ```javascript
-async1(function(){
-    async2(function(){
-        async3(function(){
-            async4(function(){
+async1(function() {
+    async2(function() {
+        async3(function() {
+            async4(function() {
                 ....
             });
         });
@@ -1164,8 +1164,8 @@ JavaScript was created by Brendan Eich in 1995 during his time at Netscape Commu
 #### Q. What is the use of preventDefault method?
 The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
 ```javascript
-document.getElementById("link").addEventListener("click", function(event){
-event.preventDefault();
+document.getElementById("link").addEventListener("click", function(event) {
+   event.preventDefault();
 });
 ```
 **Note:** Remember that not all events are cancelable.
@@ -1201,12 +1201,12 @@ The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It co
 #### Q. What is the use of setTimeout?
 The setTimeout() method is used to call a function or evaluates an expression after a specified number of milliseconds. For example, let's log a message after 2 seconds using setTimeout method,
 ```javascript
-setTimeout(function(){ console.log("Good morning"); }, 2000);
+setTimeout(function() { console.log("Good morning"); }, 2000);
 ```
 #### Q. What is the use of setInterval?
 The setInterval() method is used to call a function or evaluates an expression at specified intervals (in milliseconds). For example, let's log a message after 2 seconds using setInterval method,
 ```javascript
-setInterval(function(){ console.log("Good morning"); }, 2000);
+setInterval(function() { console.log("Good morning"); }, 2000);
 ```
 #### Q. Why is JavaScript treated as Single threaded?
 JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
