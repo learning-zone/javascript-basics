@@ -2201,14 +2201,14 @@ function countCharacters(str) {
 console.log(countCharacters("the brown fox jumps over the lazy dog"));
 ```
 
-#### Q. What is the value of `foo`?*
+#### Q. What is the value of `foo`?
 ```javascript
 var foo = 10 + '20';
 ```
 
 *Answer:* `'1020'`, because of type coercion from Number to String
 
-#### Q. How would you make this work?*
+#### Q. How would you make this work?
 ```javascript
 add(2, 5); // 7
 add(2)(5); // 7
@@ -2238,21 +2238,21 @@ add()(2)(5); // 7
 add()()(2)(5); // 7
 ```
 
-#### Q. What value is returned from the following statement?*
+#### Q. What value is returned from the following statement?
 ```javascript
 "i'm a lasagna hog".split("").reverse().join("");
 ```
 
 *Answer:* It's actually a reverse method for a string - `'goh angasal a m\'i'`
 
-#### Q. What is the value of `window.foo`?*
+#### Q. What is the value of `window.foo`?
 ```javascript
 ( window.foo || ( window.foo = "bar" ) );
 ```
 
 *Answer:* Always `'bar'`
 
-#### Q. What is the outcome of the two alerts below?*
+#### Q. What is the outcome of the two alerts below?
 ```javascript
 var foo = "Hello";
 (function() {
@@ -2266,7 +2266,7 @@ alert(foo + bar);
 - First: `Hello World`
 - Second: Throws an exception, `ReferenceError: bar is not defined`
 
-#### Q. What is the value of `foo.length`?*
+#### Q. What is the value of `foo.length`?
 ```javascript
 var foo = [];
 foo.push(1);
@@ -2275,7 +2275,7 @@ foo.push(2);
 
 *Answer:* `.push` is mutable - `2`
 
-#### Q. What is the value of `foo.x`?*
+#### Q. What is the value of `foo.x`?
 ```javascript
 var foo = {n: 1};
 var bar = foo;
@@ -2291,7 +2291,7 @@ to an original object, `{n: 1}`. So, when the result of the right term, `{n:
 2}`, is evaluated, it will assigned to the original object, which is at the
 moment referenced by `bar`.
 
-#### Q. What does the following code print?*
+#### Q. What does the following code print?
 ```javascript
 console.log('one');
 setTimeout(function() {
