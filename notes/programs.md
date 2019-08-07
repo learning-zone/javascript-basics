@@ -2185,3 +2185,18 @@ invoked in the next event loop.
 
 #### Q. What would be the result of 1+2+'3'?
 The output is going to be `33`. Since `1` and `2` are numeric values, the result of first two digits is going to be a numeric value `3`. The next digit is a string type value because of that the addition of numeric value `3` and string type value `3` is just going to be a concatenation value `33`.
+
+#### Q. Write a script that returns the number of occurrences of character given a string as input?
+```javascript
+function countCharacters(str) {
+  return str.replace(/ /g, '').toLowerCase().split('').reduce((arr, character) => {
+    if (character in arr) {
+      arr[character]++;
+    } else {
+      arr[character] = 1;
+    }
+    return arr;
+  }, {});
+}
+console.log(countCharacters("the brown fox jumps over the lazy dog"));
+```
