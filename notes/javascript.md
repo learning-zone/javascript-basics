@@ -82,10 +82,10 @@ Output
 Syntax:
 ```javascript
 [10, 20, 30, 40, 50].reduce(function(accumulator, currentValue, currentIndex, array) {
-  console.log("accumulator: "+accumulator);   // Output: 10
-  console.log("currentValue: "+currentValue); // Output: 20, 30, 40, 50
-  console.log("currentIndex: "+currentIndex); // Output: 1, 2, 3, 4
-  console.log("array: "+array);               // Output: 10, 20, 30, 40, 50 
+  console.log('accumulator: '+accumulator);   // Output: 10
+  console.log('currentValue: '+currentValue); // Output: 20, 30, 40, 50
+  console.log('currentIndex: '+currentIndex); // Output: 1, 2, 3, 4
+  console.log('array: '+array);               // Output: 10, 20, 30, 40, 50 
 });
 
 ```
