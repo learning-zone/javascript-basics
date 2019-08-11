@@ -1,5 +1,10 @@
 ## Programming in JavaScript
 
+
+#### Q. Predict the output of the following JavaScript code?
+```javascript
+console.log(+'meow'); // Output: NaN
+```
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
 var result;
@@ -2311,3 +2316,85 @@ if( !(x > 100) ) {...}
 *Answer:* `NaN <= 100` is `false` and `NaN > 100` is also false, so if the value of `x` is `NaN`, the statements are not the same.
 
 The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}`, etc.
+
+#### Q. what is g value?
+```javascript
+f = g = 0;
+(function () {
+  try {
+    f = function() {
+      return f();
+    };
+    f();
+  } catch (e) {
+    return g++ && f();
+  } finally {
+    return ++g;
+  }
+  function f() { g += 5; return 0; }
+}) ();
+```
+#### Q. what is g value?
+```javascript
+f = g = 0;
+(function () {
+  try {
+    f = function() {
+      return f();
+    } && f();
+  } catch (e) {
+    return g++ && f();
+  } finally {
+    return ++g;
+  }
+  function f() { g += 5; return 0; }
+}) ();
+```
+#### Q. what will be the output?
+```javascript
+function b(b) {
+  return this.b && b(b)
+}
+b(b.bind(b))
+```
+#### Q. what will be the output?
+```javascript
+c = (c) => {
+  return this.c && c(c)
+}
+c(c.bind(c))
+```
+#### Q. Predict the output of the following JavaScript code?
+```javascript
+var g = 0;
+g = 1 && g++;
+console.log(g);
+```
+#### Q. Predict the output of the following JavaScript code?
+```javascript
+!function(){}()
+function(){}()
+true && function(){}()
+(function(){})()
+function(){}
+!function(){}
+```
+#### Q. what will expression return?
+```javascript
+var a = b = true, c = (a) => a;
+(function a(a = c(b).a = c = () => a) { return a(); })()
+```
+#### Q. Predict the output of the following JavaScript code?
+```javascript
+var a = true;
+(a = function () { return a })()
+```
+#### Q. what will be the output?
+```javascript
+var v = 0;
+try {
+  throw v = (function(c) { throw v = function(a){ return v; } })();
+} catch (e) {
+  console.log (e()());
+}
+```
