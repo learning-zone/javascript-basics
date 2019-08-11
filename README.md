@@ -81,6 +81,8 @@
 1. How do you get meta data of a module?
 1. How to do Javascript file size and extension validation before upload?
 1. How to create captcha using javascript?
-1. how to avoid callback hell in javascript?
-
-
+1. How to avoid callback hell in javascript?
+1. Why is eval() considered evil and dangerous?
+1. What is the difference between encryption and hashing?
+1. What is Proxies and Reflection in JavaScript?
+1. What is a host object? How is it different from a native object?
