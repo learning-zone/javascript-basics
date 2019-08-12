@@ -492,8 +492,6 @@ Below are some of the differences between cookie, local storage and session stor
 | SSL support | Supported | Not supported | Not supported |
 | Maximum data size | 4KB | 5 MB | 5MB |
 
-#### Q. What is the main difference between localStorage and sessionStorage?
-LocalStorage is same as SessionStorage but it persists the data even when the browser is closed and reopened(i.e it has no expiration time) whereas in sessionStorage data gets cleared when the page session ends.
 
 #### Q. How do you access web storage?
 The Window object implements the `WindowLocalStorage` and `WindowSessionStorage` objects which has `localStorage`(window.localStorage) and `sessionStorage`(window.sessionStorage) properties respectively. These properties create an instance of the Storage object, through which data items can be set, retrieved and removed for a specific domain and storage type (session or local).
@@ -1495,15 +1493,6 @@ Tree Shaking can significantly reduce the code size in any application. i.e, The
 #### Q. Is it recommended to use eval?
 No, it allows arbitrary code to be run which casues a security problem. As we know that the eval() function is used to run text as code. In most of the cases, it should not be necessary to use it.
 
-#### Q. What is a Regular Expression?
-A regular expression is a sequence of characters that forms a search pattern. You can use this search pattern for searching data in a text. These can be used to perform all types of text search and text replace operations. Let's see the syntax format now,
-```javascript
-/pattern/modifiers;
-```
-For example, the regular expression or search pattern with case-insensitive username would be,
-```javascript
-/John/i
-```
 #### Q. What are the string methods available in Regular expression?
 Regular Expressions has two string methods: search() and replace().
 The search() method uses an expression to search for a match, and returns the position of the match.
@@ -1704,7 +1693,7 @@ window.onload = function ...
 document.onload = function ...
 ```
 3. ** body onload:**
-```javascript
+```html
 <body onload="script();">
 ```
 #### Q. What is the difference between proto and prototype?
