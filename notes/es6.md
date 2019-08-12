@@ -417,3 +417,88 @@ const { e, f, ...others } = {
   h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
+#### Q. What is the purpose of let keyword?
+
+The let statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the var keyword used to define a variable globally, or locally to an entire function regardless of block scope. Let's take an example to demonstrate the usage,
+```javascript
+let counter = 30;
+if (counter === 30) {
+  let counter = 31;
+  console.log(counter); // 31
+}
+console.log(counter); // 30 (because if block variable won't exist here)
+```
+
+#### Q. What are the differences between variables created using `let`, `var` or `const`?
+
+Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
+
+```javascript
+function foo() {
+  // All variables are accessible within functions.
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
+
+  console.log(bar); // bar
+  console.log(baz); // baz
+  console.log(qux); // qux
+}
+
+console.log(bar); // ReferenceError: bar is not defined
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+```javascript
+if (true) {
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
+}
+
+// var declared variables are accessible anywhere in the function scope.
+console.log(bar); // bar
+// let and const defined variables are not accessible outside of the block they were defined in.
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
+
+```javascript
+console.log(foo); // undefined
+
+var foo = 'foo';
+
+console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
+
+let baz = 'baz';
+
+console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
+
+const bar = 'bar';
+```
+
+Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
+
+```javascript
+var foo = 'foo';
+var foo = 'bar';
+console.log(foo); // "bar"
+
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+```
+
+`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
+
+```javascript
+// This is fine.
+let foo = 'foo';
+foo = 'bar';
+
+// This causes an exception.
+const baz = 'baz';
+baz = 'qux';
+```
