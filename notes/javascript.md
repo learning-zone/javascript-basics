@@ -2499,19 +2499,15 @@ function myFunction() {
 }
 ```
 #### Q. Explain event delegation
-
 Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
 
 * Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
 * There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
 
-
 #### Q. Explain how prototypal inheritance works
-
 This is an extremely common JavaScript interview question. All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
 
 #### Q. Example of Prototypal Inheritance
-
 We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
 
 ```javascript
@@ -2879,51 +2875,6 @@ const template = `<div>My name is: ${name}</div>`;
 ```
 
 However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
-
-
-#### Q. Explain "hoisting".
-
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "moved" up to the top of the current scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.
-
-Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope. Let's explain with a few examples.
-
-```javascript
-// var declarations are hoisted.
-console.log(foo); // undefined
-var foo = 1;
-console.log(foo); // 1
-
-// let/const declarations are NOT hoisted.
-console.log(bar); // ReferenceError: bar is not defined
-let bar = 2;
-console.log(bar); // 2
-```
-
-Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
-
-```javascript
-// Function Declaration
-console.log(foo); // [Function: foo]
-foo(); // 'FOOOOO'
-function foo() {
-  console.log('FOOOOO');
-}
-console.log(foo); // [Function: foo]
-
-// Function Expression
-console.log(bar); // undefined
-bar(); // Uncaught TypeError: bar is not a function
-var bar = function() {
-  console.log('BARRRR');
-};
-console.log(bar); // [Function: bar]
-```
-
-#### Q. Describe event bubbling.
-
-When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
-
-
 
 #### Q. What's the difference between an "attribute" and a "property"?
 
@@ -5500,14 +5451,6 @@ var bar = function() {
 };
 console.log(bar); // [Function: bar]
 ```
-
-
-
-#### Q. Describe event bubbling.
-
-When an event triggers on a DOM element, it will attempt to handle the event if there is a listener attached, then the event is bubbled up to its parent and the same thing happens. This bubbling occurs up the element's ancestors all the way to the `document`. Event bubbling is the mechanism behind event delegation.
-
-
 
 #### Q. What's the difference between an "attribute" and a "property"?
 
