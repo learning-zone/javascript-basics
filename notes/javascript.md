@@ -5526,7 +5526,6 @@ console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
-
 #### Q. Why is extending built-in JavaScript objects not a good idea?
 
 Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods is not the same.
@@ -5594,8 +5593,6 @@ Disadvantages:
 #### Q. Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
 Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
-
-
 
 #### Q. Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?
 
@@ -5758,14 +5755,11 @@ Synchronous functions are blocking while asynchronous functions are not. In sync
 
 Asynchronous functions usually accept a callback as a parameter and execution continue on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
 
-
-
 #### Q. What is event loop? What is the difference between call stack and task queue?
 
 The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
 
 If you haven't already checked out Philip Robert's [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), you should. It is one of the most viewed videos on JavaScript.
-
 
 #### Q. Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`
 
@@ -5787,80 +5781,6 @@ foo(); // Uncaught TypeError: foo is not a function
 var foo = function() {
   console.log('FOOOOO');
 };
-```
-
-#### Q. What are the differences between variables created using `let`, `var` or `const`?
-
-Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
-
-```javascript
-function foo() {
-  // All variables are accessible within functions.
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
-
-  console.log(bar); // bar
-  console.log(baz); // baz
-  console.log(qux); // qux
-}
-
-console.log(bar); // ReferenceError: bar is not defined
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
-```
-
-```javascript
-if (true) {
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
-}
-
-// var declared variables are accessible anywhere in the function scope.
-console.log(bar); // bar
-// let and const defined variables are not accessible outside of the block they were defined in.
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
-```
-
-`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
-
-```javascript
-console.log(foo); // undefined
-
-var foo = 'foo';
-
-console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
-
-let baz = 'baz';
-
-console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
-
-const bar = 'bar';
-```
-
-Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
-
-```javascript
-var foo = 'foo';
-var foo = 'bar';
-console.log(foo); // "bar"
-
-let baz = 'baz';
-let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
-```
-
-`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
-
-```javascript
-// This is fine.
-let foo = 'foo';
-foo = 'bar';
-
-// This causes an exception.
-const baz = 'baz';
-baz = 'qux';
 ```
 
 #### Q. What is the definition of a higher-order function?
@@ -6000,18 +5920,6 @@ Some of the major difference in a tabular form
 4. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
 5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
 6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
-
-#### Q. What is the purpose of let keyword?
-
-The let statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the var keyword used to define a variable globally, or locally to an entire function regardless of block scope. Let's take an example to demonstrate the usage,
-```javascript
-let counter = 30;
-if (counter === 30) {
-  let counter = 31;
-  console.log(counter); // 31
-}
-console.log(counter); // 30 (because if block variable won't exist here)
-```
 
 #### Q.How do you redeclare variables in switch block without an error?
 If you try to redeclare variables in a `switch block` then it will cause errors because there is only one block. For example, the below code block throws a syntax error as below,
