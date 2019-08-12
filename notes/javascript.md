@@ -2010,9 +2010,7 @@ const user = {
 };
 
 const admin = Object.create(person);
-
 admin.name = "Nick"; // Remember that "name" is a property set on "admin" but not on "user" object
-
 admin.printInfo(); // My name is Nick
 ```
 #### Q. What is a WeakSet?
@@ -2865,16 +2863,6 @@ The client has to have the `printData` function in its global scope and the func
 JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
 
 These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
-
-#### Q. Have you ever used JavaScript templating? If so, what libraries have you used?
-
-Yes. Handlebars, Underscore, Lodash, AngularJS, and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favorite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
-
-```javascript
-const template = `<div>My name is: ${name}</div>`;
-```
-
-However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
 
 #### Q. What's the difference between an "attribute" and a "property"?
 
