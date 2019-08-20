@@ -1,8 +1,23 @@
 ## JavaScript Notes
 
 
-#### Q. What is difference between document.getElementById() and document.querySelectors()?
+#### Q. What is difference between document.getElementById(), document.querySelector() and document.querySelectorAll()?
+**document.getElementById()**: Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+Syntax:
+```javascript
+element = document.getElementById(id);
+```
 
+**document.querySelector()**: Returns the first matching Element node within the node's subtree. If no matching node is found, null is returned.
+Syntax:
+```javascript
+element = document.querySelector(selectors);
+```
+
+**document.querySelectorAll()**: Returns a NodeList containing all matching Element nodes within the node's subtree, or an empty NodeList if no matches are found.
+```javascript
+element = document.querySelectorAll(selectors);
+```
 
 #### Q. When to use reduce(), map(), foreach() and filter() in JavaScript? 
 **forEach()**:  <code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
