@@ -19,6 +19,8 @@ element = document.querySelector(selectors);
 element = document.querySelectorAll(selectors);
 ```
 
+*Note*: <code>querySelector<code> is more useful when we want to use more complex selectors.
+
 #### Q. When to use reduce(), map(), foreach() and filter() in JavaScript? 
 **forEach()**:  <code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
 
