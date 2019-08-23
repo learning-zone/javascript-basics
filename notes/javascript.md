@@ -104,8 +104,8 @@ alert(reverseString("Pradeep")); // Output: peedarP
 ```
 
 #### Q. What is Hoisting?
-Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.
-Let's take a simple example of variable hoisting,
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.  
+Example:  
 ```javascript
 console.log(message); //output : undefined
 var message = "The variable Has been hoisted";
