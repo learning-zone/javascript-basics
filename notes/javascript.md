@@ -499,17 +499,6 @@ document.cookie = "username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;";
 ```
 **Note:** You should define the cookie path option to ensure that you delete the right cookie. Some browsers doesn't allow to delete a cookie unless you specify a path parameter.
 
-#### Q. What are the differences between cookie, local storage and session storage?
-Below are some of the differences between cookie, local storage and session storage,
-
-| Feature | Cookie | Local storage | Session storage |
-|---- | --------- | ----- | ----- |
-| Accessed on client or server side | Both server-side & client-side | client-side only | client-side only |
-| Lifetime | As configured using Expires option  | until deleted | until tab is closed |
-| SSL support | Supported | Not supported | Not supported |
-| Maximum data size | 4KB | 5 MB | 5MB |
-
-
 #### Q. How do you access web storage?
 The Window object implements the `WindowLocalStorage` and `WindowSessionStorage` objects which has `localStorage`(window.localStorage) and `sessionStorage`(window.sessionStorage) properties respectively. These properties create an instance of the Storage object, through which data items can be set, retrieved and removed for a specific domain and storage type (session or local).
 For example, you can read and write on local storage objects as below
