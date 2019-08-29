@@ -5886,3 +5886,5 @@ let counter = 1;
         }
     }
 ```
+#### Q. How to Create and trigger events in javascript?
+*TODO*
