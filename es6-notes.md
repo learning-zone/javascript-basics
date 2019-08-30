@@ -36,7 +36,153 @@ const { p, q } = o;
 console.log(p); // 42
 console.log(q); // true
 ```
+#### Q. List out important features of es6?
+* **Template String**
+```javascript
+  function print(Name) {
+    console.log("Hello " + Name);
+    console.log(`Hello ${Name}`);
+  }
+  print("Pradeep");
+```
 
+* **Spread Operators**
+
+```javascript
+var firstGroup = ["C", "C++", "Java"];
+var secondGroup = ["SQL", "MySQL", "BigData"];
+var thirdGroup = ["Android", "Python", "Ruby", firstGroup, secondGroup];
+var finalGroup = ["Android", "Python", "Ruby", ...firstGroup, ...secondGroup];
+
+console.log(thirdGroup);
+console.log(finalGroup);
+```
+
+
+* **Sets**
+```javascript
+const sets = new Set([1, 2, 3, 4, 5]);
+	
+console.log(sets.has(1)); 
+console.log(sets.has(0)); 
+```
+
+* **Default Parametrs**
+```javascript
+function add(x = 10, y = 20) {
+  console.log(x + y);
+}
+add(30, 40);
+```
+
+* **repeat()**
+```javascript
+    var cat = {
+		 meow(times){
+			 console.log("meow ".repeat(times));
+		 }
+	};
+    cat.meow(2); 
+```
+
+* **Arrow Function**
+```javascript
+var companyList = function(company) {
+  console.log(company);
+};
+
+//ES-6
+
+var companyList = company => console.log(company); //arraow function
+
+companyList(["Apple", "Microsoft", "Google"]);
+
+```
+* **Arrow function with 'this'**
+```javascript
+var person = {
+  first: "Pradeep",
+  actions: ["bike", "hike", "ski", "surf"],
+  printActions: function() {
+    var _this = this;
+    this.actions.forEach(function(action) {
+      var str = _this.first + " likes to " + action;
+      console.log(str);
+    });
+  }
+};
+person.printActions();
+
+//ES-6
+var person = {
+  first: "Pradeep",
+  actions: ["bike", "hike", "ski", "surf"],
+  printActions() {
+    this.actions.forEach(action => {
+      var str = this.first + " likes to " + action;
+      console.log(str);
+    });
+  }
+};
+```
+
+* **Destructing Assignment**
+```javascript
+var phone = {
+  title: "iPhone",
+  price: 800,
+  description: "The iPhone is a smartphone developed by Apple"
+};
+
+console.log(phone.title);
+//ES-6
+var { title, price } = {
+  title: "iPhone",
+  price: 800,
+  description: "The iPhone is a smartphone developed by Apple"
+};
+
+console.log(title);
+```
+* **Generators**
+
+Calling a generator function does not execute its body immediately
+```javascript
+	function* generator(i) {
+		yield i;
+		yield i + 10;
+	}
+	var gen = generator(10);
+	console.log(gen.next().value); 
+    console.log(gen.next().value); 
+```  
+
+* **Symbols**
+
+They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
+```javascript
+	const symbol1 = Symbol();
+	const symbol2 = Symbol(42);
+	const symbol3 = Symbol('foo');
+
+	console.log(typeof symbol1); 
+
+	console.log(symbol3.toString()); 
+
+	console.log(Symbol('foo') === Symbol('foo')); 
+```
+
+* **Iterator**
+
+The iterable protocol allows JavaScript objects to define or customize their iteration behavior. 
+```javascript
+  var title = 'ES6';
+  var iterateIt = title[Symbol.iterator]();
+
+  console.log(iterateIt.next().value); //output: E
+  console.log(iterateIt.next().value); //output: S
+  console.log(iterateIt.next().value); //output: 6
+```
 #### Q. ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
 Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
