@@ -299,7 +299,62 @@ button.addEventListener('click', () => {
   this.classList.toggle('on');
 });
 ```
+#### Q. How does await and async works in es6?
+* **Promises**
+```javascript
+const delay = seconds => {
+    return new Promise(resolve => {
+        setTimeout(resolve, seconds * 1000)
+    });
+};
 
+console.log("Zero seconds wait");
+delay(1).then(() => console.log('One seconds wait'));
+delay(5).then(() => console.log('Five seconds wait'));
+```
+* **Loading data with fetch()**
+```javascript
+const getPeopleInSpace = () =>
+    fetch('http://api.open-notify.org/astros.json')
+        .then(res => res.json());
+
+getPeopleInSpace()
+    .then(console.log);
+```
+* **Async() and await()**
+```javascript
+const delay = seconds => {
+    return new Promise(
+        resolve => setTimeout(resolve, seconds * 1000)
+    )
+};
+
+const countToFive = async() => {
+    console.log('zero seconds wait');
+    await delay(2);
+    console.log('Two seconds wait');
+    await delay(5);
+    console.log('Five seconds wait');
+}
+
+countToFive();
+```
+* **Async with fetch**
+```javascript
+const githubRequest = async(loginName) => {
+    try{
+        var response = await fetch(`http://api.github.com/users/${loginName}/followers`);
+        var json = await response.json();
+        var followerList = json.map(user => user.login);
+        console.log(followerList);
+    } catch(e){
+        console.log("Data didn't load", e);
+    }
+};
+
+//githubRequest('eveporcello');
+githubRequest('pradeepkumar2');
+```
 #### Q. What are the benefits of using arrow function over es5 function? When should you NOT use arrow functions?
 *TODO*
 #### Q. What is Destructuring and spread operators in ES6?
