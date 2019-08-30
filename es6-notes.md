@@ -39,11 +39,11 @@ console.log(q); // true
 #### Q. List out important features of es6?
 * **Template String**
 ```javascript
-  function print(Name) {
-    console.log("Hello " + Name);
-    console.log(`Hello ${Name}`);
-  }
-  print("Pradeep");
+function print(Name) {
+  console.log("Hello " + Name);
+  console.log(`Hello ${Name}`);
+}
+print("Pradeep");
 ```
 
 * **Spread Operators**
@@ -57,7 +57,6 @@ var finalGroup = ["Android", "Python", "Ruby", ...firstGroup, ...secondGroup];
 console.log(thirdGroup);
 console.log(finalGroup);
 ```
-
 
 * **Sets**
 ```javascript
@@ -77,12 +76,12 @@ add(30, 40);
 
 * **repeat()**
 ```javascript
-    var cat = {
-		 meow(times){
-			 console.log("meow ".repeat(times));
-		 }
-	};
-    cat.meow(2); 
+var cat = {
+  meow(times){
+    console.log("meow ".repeat(times));
+  }
+};
+cat.meow(2); 
 ```
 
 * **Arrow Function**
@@ -92,7 +91,6 @@ var companyList = function(company) {
 };
 
 //ES-6
-
 var companyList = company => console.log(company); //arraow function
 
 companyList(["Apple", "Microsoft", "Google"]);
@@ -133,55 +131,52 @@ var phone = {
   price: 800,
   description: "The iPhone is a smartphone developed by Apple"
 };
-
 console.log(phone.title);
+
 //ES-6
 var { title, price } = {
   title: "iPhone",
   price: 800,
   description: "The iPhone is a smartphone developed by Apple"
 };
-
 console.log(title);
 ```
 * **Generators**
 
 Calling a generator function does not execute its body immediately
 ```javascript
-	function* generator(i) {
-		yield i;
-		yield i + 10;
-	}
-	var gen = generator(10);
-	console.log(gen.next().value); 
-    console.log(gen.next().value); 
+function* generator(i) {
+  yield i;
+  yield i + 10;
+}
+var gen = generator(10);
+console.log(gen.next().value); 
+console.log(gen.next().value); 
 ```  
 
 * **Symbols**
 
 They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
 ```javascript
-	const symbol1 = Symbol();
-	const symbol2 = Symbol(42);
-	const symbol3 = Symbol('foo');
+const symbol1 = Symbol();
+const symbol2 = Symbol(42);
+const symbol3 = Symbol('foo');
 
-	console.log(typeof symbol1); 
-
-	console.log(symbol3.toString()); 
-
-	console.log(Symbol('foo') === Symbol('foo')); 
+console.log(typeof symbol1); 
+console.log(symbol3.toString()); 
+console.log(Symbol('foo') === Symbol('foo')); 
 ```
 
 * **Iterator**
 
 The iterable protocol allows JavaScript objects to define or customize their iteration behavior. 
 ```javascript
-  var title = 'ES6';
-  var iterateIt = title[Symbol.iterator]();
+var title = 'ES6';
+var iterateIt = title[Symbol.iterator]();
 
-  console.log(iterateIt.next().value); //output: E
-  console.log(iterateIt.next().value); //output: S
-  console.log(iterateIt.next().value); //output: 6
+console.log(iterateIt.next().value); //output: E
+console.log(iterateIt.next().value); //output: S
+console.log(iterateIt.next().value); //output: 6
 ```
 #### Q. ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
