@@ -1,5 +1,5 @@
 
-## JavaScript Questions
+## JavaScript Interview Questions
 
 1. Explain datatypes in JavaScript.
 1. Explain different methods for DOM manipulation in JavaScript.
