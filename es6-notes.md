@@ -1,4 +1,4 @@
-## ES6 Notes
+## ES6 Interview Questions and Answers
 
 #### Q. Can you give an example for destructuring an object or an array?
 
