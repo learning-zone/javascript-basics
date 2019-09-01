@@ -1,4 +1,4 @@
-## JavaScript Notes
+## JavaScript Interview Questions and Answers
 
 
 #### Q. What is difference between document.getElementById() and document.querySelector()?
