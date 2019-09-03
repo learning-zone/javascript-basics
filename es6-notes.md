@@ -1,5 +1,30 @@
 ## ES6 Interview Questions and Answers
 
+|Sl.No| ES6 Questions|
+|------|---------------|
+|01. |[Can you give an example for destructuring an object or an array?](#q-can-you-give-an-example-for-destructuring-an-object-or-an-array)|
+|02. |[List out important features of es6?](#q-list-out-important-features-of-es6)|
+|03. |[ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?](#q-es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)|
+|04. |[What advantage is there for using the arrow syntax for a method in a constructor?](#q-what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)|
+|05. |[What are lambda / arrow / fat arrow functions? When you should not use arrow functions in ES6?](#q-what-are-lambda-arrow-fat-arrow-functions-when-you-should-not-use-arrow-functions-in-es6)|
+|06. |[How does await and async works in es6?](#q-how-does-await-and-async-works-in-es6)|
+|07. |[What are the benefits of using arrow function over es5 function? When should you NOT use arrow functions?](#q-what-are-the-benefits-of-using-arrow-function-over-es5-function-when-should-you-not-use-arrow-functions)|
+|08. |[What is Destructuring and spread operators in ES6?](#q-what-is-destructuring-and-spread-operators-in-es6)|
+|00. |[What is a trampolined function? What is it used for?](#q-what-is-a-trampolined-function-what-is-it-used-for)|
+|10. |[What is a symbol in JavaScript? Is it a primitive? What's a typical use case for a symbol in ES6?](#q-what-is-a-symbol-in-javascript-is-it-a-primitive-what-s-a-typical-use-case-for-a-symbol-in-es6)|
+|11. |[What is the difference between Map and WeakMap in ES6?](#q-what-is-the-difference-between-map-and-weakmap-in-es6)|
+|12. |[What are the differences between ES6 class and ES5 function constructors?](#q-what-are-the-differences-between-es6-class-and-es5-function-constructors)|
+|13. |[Can you give an example of one of the ways that working with this has changed in ES6?](#q-can-you-give-an-example-of-one-of-the-ways-that-working-with-this-has-changed-in-es6)|
+|14. |[What are the benefits of using spread syntax and how is it different from rest syntax?](#q-what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)|
+|15. |[What is the difference between let and var?](#q-what-is-the-difference-between-let-and-var)|
+|16. |[Can you give an example for destructuring an object or an array?](#q-can-you-give-an-example-for-destructuring-an-object-or-an-array)
+|17. |[What are the benefits of using spread syntax and how is it different from rest syntax?](#q-what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
+|18. |[What is the purpose of let keyword?](#q-what-is-the-purpose-of-let-keyword)|
+|19. |[What are the differences between variables created using `let`, `var` or `const`?](#q-what-are-the-differences-between-variables-created-using-let-var-or-const)|
+|20. |[Have you ever used JavaScript templating? If so, what libraries have you used?](#q-have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)|
+|21. |[What’s the difference between for..in and for..of?](#q-what-s-the-difference-between-forin-and-forof)|
+
+
 #### Q. Can you give an example for destructuring an object or an array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
