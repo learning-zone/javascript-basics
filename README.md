@@ -361,7 +361,7 @@
 |357. |[What is the purpose of array splice method?](#q-what-is-the-purpose-of-array-splice-method)|
 |358. |[What is the difference between slice and splice?](#q-what-is-the-difference-between-slice-and-splice)|
 |359. |[How do you compare Object and Map?](#q-how-do-you-compare-object-and-map)|
-|360. |[Q.How do you redeclare variables in switch block without an error?](#qhow-do-you-redeclare-variables-in-switch-block-without-an-error)|
+|360. |[How do you redeclare variables in switch block without an error?](#qhow-do-you-redeclare-variables-in-switch-block-without-an-error)|
 |361. |[How to Create and trigger events in javascript?](#q-how-to-create-and-trigger-events-in-javascript)|
 
 
