@@ -6,7 +6,7 @@
 |02. |[List out important features of es6?](#q-list-out-important-features-of-es6)|
 |03. |[ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?](#q-es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)|
 |04. |[What advantage is there for using the arrow syntax for a method in a constructor?](#q-what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)|
-|05. |[What are lambda / arrow / fat arrow functions? When you should not use arrow functions in ES6?](#q-what-are-lambda-arrow-fat-arrow-functions-when-you-should-not-use-arrow-functions-in-es6)|
+|05. |[What are fat arrow functions? When you should not use arrow functions in ES6?](#q-what-are-fat-arrow-functions-when-you-should-not-use-arrow-functions-in-es6)|
 |06. |[How does await and async works in es6?](#q-how-does-await-and-async-works-in-es6)|
 |07. |[What are the benefits of using arrow function over es5 function? When should you NOT use arrow functions?](#q-what-are-the-benefits-of-using-arrow-function-over-es5-function-when-should-you-not-use-arrow-functions)|
 |08. |[What is Destructuring and spread operators in ES6?](#q-what-is-destructuring-and-spread-operators-in-es6)|
@@ -297,7 +297,7 @@ sayNameFromWindow2(); // John
 The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
 
 
-#### Q. What are lambda / arrow / fat arrow functions? When you should not use arrow functions in ES6?
+#### Q. What are fat arrow functions? When you should not use arrow functions in ES6?
 An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
 
 
