@@ -1,5 +1,7 @@
 ## JavaScript Interview Questions and Answers
 
+> Click :star: if you like the project. Pull Request are highly appreciated.
+
 |Sl.NO|JavaScript Questions|
 |------|--------------------|
 |01. |[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)|
