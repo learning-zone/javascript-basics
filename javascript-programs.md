@@ -2407,3 +2407,21 @@ for (var i = 0; i < arr.length; i++) {
   }, 3000);
 }
 ```
+#### Q. What will be the output of the following code?
+```javascript
+var output = (function(x) {
+  delete x;
+  return x;
+})(0);
+
+console.log(output);
+```
+#### Q. What will be the output of the following code?
+```javascript
+var Employee = {
+  company: 'xyz'
+}
+var emp1 = Object.create(Employee);
+delete emp1.company
+console.log(emp1.company);
+```
