@@ -6294,23 +6294,45 @@ window.top – the reference to the topmost parent window.
 ```
 
 #### Q. In JavaScript, what is the difference between var x = 1 and x = 1? 
+*TODO*
 #### Q. What is Associative Array? How do we use it?
+*TODO*
 #### Q. What is difference between Classic Inheritance and Prototypical Inheritance?
+*TODO*
 #### Q. What is difference between private variable, public variable and static variable? How we achieve this in JS?
+*TODO*
 #### Q. How to add and remove properties to object in run time?
+*TODO*
 #### Q. How to extend built-in objects?
+*TODO*
 #### Q. Why extending array is bad idea?
+*TODO*
 #### Q. What is difference between browser detection and feature detection?
+*TODO*
 #### Q. What is difference between Graceful Degradation and Progressive Enhancement?
+*TODO*
 #### Q. In JavaScript, why is the “this” operator inconsistent?
+*TODO*
 #### Q. How accidental closures might cause memory leaks in IE?
+*TODO*
 #### Q. What unit testing framework do you use? and why?
+*TODO*
 #### Q. Explain the difference between Object.freeze() vs const?
+*TODO*
 #### Q. What is generator in JS?
+*TODO*
 #### Q. Describe the Revealing Module Pattern design pattern?
+*TODO*
 #### Q. Compare Async-Await and Generators usage to achive same functionality?
+*TODO*
 #### Q. Explain escape() and unescape() functions?
+*TODO*
 #### Q. What do you understand by Screen objects?
+*TODO*
 #### Q. How will you remove duplicates from a JS array?
+*TODO*
 #### Q. Explain NEGATIVE_INFINITY in JavaScript?
+*TODO*
 #### Q. What do you understand by ViewState and SessionState?
+*TODO*
+
