@@ -687,3 +687,20 @@ for (let i of list) {
    console.log(i); // "4", "5", "6"
 }
 ```
+#### Q. What are the differences between ES6 class and ES5 function constructors?
+```javascript
+// ES5 Function Constructor
+function Person(name) {
+  this.name = name;
+}
+
+// ES6 Class
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+```
+#### Q. When should we use generators in ES6?
+#### Q. What is the Temporal Dead Zone in ES6?
+#### Q. What is the difference between ES6 Map and WeakMap?
