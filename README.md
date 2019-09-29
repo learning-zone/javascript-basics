@@ -366,6 +366,27 @@
 |360. |[How do you redeclare variables in switch block without an error?](#qhow-do-you-redeclare-variables-in-switch-block-without-an-error)|
 |361. |[How to Create and trigger events in javascript?](#q-how-to-create-and-trigger-events-in-javascript)|
 |362. |[What is difference between window.frames window.parent and window.top in JavaScript?](#q-What-is-difference-between-window-frames-window-parent-and-window-top-in-javascript)|
+|363.|[In JavaScript, what is the difference between var x = 1 and x = 1?](#q-in-javascript-what-is-the-difference-between-var-x-1-and-x-1)|
+|364.|[What is Associative Array? How do we use it?](#q-what-is-associative-array-how-do-we-use-it)|
+|365.|[What is difference between Classic Inheritance and Prototypical Inheritance?](#q-what-is-difference-between-classic-inheritance-and-prototypical-inheritance)|
+|366.|[What is difference between private variable, public variable and static variable? How we achieve this in JS?](#q-what-is-difference-between-private-variable-public-variable-and-static-variable-how-we-achieve-this-in-js)|
+|367.|[How to add and remove properties to object in run time?](#q-how-to-add-and-remove-properties-to-object-in-run-time)|
+|368.|[How to extend built-in objects?](#q-how-to-extend-built-in-objects)|
+|369.|[Why extending array is bad idea?](#q-why-extending-array-is-bad-idea)|
+|370.|[What is difference between browser detection and feature detection?](#q-what-is-difference-between-browser-detection-and-feature-detection)|
+|371.|[What is difference between Graceful Degradation and Progressive Enhancement?](#q-what-is-difference-between-graceful-degradation-and-progressive-enhancement)|
+|372.|[In JavaScript, why is the “this” operator inconsistent?](#q-in-javascript-why-is-the-this-operator-inconsistent)|
+|373.|[How accidental closures might cause memory leaks in IE?](#q-how-accidental-closures-might-cause-memory-leaks-in-ie)|
+|374.|[What unit testing framework do you use? and why?](#q-what-unit-testing-framework-do-you-use-and-why)|
+|375.|[Explain the difference between Object.freeze() vs const?](#q-explain-the-difference-between-objectfreeze-vs-const)|
+|376.|[What is generator in JS?](#q-what-is-generator-in-js)|
+|377.|[Describe the Revealing Module Pattern design pattern?](#q-describe-the-revealing-module-pattern-design-pattern)|
+|378.|[Compare Async-Await and Generators usage to achive same functionality?](#q-compare-async-await-and-generators-usage-to-achive-same-functionality)|
+|379.|[Explain escape() and unescape() functions?](#q-explain-escape-and-unescape-functions)|
+|380.|[What do you understand by Screen objects?](#q-what-do-you-understand-by-screen-objects)|
+|381.|[How will you remove duplicates from a JS array?](#q-how-will-you-remove-duplicates-from-a-js-array)|
+|382.|[Explain NEGATIVE_INFINITY in JavaScript?](#q-explain-negative-infinity-in-javascript)|
+|383.|[What do you understand by ViewState and SessionState?](#q-what-do-you-understand-by-viewstate-and-sessionstate)|
 
 
 #### Q. What is difference between document.getElementById() and document.querySelector()?
@@ -6271,3 +6292,25 @@ window.frames – the collection of “children” windows (for nested frames).
 window.parent – the reference to the “parent” (outer) window.
 window.top – the reference to the topmost parent window.
 ```
+
+#### Q. In JavaScript, what is the difference between var x = 1 and x = 1? 
+#### Q. What is Associative Array? How do we use it?
+#### Q. What is difference between Classic Inheritance and Prototypical Inheritance?
+#### Q. What is difference between private variable, public variable and static variable? How we achieve this in JS?
+#### Q. How to add and remove properties to object in run time?
+#### Q. How to extend built-in objects?
+#### Q. Why extending array is bad idea?
+#### Q. What is difference between browser detection and feature detection?
+#### Q. What is difference between Graceful Degradation and Progressive Enhancement?
+#### Q. In JavaScript, why is the “this” operator inconsistent?
+#### Q. How accidental closures might cause memory leaks in IE?
+#### Q. What unit testing framework do you use? and why?
+#### Q. Explain the difference between Object.freeze() vs const?
+#### Q. What is generator in JS?
+#### Q. Describe the Revealing Module Pattern design pattern?
+#### Q. Compare Async-Await and Generators usage to achive same functionality?
+#### Q. Explain escape() and unescape() functions?
+#### Q. What do you understand by Screen objects?
+#### Q. How will you remove duplicates from a JS array?
+#### Q. Explain NEGATIVE_INFINITY in JavaScript?
+#### Q. What do you understand by ViewState and SessionState?
