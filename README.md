@@ -6254,3 +6254,9 @@ let counter = 1;
 ```
 #### Q. How to Create and trigger events in javascript?
 *TODO*
+#### Q. 
+```javascript
+window.frames – the collection of “children” windows (for nested frames).
+window.parent – the reference to the “parent” (outer) window.
+window.top – the reference to the topmost parent window.
+```
