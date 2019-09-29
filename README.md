@@ -6253,7 +6253,7 @@ let counter = 1;
         }
     }
 ```
-#### Q. How to Create and trigger events in javascript?
+#### Q. How to create and trigger events in javascript?
 Events can be created with the Event constructor as follows:
 ```javascript
 var event = new Event('build');
