@@ -365,6 +365,7 @@
 |359. |[How do you compare Object and Map?](#q-how-do-you-compare-object-and-map)|
 |360. |[How do you redeclare variables in switch block without an error?](#qhow-do-you-redeclare-variables-in-switch-block-without-an-error)|
 |361. |[How to Create and trigger events in javascript?](#q-how-to-create-and-trigger-events-in-javascript)|
+|362. |[What is difference between window.frames window.parent and window.top in JavaScript?](#q-What-is-difference-between-window-frames-window-parent-and-window-top-in-javascript)|
 
 
 #### Q. What is difference between document.getElementById() and document.querySelector()?
@@ -6254,7 +6255,7 @@ let counter = 1;
 ```
 #### Q. How to Create and trigger events in javascript?
 *TODO*
-#### Q. 
+#### Q. What is difference between window.frames window.parent and window.top in JavaScript?
 ```javascript
 window.frames – the collection of “children” windows (for nested frames).
 window.parent – the reference to the “parent” (outer) window.
