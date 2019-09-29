@@ -6254,7 +6254,17 @@ let counter = 1;
     }
 ```
 #### Q. How to Create and trigger events in javascript?
-*TODO*
+Events can be created with the Event constructor as follows:
+```javascript
+var event = new Event('build');
+
+// Listen for the event.
+elem.addEventListener('build', function (e) { /* ... */ }, false);
+
+// Dispatch the event.
+elem.dispatchEvent(event);
+```
+
 #### Q. What is difference between window.frames window.parent and window.top in JavaScript?
 ```javascript
 window.frames – the collection of “children” windows (for nested frames).
