@@ -6299,7 +6299,78 @@ window.top – the reference to the topmost parent window.
 'x = 1' will create a variable within the global scope. Thus, any other code can access and alter its value. It's generally a bad practice to use variables in a global scope.
 
 #### Q. What is Associative Array? How do we use it?
-*TODO*
+Associative arrays are dynamic objects that  the user redefines as needed. When you assign values ​​to keys in a variable of type Array, the array is transformed into an object, and it loses the attributes and methods of Array. The `length` attribute has no effect because the variable is not longer of Array type.
+
+**An associative array is declared or dynamically created**  
+```javascript
+var arr = { "one": 1, "two": 2, "three": 3 }; 
+```
+
+Unlike simple arrays, we use curly braces instead of square brackets. This has implicitly created a variable of type Object.
+The content is accessed by keys, whatever the method used to declare the array.
+```javascript
+var y = arr["one"];
+```
+**An associative array is also an object**  
+we can create an associative array with the Object reserved word, then and assign keys and values:
+```javascript
+var obj = new Object();
+obj["one"] = 1;
+obj["two"] = 2;
+obj["three"] = 3;
+for(var i in obj) {
+     document.write(i + "=" + obj[i] + '<br>');
+}
+```
+Output
+```
+one = 1
+two = 2
+three = 3
+```
+**Attributes of a JavaScript object are also keys**  
+What is specific to objects in JavaScript is that attributes are also keys as we shall see in the demonstration.
+Thus, the same array can be created more simply:
+```javascript
+var oa = new Object();
+oa.one = 1;
+oa.two = 2;
+oa.three = 3;
+for(var i in oa) {
+     document.write(i + "=" + x[i] + '<br>');
+}
+```
+**An associative array is scanned with for in**  
+We can not use a simple for loop because the elements are not accessible by an index (besides the fact that we must use a special function to determine the position of the last), but the simpler for in loop is ideal.
+
+Keys are assigned to the variable "key", and with the key we access the value.
+```javascript
+var arr = { "one" : 1, "two" : 2, "three": 3 };  
+for(var key in arr) {
+  var value = arr[key];
+  document.write(key + " = " + value + '<br>');
+}
+```
+**List of properties**  
+```javascript
+Object.keys(arr)
+
+Object.keys(arr).length
+
+var a2 = { "a":1, "b":2, "c":3 }
+document.write("Size=" + Object.keys(a2).length
+```
+**List of values**  
+We can transform an associative array, ie an object, into a simple array. With the method that returns the list of keys, and the map method (ECMAScript 1.6), we also obtain the values:
+```javascript
+var a3 = Object.keys(a2).map(function (k) { return a2[k];})
+document.write(a3)
+```
+Result
+```
+1,2,3
+```
+
 #### Q. What is difference between Classic Inheritance and Prototypical Inheritance?
 *TODO*
 #### Q. What is difference between private variable, public variable and static variable? How we achieve this in JS?
