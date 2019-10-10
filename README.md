@@ -6495,7 +6495,26 @@ Output
 true
 ```
 #### Q. How to extend built-in objects?
-*TODO*
+All objects in JS contains a prototype property, even the variables we declare. Since we don’t have access to the JS source code, thus, we cannot insert our custom functionality in String object by fiddling with JS source code, we use the String object’s prototype as another approach to insert our functionality.
+```javascript
+String.prototype.regexIt = function() {
+  /*
+    Since were attaching our custom function to String object,
+    we don't need an argument instead, we use 'this' to access our argument
+    as it points to the String value attached.
+  */
+  var input = this;
+
+  // do something with input and
+
+  return input;
+}
+```
+Now, we can use our regexIt method as shown below:
+```javascript
+var result = 'Hello World';
+result.regexIt();
+```
 #### Q. Why extending array is bad idea?
 *TODO*
 #### Q. What is difference between browser detection and feature detection?
