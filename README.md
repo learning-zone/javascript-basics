@@ -6396,7 +6396,32 @@ var circle = new Circle(5);
 ```
 
 #### Q. What is difference between private variable, public variable and static variable? How we achieve this in JS?
-*TODO*
+Private and public variables are two ways of information hiding. An object can have private and public variables. Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
+Static variables are related to a class. They come into existence as soon as a class come into existence.
+
+Now, JavaScript natively doesn't support these concepts. But you can use JavaScript's closure techniques to achieve the similar results.
+```javascript
+function MyClass () { // constructor function
+  var privateVariable = "foo";  // Private variable 
+
+  this.publicVariable = "bar";  // Public variable 
+
+  this.privilegedMethod = function () {  // Public Method
+    alert(privateVariable);
+  };
+}
+
+// Instance method will be available to all instances but only load once in memory 
+MyClass.prototype.publicMethod = function () {    
+  alert(this.publicVariable);
+};
+
+// Static variable shared by all instances
+MyClass.staticProperty = "baz";
+
+var myInstance = new MyClass();
+```
+
 #### Q. How to add and remove properties to object in run time?
 *TODO*
 #### Q. How to extend built-in objects?
