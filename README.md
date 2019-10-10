@@ -6287,7 +6287,7 @@ elem.dispatchEvent(event);
 ```
 
 #### Q. What is difference between window.frames window.parent and window.top in JavaScript?
-```javascript
+```
 window.frames – the collection of “children” windows (for nested frames).
 window.parent – the reference to the “parent” (outer) window.
 window.top – the reference to the topmost parent window.
