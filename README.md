@@ -6329,8 +6329,6 @@ two = 2
 three = 3
 ```
 **Attributes of a JavaScript object are also keys**  
-What is specific to objects in JavaScript is that attributes are also keys as we shall see in the demonstration.
-Thus, the same array can be created more simply:
 ```javascript
 var oa = new Object();
 oa.one = 1;
