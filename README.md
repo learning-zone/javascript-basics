@@ -6422,8 +6422,78 @@ MyClass.staticProperty = "baz";
 var myInstance = new MyClass();
 ```
 
-#### Q. How to add and remove properties to object in run time?
-*TODO*
+#### Q. How to add and remove properties to object in runtime?
+**Creating an Object**  
+There are two ways to construct an object in JavaScript:
+* The object literal, which uses curly brackets: {}
+* The object constructor, which uses the new keyword
+```javascript
+// Initialize object literal with curly brackets
+const objectLiteral = {};
+
+// Initialize object constructor with new Object
+const objectConstructor = new Object();
+```
+We can create an example object, contained in the variable employee, to describe a character.
+```javascript
+// Initialize gimli object
+const employee = {
+    name: "Gimli",
+    race: "dwarf",
+    weapon: "axe",
+    greet: function() {
+        return `Hi, my name is ${this.name}!`;
+    },
+};
+```
+**Accessing Object Properties**  
+There are two ways to access an object’s properties.
+
+* Dot notation: .
+* Bracket notation: []
+```javascript
+// Retrieve the value of the weapon property
+gimli.weapon;
+
+// Retrieve the value of the weapon property
+gimli["weapon"];
+```
+Output
+```
+"axe"
+```
+In order to retrieve an object method, you would call it much in the same way you would call a regular function, just attached to the object variable.
+```javascript
+employee.greet();
+```
+Output
+```
+"Hi, my name is Gimli!"
+```
+**Adding and Modifying Object Properties**  
+```javascript
+// Add new age property to gimli
+employee.age = 22;
+
+// Add new age property to gimli
+employee["age"] = 22;
+
+employee.age;
+```
+Output
+```
+22
+```
+**Removing Object Properties**
+In order to remove a property from an object, you will utilize the delete keyword. delete is an operator that removes a property from an object.
+```javascript
+// Remove weapon from gimli
+delete gimli.weapon;
+```
+Output
+```
+true
+```
 #### Q. How to extend built-in objects?
 *TODO*
 #### Q. Why extending array is bad idea?
