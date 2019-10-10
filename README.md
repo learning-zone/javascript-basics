@@ -6522,7 +6522,26 @@ Polyfilling or shimming standard functionality like `Array.prototype.filter` so 
 1. It might not work properly in every browser, even with the shim.
 
 #### Q. What is difference between browser detection and feature detection?
-*TODO*
+Feature detection is just a way of determining if a feature exists in certain browsers. A good example is a modern HTML5 feature ‘Location’.
+```javascript
+if (navigator.geolocation) {
+  // detect users location here B-) and do something 
+}
+```
+Browser detection is generally done by reading a property known as `navigator.userAgent` that contains a string with a lot of information about the browser that is currently being used to visit the page.
+
+Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
+```javascript
+if (document.getElementsByTagName) {
+    element = document.getElementById(id);
+}
+```
+Checking the UA string is an old practice and should not be used anymore. You keep changing the UA checks and never benefit from newly implemented features, e.g.:
+```javascript
+if (navigator.userAgent.indexOf("MSIE 7") > -1){
+    //do something
+}
+```
 #### Q. What is difference between Graceful Degradation and Progressive Enhancement?
 *TODO*
 #### Q. In JavaScript, why is the “this” operator inconsistent?
