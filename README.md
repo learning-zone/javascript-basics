@@ -6516,7 +6516,11 @@ var result = 'Hello World';
 result.regexIt();
 ```
 #### Q. Why extending array is bad idea?
-*TODO*
+Polyfilling or shimming standard functionality like Array.prototype.filter so that it works in older browsers is a good idea in my opinion. Usually the advice for not extending Array.prototype or other native prototypes might come down to one of these:
+1. `for..in` might not work properly
+1. Someone else might also want to extend Array with the same function name
+1. It might not work properly in every browser, even with the shim.
+
 #### Q. What is difference between browser detection and feature detection?
 *TODO*
 #### Q. What is difference between Graceful Degradation and Progressive Enhancement?
