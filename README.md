@@ -6484,7 +6484,7 @@ Output
 ```
 22
 ```
-**Removing Object Properties**
+**Removing Object Properties**  
 In order to remove a property from an object, you will utilize the delete keyword. delete is an operator that removes a property from an object.
 ```javascript
 // Remove weapon from gimli
