@@ -6294,7 +6294,10 @@ window.top – the reference to the topmost parent window.
 ```
 
 #### Q. In JavaScript, what is the difference between var x = 1 and x = 1? 
-*TODO*
+'var x = 1' will create a variable within the current scope. Given this is declared in a function, x will not be available outside it, unless explicitly returned.
+
+'x = 1' will create a variable within the global scope. Thus, any other code can access and alter its value. It's generally a bad practice to use variables in a global scope.
+
 #### Q. What is Associative Array? How do we use it?
 *TODO*
 #### Q. What is difference between Classic Inheritance and Prototypical Inheritance?
