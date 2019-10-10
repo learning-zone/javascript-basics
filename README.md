@@ -6370,7 +6370,31 @@ Result
 ```
 
 #### Q. What is difference between Classic Inheritance and Prototypical Inheritance?
-*TODO*
+**Class Inheritance**: instances inherit from classes (like a blueprint — a description of the class), and create sub-class relationships: hierarchical class taxonomies. Instances are typically instantiated via constructor functions with the new keyword. Class inheritance may or may not use the class keyword from ES6.
+
+**Prototypal Inheritance**: instances inherit directly from other objects. Instances are typically instantiated via factory functions or Object.create(). Instances may be composed from many different objects, allowing for easy selective inheritance.
+
+**Features**  
+
+* Classes: create tight coupling or hierarchies/taxonomies.
+* Prototypes: mentions of concatenative inheritance, prototype delegation, functional inheritance, object composition.
+* No preference for prototypal inheritance & composition over class inheritance.
+
+The difference between classical inheritance and prototypal inheritance is that classical inheritance is limited to classes inheriting from other classes while prototypal inheritance supports the cloning of any object using an object linking mechanism. A prototype basically acts as a template for other objects, whether they are extending the base object or not.
+```javascript
+function Circle(radius) {
+    this.radius = radius;
+}
+Circle.prototype.area = function () {
+    var radius = this.radius;
+    return Math.PI * radius * radius;
+};
+Circle.prototype.circumference: function () {
+    return 2 * Math.PI * this.radius;
+};
+var circle = new Circle(5);
+```
+
 #### Q. What is difference between private variable, public variable and static variable? How we achieve this in JS?
 *TODO*
 #### Q. How to add and remove properties to object in run time?
