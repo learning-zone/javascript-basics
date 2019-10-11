@@ -387,6 +387,33 @@
 |381.|[How will you remove duplicates from a JS array?](#q-how-will-you-remove-duplicates-from-a-js-array)|
 |382.|[Explain NEGATIVE_INFINITY in JavaScript?](#q-explain-negative-infinity-in-javascript)|
 |383.|[What do you understand by ViewState and SessionState?](#q-what-do-you-understand-by-viewstate-and-sessionstate)|
+|384.|[Explain var self = this in JavaScript](#q-explain-var-self-this-in-javascript)|
+|385.|[What is difference between append() vs appendChild()?](#q-what-is-difference-between-append-vs-appendchild)|
+|386.|[What is difference between null vs undefined?](#q-what-is-difference-between-null-vs-undefined)|
+|387.|[What is difference between array[] vs object()?](#q-what-is-difference-between-array-vs-object)|
+|388.|[What is difference between async() or defer() keywords in JavaScript?](#q-what-is-difference-between-async-or-defer-keywords-in-javascript)|
+|389.|[What is difference between async() vs await() in ajax?](#q-what-is-difference-between-async-vs-await-in-ajax)|
+|390.|[What is request header in javascript?](#q-what-is-request-header-in-javascript)|
+|391.|[What is rendering in JavaScript?](#q-what-is-rendering-in-javascript)|
+|392.|[Define the various types of errors which occur in JavaScript programming language?](#q-define-the-various-types-of-errors-which-occur-in-javascript-programming-language)|
+|393.|[What is unshift() method in JavaScript?](#q-what-is-unshift-method-in-javascript)|
+|394.|[What is the difference between HTMLCollection and NodeList?](#q-what-is-the-difference-between-htmlcollection-and-nodelist)|
+|395.|[What is the difference between firstChild and firstElementChild?](#q-what-is-the-difference-between-firstchild-and-firstelementchild)|
+|396.|[Name the two functions that are used to create an HTML element dynamically.](#q-name-the-two-functions-that-are-used-to-create-an-html-element-dynamically)
+|397.|[What is callback() function in javascript?](#q-what-is-callback-function-in-javascript)|
+|398.|[What is shallow copy and deep copy in javascript?](#q-what-is-shallow-copy-and-deep-copy-in-javascript)|
+|399.|[What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?](#q-what-is-difference-between-stoppropagation-vs-stopimmediatepropagation-vs-preventdefault-in-javascript)|
+|390.|[Explain array methods join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes(), set() ](#q-explain-array-methods-join-pop-push-shift-unshift-concat-map-filter-reduce-reduceright-every-some-indexof-lastindexof-find-findindex-includes-set)|
+|391.|[Create a Stopwatch program in javascript.](#q-create-a-stopwatch-program-in-javascript)
+|392.|[Write a program in javascript. abc(2)(3); // Expected output is 5](#q-write-a-program-in-javascript-abc-2-3-expected-output-is-5)
+|393.|[What is variable shadowing javascript?](#q-what-is-variable-shadowing-javascript)|
+|394.|[When to use function declarations and expressions in JavaScript?](#q-when-to-use-function-declarations-and-expressions-in-javascript)|
+|395.|[How to do Javascript file size and extension validation before upload?](#q-how-to-do-javascript-file-size-and-extension-validation-before-upload)|
+|396.|[How to create captcha using javascript?](#q-how-to-create-captcha-using-javascript)|
+|397.|[How to avoid callback hell in javascript?](#q-how-to-avoid-callback-hell-in-javascript)|
+|398.|[Why is eval() considered evil and dangerous?](#q-why-is-eval-considered-evil-and-dangerous)|
+|399.|[What is the difference between encryption and hashing?](#q-what-is-the-difference-between-encryption-and-hashing)|
+|400.|[What is Proxies and Reflection in JavaScript?](#q-what-is-proxies-and-reflection-in-javascript)|
 
 
 #### Q. What is difference between document.getElementById() and document.querySelector()?
@@ -6944,4 +6971,30 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
 * View state will retain values in the event of a postback operation occurring.
 * View state is used to allow the persistence of page-instance-specific data.
 
-
+#### Q. Explain var self = this in JavaScript 
+#### Q. What is difference between append() vs appendChild()? 
+#### Q. What is difference between null vs undefined?
+#### Q. What is difference between array[] vs object()?
+#### Q. What is difference between async() or defer() keywords in JavaScript?
+#### Q. What is difference between async() vs await() in ajax?
+#### Q. What is request header in javascript?
+#### Q. What is rendering in JavaScript?
+#### Q. Define the various types of errors which occur in JavaScript programming language?
+#### Q. What is unshift() method in JavaScript?
+#### Q. What is the difference between HTMLCollection and NodeList?
+#### Q. What is the difference between firstChild and firstElementChild?
+#### Q. Name the two functions that are used to create an HTML element dynamically.
+#### Q. What is callback() function in javascript?
+#### Q. What is shallow copy and deep copy in javascript?
+#### Q. What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?
+#### Q. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes(), set() ]
+#### Q. Create a Stopwatch program in javascript.
+#### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
+#### Q. What is variable shadowing javascript?
+#### Q. When to use function declarations and expressions in JavaScript?
+#### Q. How to do Javascript file size and extension validation before upload?
+#### Q. How to create captcha using javascript?
+#### Q. How to avoid callback hell in javascript?
+#### Q. Why is eval() considered evil and dangerous?
+#### Q. What is the difference between encryption and hashing?
+#### Q. What is Proxies and Reflection in JavaScript?
