@@ -1270,6 +1270,7 @@ The isNaN() function is used to determine whether a value is an illegal number (
 ```javascript
 isNaN('Hello') //true
 isNaN('100') //false
+typeof(NaN) //Number
 ```
 #### Q. What are the differences between undeclared and undefined variables?
 Below are the major differences between undeclared and undefined variables,
