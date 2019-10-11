@@ -6543,7 +6543,16 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 }
 ```
 #### Q. What is difference between Graceful Degradation and Progressive Enhancement?
-*TODO*
+**Progressive Enhancement** is when you create a web site that is available to everyone, but then add advanced functionality in layers that improves the experience for those who can access it. For instance, a basic text website can be upgraded to include a design (stylesheets), interactive functionality (javascript), and video (flash). But the website continues to function as just a text-based website.
+
+**Graceful Degradation** is an aspect of `fault-tolerant` systems where your design continues to function even if certain points of the design can't work. For example, HTML5 works in all browsers because HTML parsers themselves don't break if there are unrecognised tags. But since older browsers don't recognise those tags, they also can't provide the functionality associated with them (such as the various new input types like range, number, date, time, color, etc.). Another example is setting color and background-color together in CSS, but possibly overriding the color with an image. If the image doesn't load, you want the text to still be legible, but that might not be the case if you don't ensure that the background colour is one that allows the text to be legible.
+
+**When to use graceful degradation**  
+* You retrofit an old product and you don’t have the time, access or insight to change or replace it.
+* You just don’t have time to finish a product with full progressive enhancement (often a sign of bad planning or running out of budget).
+* The product you have is an edge case, for example very high traffic sites where every millisecond of performance means a difference of millions of dollars.
+* Your product by definition is so dependent on scripting that it makes more sense to maintain a “basic” version rather than enhancing one (Maps, email clients, feed readers).
+
 #### Q. In JavaScript, why is the “this” operator inconsistent?
 *TODO*
 #### Q. How accidental closures might cause memory leaks in IE?
