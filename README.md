@@ -6700,7 +6700,7 @@ person.name = "Lima";
 console.log(person); //output { name: 'Lima' }
 ```
 
-**Object.freeze** works on values, and more specifically, object values. It makes an object immutable, i.e. you cannot change its properties. `Object.freeze()` takes an object as an argument and returns the same object as an immutable object. This implies that no properties of the object can be added, removed, or changed.
+**Object.freeze**: works on values, and more specifically, object values. It makes an object immutable, i.e. you cannot change its properties. `Object.freeze()` takes an object as an argument and returns the same object as an immutable object. This implies that no properties of the object can be added, removed, or changed.
 
 It works on values and it makes an object immutable, i.e. you cannot change, add or delete its properties, but you can assign another instance.
 ```javascript
