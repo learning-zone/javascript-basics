@@ -6844,7 +6844,16 @@ Generators and async functions always return a specific type of object:
 - Async functions: If you return a value X, it will always return a promise that will either resolve to the value X or throw an error.
 
 #### Q. Explain escape() and unescape() functions?
-*TODO*
+The escape() [deprecated] function computes a new string in which certain characters have been replaced by a hexadecimal escape sequence.
+```javascript
+escape('abc123');     // "abc123"
+escape('äöü');        // "%E4%F6%FC"
+escape('ć');          // "%u0107"
+
+// special characters
+escape('@*_+-./');    // "@*_+-./"
+```
+
 #### Q. What do you understand by Screen objects?
 *TODO*
 #### Q. How will you remove duplicates from a JS array?
