@@ -6792,7 +6792,57 @@ This pattern allows the syntax of our scripts to be more consistent. It also mak
 A disadvantage of this pattern is that if a private function refers to a public function, that public function can’t be overridden if a patch is necessary. This is because the private function will continue to refer to the private implementation,and the pattern doesn’t apply to public members, only to functions.
 
 #### Q. Compare Async-Await and Generators usage to achive same functionality?
-*TODO*
+**Generators/Yield** 
+Generators are objects created by generator functions — functions with an * (asterisk) next to their name. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator's caller. It can be thought of as a generator-based version of the return keyword.
+```javascript
+const generator = (function*() {
+  // waiting for .next()
+  const a = yield 5;
+  // waiting for .next()
+  console.log(a); // => 15
+})();
+
+console.log(generator.next()); // => { done: false, value: 5 }
+console.log(generator.next(15)); // => { done: true, value: undefined }
+```
+**Async/Await**  
+Async keyword is used to define an asynchronous function, which returns a `AsyncFunction` object.
+
+Await keyword is used to pause async function execution until a `Promise` is fulfilled, that is resolved or rejected, and to resume execution of the `async` function after fulfillments. When resumed, the value of the `await` expression is that of the fulfilled `Promise`.
+
+**Key points:**  
+1. Await can only be used inside an async function.
+2. Functions with the async keyword will always return a promise.
+3. Multiple awaits will always run in sequential order under a same function.
+4. If a promise resolves normally, then await promisereturns the result. But in case of a rejection it throws the error, just if there were a throw statement at that line.
+5. Async function cannot wait for multiple promises at the same time.
+6. Performance issues can occur if using await after await as many times one statement doesn’t depend on the previous one.
+```javascript
+async function asyncFunction() {
+
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("i am resolved!"), 1000)
+  });
+
+  const result = await promise; 
+  // wait till the promise resolves (*)
+
+  console.log(result); // "i am resolved!"
+}
+
+asyncFunction();
+```
+**Generator and Async-await — Comparison**  
+1. Generator functions/yield and Async functions/await can both be used to write asynchronous code that “waits”, which means code that looks as if it was synchronous, even though it really is asynchronous.
+2. Generator function are executed yield by yield i.e one yield-expression at a time by its iterator (the next method) where as Async-await, they are executed sequential await by await.
+3. Async/await makes it easier to implement a particular use case of Generators.
+4. The return value of Generator is always {value: X, done: Boolean} where as for Async function it will always be a promise that will either resolve to the value X or throw an error.
+5. Async function can be decomposed into Generator and promise implementation which are good to know stuff.
+
+Generators and async functions always return a specific type of object:
+- Generator functions: If you yield/return a value X, it will always return an iteration object with the form {value: X, done: Boolean}
+- Async functions: If you return a value X, it will always return a promise that will either resolve to the value X or throw an error.
+
 #### Q. Explain escape() and unescape() functions?
 *TODO*
 #### Q. What do you understand by Screen objects?
