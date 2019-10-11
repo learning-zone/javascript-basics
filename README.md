@@ -6628,7 +6628,41 @@ In the above example, function inner is never called but keeps a reference to el
 **SOLUTION**: The problem in this case occurs because the reference to function(){} is kept alive. There will be no javascript memory leak if the outer function is actually called(Call the outer function like newElem = outer()();). A small isolated javascript memory leak resulting from closures might not need any attention. However a periodic leak repeating and growing with each iteration can seriously damage the performance of your code.
 
 #### Q. What unit testing framework do you use? and why?
-*TODO*
+Unit testing is the process of testing the implemented code at a module level. Unit testing allows you to ensure that your developed modules are meeting the requirements specified by the business document. These tests are written for every module as they are created.
+
+Unit testing provides numerous benefits including finding software bugs early, facilitating change, simplifying integration, providing a source of documentation, and many others, which we will look right now with more detail. 
+
+1. Makes the Process Agile
+2. Quality of Code
+3. Finds Software Bugs Early
+4. Facilitates Changes and Simplifies Integration
+5. Provides Documentation
+6. Debugging Process
+7. Design
+8. Reduce Costs
+
+**Challenges in JavaScript Unit Testing**  
+1. Many other languages support unit testing in browsers, in the stable as well as in runtime environment but JavaScript can not
+1. You can understand some system actions with other languages, but this is not the case with JavaScript
+1. Some JavaScript are written for a web application may have multiple dependencies
+1. JavaScript is good to use in combination with HTML and CSS rather than on the web
+1. Difficulties with page rendering and DOM manipulation
+
+**JavaScript Unit Testing Frameworks**  
+1. **Unit.js**: It is known as an open source assertion library running on browser and Node.js. It is extremely compatible with other JavaScript Unit Testing frameworks like Mocha, Karma, Jasmine, QUnit, Protractor, etc. Provides the full documented API of assertion list
+
+2. **QUnit**: It is used for both client-side as well as server-side JavaScript Unit Testing. This Free framework is used for jQuery projects. It follows Common JS unit testing Specification for unit testing. It supports the Node Long-term Support Schedule.
+
+3. **Jasmine**: Jasmine is the behavior-driven development framework for JavaScript unit Testing. It is used for testing both synchronous and asynchronous JavaScript Code. It does not require DOM and comes with the easy syntax that can be Written for any test.
+
+4. **Karma**: Karma is an open source productive testing environment. Easy workflow control Running on the command line. Offers the freedom to write the tests with Jasmine, Mocha, and QUnit. You can run the test on real devices with easy debugging.
+
+5. **Mocha**: Mocha runs on Node.js and in the browser. Mocha performs asynchronous Testing in a simpler way. Provides accuracy and flexibility in reporting. Provides tremendous support of rich features such as test-specific timeouts, JavaScript APIs etc.
+
+6. **Jest**: Jest is used by Facebook so far to test all of the JavaScript code. It provides the 'zero-configuration' testing experience. Supports independent and non-interrupting running test without any conflict. Do not require any other setup configuration and libraries.
+
+7. **AVA**: AVA is simple JavaScript Unit Testing Framework. Tests are being run in parallel and serially. Parallel tests run without interrupting each other. AVA Supports asynchronous testing as well. AVA uses subprocesses to run the test.
+
 #### Q. Explain the difference between Object.freeze() vs const?
 *TODO*
 #### Q. What is generator in JS?
