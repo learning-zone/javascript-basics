@@ -6664,7 +6664,68 @@ Unit testing provides numerous benefits including finding software bugs early, f
 7. **AVA**: AVA is simple JavaScript Unit Testing Framework. Tests are being run in parallel and serially. Parallel tests run without interrupting each other. AVA Supports asynchronous testing as well. AVA uses subprocesses to run the test.
 
 #### Q. Explain the difference between Object.freeze() vs const?
-*TODO*
+**const** applies to bindings ("variables"). It creates an immutable binding, i.e. you cannot assign a new value to the binding. `const` behaves like let. The only difference is, it defines a variable that cannot be reassigned. Variables declared by const are block scoped and not function scoped like variables declared with var.
+
+The const keyword applies to bindings and creates an immutable binding.
+```javascript
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+person = animal;
+console.log(person); //output { species: 'snake' }
+```
+If you change the person object declaration to be a constant the code above won’t work anymore:
+```javascript
+const person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+person = animal; // ERROR "person" is read-only
+console.log(person);
+```
+But you can change its values:
+```javascript
+const person = {
+   name: "Leonardo"
+};
+let animal = { 
+   species: "snake"
+};
+person.name = "Lima";
+console.log(person); //output { name: 'Lima' }
+```
+
+**Object.freeze** works on values, and more specifically, object values. It makes an object immutable, i.e. you cannot change its properties. `Object.freeze()` takes an object as an argument and returns the same object as an immutable object. This implies that no properties of the object can be added, removed, or changed.
+
+It works on values and it makes an object immutable, i.e. you cannot change, add or delete its properties, but you can assign another instance.
+```javascript
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+Object.freeze(person);
+person = animal;
+console.log(person); { species: 'snake' }
+```
+Even using Object.freeze I could assign animal object to to person. Now, let’s try change some property of the person:
+```javascript
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+Object.freeze(person);
+person.name = "Lima"; //TypeError: Cannot assign to read only property 'name' of object
+console.log(person);
+```
 #### Q. What is generator in JS?
 *TODO*
 #### Q. Describe the Revealing Module Pattern design pattern?
