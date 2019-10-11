@@ -6874,7 +6874,36 @@ unescape('%u0107');     // "ć"
 * screen.colorDepth
 * screen.pixelDepth
 #### Q. How will you remove duplicates from a JS array?
-*TODO*
+**Using set()**  
+```javascript
+const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
+
+let unique = [...new Set(names)];
+console.log(unique); // 'John', 'Paul', 'George', 'Ringo'
+```
+**Using filter()**   
+```javascript
+const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
+
+let x = (names) => names.filter((v,i) => names.indexOf(v) === i)
+x(names); // 'John', 'Paul', 'George', 'Ringo'
+```
+**Using forEach()**  
+```javascript
+const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
+
+function removeDups(names) {
+  let unique = {};
+  names.forEach(function(i) {
+    if(!unique[i]) {
+      unique[i] = true;
+    }
+  });
+  return Object.keys(unique);
+}
+
+removeDups(names); // // 'John', 'Paul', 'George', 'Ringo'
+```
 #### Q. Explain NEGATIVE_INFINITY in JavaScript?
 *TODO*
 #### Q. What do you understand by ViewState and SessionState?
