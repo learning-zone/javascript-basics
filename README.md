@@ -6928,6 +6928,19 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
 #### Q. What do you understand by ViewState and SessionState?
 **Session State**: contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It's a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
 
+* Maintained at session level.
+* Session state value availability is in all pages available in a user session.
+* Information in session state stored in the server.
+* In session state, user data remains in the server.  The availability of the data is guaranteed until either the user closes the session or the browser is closed.
+* Session state is used for the persistence of user-specific data on the server’s end.
+
+
 **View State**: on the other hand is information specific to particular web page. It is stored in a hidden field so that it isn't visible to the user. 
+
+* Maintained at page level only.
+* View state can only be visible from a single page and not multiple pages.
+* Information stored on the client’s end only.
+* View state will retain values in the event of a postback operation occurring.
+* View state is used to allow the persistence of page-instance-specific data.
 
 
