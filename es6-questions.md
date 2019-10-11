@@ -743,6 +743,4 @@ delete window.obj
 3. There is no size property exists in WeakMap.
 
 **Browser support for Map and WeakMap**  
-The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. There’s no support in IE10.
-
-On mobile newer browsers also have support, but IE Mobile doesn’t.
+The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. There’s no support in IE10. On mobile newer browsers also have support, but IE Mobile doesn’t.
