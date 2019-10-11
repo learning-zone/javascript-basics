@@ -6714,7 +6714,7 @@ Object.freeze(person);
 person = animal;
 console.log(person); { species: 'snake' }
 ```
-Even using Object.freeze I could assign animal object to to person. Now, let’s try change some property of the person:
+Even using Object.freeze() I could assign animal object to to person. Now, let’s try change some property of the person:
 ```javascript
 let person = {
    name: "Leonardo"
