@@ -6753,8 +6753,44 @@ document.write(gen.next().value);
 document.write("<br>"); 
 document.write(gen.next().value); 
 ```
-#### Q. Describe the Revealing Module Pattern design pattern?
-*TODO*
+#### Q. Describe the Revealing Module Pattern in javascript?
+Javascript does not have the typical 'private' and 'public' specifiers of more traditional object oriented languages like C# or Java. However, you can achieve the same effect through the clever application of Javascript's function-level scoping. The Revealing Module pattern is a design pattern for Javascript applications that elegantly solves this problem.
+
+The central principle of the Revealing Module pattern is that all functionality and variables should be hidden unless deliberately exposed.
+
+The Revealing Module Pattern is one of the most popular ways of creating modules. Using the return statement we can return a object literal that ‘reveals’ only the methods or properties we want to be publicly available.
+```javascript
+var myModule = (function() {
+  'use strict';
+
+  var _privateProperty = 'Hello World';
+  var publicProperty = 'I am a public property';
+
+  function _privateMethod() {
+    console.log(_privateProperty);
+  }
+
+  function publicMethod() {
+    _privateMethod();
+  }
+    
+  return {
+    publicMethod: publicMethod,
+    publicProperty: publicProperty
+  };
+}());
+  
+myModule.publicMethod();    		        // outputs 'Hello World'   
+console.log(myModule.publicProperty);       // outputs 'I am a public property'
+console.log(myModule._privateProperty);     // is undefined protected by the module closure
+myModule._privateMethod();                  // is TypeError protected by the module closure
+```
+**Advantages**  
+This pattern allows the syntax of our scripts to be more consistent. It also makes it easier to tell at the end of the module which of our functions and variables may be accessed publicly, which eases readability.
+
+**Disadvantages**  
+A disadvantage of this pattern is that if a private function refers to a public function, that public function can’t be overridden if a patch is necessary. This is because the private function will continue to refer to the private implementation,and the pattern doesn’t apply to public members, only to functions.
+
 #### Q. Compare Async-Await and Generators usage to achive same functionality?
 *TODO*
 #### Q. Explain escape() and unescape() functions?
