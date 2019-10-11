@@ -6866,6 +6866,13 @@ unescape('%u0107');     // "ć"
 * **document**: contains the DOM, initialized by parsing HTML
 * **screen**: The screen object contains information about the visitor's screen.
 
+**Properties:**  
+* screen.width
+* screen.height
+* screen.availWidth
+* screen.availHeight
+* screen.colorDepth
+* screen.pixelDepth
 #### Q. How will you remove duplicates from a JS array?
 *TODO*
 #### Q. Explain NEGATIVE_INFINITY in JavaScript?
