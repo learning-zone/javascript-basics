@@ -6844,7 +6844,7 @@ Generators and async functions always return a specific type of object:
 - Async functions: If you return a value X, it will always return a promise that will either resolve to the value X or throw an error.
 
 #### Q. Explain escape() and unescape() functions?
-The escape() [deprecated] function computes a new string in which certain characters have been replaced by a hexadecimal escape sequence.
+The `escape()` [deprecated] function computes a new string in which certain characters have been replaced by a hexadecimal escape sequence.
 ```javascript
 escape('abc123');     // "abc123"
 escape('äöü');        // "%E4%F6%FC"
@@ -6852,6 +6852,13 @@ escape('ć');          // "%u0107"
 
 // special characters
 escape('@*_+-./');    // "@*_+-./"
+```
+
+The `unescape()` [deprecated] function computes a new string in which hexadecimal escape sequences are replaced with the character that it represents. The escape sequences might be introduced by a function like escape. Usually, `decodeURI()` or `decodeURIComponent()` are preferred over `unescape()`.
+```javascript
+unescape('abc123');     // "abc123"
+unescape('%E4%F6%FC');  // "äöü"
+unescape('%u0107');     // "ć"
 ```
 
 #### Q. What do you understand by Screen objects?
