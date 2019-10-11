@@ -6563,6 +6563,7 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 The this variable is attached to functions. Whenever you invoke a function, this is given a certain value, depending on how you invoke the function. This is often called the invocation pattern.
 
 There are four ways to invoke functions in javascript. You can invoke the function as a method, as a function, as a constructor, and with apply.  
+
 **As a Method**  
 A method is a function that's attached to an object
 ```javascript
