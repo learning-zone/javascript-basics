@@ -6867,8 +6867,8 @@ unescape('%u0107');     // "ć"
 * **screen**: The screen object contains information about the visitor's screen.
 
 **Screen Object Properties**  
-|Property	  |Description                                                      |
-|-----------|-----------------------------------------------------------------|
+|Property	  |Description|
+|-----------|-----------|
 |availHeight|	Returns the height of the screen (excluding the Windows Taskbar)|
 |availWidth	| Returns the width of the screen (excluding the Windows Taskbar) |
 |colorDepth	| Returns the bit depth of the color palette for displaying images|
