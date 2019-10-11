@@ -6792,7 +6792,7 @@ This pattern allows the syntax of our scripts to be more consistent. It also mak
 A disadvantage of this pattern is that if a private function refers to a public function, that public function can’t be overridden if a patch is necessary. This is because the private function will continue to refer to the private implementation,and the pattern doesn’t apply to public members, only to functions.
 
 #### Q. Compare Async-Await and Generators usage to achive same functionality?
-**Generators/Yield** 
+**Generators/Yield**   
 Generators are objects created by generator functions — functions with an * (asterisk) next to their name. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator's caller. It can be thought of as a generator-based version of the return keyword.
 ```javascript
 const generator = (function*() {
