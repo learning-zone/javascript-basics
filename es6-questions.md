@@ -630,11 +630,9 @@ console.log(qux); // ReferenceError: qux is not defined
 console.log(foo); // undefined
 
 var foo = 'foo';
-
 console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
 
 let baz = 'baz';
-
 console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
 
 const bar = 'bar';
