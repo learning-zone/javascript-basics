@@ -705,4 +705,12 @@ class Person {
 }
 ```
 #### Q. What is the Temporal Dead Zone in ES6?
+In ES6, let bindings are not subject to Variable Hoisting, which means that let declarations do not move to the top of the current execution context. Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the undefined value). The variable is in a “temporal dead zone” from the start of the block until the initialization is processed.
+
+```javascript
+console.log(aVar); // undefined
+console.log(aLet); // causes ReferenceError: aLet is not defined
+var aVar = 1;
+let aLet = 2;
+```
 #### Q. What is the difference between ES6 Map and WeakMap?
