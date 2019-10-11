@@ -6727,7 +6727,32 @@ person.name = "Lima"; //TypeError: Cannot assign to read only property 'name' of
 console.log(person);
 ```
 #### Q. What is generator in JS?
-*TODO*
+**Generator-Function**: A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the `yield` keyword rather than `return`. The `yield` statement suspends function’s execution and sends a value back to caller, but retains enough state to enable function to resume where it is left off. When resumed, the function continues execution immediately after the last `yield` run.
+Syntax 
+```javascript
+function* gen() {
+     yeild 1;
+     yeild 2;
+     ...
+     ...
+}
+```
+**Generator-Object**: Generator functions return a generator object. Generator objects are used either by calling the next method on the generator object or using the generator object in a “for in” loop.
+```javascript
+function * fun() { 
+    yield 10; 
+    yield 20; 
+    yield 30;     
+} 
+  
+// Calling the Generate Function 
+var gen = fun(); 
+document.write(gen.next().value); 
+document.write("<br>"); 
+document.write(gen.next().value); 
+document.write("<br>"); 
+document.write(gen.next().value); 
+```
 #### Q. Describe the Revealing Module Pattern design pattern?
 *TODO*
 #### Q. Compare Async-Await and Generators usage to achive same functionality?
