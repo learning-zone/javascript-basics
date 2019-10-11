@@ -380,7 +380,7 @@
 |374.|[What unit testing framework do you use? and why?](#q-what-unit-testing-framework-do-you-use-and-why)|
 |375.|[Explain the difference between Object.freeze() vs const?](#q-explain-the-difference-between-objectfreeze-vs-const)|
 |376.|[What is generator in JS?](#q-what-is-generator-in-js)|
-|377.|[Describe the Revealing Module Pattern design pattern?](#q-describe-the-revealing-module-pattern-design-pattern)|
+|377.|[Describe the Revealing Module Pattern in javascript?](#q-describe-the-revealing-module-pattern-in-javascript)|
 |378.|[Compare Async-Await and Generators usage to achive same functionality?](#q-compare-async-await-and-generators-usage-to-achive-same-functionality)|
 |379.|[Explain escape() and unescape() functions?](#q-explain-escape-and-unescape-functions)|
 |380.|[What do you understand by Screen objects?](#q-what-do-you-understand-by-screen-objects)|
