@@ -6560,7 +6560,45 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 * If you need to add new features, you can do so after checking if they are supported at a certain stage, or you can add it to the most basic level of functionality and make it better in more sophisticated environments. In any case, the maintenance happens at the same spot and not in two different places. Keeping a progressively enhanced product up-to-date is much less work than maintaining two versions.
 
 #### Q. In JavaScript, why is the “this” operator inconsistent?
-*TODO*
+The this variable is attached to functions. Whenever you invoke a function, this is given a certain value, depending on how you invoke the function. This is often called the invocation pattern.
+
+There are four ways to invoke functions in javascript. You can invoke the function as a method, as a function, as a constructor, and with apply.
+**As a Method**  
+A method is a function that's attached to an object
+```javascript
+var foo = {};
+foo.someMethod = function(){
+    alert(this);
+}
+```
+When invoked as a method, this will be bound to the object the function/method is a part of. 
+**As A Function**  
+If you have a stand alone function, the this variable will be bound to the "global" object, almost always the window object in the context of a browser.
+```javascript
+var foo = function(){
+    alert(this);
+ }
+ foo();
+ ```
+**As a Constructor**  
+When invoked as a constructor, a new Object will be created, and this will be bound to that object. Again, if you have inner functions and they're used as callbacks, you'll be invoking them as functions, and this will be bound to the global object. Use that var that = this; trick/pattern.
+```javascript
+function Foo(){
+    this.confusing = 'hell yeah';
+}
+var myObject = new Foo();
+```
+**With the Apply Method**  
+Finally, every function has a method (yes, functions are objects in Javascript) named apply. Apply lets you determine what the value of this will be, and also lets you pass in an array of arguments.
+```javascript
+function foo(a,b){
+    alert(a);
+    alert(b);
+    alert(this);
+}
+var args = ['ah','be'];
+foo.apply('omg',args);
+```
 #### Q. How accidental closures might cause memory leaks in IE?
 *TODO*
 #### Q. What unit testing framework do you use? and why?
