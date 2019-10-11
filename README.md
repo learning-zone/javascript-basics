@@ -6572,7 +6572,8 @@ foo.someMethod = function(){
     alert(this);
 }
 ```
-When invoked as a method, this will be bound to the object the function/method is a part of. 
+When invoked as a method, this will be bound to the object the function/method is a part of.  
+ 
 **As A Function**  
 If you have a stand alone function, the this variable will be bound to the "global" object, almost always the window object in the context of a browser.
 ```javascript
