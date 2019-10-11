@@ -6926,7 +6926,7 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
 // expected output: "Process number as -Infinity"
 ```
 #### Q. What do you understand by ViewState and SessionState?
-**Session State**:- contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It's a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
+**Session State**: contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It's a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
 
-**View State**:- on the other hand is information specific to particular web page. It is stored in a hidden field so that it isn't visible to the user. It is used to maintain the user's illusion that the page remembers what he did on it the last time - dont give him a clean page every time he posts back.
+**View State**: on the other hand is information specific to particular web page. It is stored in a hidden field so that it isn't visible to the user. It is used to maintain the user's illusion that the page remembers what he did on it the last time - dont give him a clean page every time he posts back.
 
