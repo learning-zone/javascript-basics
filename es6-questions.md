@@ -23,6 +23,9 @@
 |19. |[What are the differences between variables created using `let`, `var` or `const`?](#q-what-are-the-differences-between-variables-created-using-let-var-or-const)|
 |20. |[Have you ever used JavaScript templating? If so, what libraries have you used?](#q-have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)|
 |21. |[What is the difference between for..in and for..of?](#q-what-is-the-difference-between-for-in-and-for-of)|
+|22. |[What are the differences between ES6 class and ES5 function constructors?](#q-what-are-the-differences-between-e6-class-and-es5-function-constructors)|
+|23. |[What is the Temporal Dead Zone in ES6?](#q-what-is-the-temporal-dead-zone-in-es6)|
+|24. |[What is the difference between ES6 Map and WeakMap?](#q-what-is-the-difference-between-es6-map-and-weakmap)|
 
 
 #### Q. Can you give an example for destructuring an object or an array?
@@ -701,6 +704,5 @@ class Person {
   }
 }
 ```
-#### Q. When should we use generators in ES6?
 #### Q. What is the Temporal Dead Zone in ES6?
 #### Q. What is the difference between ES6 Map and WeakMap?
