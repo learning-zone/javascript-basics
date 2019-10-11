@@ -6905,7 +6905,26 @@ function removeDups(names) {
 removeDups(names); // // 'John', 'Paul', 'George', 'Ringo'
 ```
 #### Q. Explain NEGATIVE_INFINITY in JavaScript?
-*TODO*
+```javascript
+Number.NEGATIVE_INFINITY;
+```
+- Negative infinity is a number in javascript, which is derived by 'dividing negative number by zero'.
+- A number object needs not to be created to access this static property.
+- The value of negative infinity is the same as the negative value of the infinity property of the global object.
+```javascript
+function checkNumber(smallNumber) {
+  if (smallNumber === Number.NEGATIVE_INFINITY) {
+    return 'Process number as -Infinity';
+  }
+  return smallNumber;
+}
+
+console.log(checkNumber(-Number.MAX_VALUE));
+// expected output: -1.7976931348623157e+308
+
+console.log(checkNumber(-Number.MAX_VALUE * 2));
+// expected output: "Process number as -Infinity"
+```
 #### Q. What do you understand by ViewState and SessionState?
 *TODO*
 
