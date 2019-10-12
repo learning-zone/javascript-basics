@@ -7055,6 +7055,24 @@ Object properties can be accessed either via the `x.foo` syntax or via the array
 An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
 
 #### Q. What is difference between async() or defer() keyword in JavaScript?
+**The async() Attribute**  
+The async attribute is used to indicate to the browser that the script file can be executed asynchronously. The HTML parser does not need to pause at the point it reaches the script tag to fetch and execute, the execution can happen whenever the script becomes ready after being fetched in parallel with the document parsing.
+```html
+<script async src="script.js">
+```
+This attribute is only available for externally located script files. When an external script has this attribute, the file can be downloaded while the HTML document is still parsing. Once it has been downloaded, the parsing is paused for the script to be executed.
+
+**The defer() Attribute**  
+The defer attribute tells the browser to only execute the script file once the HTML document has been fully parsed.
+```html
+<script defer src="script.js">
+```
+Like an asynchronously loaded script, the file can be downloaded while the HTML document is still parsing. However, even if the file is fully downloaded long before the document is finished parsing, the script is not executed until the parsing is complete.
+
+
+Asynchronous and deferred execution of scripts are more important when the <script> element is not located at the very end of the document. HTML documents are parsed in order, from the first opening <html> element to it is close. If an externally sourced JavaScript file is placed right before the closing </body> element, it becomes much less pertinent to use an async or defer attribute. Since the parser will have finished the vast majority of the document by that point, JavaScript files don't have much parsing left to block.
+
+
 #### Q. What is difference between async() vs await() in ajax?
 #### Q. What is request header in javascript?
 #### Q. What is rendering in JavaScript?
