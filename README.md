@@ -6976,9 +6976,6 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
 
 `this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping(in C open/close {} curly braces refers to a block). JavaScript has two scopes namely, global and local scope.
 
-* local scope: variables declared within a function becomes local to that function
-* global scope: variable defined outside of function becomes global and all scripts and functions can access it.
-
 ```javascript
 function Note() {
   var self = this;
