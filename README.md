@@ -391,7 +391,7 @@
 |385.|[What is difference between append() vs appendChild()?](#q-what-is-difference-between-append-vs-appendchild)|
 |386.|[What is difference between null vs undefined?](#q-what-is-difference-between-null-vs-undefined)|
 |387.|[What is difference between array[] vs object()?](#q-what-is-difference-between-array-vs-object)|
-|388.|[What is difference between async() or defer() keywords in JavaScript?](#q-what-is-difference-between-async-or-defer-keywords-in-javascript)|
+|388.|[What is difference between async() or defer() keyword in JavaScript?](#q-what-is-difference-between-async-or-defer-keyword-in-javascript)|
 |389.|[What is difference between async() vs await() in ajax?](#q-what-is-difference-between-async-vs-await-in-ajax)|
 |390.|[What is request header in javascript?](#q-what-is-request-header-in-javascript)|
 |391.|[What is rendering in JavaScript?](#q-what-is-rendering-in-javascript)|
@@ -7054,7 +7054,7 @@ Object properties can be accessed either via the `x.foo` syntax or via the array
 
 An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
 
-#### Q. What is difference between async() or defer() keywords in JavaScript?
+#### Q. What is difference between async() or defer() keyword in JavaScript?
 #### Q. What is difference between async() vs await() in ajax?
 #### Q. What is request header in javascript?
 #### Q. What is rendering in JavaScript?
