@@ -7035,6 +7035,25 @@ console.log(typeof test2); // undefined
 * `null !== undefined` but `null == undefined`.
 
 #### Q. What is difference between array[] vs object()?
+`[]` is declaring an array.
+`{}` is declaring an object.
+
+An array has all the features of an object with additional features (you can think of an array like a sub-class of an object) where additional methods and capabilities are added in the Array sub-class. In fact, typeof [] === "object" to further show you that an array is an object.
+
+The additional features consist of a magic `.length` property that keeps track of the number of items in the array and a whole slew of methods for operating on the array such as `.push()`, `.pop()`, `.slice()`, `.splice()`, etc... You can see a list of array methods here.
+
+An object gives you the ability to associate a property name with a value as in:
+```javascript
+var x = {};
+x.foo = 3;
+x["whatever"] = 10;
+console.log(x.foo);      // shows 3
+console.log(x.whatever); // shows 10
+```
+Object properties can be accessed either via the `x.foo` syntax or via the array-like syntax `x["foo"]`. The advantage of the latter syntax is that you can use a variable as the property name like `x[myvar]` and using the latter syntax, you can use property names that contain characters that Javascript won't allow in the `x.foo` syntax.
+
+An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
+
 #### Q. What is difference between async() or defer() keywords in JavaScript?
 #### Q. What is difference between async() vs await() in ajax?
 #### Q. What is request header in javascript?
