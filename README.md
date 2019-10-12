@@ -6994,6 +6994,19 @@ function Note() {
 To avoid confusion and potential conflicts, you can write var thiz = this or var that = this instead.
 
 #### Q. What is difference between append() vs appendChild()? 
+
+* ParentNode.append() allows you to also append DOMString object, whereas Node.appendChild() only accepts Node objects.
+* ParentNode.append() has no return value, whereas Node.appendChild() returns the appended Node object.
+* ParentNode.append() can append several nodes and strings, whereas Node.appendChild() can only append one node.
+
+The main difference is that `appendChild()` is a DOM function meanwhile `append()` is a JavaScript function.
+```javascript
+document.getElementById("yourId").append("Hello");
+
+var p = document.createElement("p");
+document.getElementById("yourId").appendChild(p);
+```
+
 #### Q. What is difference between null vs undefined?
 #### Q. What is difference between array[] vs object()?
 #### Q. What is difference between async() or defer() keywords in JavaScript?
