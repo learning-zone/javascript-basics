@@ -6971,7 +6971,31 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
 * View state will retain values in the event of a postback operation occurring.
 * View state is used to allow the persistence of page-instance-specific data.
 
-#### Q. Explain var self = this in JavaScript 
+#### Q. Explain var self = this in JavaScript. 
+`self` is being used to maintain a reference to the original this even as the context is changing. It's a technique often used in event handlers (especially in closures).
+
+`this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping(in C open/close {} curly braces refers to a block). JavaScript has two scopes namely, global and local scope.
+
+* local scope: variables declared within a function becomes local to that function
+* global scope: variable defined outside of function becomes global and all scripts and functions can access it.
+
+```javascript
+function Note() {
+  var self = this;
+
+  var note = document.createElement('div');
+  note.className = 'note';
+  note.addEventListener('mousedown', function(e) { return self.onMouseDown(e) }, false);
+  note.addEventListener('click', function() { return self.onNoteClick() }, false);
+  this.note = note;
+  // ...
+}
+```
+
+*Note:* 'self' should not be used this way anymore, since modern browsers provide a global variable self pointing to the global object of either a normal window or a WebWorker.
+
+To avoid confusion and potential conflicts, you can write var thiz = this or var that = this instead.
+
 #### Q. What is difference between append() vs appendChild()? 
 #### Q. What is difference between null vs undefined?
 #### Q. What is difference between array[] vs object()?
