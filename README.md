@@ -7008,6 +7008,32 @@ document.getElementById("yourId").appendChild(p);
 ```
 
 #### Q. What is difference between null vs undefined?
+**Null**  
+`Null` means an empty or non-existent value. Null is assigned, and explicitly means nothing.
+```javascript
+var test = null;
+console.log(test); // null
+```
+`null` is also an object. Interestingly, this was actually an error in the original JavaScript implementation:
+```javascript
+console.log(typeof test); // object
+```
+**Undefined**  
+Undefined means a variable has been declared, but the value of that variable has not yet been defined. For example:
+```javascript
+var test2;
+console.log(test2); // undefined
+```
+Unlike null, undefined is of the type undefined:
+```javascript
+console.log(typeof test2); // undefined
+```
+**Difference**  
+* `null` is an assigned value. It means nothing.
+* `undefined` means a variable has been declared but not defined yet.
+* `null` is an object. `undefined` is of type `undefined`.
+* `null !== undefined` but `null == undefined`.
+
 #### Q. What is difference between array[] vs object()?
 #### Q. What is difference between async() or defer() keywords in JavaScript?
 #### Q. What is difference between async() vs await() in ajax?
