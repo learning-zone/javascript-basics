@@ -7328,9 +7328,9 @@ HTML
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <title>||Working with elements||</title>
-</head>
+  <head>
+    <title>||Working with elements||</title>
+  </head>
 <body>
   <div id="div1">The text above has been created dynamically.</div>
 </body>
