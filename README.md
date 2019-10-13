@@ -7388,6 +7388,37 @@ The above example is a synchronous callback, as it is executed immediately.
 In JavaScript, functions are objects. Because of this, functions can take functions as arguments, and can be returned by other functions. Functions that do this are called `higher-order` functions. Any function that is passed as an argument is called a callback function.
 
 #### Q. What is shallow copy and deep copy in javascript?
+**Shallow copy**  
+Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
+
+**Deep copy**  
+A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
+
+![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/deepcopy.png "Shallow Copy and Deep Copy")
+
+A shallow copy of the object can be done using `object.assign()` method in javascript.
+```javascript
+let obj = {
+  a: 1,
+  b: 2,
+};
+let objCopy = Object.assign({}, obj);
+console.log(objCopy); // Result - { a: 1, b: 2 }
+```
+A Deep copy of the object can be done using JSON.parse(JSON.stringify(object));
+```javascript
+let obj = { 
+  a: 1,
+  b: { 
+    c: 2,
+  },
+}
+let newObj = JSON.parse(JSON.stringify(obj));
+obj.b.c = 20;
+console.log(obj); // { a: 1, b: { c: 20 } }
+console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
+```
+
 #### Q. What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?
 #### Q. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes(), set() ]
 #### Q. Create a Stopwatch program in javascript.
