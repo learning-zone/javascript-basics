@@ -7127,6 +7127,87 @@ var myRequest = new Request('flowers.jpg', myInit);
 myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 ```
 #### Q. What is rendering in JavaScript?
+JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
+These are the different steps involved in the JavaScript rendering process:
+
+![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/javascript-stages.png "JavaScript Rendering Process")
+
+1. **JavaScript**: Typically JavaScript is used to handle work that will result in visual changes. 
+2. **Style calculations**: This is the process of figuring out which CSS rules apply to which elements. They are applied and the final styles for each element are calculated. 
+3. **Layout**: Once the browser knows which rules apply to an element it can begin to calculate how much space it takes up and where it is on screen. 
+4. **Paint**: Painting is the process of filling in pixels. It involves drawing out text, colors, images, borders, and shadows, essentially every visual part of the elements. 
+5. **Compositing**: Since the parts of the page were drawn into potentially multiple layers they need to be drawn to the screen in the correct order so that the page renders correctly.
+
+The main responsibility of the rendering engine is to display the requested page on the browser screen.
+Rendering engines can display HTML and XML documents and images. 
+
+Similar to the JavaScript engines, different browsers use different rendering engines as well. These are some of the popular ones:
+* **Gecko** — Firefox
+* **WebKit** — Safari
+* **Blink** — Chrome, Opera (from version 15 onwards)
+
+**The process of rendering**  
+The rendering engine receives the contents of the requested document from the networking layer.
+
+![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/rendering-process.png "Rendering Process")
+
+**Constructing the DOM tree**  
+The first step of the rendering engine is parsing the HTML document and converting the parsed elements to actual DOM nodes in a DOM tree.
+```html
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="theme.css">
+  </head>
+  <body>
+    <p> Hello, <span> World! </span> </p>
+    <div> 
+      <img src="smiley.gif" alt="Smiley face" height="42" width="42">
+    </div>
+  </body>
+</html>
+```
+The DOM tree for this HTML will look like this:
+
+![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/html-dom-tree.png "HTML DOM Tree")
+
+Basically, each element is represented as the parent node to all of the elements, which are directly contained inside of it. And this is applied recursively.
+
+**Constructing the CSSOM tree**  
+CSSOM refers to the CSS Object Model. While the browser was constructing the DOM of the page, it encountered a link tag in the head section which was referencing the external theme.css CSS style sheet. Anticipating that it might need that resource to render the page, it immediately dispatched a request for it. Let’s imagine that the theme.css file has the following contents:
+```css
+body { 
+  font-size: 16px;
+}
+
+p { 
+  font-weight: bold; 
+}
+
+span { 
+  color: red; 
+}
+
+p span { 
+  display: none; 
+}
+
+img { 
+  float: right; 
+}
+```
+As with the HTML, the engine needs to convert the CSS into something that the browser can work with — the CSSOM. Here is how the CSSOM tree will look like:
+
+![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/css-dom-tree.png "CSS DOM Tree")
+
+When computing the final set of styles for any object on the page, the browser starts with the most general rule applicable to that node (for example, if it is a child of a body element, then all body styles apply) and then recursively refines the computed styles by applying more specific rules.
+
+**Painting the render tree**  
+In this stage, the renderer tree is traversed and the renderer’s paint() method is called to display the content on the screen.
+Painting can be global or incremental (similar to layout):
+* **Global** — the entire tree gets repainted.
+* **Incremental** — only some of the renderers change in a way that does not affect the entire tree. The renderer invalidates its rectangle on the screen. This causes the OS to see it as a region that needs repainting and to generate a paint event. The OS does it in a smart way by merging several regions into one.
+
 #### Q. Define the various types of errors which occur in JavaScript programming language?
 #### Q. What is unshift() method in JavaScript?
 #### Q. What is the difference between HTMLCollection and NodeList?
