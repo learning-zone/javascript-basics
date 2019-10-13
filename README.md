@@ -7245,6 +7245,14 @@ decodeURIComponent("%"); // URIError
 **EvalError**: “EvalError” exceptions are thrown when the eval() function is used improperly.  These exceptions are not used in the most recent version of the EcmaScript standard.  However, they are still supported in order to maintain backwards compatibility with older versions of the standard.
 
 #### Q. What is unshift() method in JavaScript?
+The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
+```javascript
+var arr = [1, 2, 3];
+
+console.log(arr.unshift(4, 5)); // expected output: 5
+console.log(arr); // expected output: Array [4, 5, 1, 2, 3]
+```
+
 #### Q. What is the difference between HTMLCollection and NodeList?
 #### Q. What is the difference between firstChild and firstElementChild?
 #### Q. Name the two functions that are used to create an HTML element dynamically.
