@@ -7073,6 +7073,39 @@ Like an asynchronously loaded script, the file can be downloaded while the HTML 
 Asynchronous and deferred execution of scripts are more important when the <script> element is not located at the very end of the document. HTML documents are parsed in order, from the first opening <html> element to it is close. If an externally sourced JavaScript file is placed right before the closing </body> element, it becomes much less pertinent to use an async or defer attribute. Since the parser will have finished the vast majority of the document by that point, JavaScript files don not have much parsing left to block.
 
 #### Q. What is difference between async() vs await() in ajax?
+When an `async()` function is called, it returns a `Promise`. When the `async()` function returns a value, the `Promise` will be resolved with the returned value. When the `async()` function throws an exception or some value, the `Promise` will be rejected with the thrown value.
+
+An async function can contain an await expression, which pauses the execution of the async function and waits for the passed Promise's resolution, and then resumes the async function's execution and returns the resolved value. 
+```javascript
+function resolveAfter2Seconds(x) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(x);
+        }, 2000);
+    });
+}
+
+async function add1(x) {
+    const a = await resolveAfter2Seconds(20);
+    const b = await resolveAfter2Seconds(30);
+    return x + a + b;
+}
+
+add1(10).then(v => {
+    console.log(v); // prints 60 after 4 seconds.
+});
+
+async function add2(x) {
+    const p_a = resolveAfter2Seconds(20);
+    const p_b = resolveAfter2Seconds(30);
+    return x + await p_a + await p_b;
+}
+
+add2(10).then(v => {
+    console.log(v); // prints 60 after 2 seconds.
+});
+```
+
 #### Q. What is request header in javascript?
 #### Q. What is rendering in JavaScript?
 #### Q. Define the various types of errors which occur in JavaScript programming language?
