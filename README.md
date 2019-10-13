@@ -7353,6 +7353,20 @@ function addElement () {
   document.body.insertBefore(newDiv, currentDiv); 
 }
 ```
+**Create Dynamic Button**  
+```javascript
+var btn = document.createElement("BUTTON");
+btn.innerHTML = "CLICK ME";
+document.body.appendChild(btn);
+```
+**Removing Elements Dynamically**  
+```javascript
+function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+}
+```
 #### Q. What is callback() function in javascript?
 #### Q. What is shallow copy and deep copy in javascript?
 #### Q. What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?
