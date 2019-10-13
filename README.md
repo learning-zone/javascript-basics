@@ -392,7 +392,7 @@
 |386.|[What is difference between null vs undefined?](#q-what-is-difference-between-null-vs-undefined)|
 |387.|[What is difference between array[] vs object()?](#q-what-is-difference-between-array-vs-object)|
 |388.|[What is difference between async() or defer() keyword in JavaScript?](#q-what-is-difference-between-async-or-defer-keyword-in-javascript)|
-|389.|[What is difference between async() vs await() in ajax?](#q-what-is-difference-between-async-vs-await-in-ajax)|
+|389.|[What is difference between async() and await() in ajax?](#q-what-is-difference-between-async-and-await-in-ajax)|
 |390.|[What is request header in javascript?](#q-what-is-request-header-in-javascript)|
 |391.|[What is rendering in JavaScript?](#q-what-is-rendering-in-javascript)|
 |392.|[Define the various types of errors which occur in JavaScript programming language?](#q-define-the-various-types-of-errors-which-occur-in-javascript-programming-language)|
@@ -7072,7 +7072,7 @@ Like an asynchronously loaded script, the file can be downloaded while the HTML 
 
 Asynchronous and deferred execution of scripts are more important when the <script> element is not located at the very end of the document. HTML documents are parsed in order, from the first opening <html> element to it is close. If an externally sourced JavaScript file is placed right before the closing </body> element, it becomes much less pertinent to use an async or defer attribute. Since the parser will have finished the vast majority of the document by that point, JavaScript files don not have much parsing left to block.
 
-#### Q. What is difference between async() vs await() in ajax?
+#### Q. What is difference between async() and await() in ajax?
 When an `async()` function is called, it returns a `Promise`. When the `async()` function returns a value, the `Promise` will be resolved with the returned value. When the `async()` function throws an exception or some value, the `Promise` will be rejected with the thrown value.
 
 An async function can contain an await expression, which pauses the execution of the async function and waits for the passed Promise's resolution, and then resumes the async function's execution and returns the resolved value. 
