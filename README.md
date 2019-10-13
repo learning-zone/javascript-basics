@@ -7318,6 +7318,41 @@ The difference between this property and firstElementChild, is that firstChild r
 *Note:* Whitespace inside elements is considered as text, and text is considered as nodes
 
 #### Q. Name the two functions that are used to create an HTML element dynamically.
+**createElement**  
+In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
+Syntax
+```javascript
+var element = document.createElement(tagName[, options]);
+```
+HTML
+```html
+<!DOCTYPE html>
+<html>
+<head>
+  <title>||Working with elements||</title>
+</head>
+<body>
+  <div id="div1">The text above has been created dynamically.</div>
+</body>
+</html>
+```
+JavaScript
+```javascript
+document.body.onload = addElement;
+
+function addElement () { 
+  // create a new div element 
+  var newDiv = document.createElement("div"); 
+  // and give it some content 
+  var newContent = document.createTextNode("Hi there and greetings!"); 
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);  
+
+  // add the newly created element and its content into the DOM 
+  var currentDiv = document.getElementById("div1"); 
+  document.body.insertBefore(newDiv, currentDiv); 
+}
+```
 #### Q. What is callback() function in javascript?
 #### Q. What is shallow copy and deep copy in javascript?
 #### Q. What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?
