@@ -7288,10 +7288,35 @@ element.appendChild(text);
 ```javascript
 <!-- This is what a comment node looks like -->
 ```
-
-
-
 #### Q. What is the difference between firstChild and firstElementChild?
+**firstChild**  
+The firstChild property returns the first child node of the specified node, as a Node object.
+```html
+<ul id="myList">
+    <li>Coffee</li>
+    <li>Tea</li>
+</ul>
+```
+```javascript
+var list = document.getElementById("myList").firstChild.innerHTML; //Coffee
+```
+**firstElementChild**  
+The firstElementChild property returns the first child element of the specified element.
+```html
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+```
+```javascript
+var list = document.getElementById("myList").firstElementChild.innerHTML; // Coffee
+```
+
+**Difference**  
+The difference between this property and firstElementChild, is that firstChild returns the first child node as an element node, a text node or a comment node (depending on which one's first), while firstElementChild returns the first child node as an element node (ignores text and comment nodes).
+
+*Note:* Whitespace inside elements is considered as text, and text is considered as nodes
+
 #### Q. Name the two functions that are used to create an HTML element dynamically.
 #### Q. What is callback() function in javascript?
 #### Q. What is shallow copy and deep copy in javascript?
