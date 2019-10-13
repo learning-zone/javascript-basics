@@ -7396,7 +7396,7 @@ A deep copy copies all fields, and makes copies of dynamically allocated memory 
 
 ![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/deepcopy.png "Shallow Copy and Deep Copy")
 
-A shallow copy of the object can be done using `object.assign()` method in javascript.
+A Shallow copy of the object can be done using `object.assign()` method in javascript.
 ```javascript
 let obj = {
   a: 1,
