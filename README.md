@@ -7298,7 +7298,7 @@ The firstChild property returns the first child node of the specified node, as a
 </ul>
 ```
 ```javascript
-var list = document.getElementById("myList").firstChild.innerHTML; //Coffee
+var list = document.getElementById("myList").firstChild.innerHTML; // Coffee
 ```
 **firstElementChild**  
 The firstElementChild property returns the first child element of the specified element.
