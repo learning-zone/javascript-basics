@@ -7435,7 +7435,7 @@ So, to avoid these default browser behavior use `event.preventDefault()`.
 
 Example: A click event handler is registered for anchor tag, Based on some logic in the event handler  want to suppress the default browser behavior i.e loading the url.
 
-*Note*: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`;
+*Note: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`*;
 
 #### Q. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes(), set() ]
 #### Q. Create a Stopwatch program in javascript.
