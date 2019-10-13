@@ -7075,7 +7075,7 @@ Asynchronous and deferred execution of scripts are more important when the <scri
 #### Q. What is difference between async() and await() in ajax?
 When an `async()` function is called, it returns a `Promise`. When the `async()` function returns a value, the `Promise` will be resolved with the returned value. When the `async()` function throws an exception or some value, the `Promise` will be rejected with the thrown value.
 
-An async function can contain an await expression, which pauses the execution of the async function and waits for the passed Promise's resolution, and then resumes the async function's execution and returns the resolved value. 
+An async function can contain an `await()` expression, which pauses the execution of the `async()` function and waits for the passed Promise's resolution, and then resumes the `async()` function's execution and returns the resolved value. 
 ```javascript
 function resolveAfter2Seconds(x) {
     return new Promise(resolve => {
