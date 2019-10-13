@@ -1282,7 +1282,7 @@ function goForward() {
   window.history.forward()
 }
 ```
-**Note:** You can also access history without window prefix.
+*Note: You can also access history without window prefix*.
 
 #### Q. What are the javascript data types?
 Below are the list of javascript data types available
@@ -1437,7 +1437,7 @@ document.getElementById("link").addEventListener("click", function(event) {
    event.preventDefault();
 });
 ```
-**Note:** Remember that not all events are cancelable.
+*Note: Remember that not all events are cancelable*.
 
 #### Q. What is the use of stopPropagation method?
 The stopPropagation method is used to stop the event from bubbling up the event chain. For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
@@ -1895,7 +1895,7 @@ You can use Math.random() with Math.floor() to return random integers. For examp
 Math.floor(Math.random() * 10) + 1;     // returns a random integer from 1 to 10
 Math.floor(Math.random() * 100) + 1;     // returns a random integer from 1 to 100
 ```
-**Note:** Math.random() returns a random number between 0 (inclusive),  and 1 (exclusive)
+*Note: Math.random() returns a random number between 0 (inclusive), and 1 (exclusive)*
 
 #### Q. Can you write a random integers function to print integers with in a range?
 Yes, you can create a proper random function to return a random number between min and max (both included)
@@ -2159,7 +2159,7 @@ obj.prop = 200; // Throws an error in strict mode
 
 console.log(obj.prop); //100
 ```
-**Note:** It causes a TypeError if the argument passed is not an object.
+*Note: It causes a TypeError if the argument passed is not an object*.
 
 #### Q. What is the purpose of freeze method?
 Below are the main benefits of using freeze method,
@@ -2231,7 +2231,7 @@ console.log(fun(1,2,3)); //6
 console.log(fun(1,2,3,4)); //13
 console.log(fun(1,2,3,4,5)); //15
 ```
-**Note:** Rest parameter is added in ES2015 or ES6
+*Note: Rest parameter is added in ES2015 or ES6*
 
 #### Q. What happens if you do not use rest parameter as a last argument?
 The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it doesn’t make any sense and will throw an error.
@@ -2395,7 +2395,7 @@ for (let [key, value] of Object.entries(object)) {
                                   // b: 100
 }
 ```
-**Note:** The order is not guaranteed as object defined.
+*Note: The order is not guaranteed as object defined*.
 
 #### Q. What is the main difference between Object.values and Object.entries method?
 The Object.values() method's behavior is similar to Object.entries() method but it returns an array of values instead [key,value] pairs.
@@ -2546,7 +2546,7 @@ The window object provided print() method which is used to prints the contents o
 ```html
   <input type="button" value="Print" onclick="window.print()" />
 ```
-**Note:** In most browsers, it will block while the print dialog is open.
+*Note: In most browsers, it will block while the print dialog is open*.
 
 #### Q. What is the difference between uneval and eval?
 The `uneval` function returns the source of a given object; whereas the `eval` function does the opposite, by evaluating that source code in a different memory area. Let's see an example to clarify the difference,
@@ -2780,7 +2780,7 @@ an iterator is an object which defines a sequence and a return value upon its te
 
 #### Q. What is an event loop?
 The Event Loop is a queue of callback functions. When an async function executes, the callback function is pushed into the queue. The JavaScript engine doesn't start processing the event loop until async function has finished executing the code.
-**Note:** It allows Node.js to perform non-blocking I/O operations eventhough JavaScript is single-threaded.
+*Note: It allows Node.js to perform non-blocking I/O operations eventhough JavaScript is single-threaded*.
 
 #### Q. What is a decorator?
 A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. Let's define admin decorator for user class at design time,
@@ -4068,7 +4068,7 @@ delete trees[3];
   
 Clearly we can see that Chrome has its own way of displaying uninitialized index in arrays. However when you check `trees[3] === undefined` in any browser you will get similar output as `true`.
 
-**Note:** Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome.
+*Note: Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome*.
 
 #### Q. What is the difference between declaring a function in the formats listed below?
 
@@ -6238,7 +6238,7 @@ let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
 let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
 let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
 ```
-**Note:** Slice method won't mutate the original array but it returns the subset as new array.
+*Note: Slice method won't mutate the original array but it returns the subset as new array*.
 
 #### Q. What is the purpose of array splice method?
 
@@ -6252,7 +6252,7 @@ let arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; orig
 let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
 let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
 ```
-**Note:** Splice method modifies the original array and returns the deleted array.
+*Note: Splice method modifies the original array and returns the deleted array*.
 
 #### Q. What is the difference between slice and splice?
 
