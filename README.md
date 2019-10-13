@@ -434,7 +434,7 @@ element = document.querySelector(selectors);
 element = document.querySelectorAll(selectors);
 ```
 
-*Note*: <code>querySelector()</code> is more useful when we want to use more complex selectors.
+*Note: <code>querySelector()</code> is more useful when we want to use more complex selectors*.
 
 #### Q. When to use reduce(), map(), foreach() and filter() in JavaScript? 
 * **forEach()**:  <code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
@@ -456,7 +456,7 @@ Output
 
 * **filter()**: The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
 
-**Note**: filter does not update the existing array it will return a new filtered array every time.
+*Note: filter does not update the existing array it will return a new filtered array every time*.
 ```javascript
 var sample = [1, 2, 3]; 
 
@@ -912,7 +912,7 @@ For example, you can delete a username cookie in the current page as below.
 ```javascript
 document.cookie = "username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;";
 ```
-**Note:** You should define the cookie path option to ensure that you delete the right cookie. Some browsers doesn't allow to delete a cookie unless you specify a path parameter.
+*Note: You should define the cookie path option to ensure that you delete the right cookie. Some browsers doesnot allow to delete a cookie unless you specify a path parameter*.
 
 #### Q. How do you access web storage?
 The Window object implements the `WindowLocalStorage` and `WindowSessionStorage` objects which has `localStorage`(window.localStorage) and `sessionStorage`(window.sessionStorage) properties respectively. These properties create an instance of the Storage object, through which data items can be set, retrieved and removed for a specific domain and storage type (session or local).
@@ -1169,7 +1169,7 @@ Promise.all is a promise that takes an array of promises as an input (an iterabl
 ```javascript
 Promise.all([Promise1, Promise2, Promise3]) .then(result) => {   console.log(result) }) .catch(error => console.log(`Error in promises ${error}`))
 ```
-**Note:** Remember that the order of the promises(output the result) is maintained as per input order.
+*Note: Remember that the order of the promises(output the result) is maintained as per input order*.
 
 #### Q. What is the purpose of race method in promise?
 Promise.race() method will return the promise instance which is firstly resolved or rejected. Let's take an example of race() method where promise2 is resolved first
@@ -1220,7 +1220,7 @@ If you don't use this expression then it returns the original value.
 ```javascript
 console.log(navigator.userAgent.match(/MSIE 8.0/));  // returns either an Array or null
 ```
-**Note:** The expression !! is not an operator, but it is just twice of ! operator.
+*Note: The expression !! is not an operator, but it is just twice of ! operator*.
 
 #### Q. What is the purpose of delete operator?
 The delete keyword is used to delete the property as well as its value.
