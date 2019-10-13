@@ -7252,8 +7252,45 @@ var arr = [1, 2, 3];
 console.log(arr.unshift(4, 5)); // Output: 5
 console.log(arr); // Output: Array [4, 5, 1, 2, 3]
 ```
-
 #### Q. What is the difference between HTMLCollection and NodeList?
+**HTMLCollection**  
+An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node’s name or id attributes. Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
+
+**NodeList**    
+A NodeList object is a collection of nodes. The NodeList interface provides the abstraction of an ordered collection of nodes, without defining or constraining how this collection is implemented. NodeList objects in the DOM are live or static based on the interface used to retrieve them
+
+**Difference**  
+An HTMLCollection is a list of webpage elements (div, p, ul, li, img objects, etc…) which form part of the DOM, and are of a specific node type usually referred to as an element node. A NodeList is also a list of nodes, but it can contain a list not only of element nodes, but other types of nodes as well. So it is a more generic list of nodes than HTMLCollection. HTMLCollection tells you that what it contains are webpage elements, specifically.
+
+Both interfaces are collections of DOM nodes. They differ in the methods they provide and in the type of nodes they can contain. While a NodeList can contain any node type, an HTMLCollection is supposed to only contain Element nodes.
+An HTMLCollection provides the same methods as a NodeList and additionally a method called namedItem.
+
+Collections are always used when access has to be provided to multiple nodes, e.g. most selector methods (such as getElementsByTagName) return multiple nodes or getting a reference to all children (element.childNodes).
+
+**Attribute Node** 
+Refers to the attributes of an element node.  
+```javascript
+// html: <div id=”my-id” /> 
+let element = document.getElementById(“my-id”); 
+let myIdAttribute = element.getAttributeNode(“id”); 
+console.log(myIdAttribute); // output: my-id
+```
+**Text Node**  
+Refers to the text of an element. 
+```javascript
+// html: <div id=”my-id”></div>
+let element = document.getElementById(“my-id”);
+let text = document.createTextNode(“Some Text”);
+element.appendChild(text);
+// updated html: <div id=”my-id”>Some Text</div>
+```
+**Comment Node**  
+```javascript
+<!-- This is what a comment node looks like -->
+```
+
+
+
 #### Q. What is the difference between firstChild and firstElementChild?
 #### Q. Name the two functions that are used to create an HTML element dynamically.
 #### Q. What is callback() function in javascript?
