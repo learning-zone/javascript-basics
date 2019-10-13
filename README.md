@@ -7106,7 +7106,7 @@ add2(10).then(v => {
 });
 ```
 #### Q. What is request header in javascript?
-The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.
+The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
 Syntax
 ```javascript
 var myHeaders = request.headers;
