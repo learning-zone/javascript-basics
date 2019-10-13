@@ -7249,8 +7249,8 @@ The `unshift()` method adds one or more elements to the beginning of an array an
 ```javascript
 var arr = [1, 2, 3];
 
-console.log(arr.unshift(4, 5)); // expected output: 5
-console.log(arr); // expected output: Array [4, 5, 1, 2, 3]
+console.log(arr.unshift(4, 5)); // Output: 5
+console.log(arr); // Output: Array [4, 5, 1, 2, 3]
 ```
 
 #### Q. What is the difference between HTMLCollection and NodeList?
