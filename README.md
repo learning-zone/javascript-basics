@@ -7418,8 +7418,25 @@ obj.b.c = 20;
 console.log(obj); // { a: 1, b: { c: 20 } }
 console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
 ```
-
 #### Q. What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?
+**event.stopPropagation()**:  Whenever a event is raised, event will propagate or bubble up till the window object level.
+
+Example: Parent Div containing a Child Div and both are registered for click events. When Child Div clicked, event handlers for both Child Div and Parent Div will be fired. To avoid the event bubbling  to top level DOM hierarchy, use the `event.stopPropagation()`.
+
+**event.stopImmediatePropagation()**: The event handlers will be called in the order they have registered. Lets say for a Div element click event is registered from different places. Then when the  Div element is clicked, the click event handler will be fired in all the places.
+
+Since `event.stopPropagation()` will only stop event propagation to parent level and  not at the same element level, so to avoid the event firing at multiple places  we have to use `event.stopImmediatePropagation()`.
+
+**event.preventDefault()**:  Browsers have default behaviors like
+
+* when a anchor tag is clicked, it will load the url specified in the href attribute,
+* when a text content is double clicked it will selected the text.
+So, to avoid these default browser behavior use `event.preventDefault()`.
+
+Example: A click event handler is registered for anchor tag, Based on some logic in the event handler  want to suppress the default browser behavior i.e loading the url.
+
+*Note*: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`;
+
 #### Q. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes(), set() ]
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
