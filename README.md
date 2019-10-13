@@ -7105,8 +7105,27 @@ add2(10).then(v => {
     console.log(v); // prints 60 after 2 seconds.
 });
 ```
-
 #### Q. What is request header in javascript?
+The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.
+Syntax
+```javascript
+var myHeaders = request.headers;
+```
+Example
+```javascript
+var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'image/jpeg');
+
+var myInit = { 
+  method: 'GET',
+  headers: myHeaders,
+  mode: 'cors',
+  cache: 'default' 
+};
+
+var myRequest = new Request('flowers.jpg', myInit);
+myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
+```
 #### Q. What is rendering in JavaScript?
 #### Q. Define the various types of errors which occur in JavaScript programming language?
 #### Q. What is unshift() method in JavaScript?
