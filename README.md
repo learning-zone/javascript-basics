@@ -7267,7 +7267,7 @@ An HTMLCollection provides the same methods as a NodeList and additionally a met
 
 Collections are always used when access has to be provided to multiple nodes, e.g. most selector methods (such as getElementsByTagName) return multiple nodes or getting a reference to all children (element.childNodes).
 
-**Attribute Node** 
+**Attribute Node**   
 Refers to the attributes of an element node.  
 ```javascript
 // html: <div id=”my-id” /> 
