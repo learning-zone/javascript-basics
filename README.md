@@ -7543,7 +7543,15 @@ var beasts = ['ant', 'bison', 'camel'];
 console.log(beasts.indexOf('camel')); // Output: 2
 console.log(beasts.indexOf('giraffe')); // Output: -1
 ```
+**array.lastIndexOf()**: The lastIndexOf() method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
+```javascript
+var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
 
+var searchTerm = 'dog';
+
+console.log('The index of the first "' + searchTerm + '" from the end is ' + paragraph.lastIndexOf(searchTerm));
+// Output: "The index of the first "dog" from the end is 52"
+```
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
