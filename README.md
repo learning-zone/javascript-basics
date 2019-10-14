@@ -7456,6 +7456,15 @@ console.log(plants.pop()); // Output: "cauliflower"
 console.log(plants.pop()); // Output: "broccoli"
 console.log(plants.pop()); // Output: "undefined"
 ```
+**array.push()**: The push() method adds one or more elements to the end of an array and returns the new length of the array.
+```javascript
+const animals = ['pigs', 'goats', 'sheep'];
+
+const count = animals.push('cows');
+console.log(count); // Output: 4
+console.log(animals); // Output: Array ["pigs", "goats", "sheep", "cows"]
+```
+
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
