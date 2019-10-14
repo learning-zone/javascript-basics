@@ -7130,7 +7130,7 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
 These are the different steps involved in the JavaScript rendering process:
 
-![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/javascript-stages.png "JavaScript Rendering Process")
+![alt text](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/javascript-stages.png "JavaScript Rendering Process")
 
 1. **JavaScript**: Typically JavaScript is used to handle work that will result in visual changes. 
 2. **Style calculations**: This is the process of figuring out which CSS rules apply to which elements. They are applied and the final styles for each element are calculated. 
@@ -7149,7 +7149,7 @@ Similar to the JavaScript engines, different browsers use different rendering en
 **The process of rendering**  
 The rendering engine receives the contents of the requested document from the networking layer.
 
-![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/rendering-process.png "Rendering Process")
+![alt text](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/rendering-process.png "Rendering Process")
 
 **Constructing the DOM tree**  
 The first step of the rendering engine is parsing the HTML document and converting the parsed elements to actual DOM nodes in a DOM tree.
@@ -7169,7 +7169,7 @@ The first step of the rendering engine is parsing the HTML document and converti
 ```
 The DOM tree for this HTML will look like this:
 
-![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/html-dom-tree.png "HTML DOM Tree")
+![alt text](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/html-dom-tree.png "HTML DOM Tree")
 
 Basically, each element is represented as the parent node to all of the elements, which are directly contained inside of it. And this is applied recursively.
 
@@ -7198,7 +7198,7 @@ img {
 ```
 As with the HTML, the engine needs to convert the CSS into something that the browser can work with — the CSSOM. Here is how the CSSOM tree will look like:
 
-![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/css-dom-tree.png "CSS DOM Tree")
+![alt text](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/css-dom-tree.png "CSS DOM Tree")
 
 When computing the final set of styles for any object on the page, the browser starts with the most general rule applicable to that node (for example, if it is a child of a body element, then all body styles apply) and then recursively refines the computed styles by applying more specific rules.
 
@@ -7394,7 +7394,7 @@ Shallow copy is a bit-wise copy of an object. A new object is created that has a
 **Deep copy**  
 A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
 
-![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/deepcopy.png "Shallow Copy and Deep Copy")
+![alt text](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/deepcopy.png "Shallow Copy and Deep Copy")
 
 A Shallow copy of the object can be done using `object.assign()` method in javascript.
 ```javascript
