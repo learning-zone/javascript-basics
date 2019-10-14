@@ -7492,6 +7492,14 @@ const map1 = array1.map(x => x * 2);
 
 console.log(map1); // Output: Array [2, 8, 18, 32]
 ```
+**array.filter()**: The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+```javascript
+var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result); // Output: Array ["exuberant", "destruction"]
+```
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
