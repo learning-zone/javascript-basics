@@ -7500,6 +7500,14 @@ const result = words.filter(word => word.length > 6);
 
 console.log(result); // Output: Array ["exuberant", "destruction"]
 ```
+**array.reduce()**: The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+```javascript
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+console.log(array1.reduce(reducer)); // Output: 10
+console.log(array1.reduce(reducer, 5)); // Output: 15
+```
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
