@@ -1,6 +1,6 @@
 ## JavaScript Interview Questions and Answers
 
-*Click :star2: if you like the project. Pull Request are highly appreciated.*
+*Click :star2: ![alt text](https://github.com/learning-zone/JavaScript/blob/master/assets/star.png "Star") if you like the project. Pull Request are highly appreciated.*
 
 |Sl.NO|JavaScript Questions|
 |------|--------------------|
