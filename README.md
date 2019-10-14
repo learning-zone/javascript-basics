@@ -7562,6 +7562,25 @@ var found = array1.find(function(element) {
 
 console.log(found); // Output: 130
 ```
+**array.findIndex()**: The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+```javascript
+var array1 = [5, 12, 8, 130, 44];
+
+function isLargeNumber(element) {
+  return element > 20;
+}
+
+console.log(array1.findIndex(isLargeNumber)); // Output: 3
+```
+**array.includes()**: The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+```javascript
+var array1 = [1, 2, 3];
+console.log(array1.includes(2)); // Output: true
+
+var pets = ['cat', 'dog', 'bat'];
+console.log(pets.includes('at')); // Output: false
+```
+
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
