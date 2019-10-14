@@ -6989,7 +6989,7 @@ function Note() {
 }
 ```
 
-*Note:* 'self' should not be used this way anymore, since modern browsers provide a global variable self pointing to the global object of either a normal window or a WebWorker.
+*Note: 'self' should not be used this way anymore, since modern browsers provide a global variable self pointing to the global object of either a normal window or a WebWorker.*
 
 To avoid confusion and potential conflicts, you can write var thiz = this or var that = this instead.
 
