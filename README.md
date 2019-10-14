@@ -7508,6 +7508,15 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 console.log(array1.reduce(reducer)); // Output: 10
 console.log(array1.reduce(reducer, 5)); // Output: 15
 ```
+**array.reduceRight()**: The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
+```javascript
+const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
+  (accumulator, currentValue) => accumulator.concat(currentValue)
+);
+
+console.log(array1); // Output: Array [4, 5, 2, 3, 0, 1]
+```
+
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
