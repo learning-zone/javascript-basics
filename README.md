@@ -7552,6 +7552,16 @@ var searchTerm = 'dog';
 console.log('The index of the first "' + searchTerm + '" from the end is ' + paragraph.lastIndexOf(searchTerm));
 // Output: "The index of the first "dog" from the end is 52"
 ```
+**array.find()**: The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+```javascript
+var array1 = [5, 12, 8, 130, 44];
+
+var found = array1.find(function(element) {
+  return element > 100;
+});
+
+console.log(found); // Output: 130
+```
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
