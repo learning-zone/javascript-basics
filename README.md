@@ -7516,6 +7516,15 @@ const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
 
 console.log(array1); // Output: Array [4, 5, 2, 3, 0, 1]
 ```
+**array.every()**: The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value. 
+```javascript
+function isBelowThreshold(currentValue) {
+  return currentValue < 40;
+}
+
+var array1 = [1, 30, 39, 29, 10, 13];
+console.log(array1.every(isBelowThreshold)); // Output: true
+```
 
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
