@@ -7525,6 +7525,17 @@ function isBelowThreshold(currentValue) {
 var array1 = [1, 30, 39, 29, 10, 13];
 console.log(array1.every(isBelowThreshold)); // Output: true
 ```
+**array.some()**: The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value. 
+```javascript
+var array = [1, 2, 3, 4, 5];
+
+var even = function(element) {
+  // checks whether an element is even
+  return element % 2 === 0;
+};
+
+console.log(array.some(even)); // Output: true
+``` 
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
