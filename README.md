@@ -7483,6 +7483,15 @@ const array2 = ['d', 'e', 'f'];
 
 console.log(array1.concat(array2)); // Output: Array ["a", "b", "c", "d", "e", "f"]
 ```
+**array.map()**: The map() method creates a new array with the results of calling a provided function on every element in the calling array.
+```javascript
+var array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map(x => x * 2); 
+
+console.log(map1); // Output: Array [2, 8, 18, 32]
+```
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
