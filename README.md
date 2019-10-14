@@ -7476,6 +7476,13 @@ var fruits = ["Banana", "Orange", "Apple"];
 fruits.unshift("Mango","Pineapple");
 console.log(fruits); // Output: Array ["Mango", "Pineapple", "Banana", "Orange", "Apple"]
 ```
+**array.concat()**: The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+```javascript
+const array1 = ['a', 'b', 'c'];
+const array2 = ['d', 'e', 'f'];
+
+console.log(array1.concat(array2)); // Output: Array ["a", "b", "c", "d", "e", "f"]
+```
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
