@@ -7315,7 +7315,7 @@ var list = document.getElementById("myList").firstElementChild.innerHTML; // Cof
 **Difference**  
 The difference between this property and firstElementChild, is that firstChild returns the first child node as an element node, a text node or a comment node (depending on which one's first), while firstElementChild returns the first child node as an element node (ignores text and comment nodes).
 
-*Note:* Whitespace inside elements is considered as text, and text is considered as nodes
+*Note: Whitespace inside elements is considered as text, and text is considered as nodes*
 
 #### Q. Name the two functions that are used to create an HTML element dynamically.
 **createElement**  
