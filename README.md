@@ -7536,6 +7536,14 @@ var even = function(element) {
 
 console.log(array.some(even)); // Output: true
 ``` 
+**array.indexOf()**: The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+```javascript
+var beasts = ['ant', 'bison', 'camel'];
+
+console.log(beasts.indexOf('camel')); // Output: 2
+console.log(beasts.indexOf('giraffe')); // Output: -1
+```
+
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
