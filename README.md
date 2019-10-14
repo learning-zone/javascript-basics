@@ -7450,16 +7450,13 @@ console.log(elements.join('-')); // Output: "Fire-Air-Water"
 ```
 **array.pop()**: The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
 ```javascript
-var plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
+var plants = ['broccoli', 'cauliflower', 'kale'];
 
-console.log(plants.pop()); // Output: "tomato"
-
-console.log(plants); // Output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
-
-plants.pop();
-
-console.log(plants);
-//  output: Array ["broccoli", "cauliflower", "cabbage"]
+console.log(plants.pop()); // Output: "kale"
+console.log(plants); // Output: Array ["broccoli", "cauliflower"]
+console.log(plants.pop()); // Output: "cauliflower"
+console.log(plants.pop()); // Output: "broccoli"
+console.log(plants.pop()); // Output: "undefined"
 ```
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
