@@ -7464,6 +7464,12 @@ const count = animals.push('cows');
 console.log(count); // Output: 4
 console.log(animals); // Output: Array ["pigs", "goats", "sheep", "cows"]
 ```
+**array.shift()**: The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+```javascript
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.shift();
+console.log(fruits) // Output: Array ["Orange", "Apple", "Mango"]
+```
 
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
