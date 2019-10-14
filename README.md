@@ -7442,13 +7442,25 @@ Example: A click event handler is registered for anchor tag, Based on some logic
 ```javascript
 var elements = ['Fire', 'Air', 'Water'];
 
-console.log(elements.join()); // expected output: "Fire,Air,Water"
+console.log(elements.join()); // Output: "Fire,Air,Water"
 
-console.log(elements.join('')); // expected output: "FireAirWater"
+console.log(elements.join('')); // Output: "FireAirWater"
 
-console.log(elements.join('-')); // expected output: "Fire-Air-Water"
+console.log(elements.join('-')); // Output: "Fire-Air-Water"
 ```
+**array.pop()**: The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
+```javascript
+var plants = ['broccoli', 'cauliflower', 'cabbage', 'kale', 'tomato'];
 
+console.log(plants.pop()); // Output: "tomato"
+
+console.log(plants); // Output: Array ["broccoli", "cauliflower", "cabbage", "kale"]
+
+plants.pop();
+
+console.log(plants);
+//  output: Array ["broccoli", "cauliflower", "cabbage"]
+```
 #### Q. Create a Stopwatch program in javascript.
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
