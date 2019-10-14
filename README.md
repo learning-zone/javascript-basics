@@ -7443,9 +7443,7 @@ Example: A click event handler is registered for anchor tag, Based on some logic
 var elements = ['Fire', 'Air', 'Water'];
 
 console.log(elements.join()); // Output: "Fire,Air,Water"
-
 console.log(elements.join('')); // Output: "FireAirWater"
-
 console.log(elements.join('-')); // Output: "Fire-Air-Water"
 ```
 **array.pop()**: The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
