@@ -7832,6 +7832,27 @@ function bodyAppend(tagName, innerHTML) {
 </html>
 ```
 #### Q. How to avoid callback hell in javascript?
+**Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.
+Example
+```javascript
+doSomething(param1, param2, function(err, paramx){
+    doMore(paramx, function(err, result){
+        insertRow(result, function(err){
+            yetAnotherOperation(someparameter, function(s){
+                somethingElse(function(x){
+                });
+            });
+        });
+    });
+});
+```
+**Techniques for avoiding callback hell**  
+* Write comments
+* Split functions into smaller functions
+* Using Async.js
+* Using Promises
+* Using Async-Await
+
 #### Q. Why is eval() considered evil and dangerous?
 #### Q. What is the difference between encryption and hashing?
 #### Q. What is Proxies and Reflection in JavaScript?
