@@ -4,7 +4,7 @@
 
 * [ES6-questions](es6-questions.md)
 
-|Sl.No |JavaScript Questions|
+|Sl.No | JavaScript Questions|
 |------|--------------------|
 |01. |[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)|
 |02. |[When to use reduce(), map(), foreach() and filter() in JavaScript?](#q-when-to-use-reduce-map-foreach-and-filter-in-javascript)|
