@@ -7585,25 +7585,8 @@ console.log(pets.includes('at')); // Output: false
 <!DOCTYPE html>
 <html>
 <head>
-<title>Stopwatch Example</title>
-<style type="text/css">
-body {
-    margin:10px 25px; padding:1px;
-    background-color:#678; color:#eee;
-    font-family:"Arial", serif; font-size:0.7em; text-align:center;
-}
-input {
-    width:40%;
-    font-family:"Lucida", serif; font-size:1.0em; color:#333; text-align:center;
-    cursor:pointer;
-}
-#res {
-    padding:3px 4px 1px; border:1px inset #999; color:#fff; font-size:1.6em; text-shadow:0px 0px 2px #000;
-    background-color:#eee;
-}
-</style>
+  <title>Stopwatch Example</title>
 </head>
-
 <body>
     <form action="" method="post">
         <h4>Simple stopwatch made in JavaScript</h4>
