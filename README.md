@@ -11,7 +11,6 @@
 |------|--------------------|
 |01. |[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)|
 |02. |[When to use reduce(), map(), foreach() and filter() in JavaScript?](#q-when-to-use-reduce-map-foreach-and-filter-in-javascript)|
-|03. |[Write a program to reverse a string?](#q-write-a-program-to-reverse-a-string)|
 |04. |[What is Hoisting?](#q-what-is-hoisting)|
 |05. |[What are closures?](#q-what-are-closures)|
 |06. |[How do you clone an object in JavaScript?](#q-how-do-you-clone-an-object-in-javascript)|
@@ -512,21 +511,6 @@ var sum = sample.reduce(function(sum, elem) {
     return sum + elem;
 });
 console.log(sum); // Output: 6
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-#### Q. Write a program to reverse a string?
-```javascript
-function reverseString(str){
-    let stringRev ="";
-    for(let i = str.length; i >= 0; i--) {
-        stringRev = stringRev + str.charAt(i);
-    }
-    return stringRev;
-}
-alert(reverseString("Pradeep")); // Output: peedarP
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>

@@ -1,5 +1,19 @@
 ## Programming in JavaScript
 
+#### Q. Write a program to reverse a string?
+```javascript
+function reverseString(str){
+    let stringRev ="";
+    for(let i = str.length; i >= 0; i--) {
+        stringRev = stringRev + str.charAt(i);
+    }
+    return stringRev;
+}
+alert(reverseString("Pradeep")); // Output: peedarP
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
