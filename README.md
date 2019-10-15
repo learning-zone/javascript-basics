@@ -436,6 +436,10 @@ element = document.querySelectorAll(selectors);
 
 *Note: <code>querySelector()</code> is more useful when we want to use more complex selectors*.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. When to use reduce(), map(), foreach() and filter() in JavaScript? 
 * **forEach()**:  <code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
 
@@ -505,6 +509,9 @@ var sum = sample.reduce(function(sum, elem) {
 });
 console.log(sum); // Output: 6
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Write a program to reverse a string?
 ```javascript
@@ -517,6 +524,9 @@ function reverseString(str){
 }
 alert(reverseString("Pradeep")); // Output: peedarP
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is Hoisting?
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.  
@@ -531,6 +541,9 @@ var message;
 console.log(message);
 message = "The variable Has been hoisted";
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What are closures?
 A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
@@ -551,6 +564,10 @@ myFunction('Hello Mr.'); //output: Hello Mr.John
 ```
 As per the above code, the inner function(greetingInfo) has access to the variables in the outer function scope(Welcome) even after outer function has returned.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you clone an object in JavaScript?
 
 Using the object spread operator ..., the object's own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
@@ -568,6 +585,10 @@ Other alternatives include:
 1. **Object.assign({}, obj)** is another alternative.
 1. **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How to check if object is empty or not in javaScript?
 ```javascript
 function isEmpty(obj) {
@@ -575,11 +596,20 @@ function isEmpty(obj) {
 }
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. JavaScript Regular Expression to validate Email
 
 ```javascript
 var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Use RegEx to test password strength in JavaScript?
 
 ```javascript
@@ -600,6 +630,10 @@ if(!regularExpression.test(newPassword)) {
 |(?=.*[0-9])	     | The string must contain at least 1 numeric character                 |
 |(?=.[!@#\$%\^&])	 | The string must contain at least one special character, but we are escaping reserved RegEx characters to avoid conflict  |
 |(?=.{8,})	       |The string must be eight characters or longer                          |
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What are the possible ways to create objects in JavaScript?
 
@@ -683,9 +717,17 @@ var object = new function() {
 }
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is prototype chain?
 
 **Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through Object.getPrototypeOf(object) or __proto__ property whereas prototype on constructors function is available through object.prototype.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the difference between Call, Apply and Bind?
 
@@ -727,6 +769,9 @@ var inviteEmployee2 = invite.bind(employee2);
 inviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you?
 inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the difference between == and === operators?
 JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators takes type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
@@ -754,17 +799,30 @@ null === undefined // false
 {}=={} or {}==={} //false, refer different objects in memory
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is a first class function?
 In Javascript, functions are first class objects. First-class functions means when functions in that language are treated like any other variable. For example, in such a language, a function can be passed as an argument to other functions, can be returned by another function and can be assigned as a value to a variable. For example, in the below example, handler functions assigned to a listener
 ```javascript
 const handler = () => console.log ('This is a click handler function');
 document.addEventListener ('click', handler);
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is a first order function?
 First-order function is a function that doesn’t accept other function as an argument and doesn’t return a function as its return value.
 ```javascript
 const firstOrder = () => console.log ('Iam a first order functionn!');
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is a higher order function?
 Higher-order function is a function that accepts other function as an argument or returns a function as a return value.
 ```javascript
@@ -813,6 +871,9 @@ console.log (numberArray); // returns [6]
 As per above code snippets, Push function is impure itself by altering the array and returning an push number index which is independent of parameter value. Whereas Concat on the other hand takes the array and concatenates it with the other array producing a whole new array without side effects. Also, the return value is a concatenation of previous array.
 Remember that Pure functions are important as they simplify unit testing without any side effects and no need for dependency injection. They also avoid tight coupling and makes harder to break your application by not having any side effects. These principles are coming together with **Immutability** concept of ES6 by giving preference to **const** over **let** usage.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is Temporal Dead Zone?
 The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone. Let's see this behavior with an example,
@@ -865,6 +926,10 @@ console.log(addition(20)); //output: 40 calculated
 console.log(addition(20)); //output: 40 cached
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is a service worker?
 A Service worker is basically a script (JavaScript file) that runs in background, separate from a web page and provide features that don't need a web page or user interaction. Some of the major features of service workers are Rich offline experiences(offline first web application development), periodic background syncs, push notifications, intercept and handle network requests and programmatically managing a cache of responses.
 
@@ -905,6 +970,11 @@ document.cookie = "username=John expires=Sat, 8 Jun 2019 12:00:00 UTC";
 ```javascript
 document.cookie = "username=John path=/services";
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 
 #### Q. How do you delete a cookie?
 You can delete a cookie by setting the expiry date as a passed date. You don't need to specify a cookie value in this case.
@@ -950,6 +1020,10 @@ window.onstorage = function(e) {
     ' to ' + e.newValue + '.');
 };
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. How do you check web storage browser support?
 You need to check browser support for localStorage and sessionStorage before using web storage,
@@ -1005,6 +1079,11 @@ w.terminate();
 ```javascript
 w = undefined;
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the restrictions of web workers on DOM?
 WebWorkers don't have access to below javascript objects since they are defined in an external files
 1. Window object
