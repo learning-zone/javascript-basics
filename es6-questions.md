@@ -77,16 +77,15 @@ print("Pradeep");
 ```
 
 * **Spread Operators**
-Spread operator allows an iterable to expand in places where 0+ arguments are expected.
-
+Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. Let's take an example to see this behavior,
 ```javascript
-var firstGroup = ["C", "C++", "Java"];
-var secondGroup = ["SQL", "MySQL", "BigData"];
-var thirdGroup = ["Android", "Python", "Ruby", firstGroup, secondGroup];
-var finalGroup = ["Android", "Python", "Ruby", ...firstGroup, ...secondGroup];
+function calculateSum(x, y, z) {
+  return x + y + z;
+}
 
-console.log(thirdGroup); // ["Android", "Python", "Ruby", Array(3), Array(3)]
-console.log(finalGroup); // ["Android", "Python", "Ruby", "C", "C++", "Java", "SQL", "MySQL", "BigData"]
+const numbers = [1, 2, 3];
+
+console.log(calculateSum(...numbers)); // 6
 ```
 
 * **Sets**

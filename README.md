@@ -173,7 +173,6 @@
 |162. |[What is a rest parameter?](#q-what-is-a-rest-parameter)|
 |163. |[What happens if you do not use rest parameter as a last argument?](#q-what-happens-if-you-do-not-use-rest-parameter-as-a-last-argument)|
 |164. |[What are the bitwise operators available in javascript?](#q-what-are-the-bitwise-operators-available-in-javascript)|
-|165. |[What is a spread operator?](#q-what-is-a-spread-operator)|
 |166. |[How do you determine whether object is frozen or not?](#q-how-do-you-determine-whether-object-is-frozen-or-not)|
 |167. |[How do you determine two values same or not using object?](#q-how-do-you-determine-two-values-same-or-not-using-object)|
 |168. |[What is the purpose of using object is method?](#q-what-is-the-purpose-of-using-object-is-method)|
@@ -2480,17 +2479,6 @@ Below are the list of bit-wise logical operators used in JavaScript
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is a spread operator?
-Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. Let's take an example to see this behavior,
-```javascript
-function calculateSum(x, y, z) {
-  return x + y + z;
-}
-
-const numbers = [1, 2, 3];
-
-console.log(calculateSum(...numbers)); // 6
-```
 #### Q. How do you determine whether object is frozen or not?
 Object.isFrozen() method is used to determine if an object is frozen or not.An object is frozen if all of the below conditions hold true,
 1. If it is not extensible.
