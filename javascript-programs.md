@@ -2736,7 +2736,7 @@ if( !(x > 100) ) {...}
 
 The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}`, etc.
 
-#### Q. what is g value?
+#### Q. What is g value?
 ```javascript
 f = g = 0;
 (function () {
@@ -2753,7 +2753,7 @@ f = g = 0;
   function f() { g += 5; return 0; }
 }) ();
 ```
-#### Q. what is g value?
+#### Q. What is g value?
 ```javascript
 f = g = 0;
 (function () {
@@ -2773,14 +2773,14 @@ f = g = 0;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. what will be the output?
+#### Q. What will be the output?
 ```javascript
 function b(b) {
   return this.b && b(b)
 }
 b(b.bind(b))
 ```
-#### Q. what will be the output?
+#### Q. What will be the output?
 ```javascript
 c = (c) => {
   return this.c && c(c)
@@ -2802,7 +2802,7 @@ true && function(){}()
 function(){}
 !function(){}
 ```
-#### Q. what will expression return?
+#### Q. What will expression return?
 ```javascript
 var a = b = true, c = (a) => a;
 (function a(a = c(b).a = c = () => a) { return a(); })()
@@ -2812,7 +2812,7 @@ var a = b = true, c = (a) => a;
 var a = true;
 (a = function () { return a })()
 ```
-#### Q. what will be the output?
+#### Q. What will be the output?
 ```javascript
 var v = 0;
 try {
