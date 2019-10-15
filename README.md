@@ -4448,7 +4448,6 @@ function bar () {
 }
 ```
 
-
 The main difference is that function `foo` is defined at `run-time` and is called a function expression, whereas function `bar` is defined at `parse time` and is called a function statement. To understand it better, let's take a look at the code below :
 
 ```javascript
@@ -4507,6 +4506,10 @@ foo = function foo() {
 }
 foo(); // Now foo is defined here
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What’s the difference between `typeof` and `instanceof`?
 
