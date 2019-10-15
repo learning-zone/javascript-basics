@@ -7744,6 +7744,55 @@ There are several different ways that function expressions become more useful th
 * As Immediately Invoked Function Expressions (IIFE)
 
 #### Q. How to do Javascript file size and extension validation before upload?
+```html
+<!DOCTYPE HTML>
+<html>
+<head>
+<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
+<title>Show File Data</title>
+<script type='text/javascript'>
+function showFileSize() {
+    var input, file, extension;
+
+    // (Can't use `typeof FileReader === "function"` because apparently
+    // it comes back as "object" on some browsers. So just see if it's there
+    // at all.)
+    if (!window.FileReader) {
+        bodyAppend("p", "The file API isn't supported on this browser yet.");
+        return;
+    }
+
+    input = document.getElementById('fileinput');
+    if (!input) {
+        bodyAppend("p", "Um, couldn't find the fileinput element.");
+    } else if (!input.files) {
+        bodyAppend("p", "This browser doesn't seem to support the `files` property of file inputs.");
+    } else if (!input.files[0]) {
+        bodyAppend("p", "Please select a file before clicking 'Load'");
+    } else {
+        file = input.files[0];
+        extension = file.name.substring(file.name.lastIndexOf('.') + 1);
+        bodyAppend("p", "File Name: " + file.name + "<br/>File Size: " + file.size + " bytes <br/>File Extension: " + extension);
+    }
+}
+
+function bodyAppend(tagName, innerHTML) {
+    var elm;
+
+    elm = document.createElement(tagName);
+    elm.innerHTML = innerHTML;
+    document.body.appendChild(elm);
+}
+</script>
+</head>
+<body>
+<form action='#' onsubmit="return false;">
+  <input type='file' id='fileinput'>
+  <input type='button' id='btnLoad' value='Load' onclick='showFileSize();'>
+</form>
+</body>
+</html>
+```
 #### Q. How to create captcha using javascript?
 #### Q. How to avoid callback hell in javascript?
 #### Q. Why is eval() considered evil and dangerous?
