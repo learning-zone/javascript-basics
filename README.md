@@ -7794,6 +7794,43 @@ function bodyAppend(tagName, innerHTML) {
 </html>
 ```
 #### Q. How to create captcha using javascript?
+```html
+<!DOCTYPE html>
+<html>
+<head>
+    <title>JavaScript Captcha Example</title>
+</head>
+<script>
+    var captcha;
+        
+    function generateCaptcha() {
+        var a = Math.floor((Math.random() * 10));
+        var b = Math.floor((Math.random() * 10));
+        var c = Math.floor((Math.random() * 10));
+        var d = Math.floor((Math.random() * 10));
+        
+        captcha = a.toString() + b.toString() + c.toString() + d.toString();
+        document.getElementById("captcha").value = captcha;
+    }
+        
+    function check() {
+        var input=document.getElementById("inputText").value;
+        
+        if(input == captcha) {
+            alert("Valid Captcha");
+        } else {
+            alert("Invalid Captcha");
+        }
+    }
+</script>
+<body onload="generateCaptcha()">
+  <input type="text" id="captcha" disabled/><br/><br/>
+  <input type="text" id="inputText"/><br/><br/>
+  <button onclick="generateCaptcha()">Refresh</button>
+  <button onclick="check()">Submit</button>
+</body>
+</html>
+```
 #### Q. How to avoid callback hell in javascript?
 #### Q. Why is eval() considered evil and dangerous?
 #### Q. What is the difference between encryption and hashing?
