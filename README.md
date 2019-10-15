@@ -2,7 +2,8 @@
 
 *Click <img src="https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/star.png" width="18" height="18" align="absmiddle" title="Star" /> if you like the project. Pull Request are highly appreciated.*
 
-* [ES6-questions](es6-questions.md)
+* [ES6 Interview Questions and Answers](es6-questions.md)
+* [Programming in JavaScript](javascript-programs.md)
 
 |Sl.No | JavaScript Questions|
 |------|--------------------|
