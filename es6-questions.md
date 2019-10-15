@@ -500,8 +500,6 @@ Using a trampoline is obviously less performant than simple recursion, since you
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the difference between Map and WeakMap in ES6?
-*TODO*
 #### Q. What are the differences between ES6 class and ES5 function constructors?
 
 Let's first look at example of each:
