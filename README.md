@@ -3031,6 +3031,10 @@ Below are the list of statements used in an error handling,
 3. **throw:** This statement is used to create custom errors.
 4. **finally:** This statement is used to execute code after try and catch regardless of the result.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the two types of loops in javascript?
 1. **Entry Controlled loops:** In this kind of loop type, the test condition is tested before entering the loop body. For example, For Loop and While Loop comes under this category.
 2. **Exit Controlled Loops:** In this kind of loop typpe, the test condition is tested or evaluated at the end of loop body. i.e, the loop body will execute atleast once irrespective of test condition true or false. For example, do-while loop comes under this category.
@@ -3074,6 +3078,11 @@ class User() {
 }
 console.log(User.isAdmin); //false
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the properties of Intl object?
 Below are the list of properties available on Intl object,
 1. **Collator:** These are the objects that enable language-sensitive string comparison.
@@ -3116,6 +3125,11 @@ numbers.sort((a, b) => b - a);
 numbers.reverse();
 console.log(numbers); // [1, 2, 3, 4 ,5]
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you find min and max value in an array?
 You can use `Math.min` and `Math.max` methods on array variable to find the minimum and maximum elements with in an array. Let's create two functions to find the min and max value with in an array,
 ```javascript
@@ -3159,6 +3173,11 @@ function findMax(arr) {
 console.log(findMin(marks));
 console.log(findMax(marks));
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is an empty statement and purpose of it?
 The empty statement is a semicolon (;) indicating that no statement will be executed, even if JavaScript syntax requires one. Since there is no action with an empty statement you might think that it's usage is quite less, but the empty statement is occasionally useful when you want to create a loop that has an empty body. For example, you can initialize an array with zero values as below,
 ```javascript
@@ -3191,6 +3210,11 @@ function myFunction() {
   return (a += 10, a); // 11
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Explain event delegation
 Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
 
@@ -3271,6 +3295,10 @@ c.constructor.name;
 // Outputs: "Child"
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What do you think of AMD vs CommonJS?
 
 Both are ways to implement a module system, which was not natively present in JavaScript until ES2015 came along. CommonJS is synchronous while AMD (Asynchronous Module Definition) is obviously asynchronous. CommonJS is designed with server-side development in mind while AMD, with its support for asynchronous loading of modules, is more intended for browsers.
@@ -3334,6 +3362,10 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
 As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring if I don't intend to use it yet. If you use a linter in your workflow, it will usually also be able to check that you are not referencing undeclared variables.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is a closure, and how/why would you use one?
 
@@ -3408,6 +3440,10 @@ const double = arr.map(function(el) {
 console.log(double); // [2, 4, 6]
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you organize your code? (module pattern, classical inheritance?)
 
 In the past, I've used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
@@ -3446,6 +3482,10 @@ console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What's the difference between `.call` and `.apply`?
 
 Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
@@ -3473,6 +3513,10 @@ In my experience, it is most useful for binding the value of `this` in methods o
 `document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.
 
 There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, I suspect those reasons might be outdated and in the modern day, they can be achieved without using `document.write()`. Please do correct me if I'm wrong about this.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What's the difference between feature detection, feature inference, and using the UA string?
 
@@ -3506,6 +3550,9 @@ This is not really recommended. Feature detection is more foolproof.
 
 This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Explain Ajax in as much detail as possible.
 
@@ -3530,6 +3577,9 @@ The `XMLHttpRequest` API is frequently used for the asynchronous communication o
 * Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
 * Basically most of the disadvantages of an SPA.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Explain how JSONP works (and how it's not really Ajax).
 
@@ -3560,7 +3610,6 @@ JSONP can be unsafe and has some security implications. As JSONP is really JavaS
 These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
 
 #### Q. What's the difference between an "attribute" and a "property"?
-
 Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
 
 ```javascript
@@ -3576,6 +3625,9 @@ console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Why is extending built-in JavaScript objects not a good idea?
 
@@ -3612,6 +3664,10 @@ console.log(a == null); // true
 console.log(a == undefined); // true
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Explain the same-origin policy with regards to JavaScript.
 
 The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
@@ -3630,8 +3686,6 @@ function duplicate(arr) {
 
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
-
-
 
 #### Q. Why is it called a Ternary expression, what does the word "Ternary" indicate?
 
@@ -3660,6 +3714,9 @@ Disadvantages:
 
 Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
@@ -3721,6 +3778,9 @@ Disadvantages:
 
 Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don't really see the need for CoffeeScript these days.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What tools and techniques do you use for debugging JavaScript code?
 
@@ -3760,6 +3820,10 @@ for (let [index, elem] of arr.entries()) {
   console.log(index, ': ', elem);
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Explain the difference between mutable and immutable objects.
 
@@ -3824,6 +3888,9 @@ var immutable = Object.freeze({});
 
 Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. `Object.freeze()` preserves the enumerability, configurability, writability and the prototype of the object. It returns the passed object and does not create a frozen copy.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. How can you achieve immutability in your own code?
 
@@ -3850,8 +3917,6 @@ const alienJohn = { ...john, race: 'alien' }; // {race: "alien", name: "John"}
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case, the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
 
 Asynchronous functions usually accept a callback as a parameter and execution continue on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
-
-
 
 #### Q. What is event loop? What is the difference between call stack and task queue?
 
@@ -3882,6 +3947,9 @@ var foo = function() {
 };
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What are the differences between variables created using `let`, `var` or `const`?
 
@@ -3957,6 +4025,10 @@ const baz = 'baz';
 baz = 'qux';
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the definition of a higher-order function?
 
 A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
@@ -3991,6 +4063,10 @@ const transformNamesToUppercase = function(names) {
 transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Can you give an example of a curry function and why this syntax offers an advantage?
 
 Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It's important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each accepts one parameter.
@@ -4022,6 +4098,10 @@ var addFive = curriedAdd(5);
 
 var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. How can you share code between files?
 
@@ -4067,6 +4147,10 @@ A variable can be neither declared nor defined. When we try to reference such va
 console.log(y);  // Output: ReferenceError: y is not defined
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 
 #### Q. For which value of `x` the results of the following statements are not the same?
 
@@ -4085,9 +4169,6 @@ The same holds true for any value of x that being converted to Number, returns N
 This is why you need to pay attention when you deal with numeric variables. `NaN` can’t be equal, less than or more than any other numeric value, so the only reliable way to check if the value is `NaN`, is to use `isNaN()` function.
 
 #### Q. What is the drawback of declaring methods directly in JavaScript objects?
-
-
-
 One of the drawback of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object. Let's see it on example:
 
 ```javascript
@@ -4115,9 +4196,11 @@ var emp3 = new Employee('Erich Fromm', 'Company 3', 1299483);
 
 Here each instance variable `emp1`, `emp2`, `emp3` has own copy of `formatSalary` method. However the `formatSalary2` will only be added once to an object `Employee.prototype`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is “closure” in javascript? Can you provide an example?
-
-
 
 A closure is a function defined inside another function (called parent function) and has access to the variable which is declared and defined in parent function scope.
 
@@ -4160,6 +4243,10 @@ innerArg = 5
 innerFuncVar = y
 globalVar = abc
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Write a mul function which will work properly when invoked with following syntax.
 
@@ -4262,10 +4349,11 @@ while(arrayList.length) {
 
 Above implementation can also empty the array. But not recommended to use often.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. How to check if an object is an array or not?
-
-
 
 The best way to find whether an object is instance of a particular class or not using `toString` method from `Object.prototype`
 
@@ -4327,6 +4415,9 @@ Array.isArray(arrayList);
 
 `Array.isArray` is supported by Chrome 5, Firefox 4.0, IE 9, Opera 10.5 and Safari 5
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is `undefined x 1` in JavaScript
 
