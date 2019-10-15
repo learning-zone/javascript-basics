@@ -407,7 +407,7 @@ var a5 = x => { return 1; };
 ```
 
 #### Q. What is a trampoline function? What is it used for? 
-The trampoline is just a technique to optimize **recursion** and prevent stack-overflow exceptions in languages that don't support tail call optimization like Javascript ES5 implementation and C#. However, ES6 will probably have support for tail call optimization.
+The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
 
 The problem with regular recursion is that every recursive call adds a stack frame to the call stack, which you can visualize as a **pyramid** of calls. Here is a visualization of calling a factorial function recursively:
 ```
@@ -427,9 +427,9 @@ Here is a visualization of the stack where each vertical dash is a stack frame:
    ---|            |--- 
 ---                    ---
 ```
-The problem is that the stack has limited size, and stacking up these stack frames can overflow the stack. Depending on the stack size, a calculation of a larger factorial would overflow the stack. That is why regular recursion in C#, Javascript etc. could be considered dangerous.
+The problem is that the stack has limited size, and stacking up these stack frames can overflow the stack. Depending on the stack size, a calculation of a larger factorial would overflow the stack. That is why regular recursion in Javascript could be considered dangerous.
 
-An optimal execution model would be something like a trampoline instead of a pyramid, where each recursive call is executed in place, and does not stack up on the call stack. That execution in languages supporting tail call optimization could look like:
+An optimal execution model would be something like a **trampoline** instead of a **pyramid**, where each recursive call is executed in place, and does not stack up on the call stack. That execution in languages supporting tail call optimization could look like:
 ```
 (fact 3)
 (fact-tail 3 1)
@@ -445,11 +445,11 @@ You can visualize the stack like a bouncing trampoline:
 ```
 This is clearly better since the stack has always only one frame, and from the visualization you can also see why it is called a trampoline. This prevents the stack from overflowing.
 
-Since we don't have the luxury of tail call optimization in Javascript, we need to figure out a way to turn regular recursion into an optimized version that will execute in trampoline-fashion.
+Since we don't have the luxury of `tail call optimization` in Javascript, we need to figure out a way to turn regular recursion into an optimized version that will execute in trampoline-fashion.
 
 One obvious way is to **get rid of recursion**, and rewrite the code to be iterative.
 
-When that is not possible we need a bit more complex code where instead of executing directly the recursive steps, we will utilize higher order functions to return a wrapper function instead of executing the recursive step directly, and let another function control the execution.
+When that is not possible we need a bit more complex code where instead of executing directly the recursive steps, we will utilize `higher order functions` to return a wrapper function instead of executing the recursive step directly, and let another function control the execution.
 
 In your example, the **repeat** function wraps the regular recursive call with a function, and it returns that function instead of executing the recursive call:
 ```javascript
