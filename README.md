@@ -286,7 +286,6 @@
 |283. |[What are Service Workers and when can you use them?](#q-what-are-service-workers-and-when-can-you-use-them)|
 |284. |[What is the difference between a method and a function in javascript?](#q-what-is-the-difference-between-a-method-and-a-function-in-javascript)|
 |285. |[What is IIFE (Immediately Invoked Function Expression) and how it can be useful?](#q-what-is-iife-immediately-invoked-function-expression-and-how-it-can-be-useful)|
-|286. |[Applications and usefulness](#q-applications-and-usefulness)
 |287. |[Describe Singleton Pattern In JavaScript](#q-describe-singleton-pattern-in-javascript)
 |288. |[Singleton Design Pattern Implementation](#q-singleton-design-pattern-implementation)
 |289. |[What are the ways of creating objects in JavaScript ?](#q-what-are-the-ways-of-creating-objects-in-javascript)|
@@ -4655,9 +4654,8 @@ That's it. The rest is details.
   - `new function(){ console.log("hi I'm IIFE") }`
   - `new function(){ console.log("hi I'm IIFE") }()`
   
-  Please don't use all these forms to impress colleagues, but be prepared that you can encounter them in someone's code. 
 
-#### Q. Applications and usefulness
+**Applications and usefulness**  
 
 Variables and functions that you declare inside an IIFE are not visible to the outside world, so you can:
  - Use the IIFE for isolating parts of the code to hide details of implementation.
