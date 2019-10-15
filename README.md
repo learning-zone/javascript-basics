@@ -2542,6 +2542,10 @@ console.log(returnedTarget); // { a: 1, b: 3, c: 5 }
 ```
 As observed in the above code, there is a common property(`b`) from source to target so it's value is been overwritten.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the applications of assign method?
 Below are the some of main applications of Object.assign() method,
 1. It is used for cloning an object.
@@ -2583,6 +2587,11 @@ console.log(Object.isFrozen(object)); // Welcome to object world
 delete object.property; // You cannot delete when sealed
 console.log(object.property); //Welcome to object world
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the applications of seal method?
 Below are the main applications of Object.seal() method,
 1. It is used for sealing objects and arrays.
@@ -2606,6 +2615,11 @@ Object.seal(object); // Using seal() method to seal the object
 
 console.log(Object.isSealed(object));      // checking whether the object is sealed or not
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you get enumerable key and value pairs?
 The Object.entries() method is used to return an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a for...in loop. Let's see the functionality of object.entries() method in an example,
 ```javascript
@@ -2645,6 +2659,11 @@ const user = {
 
 console.log(Object.keys(user)); //['name', 'gender', 'age']
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you create an object with prototype?
 The Object.create() method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
 ```javascript
@@ -2673,6 +2692,11 @@ ws.has(user);    // true
 ws.delete(user); // removes user from the set
 ws.has(user);    // false, user has been removed
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the differences between WeakSet and Set?
 The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
 Other differences are,
@@ -2713,6 +2737,11 @@ ws.has(user);    // true
 ws.delete(user); // removes user from the map
 ws.has(user);    // false, user has been removed
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the differences between WeakMap and Map?
 The main difference is that references to key objects in Map are strong while references to key objects in WeakMap are weak. i.e, A key object in WeakMap can be garbage collected if there is no other reference to it.
 Other differences are,
@@ -2765,6 +2794,11 @@ try {
   console.error(e);
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you print the contents of web page?
 The window object provided print() method which is used to prints the contents of the current window. It opens Print dialog box which lets you choose between various printing options. Let's see the usage of print method in an example,
 ```html
@@ -2810,6 +2844,11 @@ function greeting() {
 }
 greeting();
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are javascript accessors?
 ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses `get` keyword whereas Setters uses `set` keyword.
 ```javascript
@@ -2880,6 +2919,11 @@ obj.subtract = 5;
 console.log(obj.increment); //6
 console.log(obj.decrement); //5
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the purpose of switch-case?
 The switch case statement in JavaScript is used for decision making purposes. In few cases, using the switch case statement is going to be more convenient than if-else statements. The syntax would be as below,
 ```javascript
@@ -2932,6 +2976,11 @@ objectName["property"]
 ```javascript
 objectName[expression]
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the function parameter rules?
 JavaScript functions follow below rules for parameters,
 1. The function definitions do not specify data types for parameters.
