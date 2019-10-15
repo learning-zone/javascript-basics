@@ -61,6 +61,11 @@ const { p, q } = o;
 console.log(p); // 42
 console.log(q); // true
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. List out important features of es6?
 * **Template String**
 ```javascript
@@ -203,6 +208,10 @@ console.log(iterateIt.next().value); //output: E
 console.log(iterateIt.next().value); //output: S
 console.log(iterateIt.next().value); //output: 6
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
 
 Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
@@ -260,6 +269,10 @@ document.body.innerHTML = `
   </div>
 `
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What advantage is there for using the arrow syntax for a method in a constructor?
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
@@ -295,7 +308,9 @@ sayNameFromWindow2(); // John
 ```
 
 The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
-
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What are fat arrow functions? When you should not use arrow functions in ES6?
 An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
@@ -324,6 +339,10 @@ button.addEventListener('click', () => {
   this.classList.toggle('on');
 });
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How does await and async works in es6?
 * **Promises**
 ```javascript
@@ -380,6 +399,10 @@ const githubRequest = async(loginName) => {
 //githubRequest('eveporcello');
 githubRequest('pradeepkumar2');
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the benefits of using arrow function over es5 function? 
 **Arrow functions**  
 Arrows is a new syntax for functions, which brings several benefits:
@@ -403,6 +426,9 @@ var a4 = (x, y) => 1;
 //arrow with body has no implicit return
 var a5 = x => { return 1; };
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is a trampoline function? What is it used for? 
 The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
@@ -470,6 +496,9 @@ function trampoline(fn) {
 So the sole purpose of the trampoline function is to control the execution in an iterative way, and that ensures the stack to have only a single stack frame on the stack at any given time.
 
 Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the difference between Map and WeakMap in ES6?
 *TODO*
@@ -518,6 +547,9 @@ class Student extends Person {
 ```
 
 It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Can you give an example of one of the ways that working with this has changed in ES6?
 
@@ -560,6 +592,9 @@ const { e, f, ...others } = {
   h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the difference between let and var?
 You can list out the differences in a tabular format
@@ -583,6 +618,10 @@ function userDetails(username) {
    console.log(age); //error: age is not defined(due to block scope)
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Can you give an example for destructuring an object or an array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
@@ -619,6 +658,9 @@ const { p, q } = o;
 console.log(p); // 42
 console.log(q); // true
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What are the benefits of using spread syntax and how is it different from rest syntax?
 
@@ -657,6 +699,10 @@ const { e, f, ...others } = {
   h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the purpose of let keyword?
 
 The let statement declares a **block scope local variable**. Hence the variables defined with let keyword are limited in scope to the block, statement, or expression on which it is used. Whereas variables declared with the var keyword used to define a variable globally, or locally to an entire function regardless of block scope. Let's take an example to demonstrate the usage,
@@ -740,6 +786,10 @@ foo = 'bar';
 const baz = 'baz';
 baz = 'qux';
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Have you ever used JavaScript templating? If so, what libraries have you used?
 
 Yes. Handlebars, Underscore, Lodash, AngularJS, and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favorite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
@@ -768,6 +818,10 @@ for (let i of list) {
    console.log(i); // "4", "5", "6"
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the differences between ES6 class and ES5 function constructors?
 ```javascript
 // ES5 Function Constructor
@@ -822,3 +876,6 @@ delete window.obj
 
 **Browser support for Map and WeakMap**  
 The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. There’s no support in IE10. On mobile newer browsers also have support, but IE Mobile doesn’t.
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
