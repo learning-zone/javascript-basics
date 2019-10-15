@@ -2,7 +2,7 @@
 
 *Click <img src="https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/star.png" width="18" height="18" align="absmiddle" title="Star" /> if you like the project. Pull Request are highly appreciated.*
 
-|Sl.NO |JavaScript Questions|
+|Sl.No |JavaScript Questions|
 |------|--------------------|
 |01. |[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)|
 |02. |[When to use reduce(), map(), foreach() and filter() in JavaScript?](#q-when-to-use-reduce-map-foreach-and-filter-in-javascript)|
