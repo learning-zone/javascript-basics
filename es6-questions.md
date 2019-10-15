@@ -10,21 +10,19 @@
 |06. |[How does await and async works in es6?](#q-how-does-await-and-async-works-in-es6)|
 |07. |[What are the benefits of using arrow function over es5 function?](#q-what-are-the-benefits-of-using-arrow-function-over-es5-function)|
 |08. |[What is a trampoline function? What is it used for?](#q-what-is-a-trampoline-function-what-is-it-used-for)|
-|09. |[What is a symbol in JavaScript? Is it a primitive? What's a typical use case for a symbol in ES6?](#q-what-is-a-symbol-in-javascript-is-it-a-primitive-what-s-a-typical-use-case-for-a-symbol-in-es6)|
-|10. |[What is the difference between Map and WeakMap in ES6?](#q-what-is-the-difference-between-map-and-weakmap-in-es6)|
-|11. |[What are the differences between ES6 class and ES5 function constructors?](#q-what-are-the-differences-between-es6-class-and-es5-function-constructors)|
-|12. |[Can you give an example of one of the ways that working with this has changed in ES6?](#q-can-you-give-an-example-of-one-of-the-ways-that-working-with-this-has-changed-in-es6)|
-|13. |[What are the benefits of using spread syntax and how is it different from rest syntax?](#q-what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)|
-|14. |[What is the difference between let and var?](#q-what-is-the-difference-between-let-and-var)|
-|15. |[Can you give an example for destructuring an object or an array?](#q-can-you-give-an-example-for-destructuring-an-object-or-an-array)
-|16. |[What are the benefits of using spread syntax and how is it different from rest syntax?](#q-what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
-|17. |[What is the purpose of let keyword?](#q-what-is-the-purpose-of-let-keyword)|
-|18. |[What are the differences between variables created using `let`, `var` or `const`?](#q-what-are-the-differences-between-variables-created-using-let-var-or-const)|
-|19. |[Have you ever used JavaScript templating? If so, what libraries have you used?](#q-have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)|
-|20. |[What is the difference between for..in and for..of?](#q-what-is-the-difference-between-for-in-and-for-of)|
-|21. |[What are the differences between ES6 class and ES5 function constructors?](#q-what-are-the-differences-between-es6-class-and-es5-function-constructors)|
-|22. |[What is the Temporal Dead Zone in ES6?](#q-what-is-the-temporal-dead-zone-in-es6)|
-|23. |[What is the difference between ES6 Map and WeakMap?](#q-what-is-the-difference-between-es6-map-and-weakmap)|
+|09. |[What are the differences between ES6 class and ES5 function constructors?](#q-what-are-the-differences-between-es6-class-and-es5-function-constructors)|
+|10. |[Can you give an example of one of the ways that working with this has changed in ES6?](#q-can-you-give-an-example-of-one-of-the-ways-that-working-with-this-has-changed-in-es6)|
+|11. |[What are the benefits of using spread syntax and how is it different from rest syntax?](#q-what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)|
+|12. |[What is the difference between let and var?](#q-what-is-the-difference-between-let-and-var)|
+|13. |[Can you give an example for destructuring an object or an array?](#q-can-you-give-an-example-for-destructuring-an-object-or-an-array)
+|14. |[What are the benefits of using spread syntax and how is it different from rest syntax?](#q-what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)
+|15. |[What is the purpose of let keyword?](#q-what-is-the-purpose-of-let-keyword)|
+|16. |[What are the differences between variables created using `let`, `var` or `const`?](#q-what-are-the-differences-between-variables-created-using-let-var-or-const)|
+|17. |[Have you ever used JavaScript templating? If so, what libraries have you used?](#q-have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)|
+|18. |[What is the difference between for..in and for..of?](#q-what-is-the-difference-between-for-in-and-for-of)|
+|19. |[What are the differences between ES6 class and ES5 function constructors?](#q-what-are-the-differences-between-es6-class-and-es5-function-constructors)|
+|20. |[What is the Temporal Dead Zone in ES6?](#q-what-is-the-temporal-dead-zone-in-es6)|
+|21. |[What is the difference between ES6 Map and WeakMap?](#q-what-is-the-difference-between-es6-map-and-weakmap)|
 
 
 #### Q. Can you give an example for destructuring an object or an array?
@@ -473,8 +471,6 @@ So the sole purpose of the trampoline function is to control the execution in an
 
 Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
 
-#### Q. What is a symbol in JavaScript? Is it a primitive? What's a typical use case for a symbol in ES6?
-*TODO*
 #### Q. What is the difference between Map and WeakMap in ES6?
 *TODO*
 #### Q. What are the differences between ES6 class and ES5 function constructors?
