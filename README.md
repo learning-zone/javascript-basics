@@ -401,7 +401,6 @@
 |398.|[What is shallow copy and deep copy in javascript?](#q-what-is-shallow-copy-and-deep-copy-in-javascript)|
 |399.|[What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?](#q-what-is-difference-between-stoppropagation-vs-stopimmediatepropagation-vs-preventdefault-in-javascript)|
 |390.|[Explain array methods join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes(), set() ](#q-explain-array-methods-join-pop-push-shift-unshift-concat-map-filter-reduce-reduceright-every-some-indexof-lastindexof-find-findindex-includes-set)|
-|391.|[Create a Stopwatch program in javascript.](#q-create-a-stopwatch-program-in-javascript)
 |392.|[Write a program in javascript. abc(2)(3); // Expected output is 5](#q-write-a-program-in-javascript-abc-2-3-expected-output-is-5)
 |393.|[What is variable shadowing javascript?](#q-what-is-variable-shadowing-javascript)|
 |394.|[When to use function declarations and expressions in JavaScript?](#q-when-to-use-function-declarations-and-expressions-in-javascript)|
@@ -7903,111 +7902,6 @@ console.log(array1.includes(2)); // Output: true
 
 var pets = ['cat', 'dog', 'bat'];
 console.log(pets.includes('at')); // Output: false
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-#### Q. Create a Stopwatch program in javascript.
-```html
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Stopwatch Example</title>
-</head>
-<body>
-    <form action="" method="post">
-        <h4>Simple stopwatch made in JavaScript</h4>
-        <input type="button" onclick="startWatch()" value="START" />
-        <input type="button" onclick="stopWatch()" value="STOP" />
-        <input type="button" onclick="resetWatch()" value="ZERO" />
-    </form>
-    <p id="res"><span id="min">0</span> : <span id="sec">00</span> : <span id="msec">000</span></p>
-    <p>In this example Date() methods co-operate with timing function setInterval().</p>
-
-    <script type="text/javascript">
-    var timer = null;
-    var min_txt = document.getElementById("min");
-    var min = Number(min_txt.innerHTML);
-    var sec_txt = document.getElementById("sec");
-    var sec = Number(sec_txt.innerHTML);
-    var msec_txt = document.getElementById("msec"); 
-    var msec = Number(msec_txt.innerHTML);
-    function stopTimeMilliseconds(timer) {
-        if (timer) { 
-            clearInterval(timer);
-            return timer;
-        }
-        else return timer;
-    }
-    function startTimeMilliseconds() {
-        var currDate = new Date();
-        return currDate.getTime();	
-    }
-    function getElapsedTimeMilliseconds(startMilliseconds) {
-        if (startMilliseconds > 0) {
-            var currDate = new Date();
-            elapsedMilliseconds = (currDate.getTime() - startMilliseconds);
-            return elapsedMilliseconds;
-        } else {
-          return elapsedMilliseconds = 0;
-        }
-    }
-    function startWatch() { 
-        // START TIMER
-        timer = stopTimeMilliseconds(timer); 
-        var startMilliseconds = startTimeMilliseconds();
-        timer = setInterval(function() { 
-            var elapsedMilliseconds = getElapsedTimeMilliseconds(startMilliseconds); 
-            if (msec < 10) {
-                msec_txt.innerHTML = "00" + msec; 
-            } else if (msec < 100) {
-                msec_txt.innerHTML = "0" + msec;
-            } else {
-                msec_txt.innerHTML = msec;
-            }
-            if (sec < 10) {
-                sec_txt.innerHTML = "0" + sec;
-            } else {
-                sec_txt.innerHTML = sec; 
-            }
-            min_txt.innerHTML = min; 
-            msec = elapsedMilliseconds;
-            if (min >= 59 && sec >=59 && msec > 900) {
-                timer = stopTimeMilliseconds(timer);
-                return true;
-            }
-            if (sec > 59) {
-                sec = 0;
-                min++;
-            }
-            if (msec > 999) {
-                msec = 0;
-                sec++;
-                startWatch();
-            }
-        }, 10);
-    }
-    function stopWatch() {
-        // STOP TIMER
-        timer = stopTimeMilliseconds(timer);
-        return true;
-    }
-    function resetWatch() {
-        // REZERO TIMER
-        timer = stopTimeMilliseconds(timer);
-        msec_txt.innerHTML = "000"; 
-        msec = 0;
-        sec_txt.innerHTML = "00"; 
-        sec = 0;
-        min_txt.innerHTML = "0"; 
-        min = 0;
-        return true;
-    }
-</script>
-</body>
-</html>
 ```
 
 <div align="right">
