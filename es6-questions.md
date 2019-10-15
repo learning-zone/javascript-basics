@@ -9,7 +9,7 @@
 |05. |[What are fat arrow functions? When you should not use arrow functions in ES6?](#q-what-are-fat-arrow-functions-when-you-should-not-use-arrow-functions-in-es6)|
 |06. |[How does await and async works in es6?](#q-how-does-await-and-async-works-in-es6)|
 |07. |[What are the benefits of using arrow function over es5 function?](#q-what-are-the-benefits-of-using-arrow-function-over-es5-function)|
-|08. |[What is a trampolined function? What is it used for?](#q-what-is-a-trampolined-function-what-is-it-used-for)|
+|08. |[What is a trampoline function? What is it used for?](#q-what-is-a-trampoline-function-what-is-it-used-for)|
 |09. |[What is a symbol in JavaScript? Is it a primitive? What's a typical use case for a symbol in ES6?](#q-what-is-a-symbol-in-javascript-is-it-a-primitive-what-s-a-typical-use-case-for-a-symbol-in-es6)|
 |10. |[What is the difference between Map and WeakMap in ES6?](#q-what-is-the-difference-between-map-and-weakmap-in-es6)|
 |11. |[What are the differences between ES6 class and ES5 function constructors?](#q-what-are-the-differences-between-es6-class-and-es5-function-constructors)|
@@ -406,7 +406,7 @@ var a4 = (x, y) => 1;
 var a5 = x => { return 1; };
 ```
 
-#### Q. What is a trampolined function? What is it used for? 
+#### Q. What is a trampoline function? What is it used for? 
 *TODO*
 #### Q. What is a symbol in JavaScript? Is it a primitive? What's a typical use case for a symbol in ES6?
 *TODO*
