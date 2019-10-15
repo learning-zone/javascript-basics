@@ -8040,49 +8040,6 @@ function bodyAppend(tagName, innerHTML) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. How to create captcha using javascript?
-```html
-<!DOCTYPE html>
-<html>
-<head>
-    <title>JavaScript Captcha Example</title>
-</head>
-<script>
-    var captcha;
-        
-    function generateCaptcha() {
-        var a = Math.floor((Math.random() * 10));
-        var b = Math.floor((Math.random() * 10));
-        var c = Math.floor((Math.random() * 10));
-        var d = Math.floor((Math.random() * 10));
-        
-        captcha = a.toString() + b.toString() + c.toString() + d.toString();
-        document.getElementById("captcha").value = captcha;
-    }
-        
-    function check() {
-        var input=document.getElementById("inputText").value;
-        
-        if(input == captcha) {
-            alert("Valid Captcha");
-        } else {
-            alert("Invalid Captcha");
-        }
-    }
-</script>
-<body onload="generateCaptcha()">
-  <input type="text" id="captcha" disabled/><br/><br/>
-  <input type="text" id="inputText"/><br/><br/>
-  <button onclick="generateCaptcha()">Refresh</button>
-  <button onclick="check()">Submit</button>
-</body>
-</html>
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 #### Q. How to avoid callback hell in javascript?
 **Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.  
 
