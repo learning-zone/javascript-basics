@@ -70,13 +70,14 @@ console.log(q); // true
 * **Template String**
 ```javascript
 function print(Name) {
-  console.log("Hello " + Name);
-  console.log(`Hello ${Name}`);
+  console.log("Hello " + Name); // Hello Pradeep
+  console.log(`Hello ${Name}`); // Hello Pradeep
 }
 print("Pradeep");
 ```
 
 * **Spread Operators**
+Spread operator allows an iterable to expand in places where 0+ arguments are expected.
 
 ```javascript
 var firstGroup = ["C", "C++", "Java"];
@@ -84,8 +85,8 @@ var secondGroup = ["SQL", "MySQL", "BigData"];
 var thirdGroup = ["Android", "Python", "Ruby", firstGroup, secondGroup];
 var finalGroup = ["Android", "Python", "Ruby", ...firstGroup, ...secondGroup];
 
-console.log(thirdGroup);
-console.log(finalGroup);
+console.log(thirdGroup); // ["Android", "Python", "Ruby", Array(3), Array(3)]
+console.log(finalGroup); // ["Android", "Python", "Ruby", "C", "C++", "Java", "SQL", "MySQL", "BigData"]
 ```
 
 * **Sets**
