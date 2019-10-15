@@ -8,7 +8,7 @@
 |04. |[What advantage is there for using the arrow syntax for a method in a constructor?](#q-what-advantage-is-there-for-using-the-arrow-syntax-for-a-method-in-a-constructor)|
 |05. |[What are fat arrow functions? When you should not use arrow functions in ES6?](#q-what-are-fat-arrow-functions-when-you-should-not-use-arrow-functions-in-es6)|
 |06. |[How does await and async works in es6?](#q-how-does-await-and-async-works-in-es6)|
-|07. |[What are the benefits of using arrow function over es5 function? When should you NOT use arrow functions?](#q-what-are-the-benefits-of-using-arrow-function-over-es5-function-when-should-you-not-use-arrow-functions)|
+|07. |[What are the benefits of using arrow function over es5 function?](#q-what-are-the-benefits-of-using-arrow-function-over-es5-function)|
 |08. |[What is Destructuring and spread operators in ES6?](#q-what-is-destructuring-and-spread-operators-in-es6)|
 |00. |[What is a trampolined function? What is it used for?](#q-what-is-a-trampolined-function-what-is-it-used-for)|
 |10. |[What is a symbol in JavaScript? Is it a primitive? What's a typical use case for a symbol in ES6?](#q-what-is-a-symbol-in-javascript-is-it-a-primitive-what-s-a-typical-use-case-for-a-symbol-in-es6)|
@@ -383,8 +383,30 @@ const githubRequest = async(loginName) => {
 //githubRequest('eveporcello');
 githubRequest('pradeepkumar2');
 ```
-#### Q. What are the benefits of using arrow function over es5 function? When should you NOT use arrow functions?
-*TODO*
+#### Q. What are the benefits of using arrow function over es5 function? 
+**Arrow functions**  
+Arrows is a new syntax for functions, which brings several benefits:
+
+* Arrow syntax automatically binds `this` to the surrounding code’s context
+* The syntax allows an implicit return when there is no body block, resulting in shorter and simpler code in some cases
+* Last but not least, `=>` is shorter and simpler than `function`, although stylistic issues are often subjective
+
+The syntax is quite flexible:
+```javascript
+//arrow function with no parameters
+var a1 = () => 1;
+ 
+//arrow with one parameter can be defined without parentheses
+var a2 = x => 1;
+var a3 = (x) => 1;
+ 
+//arrow with multiple params requires parentheses
+var a4 = (x, y) => 1;
+ 
+//arrow with body has no implicit return
+var a5 = x => { return 1; };
+```
+
 #### Q. What is Destructuring and spread operators in ES6?
 *TODO*
 #### Q. What is a trampolined function? What is it used for? 
