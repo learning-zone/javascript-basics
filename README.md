@@ -250,7 +250,6 @@
 |246. |[Difference between document `load` event and document `DOMContentLoaded` event?](#q-difference-between-document-load-event-and-document-domcontentloaded-event)|
 |247. |[What is the difference between `==` and `===`?](#q-what-is-the-difference-between-and)|
 |248. |[Explain the same-origin policy with regards to JavaScript.](#q-explain-the-same-origin-policy-with-regards-to-javascript)
-|249. |[Make this work:](#q-make-this-work)|
 |250. |[Why is it called a Ternary expression, what does the word "Ternary" indicate?](#q-why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)|
 |251. |[What is `"use strict";`? What are the advantages and disadvantages to using it?](#q-what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)|
 |252. |[Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#q-why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)|
@@ -3576,21 +3575,6 @@ console.log(a == undefined); // true
 #### Q. Explain the same-origin policy with regards to JavaScript.
 
 The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
-
-
-#### Q. Make this work:
-
-```javascript
-duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
-```
-
-```javascript
-function duplicate(arr) {
-  return arr.concat(arr);
-}
-
-duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
-```
 
 #### Q. Why is it called a Ternary expression, what does the word "Ternary" indicate?
 
