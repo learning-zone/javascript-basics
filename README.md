@@ -7979,7 +7979,6 @@ console.log(eval('2 + 2')); // Output: 4
 `eval()` is heavily discouraged because it combines several common issues.
 * **Performance** - eval() runs the interpreter/compiler. If your code is compiled, then this is a big hit, because you need to call a possibly-heavy compiler in the middle of run-time. However, JavaScript is still mostly an interpreted language, which means that calling eval() is not a big performance hit in the general case.
 * **Code injection** - eval() potentially runs a string of code under elevated privileges. For example, a program running as administrator/root would never want to eval() user input, because that input could potentially be "rm -rf /etc/important-file" or worse. 
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
