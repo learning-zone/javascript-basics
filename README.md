@@ -4345,9 +4345,6 @@ while(arrayList.length) {
 
 Above implementation can also empty the array. But not recommended to use often.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 #### Q. How to check if an object is an array or not?
 
