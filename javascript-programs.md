@@ -21,21 +21,11 @@ function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 #### Q. JavaScript Regular Expression to validate Email
 
 ```javascript
 var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 #### Q. Use RegEx to test password strength in JavaScript?
 
 ```javascript
@@ -86,6 +76,9 @@ if (x) {
 }
 console.log(x); // Output: 10
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
@@ -115,6 +108,9 @@ var getNumber = function() {
 };
 getNumber(); // Output: undefined
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
@@ -158,6 +154,9 @@ if (1) {
 }
 console.log(k); // Output: 1undefined
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
@@ -189,6 +188,9 @@ console.log('(a * b): '+(a * b)); // Output: 20
 console.log('(a / b): '+(a / b)); // Output: 0.8
 console.log('(a % b): '+(a % b)); // Output: 4
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
@@ -222,6 +224,10 @@ var myObject = {
 };
 myObject.func();
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(0.1 + 0.2);        // Output: 0.30000000000000004
@@ -257,6 +263,9 @@ console.log(+"1" +  "1" + "2"); // Output: 112
 console.log( "A" - "B" + "2");  // Output: NaN2
 console.log( "A" - "B" + 2);    // Output: NaN
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
@@ -282,6 +291,9 @@ console.log("1 || 2 = "+(1 || 2)); // Output: 1
 console.log("0 && 1 = "+(0 && 1)); // Output: 0
 console.log("1 && 2 = "+(1 && 2)); // Output: 2
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
@@ -310,6 +322,9 @@ console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10)); // Output: 
     })(2)
 })(1); 
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
@@ -342,6 +357,10 @@ var obj = {
 obj.method(fn, 1);
 //Output: 10, 2
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
 (function () {
@@ -389,6 +408,9 @@ function outer(){
 }
 outer();
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Hoisting example in javascript
 ```javascript
@@ -407,6 +429,10 @@ arr.push(3);       // Output: 1, 2, 3
 var o = new F(); 
 o.constructor === F; 
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
@@ -465,6 +491,9 @@ for (var i = 1; i <= 15; i++) {
   console.log(f ? b ? "FizzBuzz" : "Fizz" : b ? "Buzz" : i);
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What will be the output of the following code?
 
@@ -493,9 +522,11 @@ var output = (function() {
 console.log(output);
 ```
 
-
 The code above will output `1` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **global variable** of type `number`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What will be the output of the following code?
 
@@ -524,10 +555,13 @@ delete emp1.company
 console.log(emp1.company);
 ```
 
-
 The code above will output `xyz` as output. Here `emp1` object got company as **prototype** property. delete operator doesn't delete prototype property.
 
 `emp1` object doesn't have **company** as its own property. you can test it `console.log(emp1.hasOwnProperty('company')); //output : false` However, we can delete company property directly from `Employee` object using `delete Employee.company` or we can also delete from `emp1` object using `__proto__` property `delete emp1.__proto__.company`.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What will be the output of the following code?
 
@@ -540,7 +574,6 @@ console.log(trees.length);
 The code above will output `5` as output. When we used `delete` operator for deleting an array element then, the array length is not affected by this. This holds even if you deleted all elements of an array using `delete` operator.
 
 So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
-
 
 
 #### Q. What will be the output of the following code?
@@ -561,7 +594,9 @@ The code above will output `1, "truexyz", 2, 1` as output. Here's a general guid
   - String + Boolean -> Concatenation
   - String + String  -> Concatenation
   
-  
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What will be the output of the following code?
 
@@ -618,6 +653,9 @@ var foo = function bar() {
 // foo is visible here
 // bar is undefined here
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the output of the following?
 
@@ -663,6 +701,9 @@ var salary = "1000$";
   console.log("My New Salary " + salary);
 })();
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of the following code?
 
@@ -690,8 +731,11 @@ var person;
 var foo = new User("xyz");
 foo["location"] = "USA";
 // the console will show you that the result of this is "USA"
-
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
