@@ -1156,6 +1156,11 @@ async1(function() {
     });
 });
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is server-sent events?
 Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
 
@@ -1192,6 +1197,10 @@ A promise must follow a specific set of rules,
 2. A pending promise may transition into either fulfilled or rejected state
 3. A fulfilled or rejected promise is settled and it must not transition into any other state.
 4. Once a promise is settled, the value must not change.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is callback in callback?
 You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks.
@@ -1243,6 +1252,10 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
 3. After that the value passed to the next `.then` handler by logging the result(2) and return a promise with result * 3.
 4. Finally the value passed to the last `.then` handler by logging the result(6) and return a promise with result * 4.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is promise.all?
 Promise.all is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected. For example, the syntax of promise.all method is below,
 ```javascript
@@ -1287,6 +1300,11 @@ function myFunction() {
   y = 3.14;   // This will cause an error
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the purpose of double exclamation?
 The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, true.
 For example, you can test IE version using this expression as below,
@@ -1326,6 +1344,10 @@ Any variable can be emptied by setting the value to undefined.
 user = undefined
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the difference between null and undefined?
 Below are the main differences between null and undefined,
 
@@ -1362,6 +1384,10 @@ function goForward() {
 }
 ```
 *Note: You can also access history without window prefix*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What are the javascript data types?
 Below are the list of javascript data types available
@@ -1400,6 +1426,11 @@ The NaN property is a global property that represents "Not-a-Number" value. i.e,
 Math.sqrt(-1)
 parseInt("Hello")
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the purpose of isFinite function?
 The isFinite() function is used to determine whether a number is a finite, legal number. It returns false if the value is +infinity, -infinity, or NaN (Not-a-Number), otherwise it returns true.
 ```javascript
@@ -1428,6 +1459,11 @@ function submit() {
     document.form[0].submit();
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you find operating system details?
 The window.navigator object contains information about the visitor's browser os details. Some of the OS properties are avaialble under platform property,
 ```javascript
@@ -1452,6 +1488,10 @@ Below are the list of pros and cons of promises over callbacks,
 **Cons:**
 1. It makes little complex code
 2. You need to load a polyfill if ES6 is not supported
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the difference between an attribute and a property?
 Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
@@ -1509,6 +1549,10 @@ Let's describe the behavior of click event for button element,
 </html>
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the use of preventDefault method?
 The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
 ```javascript
@@ -1546,6 +1590,10 @@ The return false statement in event handlers performs the below steps,
 #### Q. What is BOM?
 The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the use of setTimeout?
 The setTimeout() method is used to call a function or evaluates an expression after a specified number of milliseconds. For example, let's log a message after 2 seconds using setTimeout method,
 ```javascript
@@ -1573,6 +1621,11 @@ console.log(event.target);
 
 }, false);
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is ECMAScript?
 ECMAScript is the scripting language that forms the basis of JavaScript. ECMAScript standardized by the ECMA International standards organization in the ECMA-262 and ECMA-402 specifications. The first edition of ECMAScript was released in 1997.
 
@@ -1602,6 +1655,10 @@ console.log(userJSON);// {name: "John", age: 31}
 ```
 #### Q. Why do you need JSON?
 When exchanging data between a browser and a server, the data can only be text. Since JSON is text only, it can easily be sent to and from a server, and used as a data format by any programming language.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What are PWAs?
 Progressive web applications (PWAs) are a type of mobile app delivered through the web, built using common web technologies including HTML, CSS and JavaScript. These PWAs are deployed to servers, accessible through URLs, and indexed by search engines.
@@ -1644,6 +1701,11 @@ function stop() {
 }
 </script>
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you redirect new page in javascript?
 In vanilla javascript, you can redirect to a new page using `location` property of window object. The syntax would be as follows,
 ```javascript
@@ -1668,6 +1730,11 @@ mainString.indexOf(subString) !== -1
 var mainString = "hello", regex = "/hell/";
 regex.test(mainString)
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you validate an email in javascript?
 You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead client side. Because the javascript can be disabled on the client side.
 ```javascript
@@ -1714,6 +1781,11 @@ and If you want to check if a key doesn't exist, remember to use parenthesis,
 ```javascript
 obj.hasOwnProperty("key") // true
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you loop through or enumerate javascript object?
 You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn't come from the prototype using `hasOwnProperty` method.
 ```javascript
@@ -1751,6 +1823,11 @@ function isEmpty(obj) {
   return JSON.stringify(obj) === JSON.stringify({});
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is an arguments object?
 The arguments object is an Array-like object accessible inside functions that contains the values of the arguments passed to that function. For example, let's see how to use arguments object inside sum function,
 ```javascript
@@ -1780,6 +1857,10 @@ The for-loop is a commonly used iteration syntax in javascript. It has both pros
 1. Too verbose
 2. Imperative
 3. You might face one-by-off errors
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. How do you display the current date in javascript?
 You can use `new Date()` to generate a new Date object containing the current date and time. For example, let's display the current date in mm/dd/yyyy
@@ -1823,6 +1904,11 @@ if (!String.prototype.trim) {
     })();
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you add a key value pair in javascript?
 There are two possible solutions to add new properties to an object. Let's take a simple object to explain these solutions.
 ```javascript
@@ -1878,6 +1964,11 @@ fn.profile = function(y) {
   //Profile code goes here
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the way to find the number of parameters expected by a function?
 You can use `function.length` syntax to find the number of parameters expected by a function. Let's take an example of `sum` function to calculate the sum of numbers,
 ```javascript
@@ -1904,6 +1995,11 @@ for (i = 0; i < 10; i++) {
     text += "Number: " + i + "<br>";
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are js labels?
 The label statement allows us to name loops and blocks in JavaScript. We can then use these labels to refer back to the code later. For example, the below code with labels avoids printing the numbers when they are same,
 ```javascript
@@ -1959,6 +2055,11 @@ var v5 = [];
 var v6 = /()/;
 var v7 = function(){};
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you define JSON arrays?
 JSON arrays are written inside square brackets and array contain javascript objects. For example, the JSON array of users would be as below,
 ```javascript
@@ -1987,6 +2088,10 @@ randomInteger(1, 1000); // returns a random integer from 1 to 1000
 ```
 #### Q. What is tree shaking?
 Tree shaking is a form of dead code elimination. It means that unused modules will not be included in the bundle during the build process and for that it relies on the static structure of ES2015 module syntax,( i.e. import and export). Initially this has been popularized by the ES2015 module bundler `rollup`.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the need of tree shaking?
 Tree Shaking can significantly reduce the code size in any application. i.e, The less code we send over the wire the more performant the application will be. For example, if we just want to create a “Hello World” Application using SPA frameworks then it will take around  few MBs, but by tree shaking it can bring down the size to just few hundred KBs. Tree shaking is been implemented in Rollup and Webpack bundlers.
@@ -2021,6 +2126,11 @@ Let's take an example of global modifier,
   var pattern = /one/g;
   var result = text.match(pattern); // one,one
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are regular expression patterns?
 Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,
 1. **Brackets:** These are used to find a range of characters.
@@ -2038,6 +2148,10 @@ Regular Expressions provided group of patterns in order to match characters. Bas
   1. n+: Used to find matches for any string that contains at least one n
   2. n*: Used to find matches for any string that contains zero or more occurrences of n
   3. n?: Used to find	matches for any string that contains zero or one occurrences of n
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is a RegExp object?
 RegExp object is a regular expression object with predefined properties and methods. Let's see the simple usage of RegExp object,
@@ -2068,6 +2182,10 @@ document.getElementById("title").style.fontSize = "30px";
 ```javascript
 document.getElementById("title").style.className = "custom-title";
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is a debugger statement?
 The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect.
@@ -2107,6 +2225,11 @@ else {
   }
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you get the image width and height using JS?
 You can programmatically get the image and check the dimensions(width and height) using Javascript.
 ```javascript
@@ -2142,6 +2265,11 @@ function httpGetAsync(theUrl, callback)
     xmlHttp.send(null);
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How do you convert date to another timezone in javascript?
 You can use toLocaleString() method to convert date in one timezone to another. For example, let's convert current date to British English timezone as below,
 ```javascript
@@ -2183,6 +2311,11 @@ function traceValue(someParam) {
     else { return value4; }
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What are the ways to execute javascript after page load?
 You can execute javascript after page load in many different ways,
 1. ** window.onload:**
@@ -2225,6 +2358,10 @@ var fn = function () {
 })();
 ```
 In this case, we are passing second function as an argument to the first function and then trying to call the result of the first function call as a function. Hence, the second function will fail with a "... is not a function" error at runtime.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is a freeze method?
 The freeze() method is used to freeze an object. Freezing an object does'nt allow adding new properties to an object,prevents from removing and prevents changing the enumerability, configurability, or writability of existing properties. i.e, It returns the passed object and does not create a frozen copy.
@@ -2289,6 +2426,10 @@ An operator is capable of manipulating(mathematical and logical computations) a 
 5. **Ternary Operators:** It includes conditional(: ?) Operator
 6. **typeof Operator:** It uses to find type of variable. The syntax looks like `typeof variable`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is a rest parameter?
 Rest parameter is an improved way to handle function parameter which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,
 ```javascript
@@ -2329,6 +2470,10 @@ Below are the list of bit-wise logical operators used in JavaScript
 5. Left Shift ( << )
 6. Sign Propagating Right Shift ( >> )
 7. Zero fill Right Shift ( >>> )
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is a spread operator?
 Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. Let's take an example to see this behavior,
