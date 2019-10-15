@@ -7911,7 +7911,7 @@ console.log(p.a, p.b); // 1, 42
 The Proxy object defines a target (an empty object here) and a handler object in which a get trap is implemented. Here, an object that is proxied will not return undefined when getting undefined properties, but will instead return the number 42.
 
 **Reflection**  
-`Reflect` is a built-in object that provides methods for interceptable JavaScript operations. The methods are the same as those of the `proxy handlers`. `Reflect` is not a function object.
+Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object.
 
 `Reflect` helps with forwarding default operations from the handler to the target.
 ```javascript
