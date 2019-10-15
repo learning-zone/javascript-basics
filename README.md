@@ -7893,3 +7893,33 @@ For example: When images are sent to different server and text is sent to a diff
 * Geometric hashing – widely used in computer graphics to find closet pairs and proximity problems in planes. It is also called grid method and it has also been adopted in telecommunications.
 
 #### Q. What is Proxies and Reflection in JavaScript?
+JavaScript support for the Proxy and Reflect objects allowing you to intercept and define custom behavior for fundamental language operations (e.g. property lookup, assignment, enumeration, function invocation, etc). 
+
+**Proxies**  
+Introduced in ECMAScript 6, Proxy objects allow you to intercept certain operations and to implement custom behaviors. For example getting a property on an object:
+```javascript
+var handler = {
+  get: function(target, name) {
+    return name in target ? target[name] : 42;
+  }
+};
+
+var p = new Proxy({}, handler);
+p.a = 1;
+console.log(p.a, p.b); // 1, 42
+```
+The Proxy object defines a target (an empty object here) and a handler object in which a get trap is implemented. Here, an object that is proxied will not return undefined when getting undefined properties, but will instead return the number 42.
+
+**Reflection**  
+`Reflect` is a built-in object that provides methods for interceptable JavaScript operations. The methods are the same as those of the `proxy handlers`. `Reflect` is not a function object.
+
+`Reflect` helps with forwarding default operations from the handler to the target.
+```javascript
+Reflect.apply(Math.floor, undefined, [1.75]); // 1;
+
+Reflect.apply(String.fromCharCode, undefined, [104, 101, 108, 108, 111]); // "hello"
+
+Reflect.apply(RegExp.prototype.exec, /ab/, ['confabulation']).index; // 4
+
+Reflect.apply(''.charAt, 'ponies', [3]); // "i"
+```
