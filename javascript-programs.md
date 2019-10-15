@@ -748,7 +748,11 @@ console.log (strA)
 
 The output will `'hi there'` because we're dealing with strings here. Strings are 
 passed by value, that is, copied. 
- 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 ```javascript
 var objA = {prop1: 42};
@@ -775,6 +779,10 @@ to the same object as the `objB` variable.
 
 However, when we reassign `objB` to an empty object, we simply change where `objB` variable references to.
 This doesn't affect where `objA` variable references to. 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -803,6 +811,10 @@ The output will be `[0,1,2,3,4,5]`.
 
 The `slice` function copies all the elements of the array returning the new array. That's why
 `arrA` and `arrB` reference two completely different arrays. 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -852,7 +864,9 @@ two elements.
 
 This is why changing the property of `arrB[0]` in `arrB` will also change the `arrA[0]`.
 
-
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. console.log(employeeId);
 
@@ -894,6 +908,10 @@ var employeeId = '1234abe';
 
 *Answer:* 2) undefined 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -931,6 +949,10 @@ var employeeId = '1234abe';
 4.  ReferenceError: displayFunc is not defined 
 
 *Answer:* 1) undefined 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -972,6 +994,10 @@ console.log(employeeId);
 4.  ReferenceError: employeeId is not defined 
 
 *Answer:* 3) 'abc123' 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1018,6 +1044,10 @@ foo();
 
 *Answer:* 1) undefined
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1042,6 +1072,9 @@ foo();
 
 *Answer:* 3) function function
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1070,6 +1103,10 @@ foo();
 	
 *Answer:* 3) ["name", "salary", "country", "phoneNo"]
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1096,6 +1133,10 @@ foo();
 4.  ["name", "salary", "country"]
 	
 *Answer:* 4) ["name", "salary", "country"]
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1137,6 +1178,10 @@ foo();
 	
 *Answer:* 2) false false
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code ?
 
 ```javascript
@@ -1177,6 +1222,10 @@ foo();
 	
 *Answer:* 2) false false
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code ?
 
 ```javascript
@@ -1216,6 +1265,10 @@ foo();
 4.  true true false false
 	
 *Answer:* 3) true true true true
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code ?
 
@@ -1259,6 +1312,10 @@ foo();
 	
 *Answer:* 3) foo foo
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code ?
 
 ```javascript
@@ -1299,6 +1356,10 @@ foo();
 
 *Answer:* 3) ["100"] 1
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1338,6 +1399,10 @@ foo();
 
 *Answer:* 1) 11
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1373,6 +1438,10 @@ foo();
 4.  undefined
 
 *Answer:* 1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1410,6 +1479,10 @@ foo();
 4.  1 undefined undefined
 
 *Answer:* 2) 1 6 -1
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1474,7 +1547,11 @@ foo();
 			 [ 2, '12', true ]
 			 [ 2, '12', true ]
 			 [ 2, '12', true ]
-			 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1533,6 +1610,10 @@ foo();
 
 *Answer:* 1.  [ 'bar', 'john' ] [] [ 'foo' ] 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1575,6 +1656,10 @@ console.log(funcA());
 	
 *Answer:* 1) 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1614,6 +1699,10 @@ console.log(obj.innerMessage());
 4.  ReferenceError: this.message is not defined
 	
 *Answer:* 1) Hello
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1658,6 +1747,10 @@ console.log(obj.innerMessage());
 	
 *Answer:* 2) 'Hello'
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1694,6 +1787,10 @@ console.log(myFunc());
 	
 *Answer:* 2) 'Hi John'
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1728,6 +1825,10 @@ console.log(myFunc("a","b","c","d"));
 4.  ReferenceError
 	
 *Answer:* a) 2 2 2 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1775,6 +1876,10 @@ var person1 = new Person('John');
 	
 *Answer:* 1) John Person 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1814,6 +1919,10 @@ console.log(Employee.employeeId);
 4.  undefined
 	
 *Answer:* 4) undefined 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1858,6 +1967,9 @@ var employeeId = 'aq123';
 	
 *Answer:* 1) foo123 aq123 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -1909,6 +2021,10 @@ var employeeId = 'aq123';
 	
 *Answer:* 1) Total amount left in account: 5600 Total amount left in account: 5300 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1941,6 +2057,10 @@ var employeeId = 'aq123';
 	
 *Answer:* 1) 5600 5300 5100
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -1972,6 +2092,10 @@ var employeeId = 'aq123';
 4. undefined undefined undefined
 	
 *Answer:* 2) 3600 3300 3100
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -2014,6 +2138,10 @@ getDataFromServer('www.google.com').then(function(name){
 4. fn is not defined
 	
 *Answer:* 1) John
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -2062,6 +2190,10 @@ getDataFromServer('www.google.com').then(function(name){
 			 [ 2, 8, 15, 16, 23, 42 ]
 			
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -2102,6 +2234,10 @@ console.log(numb);
 	
 *Answer:* 1) 5
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What would be the output of following code?
 
 ```javascript
@@ -2141,6 +2277,10 @@ console.log(mul(2)(3)[1](4));
 4. 10, 6
 	
 *Answer:* 1) 6, 10
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What would be the output of following code?
 
@@ -2190,6 +2330,10 @@ console.log(mul(2)(3)(4)(5)(6));
 	
 *Answer:* 1) 720
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the value of `foo`?
 ```javascript
 var foo = 10 + '20';
@@ -2227,6 +2371,10 @@ add()(2)(5); // 7
 add()()(2)(5); // 7
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What value is returned from the following statement?
 ```javascript
 "i'm a lasagna hog".split("").reverse().join("");
@@ -2255,6 +2403,10 @@ alert(foo + bar);
 - First: `Hello World`
 - Second: Throws an exception, `ReferenceError: bar is not defined`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the value of `foo.length`?
 ```javascript
 var foo = [];
@@ -2279,6 +2431,10 @@ assignment is performed in JavaScript. When `foo.x` is referenced, it refers
 to an original object, `{n: 1}`. So, when the result of the right term, `{n:
 2}`, is evaluated, it will assigned to the original object, which is at the
 moment referenced by `bar`.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What does the following code print?*
 ```javascript
@@ -2309,6 +2465,10 @@ function countCharacters(str) {
 }
 console.log(countCharacters("the brown fox jumps over the lazy dog"));
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the value of `foo`?
 ```javascript
@@ -2346,6 +2506,9 @@ add()(2, 5); // 7
 add()(2)(5); // 7
 add()()(2)(5); // 7
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What value is returned from the following statement?
 ```javascript
@@ -2383,6 +2546,10 @@ foo.push(2);
 ```
 
 *Answer:* `.push` is mutable - `2`
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the value of `foo.x`?
 ```javascript
@@ -2454,6 +2621,10 @@ f = g = 0;
   function f() { g += 5; return 0; }
 }) ();
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. what will be the output?
 ```javascript
 function b(b) {
@@ -2502,6 +2673,10 @@ try {
   console.log (e()());
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What will the following code output?
 ```javascript
 const arr = [10, 12, 15, 21];
@@ -2529,3 +2704,6 @@ var emp1 = Object.create(Employee);
 delete emp1.company
 console.log(emp1.company);
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
