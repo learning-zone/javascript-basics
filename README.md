@@ -4654,6 +4654,7 @@ That's it. The rest is details.
   - `new function(){ console.log("hi I'm IIFE") }`
   - `new function(){ console.log("hi I'm IIFE") }()`
 
+
 **Applications and usefulness**  
 
 Variables and functions that you declare inside an IIFE are not visible to the outside world, so you can:
@@ -4662,7 +4663,6 @@ Variables and functions that you declare inside an IIFE are not visible to the o
  - Use it in closures, when you use closures in loops.
  - IIFE is the basis of in the module pattern in ES5
 code, it helps to prevent polluting the global scope and provide the module interface to the outside.
-
 
 #### Q. Describe Singleton Pattern In JavaScript 
 
