@@ -15,6 +15,52 @@ alert(reverseString("Pradeep")); // Output: peedarP
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+#### Q. How to check if object is empty or not in javaScript?
+```javascript
+function isEmpty(obj) {
+    return Object.keys(obj).length === 0;
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+#### Q. JavaScript Regular Expression to validate Email
+
+```javascript
+var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+#### Q. Use RegEx to test password strength in JavaScript?
+
+```javascript
+
+var newPassword = "Pq5*@a{J";
+var regularExpression = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+
+if(!regularExpression.test(newPassword)) {
+    alert("Password should contain atleast one number and one special character !");   
+}
+```
+
+|RegEx	           |Description                                                           |
+|------------------|----------------------------------------------------------------------|
+|^	               | The password string will start this way                              |
+|(?=.*[a-z])	   | The string must contain at least 1 lowercase alphabetical character  |
+|(?=.*[A-Z])	   | The string must contain at least 1 uppercase alphabetical character  |
+|(?=.*[0-9])	   | The string must contain at least 1 numeric character                 |
+|(?=.[!@#\$%\^&])| The string must contain at least one special character, but we are escaping reserved RegEx characters to avoid conflict  |
+|(?=.{8,})	       |The string must be eight characters or longer                          |
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(+'meow'); // Output: NaN
