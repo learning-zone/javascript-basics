@@ -8032,6 +8032,7 @@ For example: When images are sent to different server and text is sent to a diff
 * Hashing algorithms are used in cryptographic applications like a digital signature.
 * Hashing is used to generate random strings to avoid duplication of data stored in databases.
 * Geometric hashing – widely used in computer graphics to find closet pairs and proximity problems in planes. It is also called grid method and it has also been adopted in telecommunications.
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -8070,4 +8071,3 @@ Reflect.apply(''.charAt, 'ponies', [3]); // "i"
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
