@@ -7680,7 +7680,21 @@ console.log(pets.includes('at')); // Output: false
 </body>
 </html>
 ```
-#### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
+#### Q. Write a program in javascript. sum(2)(3); // Expected output is 5
+```javascript
+function sum(x, y) {
+  if (y !== undefined) {
+    return x + y;
+  } else {
+    return function(y) { return x + y; };
+  }
+}
+```
+Output
+```
+console.log(sum(2,3));   // Outputs 5
+console.log(sum(2)(3));  // Outputs 5
+```
 #### Q. What is variable shadowing javascript?
 #### Q. When to use function declarations and expressions in JavaScript?
 #### Q. How to do Javascript file size and extension validation before upload?
