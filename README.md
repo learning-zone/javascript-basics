@@ -4244,10 +4244,6 @@ innerFuncVar = y
 globalVar = abc
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 #### Q. Write a mul function which will work properly when invoked with following syntax.
 
 ```javascript
@@ -4349,11 +4345,10 @@ while(arrayList.length) {
 
 Above implementation can also empty the array. But not recommended to use often.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 #### Q. How to check if an object is an array or not?
+
+
 
 The best way to find whether an object is instance of a particular class or not using `toString` method from `Object.prototype`
 
@@ -4415,9 +4410,6 @@ Array.isArray(arrayList);
 
 `Array.isArray` is supported by Chrome 5, Firefox 4.0, IE 9, Opera 10.5 and Safari 5
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 #### Q. What is `undefined x 1` in JavaScript
 
@@ -4448,6 +4440,7 @@ function bar () {
 }
 ```
 
+
 The main difference is that function `foo` is defined at `run-time` and is called a function expression, whereas function `bar` is defined at `parse time` and is called a function statement. To understand it better, let's take a look at the code below :
 
 ```javascript
@@ -4465,10 +4458,6 @@ function bar() {
   console.log("Hi I am inside Foo");
 }
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 #### Q. In which case the function definition is not hoisted in JavaScript?
 
@@ -4506,10 +4495,6 @@ foo = function foo() {
 }
 foo(); // Now foo is defined here
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 #### Q. What’s the difference between `typeof` and `instanceof`?
 
