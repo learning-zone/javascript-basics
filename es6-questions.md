@@ -410,7 +410,7 @@ var a5 = x => { return 1; };
 The trampoline is just a technique to optimize **recursion** and prevent stack-overflow exceptions in languages that don't support tail call optimization like Javascript ES5 implementation and C#. However, ES6 will probably have support for tail call optimization.
 
 The problem with regular recursion is that every recursive call adds a stack frame to the call stack, which you can visualize as a **pyramid** of calls. Here is a visualization of calling a factorial function recursively:
-```javascript
+```
 (factorial 3)
 (* 3 (factorial 2))
 (* 3 (* 2 (factorial 1)))
