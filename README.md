@@ -24,7 +24,6 @@
 |17. |[What is a unary function?](#q-what-is-a-unary-function)|
 |18. |[What is currying function?](#q-what-is-currying-function)|
 |19. |[What is a pure function?](#q-what-is-a-pure-function)|
-|20. |[What is Temporal Dead Zone?](#q-what-is-temporal-dead-zone)|
 |21. |[What is IIFE(Immediately Invoked Function Expression)?](#q-what-is-iife-immediately-invoked-function-expression)|
 |22. |[What is memoization?](#q-what-is-memoization)|
 |23. |[What is a service worker?](#q-what-is-a-service-worker)|
@@ -814,16 +813,6 @@ Remember that Pure functions are important as they simplify unit testing without
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is Temporal Dead Zone?
-The Temporal Dead Zone is a behavior in JavaScript that occurs when declaring a variable with the let and const keywords, but not with var. In ECMAScript 6, accessing a let or const variable before its declaration (within its scope) causes a ReferenceError. The time span when that happens, between the creation of a variable’s binding and its declaration, is called the temporal dead zone. Let's see this behavior with an example,
-```javascript
-function somemethod() {
-    console.log(counter1); // undefined
-    console.log(counter2); // ReferenceError
-    var counter1 = 1;
-    let counter2 = 2;
-}
-```
 #### Q. What is IIFE(Immediately Invoked Function Expression)?
 IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,
 ```javascript
