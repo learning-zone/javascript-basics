@@ -7713,15 +7713,17 @@ Output
 20
 ```
 #### Q. When to use function declarations and expressions in JavaScript?
-**Function Declarations**: A declared function is “saved for later use”, and will be executed later, when it is invoked (called).
+**Function Declarations**   
+A declared function is “saved for later use”, and will be executed later, when it is invoked (called).
 ```javascript
 // Function declaration
 function add(num1, num2) {
 	return num1 + num2;
 }
 ```
-function is only declared here. For using it, it must be invoked using function name. e.g add(10, 20);
-**Function Expression**: A function expression can be stored in a variable:
+function is only declared here. For using it, it must be invoked using function name. e.g add(10, 20);  
+**Function Expression**   
+A function expression can be stored in a variable:
 ```javascript
 // Function expression
 var add = function (num1, num2) {
