@@ -76,7 +76,7 @@ function print(Name) {
 print("Pradeep");
 ```
 
-* **Spread Operators**
+* **Spread Operators**  
 Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. Let's take an example to see this behavior,
 ```javascript
 function calculateSum(x, y, z) {
