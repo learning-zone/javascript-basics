@@ -301,7 +301,7 @@
 |298. |[Best way to detect reference values of any type in JavaScript?](#q-best-way-to-detect-reference-values-of-any-type-in-javascript)|
 |299. |[How does Object.create method works JavaScript?](#q-how-does-objectcreate-method-works-javascript)|
 |300. |[How to use constructor functions for inheritance in JavaScript?](#q-how-to-use-constructor-functions-for-inheritance-in-javascript)|
-|301. |[How we can prevent modification of object in JavaScript ?.](#q-how-we-can-prevent-modification-of-object-in-javascript)|
+|301. |[How we can prevent modification of object in JavaScript?.](#q-how-we-can-prevent-modification-of-object-in-javascript)|
 |302. |[Write a log function which will add prefix `(your message)` to every message you log using console.log ?](#q-write-a-log-function-which-will-add-prefix-your-message-to-every-message-you-log-using-consolelog)|
 |303. |[Write a function which will test string as a literal and as an object ?](#q-write-a-function-which-will-test-string-as-a-literal-and-as-an-object)|
 |304. |[What is typical use case for anonymous function in JavaScript ?](#q-what-is-typical-use-case-for-anonymous-function-in-javascript)|
@@ -5247,7 +5247,7 @@ console.log(name in obj); // true
 ```
 Type-based inheritance is best used with developer defined constructor function rather than natively in JavaScript. In addition to this also allows flexibility in how we create similar type of object.
 
-#### Q. How we can prevent modification of object in JavaScript ?.
+#### Q. How we can prevent modification of object in JavaScript?
 
  ECMAScript 5 introduce several methods to prevent modification of object which lock down object to ensure that no one, accidentally or otherwise, change functionality of Object.
 
@@ -8075,7 +8075,7 @@ console.log(eval('2 + 2')); // Output: 4
 `eval()` is heavily discouraged because it combines several common issues.
 * **Performance** - eval() runs the interpreter/compiler. If your code is compiled, then this is a big hit, because you need to call a possibly-heavy compiler in the middle of run-time. However, JavaScript is still mostly an interpreted language, which means that calling eval() is not a big performance hit in the general case.
 * **Code injection** - eval() potentially runs a string of code under elevated privileges. For example, a program running as administrator/root would never want to eval() user input, because that input could potentially be "rm -rf /etc/important-file" or worse.
- 
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
