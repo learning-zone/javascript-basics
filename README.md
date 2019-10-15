@@ -7696,6 +7696,22 @@ console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 ```
 #### Q. What is variable shadowing javascript?
+variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
+
+If there's a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
+```javascript
+var val = 10;
+
+function Hoist(val) {
+    alert(val);
+}
+
+Hoist(20);
+```
+Output
+```
+20
+```
 #### Q. When to use function declarations and expressions in JavaScript?
 #### Q. How to do Javascript file size and extension validation before upload?
 #### Q. How to create captcha using javascript?
