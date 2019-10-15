@@ -7892,6 +7892,10 @@ For example: When images are sent to different server and text is sent to a diff
 * Hashing is used to generate random strings to avoid duplication of data stored in databases.
 * Geometric hashing – widely used in computer graphics to find closet pairs and proximity problems in planes. It is also called grid method and it has also been adopted in telecommunications.
 
+<div align="right">
+    <b><a href="#----">↥ back to top</a></b>
+</div>
+
 #### Q. What is Proxies and Reflection in JavaScript?
 JavaScript support for the Proxy and Reflect objects allowing you to intercept and define custom behavior for fundamental language operations (e.g. property lookup, assignment, enumeration, function invocation, etc). 
 
