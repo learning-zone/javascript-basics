@@ -7896,7 +7896,7 @@ For example: When images are sent to different server and text is sent to a diff
 JavaScript support for the Proxy and Reflect objects allowing you to intercept and define custom behavior for fundamental language operations (e.g. property lookup, assignment, enumeration, function invocation, etc). 
 
 **Proxies**  
-Introduced in ECMAScript 6, Proxy objects allow you to intercept certain operations and to implement custom behaviors. For example getting a property on an object:
+The `Proxy` object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc). For example getting a property on an object:
 ```javascript
 var handler = {
   get: function(target, name) {
