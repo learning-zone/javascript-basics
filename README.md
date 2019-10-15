@@ -6953,6 +6953,11 @@ console.log(checkNumber(-Number.MAX_VALUE));
 console.log(checkNumber(-Number.MAX_VALUE * 2));
 // expected output: "Process number as -Infinity"
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What do you understand by ViewState and SessionState?
 **Session State**: contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It's a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
 
@@ -6970,6 +6975,10 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
 * Information stored on the client’s end only.
 * View state will retain values in the event of a postback operation occurring.
 * View state is used to allow the persistence of page-instance-specific data.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Explain var self = this in JavaScript. 
 `self` is being used to maintain a reference to the original this even as the context is changing. It's a technique often used in event handlers (especially in closures).
@@ -6993,6 +7002,10 @@ function Note() {
 
 To avoid confusion and potential conflicts, you can write var thiz = this or var that = this instead.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is difference between append() vs appendChild()? 
 
 * ParentNode.append() allows you to also append DOMString object, whereas Node.appendChild() only accepts Node objects.
@@ -7006,6 +7019,10 @@ document.getElementById("yourId").append("Hello");
 var p = document.createElement("p");
 document.getElementById("yourId").appendChild(p);
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is difference between null vs undefined?
 **Null**  
@@ -7034,6 +7051,10 @@ console.log(typeof test2); // undefined
 * `null` is an object. `undefined` is of type `undefined`.
 * `null !== undefined` but `null == undefined`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is difference between array[] vs object()?
 `[]` is declaring an array.
 `{}` is declaring an object.
@@ -7054,6 +7075,10 @@ Object properties can be accessed either via the `x.foo` syntax or via the array
 
 An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is difference between async() or defer() keyword in JavaScript?
 **The async() Attribute**  
 The async attribute is used to indicate to the browser that the script file can be executed asynchronously. The HTML parser does not need to pause at the point it reaches the script tag to fetch and execute, the execution can happen whenever the script becomes ready after being fetched in parallel with the document parsing.
@@ -7071,6 +7096,10 @@ Like an asynchronously loaded script, the file can be downloaded while the HTML 
 
 
 Asynchronous and deferred execution of scripts are more important when the <script> element is not located at the very end of the document. HTML documents are parsed in order, from the first opening <html> element to it is close. If an externally sourced JavaScript file is placed right before the closing </body> element, it becomes much less pertinent to use an async or defer attribute. Since the parser will have finished the vast majority of the document by that point, JavaScript files don not have much parsing left to block.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is difference between async() and await() in ajax?
 When an `async()` function is called, it returns a `Promise`. When the `async()` function returns a value, the `Promise` will be resolved with the returned value. When the `async()` function throws an exception or some value, the `Promise` will be rejected with the thrown value.
@@ -7105,6 +7134,11 @@ add2(10).then(v => {
     console.log(v); // prints 60 after 2 seconds.
 });
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is request header in javascript?
 The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
 Syntax
@@ -7126,6 +7160,11 @@ var myInit = {
 var myRequest = new Request('flowers.jpg', myInit);
 myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is rendering in JavaScript?
 JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
 These are the different steps involved in the JavaScript rendering process:
@@ -7208,6 +7247,10 @@ Painting can be global or incremental (similar to layout):
 * **Global** — the entire tree gets repainted.
 * **Incremental** — only some of the renderers change in a way that does not affect the entire tree. The renderer invalidates its rectangle on the screen. This causes the OS to see it as a region that needs repainting and to generate a paint event. The OS does it in a smart way by merging several regions into one.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Define the various types of errors which occur in JavaScript programming language?
 When an exception occurs, an object representing the error is created and thrown.  The JavaScript language defines seven types of built-in error objects. 
 
@@ -7244,6 +7287,10 @@ decodeURIComponent("%"); // URIError
 ```
 **EvalError**: “EvalError” exceptions are thrown when the eval() function is used improperly.  These exceptions are not used in the most recent version of the EcmaScript standard.  However, they are still supported in order to maintain backwards compatibility with older versions of the standard.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is unshift() method in JavaScript?
 The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 ```javascript
@@ -7252,6 +7299,11 @@ var arr = [1, 2, 3];
 console.log(arr.unshift(4, 5)); // Output: 5
 console.log(arr); // Output: Array [4, 5, 1, 2, 3]
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the difference between HTMLCollection and NodeList?
 **HTMLCollection**  
 An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node’s name or id attributes. Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
@@ -7288,6 +7340,11 @@ element.appendChild(text);
 ```javascript
 <!-- This is what a comment node looks like -->
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is the difference between firstChild and firstElementChild?
 **firstChild**  
 The firstChild property returns the first child node of the specified node, as a Node object.
@@ -7316,6 +7373,10 @@ var list = document.getElementById("myList").firstElementChild.innerHTML; // Cof
 The difference between this property and firstElementChild, is that firstChild returns the first child node as an element node, a text node or a comment node (depending on which one's first), while firstElementChild returns the first child node as an element node (ignores text and comment nodes).
 
 *Note: Whitespace inside elements is considered as text, and text is considered as nodes*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Name the two functions that are used to create an HTML element dynamically.
 **createElement**  
@@ -7367,6 +7428,11 @@ function removeElement(elementId) {
     element.parentNode.removeChild(element);
 }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is callback() function in javascript?
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 ```javascript
@@ -7386,6 +7452,10 @@ The above example is a synchronous callback, as it is executed immediately.
 *Note: callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks. A good example is the callback functions executed inside a `.then()` block chained onto the end of a promise after that promise fulfills or rejects. This structure is used in many modern web APIs, such as `fetch()`*.
 
 In JavaScript, functions are objects. Because of this, functions can take functions as arguments, and can be returned by other functions. Functions that do this are called `higher-order` functions. Any function that is passed as an argument is called a callback function.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is shallow copy and deep copy in javascript?
 **Shallow copy**  
@@ -7418,6 +7488,11 @@ obj.b.c = 20;
 console.log(obj); // { a: 1, b: { c: 20 } }
 console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?
 **event.stopPropagation()**:  Whenever a event is raised, event will propagate or bubble up till the window object level.
 
@@ -7436,6 +7511,10 @@ So, to avoid these default browser behavior use `event.preventDefault()`.
 Example: A click event handler is registered for anchor tag, Based on some logic in the event handler  want to suppress the default browser behavior i.e loading the url.
 
 *Note: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`*;
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]
 **array.join()**: The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator. 
@@ -7580,6 +7659,11 @@ console.log(array1.includes(2)); // Output: true
 var pets = ['cat', 'dog', 'bat'];
 console.log(pets.includes('at')); // Output: false
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Create a Stopwatch program in javascript.
 ```html
 <!DOCTYPE html>
@@ -7680,6 +7764,11 @@ console.log(pets.includes('at')); // Output: false
 </body>
 </html>
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Write a program in javascript. sum(2)(3); // Expected output is 5
 ```javascript
 function sum(x, y) {
@@ -7695,6 +7784,11 @@ Output
 console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is variable shadowing javascript?
 variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
 
@@ -7712,6 +7806,11 @@ Output
 ```
 20
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. When to use function declarations and expressions in JavaScript?
 **Function Declarations**   
 A declared function is “saved for later use”, and will be executed later, when it is invoked (called).
@@ -7742,6 +7841,10 @@ There are several different ways that function expressions become more useful th
 * As closures
 * As arguments to other functions
 * As Immediately Invoked Function Expressions (IIFE)
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. How to do Javascript file size and extension validation before upload?
 ```html
@@ -7793,6 +7896,11 @@ function bodyAppend(tagName, innerHTML) {
 </body>
 </html>
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How to create captcha using javascript?
 ```html
 <!DOCTYPE html>
@@ -7831,6 +7939,11 @@ function bodyAppend(tagName, innerHTML) {
 </body>
 </html>
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How to avoid callback hell in javascript?
 **Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.  
 
@@ -7854,6 +7967,10 @@ doSomething(param1, param2, function(err, paramx){
 * Using Promises
 * Using Async-Await
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. Why is eval() considered evil and dangerous?
 The `eval()` function evaluates JavaScript code represented as a string.
 ```javascript
@@ -7862,6 +7979,10 @@ console.log(eval('2 + 2')); // Output: 4
 `eval()` is heavily discouraged because it combines several common issues.
 * **Performance** - eval() runs the interpreter/compiler. If your code is compiled, then this is a big hit, because you need to call a possibly-heavy compiler in the middle of run-time. However, JavaScript is still mostly an interpreted language, which means that calling eval() is not a big performance hit in the general case.
 * **Code injection** - eval() potentially runs a string of code under elevated privileges. For example, a program running as administrator/root would never want to eval() user input, because that input could potentially be "rm -rf /etc/important-file" or worse. 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. What is the difference between encryption and hashing?
 **Encryption**  
@@ -7893,7 +8014,7 @@ For example: When images are sent to different server and text is sent to a diff
 * Geometric hashing – widely used in computer graphics to find closet pairs and proximity problems in planes. It is also called grid method and it has also been adopted in telecommunications.
 
 <div align="right">
-    <b><a href="#" style="scroll-behavior: smooth;">↥ back to top</a></b>
+    <b><a href="#">↥ back to top</a></b>
 </div>
 
 #### Q. What is Proxies and Reflection in JavaScript?
@@ -7927,4 +8048,6 @@ Reflect.apply(RegExp.prototype.exec, /ab/, ['confabulation']).index; // 4
 
 Reflect.apply(''.charAt, 'ponies', [3]); // "i"
 ```
-
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
