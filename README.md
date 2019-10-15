@@ -898,11 +898,9 @@ document.cookie = "username=John expires=Sat, 8 Jun 2019 12:00:00 UTC";
 ```javascript
 document.cookie = "username=John path=/services";
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
 
 #### Q. How do you delete a cookie?
 You can delete a cookie by setting the expiry date as a passed date. You don't need to specify a cookie value in this case.
