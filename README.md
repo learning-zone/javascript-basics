@@ -7581,6 +7581,126 @@ var pets = ['cat', 'dog', 'bat'];
 console.log(pets.includes('at')); // Output: false
 ```
 #### Q. Create a Stopwatch program in javascript.
+```html
+<!DOCTYPE html>
+<html>
+<head>
+<title>Stopwatch Example</title>
+<style type="text/css">
+body {
+    margin:10px 25px; padding:1px;
+    background-color:#678; color:#eee;
+    font-family:"Arial", serif; font-size:0.7em; text-align:center;
+}
+input {
+    width:40%;
+    font-family:"Lucida", serif; font-size:1.0em; color:#333; text-align:center;
+    cursor:pointer;
+}
+#res {
+    padding:3px 4px 1px; border:1px inset #999; color:#fff; font-size:1.6em; text-shadow:0px 0px 2px #000;
+    background-color:#eee;
+}
+</style>
+</head>
+
+<body>
+    <form action="" method="post">
+        <h4>Simple stopwatch made in JavaScript</h4>
+        <input type="button" onclick="startWatch()" value="START" />
+        <input type="button" onclick="stopWatch()" value="STOP" />
+        <input type="button" onclick="resetWatch()" value="ZERO" />
+    </form>
+    <p id="res"><span id="min">0</span> : <span id="sec">00</span> : <span id="msec">000</span></p>
+    <p>In this example Date() methods co-operate with timing function setInterval().</p>
+
+    <script type="text/javascript">
+    var timer = null;
+    var min_txt = document.getElementById("min");
+    var min = Number(min_txt.innerHTML);
+    var sec_txt = document.getElementById("sec");
+    var sec = Number(sec_txt.innerHTML);
+    var msec_txt = document.getElementById("msec"); 
+    var msec = Number(msec_txt.innerHTML);
+    function stopTimeMilliseconds(timer) {
+        if (timer) { 
+            clearInterval(timer);
+            return timer;
+        }
+        else return timer;
+    }
+    function startTimeMilliseconds() {
+        var currDate = new Date();
+        return currDate.getTime();	
+    }
+    function getElapsedTimeMilliseconds(startMilliseconds) {
+        if (startMilliseconds > 0) {
+            var currDate = new Date();
+            elapsedMilliseconds = (currDate.getTime() - startMilliseconds);
+            return elapsedMilliseconds;
+        }
+     else {
+        return elapsedMilliseconds = 0;
+        }
+    }
+    function startWatch() { 
+        // START TIMER
+        timer = stopTimeMilliseconds(timer); 
+        var startMilliseconds = startTimeMilliseconds();
+        timer = setInterval(function() { 
+            var elapsedMilliseconds = getElapsedTimeMilliseconds(startMilliseconds); 
+            if (msec < 10) {
+                msec_txt.innerHTML = "00" + msec; 
+            }
+            else if (msec < 100) {
+                msec_txt.innerHTML = "0" + msec;
+            }
+            else {
+                msec_txt.innerHTML = msec;
+            }
+            if (sec < 10) {
+                sec_txt.innerHTML = "0" + sec;
+            }
+            else {
+                sec_txt.innerHTML = sec; 
+            }
+            min_txt.innerHTML = min; 
+            msec = elapsedMilliseconds;
+            if (min >= 59 && sec >=59 && msec > 900) {
+                timer = stopTimeMilliseconds(timer);
+                return true;
+            }
+            if (sec > 59) {
+                sec = 0;
+                min++;
+            }
+            if (msec > 999) {
+                msec = 0;
+                sec++;
+                startWatch();
+            }
+        }, 10);
+    }
+    function stopWatch() {
+        // STOP TIMER
+        timer = stopTimeMilliseconds(timer);
+        return true;
+    }
+    function resetWatch() {
+        // REZERO TIMER
+        timer = stopTimeMilliseconds(timer);
+        msec_txt.innerHTML = "000"; 
+        msec = 0;
+        sec_txt.innerHTML = "00"; 
+        sec = 0;
+        min_txt.innerHTML = "0"; 
+        min = 0;
+        return true;
+    }
+</script>
+</body>
+</html>
+```
 #### Q. Write a program in javascript. abc(2)(3); // Expected output is 5
 #### Q. What is variable shadowing javascript?
 #### Q. When to use function declarations and expressions in JavaScript?
