@@ -7638,9 +7638,8 @@ input {
             var currDate = new Date();
             elapsedMilliseconds = (currDate.getTime() - startMilliseconds);
             return elapsedMilliseconds;
-        }
-     else {
-        return elapsedMilliseconds = 0;
+        } else {
+          return elapsedMilliseconds = 0;
         }
     }
     function startWatch() { 
@@ -7651,17 +7650,14 @@ input {
             var elapsedMilliseconds = getElapsedTimeMilliseconds(startMilliseconds); 
             if (msec < 10) {
                 msec_txt.innerHTML = "00" + msec; 
-            }
-            else if (msec < 100) {
+            } else if (msec < 100) {
                 msec_txt.innerHTML = "0" + msec;
-            }
-            else {
+            } else {
                 msec_txt.innerHTML = msec;
             }
             if (sec < 10) {
                 sec_txt.innerHTML = "0" + sec;
-            }
-            else {
+            } else {
                 sec_txt.innerHTML = sec; 
             }
             min_txt.innerHTML = min; 
