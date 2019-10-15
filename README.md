@@ -4653,7 +4653,6 @@ That's it. The rest is details.
   - `0, function(){ console.log("hi I'm IIFE") }();`
   - `new function(){ console.log("hi I'm IIFE") }`
   - `new function(){ console.log("hi I'm IIFE") }()`
-  
 
 **Applications and usefulness**  
 
