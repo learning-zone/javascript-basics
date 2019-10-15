@@ -7864,4 +7864,32 @@ console.log(eval('2 + 2')); // Output: 4
 * **Code injection** - eval() potentially runs a string of code under elevated privileges. For example, a program running as administrator/root would never want to eval() user input, because that input could potentially be "rm -rf /etc/important-file" or worse. 
 
 #### Q. What is the difference between encryption and hashing?
+**Encryption**  
+Encryption is the process of encoding simple text and other information that can be accessed by the sole authorized entity if it has a decryption key. It will protect your sensitive data from being accessed by cybercriminals. It is the most effective way of achieving data security in modern communication systems. There are a number of encryption systems, where an asymmetric encryption is also known as public-key encryption, symmetric encryption and hybrid encryption are the most common.
+
+* **Symmetric encryption** – Uses the same secret key to encrypt and decrypt the message. The secret key can be a word, a number or a string of random letters.  Both the sender and the receiver should have the key. It is the oldest technique of encryption.
+* **Asymmetric encryption** – It deploys two keys, a public key known by everyone and a private key known only by the receiver. The public key is used to encrypt the message and a private key is used to decrypt it. Asymmetric encryption is little slower than symmetric encryption and consumes more processing power when encrypting data.
+* **Hybrid encryption** – It is a process of encryption that blends both symmetric and asymmetric encryption. It takes advantage of the strengths of the two encryptions and minimizes their weakness.
+
+**Purpose of encryption**  
+* Confidentiality – Encrypted message cannot be read or changed by another person.
+* Encrypt – It transforms data in such a way that only specific individuals can transform the message.
+* Granular access control – Users are limited to what they can see and do.
+* It makes auditing for accountability easy. In the case of message leaked, it is easy to trace who did that and when thus security breaches can be sorted out efficiently.
+* Authentication – the origin of the message received can be traced thus facilitating authentication.
+
+**Hashing**  
+In hashing, data is converted to the hash using some hashing function, which can be any number generated from string or text. Various hashing algorithms are MD5, SHA256. Data once hashed is non-reversible.
+
+Hash function can be any function that is used to map data of arbitrary size to data of fixed size. The data structure hash table is used for storing of data.
+
+For example: When images are sent to different server and text is sent to a different server for efficiency purposes. So for verifying images that the images are not tampered in between data transfer over the internet, hashing algorithm like `MD5()`, `SHA()` algorithm can be used.
+
+**Purpose of hashing**  
+* Hashing can be used to compare a large amount of data. Hash values can be created for different data, meaning that it is easier comparing hashes than the data itself.
+* It is easy to find a record when the data is hashed.
+* Hashing algorithms are used in cryptographic applications like a digital signature.
+* Hashing is used to generate random strings to avoid duplication of data stored in databases.
+* Geometric hashing – widely used in computer graphics to find closet pairs and proximity problems in planes. It is also called grid method and it has also been adopted in telecommunications.
+
 #### Q. What is Proxies and Reflection in JavaScript?
