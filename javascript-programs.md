@@ -2707,3 +2707,17 @@ console.log(emp1.company);
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
+#### Q. Make this work:
+
+```javascript
+duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
+```
+
+```javascript
+function duplicate(arr) {
+  return arr.concat(arr);
+}
+
+duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
+```
