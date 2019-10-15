@@ -5249,7 +5249,7 @@ Type-based inheritance is best used with developer defined constructor function 
 
 #### Q. How we can prevent modification of object in JavaScript?
 
- ECMAScript 5 introduce several methods to prevent modification of object which lock down object to ensure that no one, accidentally or otherwise, change functionality of Object.
+ECMAScript 5 introduce several methods to prevent modification of object which lock down object to ensure that no one, accidentally or otherwise, change functionality of Object.
 
 There are three levels of preventing modification: 
 
