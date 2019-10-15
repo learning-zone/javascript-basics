@@ -288,7 +288,6 @@
 |285. |[What is IIFE (Immediately Invoked Function Expression) and how it can be useful?](#q-what-is-iife-immediately-invoked-function-expression-and-how-it-can-be-useful)|
 |287. |[Describe Singleton Pattern In JavaScript](#q-describe-singleton-pattern-in-javascript)
 |288. |[Singleton Design Pattern Implementation](#q-singleton-design-pattern-implementation)
-|289. |[What are the ways of creating objects in JavaScript ?](#q-what-are-the-ways-of-creating-objects-in-javascript)|
 |290. |[Write a function called deepClone which takes an object and creates a object copy of it.](#q-write-a-function-called-deepclone-which-takes-an-object-and-creates-a-object-copy-of-it)
 |291. |[Best way to detect `undefined` object property in JavaScript.](#q-best-way-to-detect-undefined-object-property-in-javascript)
 |292. |[Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object.](#q-write-a-function-called-clone-which-takes-an-object-and-creates-a-object-copy-of-it-but-not-copy-deep-property-of-object)
@@ -4766,73 +4765,6 @@ console.log(MyNamespace.Singleton.getInstance().publicMethod());
 ```
 
 The singleton implemented above is easy to understand. The singleton class maintains a static reference to the lone singleton instance and return that reference from the static getInstance() method.
-
-#### Q. What are the ways of creating objects in JavaScript ?
-
-
-**Function based**
-
-This method is useful if we want to create several similar objects. In the code sample below, we wrote the function `Employee` and used it as a constructor by calling it with the `new` operator. 
-
-```javascript
-
-  function Employee(fName, lName, age, salary){
-  	this.firstName = fName;
-  	this.lastName = lName;
-  	this.age = age;
-  	this.salary = salary;
-  }
-
-  // Creating multiple object which have similar property but diff value assigned to object property.
-  var employee1 = new Employee('John', 'Moto', 24, '5000$');
-  var employee1 = new Employee('Ryan', 'Jor', 26, '3000$');
-  var employee1 = new Employee('Andre', 'Salt', 26, '4000$');
-```
-
-**Object Literal**
-
-Object Literal is best way to create an object and this is used frequently. Below is code sample for create employee object which contains property as well as method.
-
-```javascript
-var employee = {
-	name : 'Nishant',
-	salary : 245678,
-	getName : function(){
-		return this.name;
-	}
-}
-```
-The code sample below is Nested Object Literal, Here address is an object inside employee object.
-
-```javascript
-var employee = {
-	name : 'Nishant',
-	salary : 245678,
-	address : {
-		addressLine1 : 'BITS Pilani',
-		addressLine2 : 'Vidya Vihar'.
-		phoneNumber: {
-		  workPhone: 7098889765,
-		  homePhone: 1234567898
-		}
-	}
-}
-```
-**From `Object` using `new` keyword**
-
-In the code below, a sample object has been created using `Object`'s constructor function.
-
-```javascript
-var employee = new Object(); // Created employee object using new keywords and Object()
-employee.name = 'Nishant';
-employee.getName = function(){
-	return this.name;
-}
-```
-
-**Using `Object.create`**
-
-`Object.create(obj)` will create a new object and set the `obj` as its prototype. It’s a modern way to create objects that inherit properties from other objects. `Object.create` function doesn’t run the constructor. You can use `Object.create(null)` when you don’t want your object to inherit the properties of `Object`.
 
 #### Q. Write a function called deepClone which takes an object and creates a object copy of it.
 
