@@ -38,7 +38,6 @@
 |32. |[What are the methods available on session storage?](#q-what-are-the-methods-available-on-session-storage)|
 |33. |[What is a storage event and its event handler?](#q-what-is-a-storage-event-and-its-event-handler)|
 |34. |[How do you check web storage browser support?](#q-how-do-you-check-web-storage-browser-support)|
-|35. |[How do you check web workers browser support?](#q-how-do-you-check-web-workers-browser-support)|
 |36. |[Give an example of web worker?](#q-give-an-example-of-web-worker)|
 |37. |[What are the restrictions of web workers on DOM?](#q-what-are-the-restrictions-of-web-workers-on-dom)|
 |38. |[What is a promise?](#q-what-is-a-promise)|
@@ -958,15 +957,6 @@ if (typeof(Storage) !== "undefined") {
   // Code for localStorage/sessionStorage.
 } else {
   // Sorry! No Web Storage support..
-}
-```
-#### Q. How do you check web workers browser support?
-You need to check browser support for web workers before using it
-```javascript
-if (typeof(Worker) !== "undefined") {
-  // code for Web worker support.
-} else {
-  // Sorry! No Web Worker support..
 }
 ```
 #### Q. Give an example of web worker?
