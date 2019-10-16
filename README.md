@@ -737,10 +737,6 @@ const handler = () => console.log ('This is a click handler function');
 document.addEventListener ('click', handler);
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 #### Q. What is a first order function?
 First-order function is a function that doesn’t accept other function as an argument and doesn’t return a function as its return value.
 ```javascript
