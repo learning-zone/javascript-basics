@@ -1,5 +1,24 @@
 ## Programming in JavaScript
 
+#### Q. Write a program in javascript. sum(2)(3); // Expected output is 5
+```javascript
+function sum(x, y) {
+  if (y !== undefined) {
+    return x + y;
+  } else {
+    return function(y) { return x + y; };
+  }
+}
+```
+Output
+```
+console.log(sum(2,3));   // Outputs 5
+console.log(sum(2)(3));  // Outputs 5
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How to do Javascript file size and extension validation before upload?
 ```html
 <!DOCTYPE HTML>
