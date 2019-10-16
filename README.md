@@ -2155,7 +2155,7 @@ function traceValue(someParam) {
 
 #### Q. What are the ways to execute javascript after page load?
 You can execute javascript after page load in many different ways,
-1. ** window.onload:**
+1. **window.onload:**
 ```javascript
 window.onload = function ...
 ```
@@ -2163,7 +2163,7 @@ window.onload = function ...
 ```javascript
 document.onload = function ...
 ```
-3. ** body onload:**
+3. **body onload:**
 ```html
 <body onload="script();">
 ```
