@@ -46,7 +46,6 @@
 |41. |[What is a callback hell?](#q-what-is-a-callback-hell)|
 |42. |[What is server-sent events?](#q-what-is-server-sent-events)|
 |43. |[How do you receive server-sent event notifications?](#q-how-do-you-receive-server-sent-event-notifications)|
-|44. |[How do you check browser support for server-sent events?](#q-how-do-you-check-browser-support-for-server-sent-events)|
 |45. |[What are the events available for server sent events?](#q-what-are-the-events-available-for-server-sent-events)|
 |46. |[What are the main rules of promise?](#q-what-are-the-main-rules-of-promise)|
 |47. |[What is callback in callback?](#q-what-is-callback-in-callback)|
@@ -1065,15 +1064,7 @@ if(typeof(EventSource) !== "undefined") {
   };
 }
 ```
-#### Q. How do you check browser support for server-sent events?
-You can perform browser support for server-sent events before using it as below,
-```javascript
-if(typeof(EventSource) !== "undefined") {
-  // Server-sent events supported. Let's have some code here!
-} else {
-  // No server-sent events supported
-}
-```
+
 #### Q. What are the events available for server sent events?
 Below are the list of events available for server sent events
 
