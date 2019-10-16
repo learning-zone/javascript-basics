@@ -6272,16 +6272,16 @@ switch(x) {
 To avoid this error, you can create a nested block inside a case clause will create a new block scoped lexical environment.
 ```javascript
 let counter = 1;
-    switch(x) {
-        case 0: {
-          let name;
-          break;
-        }
-        case 1: {
-          let name; // No SyntaxError for redeclaration.
-          break;
-        }
+switch(x) {
+    case 0: {
+      let name;
+      break;
     }
+    case 1: {
+      let name; // No SyntaxError for redeclaration.
+      break;
+    }
+}
 ```
 #### Q. How to create and trigger events in javascript?
 Events can be created with the Event constructor as follows:
