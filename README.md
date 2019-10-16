@@ -1645,15 +1645,18 @@ You can use `window.location.href` expression to get the current url path and yo
 console.log('location.href', window.location.href); // Returns full URL
 ```
 #### Q. What are the various url properties of location object?
-The below `Location` object properties can be used to access URL components of the page,
-1. href - The entire URL
-2. protocol - The protocol of the URL
-3. host - The hostname and port of the URL
-4. hostname - The hostname of the URL
-5. port - The port number in the URL
-6. pathname - The path name of the URL
-7. search - The query portion of the URL
-8. hash - The anchor portion of the URL
+The below `Location` object properties can be used to access URL components of the page
+
+|Properties|Description|
+|----------|------------|
+|href      |The entire URL|
+|protocol  |The protocol of the URL|
+|host      |The hostname and port of the URL|
+|hostname  |The hostname of the URL|
+|port      |The port number in the URL|
+|pathname  |The path name of the URL|
+|search    |The query portion of the URL|
+|hash      |The anchor portion of the URL|
 
 #### Q. How do get query string values in javascript?
 You can use URLSearchParams to get query string values in javascript. Let's see an example to get the client code value from URL query string,
