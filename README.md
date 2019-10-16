@@ -98,7 +98,6 @@
 |93. |[What is the purpose JSON stringify?](#q-what-is-the-purpose-json-stringify)|
 |94. |[How do you parse JSON string?](#q-how-do-you-parse-json-string)|
 |95. |[Why do you need JSON?](#q-why-do-you-need-json)|
-|96. |[What are PWAs?](#q-what-are-pwas)|
 |97. |[What is the purpose of clearTimeout method?](#q-what-is-the-purpose-of-cleartimeout-method)|
 |98. |[What is the purpose of clearInterval method?](#q-what-is-the-purpose-of-clearinterval-method)|
 |99. |[How do you redirect new page in javascript?](#q-how-do-you-redirect-new-page-in-javascript)|
@@ -1566,9 +1565,6 @@ When exchanging data between a browser and a server, the data can only be text. 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
-#### Q. What are PWAs?
-Progressive web applications (PWAs) are a type of mobile app delivered through the web, built using common web technologies including HTML, CSS and JavaScript. These PWAs are deployed to servers, accessible through URLs, and indexed by search engines.
 
 #### Q. What is the purpose of clearTimeout method?
 The clearTimeout() function is used in javascript to clear the timeout which has been set by setTimeout()function before that. i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer.
