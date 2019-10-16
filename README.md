@@ -130,8 +130,6 @@
 |128. |[How do you define JSON arrays?](#q-how-do-you-define-json-arrays)|
 |129. |[How do you generate random integers?](#q-how-do-you-generate-random-integers)|
 |130. |[Can you write a random integers function to print integers with in a range?](#q-can-you-write-a-random-integers-function-to-print-integers-with-in-a-range)|
-|131. |[What is tree shaking?](#q-what-is-tree-shaking)|
-|132. |[What is the need of tree shaking?](#q-what-is-the-need-of-tree-shaking)|
 |133. |[Is it recommended to use eval?](#q-is-it-recommended-to-use-eval)|
 |134. |[What are the string methods available in Regular expression?](#q-what-are-the-string-methods-available-in-regular-expression)|
 |135. |[What are modifiers in regular expression?](#q-what-are-modifiers-in-regular-expression)|
@@ -1978,15 +1976,6 @@ function randomInteger(min, max) {
 randomInteger(1, 100); // returns a random integer from 1 to 100
 randomInteger(1, 1000); // returns a random integer from 1 to 1000
 ```
-#### Q. What is tree shaking?
-Tree shaking is a form of dead code elimination. It means that unused modules will not be included in the bundle during the build process and for that it relies on the static structure of ES2015 module syntax,( i.e. import and export). Initially this has been popularized by the ES2015 module bundler `rollup`.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-#### Q. What is the need of tree shaking?
-Tree Shaking can significantly reduce the code size in any application. i.e, The less code we send over the wire the more performant the application will be. For example, if we just want to create a “Hello World” Application using SPA frameworks then it will take around  few MBs, but by tree shaking it can bring down the size to just few hundred KBs. Tree shaking is been implemented in Rollup and Webpack bundlers.
 
 #### Q. Is it recommended to use eval?
 No, it allows arbitrary code to be run which casues a security problem. As we know that the eval() function is used to run text as code. In most of the cases, it should not be necessary to use it.
