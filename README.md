@@ -3622,7 +3622,7 @@ console.log(myObject.number); // 42
 
 If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
 
-```
+```javascript
 var myObject = {
   a: 2
 };
