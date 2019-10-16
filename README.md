@@ -120,7 +120,6 @@
 |116. |[Is the !-- notation represents a special operator?](#q-is-the-notation-represents-a-special-operator)|
 |117. |[How do you assign default values to variables?](#q-how-do-you-assign-default-values-to-variables)|
 |118. |[How do you define multiline strings?](#q-how-do-you-define-multiline-strings)|
-|119. |[What is an app shell model?](#q-what-is-an-app-shell-model)|
 |120. |[Can we define properties for functions?](#q-can-we-define-properties-for-functions)|
 |121. |[What is the way to find the number of parameters expected by a function?](#q-what-is-the-way-to-find-the-number-of-parameters-expected-by-a-function)|
 |122. |[What is a polyfill?](#q-what-is-a-polyfill)|
@@ -1846,9 +1845,6 @@ very lengthy \
 sentence!";
 ```
 But if you have a space after the '\' character, the code will look exactly the same, but it will raise a SyntaxError.
-
-#### Q. What is an app shell model?
-An application shell (or app shell) architecture is one way to build a Progressive Web App that reliably and instantly loads on your users' screens, similar to what you see in native applications. It is useful for getting some initial HTML to the screen fast without a network.
 
 #### Q. Can we define properties for functions?
 Yes, We can define properties for functions because functions are also objects.
