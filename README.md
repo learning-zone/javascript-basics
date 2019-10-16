@@ -736,16 +736,11 @@ In Javascript, functions are first class objects. First-class functions means wh
 const handler = () => console.log ('This is a click handler function');
 document.addEventListener ('click', handler);
 ```
-
 #### Q. What is a first order function?
 First-order function is a function that doesn’t accept other function as an argument and doesn’t return a function as its return value.
 ```javascript
 const firstOrder = () => console.log ('Iam a first order functionn!');
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 #### Q. What is a higher order function?
 Higher-order function is a function that accepts other function as an argument or returns a function as a return value.
 ```javascript
@@ -838,7 +833,6 @@ const addition = memoizAddition();
 console.log(addition(20)); //output: 40 calculated
 console.log(addition(20)); //output: 40 cached
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
