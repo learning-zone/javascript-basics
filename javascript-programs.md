@@ -2869,3 +2869,27 @@ function duplicate(arr) {
 
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
+#### Q. Fix the bug using ES5 only
+
+```javascript
+var arr = [10, 32, 65, 2];
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(function() {
+    console.log('The index of this number is: ' + i);
+  }, 3000);
+}
+```
+For ES6, you can just replace `var i` with `let i`. 
+
+For ES5, you need to create a function scope like here:
+
+```javascript 
+var arr = [10, 32, 65, 2];
+for (var i = 0; i < arr.length; i++) {
+  setTimeout(function(j) {
+    return function () {
+      console.log('The index of this number is: ' + j)
+    };
+  }(i), 3000);
+}
+```
