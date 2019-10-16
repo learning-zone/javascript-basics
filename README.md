@@ -4592,7 +4592,7 @@ MyNameSpace.Singleton = (function() {
   // All of the normal code goes here
   function constructor() {
     // Private members
-    var privateVar1 = "Nishant";
+    var privateVar1 = "Pradeep";
     var privateVar2 = [1,2,3,4,5];
 
     function privateMethod1() {
@@ -4604,9 +4604,9 @@ MyNameSpace.Singleton = (function() {
     }
 
     return {
-      attribute1 : "Nishant",
+      attribute1 : "Pradeep",
       publicMethod: function() {
-        alert("Nishant");// some code logic
+        alert("Pradeep");// some code logic
       }
     }
   }
@@ -4655,7 +4655,7 @@ function deepClone(object){
 
 ```javascript
 var personalDetail = {
-	name : 'Nishant',
+	name : 'Pradeep',
 	address : {
 	  location: 'xyz',
 	  zip : '123456',
@@ -4674,7 +4674,7 @@ So when we do deep clone then we should copy every property (including the neste
 
 ```javascript
 var person = {
-	name: 'Nishant',
+	name: 'Pradeep',
 	age : 24
 }
 ```
@@ -4737,7 +4737,7 @@ Let say we have `person` object with property **name** and **age**
 
 ```javascript
 var person = {
-	name: 'Nishant',
+	name: 'Pradeep',
 	age: 24
 }
 ```
@@ -4935,14 +4935,14 @@ The ECMAScript 5 **Object.create()** method is the easiest way for one object to
 
 ```javascript
 var employee = {
-  name: 'Nishant',
+  name: 'Pradeep',
   displayName: function () {
     console.log(this.name);
   }
 };
 
 var emp1 = Object.create(employee);
-console.log(emp1.displayName());  // output "Nishant"
+console.log(emp1.displayName());  // output "Pradeep"
 ```
 
 In the example above, we create a new object `emp1` that inherits from `employee`. In other words `emp1`'s prototype is set to `employee`. After this emp1 is able to access the same properties and method on employee until new properties or method with the same name are defined.
@@ -4954,7 +4954,7 @@ emp1.displayName = function() {
 	console.log('xyz-Anonymous');
 };
 
-employee.displayName(); //Nishant
+employee.displayName(); //Pradeep
 emp1.displayName();//xyz-Anonymous
 ``` 
 
@@ -4970,9 +4970,9 @@ var emp1 = Object.create(employee, {
 });
 
 emp1.displayName(); // "John"
-employee.displayName(); // "Nishant"
+employee.displayName(); // "Pradeep"
 ```
-In the example above, `emp1` is created with it's own value for name, so calling **displayName()** method will display `"John"` instead of `"Nishant"`.
+In the example above, `emp1` is created with it's own value for name, so calling **displayName()** method will display `"John"` instead of `"Pradeep"`.
 
 Object created in this manner give you full control over newly created object. You are free to add, remove any properties and method you want.
 
@@ -4999,13 +4999,13 @@ function Employee(company){
 }
 
 //Prototypal Inheritance 
-Employee.prototype = new Person("Nishant", 24,5000);
+Employee.prototype = new Person("Pradeep", 24,5000);
 ```
 In the example above, **Employee** type inherits from **Person**. It does so by assigning a new instance of `Person` to `Employee` prototype. After that, every instance of `Employee` inherits its properties and methods from `Person`.
 
 ```javascript
 //Prototypal Inheritance 
-Employee.prototype = new Person("Nishant", 24,5000);
+Employee.prototype = new Person("Pradeep", 24,5000);
 
 var emp1 = new Employee("Google");
 
@@ -5018,7 +5018,7 @@ Let's understand Constructor inheritance
 ```javascript
 //Defined Person class
 function Person(name){
-	this.name = name || "Nishant";
+	this.name = name || "Pradeep";
 }
 
 var obj = {};
@@ -5026,7 +5026,7 @@ var obj = {};
 // obj inherit Person class properties and method 
 Person.call(obj); // constructor inheritance
 
-console.log(obj); // Object {name: "Nishant"}
+console.log(obj); // Object {name: "Pradeep"}
 ```
 Here we saw calling **Person.call(obj)** define the name properties from `Person` to `obj`.
 
@@ -5049,7 +5049,7 @@ For example:
 
 ```javascript
 var employee = {
-	name: "Nishant"
+	name: "Pradeep"
 };
 
 // lock the object 
@@ -5069,7 +5069,7 @@ To seal an object, we use **Object.seal()** method. you can check whether an obj
 
 ```javascript
 var employee = {
-	name: "Nishant"
+	name: "Pradeep"
 };
 
 // Seal the object 
@@ -5094,7 +5094,7 @@ To freeze an object, use Object.freeze() method. We can also determine whether a
 
 ```javascript
 var employee = {
-	name: "Nishant"
+	name: "Pradeep"
 };
 
 //Freeze the object
@@ -5125,7 +5125,7 @@ For example:
 "use strict";
 
 var employee = {
-	name: "Nishant"
+	name: "Pradeep"
 };
 
 //Freeze the object
