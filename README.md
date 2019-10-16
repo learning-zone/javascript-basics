@@ -201,7 +201,6 @@
 |205. |[What are the different error names from error object?](#q-what-are-the-different-error-names-from-error-object)|
 |206. |[What are the various statements in error handling?](#q-what-are-the-various-statements-in-error-handling)|
 |207. |[What are the two types of loops in javascript?](#q-what-are-the-two-types-of-loops-in-javascript)|
-|208. |[What is nodejs?](#q-what-is-nodejs)|
 |209. |[What is an Intl object?](#q-what-is-an-intl-object)|
 |210. |[How do you perform language specific date and time formatting?](#q-how-do-you-perform-language-specific-date-and-time-formatting)|
 |211. |[What is an Iterator?](#q-what-is-an-iterator)|
@@ -2846,9 +2845,6 @@ Below are the list of statements used in an error handling,
 #### Q. What are the two types of loops in javascript?
 1. **Entry Controlled loops:** In this kind of loop type, the test condition is tested before entering the loop body. For example, For Loop and While Loop comes under this category.
 2. **Exit Controlled Loops:** In this kind of loop typpe, the test condition is tested or evaluated at the end of loop body. i.e, the loop body will execute atleast once irrespective of test condition true or false. For example, do-while loop comes under this category.
-
-#### Q. What is nodejs?
-Node.js is a server-side platform built on Chrome's JavaScript runtime for easily building fast and scalable network applications. It is an event-based, non-blocking, asynchronous I/O runtime that uses Google's V8 JavaScript engine and libuv library.
 
 #### Q. What is an Intl object?
 The Intl object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting. It provides an access to several constructors and language sensitive functions.
