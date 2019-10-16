@@ -325,7 +325,6 @@
 |335. |[What is the difference between `==` and `===`?](#q-what-is-the-difference-between-and)
 |336. |[Explain the same-origin policy with regards to JavaScript.](#q-explain-the-same-origin-policy-with-regards-to-javascript)
 |337. |[Why is it called a Ternary expression, what does the word "Ternary" indicate?](#q-why-is-it-called-a-ternary-expression-what-does-the-word-ternary-indicate)
-|338. |[What is `"use strict";`? What are the advantages and disadvantages to using it?](#q-what-is-use-strict-what-are-the-advantages-and-disadvantages-to-using-it)
 |339. |[Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?](#q-why-is-it-in-general-a-good-idea-to-leave-the-global-scope-of-a-website-as-is-and-never-touch-it)
 |340. |[Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?](#q-why-would-you-use-something-like-the-load-event-does-this-event-have-disadvantages-do-you-know-any-alternatives-and-why-would-you-use-those)
 |341. |[What is the extent of your experience with Promises and/or their polyfills?](#q-what-is-the-extent-of-your-experience-with-promises-and-or-their-polyfills)
@@ -5974,27 +5973,6 @@ The same-origin policy prevents JavaScript from making requests across domain bo
 #### Q. Why is it called a Ternary expression, what does the word "Ternary" indicate?
 
 "Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
-
-#### Q. What is `"use strict";`? What are the advantages and disadvantages to using it?
-
-'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.
-
-Advantages:
-
-* Makes it impossible to accidentally create global variables.
-* Makes assignments which would otherwise silently fail to throw an exception.
-* Makes attempts to delete undeletable properties throw (where before the attempt would simply have no effect).
-* Requires that function parameter names be unique.
-* `this` is undefined in the global context.
-* It catches some common coding bloopers, throwing exceptions.
-* It disables features that are confusing or poorly thought out.
-
-Disadvantages:
-
-* Many missing features that some developers might be used to.
-* No more access to `function.caller` and `function.arguments`.
-* Concatenation of scripts written in different strict modes might cause issues.
-
 
 #### Q. Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?
 
