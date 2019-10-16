@@ -1081,6 +1081,7 @@ if(typeof(EventSource) !== "undefined") {
 ```
 #### Q. What are the events available for server sent events?
 Below are the list of events available for server sent events
+
 | Event | Description |
 |------ |--------------|
 | onopen  | It is used when a connection to the server is opened |
