@@ -2313,7 +2313,7 @@ Below are the list of bit-wise logical operators used in JavaScript
 </div>
 
 #### Q. How do you determine whether object is frozen or not?
-Object.isFrozen() method is used to determine if an object is frozen or not.An object is frozen if all of the below conditions hold true,
+`Object.isFrozen()` method is used to determine if an object is frozen or not.An object is frozen if all of the below conditions hold true,
 1. If it is not extensible.
 2. If all of its properties are non-configurable.
 3. If all its data properties are non-writable.
@@ -2326,10 +2326,10 @@ Object.freeze(object);
 console.log(Object.isFrozen(object));
 ```
 #### Q. How do you determine two values same or not using object?
-The Object.is() method determines whether two values are the same value. For example, the usage with different types of values would be,
+The `Object.is()` method determines whether two values are the same value. For example, the usage with different types of values would be,
 ```javascript
-Object.is('hello', 'hello');     // true
-Object.is(window, window);   // true
+Object.is('hello', 'hello'); // true
+Object.is(window, window); // true
 Object.is([], []) // false
 ```
 Two values are the same if one of the following holds:
