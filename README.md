@@ -719,7 +719,6 @@ null === undefined // false
 []==[] or []===[] //false, refer different objects in memory
 {}=={} or {}==={} //false, refer different objects in memory
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -919,7 +918,6 @@ window.onstorage = function(e) {
     ' to ' + e.newValue + '.');
 };
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -969,7 +967,6 @@ w.terminate();
 ```javascript
 w = undefined;
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1046,7 +1043,6 @@ async1(function() {
     });
 });
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1183,7 +1179,6 @@ function myFunction() {
   y = 3.14;   // This will cause an error
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1226,7 +1221,6 @@ Any variable can be emptied by setting the value to undefined.
 ```javascript
 user = undefined
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1309,7 +1303,6 @@ The NaN property is a global property that represents "Not-a-Number" value. i.e,
 Math.sqrt(-1)
 parseInt("Hello")
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1342,7 +1335,6 @@ function submit() {
     document.form[0].submit();
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1431,7 +1423,6 @@ Let's describe the behavior of click event for button element,
 </body>
 </html>
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1504,7 +1495,6 @@ console.log(event.target);
 
 }, false);
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1581,7 +1571,6 @@ function stop() {
 }
 </script>
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1610,7 +1599,6 @@ mainString.indexOf(subString) !== -1
 var mainString = "hello", regex = "/hell/";
 regex.test(mainString)
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
