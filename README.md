@@ -7,7 +7,7 @@
 * [ES6 Interview Questions and Answers](es6-questions.md)
 * [Programming in JavaScript](javascript-programs.md)
 
-|Sl.No | JavaScript Questions|
+|Sl.No | JavaScript (ES5) Questions|
 |------|--------------------|
 |01. |[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)|
 |02. |[When to use reduce(), map(), foreach() and filter() in JavaScript?](#q-when-to-use-reduce-map-foreach-and-filter-in-javascript)|
