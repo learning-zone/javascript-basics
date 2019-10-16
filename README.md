@@ -282,7 +282,6 @@
 |293. |[What are promises and how they are useful?](#q-what-are-promises-and-how-they-are-useful)|
 |294. |[How to check whether a key exist in a JavaScript object or not.](#q-how-to-check-whether-a-key-exist-in-a-javascript-object-or-not)
 |295. |[What is NaN, why do we need it, and when can it break the page?](#q-what-is-nan-why-do-we-need-it-and-when-can-it-break-the-page)|
-|296. |[Fix the bug using ES5 only](#q-fix-the-bug-using-es5-only)
 |297. |[How to check if the value of a variable in an array?](#q-how-to-check-if-the-value-of-a-variable-in-an-array)|
 |298. |[Best way to detect reference values of any type in JavaScript?](#q-best-way-to-detect-reference-values-of-any-type-in-javascript)|
 |299. |[How does Object.create method works JavaScript?](#q-how-does-objectcreate-method-works-javascript)|
@@ -4789,31 +4788,6 @@ NaN === 2 // false
 To check if the current value of the variable is NaN, you have to use the `isNaN` function. This is why we can often see NaN in the webpages: it requires special check which a lot of developers forget to do. 
 
 Further reading: [great blogpost on ariya.io](https://ariya.io/2014/05/the-curious-case-of-javascript-nan)
-
-#### Q. Fix the bug using ES5 only
-
-```javascript
-var arr = [10, 32, 65, 2];
-for (var i = 0; i < arr.length; i++) {
-  setTimeout(function() {
-    console.log('The index of this number is: ' + i);
-  }, 3000);
-}
-```
-For ES6, you can just replace `var i` with `let i`. 
-
-For ES5, you need to create a function scope like here:
-
-```javascript 
-var arr = [10, 32, 65, 2];
-for (var i = 0; i < arr.length; i++) {
-  setTimeout(function(j) {
-    return function () {
-      console.log('The index of this number is: ' + j)
-    };
-  }(i), 3000);
-}
-```
 
 #### Q. How to check if the value of a variable in an array?
 
