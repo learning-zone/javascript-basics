@@ -385,7 +385,6 @@
 |398.|[What is shallow copy and deep copy in javascript?](#q-what-is-shallow-copy-and-deep-copy-in-javascript)|
 |399.|[What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?](#q-what-is-difference-between-stoppropagation-vs-stopimmediatepropagation-vs-preventdefault-in-javascript)|
 |390.|[Explain array methods join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes(), set() ](#q-explain-array-methods-join-pop-push-shift-unshift-concat-map-filter-reduce-reduceright-every-some-indexof-lastindexof-find-findindex-includes-set)|
-|392.|[Write a program in javascript. abc(2)(3); // Expected output is 5](#q-write-a-program-in-javascript-abc-2-3-expected-output-is-5)
 |393.|[What is variable shadowing javascript?](#q-what-is-variable-shadowing-javascript)|
 |394.|[When to use function declarations and expressions in JavaScript?](#q-when-to-use-function-declarations-and-expressions-in-javascript)|
 |396.|[How to create captcha using javascript?](#q-how-to-create-captcha-using-javascript)|
@@ -7635,25 +7634,6 @@ console.log(array1.includes(2)); // Output: true
 
 var pets = ['cat', 'dog', 'bat'];
 console.log(pets.includes('at')); // Output: false
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-#### Q. Write a program in javascript. sum(2)(3); // Expected output is 5
-```javascript
-function sum(x, y) {
-  if (y !== undefined) {
-    return x + y;
-  } else {
-    return function(y) { return x + y; };
-  }
-}
-```
-Output
-```
-console.log(sum(2,3));   // Outputs 5
-console.log(sum(2)(3));  // Outputs 5
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
