@@ -130,7 +130,6 @@
 |128. |[How do you define JSON arrays?](#q-how-do-you-define-json-arrays)|
 |129. |[How do you generate random integers?](#q-how-do-you-generate-random-integers)|
 |130. |[Can you write a random integers function to print integers with in a range?](#q-can-you-write-a-random-integers-function-to-print-integers-with-in-a-range)|
-|133. |[Is it recommended to use eval?](#q-is-it-recommended-to-use-eval)|
 |134. |[What are the string methods available in Regular expression?](#q-what-are-the-string-methods-available-in-regular-expression)|
 |135. |[What are modifiers in regular expression?](#q-what-are-modifiers-in-regular-expression)|
 |136. |[What are regular expression patterns?](#q-what-are-regular-expression-patterns)|
@@ -1976,9 +1975,6 @@ function randomInteger(min, max) {
 randomInteger(1, 100); // returns a random integer from 1 to 100
 randomInteger(1, 1000); // returns a random integer from 1 to 1000
 ```
-
-#### Q. Is it recommended to use eval?
-No, it allows arbitrary code to be run which casues a security problem. As we know that the eval() function is used to run text as code. In most of the cases, it should not be necessary to use it.
 
 #### Q. What are the string methods available in Regular expression?
 Regular Expressions has two string methods: search() and replace().
