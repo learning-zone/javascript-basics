@@ -194,7 +194,6 @@
 |197. |[Can I add getters and setters using defineProperty method?](#q-can-i-add-getters-and-setters-using-defineproperty-method)|
 |198. |[What is the purpose of switch-case?](#q-what-is-the-purpose-of-switch-case)|
 |199. |[What are the conventions to be followed for the usage of swtich case?](#q-what-are-the-conventions-to-be-followed-for-the-usage-of-swtich-case)|
-|200. |[What are primitive data types?](#q-what-are-primitive-data-types)|
 |201. |[What are the different ways to access object properties?](#q-what-are-the-different-ways-to-access-object-properties)|
 |202. |[What are the function parameter rules?](#q-what-are-the-function-parameter-rules)|
 |203. |[What is an error object?](#q-what-is-an-error-object)|
@@ -2313,7 +2312,7 @@ Below are the list of bit-wise logical operators used in JavaScript
 </div>
 
 #### Q. How do you determine whether object is frozen or not?
-`Object.isFrozen()` method is used to determine if an object is frozen or not.An object is frozen if all of the below conditions hold true,
+`Object.isFrozen()` method is used to determine if an object is frozen or not. An object is frozen if all of the below conditions hold true,
 1. If it is not extensible.
 2. If all of its properties are non-configurable.
 3. If all its data properties are non-writable.
@@ -2352,7 +2351,7 @@ Some of the applications of Object's `is` method are follows,
 4. It is used for comparison of two objects.
 
 #### Q. How do you copy properties from one object to other?
-You can use Object.assign() method which is used to copy the values and properties from one or more source objects to a target object.  It returns the target object which has properties and values copied from the target object. The syntax would be as below,
+You can use `Object.assign()` method which is used to copy the values and properties from one or more source objects to a target object.  It returns the target object which has properties and values copied from the target object. The syntax would be as below,
 ```javascript
 Object.assign(target, ...sources)
 ```
@@ -2418,12 +2417,12 @@ console.log(object.property); //Welcome to object world
 </div>
 
 #### Q. What are the applications of seal method?
-Below are the main applications of Object.seal() method,
+Below are the main applications of `Object.seal()` method,
 1. It is used for sealing objects and arrays.
 2. It is used to make an object immutable.
 
 #### Q. What are the differences between freeze and seal methods?
-If an object is frozen using the Object.freeze() method then its properties become immutable and no changes can be made in them whereas if an object is sealed using the Object.seal() method then the changes can be made in the existing properties of the object.
+If an object is frozen using the `Object.freeze()` method then its properties become immutable and no changes can be made in them whereas if an object is sealed using the `Object.seal()` method then the changes can be made in the existing properties of the object.
 
 #### Q. How do you determine if an object is sealed or not?
 The `Object.isSealed()` method is used to determine if an object is sealed or not. An object is sealed if all of the below conditions hold true
@@ -2444,7 +2443,7 @@ console.log(Object.isSealed(object));      // checking whether the object is sea
 </div>
 
 #### Q. How do you get enumerable key and value pairs?
-The Object.entries() method is used to return an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a for...in loop. Let's see the functionality of object.entries() method in an example,
+The `Object.entries()` method is used to return an array of a given object's own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let's see the functionality of object.entries() method in an example,
 ```javascript
 const object = {
   a: 'Good morning',
@@ -2459,7 +2458,7 @@ for (let [key, value] of Object.entries(object)) {
 *Note: The order is not guaranteed as object defined*.
 
 #### Q. What is the main difference between Object.values and Object.entries method?
-The Object.values() method's behavior is similar to Object.entries() method but it returns an array of values instead [key,value] pairs.
+The `Object.values()` method's behavior is similar to `Object.entries()` method but it returns an array of values instead [key,value] pairs.
 ```javascript
 const object = {
   a: 'Good morning',
@@ -2487,7 +2486,7 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
 </div>
 
 #### Q. How do you create an object with prototype?
-The Object.create() method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
+The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
 ```javascript
 const user = {
   name: 'John',
@@ -2589,7 +2588,7 @@ console.log(weakMapObject.get(firstObject)); // John
 weakMapObject.delete(secondObject);
 ```
 #### Q. What is the purpose of uneval?
-The uneval() is an inbuilt function which is used to create a string representation of the source code of an Object. It is a top-level function and is not associated with any object. Let's see the below example to know more about it's functionality,
+The `uneval()` is an inbuilt function which is used to create a string representation of the source code of an Object. It is a top-level function and is not associated with any object. 
 ```javascript
 var a = 1;
 uneval(a); // returns a String containing 1
@@ -2619,14 +2618,14 @@ try {
 </div>
 
 #### Q. How do you print the contents of web page?
-The window object provided print() method which is used to prints the contents of the current window. It opens Print dialog box which lets you choose between various printing options. Let's see the usage of print method in an example,
+The window object provided print() method which is used to prints the contents of the current window. It opens Print dialog box which lets you choose between various printing options. 
 ```html
   <input type="button" value="Print" onclick="window.print()" />
 ```
 *Note: In most browsers, it will block while the print dialog is open*.
 
 #### Q. What is the difference between uneval and eval?
-The `uneval` function returns the source of a given object; whereas the `eval` function does the opposite, by evaluating that source code in a different memory area. Let's see an example to clarify the difference,
+The `uneval()` function returns the source of a given object; whereas the `eval` function does the opposite, by evaluating that source code in a different memory area. 
 ```javascript
 var msg = uneval(function greeting() { return 'Hello, Good morning'; });
 var greeting = eval(msg);
@@ -2654,7 +2653,7 @@ var z = x(5, 10);
 console.log(z); // 50
 ```
 #### Q. What is the precedence order between local and global variables?
-A local variable takes precedence over a global variable with the same name. Let's see this behavior in an example.
+A local variable takes precedence over a global variable with the same name. 
 ```javascript
 var msg = "Good morning";
 function greeting() {
@@ -2686,7 +2685,7 @@ user.lang = 'fr';
 console.log(user.lang); // setter used to set lang as fr
 ```
 #### Q. How do you define property on Object constructor?
-The Object.defineProperty() static method is used to define a new property directly on an object, or modifies an existing property on an object, and returns the object. Let's see an example to know how to define property,
+The Object.defineProperty() static method is used to define a new property directly on an object, or modifies an existing property on an object, and returns the object. 
 ```javascript
 const newObject = {};
 
@@ -2770,14 +2769,6 @@ Below are the list of conventions should be taken care,
 3. The default statement is optional. If the expression passed to switch does not matches with any case value then the statement within default case will be executed.
 4. The break statement is used inside the switch to terminate a statement sequence.
 5. The break statement is optional. But if it omitted, the execution will continue on into the next case.
-
-#### Q. What are primitive data types?
-A primitive data type is data that has a primitive value (which has no properties or methods). There are 5 types of primitive data types.
-1. string
-2. number
-3. boolean
-4. null
-5. undefined
 
 #### Q. What are the different ways to access object properties?
 There are 3 possible ways for accessing the property of an object.
