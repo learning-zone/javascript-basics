@@ -1537,7 +1537,6 @@ When exchanging data between a browser and a server, the data can only be text. 
 The clearTimeout() function is used in javascript to clear the timeout which has been set by setTimeout()function before that. i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer.
 For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
 ```javascript
-<script>
 var msg;
 function greeting() {
   alert('Good morning');
@@ -1550,7 +1549,6 @@ function start() {
 function stop() {
     clearTimeout(msg);
 }
-</script>
 ```
 #### Q. What is the purpose of clearInterval method?
 The clearInterval() function is used in javascript to clear the interval which has been set by setInterval() function. i.e, The return value returned by setInterval() function is stored in a variable and it’s passed into the clearInterval() function to clear the interval.
