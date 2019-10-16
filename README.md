@@ -7251,7 +7251,6 @@ var myInit = {
 var myRequest = new Request('flowers.jpg', myInit);
 myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7390,7 +7389,6 @@ var arr = [1, 2, 3];
 console.log(arr.unshift(4, 5)); // Output: 5
 console.log(arr); // Output: Array [4, 5, 1, 2, 3]
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7431,7 +7429,6 @@ element.appendChild(text);
 ```javascript
 <!-- This is what a comment node looks like -->
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7519,7 +7516,6 @@ function removeElement(elementId) {
     element.parentNode.removeChild(element);
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7579,7 +7575,6 @@ obj.b.c = 20;
 console.log(obj); // { a: 1, b: { c: 20 } }
 console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7750,7 +7745,6 @@ console.log(array1.includes(2)); // Output: true
 var pets = ['cat', 'dog', 'bat'];
 console.log(pets.includes('at')); // Output: false
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7770,7 +7764,6 @@ Output
 console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7792,7 +7785,6 @@ Output
 ```
 20
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7882,7 +7874,6 @@ function bodyAppend(tagName, innerHTML) {
 </body>
 </html>
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
