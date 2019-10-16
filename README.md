@@ -122,7 +122,6 @@
 |118. |[How do you define multiline strings?](#q-how-do-you-define-multiline-strings)|
 |120. |[Can we define properties for functions?](#q-can-we-define-properties-for-functions)|
 |121. |[What is the way to find the number of parameters expected by a function?](#q-what-is-the-way-to-find-the-number-of-parameters-expected-by-a-function)|
-|122. |[What is a polyfill?](#q-what-is-a-polyfill)|
 |123. |[What are break and continue statements?](#q-what-are-break-and-continue-statements)|
 |124. |[What are js labels?](#q-what-are-js-labels)|
 |125. |[What are the benefits of keeping declarations at the top?](#q-what-are-the-benefits-of-keeping-declarations-at-the-top)|
@@ -1872,8 +1871,6 @@ function sum(num1, num2, num3, num4){
 }
 sum.length // 4 is the number of parameters expected.
 ```
-#### Q. What is a polyfill?
-A polyfill is a piece of JS code used to provide modern functionality on older browsers that do not natively support it. For example, Silverlight plugin polyfill can be used to mimic the functionality of an HTML Canvas element on Microsoft Internet Explorer 7.
 
 #### Q. What are break and continue statements?
 The break statement is used to "jumps out" of a loop. i.e, It breaks the loop and continues executing the code after the loop.
