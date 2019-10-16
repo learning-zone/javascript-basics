@@ -6240,7 +6240,7 @@ let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //retur
 Some of the major difference in a tabular form
 
 | Slice | Splice |
-|---- | ---------
+|---- | ---------|
 | Doesn't modify the original array(immutable)  | Modifies the original array(mutable) |
 | Returns the subset of original array | Returns the deleted elements as array  |
 | Used to pick the elements from array | Used to insert or delete elements to/from array|
@@ -6261,12 +6261,12 @@ If you try to redeclare variables in a `switch block` then it will cause errors 
 let counter = 1;
 switch(x) {
     case 0:
-    let name;
-    break;
+      let name;
+      break;
 
     case 1:
-    let name; // SyntaxError for redeclaration.
-    break;
+      let name; // SyntaxError for redeclaration.
+      break;
 }
 ```
 To avoid this error, you can create a nested block inside a case clause will create a new block scoped lexical environment.
@@ -6274,12 +6274,12 @@ To avoid this error, you can create a nested block inside a case clause will cre
 let counter = 1;
     switch(x) {
         case 0: {
-        let name;
-        break;
+          let name;
+          break;
         }
         case 1: {
-        let name; // No SyntaxError for redeclaration.
-        break;
+          let name; // No SyntaxError for redeclaration.
+          break;
         }
     }
 ```
