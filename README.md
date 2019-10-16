@@ -4812,9 +4812,9 @@ Let's discuss some way to detect an array in JavaScript.
 Juriy Zaytsev (Also known as kangax) proposed an elegant solution to this.
 
 ```javascript
-	function isArray(value){
-		return Object.prototype.toString.call(value) === '[object Array]';
-	}
+function isArray(value){
+  return Object.prototype.toString.call(value) === '[object Array]';
+}
 ```
 This approach is most popular way to detecting a value of type array in JavaScript and recommended to use. This approach relies on the fact that, native toString() method on a given value produce a standard string in all browser. 
 
@@ -4824,19 +4824,19 @@ This approach is most popular way to detecting a value of type array in JavaScri
 Duck typing test for array type detection
 
 ```javascript
- // Duck typing arrays
- function isArray(value){
- 	return typeof value.sort === 'function';
- }
+// Duck typing arrays
+function isArray(value){
+  return typeof value.sort === 'function';
+}
 ```
 As we can see above isArray method will return true if value object have `sort` method of type `function`. Now assume you have created a object with sort method
 
 ```javascript
-	var bar = {
-		sort: function(){
-			// Some code 
-		}
-	}
+var bar = {
+  sort: function(){
+    // Some code 
+  }
+}
 ```
 Now when you check `isArray(bar)` then it will return true because bar object has sort method, But the fact is bar is not an array.
 
@@ -4858,7 +4858,6 @@ function(value){
 	}
 }
 ```
-
 #### Q. Best way to detect reference values of any type in JavaScript?
 
  In Javascript Object are called as reference type, Any value other then primitive is definitely a reference type. There are several built-in reference type such as **Object**, **Array**, **Function**, **Date**, **null** and **Error**.
@@ -4900,7 +4899,6 @@ console.log(emp1 instanceof Employee); // true
 ```javascript
 console.log(emp1 instanceof Object); // true
 ```
-
 #### Q. How does Object.create method works JavaScript?
 
 The ECMAScript 5 **Object.create()** method is the easiest way for one object to inherit from another, without invoking a constructor function. 
