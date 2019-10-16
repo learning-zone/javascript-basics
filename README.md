@@ -3578,7 +3578,7 @@ Most of the time, I would prefer the `.forEach` method, but it really depends on
 
 Also, when using the `for-of` loop, if you need to access both the index and value of each array element, you can do so with the ES6 Array `entries()` method and destructuring:
 
-```
+```javascript
 const arr = ['a', 'b', 'c'];
 
 for (let [index, elem] of arr.entries()) {
