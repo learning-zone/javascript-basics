@@ -1652,7 +1652,6 @@ and If you want to check if a key doesn't exist, remember to use parenthesis,
 ```javascript
 obj.hasOwnProperty("key") // true
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1694,7 +1693,6 @@ function isEmpty(obj) {
   return JSON.stringify(obj) === JSON.stringify({});
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1777,7 +1775,6 @@ if (!String.prototype.trim) {
     })();
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1834,7 +1831,6 @@ fn.profile = function(y) {
   //Profile code goes here
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1863,7 +1859,6 @@ for (i = 0; i < 10; i++) {
     text += "Number: " + i + "<br>";
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1923,7 +1918,6 @@ var v5 = [];
 var v6 = /()/;
 var v7 = function(){};
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1982,7 +1976,6 @@ Let's take an example of global modifier,
   var pattern = /one/g;
   var result = text.match(pattern); // one,one
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2038,7 +2031,6 @@ document.getElementById("title").style.fontSize = "30px";
 ```javascript
 document.getElementById("title").style.className = "custom-title";
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2081,7 +2073,6 @@ else {
   }
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2121,7 +2112,6 @@ function httpGetAsync(theUrl, callback)
     xmlHttp.send(null);
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2167,7 +2157,6 @@ function traceValue(someParam) {
     else { return value4; }
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2432,7 +2421,6 @@ console.log(Object.isFrozen(object)); // Welcome to object world
 delete object.property; // You cannot delete when sealed
 console.log(object.property); //Welcome to object world
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2460,7 +2448,6 @@ Object.seal(object); // Using seal() method to seal the object
 
 console.log(Object.isSealed(object));      // checking whether the object is sealed or not
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2504,7 +2491,6 @@ const user = {
 
 console.log(Object.keys(user)); //['name', 'gender', 'age']
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2537,7 +2523,6 @@ ws.has(user);    // true
 ws.delete(user); // removes user from the set
 ws.has(user);    // false, user has been removed
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2582,7 +2567,6 @@ ws.has(user);    // true
 ws.delete(user); // removes user from the map
 ws.has(user);    // false, user has been removed
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2639,7 +2623,6 @@ try {
   console.error(e);
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2689,7 +2672,6 @@ function greeting() {
 }
 greeting();
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2764,7 +2746,6 @@ obj.subtract = 5;
 console.log(obj.increment); //6
 console.log(obj.decrement); //5
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2821,7 +2802,6 @@ objectName["property"]
 ```javascript
 objectName[expression]
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2923,7 +2903,6 @@ class User() {
 }
 console.log(User.isAdmin); //false
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2970,7 +2949,6 @@ numbers.sort((a, b) => b - a);
 numbers.reverse();
 console.log(numbers); // [1, 2, 3, 4 ,5]
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -3018,7 +2996,6 @@ function findMax(arr) {
 console.log(findMin(marks));
 console.log(findMax(marks));
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -3055,7 +3032,6 @@ function myFunction() {
   return (a += 10, a); // 11
 }
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -3139,7 +3115,6 @@ c.greet();
 c.constructor.name;
 // Outputs: "Child"
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -3284,7 +3259,6 @@ const double = arr.map(function(el) {
 });
 console.log(double); // [2, 4, 6]
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
