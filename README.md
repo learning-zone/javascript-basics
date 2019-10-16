@@ -24,7 +24,6 @@
 |17. |[What is a unary function?](#q-what-is-a-unary-function)|
 |18. |[What is currying function?](#q-what-is-currying-function)|
 |19. |[What is a pure function?](#q-what-is-a-pure-function)|
-|21. |[What is IIFE(Immediately Invoked Function Expression)?](#q-what-is-iife-immediately-invoked-function-expression)|
 |22. |[What is memoization?](#q-what-is-memoization)|
 |23. |[What is a service worker?](#q-what-is-a-service-worker)|
 |24. |[How do you manipulate DOM using service worker?](#q-how-do-you-manipulate-dom-using-service-worker)|
@@ -780,22 +779,6 @@ Remember that Pure functions are important as they simplify unit testing without
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
-#### Q. What is IIFE(Immediately Invoked Function Expression)?
-IIFE (Immediately Invoked Function Expression) is a JavaScript function that runs as soon as it is defined. The signature of it would be as below,
-```javascript
-(function () {
-    // logic here
-})();
-```
-The primary reason to use an IIFE is to obtain data privacy because any variables declared within the IIFE cannot be accessed by the outside world. i.e, If you try to access variables with IIFE then it throws an error as below,
-```javascript
-(function () {
-    var message = "IIFE";
-    console.log(message);
-})();
-console.log(message); //Error: message is not defined
-```
 
 #### Q. What is memoization?
 Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results.  Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
