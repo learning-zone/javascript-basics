@@ -2890,7 +2890,7 @@ Below are the list of properties available on Intl object,
 
 #### Q. What is an Unary operator?
 The unary(+) operator is used to convert a variable to a number.If the variable cannot be converted, it will still become a number but with the value NaN. Let's see this behavior in an action.
-```javascrippt
+```javascript
 var x = "100";
 var y = + x;
 console.log(typeof x, typeof y); // string, number
