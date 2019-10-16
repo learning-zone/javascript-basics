@@ -3241,7 +3241,7 @@ Native objects are objects that are part of the JavaScript language defined by t
 Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
 
 
-### Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
+#### Q. Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?
 
 This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is to use PascalCase for functions that are intended to be used as constructors.
 
