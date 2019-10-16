@@ -2276,12 +2276,12 @@ function f(a, b, ...theArgs) {
 ```
 For example, let's take a sum example to calculate on dynamic number of parameters,
 ```javascript
-function total(…args){
-let sum = 0;
-for(let i of args){
-sum+=i;
-}
-return sum;
+function total(…args) {
+  let sum = 0;
+  for(let i of args) {
+    sum+=i;
+  }
+ return sum;
 }
 console.log(fun(1,2)); //3
 console.log(fun(1,2,3)); //6
@@ -2293,9 +2293,9 @@ console.log(fun(1,2,3,4,5)); //15
 #### Q. What happens if you do not use rest parameter as a last argument?
 The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it doesn’t make any sense and will throw an error.
 ```javascript
-function someFunc(a,…b,c){
-//You code goes here
-return;
+function someFunc(a,…b,c) {
+  //You code goes here
+  return;
 }
 ```
 #### Q. What are the bitwise operators available in javascript?
