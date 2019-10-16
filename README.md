@@ -204,7 +204,6 @@
 |209. |[What is an Intl object?](#q-what-is-an-intl-object)|
 |210. |[How do you perform language specific date and time formatting?](#q-how-do-you-perform-language-specific-date-and-time-formatting)|
 |211. |[What is an Iterator?](#q-what-is-an-iterator)|
-|212. |[What is an event loop?](#q-what-is-an-event-loop)|
 |213. |[What is a decorator?](#q-what-is-a-decorator)|
 |214. |[What are the properties of Intl object?](#q-what-are-the-properties-of-intl-object)|
 |215. |[What is an Unary operator?](#q-what-is-an-unary-operator)|
@@ -223,7 +222,6 @@
 |228. |[What do you think of AMD vs CommonJS?](#q-what-do-you-think-of-amd-vs-commonjs)|
 |229. |[Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#q-explain-why-the-following-doesn-t-work-as-an-iife-function-foo-what-needs-to-be-changed-to-properly-make-it-an-iife)|
 |230. |[What's the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#q-what-s-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)|
-|231. |[What is a closure, and how/why would you use one?](#q-what-is-a-closure-and-how-why-would-you-use-one)|
 |232. |[Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#q-can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)|
 |233. |[What's a typical use case for anonymous functions?](#q-what-s-a-typical-use-case-for-anonymous-functions)|
 |234. |[How do you organize your code? (module pattern, classical inheritance?)](#q-how-do-you-organize-your-code-module-pattern-classical-inheritance)|
@@ -2857,11 +2855,7 @@ console.log(new Intl.DateTimeFormat('en-GB').format(date)); // 07/08/2019
 console.log(new Intl.DateTimeFormat('en-AU').format(date)); // 07/08/2019
 ```
 #### Q. What is an Iterator?
-an iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a next() method which returns an object with two properties: value (the next value in the sequence) and done (which is true if the last value in the sequence has been consumed).
-
-#### Q. What is an event loop?
-The Event Loop is a queue of callback functions. When an async function executes, the callback function is pushed into the queue. The JavaScript engine doesn't start processing the event loop until async function has finished executing the code.
-*Note: It allows Node.js to perform non-blocking I/O operations eventhough JavaScript is single-threaded*.
+An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `next()` method which returns an object with two properties: value (the next value in the sequence) and done (which is true if the last value in the sequence has been consumed).
 
 #### Q. What is a decorator?
 A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. Let's define admin decorator for user class at design time,
@@ -3021,7 +3015,7 @@ Event delegation is a technique involving adding event listeners to a parent ele
 * Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
 * There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
 
-#### Q. Explain how prototypal inheritance works
+#### Q. Explain how prototypal inheritance works?
 This is an extremely common JavaScript interview question. All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain. This behavior simulates classical inheritance, but it is really more of [delegation than inheritance](https://davidwalsh.name/javascript-objects).
 
 #### Q. Example of Prototypal Inheritance
@@ -3166,16 +3160,6 @@ As a personal habit, I never leave my variables undeclared or unassigned. I will
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is a closure, and how/why would you use one?
-
-A closure is the combination of a function and the lexical environment within which that function was declared. The word "lexical" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
-
-**Why would you use one?**
-
-* Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-* [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
-
-
 #### Q. Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
 
 To understand the differences between the two, let's look at what each function does.
@@ -3310,7 +3294,6 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 `document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.
 
-There are some answers online that explain `document.write()` is being used in analytics code or [when you want to include styles that should only work if JavaScript is enabled](https://www.quirksmode.org/blog/archives/2005/06/three_javascrip_1.html). It is even being used in HTML5 boilerplate to [load scripts in parallel and preserve execution order](https://github.com/paulirish/html5-boilerplate/wiki/Script-Loading-Techniques#documentwrite-script-tag)! However, I suspect those reasons might be outdated and in the modern day, they can be achieved without using `document.write()`. Please do correct me if I'm wrong about this.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
