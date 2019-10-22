@@ -7438,3 +7438,12 @@ Object.isExtensible(sealedObject); // false
 var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
 Object.isExtensible(frozenObject); // false
 ```
+
+#### Q. Is enums feature available in javascript?
+No, javascript does not natively support enums. But there are different kind of solutions to simulate them even though they may not provide exact equivalent. For example, you can use freeze or seal on object,
+```javascript
+var DaysEnum = Object.freeze({"monday":1, "tuesday":2, "wednesday":3, ...})
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
