@@ -7413,3 +7413,11 @@ Reflect.apply(''.charAt, 'ponies', [3]); // "i"
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
+#### Q. How do you check whether an object can be extendable or not?
+The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
+```javascript
+const newObject = {};
+console.log(Object.isExtensible(newObject)); //true
+```
+*Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
