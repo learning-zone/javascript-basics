@@ -7422,17 +7422,19 @@ console.log(Object.isExtensible(newObject)); //true
 ```
 *Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
 
-#### Q. How do you prevent an object to extend?
-The Object.preventExtensions() method is used to prevent new properties from ever being added to an object. In other words, it prevents future extensions to the object. Let's see the usage of this property,
+#### Q. What are the different ways to make an object non-extensible?
+* `Object.preventExtensions()`
+* `Object.seal()`
+* `Object.freeze()`
 ```javascript
-const newObject = {};
-Object.preventExtensions(newObject); // NOT extendable
+var newObject = {};
 
-try {
-  Object.defineProperty(newObject, 'newProperty', { // Adding new property
-    value: 100
-  });
-} catch (e) {
-  console.log(e); // TypeError: Cannot define property newProperty, object is not extensible
-}
+Object.preventExtensions(newObject); // Prevent objects are non-extensible
+Object.isExtensible(newObject); // false
+
+var sealedObject = Object.seal({}); // Sealed objects are non-extensible
+Object.isExtensible(sealedObject); // false
+
+var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
+Object.isExtensible(frozenObject); // false
 ```
