@@ -877,3 +877,25 @@ The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
+#### Q. What are default values in destructuring assignment?
+A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment.  
+
+**Arrays destructuring:**  
+```javascript
+var x, y, z;
+
+[x=2, y=4, z=6] = [10];
+console.log(x); // 10
+console.log(y); // 4
+console.log(z); // 6
+```
+
+**Objects destructuring:**  
+```javascript
+var {x=2, y=4, z=6} = {x: 10};
+
+console.log(x); // 10
+console.log(y); // 4
+console.log(z); // 6
+```
