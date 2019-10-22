@@ -639,8 +639,7 @@ async1(function() {
 #### Q. What is server-sent events?
 Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
 
-#### Q. How do you receive server-sent event notifications?
-The EventSource object is used to receive server-sent event notifications. For example, you can receive messages from server as below,
+The `EventSource` object is used to receive server-sent event notifications. For example, we can receive messages from server as below,
 ```javascript
 if(typeof(EventSource) !== "undefined") {
   var source = new EventSource("sse_generator.js");
