@@ -172,10 +172,9 @@ As per the above code, the inner function(greetingInfo) has access to the variab
 
 Using the object spread operator ..., the object's own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
 
-```
+```javascript
 const obj = { a: 1, b: 2 }
 const shallowClone = { ...obj }
-
 ```
 With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original. Deep-cloning is much more complex in order to effectively clone any type of object (Date, RegExp, Function, Set, etc) that may be nested within the object.
 
