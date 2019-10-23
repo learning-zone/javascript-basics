@@ -180,9 +180,9 @@ With this technique, prototypes are ignored. In addition, nested objects are not
 
 Other alternatives include:
 
-1. **JSON.parse(JSON.stringify(obj))** can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references).
-1. **Object.assign({}, obj)** is another alternative.
-1. **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
+* **JSON.parse(JSON.stringify(obj))** can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references).
+* **Object.assign({}, obj)** is another alternative.
+* **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
