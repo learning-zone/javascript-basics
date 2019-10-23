@@ -474,7 +474,6 @@ function pure(arg) {
 ```
 Here is a pure function. It didn’t side effect any external state and it returns an output based on the input.
 
-**The Checklist**  
 A function must pass two tests to be considered “pure”:
 
 1. Same inputs always return same outputs
