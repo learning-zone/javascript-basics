@@ -425,11 +425,15 @@ sayHello()();
 We are using double parentheses `()()` to invoke the returned function as well.
 
 #### Q. What is a higher order function?
-Higher-order function is a function that accepts other function as an argument or returns a function as a return value.
+A Higher-Order function is a function that receives a function as an argument or returns the function as output.
+
+For example, `Array.prototype.map()`, `Array.prototype.filter()` and `Array.prototype.reduce()` are some of the Higher-Order functions in javascript.
 ```javascript
-const firstOrderFunc = () => console.log ('Hello I'am a First order function');
-const higherOrder = ReturnFirstOrderFunc => ReturnFirstOrderFunc ();
-higherOrder (firstOrderFunc);
+const arr1 = [1, 2, 3];
+const arr2 = arr1.map(function(item) {
+  return item * 2;
+});
+console.log(arr2);
 ```
 #### Q. What is a unary function?
 Unary function (i.e. monadic) is a function that accepts exactly one argument. Let us take an example of unary function. It stands for single argument accepted by a function.
