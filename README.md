@@ -106,7 +106,7 @@ console.log(sum); // Output: 6
 </div>
 
 #### Q. What is Hoisting?
-Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution. Remember that JavaScript only hoists declarations, not initialisation.  
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.   
 Example:  
 ```javascript
 console.log(message); //output : undefined
@@ -118,6 +118,29 @@ var message;
 console.log(message);
 message = "The variable Has been hoisted";
 ```
+Example: 02
+```javascript
+function hoist() {
+  a = 20;
+  var b = 100;
+}
+
+hoist();
+
+console.log(a); 
+/* 
+Accessible as a global variable outside hoist() function
+Output: 20
+*/
+
+console.log(b); 
+/*
+Since it was declared, it is confined to the hoist() function scope.
+We can't print it out outside the confines of the hoist() function.
+Output: ReferenceError: b is not defined
+*/
+```
+*Note: JavaScript only hoists declarations, not initialisation*
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
