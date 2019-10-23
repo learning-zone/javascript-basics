@@ -372,12 +372,58 @@ null === undefined // false
 #### Q. What is a first class function?
 JavaScript functions are first-class functions meaning functions and objects are treated as the same thing. Functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function "first-class citizens in JavaScript"
 
-JavaScript uses literal notation syntax which makes it hard to fully grasp the fact that in JavaScript functions are objects.
+Example: Assign a function to a variable
 ```javascript
-var obj = new Object();
-// or
-var obj = {};
+const message = function() {
+   console.log("Hello World!");
+}
+
+message(); // Invoke it using the variable
 ```
+
+Example: Pass a function as an Argument
+```javascript
+function sayHello() {
+   return "Hello, ";
+}
+function greeting(helloMessage, name) {
+  console.log(helloMessage() + name);
+}
+// Pass `sayHello` as an argument to `greeting` function
+greeting(sayHello, "JavaScript!");
+```
+
+Example: Return a function
+```javascript
+function sayHello() {
+   return function() {
+      console.log("Hello!");
+   }
+}
+```
+
+Example: Using a variable
+```javascript
+const sayHello = function() {
+   return function() {
+      console.log("Hello!");
+   }
+}
+const myFunc = sayHello();
+myFunc();
+```
+
+Example: Using double parentheses
+```javascript
+function sayHello() {
+   return function() {
+      console.log("Hello!");
+   }
+}
+sayHello()();
+```
+We are using double parentheses `()()` to invoke the returned function as well.
+
 #### Q. What is a first order function?
 First-order function is a function that doesn’t accept other function as an argument and doesn’t return a function as its return value.
 ```javascript
