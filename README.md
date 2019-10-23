@@ -444,7 +444,7 @@ const unaryFunction = a => console.log (a + 10); //Add 10 to the given argument 
 Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument. 
 
 ```javascript
-function volume1(length) {
+function volume(length) {
   return function(width) {
     return function(height) {
       return height * width * length;
@@ -452,7 +452,7 @@ function volume1(length) {
   }
 }
 
-volume1(2)(3)(4); // 24
+volume(2)(3)(4); // 24
 ```
 Curried functions are great to improve code re-usability and functional composition.
 
