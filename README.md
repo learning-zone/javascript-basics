@@ -424,11 +424,6 @@ sayHello()();
 ```
 We are using double parentheses `()()` to invoke the returned function as well.
 
-#### Q. What is a first order function?
-First-order function is a function that doesn’t accept other function as an argument and doesn’t return a function as its return value.
-```javascript
-const firstOrder = () => console.log ('Iam a first order functionn!');
-```
 #### Q. What is a higher order function?
 Higher-order function is a function that accepts other function as an argument or returns a function as a return value.
 ```javascript
