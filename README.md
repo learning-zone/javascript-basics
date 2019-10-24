@@ -548,6 +548,12 @@ Some of the major features of service workers are
 * Intercept and handle network requests
 * Programmatically managing a cache of responses
 
+**Lifecycle of a Service Worker**  
+It consists of the following phases:
+* Download
+* Installation
+* Activation
+
 **Registering a Service Worker**  
 To register a service worker we first check if the browser supports it and then register it.
 ```javascript
