@@ -613,6 +613,63 @@ self.addEventListener('fetch', function(event) {
 #### Q. How do you manipulate DOM using service worker?
 Service worker can't access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
 
+Example: **service-worker.html**
+```html
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Service Worker</title>
+</head>
+<body>
+(Look in the console.)
+<script>
+(function() {
+    "use strict";
+
+    if (!navigator.serviceWorker || !navigator.serviceWorker.register) {
+        console.log("This browser doesn't support service workers");
+        return;
+    }
+
+    // Listen to messages from service workers.
+    navigator.serviceWorker.addEventListener('message', function(event) {
+        console.log("Got reply from service worker: " + event.data);
+    });
+
+    // Are we being controlled?
+    if (navigator.serviceWorker.controller) {
+        // Yes, send our controller a message.
+        console.log("Sending 'hi' to controller");
+        navigator.serviceWorker.controller.postMessage("hi");
+    } else {
+        // No, register a service worker to control pages like us.
+        // Note that it won't control this instance of this page, it only takes effect
+        // for pages in its scope loaded *after* it's installed.
+        navigator.serviceWorker.register("service-worker.js")
+            .then(function(registration) {
+                console.log("Service worker registered, scope: " + registration.scope);
+                console.log("Refresh the page to talk to it.");
+                // If we want to, we might do `location.reload();` so that we'd be controlled by it
+            })
+            .catch(function(error) {
+                console.log("Service worker registration failed: " + error.message);
+            });
+    }
+})();
+</script>
+</body>
+</html>
+```
+**service-worker.js**  
+```javascript
+self.addEventListener("message", function(event) {
+    //event.source.postMessage("Responding to " + event.data);
+    self.clients.matchAll().then(all => all.forEach(client => {
+        client.postMessage("Responding to " + event.data);
+    }));
+});
+```
 #### Q. How do you reuse information across service worker restarts?
 The problem with service worker is that it get terminated when not in use, and restarted when it's next needed, so you cannot rely on global state within a service worker's `onfetch` and `onmessage` handlers. In this case, service workers will have access to IndexedDB API in order to persist and reuse across restarts.
 
