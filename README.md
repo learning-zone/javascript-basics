@@ -568,6 +568,31 @@ if ('serviceWorker' in navigator) {
     console.log('Registration Failed', error);
   }
 ```
+**Installation of service worker**  
+After the controlled page that takes care of the registration process, we come to the service worker script that handles the installation part.
+
+Basically, you will need to define a callback for the install event and then decide on the files that you wish to cache. Inside a callback, one needs to take of the following three points –
+
+* Open a cache
+* Cache the files
+* Seek confirmation for the required caches and whether they have been successful.
+```javascript
+var CACHENAME = 'My site’s cache'; 
+var urlstocache = [ 
+	'/', 
+  '/styles/main1.css', 
+	'/script/main1.js' 
+]; 
+self.addEventListener('install', function(event) { 
+	// Performing installation steps 
+	event.waitUntil( 
+		caches.open(CACHENAME) 
+		.then(function(cache) { 
+			console.log('Opening of cache'); 
+			return cache.addAll(urlstocache);
+		}) 
+);
+```
 **Cache and return requests**  
 After a service worker is installed and the user navigates to a different page or refreshes, the service worker will begin to receive fetch events, an example of which is below.
 ```javascript
