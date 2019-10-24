@@ -548,6 +548,37 @@ Some of the major features of service workers are
 * Intercept and handle network requests
 * Programmatically managing a cache of responses
 
+**Registering a Service Worker**  
+To register a service worker we first check if the browser supports it and then register it.
+```javascript
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/ServiceWorker.js')
+  .then(function(response) {
+    
+    // Service worker registration done
+    console.log('Registration Successful', response);
+  }, function(error) {
+    // Service worker registration failed
+    console.log('Registration Failed', error);
+  }
+```
+**Cache and return requests**  
+After a service worker is installed and the user navigates to a different page or refreshes, the service worker will begin to receive fetch events, an example of which is below.
+```javascript
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  );
+});
+```
 #### Q. How do you manipulate DOM using service worker?
 Service worker can't access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
 
