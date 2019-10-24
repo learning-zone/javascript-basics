@@ -540,7 +540,13 @@ console.log(addition(20)); //output: 40 cached
 </div>
 
 #### Q. What is a service worker?
-A Service worker is basically a script (JavaScript file) that runs in background, separate from a web page and provide features that don't need a web page or user interaction. Some of the major features of service workers are Rich offline experiences(offline first web application development), periodic background syncs, push notifications, intercept and handle network requests and programmatically managing a cache of responses.
+A Service worker is basically a script (JavaScript file) that runs in background, separate from a web page and provide features that don't need a web page or user interaction. 
+
+Some of the major features of service workers are 
+* Offline first web application development
+* Periodic background syncs, push notifications
+* Intercept and handle network requests
+* Programmatically managing a cache of responses
 
 #### Q. How do you manipulate DOM using service worker?
 Service worker can't access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
