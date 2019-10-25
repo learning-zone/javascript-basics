@@ -289,6 +289,19 @@ msg = "Hello" // var is missing, it becomes global variable
 
 The problem with global variables is the conflict of variable names of local and global scope. It is also difficult to debug and test the code that relies on global variables.
 
+#### Q. What is an event flow?
+Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
+
+There are two ways of event flow
+* Top to Bottom(Event Capturing)
+* Bottom to Top (Event Bubbling)
+
+#### Q. What is event bubbling?
+Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
+
+#### Q. What is event capturing?
+Event bubbling is a type of event propagation where the event is first captured by the outermost element and , and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
+
 #### Q. What is prototype chain?
 Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
 
@@ -1075,18 +1088,6 @@ isFinite(-Infinity); // false
 
 isFinite(100);         // true
 ```
-#### Q. What is an event flow?
-Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
-There are two ways of event flow
-1. Top to Bottom(Event Capturing)
-2. Bottom to Top (Event Bubbling)
-
-#### Q. What is event bubbling?
-Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
-
-#### Q. What is event capturing?
-Event bubbling is a type of event propagation where the event is first captured by the outermost element and , and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
-
 #### Q. How do you submit a form using JavaScript?
 You can submit a form using JavaScript use document.form[0].submit(). All the form input's information is submitted using onsubmit event handler
 ```javascript
