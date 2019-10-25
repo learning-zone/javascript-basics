@@ -834,13 +834,6 @@ Below are the list of events available for server sent events
 | onmessage | This event is used when a message is received  |
 | onerror | It happens when an error occurs|
 
-#### Q. What are the main rules of promise?
-A promise must follow a specific set of rules,
-1. A promise is an object that supplies a standard-compliant `.then()` method
-2. A pending promise may transition into either fulfilled or rejected state
-3. A fulfilled or rejected promise is settled and it must not transition into any other state.
-4. Once a promise is settled, the value must not change.
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
