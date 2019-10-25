@@ -273,6 +273,14 @@ var object = new function() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+#### Q. What are the javascript data types?
+Below are the list of javascript data types available
+1. Number
+2. String
+3. Boolean
+4. Object
+5. Undefined
+
 #### Q. What is prototype chain?
 Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
 
@@ -1024,14 +1032,6 @@ function goForward() {
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
-#### Q. What are the javascript data types?
-Below are the list of javascript data types available
-1. Number
-2. String
-3. Boolean
-4. Object
-5. Undefined
 
 #### Q. What is isNaN?
 The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
