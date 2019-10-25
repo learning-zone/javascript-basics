@@ -281,6 +281,14 @@ Below are the list of javascript data types available
 4. Object
 5. Undefined
 
+#### Q. What are global variables?
+Global variables are those that are available throughout the length of the code without any scope. The var keyword is used to declare a local variable but if you omit it then it will become global variable
+```javascript
+msg = "Hello" // var is missing, it becomes global variable
+```
+
+The problem with global variables is the conflict of variable names of local and global scope. It is also difficult to debug and test the code that relies on global variables.
+
 #### Q. What is prototype chain?
 Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
 
@@ -1047,14 +1055,6 @@ Below are the major differences between undeclared and undefined variables,
 |---- | ---------
 | These variables do not exist in a program and are not declared  | These variables declared in the program but have not assigned any value |
 | If you try to read the value of an undeclared variable, then a runtime error is encountered | If you try to read the value of an undefined variable, an undefined value is returned.  |
-
-#### Q. What are global variables?
-Global variables are those that are available throughout the length of the code without any scope. The var keyword is used to declare a local variable but if you omit it then it will become global variable
-```javascript
-msg = "Hello" // var is missing, it becomes global variable
-```
-
-The problem with global variables is the conflict of variable names of local and global scope. It is also difficult to debug and test the code that relies on global variables.
 
 #### Q. What is NaN property?
 The NaN property is a global property that represents "Not-a-Number" value. i.e, It indicates that a value is not a legal number. It is very rare to use NaN in a program but it can be used as return value for few cases
