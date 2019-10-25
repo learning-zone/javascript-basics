@@ -1441,7 +1441,6 @@ function isEmpty(obj) {
       return false;
     }
   }
-
   return JSON.stringify(obj) === JSON.stringify({});
 }
 ```
