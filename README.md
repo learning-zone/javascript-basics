@@ -676,7 +676,7 @@ The problem with service worker is that it get terminated when not in use, and r
 #### Q. What is a post message?
 Post message is a method that enables cross-origin communication between Window objects.(i.e, between a page and a pop-up that it spawned, or between a page and an iframe embedded within it). Generally, scripts on different pages are allowed to access each other if and only if the pages follow same-origin policy(i.e, pages share the same protocol, port number, and host).
 
-#### Q. What is a storage event and its event handler?
+#### Q. What is a web-storage event and its event handler?
 The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
 The syntax would be as below
 ```javascript
@@ -684,25 +684,20 @@ The syntax would be as below
 ```
 Let's take the example usage of onstorage event handler which logs the storage key and it's values
 ```javascript
-window.onstorage = function(e) {
-  console.log('The ' + e.key +
-    ' key has been changed from ' + e.oldValue +
-    ' to ' + e.newValue + '.');
-};
+if (typeof(Storage) !== "undefined") {
+  window.onstorage = function(e) {
+    console.log('The ' + e.key +
+      ' key has been changed from ' + e.oldValue +
+      ' to ' + e.newValue + '.');
+  };
+} else {
+  // Browser doesnot support web-storage 
+}
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. How do you check web storage browser support?
-You need to check browser support for localStorage and sessionStorage before using web storage,
-```javascript
-if (typeof(Storage) !== "undefined") {
-  // Code for localStorage/sessionStorage.
-} else {
-  // Sorry! No Web Storage support..
-}
-```
 #### Q. Give an example of web worker?
 You need to follow below steps to start using web workers for counting example
 1. Create a Web Worker File:  You need to write a script to increment the count value. Let's name it as counter.js
