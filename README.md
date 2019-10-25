@@ -1553,15 +1553,6 @@ var a = b || c;
 ```
 As per the above expression, variable 'a 'will get the value of 'c' only if 'b' is falsy (if is null, false, undefined, 0, empty string, or NaN), otherwise 'a' will get the value of 'b'.
 
-#### Q. How do you define multiline strings?
-You can define multiline string literals using '\' character followed by line terminator.
-```javascript
-var str = "This is a \
-very lengthy \
-sentence!";
-```
-But if you have a space after the '\' character, the code will look exactly the same, but it will raise a SyntaxError.
-
 #### Q. Can we define properties for functions?
 Yes, We can define properties for functions because functions are also objects.
 ```javascript
