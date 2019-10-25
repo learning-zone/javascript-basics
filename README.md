@@ -673,71 +673,9 @@ self.addEventListener("message", function(event) {
 #### Q. How do you reuse information across service worker restarts?
 The problem with service worker is that it get terminated when not in use, and restarted when it's next needed, so you cannot rely on global state within a service worker's `onfetch` and `onmessage` handlers. In this case, service workers will have access to IndexedDB API in order to persist and reuse across restarts.
 
-#### Q. What is IndexedDB?
-IndexedDB is a low-level API for client-side storage of larger amounts of structured data, including files/blobs. This API uses indexes to enable high-performance searches of this data.
-
-#### Q. What is web storage?
-Web storage is an API that provides a mechanism by which browsers can store key/value pairs locally within the user's browser, in a much more intuitive fashion than using cookies. The web storage provides two mechanisms for storing data on the client.
-1. **Local storage:** It stores data for current origin with no expiration date.
-2. **Session storage:** It stores data for one session and the data is lost when the browser tab is closed.
-
 #### Q. What is a post message?
 Post message is a method that enables cross-origin communication between Window objects.(i.e, between a page and a pop-up that it spawned, or between a page and an iframe embedded within it). Generally, scripts on different pages are allowed to access each other if and only if the pages follow same-origin policy(i.e, pages share the same protocol, port number, and host).
 
-#### Q. What is a Cookie?
-A cookie is a piece of data that is stored on computer to be accessed by browser. Cookies are saved as key/value pairs.
-For example 
-```javascript
-document.cookie = "username=John";
-```
-
-Cookies are used to remember information about the user profile(such as username). It basically involves two steps,
-1. When a user visits a web page, user profile can be stored in a cookie.
-2. Next time the user visits the page, the cookie remembers user profile.
-
-There are few below options available for a cookie,
-1. By default, the cookie is deleted when the browser is closed but you can change this behavior by setting expiry date (in UTC time).
-```javascript
-document.cookie = "username=John expires=Sat, 8 Jun 2019 12:00:00 UTC";
-```
-2. By default, the cookie belongs to a current page. But you can tell the browser what path the cookie belongs to using a path parameter.
-```javascript
-document.cookie = "username=John path=/services";
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-#### Q. How do you delete a cookie?
-You can delete a cookie by setting the expiry date as a passed date. You don't need to specify a cookie value in this case.
-For example, you can delete a username cookie in the current page as below.
-```javascript
-document.cookie = "username=; expires=Fri, 07 Jun 2019 00:00:00 UTC; path=/;";
-```
-*Note: You should define the cookie path option to ensure that you delete the right cookie. Some browsers doesnot allow to delete a cookie unless you specify a path parameter*.
-
-#### Q. How do you access web storage?
-The Window object implements the `WindowLocalStorage` and `WindowSessionStorage` objects which has `localStorage`(window.localStorage) and `sessionStorage`(window.sessionStorage) properties respectively. These properties create an instance of the Storage object, through which data items can be set, retrieved and removed for a specific domain and storage type (session or local).
-For example, you can read and write on local storage objects as below
-```javascript
-localStorage.setItem('logo', document.getElementById('logo').value);
-localStorage.getItem('logo');
-```
-#### Q. What are the methods available on session storage?
-The session storage provided methods for reading, writing and clearing the session data
-```javascript
-// Save data to sessionStorage
-sessionStorage.setItem('key', 'value');
-
-// Get saved data from sessionStorage
-let data = sessionStorage.getItem('key');
-
-// Remove saved data from sessionStorage
-sessionStorage.removeItem('key');
-
-// Remove all saved data from sessionStorage
-sessionStorage.clear();
-```
 #### Q. What is a storage event and its event handler?
 The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
 The syntax would be as below
