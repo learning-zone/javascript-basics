@@ -1108,9 +1108,9 @@ console.log(navigator.platform);
 The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
 
 #### Q. What is the difference between native, host and user objects?
-`Native objects` are objects that are part of the JavaScript language defined by the ECMAScript specification. For example, String, Math, RegExp, Object, Function etc core objects defined in the ECMAScript spec.
-`Host objects` are objects provided by the browser or runtime environment (Node). For example, window, XmlHttpRequest, DOM nodes etc considered as host objects.
-`User objects` are objects defined in the javascript code. For example, User object created for profile information.
+* `Native objects` are objects that are part of the JavaScript language defined by the ECMAScript specification. For example, String, Math, RegExp, Object, Function etc core objects defined in the ECMAScript spec.
+* `Host objects` are objects provided by the browser or runtime environment (Node). For example, window, XmlHttpRequest, DOM nodes etc considered as host objects.
+* `User objects` are objects defined in the javascript code. For example, User object created for profile information.
 
 #### Q. What are the pros and cons of promises over callbacks?
 Below are the list of pros and cons of promises over callbacks,
