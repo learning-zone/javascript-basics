@@ -1427,11 +1427,11 @@ for (var key in object) {
 There are different solutions based on ECMAScript versions
 1. **Using Object entries(ECMA 7+):** You can use object entries length along with constructor type.
 ```javascript
-Object.entries(obj).length === 0 && obj.constructor === Object // Since date object length is 0, you need to check constructor check as well
+Object.entries(obj).length === 0 && obj.constructor === Object 
 ```
 2. **Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
 ```javascript
-Object.keys(obj).length === 0 && obj.constructor === Object // Since date object length is 0, you need to check constructor check as well
+Object.keys(obj).length === 0 && obj.constructor === Object 
 ```
 3. **Using for-in with hasOwnProperty(Pre-ECMA 5):** You can use for-in loop along with hasOwnProperty.
 ```javascript
