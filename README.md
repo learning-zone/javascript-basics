@@ -7397,8 +7397,8 @@ console.log(pets.includes('at')); // Output: false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is variable shadowing javascript?
-variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
+#### Q. What is variable shadowing in javascript?
+Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
 
 If there's a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
 ```javascript
