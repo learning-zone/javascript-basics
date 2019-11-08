@@ -149,7 +149,7 @@ A closure is the combination of a function and the lexical environment within wh
 1. Own scope where variables defined between its curly brackets
 2. Outer function’s variables
 3. Global variables
-Let's take an example of closure concept,
+
 ```javascript
 function Welcome(name) {
   var greetingInfo = function(message) {
@@ -161,7 +161,7 @@ var myFunction = Welcome('John');
 myFunction('Welcome '); //Output: Welcome John
 myFunction('Hello Mr.'); //output: Hello Mr.John
 ```
-As per the above code, the inner function(greetingInfo) has access to the variables in the outer function scope(Welcome) even after outer function has returned.
+As per the above code, the inner `function greetingInfo()` has access to the variables in the outer `function Welcome()` even after outer function has returned.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
