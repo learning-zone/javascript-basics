@@ -228,7 +228,7 @@ function func {};
 
 new func(x, y, z);
 
-**(OR)**
+// **(OR)**
 
 // Create a new instance using function prototype.
 var newInstance = Object.create(func.prototype)
