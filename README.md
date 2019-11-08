@@ -1425,7 +1425,7 @@ for (var key in object) {
 }
 ```
 #### Q. How do you test for an empty object?
-There are different solutions based on ECMAScript versions
+
 **Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
 ```javascript
 Object.keys(obj).length === 0 && obj.constructor === Object 
