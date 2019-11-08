@@ -9,23 +9,22 @@
 
 
 #### Q. What is difference between document.getElementById() and document.querySelector()?
-* **document.getElementById()**: Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+**document.getElementById()**: Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 Syntax:
 ```javascript
 element = document.getElementById(id);
 ```
 
-* **document.querySelector()**: Returns the first matching Element node within the node's subtree. If no matching node is found, null is returned.
+**document.querySelector()**: Returns the first matching Element node within the node's subtree. If no matching node is found, null is returned.
 Syntax:
 ```javascript
 element = document.querySelector(selectors);
 ```
 
-* **document.querySelectorAll()**: Returns a NodeList containing all matching Element nodes within the node's subtree, or an empty NodeList if no matches are found.
+**document.querySelectorAll()**: Returns a NodeList containing all matching Element nodes within the node's subtree, or an empty NodeList if no matches are found.
 ```javascript
 element = document.querySelectorAll(selectors);
 ```
-
 *Note: <code>querySelector()</code> is more useful when we want to use more complex selectors*.
 
 <div align="right">
