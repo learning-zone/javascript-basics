@@ -728,7 +728,7 @@ if (typeof(Storage) !== "undefined") {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Give an example of web worker?
+#### Q. Give an example of Web Workers?
 
 **Create a Web Worker File**: Write a script to increment the count value. Let's name it as counter.js
 ```javascript
