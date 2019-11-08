@@ -32,7 +32,7 @@ element = document.querySelectorAll(selectors);
 </div>
 
 #### Q. When to use reduce(), map(), foreach() and filter() in JavaScript? 
-**forEach()**:  <code>forEach()</code> takes a callback function and run that callback function on each element of array one by one.
+**forEach()**:  It takes a callback function and run that callback function on each element of array one by one.
 
 Basically forEach works as a traditional for loop looping over the array and providing array elements to do operations on them.
 ```javascript
