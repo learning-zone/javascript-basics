@@ -189,30 +189,23 @@ Other alternatives include:
 
 #### Q. What are the possible ways to create objects in JavaScript?
 
-1. **Object constructor:**
-
- The simpliest way to create an empty object is using Object constructor. Currently this approach is not recommended.
-
- ```javascript
+**Object constructor**: The simpliest way to create an empty object is using Object constructor. Currently this approach is not recommended.
+```javascript
  var object = new Object();
- ```
+```
 
- 2. **Object's create method:**
-
- The create method of Object creates a new object by passing the prototype object as a parameter
- ```javascript
+**Object's create method**: The create method of Object creates a new object by passing the prototype object as a parameter
+```javascript
  var object = Object.create(null);
- ```
+```
 
- 3. **Object literal syntax:**
- The object literal syntax is equivalent to create method when it passes null as parameter
- ```javascript
+**Object literal syntax**: The object literal syntax is equivalent to create method when it passes null as parameter
+```javascript
  var object = {};
- ```
+```
 
- 4. **Function constructor:**
- Create any function and apply the new operator to create object instances,
- ```javascript
+**Function constructor**: Create any function and apply the new operator to create object instances,
+```javascript
  function Person(name) {
   var object = {};
   object.name = name;
@@ -220,11 +213,9 @@ Other alternatives include:
   return object;
  }
  var object = new Person("Alex");
- ```
+```
 
- 5. **Function constructor with prototype:**
- This is similar to function constructor but it uses prototype for their properties and methods,
-
+**Function constructor with prototype**: This is similar to function constructor but it uses prototype for their properties and methods,
 ```javascript
 function Person(){}
 Person.prototype.name = "Alex";
@@ -249,8 +240,7 @@ var result = func.call(newInstance, x, y, z),
 console.log(result && typeof result === 'object' ? result : newInstance);
 ```
 
-6. **ES6 Class syntax:**
-ES6 introduces class feature to create the objects
+**ES6 Class syntax**: ES6 introduces class feature to create the objects
 ```javascript
 class Person {
  constructor(name) {
@@ -261,8 +251,7 @@ class Person {
 var object = new Person("Alex");
 ```
 
-7. **Singleton pattern:**
-A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don't accidentally create multiple instances.
+**Singleton pattern**: A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don't accidentally create multiple instances.
 ```javascript
 var object = new function() {
   this.name = "Alex";
