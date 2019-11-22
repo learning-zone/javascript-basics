@@ -53,16 +53,16 @@ Output
 
 *Note: filter does not update the existing array it will return a new filtered array every time*.
 ```javascript
-var sample = [1, 2, 3]; 
+var arr = [10, 20, 30]; 
 
-var result = sample.filter(function(elem){
-    return elem !== 2;
+var result = arr.filter(function(elem){
+    return elem !== 20;
 })
 console.log(result)
 ```
 Output
 ```
-[1, 3]
+[10, 30]
 ```
 
 **map()**: map() like filter() & forEach() takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
