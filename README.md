@@ -268,6 +268,27 @@ msg = "Hello" // var is missing, it becomes global variable
 
 The problem with global variables is the conflict of variable names of local and global scope. It is also difficult to debug and test the code that relies on global variables.
 
+#### Q. What is variable shadowing in javascript?
+Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
+
+If there's a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
+```javascript
+var val = 10;
+
+function Hoist(val) {
+    alert(val);
+}
+
+Hoist(20);
+```
+Output
+```
+20
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. What is an event flow?
 Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
 
@@ -7380,27 +7401,6 @@ console.log(array1.includes(2)); // Output: true
 
 var pets = ['cat', 'dog', 'bat'];
 console.log(pets.includes('at')); // Output: false
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-#### Q. What is variable shadowing in javascript?
-Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
-
-If there's a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
-```javascript
-var val = 10;
-
-function Hoist(val) {
-    alert(val);
-}
-
-Hoist(20);
-```
-Output
-```
-20
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
