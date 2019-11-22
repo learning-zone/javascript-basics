@@ -903,7 +903,10 @@ console.log(y); // 10
 ```
 #### Q. What is the output of below spread operator array?
 ```javascript
-[...'John Resig']
+[...'John']
 ```
-The output of the array is ['J', 'o', 'h', 'n', '', 'R', 'e', 's', 'i', 'g']
-Explanation: The string is an iterable type and the spread operator with in an array maps every character of an iterable to one element. Hence, each character of a string becomes an element within an Array.
+**Output**:  ['J', 'o', 'h', 'n']  
+**Explanation**: The string is an iterable type and the spread operator with in an array maps every character of an iterable to one element. Hence, each character of a string becomes an element within an Array.
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
