@@ -734,7 +734,7 @@ console.log(x); // 10
 console.log(y); // 4
 console.log(z); // 6
 ```
-#### Q. How do you swap variables in destructuring assignment?
+#### Q. How do you swap variables using Destructuring Assignment?
 ```javascript
 var x = 10, y = 20;
 
