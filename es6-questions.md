@@ -5,7 +5,7 @@
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
 
-**Array destructuring**
+**Array Destructuring**
 
 ```javascript
 // Variable assignment.
@@ -27,7 +27,7 @@ console.log(a); // 3
 console.log(b); // 1
 ```
 
-**Object destructuring**
+**Object Destructuring**
 
 ```javascript
 // Variable assignment.
@@ -37,7 +37,6 @@ const { p, q } = o;
 console.log(p); // 42
 console.log(q); // true
 ```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
