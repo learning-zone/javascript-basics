@@ -140,8 +140,7 @@ var { title, price } = {
 };
 console.log(title);
 ```
-**9. Generators**
-
+**9. Generators**  
 Calling a generator function does not execute its body immediately
 ```javascript
 function* generator(i) {
@@ -153,8 +152,7 @@ console.log(gen.next().value);
 console.log(gen.next().value); 
 ```  
 
-**10. Symbols**
-
+**10. Symbols**  
 They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
 ```javascript
 const symbol1 = Symbol();
@@ -166,8 +164,7 @@ console.log(symbol3.toString());
 console.log(Symbol('foo') === Symbol('foo')); 
 ```
 
-**11. Iterator**
-
+**11. Iterator**  
 The iterable protocol allows JavaScript objects to define or customize their iteration behavior. 
 ```javascript
 var title = 'ES6';
