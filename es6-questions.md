@@ -286,7 +286,7 @@ An arrow function is a shorter syntax for a function expression and does not hav
 * Don't work with new
 * Fixed this bound to scope at initialisation
 
-**When should not use Arrow Functions**
+**When should not use Arrow Functions**  
 **1. Object methods**  
 When you call cat.jumps, the number of lives does not decrease. It is because this is not bound to anything, and will inherit the value of this from its parent scope.
 ```javascript
