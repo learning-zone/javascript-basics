@@ -514,13 +514,6 @@ It's much more verbose to use inheritance in ES5 and the ES6 version is easier t
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Can you give an example of one of the ways that working with this has changed in ES6?
-
-ES6 allows you to use [arrow functions](http://2ality.com/2017/12/alternate-this.html#arrow-functions) which uses the [enclosing lexical scope](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions#No_separate_this). This is usually convenient, but does prevent the caller from controlling context via `.call` or `.apply`—the consequences being that a library such as `jQuery` will not properly bind `this` in your event handler functions. Thus, it's important to keep this in mind when refactoring large legacy applications.
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 #### Q. Can you give an example for destructuring an object or an array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
