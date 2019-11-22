@@ -674,9 +674,9 @@ const person = {
   age: 29,
 };
 
-const copyOfTodd = { ...person };
+const copyOfPerson = { ...person };
 
-console.log(copyOfTodd); // {name: "Todd", age: 29}
+console.log(copyOfPerson); // {name: "Todd", age: 29}
 ```
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
