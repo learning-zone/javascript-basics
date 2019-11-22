@@ -377,7 +377,6 @@ Arrows is a new syntax for functions, which brings several benefits:
 * The syntax allows an implicit return when there is no body block, resulting in shorter and simpler code in some cases
 * Last but not least, `=>` is shorter and simpler than `function`, although stylistic issues are often subjective
 
-The syntax is quite flexible:
 ```javascript
 //arrow function with no parameters
 var a1 = () => 1;
