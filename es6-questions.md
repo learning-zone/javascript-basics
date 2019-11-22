@@ -114,7 +114,7 @@ var cat = {
 cat.meow(2); 
 ```
 
-* **Arrow Function**
+* **Arrow Function (=>)**
 ```javascript
 var add = (x,y) => x + y;
 console.log(add(10,20)); // 30;
