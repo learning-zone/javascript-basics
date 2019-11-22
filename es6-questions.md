@@ -660,10 +660,11 @@ ES6's spread syntax is very useful when coding in a functional paradigm as we ca
 
 ```javascript
 function putDookieInAnyArray(arr) {
-  return [...arr, 'dookie'];
+  return [...arr, 'Cookie'];
 }
 
-const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); // ["I", "really", "don't", "like", "dookie"]
+// ["I", "really", "don't", "like", "Cookie"]
+const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); 
 
 const person = {
   name: 'Todd',
