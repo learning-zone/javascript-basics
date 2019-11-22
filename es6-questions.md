@@ -514,46 +514,6 @@ It's much more verbose to use inheritance in ES5 and the ES6 version is easier t
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Can you give an example for destructuring an object or an array?
-
-Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
-
-**Array destructuring**
-
-```javascript
-// Variable assignment.
-const foo = ['one', 'two', 'three'];
-
-const [one, two, three] = foo;
-console.log(one); // "one"
-console.log(two); // "two"
-console.log(three); // "three"
-```
-
-```javascript
-// Swapping variables
-let a = 1;
-let b = 3;
-
-[a, b] = [b, a];
-console.log(a); // 3
-console.log(b); // 1
-```
-
-**Object destructuring**
-
-```javascript
-// Variable assignment.
-const o = { p: 42, q: true };
-const { p, q } = o;
-
-console.log(p); // 42
-console.log(q); // true
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 #### Q. What are the benefits of using spread syntax and how is it different from rest syntax?
 
 ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and Rx.js projects.
