@@ -69,36 +69,28 @@ Output
 
 Like filter(), map() also returns an array. The provided callback to map modifies the array elements and save them into the new array upon completion that array get returned as the mapped array.
 ```javascript
-var sample = [1, 2, 3];
+var arr = [10, 20, 30];
 
-var mapped = sample.map(function(elem) {
+var mapped = arr.map(function(elem) {
     return elem * 10;
 });
+console.log(mapped)
 ```
 Output
 ```
-[10, 20, 30]
+[100, 200, 300]
 ```
 
 **reduce()**: reduce() method of the array object is used to reduce the array to one single value.
-Syntax:
-```javascript
-[10, 20, 30, 40, 50].reduce(function(accumulator, currentValue, currentIndex, array) {
-  console.log('accumulator: '+accumulator);   // Output: 10
-  console.log('currentValue: '+currentValue); // Output: 20, 30, 40, 50
-  console.log('currentIndex: '+currentIndex); // Output: 1, 2, 3, 4
-  console.log('array: '+array);               // Output: 10, 20, 30, 40, 50 
-});
 
-```
 Example:
 ```javascript
-var sample = [1, 2, 3];
+var arr = [10, 20, 30];
 
-var sum = sample.reduce(function(sum, elem) {
+var sum = arr.reduce(function(sum, elem) {
     return sum + elem;
 });
-console.log(sum); // Output: 6
+console.log(sum); // Output: 60
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
