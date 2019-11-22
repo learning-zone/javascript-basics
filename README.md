@@ -36,17 +36,17 @@ element = document.querySelectorAll(selectors);
 
 Basically forEach works as a traditional for loop looping over the array and providing array elements to do operations on them.
 ```javascript
-var sample = [1, 2, 3];
+var arr = [10, 20, 30];
 
-sample.forEach(function (elem, index){
+arr.forEach(function (elem, index){
    console.log(elem + ' comes at ' + index);
 })
 ```
 Output
 ```
-1 comes at 0
-2 comes at 1
-3 comes at 2
+10 comes at 0
+20 comes at 1
+30 comes at 2
 ```
 
 **filter()**: The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
