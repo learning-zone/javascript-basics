@@ -656,7 +656,7 @@ console.log(q); // true
 
 #### Q. What are the benefits of using spread syntax and how is it different from rest syntax?
 
-ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and rx.js projects.
+ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and Rx.js projects.
 
 ```javascript
 function addCookiesInArray(arr) {
