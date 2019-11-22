@@ -286,8 +286,8 @@ An arrow function is a shorter syntax for a function expression and does not hav
 * Don't work with new
 * Fixed this bound to scope at initialisation
 
-**When you should not use Arrow Functions**
-1. Object methods
+**When should not use Arrow Functions**
+**1. Object methods**  
 When you call cat.jumps, the number of lives does not decrease. It is because this is not bound to anything, and will inherit the value of this from its parent scope.
 ```javascript
 var cat = {
@@ -297,7 +297,7 @@ var cat = {
   }
 }
 ```
-2. Callback functions with dynamic context
+**2. Callback functions with dynamic context**  
 If we click the button, we would get a TypeError. It is because this is not bound to the button, but instead bound to its parent scope.
 ```javascript
 var button = document.getElementById('press');
