@@ -83,7 +83,6 @@ Output
 
 **reduce()**: reduce() method of the array object is used to reduce the array to one single value.
 
-Example:
 ```javascript
 var arr = [10, 20, 30];
 
