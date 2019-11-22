@@ -42,7 +42,7 @@ console.log(q); // true
 </div>
 
 #### Q. List out important features of es6?
-* **Template String**
+**1. Template String**
 ```javascript
 function print(Name) {
   console.log("Hello " + Name); // Hello Pradeep
@@ -51,7 +51,7 @@ function print(Name) {
 print("Pradeep");
 ```
 
-* **Spread Operators**  
+**2. Spread Operators**  
 Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. 
 ```javascript
 function calculateSum(x, y, z) {
@@ -63,7 +63,7 @@ const numbers = [1, 2, 3];
 console.log(calculateSum(...numbers)); // 6
 ```
 
-* **Sets**
+**3. Sets**
 ```javascript
 const sets = new Set([1, 2, 3, 4, 5]);
 	
@@ -71,7 +71,7 @@ console.log(sets.has(1));
 console.log(sets.has(0)); 
 ```
 
-* **Default Parametrs**
+**4. Default Parametrs**
 ```javascript
 function add(x = 10, y = 20) {
   console.log(x + y);
@@ -79,7 +79,7 @@ function add(x = 10, y = 20) {
 add(30, 40);
 ```
 
-* **repeat()**
+**5. repeat()**
 ```javascript
 var cat = {
   meow(times){
@@ -89,13 +89,13 @@ var cat = {
 cat.meow(2); 
 ```
 
-* **Arrow Function (=>)**
+**6. Arrow Function (=>)**
 ```javascript
 var add = (x,y) => x + y;
 console.log(add(10,20)); // 30;
 
 ```
-* **Arrow function with 'this'**
+**7. Arrow function with 'this'**
 ```javascript
 var person = {
   first: "Pradeep",
@@ -123,7 +123,7 @@ var person = {
 };
 ```
 
-* **Destructing Assignment**
+**8. Destructing Assignment**
 ```javascript
 var phone = {
   title: "iPhone",
@@ -140,7 +140,7 @@ var { title, price } = {
 };
 console.log(title);
 ```
-* **Generators**
+**9. Generators**
 
 Calling a generator function does not execute its body immediately
 ```javascript
@@ -153,7 +153,7 @@ console.log(gen.next().value);
 console.log(gen.next().value); 
 ```  
 
-* **Symbols**
+**10. Symbols**
 
 They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
 ```javascript
@@ -166,7 +166,7 @@ console.log(symbol3.toString());
 console.log(Symbol('foo') === Symbol('foo')); 
 ```
 
-* **Iterator**
+**11. Iterator**
 
 The iterable protocol allows JavaScript objects to define or customize their iteration behavior. 
 ```javascript
