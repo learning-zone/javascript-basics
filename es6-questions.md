@@ -116,14 +116,8 @@ cat.meow(2);
 
 * **Arrow Function**
 ```javascript
-var companyList = function(company) {
-  console.log(company);
-};
-
-//ES-6
-var companyList = company => console.log(company); //arraow function
-
-companyList(["Apple", "Microsoft", "Google"]);
+var add = (x,y) => x + y;
+console.log(add(10,20)); // 30;
 
 ```
 * **Arrow function with 'this'**
