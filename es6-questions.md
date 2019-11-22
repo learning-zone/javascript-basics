@@ -95,7 +95,7 @@ var add = (x,y) => x + y;
 console.log(add(10,20)); // 30;
 
 ```
-**7. Arrow function with 'this'**
+**7. Arrow function with `this`**
 ```javascript
 var person = {
   first: "Pradeep",
