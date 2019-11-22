@@ -241,8 +241,7 @@ document.body.innerHTML = `
 
 #### Q. What advantage is there for using the arrow syntax for a method in a constructor?
 
-The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. For example, let's say we have a `Person` constructor that takes a first name as an argument has two methods to `console.log` that name, one as a regular function and one as an arrow function:
-
+The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. 
 ```javascript
 const Person = function(firstName) {
   this.firstName = firstName;
@@ -272,7 +271,6 @@ sayNameFromWindow1(); // undefined (because 'this' is now the window object)
 var sayNameFromWindow2 = john.sayName2;
 sayNameFromWindow2(); // John
 ```
-
 The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
