@@ -1126,7 +1126,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 * `User objects` are objects defined in the javascript code. For example, User object created for profile information.
 
 #### Q. What are the pros and cons of promises over callbacks?
-Below are the list of pros and cons of promises over callbacks,
+Below are the list of pros and cons of promises over callbacks,  
 **Pros:**
 1. It avoids callback hell which is unreadable
 2. Easy to write sequential asynchronous code with .then()
