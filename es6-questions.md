@@ -659,19 +659,24 @@ console.log(q); // true
 ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and rx.js projects.
 
 ```javascript
-function putDookieInAnyArray(arr) {
-  return [...arr, 'Cookie'];
+function addCookiesInArray(arr) {
+  return [...arr, 'Cookies'];
 }
 
-// ["I", "really", "don't", "like", "Cookie"]
-const result = putDookieInAnyArray(['I', 'really', "don't", 'like']); 
+const result = addCookiesInArray(['I', 'really', "don't", 'like']); 
 
+console.log(result); // ["I", "really", "don't", "like", "Cookies"]
+```
+
+```javascript
 const person = {
   name: 'Todd',
   age: 29,
 };
 
 const copyOfTodd = { ...person };
+
+console.log(copyOfTodd); // {name: "Todd", age: 29}
 ```
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
