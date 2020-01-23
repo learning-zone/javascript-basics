@@ -239,7 +239,7 @@ document.body.innerHTML = `
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What advantage is there for using the arrow syntax for a method in a constructor?
+#### Q. What is the benefit of using the arrow syntax for a method in a constructor?
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. 
 ```javascript
