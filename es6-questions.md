@@ -67,8 +67,8 @@ console.log(calculateSum(...numbers)); // 6
 ```javascript
 const sets = new Set([1, 2, 3, 4, 5]);
 	
-console.log(sets.has(1)); 
-console.log(sets.has(0)); 
+console.log(sets.has(1)); // true
+console.log(sets.has(0)); // false
 ```
 
 **4. Default Parametrs**
