@@ -585,20 +585,6 @@ for (let i of list) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What are the differences between ES6 class and ES5 function constructors?
-```javascript
-// ES5 Function Constructor
-function Person(name) {
-  this.name = name;
-}
-
-// ES6 Class
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-}
-```
 #### Q. What is the Temporal Dead Zone in ES6?
 In ES6, let bindings are not subject to Variable Hoisting, which means that let declarations do not move to the top of the current execution context. Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the undefined value). The variable is in a “temporal dead zone” from the start of the block until the initialization is processed.
 
