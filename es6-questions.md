@@ -86,7 +86,7 @@ var cat = {
     console.log("meow ".repeat(times));
   }
 };
-cat.meow(2); 
+cat.meow(2); // meow meow 
 ```
 
 **6. Arrow Function (=>)**
