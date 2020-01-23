@@ -45,10 +45,10 @@ console.log(q); // true
 **1. Template String**
 ```javascript
 function print(Name) {
-  console.log("Hello " + Name); // Hello Pradeep
-  console.log(`Hello ${Name}`); // Hello Pradeep
+  console.log("Hi " + Name); // Hi Alex
+  console.log(`Hello ${Name}`); // Hello Alex
 }
-print("Pradeep");
+print("Alex");
 ```
 
 **2. Spread Operators**  
