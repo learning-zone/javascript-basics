@@ -138,7 +138,7 @@ var { title, price } = {
   price: 800,
   description: "The iPhone is a smartphone developed by Apple"
 };
-console.log(title);
+console.log(title); // iPhone
 ```
 **9. Generators**  
 Calling a generator function does not execute its body immediately
