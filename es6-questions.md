@@ -91,14 +91,14 @@ cat.meow(2); // meow meow
 
 **6. Arrow Function (=>)**
 ```javascript
-var add = (x,y) => x + y;
-console.log(add(10,20)); // 30;
+var add = (x, y) => x + y;
+console.log(add(10, 20)); // 30;
 
 ```
 **7. Arrow function with `this`**
 ```javascript
 var person = {
-  first: "Pradeep",
+  first: "Alex",
   actions: ["bike", "hike", "ski", "surf"],
   printActions: function() {
     var _this = this;
@@ -112,7 +112,7 @@ person.printActions();
 
 //ES-6
 var person = {
-  first: "Pradeep",
+  first: "Alex",
   actions: ["bike", "hike", "ski", "surf"],
   printActions() {
     this.actions.forEach(action => {
