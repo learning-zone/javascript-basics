@@ -76,7 +76,7 @@ console.log(sets.has(0)); // false
 function add(x = 10, y = 20) {
   console.log(x + y);
 }
-add(30, 40);
+add(30, 40); // 70
 ```
 
 **5. repeat()**
