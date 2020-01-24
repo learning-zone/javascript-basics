@@ -563,11 +563,11 @@ const memoizedAdd = () => {
   let cache = {};
   return (number) => {
     if (number in cache) {
-      console.log('Fetching from cache');
+      console.log('Fetching from cache: ');
       return cache[number];
     }
     else {
-      console.log('Calculating result');
+      console.log('Calculating result: ');
       let result = number + 10;
       cache[number] = result;
       return result;
@@ -576,8 +576,8 @@ const memoizedAdd = () => {
 }
 // returned function from memoizedAdd
 const sum = memoizedAdd();
-console.log(sum(10)); // calculated result
-console.log(sum(10)); // Fetched from cache
+console.log(sum(10)); // Calculating result: 20
+console.log(sum(10)); // Fetching from cache: 20
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
