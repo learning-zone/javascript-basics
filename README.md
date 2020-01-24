@@ -1077,13 +1077,17 @@ The eval() function evaluates JavaScript code represented as a string. The strin
 console.log(eval('1 + 2')); //  3
 ```
 #### Q. What is the difference between window and document?
+The window is the first thing that gets loaded into the browser. This window object has the majority of the properties like length, innerWidth, innerHeight, name, if it has been closed, its parents, and more.
+
+The document object is html, aspx, php, or other document that will be loaded into the browser. The document actually gets loaded inside the window object and has properties available to it like title, URL, cookie, etc.
+
 Below are the main differences between window and document,
 
 | Window | Document |
-|---- | ---------
+|------- | ---------|
 | It is the root level element in any web page  | It is the direct child of the window object. This is also known as Document Object Model(DOM) |
 | By default window object is available implicitly in the page | You can access it via window.document or document.  |
-| It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById, getElementByTagName, createElement etc  |
+| It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById(), getElementByTagName(), createElement() etc  |
 
 #### Q. How do you access history in javascript?
 The window.history object contains the browsers history. You can load previous and next URLs in the history using back() and next() methods.
