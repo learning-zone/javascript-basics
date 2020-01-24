@@ -931,9 +931,7 @@ loadScript('/script1.js', function(script) {
         console.log('third script is loaded');
       // after all scripts are loaded
     });
-
   })
-
 });
 ```
 #### Q. What is promise chaining?
