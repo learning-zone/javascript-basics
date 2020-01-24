@@ -968,8 +968,8 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is promise.all?
-`Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected. For example, the syntax of promise.all method is below,
+#### Q. What is promise.all()?
+`Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected. 
 ```javascript
 Promise.all([Promise1, Promise2, Promise3]) 
         .then(result) => {   
