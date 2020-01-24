@@ -935,7 +935,7 @@ loadScript('/script1.js', function(script) {
 });
 ```
 #### Q. What is promise chaining?
-The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. Let's take an example of promise chaining for calculating the final result,
+The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. 
 ```javascript
 new Promise(function(resolve, reject) {
 
