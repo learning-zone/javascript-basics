@@ -1081,7 +1081,6 @@ The window is the first thing that gets loaded into the browser. This window obj
 
 The document object is html, aspx, php, or other document that will be loaded into the browser. The document actually gets loaded inside the window object and has properties available to it like title, URL, cookie, etc.
 
-Below are the main differences between window and document,
 
 | Window | Document |
 |------- | ---------|
