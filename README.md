@@ -744,7 +744,7 @@ if (typeof(Storage) !== "undefined") {
 
 #### Q. How to use Web Workers in javascript?
 
-**Create a Web Workers file**: Write a script to increment the count value. Let's name it as counter.js
+**Step 01: Create a Web Workers file**: Write a script to increment the count value. Let's name it as counter.js
 ```javascript
 let i = 0;
 
@@ -758,7 +758,7 @@ timedCount();
 ```
 Here `postMessage()` method is used to post a message back to the HTML page.  
 
-**Create a Web Worker Object**: Create a web worker object by checking for browser support. Let's name this file as web_worker_example.js
+**Step 02: Create a Web Worker Object**: Create a web worker object by checking for browser support. Let's name this file as web_worker_example.js
 ```javascript
 if (typeof(w) == "undefined") {
   w = new Worker("counter.js");
@@ -770,11 +770,11 @@ w.onmessage = function(event){
   document.getElementById("message").innerHTML = event.data;
 };
 ```
-**Terminate a Web Workers**: Web workers will continue to listen for messages (even after the external script is finished) until it is terminated. You can use terminate() method to terminate listening the messages.
+**Step 03: Terminate a Web Workers**: Web workers will continue to listen for messages (even after the external script is finished) until it is terminated. You can use terminate() method to terminate listening the messages.
 ```javascript
 w.terminate();
 ```
-**Reuse the Web Workers**: If you set the worker variable to undefined you can reuse the code
+**Step 04: Reuse the Web Workers**: If you set the worker variable to undefined you can reuse the code
 ```javascript
 w = undefined;
 ```
