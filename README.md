@@ -744,7 +744,7 @@ if (typeof(Storage) !== "undefined") {
 
 #### Q. How to use Web Workers in javascript?
 
-**Step 01: Create a Web Workers file**: Write a script to increment the count value. Let's name it as counter.js
+**Step 01: Create a Web Workers file**: Write a script to increment the count value. 
 ```javascript
 // counter.js
 let i = 0;
@@ -759,7 +759,7 @@ timedCount();
 ```
 Here `postMessage()` method is used to post a message back to the HTML page.  
 
-**Step 02: Create a Web Worker Object**: Create a web worker object by checking for browser support. Let's name this file as web_worker_example.js
+**Step 02: Create a Web Worker Object**: Create a web worker object by checking for browser support. 
 ```javascript
 if (typeof(w) == "undefined") {
   w = new Worker("counter.js");
