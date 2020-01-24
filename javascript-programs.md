@@ -2966,3 +2966,17 @@ for (var i = 0; i < arr.length; i++) {
   }(i), 3000);
 }
 ```
+#### Q.What will be the output of the following code?
+```javascript
+
+console.log(eval("10 + 10")); // 20
+
+console.log(eval("5 + 5" + 10)); // 515
+
+console.log(eval("5 + 5 + 5" + 10)); // 520
+
+console.log(eval(10 + "5 + 5")); // 110
+
+console.log(eval(10 + "5 + 5 + 5")); // 115
+```
+
