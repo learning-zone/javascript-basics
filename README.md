@@ -554,29 +554,30 @@ Nothing else affects the output.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is memoization?
+#### Q. What is memoization in JavaScript?
 Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results.  Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
-Let's take an example of adding function with memoization,
+
 ```javascript
-const memoizAddition = () => {
+// A simple memoized function to Add Number
+const memoizedAdd = () => {
   let cache = {};
-  return (value) => {
-    if (value in cache) {
+  return (number) => {
+    if (number in cache) {
       console.log('Fetching from cache');
-      return cache.value;
+      return cache[number];
     }
     else {
       console.log('Calculating result');
-      let result = value + 20;
-      cache[value] = result;
+      let result = number + 10;
+      cache[number] = result;
       return result;
     }
   }
 }
-// returned function from memoizAddition
-const addition = memoizAddition();
-console.log(addition(20)); //output: 40 calculated
-console.log(addition(20)); //output: 40 cached
+// returned function from memoizedAdd
+const sum = memoizedAdd();
+console.log(sum(10)); // calculated result
+console.log(sum(10)); // Fetched from cache
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
