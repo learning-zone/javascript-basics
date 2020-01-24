@@ -746,6 +746,7 @@ if (typeof(Storage) !== "undefined") {
 
 **Step 01: Create a Web Workers file**: Write a script to increment the count value. Let's name it as counter.js
 ```javascript
+// counter.js
 let i = 0;
 
 function timedCount() {
@@ -777,6 +778,39 @@ w.terminate();
 **Step 04: Reuse the Web Workers**: If you set the worker variable to undefined you can reuse the code
 ```javascript
 w = undefined;
+```
+Example:
+```html
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Count numbers: <output id="result"></output></p>
+  <button onclick="startWorker()">Start Worker</button>
+  <button onclick="stopWorker()">Stop Worker</button>
+  
+  <script>
+    var w;
+    
+    function startWorker() {
+      if (typeof(Worker) !== "undefined") {
+        if (typeof(w) == "undefined") {
+          w = new Worker("counter.js");
+        }
+        w.onmessage = function(event) {
+          document.getElementById("result").innerHTML = event.data;
+        };
+      } else {
+        document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+      }
+    }
+    
+    function stopWorker() {
+      w.terminate();
+      w = undefined;
+    }
+  </script>
+</body>
+</html>
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
