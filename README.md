@@ -584,7 +584,7 @@ console.log(sum(10)); // Fetching from cache: 20
 </div>
 
 #### Q. What is a service worker?
-A Service worker is basically a script (JavaScript file) that runs in background, separate from a web page and provide features that don't need a web page or user interaction. 
+A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don't need a web page or user interaction. 
 
 Some of the major features of service workers are 
 * Offline first web application development
