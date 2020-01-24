@@ -785,8 +785,8 @@ Example:
 <html>
 <body>
   <p>Count numbers: <output id="result"></output></p>
-  <button onclick="startWorker()">Start Worker</button>
-  <button onclick="stopWorker()">Stop Worker</button>
+  <button onclick="startWorker()">Start</button>
+  <button onclick="stopWorker()">Stop</button>
   
   <script>
     var w;
