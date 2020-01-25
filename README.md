@@ -1752,7 +1752,8 @@ Let's take an example of global modifier,
 </div>
 
 #### Q. What are regular expression patterns?
-Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,
+Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,  
+
 **1. Brackets:** These are used to find a range of characters.
   For example, below are some use cases,
   * [abc]: Used to find any of the characters between the brackets(a,b,c)
