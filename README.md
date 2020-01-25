@@ -7625,6 +7625,7 @@ The `window.localtion.url` property will be helpful to modify the url but it rel
 window.history.pushState('newPage', 'Title', '/newPage.html');
 ```
 #### Q. What is throttling and debouncing in javascript?
+*TODO*
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
