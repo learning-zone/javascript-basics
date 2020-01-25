@@ -7623,7 +7623,9 @@ var DaysEnum = Object.freeze({"monday":1, "tuesday":2, "wednesday":3, ...})
 The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. Example:
 ```javascript
 window.history.pushState('newPage', 'Title', '/newPage.html');
-````
+```
+#### Q. What is throttling and debouncing in javascript?
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
