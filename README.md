@@ -4,8 +4,8 @@
 
 ### Table of Contents
 
-* [ES6 Interview Questions and Answers](es6-questions.md)
-* [Programming in JavaScript](javascript-programs.md)
+* *[ES6 Interview Questions and Answers](es6-questions.md)*
+* *[Programming in JavaScript](javascript-programs.md)*
 
 
 #### Q. What is difference between document.getElementById() and document.querySelector()?
