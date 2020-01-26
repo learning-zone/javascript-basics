@@ -96,11 +96,12 @@ console.log(sum); // Output: 60
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is Hoisting?
+#### Q. What is Hoisting in JavaScript?
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.   
+
 Example:  
 ```javascript
-console.log(message); //output : undefined
+console.log(message); // output : undefined
 var message = "The variable Has been hoisted";
 ```
 The above code looks like as below to the interpreter,
@@ -131,6 +132,17 @@ We can't print it out outside the confines of the hoist() function.
 Output: ReferenceError: b is not defined
 */
 ```
+
+All declarations (function, var, let, const and class) are hoisted in JavaScript, while the `var` declarations are initialized with `undefined`, but `let` and `const` declarations remain uninitialized.
+
+```javascript
+console.log(a);
+let a = 3;
+
+// Output: ReferenceError: a is not defined
+```
+They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can’t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call **Temporal Dead Zone**, A time span between variable creation and its initialization where they can’t be accessed.
+
 *Note: JavaScript only hoists declarations, not initialisation*
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
