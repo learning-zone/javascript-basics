@@ -7638,7 +7638,33 @@ The `window.localtion.url` property will be helpful to modify the url but it rel
 window.history.pushState('newPage', 'Title', '/newPage.html');
 ```
 #### Q. What is throttling and debouncing in javascript?
-*TODO*
+Debouncing and throttling techniques are used to limit the number of times a function can execute. These are two widely-used techniques to improve the performance of code that gets executed repeatedly within a period of time.
+
+**Throttling** enforces a maximum number of times a function can be called over time. As in "execute this function at most once every 100 milliseconds."
+
+Example:
+```javascript
+$("body").on('scroll', _.throttle(function() {
+  // Do expensive things
+}, 100));
+```
+**Debouncing** enforces that a function not be called again until a certain amount of time has passed without it being called. As in "execute this function only if 100 milliseconds have passed without it being called."
+
+Example:
+```javascript
+$(window).on('resize', _.debounce(function() {
+  // Do expensive things
+}, 100));
+```
+
+**Example use cases**  
+
+* Throttling a button click so we can’t spam click
+* Throttling an API call
+* Throttling a mousemove event handler
+* Debouncing a resize event handler
+* Debouncing a scroll event handler
+* Debouncing a save function in an autosave feature
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
