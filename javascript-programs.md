@@ -272,6 +272,39 @@ if(!regularExpression.test(newPassword)) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+#### Q. How to compare two objects ES6?
+Example 01:
+```javascript
+const matches = (obj, source) =>
+  Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+
+console.log(matches({ age: 25, hair: 'long', beard: true }, { hair: 'long', beard: true })); // true
+console.log(matches({ hair: 'long', beard: true }, { age: 25, hair: 'long', beard: true })); // false
+console.log(matches({ hair: 'long', beard: true }, { age: 26, hair: 'long', beard: true })); // false
+```
+Example 02:
+```javascript
+const k1 = {fruit: '🥝'};
+const k2 = {fruit: '🥝'};
+
+// Using JavaScript
+JSON.stringify(k1) === JSON.stringify(k2); // true
+```
+Example 03:
+```javascript
+const one = {
+  fruit: '🥝',
+  energy: '255kJ',
+};
+
+const two = {
+  energy: '255kJ',
+  fruit: '🥝',
+};
+
+// Using JavaScript
+JSON.stringify(one) === JSON.stringify(two); // false
+```
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(+'meow'); // Output: NaN
