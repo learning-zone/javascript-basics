@@ -325,8 +325,6 @@ myArray = [
     {field: "id", operator: "eq"}
     {field: "cStatus", operator: "eq"}
 ]
-
-
 ```
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
