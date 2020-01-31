@@ -305,6 +305,29 @@ const two = {
 // Using JavaScript
 JSON.stringify(one) === JSON.stringify(two); // false
 ```
+#### Q. How to remove array element based on object property?
+```javascript
+var myArray = [
+    {field: 'id', operator: 'eq'}, 
+    {field: 'cStatus', operator: 'eq'}, 
+    {field: 'money', operator: 'eq'}
+];
+
+myArray = myArray.filter(function( obj ) {
+    return obj.field !== 'money';
+});
+
+Console.log(myArray); 
+```
+Output
+```
+myArray = [
+    {field: "id", operator: "eq"}
+    {field: "cStatus", operator: "eq"}
+]
+
+
+```
 #### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(+'meow'); // Output: NaN
