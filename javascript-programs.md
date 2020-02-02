@@ -272,7 +272,7 @@ if(!regularExpression.test(newPassword)) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. How to compare two objects ES6?
+#### Q. How to compare objects ES6?
 Example 01:
 ```javascript
 const matches = (obj, source) =>
