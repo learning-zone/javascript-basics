@@ -667,6 +667,9 @@ console.log(y); // 10
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+#### Q. What is modules in ES6?
+*TODO*
+
 #### Q. What is a trampoline function? What is it used for? 
 The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
 
