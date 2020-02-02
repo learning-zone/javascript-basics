@@ -734,6 +734,9 @@ So the sole purpose of the trampoline function is to control the execution in an
 
 Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
 
+#### Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
+#### Q. What is difference between ajax request and promise in JavaScript?
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
