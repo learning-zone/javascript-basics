@@ -668,7 +668,50 @@ console.log(y); // 10
 </div>
 
 #### Q. What is modules in ES6?
-*TODO*
+To make objects, functions, classes or variables available to the outside world it’s as simple as exporting them and then importing them where needed in other files.
+
+**Benefits**  
+
+* Code can be split into smaller files of self-contained functionality.
+* The same modules can be shared across any number of applications.
+* Ideally, modules need never be examined by another developer, because they’ve has been proven to work.
+* Code referencing a module understands it’s a dependency. If the module file is changed or moved, the problem is immediately obvious.
+* Module code (usually) helps eradicate naming conflicts. Function `x()` in module1 cannot clash with function x() in module2. Options such as namespacing are employed so calls become `module1.x()` and `module2.x()`.
+
+**Exporting**
+```javascript
+export const myNumbers = [1, 2, 3, 4];
+const animals = ['Panda', 'Bear', 'Eagle']; // Not available directly outside the module
+
+export function myLogger() {
+  console.log(myNumbers, animals);
+}
+
+export class Alligator {
+   constructor() {
+     // ...
+   }
+}
+```
+**Exporting with alias**
+```javascript
+export { myNumbers, myLogger as Logger, Alligator }
+```
+**Default export**
+```javascript
+export const myNumbers = [1, 2, 3, 4];
+const animals = ['Panda', 'Bear', 'Eagle'];
+
+export default function myLogger() {
+  console.log(myNumbers, pets);
+}
+
+export class Alligator {
+  constructor() {
+    // ...
+  }
+}
+```
 
 #### Q. What is a trampoline function? What is it used for? 
 The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
