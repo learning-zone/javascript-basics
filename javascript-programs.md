@@ -3020,7 +3020,7 @@ for (var i = 0; i < arr.length; i++) {
   }(i), 3000);
 }
 ```
-#### Q.What will be the output of the following code?
+#### Q. What will be the output of the following code?
 ```javascript
 
 console.log(eval("10 + 10")); // 20
@@ -3033,7 +3033,7 @@ console.log(eval(10 + "5 + 5")); // 110
 
 console.log(eval(10 + "5 + 5 + 5")); // 115
 ```
-#### Q.What will be the output of the following code?
+#### Q. What will be the output of the following code?
 ```javascript
 var x = 10;
 var y = 20;
@@ -3043,4 +3043,35 @@ var c = eval("x + 30") + "<br>";
 
 let result = a + b + c;
 console.log(result); // 200<br>4<br>40<br>
+```
+#### Q. What will be the output of the following code?
+```javascript
+// Example 01:
+var prices = [12, 20, 18];
+var newPriceArray = [...prices];
+console.log(newPriceArray);
+
+// Example 02:
+var alphabets = ["A", ..."BCD", "E"];
+console.log(alphabets);
+
+// Example 03:
+var prices = [12, 20, 18];
+var maxPrice = Math.max(...prices);
+console.log(maxPrice);
+
+// Example 04:
+var max = Math.max(..."43210");
+console.log(max);
+
+// Example 05:
+const fruits = ["apple", "orange"];
+const vegetables = ["carrot", "potato"];
+
+const result = ['bread', ...vegetables, 'chicken', ...fruits];
+console.log(result);
+
+// Example 06:
+const country = "USA";
+console.log([...country]);
 ```
