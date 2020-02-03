@@ -784,6 +784,7 @@ Using a trampoline is obviously less performant than simple recursion, since you
 #### Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
 #### Q. What is difference between ajax request and promise in JavaScript?
 #### Q. What is use of async and await in promise?
+#### Q. What is use of Proxies in es6?
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
