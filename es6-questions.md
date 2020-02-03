@@ -42,13 +42,32 @@ console.log(q); // true
 </div>
 
 #### Q. List out important features of es6?
-**1. Template String**
+**1. Template Strings**  
+
+Template literals are string literals allowing embedded expressions.
+ 
+**Benefits**
+
+* String interpolation
+* Embedded expressions
+* Multiline strings without hacks
+* String formatting
+* String tagging for safe HTML escaping, localization and more
+
 ```javascript
-function print(Name) {
-  console.log("Hi " + Name); // Hi Alex
-  console.log(`Hello ${Name}`); // Hello Alex
-}
-print("Alex");
+let greeting = `Hello World!`;
+
+// String Substitution
+let name = "Alex";
+console.log(`Hi, ${name}!`); // Output: "Hi, Alex!"
+
+
+// Multiline Strings
+let greeting = "Hello \
+World";
+
+// Tagged Templates
+fn`Hello ${you}! You're looking ${adjective} today!`
 ```
 
 **2. Spread Operators**  
