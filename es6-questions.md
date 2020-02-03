@@ -70,7 +70,7 @@ World";
 fn`Hello ${you}! You're looking ${adjective} today!`
 ```
 
-**2. Spread Operators**  
+**2. Spread Operator**  
 Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. 
 ```javascript
 function calculateSum(x, y, z) {
