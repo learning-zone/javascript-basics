@@ -73,13 +73,60 @@ fn`Hello ${you}! You're looking ${adjective} today!`
 **2. Spread Operator**  
 Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. 
 ```javascript
-function calculateSum(x, y, z) {
+function sum(x, y, z) {
   return x + y + z;
 }
 
 const numbers = [1, 2, 3];
 
-console.log(calculateSum(...numbers)); // 6
+console.log(sum(...numbers)); // 6
+
+console.log(sum.apply(null, numbers)); // 6
+```
+**2.1. Copying an array**
+
+```javascript
+let fruits = ['Apple','Orange','Banana'];
+
+let newFruitArray = [...fruits];
+
+console.log(copiedList); // ['Apple','Orange','Banana']
+```
+**2.2. Concatenating arrays**  
+```javascript
+let arr1 = ['A', 'B', 'C'];
+
+let arr2 = ['X', 'Y', 'Z'];
+
+let result = [...arr1, ...arr2];
+
+console.log(result); // ['A', 'B', 'C', 'X', 'Y', 'Z']
+```
+**2.3. Spreading elements together with an individual element**
+```javascript
+let fruits = ['Apple','Orange','Banana'];
+
+let newFruits = ['Cherry', ...names];
+
+console.log(newFruits); // ['Cherry', 'Apple','Orange','Banana']
+```
+**2.4. Spreading elements on function calls**
+```javascript
+let fruits = ['Apple','Orange','Banana'];
+
+var getFruits = (f1, f2, f3) => {
+console.log(Fruits: ${f1}, ${f2} and ${f3}); };
+
+getFruits(...fruits); // Fruits: Apple, Orange and Banana
+```
+**2.5. Spread syntax for object literals**
+```javascript
+var obj1 = { id: 101, name: 'Jhon Doe' }
+var obj2 = { age: 25, country: 'USA'}
+
+const employee = { ...obj1, ...obj2 }
+
+console.log(employee); //{ "id": 101, "name": "Jhon Doe", "age": 25, "country": "USA" }
 ```
 
 **3. Sets**
