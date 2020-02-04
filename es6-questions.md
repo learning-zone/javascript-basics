@@ -199,7 +199,7 @@ for (let animal of moreAnimals) {
 ```
 **Sets: Keys and Values**  
 
-Sets also have the keys and values methods, with keys being an alias for values, so both methods do exactly the same thing. Using either of these methods returns a new iterator object with the values of the set in the same order in which they were added to the set.
+Sets also have the `keys` and `values` methods, with keys being an alias for values, so both methods do exactly the same thing. Using either of these methods returns a new iterator object with the values of the set in the same order in which they were added to the set.
 
 ```javascript
 let partyItems = new Set(['🍕', '🍾', '🎊']);
