@@ -236,7 +236,10 @@ function add(x = 10, y = 20) {
 add(30, 40); // 70
 ```
 
-**5. repeat()**
+**5. repeat()**  
+
+The `repeat()` method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+
 ```javascript
 var cat = {
   meow(times){
