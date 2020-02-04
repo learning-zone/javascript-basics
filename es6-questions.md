@@ -349,7 +349,7 @@ console.log(numbers.next().value) // 2
 ```
 **Advantages of Generators**  
 
-a) **Lazy Evaluation**: Lazy Evaluation is an evaluation model which delays the evaluation of an expression until its value is needed. 
+a) **Lazy Evaluation**: Lazy Evaluation is an evaluation model which delays the evaluation of an expression until its value is needed.   
 b) **Memory Efficient**: We generate only the values that are needed. With normal functions, we needed to pre-generate all the values and keep them around in case we use them later. However, with generators, we can defer the computation till we need it.
 
 **10. Symbols**  
