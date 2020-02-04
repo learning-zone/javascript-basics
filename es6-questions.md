@@ -249,7 +249,7 @@ var cat = {
 cat.meow(2); // meow meow 
 ```
 
-**6. Arrow Function (=>)**
+**6. Arrow Function (=>)**  
 ```javascript
 var add = (x, y) => x + y;
 console.log(add(10, 20)); // 30;
@@ -301,16 +301,56 @@ var { title, price } = {
 console.log(title); // iPhone
 ```
 **9. Generators**  
-Calling a generator function does not execute its body immediately
+
+A generator is a function that can stop midway and then continue from where it stopped. In short, a generator appears to be a function but it behaves like an `iterator`.
 ```javascript
-function* generator(i) {
-  yield i;
-  yield i + 10;
+function* generator(num) {
+  yield num + 1;
+  yield num + 2;
+  yield num + 3;
+  yield num + 4;
+  yield num + 5;
 }
 var gen = generator(10);
-console.log(gen.next().value); // 10
-console.log(gen.next().value); // 20
+console.log(gen.next().value); // 11
+console.log(gen.next().value); // 12
+console.log(gen.next().value); // 13
+console.log(gen.next().value); // 14
+console.log(gen.next().value); // 15
 ```  
+
+**9.1. Implementing Iterables**  
+```javascript
+function * iterableObj() {
+  yield 'This';
+  yield 'is';
+  yield 'iterable.'
+}
+for (const val of iterableObj()) {
+  console.log(val);
+}
+
+// This
+// is 
+// iterable.
+```
+**9.2 Infinite Data Streams**  
+```javascript
+function * naturalNumbers() {
+  let num = 1;
+  while (true) {
+    yield num;
+    num = num + 1
+  }
+}
+const numbers = naturalNumbers();
+console.log(numbers.next().value) // 1
+console.log(numbers.next().value) // 2
+```
+**Advantages of Generators**  
+
+a) **Lazy Evaluation**: Lazy Evaluation is an evaluation model which delays the evaluation of an expression until its value is needed. 
+b) **Memory Efficient**: We generate only the values that are needed. With normal functions, we needed to pre-generate all the values and keep them around in case we use them later. However, with generators, we can defer the computation till we need it.
 
 **10. Symbols**  
 They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
