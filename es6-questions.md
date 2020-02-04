@@ -353,6 +353,7 @@ a) **Lazy Evaluation**: Lazy Evaluation is an evaluation model which delays the 
 b) **Memory Efficient**: We generate only the values that are needed. With normal functions, we needed to pre-generate all the values and keep them around in case we use them later. However, with generators, we can defer the computation till we need it.
 
 **10. Symbols**  
+
 They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
 ```javascript
 const symbol1 = Symbol();
@@ -365,6 +366,7 @@ console.log(Symbol('foo') === Symbol('foo')); // false
 ```
 
 **11. Iterator**  
+  
 The iterable protocol allows JavaScript objects to define or customize their iteration behavior. 
 ```javascript
 var title = 'ES6';
