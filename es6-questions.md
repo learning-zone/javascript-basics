@@ -41,8 +41,8 @@ console.log(q); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-### Q. List out important features of es6?
-
+#### Q. List out important features of es6?
+---
 **1. Template Strings**  
 
 Template literals are string literals allowing embedded expressions.
