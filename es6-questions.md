@@ -1131,6 +1131,30 @@ fetch('https://api.github.com/users/learning-zone', initObject)
         console.log("Something went wrong!", err);
     });
 ```
+**Request Object**  
+
+The Request Object represents a resource request. Instead of passing an URL of the resource into the fetch() call, you can create a request object using the Request() constructor, and pass that as an argument to fetch(). By passing Request object to the fetch(), you can make customised requests.
+```javascript
+let reqHeader = new Headers();
+reqHeader.append('Content-Type', 'text/json');
+
+let initObject = {
+    method: 'GET', headers: reqHeader,
+};
+
+var userRequest = new Request('https://api.github.com/users/learning-zone', initObject);
+
+fetch(userRequest)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
+```
 #### Q. What is difference between ajax request and promise in JavaScript?
 #### Q. What is use of Proxies in es6?
 
