@@ -389,7 +389,7 @@ sym1 === sym2 // true
 ```
 **11. Iterator**  
   
-The iterable protocol allows JavaScript objects to define or customize their iteration behavior. 
+The iterable is a interface that specifies that an object can be accessible if it implements a method who is key is `[symbol.iterator]`.
 ```javascript
 var title = 'ES6';
 var iterateIt = title[Symbol.iterator]();
@@ -403,7 +403,7 @@ console.log(iterateIt.next().value); //output: 6
 </div>
 
 #### Q. ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
-
+***
 Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
 
 ```javascript
