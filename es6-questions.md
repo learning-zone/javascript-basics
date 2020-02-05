@@ -377,6 +377,16 @@ const privateObject = {
 
 privateObject[sym] // 'Hello World'
 ```
+**10.1 Global Symbols**  
+
+A Global Symbol Registry exists where we can store and access Global Symbols. We can use the `Symbol.for(key)` method to both create and access Global Symbols.
+```javascript
+const Sym1 = Symbol.for('hello') // If the Symbol does not exist, it's created
+
+const Sym2 = Symbol.for('hello') // The Symbol exists, so it is returned
+
+Sym1 === Sym2 // true
+```
 **11. Iterator**  
   
 The iterable protocol allows JavaScript objects to define or customize their iteration behavior. 
