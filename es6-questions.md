@@ -1014,7 +1014,8 @@ var mySet = new Set([iterable]);
 ```
 Example:
 ```javascript
-var mySet= new Set([0,1]); // 0, 1
+var mySet= new Set([0,1]);
+
 mySet.add(2); // 0, 1, 2
 mySet.add(2); // 0, 1, 2
 mySet.add("Hello"); // 0, 1, 2, 'Hello'
