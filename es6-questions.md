@@ -1062,6 +1062,75 @@ myWeakSet.add(2); // ERROR, no primitive value
 |Nothing is auto destroyed	     |If an element object has no other reference left, it will be auto released to garbage collector|
 
 #### Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
+**XMLHttpRequest**  
+
+`XMLHttpRequest` is a built-in browser object that allows to make HTTP requests in JavaScript. XMLHttpRequest has two modes of operation: **synchronous** and **asynchronous**.
+```javascript
+if (window.XMLHttpRequest) {
+  // code for IE7+, Firefox, Chrome, Opera, Safari
+  xhr = new XMLHttpRequest();
+} else {
+  // code for IE6, IE5
+  xhr = new ActiveXObject('Microsoft.XMLHTTP');
+}
+
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    document.getElementById("result").innerHTML = '<pre>' + this.responseText + '</pre>';
+  }
+};
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true); // this makes asynchronous true or false
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.send();
+```
+**Fetch**  
+
+Fetch allows to make network requests similar to `XMLHttpRequest`. Fetch makes it easier to make asynchronous requests and handle responses better than with the older XMLHttpRequest. It is an improvement over the `XMLHttpRequest` API. The main difference between `Fetch()` and `XMLHttpRequest()` is that the Fetch API uses Promises, hence avoiding **callback hell**.
+
+
+**Fetch Interfaces**  
+
+* **fetch()**: The fetch() method used to fetch a resource.
+* **Headers**: Represents response/request headers, allowing you to query them and take different actions depending on the results.
+* **Request**: Represents a resource request.
+* **Response**: Represents the response to a request.
+
+**Making a request using fetch()**  
+
+A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful .then() function will receive Response object, if request fails then .catch() function will receive an error object
+```javascript
+fetch('https://api.github.com/users/alex')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
+```
+**Headers Object**  
+
+The Headers interface allows to create own headers object via the `Headers()` constructor. A headers object is a collection of name-value pairs.
+```javascript
+let reqHeader = new Headers();
+reqHeader.append('Content-Type', 'text/json');
+let initObject = {
+    method: 'GET', headers: reqHeader,
+};
+
+fetch('https://api.github.com/users/alex', initObject)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
+```
 #### Q. What is difference between ajax request and promise in JavaScript?
 #### Q. What is use of Proxies in es6?
 
