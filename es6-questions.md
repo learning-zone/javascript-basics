@@ -1160,6 +1160,46 @@ Promises are a tool for managing asynchronous operations. They keep track of whe
 
 An Ajax call is a specific type of asynchronous operation. We can make an Ajax call either with a traditional callback using the `XMLHttpRequest()` interface or we can make an Ajax call (in modern browsers), using a promise with the `fetch()` interface.
 #### Q. What is use of Proxies in es6?
+The Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc).
+
+There are 3 key terms we need to define before we proceed:
+
+* **handler** — the placeholder object which contains the trap(s)
+* **traps** — the method(s) that provide property access
+* **target** — object which the proxy virtualizes
+
+Syntax
+```javascript
+const p = new Proxy(target, handler)
+```
+Example:
+```javascript
+const handler = {
+  get: function(obj, prop) {
+    return prop in obj ?
+      obj[prop] :
+      37;
+  }
+};
+
+const p = new Proxy({}, handler);
+p.a = 1;
+p.b = undefined;
+
+console.log(p.a, p.b); 
+//  1, undefined
+
+console.log('c' in p, p.c); 
+//  false, 37
+```
+There are many real-world applications for Proxies
+
+* validation
+* value correction
+* property lookup extensions
+* tracing property accesses
+* revocable references
+* implementing the DOM in javascript
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
