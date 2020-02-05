@@ -1004,9 +1004,9 @@ So the sole purpose of the trampoline function is to control the execution in an
 Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
 
 #### Q. What is the difference between Set and WeakSet in ES6?
-**Set()**   
+**Set**   
 
-Using the Set class we can create an array like heterogeneous iterable object, which will contain only unique values in it. Unique is not just unique by values but also by types. i.e. it will consider "2" and 2 separate or different.
+Using the `Set()` class we can create an array like heterogeneous iterable object, which will contain only unique values in it. Unique is not just unique by values but also by types. i.e. it will consider `"2"` and `2` separate or different.
 
 Syntax:  
 ```javascript
@@ -1029,9 +1029,9 @@ mySet.has("Hello"); // false
 mySet.size; // 5
 mySet.clear(); // Set Cleared
 ```
-**WeakSet()**  
+**WeakSet**  
 
-A `WeakSet` is a collection similar to Set, which holds unique values; but it only holds Objects and nothing else. If an object which is there in your WeakSet object has no other reference variable left, it will automatically be deleted.
+A `WeakSet()` is a collection similar to Set, which holds unique values; but it only holds Objects and nothing else. If an object which is there in your WeakSet object has no other reference variable left, it will automatically be deleted.
 
 Syntax:
 ```javascript
