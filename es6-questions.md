@@ -1155,7 +1155,10 @@ fetch(userRequest)
         console.log("Something went wrong!", err);
     });
 ```
-#### Q. What is difference between ajax request and promise in JavaScript?
+#### Q. What is the difference between Promise and AJAX?
+Promises are a tool for managing asynchronous operations. They keep track of when asynchronous operations complete and what their results are and let you coordinate that completion and those results (including error conditions) with other code or other asynchronous operations. They aren't actually asynchronous operations in themselves. An Ajax call is a specific asynchronous operation that can be used with with a traditional callback interface or wrapped in a promise interface.
+
+An Ajax call is a specific type of asynchronous operation. We can make an Ajax call either with a traditional callback using the `XMLHttpRequest()` interface or we can make an Ajax call (in modern browsers), using a promise with the `fetch()` interface.
 #### Q. What is use of Proxies in es6?
 
 <div align="right">
