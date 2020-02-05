@@ -1064,7 +1064,7 @@ myWeakSet.add(2); // ERROR, no primitive value
 #### Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
 **XMLHttpRequest**  
 
-`XMLHttpRequest` is a built-in browser object that allows to make HTTP requests in JavaScript. XMLHttpRequest has two modes of operation: **synchronous** and **asynchronous**.
+`XMLHttpRequest()` is a built-in browser object that allows to make HTTP requests in JavaScript. XMLHttpRequest has two modes of operation: **synchronous** and **asynchronous**.
 ```javascript
 if (window.XMLHttpRequest) {
   // code for IE7+, Firefox, Chrome, Opera, Safari
@@ -1076,7 +1076,7 @@ if (window.XMLHttpRequest) {
 
 xhr.onreadystatechange = function() {
   if (this.readyState == 4 && this.status == 200) {
-    document.getElementById("result").innerHTML = '<pre>' + this.responseText + '</pre>';
+    console.log(this.responseText);
   }
 };
 xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true); // this makes asynchronous true or false
@@ -1091,15 +1091,15 @@ Fetch allows to make network requests similar to `XMLHttpRequest`. Fetch makes i
 **Fetch Interfaces**  
 
 * **fetch()**: The fetch() method used to fetch a resource.
-* **Headers**: Represents response/request headers, allowing you to query them and take different actions depending on the results.
+* **Headers**: Represents response/request headers, allows to query them and take different actions depending on the results.
 * **Request**: Represents a resource request.
 * **Response**: Represents the response to a request.
 
 **Making a request using fetch()**  
 
-A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful .then() function will receive Response object, if request fails then .catch() function will receive an error object
+A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful `.then()` function will receive Response object, if request fails then `.catch()` function will receive an error object
 ```javascript
-fetch('https://api.github.com/users/alex')
+fetch('https://api.github.com/users/learning-zone')
     .then(function (response) {
         return response.json();
     })
@@ -1120,7 +1120,7 @@ let initObject = {
     method: 'GET', headers: reqHeader,
 };
 
-fetch('https://api.github.com/users/alex', initObject)
+fetch('https://api.github.com/users/learning-zone', initObject)
     .then(function (response) {
         return response.json();
     })
