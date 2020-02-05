@@ -1003,7 +1003,63 @@ So the sole purpose of the trampoline function is to control the execution in an
 
 Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
 
-#### Q. What is the difference between ES6 Set and WeakSet?
+#### Q. What is the difference between Set and WeakSet in ES6?
+**Set()**   
+
+Using the Set class we can create an array like heterogeneous iterable object, which will contain only unique values in it. Unique is not just unique by values but also by types. i.e. it will consider "2" and 2 separate or different.
+
+Syntax:  
+```javascript
+var mySet = new Set([iterable]);
+```
+Example:
+```javascript
+var mySet= new Set([0,1]); // 0, 1
+mySet.add(2); // 0, 1, 2
+mySet.add(2); // 0, 1, 2
+mySet.add("Hello"); // 0, 1, 2, 'Hello'
+mySet.add({a:1, b:2}); // 0, 1, 2, 'Hello', {a:1, b:2}
+ 
+mySet.add(function(){}); // 0, 1, 2, 'Hello', {a:1, b:2}, [Function]
+ 
+mySet.has("Hello"); // ture
+mySet.delete("Hello"); // 'Hello' deleted
+mySet.has("Hello"); // false
+ 
+mySet.size; // 5
+mySet.clear(); // Set Cleared
+```
+**WeakSet()**  
+
+A `WeakSet` is a collection similar to Set, which holds unique values; but it only holds Objects and nothing else. If an object which is there in your WeakSet object has no other reference variable left, it will automatically be deleted.
+
+Syntax:
+```javascript
+var myWeakSet= new WeakSet([iterable with only objects]);
+```
+Example:
+```javascript
+var myWeakSet = new WeakSet([{a:1}]);
+var obj1 = {o:1};
+var obj2 = {o:2};
+
+myWeakSet.add(obj1); 
+myWeakSet.has(obj1); // true
+myWeakSet.has(obj2); // false
+myWeakSet.add(obj2); 
+myWeakSet.has(obj2); // true
+delete obj2; // don't take it literally. You cant delete object like that. Use scope to execute this.
+myWeakSet.has(obj2); // false, cause you deleted obj2, so WeakSet releases it automatically
+myWeakSet.delete(obj1); //obj1 deleted from the set
+myWeakSet.add(2); // ERROR, no primitive value
+```
+|Set	                          |WeakSet                        |
+|-------------------------------|-------------------------------|
+|Can contain any type of values |	Can only contain objects      |
+|To find number of elements use .size	|To find elements count use .length|
+|.forEach() is available to iterate|	No .forEach() to iterate  |
+|Nothing is auto destroyed	     |If an element object has no other reference left, it will be auto released to garbage collector|
+
 #### Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
 #### Q. What is difference between ajax request and promise in JavaScript?
 #### Q. What is use of Proxies in es6?
