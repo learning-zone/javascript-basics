@@ -1036,7 +1036,7 @@ A `WeakSet()` is a collection similar to Set, which holds unique values; but it 
 
 Syntax:
 ```javascript
-var myWeakSet= new WeakSet([iterable with only objects]);
+var myWeakSet = new WeakSet([iterable with only objects]);
 ```
 Example:
 ```javascript
