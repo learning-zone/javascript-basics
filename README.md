@@ -7677,8 +7677,11 @@ function isValidJson(json) {
     }
 }
 
-console.log(isValidJson("{}")); // true
-console.log(isValidJson("abc")); // false
+var validjson = '{"firstname":"James","lastname":"Bond"}'; 
+var invalidjson = '{"firstname""James","lastname":"Bond"}'; 
+
+console.log("With Valid JSON Text: "+isValidJson(validjson)); // true
+console.log("With inValid JSON Text: "+isValidJson(invalidjson)); // false
 ```
 
 <div align="right">
