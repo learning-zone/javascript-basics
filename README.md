@@ -7666,6 +7666,21 @@ $(window).on('resize', _.debounce(function() {
 * Debouncing a scroll event handler
 * Debouncing a save function in an autosave feature
 
+#### Q. How to validate JSON Object in javascript?
+```javascript
+function isValidJson(json) {
+    try {
+        JSON.parse(json);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+console.log(isValidJson("{}")); // true
+console.log(isValidJson("abc")); // false
+```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
