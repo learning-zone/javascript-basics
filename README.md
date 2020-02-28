@@ -7677,8 +7677,8 @@ function isValidJson(json) {
     }
 }
 
-var validjson = '{"firstname":"James","lastname":"Bond"}'; 
-var invalidjson = '{"firstname""James","lastname":"Bond"}'; 
+var validjson = '{"firstName":"James","lastName":"Bond"}'; 
+var invalidjson = '{"firstName""James","lastName":"Bond"}'; 
 
 console.log("With Valid JSON Text: "+isValidJson(validjson)); // true
 console.log("With inValid JSON Text: "+isValidJson(invalidjson)); // false
