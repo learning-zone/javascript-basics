@@ -7657,7 +7657,7 @@ $(window).on('resize', _.debounce(function() {
 }, 100));
 ```
 
-**Example use cases**  
+**Example: Use Case**  
 
 * Throttling a button click so we can’t spam click
 * Throttling an API call
@@ -7680,8 +7680,8 @@ function isValidJson(json) {
 var validjson = '{"firstName":"James","lastName":"Bond"}'; 
 var invalidjson = '{"firstName""James","lastName":"Bond"}'; 
 
-console.log("With Valid JSON Text: "+isValidJson(validjson)); // true
-console.log("With inValid JSON Text: "+isValidJson(invalidjson)); // false
+console.log("With Valid JSON Text: "+isValidJson(validjson)); //true
+console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
 ```
 
 <div align="right">
