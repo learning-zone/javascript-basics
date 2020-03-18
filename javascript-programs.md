@@ -3076,7 +3076,7 @@ const country = "USA";
 console.log([...country]);
 ```
 #### Q. Given and object and property path. Get value from property path
-```
+```javascript
 function getPropertyValue(TEMP_OBJECT, path) {
   return path.split('.').reduce((prev, key) => {
       return prev ? prev[key] : undefined;
@@ -3107,20 +3107,20 @@ path = "system.database.1.port";
 ```
 
 #### Q. How to filter object from Arrays of Objects
-```
+```javascript
 let filteredArray = [{name: 'john'},{name: 'kelly'}].filter(value => value.name === 'kelly');
 
 Filter method return Array of objects
 ```
 
 #### Q. How to replace all the occurrences of string
-```
+```javascript
   str = str.replace(/test/g, '')
 ```
 
 
 #### Q. write a script that returns the number of occurrences of character given a string as input
-```
+```javascript
 function countCharacters(str) {
   return str.replace(/ /g, '').toLowerCase().split('').reduce((p, c) => {
     if (c in p) {
@@ -3135,7 +3135,7 @@ console.log(countCharacters("the brown fox jumps over the lazy dog"));
 ```
 
 #### Q. write a script that return the number of occurrences of a character in paragraph
-```
+```javascript
 function charCount(str, searchChar) {
   let count = 0;
   if (str) {
@@ -3152,7 +3152,7 @@ console.log(charCount('the brown fox jumps over the lazy dog', 'o'));
 ```
 #### Q. Recursive and non-recursive Factorial function
 
-```
+```javascript
 function recursiveFactorial(n) {
   if (n < 1) {
     throw Error("Value of N has to be greater then 1");
@@ -3185,7 +3185,7 @@ console.log(factorial(5));
 ```
 
 #### Q. Recursive and non recursive fibonacci-sequence
-```
+```javascript
 // 1, 1, 2, 3, 5, 8, 13, 21, 34
 
 function recursiveFibonacci(num) {
@@ -3224,7 +3224,7 @@ console.log(fibonnaci(5)) // 8
 
 
 #### Q. Random Number between min and max
-```
+```javascript
 // 5 to 7
 let min = 5;
 let max = 7;
@@ -3232,7 +3232,7 @@ console.log(min + Math.floor(Math.random() * (max-min+1)));
 ```
 
 #### Q. Get HTML form values as JSON object
-```
+```javascript
   // Use the array reduce function with form elements.
   const formToJSON = elements => [].reduce.call(elements, (data, element) => {
     data[element.name] = element.value;
@@ -3247,7 +3247,7 @@ console.log(min + Math.floor(Math.random() * (max-min+1)));
 ```
 
 #### Q. Reverse the number
-```
+```javascript
 function reverse(num) {
   let result = 0;
   while( num != 0 ) {
@@ -3262,7 +3262,7 @@ console.log(reverse(12345));
 ```
 
 #### Q. Remove Duplicate elements from Array
-```
+```javascript
 var arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
 function removeDuplicate() {
   return ar.reduce((prev, current) => {
@@ -3293,7 +3293,7 @@ console.log([...new Set(arr)]);
 ```
 
 #### Q. Deep copy of object or clone of object
-```
+```javascript
 function deepExtend(out = {}) {
   for (let i = 1; i < arguments.length; i++) {
       let obj = arguments[i];
@@ -3323,7 +3323,7 @@ console.log(deepExtend({}, {a:1, b:{c:2, d:3}}, {e:4, b:{f:1}}));
 ```
 
 #### Q. Sort ticket based on flying order.
-```
+```javascript
 "use strict";
 
 function SortTickets(tickets) {
@@ -3369,7 +3369,7 @@ new SortTickets({
 ```
 
 #### Q. Cuncurrent execute function based on input number
-```
+```javascript
 function concurrent(num) {
   this.queue = [];
   this.num = num;
@@ -3414,7 +3414,7 @@ c.start();
 ```
 
 #### Q. Reversing an array
-```
+```javascript
 let a = [1,2,3,4,5];
 
 //Approach 1:
@@ -3430,7 +3430,7 @@ console.log(reverse);
 ```
 
 #### Q. Rotate 2D array
-```
+```javascript
 const transpose = arr => arr[0].map((col, i) => arr.map(row => row[i]));
 
 console.log(transpose([
@@ -3441,7 +3441,7 @@ console.log(transpose([
 ```
 
 #### Q. Get Column from 2D Array
-```
+```javascript
 const getColumn = (arr, n) => arr.map(x => x[n]);
 
 const twoDimensionalArray = [
@@ -3453,7 +3453,7 @@ const twoDimensionalArray = [
 console.log(getColumn(twoDimensionalArray, 1));   //Result = [2,5,8]
 ```
 #### Q. Get top N from array
-```
+```javascript
 function topN(arr, num) {
   let sorted = arr.sort((a, b) => a - b);
   return sorted.slice(sorted.length - num, sorted.length);
@@ -3463,7 +3463,7 @@ console.log(topN([1,8,3,4,5], 2));  // [5,8]
 ```
 
 #### Q. Get query params from Object
-```
+```javascript
 function getQueryParams(obj) {
   let parms = '';
   for (let key in obj) {
@@ -3485,7 +3485,7 @@ console.log(getQueryParams({
 ```
 
 #### Q. Consecutive 1's in binary
-```
+```javascript
 function consecutiveOne(num)  {
   let binaryArray = num.toString(2);
 
@@ -3506,7 +3506,7 @@ function consecutiveOne(num)  {
 console.log(consecutiveOne(5));  //1
 ```
 #### Q. Spiral travesal of matrix
-```
+```javascript
 var input = [[1,  2,   3,  4],
              [5,  6,   7,  8],
              [9,  10, 11, 12],
@@ -3545,7 +3545,7 @@ var spiralTraversal = function(matriks){
 console.log(spiralTraversal(input)); // [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
 ```
 #### Q. Merge Sorted array and sort it.
-```
+```javascript
 function mergeSortedArray(arr1, arr2) {
   return [...new Set(arr1.concat(arr2))].sort((a, b) => a - b);
 }
@@ -3554,7 +3554,7 @@ console.log(mergeSortedArray([1,2,3,4,5,6], [0, 3,4,7])); // [0, 1, 2, 3, 4, 5, 
 ```
 
 #### Q. Anagram of words
-```
+```javascript
 const alphabetize = word => word.split('').sort().join('');
 
 function groupAnagram(wordsArr) {
@@ -3578,7 +3578,7 @@ console.log(groupAnagram(['map', 'art', 'how', 'rat', 'tar', 'who', 'pam', 'shoo
 // }
 ```
 #### Q. Print the largest (maximum) hourglass sum found in 2d array.
-```
+```javascript
 // if arr 6 X 6 then iterate it till 4 X 4  [reduce by two]
 // if arr 8 X 8 then iterate it till 6 X 6  [reduce by two]
 function main(arr) {
@@ -3595,7 +3595,7 @@ function main(arr) {
 }
 ```
 #### Q. Transform array of object to array
-```
+```javascript
 let data = [ {"vid":"aaa", "san":12},
             {"vid":"aaa", "san":18},
             {"vid":"aaa", "san":2},
@@ -3621,7 +3621,7 @@ console.log(Object.keys(newData).map(key => newData[key]));
 // }]
 ```
 #### Q. Create a private variable or private method in object
-```
+```javascript
 let obj = function() {
   function getPrivateFunction() {
     console.log('this is private function');
@@ -3641,7 +3641,7 @@ console.log('p' in obj);  // false
 obj.callPrivateFunction(); // this is private function
 ```
 #### Q. Flatten only Array not objects
-```
+```javascript
 function flatten(arr, result =[]) {
   arr.forEach(val => {
     if (Array.isArray(val)) {
@@ -3685,7 +3685,7 @@ var list2 = [0, [1, [2, [3, [4, [5]]]]]];
 console.log(flattenIterative1(list2));  // [0, 1, 2, 3, 4, 5]
 ```
 #### Q. Find max difference between two number in Array
-```
+```javascript
 function maxDifference(arr) {
   let maxDiff = 0;
 
@@ -3701,13 +3701,13 @@ function maxDifference(arr) {
 console.log(maxDifference([1,2,4]));  // [1 - 4 ] = 3
 ```
 #### Q. swap two number in ES6 [destructing]
-```
+```javascript
 let a = 10, b = 5;
 [a,b] = [b,a];
 ```
 
 #### Q. Panagram ? it means all the 26 letters of alphabet are there
-```
+```javascript
 function panagram(input) {
   if (input == null) {  // Check for null and undefined
     return false
@@ -3730,7 +3730,7 @@ processData('We promptly judged antique ivory buckles for the prize'); // Not Pa
 
 ```
 #### Q. Given two identical DOM trees (not the same one), and a node from one of them find the node in the other one.
-```
+```javascript
 function indexOf(arrLike, target) {
     return Array.prototype.indexOf.call(arrLike, target);
 }
@@ -3759,7 +3759,7 @@ const target = rootA.querySelector('.person__age');
 console.log(locateNodeFromPath(rootB, getPath(rootA, target)));
 ```
 #### Q. Convert a number into a Roman Numeral
-```
+```javascript
 function romanize(num) {
   let lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1},
       roman = '';
@@ -3775,7 +3775,7 @@ function romanize(num) {
 console.log(romanize(3)); // III
 ```
 #### Q. check if parenthesis is malformed or not
-```
+```javascript
 function matchParenthesis(str) {
   let obj = {'{': '}', '(': ')', '[':']'};
   let result = [];
@@ -3801,7 +3801,7 @@ console.log(matchParenthesis('}{{}}'), matchParenthesis('{{[]}}')); // false - t
 
 
 #### Q. Create Custom Event Emitter class
-```
+```javascript
 class EventEmitter {
   constructor() {
     this.holder = {};
@@ -3833,14 +3833,14 @@ e.on('callme', function(args) {
 e.emit('callme', ['a','b'], {firstName: 'umesh', lastName: 'gohil'});
 ```
 #### Q. Max value from an array
-```
+```javascript
 const arr = [-2, -3, 4, 3, 2, 1];
 Math.max(...arr);   // Fastest
 
 Math.max.apply(Math, arr); // Slow
 ```
 #### Q. DOM methods
-```
+```javascript
 https://github.com/nefe/You-Dont-Need-jQuery
 
 var el = document.querySelector('div');
@@ -3873,7 +3873,7 @@ el.setAttribute | el.getAttribute | el.removeAttribute // attributes of el
 el.style    // get the style of el
 ```
 #### Q. search function called after 500 ms
-```
+```javascript
 <input type="text" class="search" />
 
 let timer = null;
@@ -3890,7 +3890,7 @@ search.addEventListener('keyup', function() {
 });
 ```
 #### Q. Debounce function  -- similar to #### Q. 41, but here we create closure
-```
+```javascript
 function debounce(callback, wait) {
   let timer = null,
       callbackArgs = null,
@@ -3933,7 +3933,7 @@ const tFn = throttle((e) => {
 document.addEventListener("mousemove", tFn);
 ```
 #### Q. Move all zero's to end
-```
+```javascript
 const moveZeroToEnd = arr => {
   for (let i = 0, j = 0; j < arr.length; j++) {
     if (arr[j] !== 0) {
@@ -3949,7 +3949,7 @@ const moveZeroToEnd = arr => {
 console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0]));  // [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
 ```
 #### Q. Decode message in matrix [diagional down right, diagional up right]
-```
+```javascript
 const decodeMessage = (mat) => {
   // check if matrix is null or empty
   if (mat == null || mat.length === 0) {
@@ -3992,7 +3992,7 @@ let mat = [
 console.log(decodeMessage(mat));  //IROELEA
 ```
 #### Q. find a pair in array, whose sum is equal to given number.
-```
+```javascript
 const hasPairSum = (arr, sum) => {
   if (arr == null && arr.length < 2) {
     return false;
@@ -4038,7 +4038,7 @@ console.log(hasPairSum([6, 4,3, 8], 8));
 ```
 
 #### Q. Binary Search  [Array should be sorted]
-```
+```javascript
 function binarySearch(arr, val) {
   let startIndex = 0,
       stopIndex = arr.length - 1,
@@ -4061,7 +4061,7 @@ console.log(binarySearch([-1,10,22,35,48,56,67], 27));
 ```
 
 #### Q. Pascal triangle.
-```
+```javascript
 function pascalTriangle(n) {
     let last = [1], triangle = [last];
     for (let i = 0; i < n; i++) {
