@@ -7684,7 +7684,11 @@ console.log("With Valid JSON Text: "+isValidJson(validjson)); //true
 console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
 ```
 #### Q. How to check if page is fully loaded using javascript?
-*TODO*
+```javascript
+if (document.readyState === 'complete') {
+  // The page is fully loaded
+}
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
