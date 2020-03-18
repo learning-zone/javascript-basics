@@ -7683,7 +7683,7 @@ var invalidjson = '{"firstName""James","lastName":"Bond"}';
 console.log("With Valid JSON Text: "+isValidJson(validjson)); //true
 console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
 ```
-#### How to check if page is fully loaded using javascript?
+#### Q. How to check if page is fully loaded using javascript?
 *TODO*
 
 <div align="right">
