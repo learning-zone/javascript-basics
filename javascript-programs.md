@@ -3889,49 +3889,7 @@ search.addEventListener('keyup', function() {
   searchOptions(this.value);
 });
 ```
-#### Q. Debounce function  -- similar to #### Q. 41, but here we create closure
-```javascript
-function debounce(callback, wait) {
-  let timer = null,
-      callbackArgs = null,
-      context = this;
 
-  const later = () => callback.call(context, ...callbackArgs);
-
-  return function() {
-    callbackArgs = arguments;
-    clearTimeout(timer);
-    timer = setTimeout(later, wait);
-  }
-}
-
-let handleClicked = debounce(() => {
-  console.log(`you clicked me`);
-}, 500);
-
-document.addEventListener('click', handleClicked);
-
-// Throttle function is flooded with events but it is call after specified time
-const throttle = (fn, delay) => {
-  let lastcall;
-
-  return function(...args) {
-    let now = (new Date()).getTime();
-    if (now - lastcall < delay) {
-      return;
-    }
-
-    lastcall = now;
-    return fn(...args);
-  };
-};
-
-const tFn = throttle((e) => {
-  console.log(e.type);
-}, 200);
-
-document.addEventListener("mousemove", tFn);
-```
 #### Q. Move all zero's to end
 ```javascript
 const moveZeroToEnd = arr => {
