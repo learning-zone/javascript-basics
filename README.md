@@ -4909,7 +4909,7 @@ Frozen objects are considered both non-extensible and sealed.
 
 If you are decided to prevent modification, sealed, freeze the object then use in strict mode so that you can catch the error.
 
-For example: 
+**Example:** 
 
 ```javascript
 "use strict";
@@ -4984,59 +4984,59 @@ For example: We can create string using string literal and using String construc
 ``` 
 #### Q. What is typical use case for anonymous function in JavaScript ?
 
- Anonymous functions basically used in following scenario.
+Anonymous functions basically used in following scenario.
 
 1. No name is needed if function is only used in one place, then there is no need to add a name to function.
 
-	Let's take the example of setTimeout function 
-	
-	```javascript
-	setTimeout(function(){
-		alert("Hello");
-	},1000);
-	```
-	Here there is no need of using named function when we are sure 	that function which will alert `hello` would use only once in 	application.
+Let's take the example of setTimeout function 
+
+```javascript
+setTimeout(function(){
+	alert("Hello");
+},1000);
+```
+Here there is no need of using named function when we are sure 	that function which will alert `hello` would use only once in	application.
 
 2. Anonymous functions are declared inline and inline functions have advantages in the case that they can access variable in the parent scopes.
 
-	Let's take a example of event handler. Notify event of particular 	type (such as click) for a given object. 
+Let's take a example of event handler. Notify event of particular 	type (such as click) for a given object. 
+
+Let say we have HTML element (button) on which we want to add click event and when user do click on button we would like toexecute some logic.
+
+```html
+<button id="myBtn"></button>
+```
+Add Event Listener 
+
+```javascript
+var btn = document.getElementById('myBtn');
+btn.addEventListener('click', function () {
+  alert('button clicked');
+});
+```
 	
-	Let say we have HTML element (button) on which we want to add click event and when user do click on button we would like to execute some logic.
-	
-	```html
-	<button id="myBtn"></button>
-	```
-	Add Event Listener 
-	
-	```javascript
-	var btn = document.getElementById('myBtn');
-	btn.addEventListener('click', function () {
-	  alert('button clicked');
-	});
-	```
-	
-	Above example shows used of anonymous function as a callback function in event handler.
+Above example shows used of anonymous function as a callback function in event handler.
 	
 3. Passing anonymous function as a parameter to calling function.
 	
-	Example: 
-	
-	```javascript
-	// Function which will execute callback function
-	function processCallback(callback){
-		if(typeof callback === 'function'){
-			callback();
-		}
+**Example:** 
+
+```javascript
+// Function which will execute callback function
+function processCallback(callback){
+	if(typeof callback === 'function'){
+		callback();
 	}
-	
-	// Call function and pass anonymous function as callback 
-	processCallback(function(){
-		alert("Hi I am anonymous callback function");
-	});
-	```
+}
+
+// Call function and pass anonymous function as callback 
+processCallback(function(){
+	alert("Hi I am anonymous callback function");
+});
+```
 The best way to make a decision for using anonymous function is to ask the following question:
 
- Will the function which I am going to define, be used anywhere else?
+Will the function which I am going to define, be used anywhere else?
 
 If your answer is yes then go and create named function rather anonymous function.
 
