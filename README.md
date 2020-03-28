@@ -4982,11 +4982,11 @@ For example: We can create string using string literal and using String construc
  console.log(isString(ltrlStr)); // true
  console.log(isString(objStr)); // true
 ``` 
-#### Q. What is typical use case for anonymous function in JavaScript ?
+#### Q. What is typical use case for anonymous function in JavaScript?
 
 Anonymous functions basically used in following scenario.
 
-1. No name is needed if function is only used in one place, then there is no need to add a name to function.
+a.) No name is needed if function is only used in one place, then there is no need to add a name to function.
 
 Let's take the example of setTimeout function 
 
@@ -4997,7 +4997,7 @@ setTimeout(function(){
 ```
 Here there is no need of using named function when we are sure 	that function which will alert `hello` would use only once in	application.
 
-2. Anonymous functions are declared inline and inline functions have advantages in the case that they can access variable in the parent scopes.
+b.) Anonymous functions are declared inline and inline functions have advantages in the case that they can access variable in the parent scopes.
 
 Let's take a example of event handler. Notify event of particular 	type (such as click) for a given object. 
 
@@ -5017,7 +5017,7 @@ btn.addEventListener('click', function () {
 	
 Above example shows used of anonymous function as a callback function in event handler.
 	
-3. Passing anonymous function as a parameter to calling function.
+c.) Passing anonymous function as a parameter to calling function.
 	
 **Example:** 
 
@@ -5042,10 +5042,10 @@ If your answer is yes then go and create named function rather anonymous functio
 
 **Advantage of using anonymous function:**
 
-1. It can reduce a bit of code, particularly in recursive function and in callback function.
-2.  Avoid needless global namespace pollutions.
+* It can reduce a bit of code, particularly in recursive function and in callback function.
+* Avoid needless global namespace pollutions.
 
-#### Q. How to set a default parameter value ?
+#### Q. How to set a default parameter value?
 
  If you are coming from python/c# you might be using default value for function parameter incase value(formal parameter) has not been passed. For instance : 
 
