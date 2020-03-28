@@ -428,7 +428,7 @@ null === undefined // false
 #### Q. What is a first class function?
 JavaScript functions are first-class functions meaning functions and objects are treated as the same thing. Functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function "first-class citizens in JavaScript"
 
-Example: Assign a function to a variable
+**Example:** Assign a function to a variable
 ```javascript
 const message = function() {
    console.log("Hello World!");
@@ -437,7 +437,7 @@ const message = function() {
 message(); // Invoke it using the variable
 ```
 
-Example: Pass a function as an Argument
+**Example:** Pass a function as an Argument
 ```javascript
 function sayHello() {
    return "Hello, ";
@@ -449,7 +449,7 @@ function greeting(helloMessage, name) {
 greeting(sayHello, "JavaScript!");
 ```
 
-Example: Return a function
+**Example:** Return a function
 ```javascript
 function sayHello() {
    return function() {
@@ -458,7 +458,7 @@ function sayHello() {
 }
 ```
 
-Example: Using a variable
+**Example:** Using a variable
 ```javascript
 const sayHello = function() {
    return function() {
@@ -469,7 +469,7 @@ const myFunc = sayHello();
 myFunc();
 ```
 
-Example: Using double parentheses
+**Example:** Using double parentheses
 ```javascript
 function sayHello() {
    return function() {
