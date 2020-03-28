@@ -110,7 +110,7 @@ var message;
 console.log(message);
 message = "The variable Has been hoisted";
 ```
-**Example 02:** function Hoisting
+**Example 02:** Function Hoisting
 ```javascript
 function hoist() {
   a = 20;
