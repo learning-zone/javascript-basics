@@ -408,7 +408,7 @@ JavaScript provides both strict(===, !==) and type-converting(==, !=) equality c
 5. Null and Undefined types are not equal with ===, but equal with ==. i.e,
     null===undefined --> false but null==undefined --> true
 
-Some of the example which covers the above cases
+**Examples**
 ```javascript
 0 == false   // true
 0 === false  // false
