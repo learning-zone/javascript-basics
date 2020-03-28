@@ -320,7 +320,7 @@ Example: If you click on EM, the handler on DIV runs.
 </div>
 ```
 
-**Stopping bubbling**  
+* **Stopping bubbling**  
 ```html
 <body onclick="alert(`the bubbling doesn't reach here`)">
   <button onclick="event.stopPropagation()">Click me</button>
