@@ -515,7 +515,7 @@ Curried functions are great to improve code re-usability and functional composit
 #### Q. What is a pure function?
 Pure functions are functions that accept an input and returns a value without modifying any data outside its scope(Side Effects). Its output or return value must depend on the input/arguments and pure functions must return a value.
 
-Example
+**Example**
 ```javascript
 function impure(arg) {
     finalR.s = 90
@@ -670,7 +670,7 @@ self.addEventListener('fetch', function(event) {
 #### Q. How do you manipulate DOM using service worker?
 Service worker can't access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
 
-Example: **service-worker.html**
+**Example:** service-worker.html
 ```html
 <!doctype html>
 <html>
@@ -792,7 +792,7 @@ w.terminate();
 ```javascript
 w = undefined;
 ```
-Example:
+**Example:**
 ```html
 <!DOCTYPE html>
 <html>
