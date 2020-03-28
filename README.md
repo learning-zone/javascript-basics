@@ -99,7 +99,7 @@ console.log(sum); // Output: 60
 #### Q. What is Hoisting in JavaScript?
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.   
 
-Example 01: **Variable Hoisting**  
+**Example 01:** Variable Hoisting  
 ```javascript
 console.log(message); // output : undefined
 var message = "The variable Has been hoisted";
@@ -110,7 +110,7 @@ var message;
 console.log(message);
 message = "The variable Has been hoisted";
 ```
-Example 02: **function Hoisting**
+**Example 02:** function Hoisting
 ```javascript
 function hoist() {
   a = 20;
