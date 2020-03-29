@@ -7677,6 +7677,10 @@ if (document.readyState === 'complete') {
 ```
 #### Q. Explain browser console features?
 #### Q. How to Copy Text to Clipboard?
+#### Q. How do you get unique values of an array?
+```javascript
+console.log([...new Set([10, 20, 20, 30, 30, 30, 40, 40, 40, 40])]); // [10, 20, 30, 40]
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
