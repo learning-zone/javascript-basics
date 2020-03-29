@@ -6688,22 +6688,22 @@ unescape('%u0107');     // "ć"
 * screen.availHeight
 * screen.colorDepth
 * screen.pixelDepth
-#### Q. How will you remove duplicates from a JS array?
-**Using set()**  
+#### Q. How will you remove duplicates from an array in JavaScript?
+**a.) Using set()**  
 ```javascript
 const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
 
 let unique = [...new Set(names)];
 console.log(unique); // 'John', 'Paul', 'George', 'Ringo'
 ```
-**Using filter()**   
+**b.) Using filter()**   
 ```javascript
 const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
 
 let x = (names) => names.filter((v,i) => names.indexOf(v) === i)
 x(names); // 'John', 'Paul', 'George', 'Ringo'
 ```
-**Using forEach()**  
+**c.) Using forEach()**  
 ```javascript
 const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
 
