@@ -1322,19 +1322,6 @@ console.log(event.target);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is ECMAScript?
-ECMAScript is the scripting language that forms the basis of JavaScript. ECMAScript standardized by the ECMA International standards organization in the ECMA-262 and ECMA-402 specifications. The first edition of ECMAScript was released in 1997.
-
-#### Q. What is JSON?
-JSON (JavaScript Object Notation) is a lightweight format that is used for data interchanging. It is based on a subset of JavaScript language in the way objects are built in JavaScript.
-
-#### Q. What are the syntax rules of JSON?
-Below are the list of syntax rules of JSON
-1. The data is in name/value pairs
-2. The data is separated by commas
-3. Curly braces hold objects
-4. Square brackets hold arrays
-
 #### Q. What is the purpose JSON stringify?
 When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using stringify() method.
 ```javascript
