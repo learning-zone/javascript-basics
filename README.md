@@ -7675,6 +7675,7 @@ if (document.readyState === 'complete') {
   // The page is fully loaded
 }
 ```
+#### Q. Explain browser console features?
 #### Q. How to Copy Text to Clipboard?
 
 <div align="right">
