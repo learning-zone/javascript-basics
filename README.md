@@ -1573,11 +1573,11 @@ var object = {
     key2: value2
 };
 ```
-1. **Using dot notation:** This solution is useful when you know the name of the property
+**a.) Using dot notation:** This solution is useful when you know the name of the property
 ```javascript
 object.key3 = "value3";
 ```
-2. **Using square bracket notation:** This solution is useful when the name of the property is dynamically determined.
+**b.) Using square bracket notation:** This solution is useful when the name of the property is dynamically determined.
 ```javascript
 obj["key3"] = "value3";
 ```
