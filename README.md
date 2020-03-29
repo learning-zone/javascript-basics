@@ -1382,7 +1382,7 @@ function redirect() {
 }
 ```
 #### Q. How do you check whether a string contains a substring?
-There are 3 possible ways to check whether a string contains a substring or not,
+There are 3 possible ways to check whether a string contains a substring or not,  
 **a.) Using includes:** ES6 provided `String.prototype.includes` method to test a string contains a substring
 ```javascript
 var mainString = "hello", subString = "hell";
