@@ -1471,11 +1471,11 @@ for (var key in object) {
 ```
 #### Q. How do you test for an empty object?
 
-**Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
+**a.) Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
 ```javascript
 Object.keys(obj).length === 0 && obj.constructor === Object 
 ```
-**Using Object entries(ECMA 7+):** You can use object entries length along with constructor type.
+**b.) Using Object entries(ECMA 7+):** You can use object entries length along with constructor type.
 ```javascript
 Object.entries(obj).length === 0 && obj.constructor === Object 
 ```
