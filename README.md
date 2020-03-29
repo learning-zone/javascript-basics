@@ -7353,7 +7353,7 @@ const map1 = array1.map(x => x * 2);
 
 console.log(map1); // Output: Array [2, 8, 18, 32]
 ```
-**i.) array.filter()**: The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+**h.) array.filter()**: The filter() method creates a new array with all elements that pass the test implemented by the provided function.
 ```javascript
 var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction'];
 
@@ -7361,7 +7361,7 @@ const result = words.filter(word => word.length > 6);
 
 console.log(result); // Output: Array ["exuberant", "destruction"]
 ```
-**j.) array.reduce()**: The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
+**i.) array.reduce()**: The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
 ```javascript
 const array1 = [1, 2, 3, 4];
 const reducer = (accumulator, currentValue) => accumulator + currentValue;
@@ -7369,7 +7369,7 @@ const reducer = (accumulator, currentValue) => accumulator + currentValue;
 console.log(array1.reduce(reducer)); // Output: 10
 console.log(array1.reduce(reducer, 5)); // Output: 15
 ```
-**k.) array.reduceRight()**: The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
+**j.) array.reduceRight()**: The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
 ```javascript
 const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
   (accumulator, currentValue) => accumulator.concat(currentValue)
@@ -7377,7 +7377,7 @@ const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
 
 console.log(array1); // Output: Array [4, 5, 2, 3, 0, 1]
 ```
-**l.) array.every()**: The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value. 
+**k.) array.every()**: The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value. 
 ```javascript
 function isBelowThreshold(currentValue) {
   return currentValue < 40;
@@ -7386,7 +7386,7 @@ function isBelowThreshold(currentValue) {
 var array1 = [1, 30, 39, 29, 10, 13];
 console.log(array1.every(isBelowThreshold)); // Output: true
 ```
-**m.) array.some()**: The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value. 
+**l.) array.some()**: The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value. 
 ```javascript
 var array = [1, 2, 3, 4, 5];
 
@@ -7397,14 +7397,14 @@ var even = function(element) {
 
 console.log(array.some(even)); // Output: true
 ``` 
-**n.) array.indexOf()**: The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+**m.) array.indexOf()**: The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
 ```javascript
 var beasts = ['ant', 'bison', 'camel'];
 
 console.log(beasts.indexOf('camel')); // Output: 2
 console.log(beasts.indexOf('giraffe')); // Output: -1
 ```
-**o.) array.lastIndexOf()**: The lastIndexOf() method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
+**n.) array.lastIndexOf()**: The lastIndexOf() method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
 ```javascript
 var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
 
@@ -7413,7 +7413,7 @@ var searchTerm = 'dog';
 console.log('The index of the first "' + searchTerm + '" from the end is ' + paragraph.lastIndexOf(searchTerm));
 // Output: "The index of the first "dog" from the end is 52"
 ```
-**p.) array.find()**: The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+**o.) array.find()**: The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
 ```javascript
 var array1 = [5, 12, 8, 130, 44];
 
@@ -7423,7 +7423,7 @@ var found = array1.find(function(element) {
 
 console.log(found); // Output: 130
 ```
-**q.) array.findIndex()**: The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+**p.) array.findIndex()**: The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
 ```javascript
 var array1 = [5, 12, 8, 130, 44];
 
@@ -7433,7 +7433,7 @@ function isLargeNumber(element) {
 
 console.log(array1.findIndex(isLargeNumber)); // Output: 3
 ```
-**r.) array.includes()**: The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+**q.) array.includes()**: The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
 ```javascript
 var array1 = [1, 2, 3];
 console.log(array1.includes(2)); // Output: true
