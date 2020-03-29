@@ -7677,6 +7677,29 @@ if (document.readyState === 'complete') {
 ```
 #### Q. Explain browser console features?
 #### Q. How to Copy Text to Clipboard?
+```html
+<!-- The text field -->
+<input type="text" id="inputText" value="Hello World">
+
+<!-- The button used to copy the text -->
+<button onclick="copy()">Copy text</button>
+```
+```javascript
+function copy() {
+  /* Get the text field */
+  let copyText = document.getElementById("inputText");
+
+  /* Select the text field */
+  copyText.select();
+  copyText.setSelectionRange(0, 99999); /*For mobile devices*/
+
+  /* Copy the text inside the text field */
+  document.execCommand("copy");
+
+  /* Alert the copied text */
+  alert("Copied the text: " + copyText.value);
+}
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
