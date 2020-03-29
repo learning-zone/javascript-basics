@@ -1935,7 +1935,7 @@ function traceValue(someParam) {
 </div>
 
 #### Q. What are the ways to execute javascript after page load?
-You can execute javascript after page load in many different ways,
+You can execute javascript after page load in many different ways,  
 **a.) window.onload:**
 ```javascript
 window.onload = function ...
