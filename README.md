@@ -7676,7 +7676,7 @@ if (document.readyState === 'complete') {
 }
 ```
 #### Q. Explain browser console features?
-*a.) console.table()*
+**a.) console.table()**
 ```javascript
 const artists = [
   {
