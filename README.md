@@ -7700,6 +7700,17 @@ Output
 
 ![Console Table](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console_table.png "Console Table")
 
+#### Q. What are the difference between console.log() and console.dir()?
+* `console.log()` prints the element in an HTML-like tree
+Output
+
+![Console Log](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console_log.png "Console Log")
+
+* `console.dir()` prints the element in a JSON-like tree
+Output
+
+![Console Dir](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console_dir.png "Console Dir")
+
 #### Q. How to Copy Text to Clipboard?
 ```html
 <!-- The text field -->
