@@ -6955,7 +6955,7 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
 These are the different steps involved in the JavaScript rendering process:
 
-![alt text](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/javascript-stages.png "JavaScript Rendering Process")
+![JavaScript Rendering Process](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/javascript-stages.png "JavaScript Rendering Process")
 
 1. **JavaScript**: Typically JavaScript is used to handle work that will result in visual changes. 
 2. **Style calculations**: This is the process of figuring out which CSS rules apply to which elements. They are applied and the final styles for each element are calculated. 
@@ -7676,6 +7676,28 @@ if (document.readyState === 'complete') {
 }
 ```
 #### Q. Explain browser console features?
+*a.) console.table()*
+```javascript
+const artists = [
+  {
+    first: 'René',
+    last: 'Magritte'
+  },
+  {
+    first: 'Chaim',
+    last: 'Soutine'
+  },
+  {
+    first: 'Henri',
+    last: 'Matisse'
+  }
+];
+console.table(artists);
+```
+Output
+
+![Console Table](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console_table.png "Console Table")
+
 #### Q. How to Copy Text to Clipboard?
 ```html
 <!-- The text field -->
