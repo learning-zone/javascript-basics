@@ -7676,6 +7676,8 @@ if (document.readyState === 'complete') {
 }
 ```
 #### Q. Explain browser console logs features?
+The `Console` method **log()** outputs a message to the web console. The message may be a single string or it may be any one or more JavaScript objects.
+
 **a.) console.table()**
 ```javascript
 const artists = [
