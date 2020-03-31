@@ -7675,7 +7675,7 @@ if (document.readyState === 'complete') {
   // The page is fully loaded
 }
 ```
-#### Q. Explain browser console features?
+#### Q. Explain browser console logs features?
 **a.) console.table()**
 ```javascript
 const artists = [
