@@ -4030,15 +4030,14 @@ function fun( val =  createVal()){
 fun();
 fun(5);
 ```
-`createVal()` function will execute only once.
+`createVal()` function will execute only once.  
 Output
 ```
 0.2162050091554224
 VM298:6 5
 ```
----
 
-###### 1. What's the output?
+#### Q. What's the output?
 
 ```javascript
 function sayHi() {
@@ -4056,21 +4055,14 @@ sayHi();
 - C: `ReferenceError` and `21`
 - D: `undefined` and `ReferenceError`
 
-<details><summary><b>Answer</b></summary>
-<p>
 
-#### Answer: D
+**Answer: D**  
 
 Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
 
 Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
 
-</p>
-</details>
-
----
-
-###### 2. What's the output?
+#### Q. 2. What's the output?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -4100,7 +4092,7 @@ In the second loop, the variable `i` was declared using the `let` keyword: varia
 
 ---
 
-###### 3. What's the output?
+#### Q. 3. What's the output?
 
 ```javascript
 const shape = {
@@ -4136,7 +4128,7 @@ There is no value `radius` on that object, which returns `undefined`.
 
 ---
 
-###### 4. What's the output?
+#### Q. 4. What's the output?
 
 ```javascript
 +true;
@@ -4161,7 +4153,7 @@ The string `'Lydia'` is a truthy value. What we're actually asking, is "is this 
 
 ---
 
-###### 5. Which one is true?
+#### Q. 5. Which one is true?
 
 ```javascript
 const bird = {
@@ -4198,7 +4190,7 @@ However, with dot notation, this doesn't happen. `mouse` does not have a key cal
 ---
 
 
-###### 6. What's the output?
+#### Q. 6. What's the output?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -4233,7 +4225,7 @@ When you change one object, you change all of them.
 
 ---
 
-###### 7. What's the output?
+#### Q. 7. What's the output?
 
 ```javascript
 let a = 3;
@@ -4266,7 +4258,7 @@ However, when we use the `===` operator, both value _and_ type should be the sam
 
 ---
 
-###### 8. What's the output?
+#### Q. 8. What's the output?
 
 ```javascript
 class Chameleon {
@@ -4301,7 +4293,7 @@ The `colorChange` function is static. Static methods are designed to live only o
 
 ---
 
-###### 9. What's the output?
+#### Q. 9. What's the output?
 
 ```javascript
 let greeting;
@@ -4327,7 +4319,7 @@ In order to avoid this, we can use `"use strict"`. This makes sure that you have
 
 ---
 
-###### 10. What happens when we do this?
+#### Q. 10. What happens when we do this?
 
 ```javascript
 function bark() {
@@ -4356,7 +4348,7 @@ A function is a special type of object. The code you write yourself isn't the ac
 
 ---
 
-###### 11. What's the output?
+#### Q. 11. What's the output?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -4397,7 +4389,7 @@ would have made `member.getFullName()` work. Why is this beneficial? Say that we
 
 ---
 
-###### 12. What's the output?
+#### Q. 12. What's the output?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -4431,7 +4423,7 @@ We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smit
 
 ---
 
-###### 13. What are the three phases of event propagation?
+#### Q. 13. What are the three phases of event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -4452,7 +4444,7 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 ---
 
-###### 14. All object have prototypes.
+#### Q. 14. All object have prototypes.
 
 - A: true
 - B: false
@@ -4469,7 +4461,7 @@ All objects have prototypes, except for the **base object**. The base object is 
 
 ---
 
-###### 15. What's the output?
+#### Q. 15. What's the output?
 
 ```javascript
 function sum(a, b) {
@@ -4498,7 +4490,7 @@ In this example, JavaScript converts the number `1` into a string, in order for 
 
 ---
 
-###### 16. What's the output?
+#### Q. 16. What's the output?
 
 ```javascript
 let number = 0;
@@ -4534,7 +4526,7 @@ This returns `0 2 2`.
 
 ---
 
-###### 17. What's the output?
+#### Q. 17. What's the output?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -4565,7 +4557,7 @@ If you use tagged template literals, the value of the first argument is always a
 
 ---
 
-###### 18. What's the output?
+#### Q. 18. What's the output?
 
 ```javascript
 function checkAge(data) {
@@ -4601,7 +4593,7 @@ This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` 
 
 ---
 
-###### 19. What's the output?
+#### Q. 19. What's the output?
 
 ```javascript
 function getAge(...args) {
@@ -4628,7 +4620,7 @@ The rest parameter (`...args`.) lets us "collect" all remaining arguments into a
 
 ---
 
-###### 20. What's the output?
+#### Q. 20. What's the output?
 
 ```javascript
 function getAge() {
@@ -4657,7 +4649,7 @@ With `"use strict"`, you can make sure that you don't accidentally declare globa
 
 ---
 
-###### 21. What's value of `sum`?
+#### Q. 21. What's value of `sum`?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -4680,7 +4672,7 @@ const sum = eval("10*10+5");
 
 ---
 
-###### 22. How long is cool_secret accessible?
+#### Q. 22. How long is cool_secret accessible?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
@@ -4705,7 +4697,7 @@ If you used `localStorage`, the data would've been there forever, unless for exa
 
 ---
 
-###### 23. What's the output?
+#### Q. 23. What's the output?
 
 ```javascript
 var num = 8;
@@ -4733,7 +4725,7 @@ You cannot do this with `let` or `const` since they're block-scoped.
 
 ---
 
-###### 24. What's the output?
+#### Q. 24. What's the output?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -4764,7 +4756,7 @@ It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')`
 
 ---
 
-###### 25. What's the output?
+#### Q. 25. What's the output?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -4788,7 +4780,7 @@ If you have two keys with the same name, the key will be replaced. It will still
 
 ---
 
-###### 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+#### Q. 26. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
 
 - A: true
 - B: false
@@ -4806,7 +4798,7 @@ The base execution context is the global execution context: it's what's accessib
 
 ---
 
-###### 27. What's the output?
+#### Q. 27. What's the output?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -4832,7 +4824,7 @@ The `continue` statement skips an iteration if a certain condition returns `true
 
 ---
 
-###### 28. What's the output?
+#### Q. 28. What's the output?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -4861,7 +4853,7 @@ name.giveLydiaPizza();
 
 ---
 
-###### 29. What's the output?
+#### Q. 29. What's the output?
 
 ```javascript
 const a = {};
@@ -4895,7 +4887,7 @@ Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to
 
 ---
 
-###### 30. What's the output?
+#### Q. 30. What's the output?
 
 ```javascript
 const foo = () => console.log("First");
@@ -4948,7 +4940,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 
 ---
 
-###### 31. What is the event.target when clicking the button?
+#### Q. 31. What is the event.target when clicking the button?
 
 ```html
 <div onclick="console.log('first div')">
@@ -4977,7 +4969,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 ---
 
-###### 32. When you click the paragraph, what's the logged output?
+#### Q. 32. When you click the paragraph, what's the logged output?
 
 ```html
 <div onclick="console.log('div')">
@@ -5004,7 +4996,7 @@ If we click `p`, we see two logs: `p` and `div`. During event propagation, there
 
 ---
 
-###### 33. What's the output?
+#### Q. 33. What's the output?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -5036,7 +5028,7 @@ With both, we can pass the object to which we want the `this` keyword to refer t
 
 ---
 
-###### 34. What's the output?
+#### Q. 34. What's the output?
 
 ```javascript
 function sayHi() {
@@ -5064,7 +5056,7 @@ FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, 
 
 ---
 
-###### 35. Which of these values are falsy?
+#### Q. 35. Which of these values are falsy?
 
 ```javascript
 0;
@@ -5101,7 +5093,7 @@ Function constructors, like `new Number` and `new Boolean` are truthy.
 
 ---
 
-###### 36. What's the output?
+#### Q. 36. What's the output?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -5125,7 +5117,7 @@ console.log(typeof typeof 1);
 
 ---
 
-###### 37. What's the output?
+#### Q. 37. What's the output?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -5154,7 +5146,7 @@ depending on where you run it (it's different for every browser, node, etc.)
 
 ---
 
-###### 38. What's the output?
+#### Q. 38. What's the output?
 
 ```javascript
 (() => {
@@ -5191,7 +5183,7 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 
 ---
 
-###### 39. Everything in JavaScript is either a...
+#### Q. 39. Everything in JavaScript is either a...
 
 - A: primitive or object
 - B: function or object
@@ -5214,7 +5206,7 @@ What differentiates a primitive from an object is that primitives do not have an
 
 ---
 
-###### 40. What's the output?
+#### Q. 40. What's the output?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -5244,7 +5236,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 41. What's the output?
+#### Q. 41. What's the output?
 
 ```javascript
 !!null;
@@ -5273,7 +5265,7 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 ---
 
-###### 42. What does the `setInterval` method return in the browser?
+#### Q. 42. What does the `setInterval` method return in the browser?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
@@ -5296,7 +5288,7 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 ---
 
-###### 43. What does this return?
+#### Q. 43. What does this return?
 
 ```javascript
 [..."Lydia"];
@@ -5319,7 +5311,7 @@ A string is an iterable. The spread operator maps every character of an iterable
 
 ---
 
-###### 44. What's the output?
+#### Q. 44. What's the output?
 
 ```javascript
 function* generator(i) {
@@ -5354,7 +5346,7 @@ Then, we invoke the function again with the `next()` method. It starts to contin
 
 ---
 
-###### 45. What does this return?
+#### Q. 45. What does this return?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -5385,7 +5377,7 @@ When we pass multiple promises to the `Promise.race` method, it resolves/rejects
 
 ---
 
-###### 46. What's the output?
+#### Q. 46. What's the output?
 
 ```javascript
 let person = { name: "Lydia" };
@@ -5424,7 +5416,7 @@ We are only modifying the value of the `person` variable, and not the first elem
 
 ---
 
-###### 47. What's the output?
+#### Q. 47. What's the output?
 
 ```javascript
 const person = {
@@ -5454,7 +5446,7 @@ With a `for-in` loop, we can iterate through object keys, in this case `name` an
 
 ---
 
-###### 48. What's the output?
+#### Q. 48. What's the output?
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -5481,7 +5473,7 @@ Operator associativity is the order in which the compiler evaluates the expressi
 
 ---
 
-###### 49. What's the value of `num`?
+#### Q. 49. What's the value of `num`?
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -5506,7 +5498,7 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 ---
 
-###### 50. What's the output`?
+#### Q. 50. What's the output`?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -5534,7 +5526,7 @@ However, we don’t return a value. When we don’t return a value from the func
 
 ---
 
-###### 51. What's the output?
+#### Q. 51. What's the output?
 
 ```javascript
 function getInfo(member, year) {
@@ -5571,7 +5563,7 @@ The value of `person` is an object. The argument `member` has a (copied) referen
 
 ---
 
-###### 52. What's the output?
+#### Q. 52. What's the output?
 
 ```javascript
 function greeting() {
@@ -5609,7 +5601,7 @@ With the `catch` statement, we can specify what to do if an exception is thrown 
 
 ---
 
-###### 53. What's the output?
+#### Q. 53. What's the output?
 
 ```javascript
 function Car() {
@@ -5638,7 +5630,7 @@ When you return a property, the value of the property is equal to the _returned_
 
 ---
 
-###### 54. What's the output?
+#### Q. 54. What's the output?
 
 ```javascript
 (() => {
@@ -5677,7 +5669,7 @@ However, we created a global variable `y` when setting `y` equal to `10`. This v
 
 ---
 
-###### 55. What's the output?
+#### Q. 55. What's the output?
 
 ```javascript
 class Dog {
@@ -5718,7 +5710,7 @@ When we try to invoke something that is not a function, a `TypeError` is thrown.
 
 ---
 
-###### 56. What's the output?
+#### Q. 56. What's the output?
 
 ```javascript
 const set = new Set([1, 1, 2, 3, 4]);
@@ -5745,7 +5737,7 @@ We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we ca
 
 ---
 
-###### 57. What's the output?
+#### Q. 57. What's the output?
 
 ```javascript
 // counter.js
@@ -5781,7 +5773,7 @@ When we try to increment the value of `myCounter`, it throws an error: `myCounte
 
 ---
 
-###### 58. What's the output?
+#### Q. 58. What's the output?
 
 ```javascript
 const name = "Lydia";
@@ -5810,7 +5802,7 @@ The `name` variable was declared with a `const` keyword, so its deletion is not 
 
 ---
 
-###### 59. What's the output?
+#### Q. 59. What's the output?
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -5852,7 +5844,7 @@ This means that the value of `y` is equal to the first value in the array, which
 
 ---
 
-###### 60. What's the output?
+#### Q. 60. What's the output?
 
 ```javascript
 const user = { name: "Lydia", age: 21 };
@@ -5878,7 +5870,7 @@ It's possible to combine objects using the spread operator `...`. It lets you cr
 
 ---
 
-###### 61. What's the output?
+#### Q. 61. What's the output?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -5908,7 +5900,7 @@ Properties added using the `defineProperty` method are immutable by default. You
 
 ---
 
-###### 62. What's the output?
+#### Q. 62. What's the output?
 
 ```javascript
 const settings = {
@@ -5942,7 +5934,7 @@ If the replacer is a _function_, this function gets called on every property in 
 
 ---
 
-###### 63. What's the output?
+#### Q. 63. What's the output?
 
 ```javascript
 let num = 10;
@@ -5976,7 +5968,7 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 
 ---
 
-###### 64. What's the output?
+#### Q. 64. What's the output?
 
 ```javascript
 const value = { number: 10 };
@@ -6014,7 +6006,7 @@ The fourth time, we pass the `value` object again. `x.number` was previously mod
 
 ---
 
-###### 65. What's the output?
+#### Q. 65. What's the output?
 
 ```javascript
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
@@ -6046,7 +6038,7 @@ On the fourth call, we again don't return from the callback function. The accumu
   
 ---
 
-###### 66. With which constructor can we successfully extend the `Dog` class?
+#### Q. 66. With which constructor can we successfully extend the `Dog` class?
 
 ```javascript
 class Dog {
@@ -6099,7 +6091,7 @@ The `Labrador` class receives two arguments, `name` since it extends `Dog`, and 
 
 ---
 
-###### 67. What's the output?
+#### Q. 67. What's the output?
 
 ```javascript
 // index.js
@@ -6131,7 +6123,7 @@ This is a difference between `require()` in CommonJS and `import`! With `require
 
 ---
 
-###### 68. What's the output?
+#### Q. 68. What's the output?
 
 ```javascript
 console.log(Number(2) === Number(2))
@@ -6156,7 +6148,7 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
 
 ---
 
-###### 69. What's the output?
+#### Q. 69. What's the output?
 
 ```javascript
 const name = "Lydia Hallie"
@@ -6183,7 +6175,7 @@ If the argument passed to the `padStart` method is smaller than the length of th
 
 ---
 
-###### 70. What's the output?
+#### Q. 70. What's the output?
 
 ```javascript
 console.log("🥑" + "💻");
@@ -6206,7 +6198,7 @@ With the `+` operator, you can concatenate strings. In this case, we are concate
 
 ---
 
-###### 71. How can we log the values that are commented out after the console.log statement?
+#### Q. 71. How can we log the values that are commented out after the console.log statement?
 
 ```javascript
 function* startGame() {
@@ -6243,7 +6235,7 @@ When we call `game.next("Yes").value`, the previous `yield` is replaced with the
 
 ---
 
-###### 72. What's the output?
+#### Q. 72. What's the output?
 
 ```javascript
 console.log(String.raw`Hello\nworld`);
@@ -6278,7 +6270,7 @@ In this case, the string is `Hello\nworld`, which gets logged.
 
 ---
 
-###### 73. What's the output?
+#### Q. 73. What's the output?
 
 ```javascript
 async function getData() {
@@ -6312,7 +6304,7 @@ This would've logged `"I made it!"`
 
 ---
 
-###### 74. What's the output?
+#### Q. 74. What's the output?
 
 ```javascript
 function addToList(item, list) {
@@ -6342,7 +6334,7 @@ The `push` method modifies the original array. If you wanted to return the _arra
 
 ---
 
-###### 75. What's the output?
+#### Q. 75. What's the output?
 
 ```javascript
 const box = { x: 10, y: 20 };
@@ -6376,7 +6368,7 @@ Since `shape` is frozen, and since the value of `x` is not an object, we cannot 
 
 ---
 
-###### 76. What's the output?
+#### Q. 76. What's the output?
 
 ```javascript
 const { name: myName } = { name: "Lydia" };
@@ -6405,7 +6397,7 @@ Since we try to log `name`, a variable that is not defined, a ReferenceError get
 
 ---
 
-###### 77. Is this a pure function?
+#### Q. 77. Is this a pure function?
 
 ```javascript
 function sum(a, b) {
@@ -6430,7 +6422,7 @@ The `sum` function always returns the same result. If we pass `1` and `2`, it wi
 
 ---
 
-###### 78. What is the output?
+#### Q. 78. What is the output?
 
 ```javascript
 const add = () => {
@@ -6477,7 +6469,7 @@ The third time, we pass `5 * 2` to the function which gets evaluated to `10`. Th
 
 ---
 
-###### 79. What is the output?
+#### Q. 79. What is the output?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -6514,7 +6506,7 @@ With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable
 
 ---
 
-###### 80. What is the output?
+#### Q. 80. What is the output?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2]
@@ -6540,7 +6532,7 @@ The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` r
 
 ---
 
-###### 81. What is the output?
+#### Q. 81. What is the output?
 
 ```javascript
 function sayHi(name) {
@@ -6573,7 +6565,7 @@ In this case, if we didn't pass a value or if we passed `undefined`, `name` woul
 
 ---
 
-###### 82. What is the output?
+#### Q. 82. What is the output?
 
 ```javascript
 var status = "😎"
@@ -6613,7 +6605,7 @@ With the `call` method, we can change the object to which the `this` keyword ref
 
 ---
 
-###### 83. What is the output?
+#### Q. 83. What is the output?
 
 ```javascript
 const person = {
@@ -6650,7 +6642,7 @@ When logging the `person` object, the unmodified object gets returned.
 
 ---
 
-###### 84. What is the output?
+#### Q. 84. What is the output?
 
 ```javascript
 function checkAge(age) {
@@ -6683,7 +6675,7 @@ Variables with the `const` and `let` keyword are _block-scoped_. A block is anyt
 
 ---
 
-###### 85. What kind of information would get logged?
+#### Q. 85. What kind of information would get logged?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -6708,7 +6700,7 @@ The value of `res` in the second `.then` is equal to the returned value of the p
 
 ---
 
-###### 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+#### Q. 86. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
 
 ```javascript
 function getName(name) {
@@ -6739,7 +6731,7 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 
 ---
 
-###### 87. What's the output?
+#### Q. 87. What's the output?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -6764,7 +6756,7 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
 
 ---
 
-###### 88. What's the output?
+#### Q. 88. What's the output?
 
 ```javascript
 function sum(num1, num2 = num1) {
@@ -6793,7 +6785,7 @@ If you're trying to set a default parameter's value equal to a parameter which i
 
 ---
 
-###### 89. What's the output?
+#### Q. 89. What's the output?
 
 ```javascript
 // module.js 
@@ -6825,7 +6817,7 @@ The `data` object has a `default` property for the default export, other propert
 
 ---
 
-###### 90. What's the output?
+#### Q. 90. What's the output?
 
 ```javascript
 class Person {
@@ -6863,7 +6855,7 @@ Calling a function constructor with `new` results in the creation of an instance
 
 ---
 
-###### 91. What's the output?
+#### Q. 91. What's the output?
 
 ```javascript
 let newList = [1, 2, 3].push(4)
@@ -6890,7 +6882,7 @@ Then, we try to use the `.push` method on `newList`. Since `newList` is the nume
 
 ---
 
-###### 92. What's the output?
+#### Q. 92. What's the output?
 
 ```javascript
 function giveLydiaPizza() {
@@ -6920,7 +6912,7 @@ Regular functions, such as the `giveLydiaPizza` function, have a `prototype` pro
 
 ---
 
-###### 93. What's the output?
+#### Q. 93. What's the output?
 
 ```javascript
 const person = {
@@ -6957,7 +6949,7 @@ The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal
 
 ---
 
-###### 94. What's the output?
+#### Q. 94. What's the output?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
@@ -6993,7 +6985,7 @@ The above example works. This returns the array `[ 'banana', 'apple', 'orange', 
 
 ---
 
-###### 95. What's the output?
+#### Q. 95. What's the output?
 
 ```javascript
 function nums(a, b) {
@@ -7036,7 +7028,7 @@ This means that `a + b` is never reached, since a function stops running after t
 
 ---
 
-###### 96. What's the output?
+#### Q. 96. What's the output?
 
 ```javascript
 class Person {
@@ -7072,7 +7064,7 @@ We can set classes equal to other classes/function constructors. In this case, w
 
 ---
 
-###### 97. What's the output?
+#### Q. 97. What's the output?
 
 ```javascript
 const info = {
@@ -7102,7 +7094,7 @@ This is one of the many qualities of a symbol: besides representing an entirely 
 
 ---
 
-###### 98. What's the output?
+#### Q. 98. What's the output?
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
@@ -7142,7 +7134,7 @@ Since no value gets returned in this case, the function returns `undefined`.
 
 ---
 
-###### 99. What's the output?
+#### Q. 99. What's the output?
 
 ```javascript
 const name = "Lydia"
@@ -7172,7 +7164,7 @@ ReferenceErrors get thrown when JavaScript isn't able to find a reference to a v
 
 ---
 
-###### 100. What's the value of output?
+#### Q. 100. What's the value of output?
 
 ```javascript
 // 🎉✨ This is my 100th question! ✨🎉
@@ -7200,7 +7192,7 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 ---
 
-###### 101. What's the value of output?
+#### Q. 101. What's the value of output?
 
 ```javascript
 const one = (false || {} || null)
@@ -7233,7 +7225,7 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 
 ---
 
-###### 102. What's the value of output?
+#### Q. 102. What's the value of output?
 
 ```javascript
 const myPromise = () => Promise.resolve('I have resolved!')
@@ -7277,7 +7269,7 @@ This means that it waited for the `myPromise` to resolve with the value `I have 
 
 ---
 
-###### 103. What's the value of output?
+#### Q. 103. What's the value of output?
 
 ```javascript
 const set = new Set()
@@ -7314,7 +7306,7 @@ However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is 
 
 ---
 
-###### 104. What's its value?
+#### Q. 104. What's its value?
 
 ```javascript
 Promise.resolve(5)
@@ -7339,7 +7331,7 @@ In this case, we just passed the numerical value `5`. It returns a resolved prom
 
 ---
 
-###### 105. What's its value?
+#### Q. 105. What's its value?
 
 ```javascript
 function compareMembers(person1, person2 = person) {
@@ -7378,7 +7370,7 @@ The code block in the `else` statement gets run, and `They are the same!` gets l
 
 ---
 
-###### 106. What's its value?
+#### Q. 106. What's its value?
 
 ```javascript
 const colorConfig = {
@@ -7415,7 +7407,7 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 ---
 
-###### 107. What's its value?
+#### Q. 107. What's its value?
 
 ```javascript
 console.log('❤️' === '❤️')
@@ -7436,7 +7428,7 @@ Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+276
 
 ---
 
-###### 108. Which of these methods modifies the original array?
+#### Q. 108. Which of these methods modifies the original array?
 
 ```javascript
 const emojis = ['✨', '🥑', '😍']
@@ -7468,7 +7460,7 @@ With `splice` method, we modify the original array by deleting, replacing or add
 
 ---
 
-###### <a name=20191009></a>109. What's the output?
+#### Q. <a name=20191009></a>109. What's the output?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']
@@ -7500,7 +7492,7 @@ Then, we change the value of the `favoriteFood` property on the `info` object. T
 
 ---
 
-###### 110. What does this method do?
+#### Q. 110. What does this method do?
 
 ```javascript
 JSON.parse()
@@ -7537,7 +7529,7 @@ JSON.parse(jsonArray) // { name: 'Lydia' }
 
 ---
 
-###### 111. What's the output? 
+#### Q. 111. What's the output? 
 
 ```javascript
 let name = 'Lydia'
@@ -7581,7 +7573,7 @@ getName() // Lydia
 
 ---
 
-###### 112. What's the output?
+#### Q. 112. What's the output?
 
 ```javascript
 function* generatorOne() {
@@ -7632,7 +7624,7 @@ console.log(two.next().value) // undefined
 
 ---
 
-###### 113. What's the output?
+#### Q. 113. What's the output?
 
 ```javascript
 console.log(`${(x => x)('I love')} to program`)
@@ -7655,7 +7647,7 @@ Expressions within template literals are evaluated first. This means that the st
 
 ---
 
-###### 114. What will happen?
+#### Q. 114. What will happen?
 
 ```javascript
 let config = {
@@ -7684,7 +7676,7 @@ Normally when we set objects equal to `null`, those objects get _garbage collect
 
 ---
 
-###### 115. Which method(s) will return the value `'Hello world!'`?
+#### Q. 115. Which method(s) will return the value `'Hello world!'`?
 
 ```javascript
 const myMap = new Map()
@@ -7720,7 +7712,7 @@ When adding a key/value pair using the `set` method, the key will be the value o
 
 ---
 
-###### 116. What's the output?
+#### Q. 116. What's the output?
 
 ```javascript
 const person = {
