@@ -2870,23 +2870,6 @@ f = g = 0;
   try {
     f = function() {
       return f();
-    };
-    f();
-  } catch (e) {
-    return g++ && f();
-  } finally {
-    return ++g;
-  }
-  function f() { g += 5; return 0; }
-}) ();
-```
-#### Q. What is g value?
-```javascript
-f = g = 0;
-(function () {
-  try {
-    f = function() {
-      return f();
     } && f();
   } catch (e) {
     return g++ && f();
