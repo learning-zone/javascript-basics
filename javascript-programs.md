@@ -4041,11 +4041,17 @@ function createVal(){
 };
 
 function fun( val =  createVal()){
-  // Do something with val...
+  console.log(val);
 }
 
 fun();
 fun(5);
+```
+`createVal()` function will execute only once.
+Output
+```
+0.2162050091554224
+VM298:6 5
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
