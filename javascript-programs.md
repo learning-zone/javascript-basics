@@ -4033,6 +4033,20 @@ function pascalTriangle(n) {
 
 console.log(pascalTriangle(2));
 ```
+
+#### Q. Explain the code below. How many times the createVal function is called?
+```javascript
+function createVal(){
+  return Math.random();
+};
+
+function fun( val =  createVal()){
+  // Do something with val...
+}
+
+fun();
+fun(5);
+```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
