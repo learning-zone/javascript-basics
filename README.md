@@ -7748,6 +7748,9 @@ function copy() {
   alert("Copied the text: " + copyText.value);
 }
 ```
+#### Q. Explain types of Memory Leaks in JavaScript?
+
+*[Reference](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)*
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
