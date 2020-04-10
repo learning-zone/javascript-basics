@@ -7754,6 +7754,14 @@ In the above example, function inner is never called but keeps a reference to el
 
 **SOLUTION**: The problem in this case occurs because the reference to function(){} is kept alive. There will be no javascript memory leak if the outer function is actually called(Call the outer function like newElem = outer()();). A small isolated javascript memory leak resulting from closures might not need any attention. However a periodic leak repeating and growing with each iteration can seriously damage the performance of your code.
 
+#### Q. How to convert Decimal to Binary in JavaScript?
+```javascript
+
+var val = 10;
+
+console.log(val.toString(2)); // 1010
+```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
