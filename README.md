@@ -7759,7 +7759,11 @@ In the above example, function inner is never called but keeps a reference to el
 
 var val = 10;
 
-console.log(val.toString(2)); // 1010
+console.log(val.toString(2)); // 1010  ==> Binary Conversion
+
+console.log(val.toString(8)); // 12  ==> Octal Conversion
+
+console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
 ```
 
 <div align="right">
