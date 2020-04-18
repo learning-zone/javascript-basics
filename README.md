@@ -11,7 +11,7 @@
 <br/>
 
 #### Q. What is difference between document.getElementById() and document.querySelector()? 
-<hr/>
+<hr style="height: .02em; margin: 10px 0;"/>
 
 **a.) document.getElementById()**: Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
