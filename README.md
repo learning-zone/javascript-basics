@@ -17,13 +17,13 @@
 element = document.getElementById(id);
 ```
 
-1. **document.querySelector()**: Returns the first matching Element node within the node's subtree. If no matching node is found, null is returned.
+2. **document.querySelector()**: Returns the first matching Element node within the node's subtree. If no matching node is found, null is returned.
 
 ```javascript
 element = document.querySelector(selectors);
 ```
 
-1. **document.querySelectorAll()**: Returns a NodeList containing all matching Element nodes within the node's subtree, or an empty NodeList if no matches are found.
+3. **document.querySelectorAll()**: Returns a NodeList containing all matching Element nodes within the node's subtree, or an empty NodeList if no matches are found.
 
 ```javascript
 element = document.querySelectorAll(selectors);
