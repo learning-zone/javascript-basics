@@ -35,7 +35,7 @@ element = document.querySelectorAll(selectors);
 </div>
 
 #### Q. ***When to use reduce(), map(), foreach() and filter() in JavaScript?*** 
-**a.) forEach()**:  It takes a callback function and run that callback function on each element of array one by one.
+* **forEach()**:  It takes a callback function and run that callback function on each element of array one by one.
 
 Basically forEach works as a traditional for loop looping over the array and providing array elements to do operations on them.
 ```javascript
@@ -52,7 +52,7 @@ Output
 30 comes at 2
 ```
 
-**b.) filter()**: The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
+* **filter()**: The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
 
 *Note: filter does not update the existing array it will return a new filtered array every time*.
 ```javascript
@@ -68,7 +68,7 @@ Output
 [10, 30]
 ```
 
-**c.) map()**: map() like filter() & forEach() takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
+* **map()**: map() like filter() & forEach() takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
 
 Like filter(), map() also returns an array. The provided callback to map modifies the array elements and save them into the new array upon completion that array get returned as the mapped array.
 ```javascript
@@ -84,7 +84,7 @@ Output
 [100, 200, 300]
 ```
 
-**d.) reduce()**: reduce() method of the array object is used to reduce the array to one single value.
+* **reduce()**: reduce() method of the array object is used to reduce the array to one single value.
 
 ```javascript
 var arr = [10, 20, 30];
