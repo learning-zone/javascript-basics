@@ -5714,7 +5714,7 @@ Some of the major difference in a tabular form
 5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
 6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
 
-#### Q.How do you redeclare variables in switch block without an error?***
+#### Q. ***How do you redeclare variables in switch block without an error?***
 If you try to redeclare variables in a `switch block` then it will cause errors because there is only one block. For example, the below code block throws a syntax error as below,
 ```javascript
 let counter = 1;
@@ -6395,7 +6395,7 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. ***Explain var self = this in JavaScript. 
+#### Q. ***Explain var self = this in JavaScript?***
 `self` is being used to maintain a reference to the original this even as the context is changing. It's a technique often used in event handlers (especially in closures).
 
 `this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping(in C open/close {} curly braces refers to a block). JavaScript has two scopes namely, global and local scope.
@@ -6790,7 +6790,7 @@ The difference between this property and firstElementChild, is that firstChild r
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. ***Name the two functions that are used to create an HTML element dynamically.
+#### Q. ***Name the two functions that are used to create an HTML element dynamically?***
 **createElement**  
 In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
 Syntax
