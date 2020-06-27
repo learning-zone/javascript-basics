@@ -6270,7 +6270,8 @@ Await keyword is used to pause async function execution until a `Promise` is ful
 3. Multiple awaits will always run in sequential order under a same function.
 4. If a promise resolves normally, then await promisereturns the result. But in case of a rejection it throws the error, just if there were a throw statement at that line.
 5. Async function cannot wait for multiple promises at the same time.
-6. Performance issues can occur if using await after await as many times one statement doesn’t depend on the previous one.
+6. Performance issues can occur if using await after await as many times one statement doesn\’t depend on the previous one.
+
 ```javascript
 async function asyncFunction() {
 
@@ -6286,7 +6287,9 @@ async function asyncFunction() {
 
 asyncFunction();
 ```
+
 **Generator and Async-await — Comparison**  
+
 1. Generator functions/yield and Async functions/await can both be used to write asynchronous code that “waits”, which means code that looks as if it was synchronous, even though it really is asynchronous.
 2. Generator function are executed yield by yield i.e one yield-expression at a time by its iterator (the next method) where as Async-await, they are executed sequential await by await.
 3. Async/await makes it easier to implement a particular use case of Generators.
