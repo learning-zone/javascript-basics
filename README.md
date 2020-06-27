@@ -6265,14 +6265,16 @@ Async keyword is used to define an asynchronous function, which returns a `Async
 Await keyword is used to pause async function execution until a `Promise` is fulfilled, that is resolved or rejected, and to resume execution of the `async` function after fulfillments. When resumed, the value of the `await` expression is that of the fulfilled `Promise`.
 
 **Key points:**  
+
 1. Await can only be used inside an async function.
 2. Functions with the async keyword will always return a promise.
 3. Multiple awaits will always run in sequential order under a same function.
 4. If a promise resolves normally, then await promisereturns the result. But in case of a rejection it throws the error, just if there were a throw statement at that line.
 5. Async function cannot wait for multiple promises at the same time.
-6. Performance issues can occur if using await after await as many times one statement doesn\’t depend on the previous one.
+6. Performance issues can occur if using await after await as many times one statement doesn\'t depend on the previous one.
 
 ```javascript
+
 async function asyncFunction() {
 
   const promise = new Promise((resolve, reject) => {
