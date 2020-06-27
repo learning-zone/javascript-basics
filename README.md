@@ -313,13 +313,17 @@ There are two ways of event flow
 * Bottom to Top (Event Bubbling)
 
 #### Q. ***What is event bubbling?***
+
 Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
 
 Example: If you click on EM, the handler on DIV runs.  
+
 ```html
+
 <div onclick="alert('The handler!')">
   <em>If you click on <code>EM</code>, the handler on <code>DIV</code> runs.</em>
 </div>
+
 ```
 
 * **Stopping bubbling**  
