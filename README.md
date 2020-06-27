@@ -7350,24 +7350,19 @@ console.table(artists);
 ```
 Output
 
-![Console Table](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console_table.png "Console Table")
-
-<br/>
-
 <img src="assets/console_table.png" alt="Console Table"/>
 
 **b.) console.log()**
 
-![Console Log](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console.log.png "Console Log")
-
+<img src="assets/console.log.png" alt="Console Log"/>
 
 **c.) console.warn()**
 
-![Console Log](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console.warn.png "Console Log")
+<img src="assets/console.warn.png" alt="Console Warning"/>
 
 **d.) console.error()**
 
-![Console Error](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console.error.png "Console Error")
+<img src="assets/console.error.png" alt="Console Error"/>
 
 #### Q. ***What are the difference between console.log() and console.dir()?***
 * `console.log()` prints the element in an HTML-like tree
