@@ -7244,9 +7244,11 @@ console.log(Object.isExtensible(newObject)); //true
 *Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
 
 #### Q. ***What are the different ways to make an object non-extensible?***
+
 * `Object.preventExtensions()`
 * `Object.seal()`
 * `Object.freeze()`
+
 ```javascript
 var newObject = {};
 
@@ -7261,10 +7263,13 @@ Object.isExtensible(frozenObject); // false
 ```
 
 #### Q. ***Is enums feature available in javascript?***
+
 No, javascript does not natively support enums. But there are different kind of solutions to simulate them even though they may not provide exact equivalent. For example, you can use freeze or seal on object,
+
 ```javascript
 var DaysEnum = Object.freeze({"monday":1, "tuesday":2, "wednesday":3, ...})
 ```
+
 #### Q. ***How do I modify the url without reloading the page?***
 The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. Example:
 ```javascript
