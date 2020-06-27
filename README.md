@@ -1,6 +1,6 @@
 # JavaScript Interview Questions 
 
-*Click <img src="https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/star.png" width="18" height="18" align="absmiddle" title="Star" /> if you like the project. Pull Request are highly appreciated.*
+*Click <img src="assets/star.png" width="18" height="18" align="absmiddle" title="Star" /> if you like the project. Pull Request are highly appreciated.*
 
 ## Table of Contents
 
@@ -6602,7 +6602,7 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
 These are the different steps involved in the JavaScript rendering process:
 
-![JavaScript Rendering Process](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/javascript-stages.png "JavaScript Rendering Process")
+<img src="assets/javascript-stages.png" alt="JavaScript Rendering Process">
 
 1. **JavaScript**: Typically JavaScript is used to handle work that will result in visual changes. 
 2. **Style calculations**: This is the process of figuring out which CSS rules apply to which elements. They are applied and the final styles for each element are calculated. 
@@ -7368,12 +7368,12 @@ Output
 * `console.log()` prints the element in an HTML-like tree
 Output
 
-![Console Log](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console_log.png "Console Log")
+<img src="assets/console_log.png" alt="Console Log"/>
 
 * `console.dir()` prints the element in a JSON-like tree
 Output
 
-![Console Dir](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console_dir.png "Console Dir")
+<img src="assets/console_dir.png" alt="Console Dir"/>
 
 #### Q. ***How to Copy Text to Clipboard?***
 ```html
