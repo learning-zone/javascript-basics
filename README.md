@@ -7352,6 +7352,10 @@ Output
 
 ![Console Table](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console_table.png "Console Table")
 
+<br/>
+
+<img src="assets/console_table.png" alt="Console Table"/>
+
 **b.) console.log()**
 
 ![Console Log](https://github.com/learning-zone/javascript-interview-questions/blob/master/assets/console.log.png "Console Log")
