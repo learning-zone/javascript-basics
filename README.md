@@ -323,11 +323,13 @@ Example: If you click on EM, the handler on DIV runs.
 ```
 
 * **Stopping bubbling**  
+
 ```html
-<body onclick="alert(`the bubbling doesn't reach here`)">
+<body onclick="alert(`the bubbling doesn\'t reach here`)">
   <button onclick="event.stopPropagation()">Click me</button>
 </body>
 ```
+
 #### Q. ***What is event capturing?***
 Event capturing is a type of event propagation where the event is first captured by the outermost element and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
 
