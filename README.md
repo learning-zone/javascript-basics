@@ -325,9 +325,11 @@ Example: If you click on EM, the handler on DIV runs.
 * **Stopping bubbling**  
 
 ```html
+
 <body onclick="alert(`the bubbling doesn\'t reach here`)">
   <button onclick="event.stopPropagation()">Click me</button>
 </body>
+
 ```
 
 #### Q. ***What is event capturing?***
