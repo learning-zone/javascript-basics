@@ -1,6 +1,34 @@
 ## ES6 Interview Questions and Answers
 
 
+|Sl.No|  Questions                                                     |
+|----|-----------------------------------------------------------------|
+| 01.|[Can you give an example for destructuring an object or an array?](#q-can-you-give-an-example-for-destructuring-an-object-or-an-array)|
+| 02.|[List out important features of es6?](#q-list-out-important-features-of-es6)|
+| 03.|[ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?](#q-es6-template-literals-offer-a-lot-of-flexibility-in-generating-strings-can-you-give-an-example)|
+| 04.|[What is the benefit of using the arrow syntax for a method in a constructor?](#q-what-is-the-benefit-of-using-the-arrow-syntax-for-a-method-in-a-constructor)|
+| 05.|[What are fat arrow functions? When you should not use arrow functions in ES6?](#q-what-are-fat-arrow-functions-when-you-should-not-use-arrow-functions-in-es6)|
+| 06.|[How does await and async works in es6?](#q-how-does-await-and-async-works-in-es6)|
+| 07.|[What are the benefits of using arrow function over es5 function?](#q-what-are-the-benefits-of-using-arrow-function-over-es5-function)|
+| 08.|[What are the differences between ES6 class and ES5 function constructors?](#q-what-are-the-differences-between-es6-class-and-es5-function-constructors)|
+| 09.|[What are the benefits of using spread syntax and how is it different from rest syntax?](#q-what-are-the-benefits-of-using-spread-syntax-and-how-is-it-different-from-rest-syntax)|
+| 10.|[What are the differences between variables created using `let`, `var` or `const`?](#q-what-are-the-differences-between-variables-created-using-let-var-or-const)||
+| 11.|[What is the difference between for..in and for..of?](#q-what-is-the-difference-between-forin-and-forof)|
+| 12.|[What is the Temporal Dead Zone in ES6?](#q-what-is-the-temporal-dead-zone-in-es6)|
+| 13.|[What is the difference between ES6 Map and WeakMap?](#q-what-is-the-difference-between-es6-map-and-weakmap)|
+| 14.|[What are default values in destructuring assignment?](#q-what-are-default-values-in-destructuring-assignment)|
+| 15.|[How do you swap variables using Destructuring Assignment?](#q-how-do-you-swap-variables-using-destructuring-assignment)|
+| 16.|[What is the output of below spread operator array?](#q-what-is-the-output-of-below-spread-operator-array)|
+| 17.|[What is modules in ES6?](#q-what-is-modules-in-es6)|
+| 18.|[What is a trampoline function? What is it used for?](#q-what-is-a-trampoline-function-what-is-it-used-for)|
+| 19.|[What is the difference between Set and WeakSet in ES6?](#q-what-is-the-difference-between-set-and-weakset-in-es6)|
+| 20.|[What is difference between fetch() and XMLHttpRequest() in JavaScript?](#q-what-is-difference-between-fetch-and-xmlhttprequest-in-javascript)|
+| 21.|[What is the difference between Promise and AJAX?](#q-what-is-the-difference-between-promise-and-ajax)|
+| 22.|[What is use of Proxies in es6?](#q-what-is-use-of-proxies-in-es6)|
+| 23.|[How could you make sure a const value is garbage collected?](#q-how-could-you-make-sure-a-const-value-is-garbage-collected)|
+
+<br/>
+
 #### Q. Can you give an example for destructuring an object or an array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
