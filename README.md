@@ -1699,6 +1699,9 @@ The window.navigator object contains information about the visitor\'s browser os
 ```javascript
 console.log(navigator.platform);
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. ***What is the difference between document load and DOMContentLoaded events?***
 
@@ -1760,6 +1763,10 @@ console.log(input.value); // Good evening
 
 The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is the purpose of void(0)?***
 
 The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML document that uses `href="JavaScript:void(0);"` within an `<a>` element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.  
@@ -1788,6 +1795,7 @@ Yes, JavaScript is a case sensitive language. The language keywords, variables, 
 </div>
 
 #### Q. ***What are events?***
+
 Events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can `react` on these events. Some of the examples of HTML events are,
 
 1. Web page has finished loading
@@ -1816,6 +1824,7 @@ Let's describe the behavior of click event for button element,
 </div>
 
 #### Q. ***What is the use of preventDefault method?***
+
 The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
 ```javascript
 document.getElementById("link").addEventListener("click", function(event) {
@@ -1824,7 +1833,12 @@ document.getElementById("link").addEventListener("click", function(event) {
 ```
 *Note: Remember that not all events are cancelable*.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is the use of stopPropagation method?***
+
 The stopPropagation method is used to stop the event from bubbling up the event chain. For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
 ```html
 <p>Click DIV1 Element</p>
@@ -1843,13 +1857,19 @@ function secondFunc() {
 }
 </script>
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are the steps involved in return false usage?***
+
 The return false statement in event handlers performs the below steps,
 1. First it stops the browser's default action or behaviour.
 2. It prevents the event from propagating the DOM
 3. Stops callback execution and returns immediately when called.
 
 #### Q. ***What is BOM?***
+
 The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
 
 <div align="right">
@@ -1857,19 +1877,35 @@ The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It co
 </div>
 
 #### Q. ***What is the use of setTimeout?***
+
 The setTimeout() method is used to call a function or evaluates an expression after a specified number of milliseconds. For example, let's log a message after 2 seconds using setTimeout method,
 ```javascript
 setTimeout(function() { console.log("Good morning"); }, 2000);
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is the use of setInterval?***
+
 The setInterval() method is used to call a function or evaluates an expression at specified intervals (in milliseconds). For example, let's log a message after 2 seconds using setInterval method,
 ```javascript
 setInterval(function() { console.log("Good morning"); }, 2000);
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***Why is JavaScript treated as Single threaded?***
+
 JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is an event delegation?***
+
 Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it.
 For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
 ```javascript
@@ -1888,13 +1924,19 @@ console.log(event.target);
 </div>
 
 #### Q. ***What is the purpose JSON stringify?***
+
 When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using stringify() method.
 ```javascript
 var userJSON = {'name': 'John', age: 31}
 var userString = JSON.stringify(user);
 console.log(userString); //"{"name":"John","age":31}"
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you parse JSON string?***
+
 When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using parse() method.
 ```javascript
 var userString = '{"name":"John","age":31}';
@@ -1906,6 +1948,7 @@ console.log(userJSON);// {name: "John", age: 31}
 </div>
 
 #### Q. ***What is the purpose of clearTimeout method?***
+
 The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer.
 For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
 ```javascript
@@ -1920,7 +1963,12 @@ function stop() {
     clearTimeout(msg);
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is the purpose of clearInterval method?***
+
 The `clearInterval()` function is used in javascript to clear the interval which has been set by `setInterval()` function. i.e, The return value returned by setInterval() function is stored in a variable and it’s passed into the clearInterval() function to clear the interval.
 For example, the below setInterval method is used to display the message for every 3 seconds. This interval can be cleared by clearInterval() method.
 ```javascript
@@ -1940,13 +1988,19 @@ function stop() {
 </div>
 
 #### Q. ***How do you redirect new page in javascript?***
+
 In vanilla javascript, you can redirect to a new page using `location` property of window object. The syntax would be as follows,
 ```javascript
 function redirect() {
   window.location.href = 'newPage.html';
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you check whether a string contains a substring?***
+
 There are 3 possible ways to check whether a string contains a substring or not,  
 **a.) Using includes:** ES6 provided `String.prototype.includes` method to test a string contains a substring
 ```javascript
@@ -1968,6 +2022,7 @@ regex.test(mainString)
 </div>
 
 #### Q. ***How do you validate an email in javascript?***
+
 You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead client side. Because the javascript can be disabled on the client side.
 ```javascript
 function validateEmail(email) {
@@ -1977,12 +2032,23 @@ function validateEmail(email) {
 ```
 The above regular expression regular accepts unicode characters.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you get the current url with javascript?***
+
 You can use `window.location.href` expression to get the current url path and you can use the same expression for updating the URL too. You can also use `document.URL` for read-only purpose but this solution has issues in FF.
 ```javascript
 console.log('location.href', window.location.href); // Returns full URL
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are the various url properties of location object?***
+
 The below `Location` object properties can be used to access URL components of the page
 
 |Properties|Description|
@@ -1996,13 +2062,23 @@ The below `Location` object properties can be used to access URL components of t
 |search    |The query portion of the URL|
 |hash      |The anchor portion of the URL|
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do get query string values in javascript?***
+
 You can use URLSearchParams to get query string values in javascript. Let's see an example to get the client code value from URL query string,
 ```javascript
 const urlParams = new URLSearchParams(window.location.search);
 const clientCode = urlParams.get('clientCode');
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you check if a key exists in an object?***
+
 **a.) Using in operator:** You can use the in operator whether a key exists in an object or not
 ```javascript
 "key" in obj
@@ -2020,6 +2096,7 @@ obj.hasOwnProperty("key") // true
 </div>
 
 #### Q. ***How do you loop through or enumerate javascript object?***
+
 You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn't come from the prototype using `hasOwnProperty` method.
 ```javascript
 var object = {
@@ -2034,6 +2111,10 @@ for (var key in object) {
     }
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you test for an empty object?***
 
 **a.) Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
@@ -2049,6 +2130,7 @@ Object.entries(obj).length === 0 && obj.constructor === Object
 </div>
 
 #### Q. ***What is an arguments object?***
+
 The arguments object is an Array-like object accessible inside functions that contains the values of the arguments passed to that function. For example, let's see how to use arguments object inside sum function,
 ```javascript
 function sum() {
@@ -2061,14 +2143,24 @@ function sum() {
 
 sum(1, 2, 3) // returns 6
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you make first letter of the string in an uppercase?***
+
 You can create a function which uses chain of string methods such as charAt, toUpperCase and slice methods to generate a string with first letter in uppercase.
 ```javascript
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are the pros and cons of for loop?***
+
 The for-loop is a commonly used iteration syntax in javascript. It has both pros and cons
 
 **Pros**  
@@ -2085,6 +2177,7 @@ The for-loop is a commonly used iteration syntax in javascript. It has both pros
 </div>
 
 #### Q. ***How do you display the current date in javascript?***
+
 You can use `new Date()` to generate a new Date object containing the current date and time. For example, let's display the current date in mm/dd/yyyy
 ```javascript
 var today = new Date();
@@ -2095,7 +2188,12 @@ var yyyy = today.getFullYear();
 today = mm + '/' + dd + '/' + yyyy;
 document.write(today);
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you compare two date objects?***
+
 You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
 ```javascript
 var d1 = new Date();
@@ -2103,13 +2201,24 @@ var d2 = new Date(d1);
 console.log(d1.getTime() === d2.getTime()); //True
 console.log(d1 === d2); // False
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you check if a string starts with another string?***
+
 You can use ECMAScript 6's `String.prototype.startsWith()` method to check a string starts with another string or not. But it is not yet supported in all browsers. Let's see an example to see this usage,
 ```javascript
 "Good morning".startsWith("Good"); // true
 "Good morning".startsWith("morning"); // false
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you trim a string in javascript?***
+
 JavaScript provided a trim method on string types to trim any whitespaces present at the begining or ending of the string.
 ```javascript
 "  Hello World   ".trim(); //Hello World
@@ -2131,6 +2240,7 @@ if (!String.prototype.trim) {
 </div>
 
 #### Q. ***How do you add a key value pair in javascript?***
+
 There are two possible solutions to add new properties to an object. Let's take a simple object to explain these solutions.
 ```javascript
 var object = {
@@ -2146,14 +2256,24 @@ object.key3 = "value3";
 ```javascript
 obj["key3"] = "value3";
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you assign default values to variables?***
+
 You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,
 ```javascript
 var a = b || c;
 ```
 As per the above expression, variable 'a 'will get the value of 'c' only if 'b' is falsy (if is null, false, undefined, 0, empty string, or NaN), otherwise 'a' will get the value of 'b'.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***Can we define properties for functions?***
+
 Yes, We can define properties for functions because functions are also objects.
 ```javascript
 fn = function(x) {
@@ -2171,6 +2291,7 @@ fn.profile = function(y) {
 </div>
 
 #### Q. ***What is the way to find the number of parameters expected by a function?***
+
 You can use `function.length` syntax to find the number of parameters expected by a function. Let's take an example of `sum` function to calculate the sum of numbers,
 ```javascript
 function sum(num1, num2, num3, num4){
@@ -2178,8 +2299,12 @@ function sum(num1, num2, num3, num4){
 }
 sum.length // 4 is the number of parameters expected.
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. ***What are break and continue statements?***
+
 The break statement is used to "jumps out" of a loop. i.e, It breaks the loop and continues executing the code after the loop.
 ```javascript
 for (i = 0; i < 10; i++) {
@@ -2199,6 +2324,7 @@ for (i = 0; i < 10; i++) {
 </div>
 
 #### Q. ***What are js labels?***
+
 The label statement allows us to name loops and blocks in JavaScript. We can then use these labels to refer back to the code later. For example, the below code with labels avoids printing the numbers when they are same,
 ```javascript
 var i, j;
@@ -2219,20 +2345,35 @@ for (i = 0; i < 3; i++) {
 //   "i = 2, j = 0"
 //   "i = 2, j = 1"
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are the benefits of keeping declarations at the top?***
+
 It is recommended to keep all declarations at the top of each script or function. The benefits of doing this are,
 1. Gives cleaner code
 2. It provides a single place to look for local variables
 3. Easy to avoid unwanted global variables
 4. It reduces the possibility of unwanted re-declarations
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are the benefits of initializing variables?***
+
 It is recommended to initialize variables because of the below benefits,
 1. It gives cleaner code
 2. It provides a single place to initialize variables
 3. Avoid undefined values in the code
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are the recommendations to create new object?***
+
 It is recommended to avoid creating new objects using `new Object()`. Instead you can initialize values based on it's type to create the objects.
 1. Assign {} instead of new Object()
 2. Assign "" instead of new String()
@@ -2258,6 +2399,7 @@ var v7 = function(){};
 </div>
 
 #### Q. ***How do you define JSON arrays?***
+
 JSON arrays are written inside square brackets and array contain javascript objects. For example, the JSON array of users would be as below,
 ```javascript
 "users":[
@@ -2266,7 +2408,12 @@ JSON arrays are written inside square brackets and array contain javascript obje
   {"firstName":"Shane", "lastName":"Warn"}
 ]
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you generate random integers?***
+
 You can use Math.random() with Math.floor() to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,
 ```javascript
 Math.floor(Math.random() * 10) + 1;     // returns a random integer from 1 to 10
@@ -2274,7 +2421,12 @@ Math.floor(Math.random() * 100) + 1;     // returns a random integer from 1 to 1
 ```
 *Note: Math.random() returns a random number between 0 (inclusive), and 1 (exclusive)*
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***Can you write a random integers function to print integers with in a range?***
+
 Yes, you can create a proper random function to return a random number between min and max (both included)
 ```javascript
 function randomInteger(min, max) {
@@ -2283,8 +2435,12 @@ function randomInteger(min, max) {
 randomInteger(1, 100); // returns a random integer from 1 to 100
 randomInteger(1, 1000); // returns a random integer from 1 to 1000
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. ***What are the string methods available in Regular expression?***
+
 Regular Expressions has two string methods: search() and replace().
 The search() method uses an expression to search for a match, and returns the position of the match.
 ```javascript
@@ -2296,16 +2452,21 @@ The replace() method is used return a modified string where the pattern is repla
 var msg = "Hello John";
 var n = msg.search(/John/i, "Buttler"); // Hello Buttler
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are modifiers in regular expression?***
-  Modifiers can be used to perform case-insensitive and global searches. Let's list down some of the modifiers,
 
-  | Modifier | Description |
-  |---- | ---------
-  | i  | Perform case-insensitive matching |
-  | g | 	Perform a global match rather than stops at first match  |
-  | m | Perform multiline matching|
+Modifiers can be used to perform case-insensitive and global searches. Let's list down some of the modifiers,
 
-Let's take an example of global modifier,
+| Modifier | Description |
+|---- | -----------------|
+| i  | Perform case-insensitive matching |
+| g | Perform a global match rather than stops at first match  |
+| m | Perform multiline matching|
+
+Example: Global Modifier
 ```javascript
   var text = "Learn JS one by one";
   var pattern = /one/g;
@@ -2316,6 +2477,7 @@ Let's take an example of global modifier,
 </div>
 
 #### Q. ***What are regular expression patterns?***
+
 Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,  
 
 **1. Brackets:** These are used to find a range of characters.
@@ -2341,25 +2503,41 @@ Regular Expressions provided group of patterns in order to match characters. Bas
 </div>
 
 #### Q. ***What is a RegExp object?***
+
 RegExp object is a regular expression object with predefined properties and methods. Let's see the simple usage of RegExp object,
 ```javascript
 var regexp = new RegExp('\\w+');
 console.log(regexp);
 // expected output: /\w+/
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you search a string for a pattern?***
+
 You can use test() method of regular expression in order to search a string for a pattern, and returns true or false depending on the result.
 ```javascript
 var pattern = /you/;
 console.log(pattern.test("How are you?")); //true
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is the purpose of exec method?***
+
 The purpose of exec method is similar to test method but it returns a founded text as an object instead of returning true/false.
 ```javascript
 var pattern = /you/;
 console.log(pattern.test("How are you?")); //you
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you change style of a HTML element?***
+
 You can change inline style or classname of a HTML element using javascript
 1. **Using style property:** You can modify inline style using style property
 ```javascript
@@ -2374,6 +2552,7 @@ document.getElementById("title").style.className = "custom-title";
 </div>
 
 #### Q. ***What is a debugger statement?***
+
 The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect.
 For example, in the below function a debugger statement has been inserted. So execution is paused at the debugger statement just like a breakpoint in the script source.
 ```javascript
@@ -2383,16 +2562,30 @@ debugger;
 // code goes here
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is the purpose of breakpoints in debugging?***
+
 You can set breakpoints in the javascript code once the debugger statement is executed and debugger window pops up. At each breakpoint, javascript will stop executing, and let you examine the JavaScript values. After examining values, you can resume the execution of code using play button.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***Can I use reserved words as identifiers?***
+
 No, you cannot use the reserved words as variables, labels, object or function names. Let's see one simple example,
 ```javascript
 var else = "hello"; // Uncaught SyntaxError: Unexpected token else
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. ***How do you detect a mobile browser without regexp?***
+
 You can detect mobile browser by simply running through a list of devices and checking if the useragent matches anything. This is an alternative solution for RegExp usage,
 ```javascript
 function detectmob() {
@@ -2416,6 +2609,7 @@ else {
 </div>
 
 #### Q. ***How do you get the image width and height using JS?***
+
 You can programmatically get the image and check the dimensions(width and height) using Javascript.
 ```javascript
 var img = new Image();
@@ -2424,8 +2618,12 @@ img.onload = function() {
 }
 img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. ***How do you make synchronous HTTP request?***
+
 Browsers provide an XMLHttpRequest object which can be used to make synchronous HTTP requests from JavaScript
 ```javascript
 function httpGet(theUrl)
@@ -2436,7 +2634,12 @@ function httpGet(theUrl)
     return xmlHttpReq.responseText;
 }
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you make asynchronous HTTP request?***
+
 Browsers provide an XMLHttpRequest object which can be used to make asynchronous HTTP requests from JavaScript by passing 3rd parameter as true.
 ```javascript
 function httpGetAsync(theUrl, callback)
@@ -2455,11 +2658,17 @@ function httpGetAsync(theUrl, callback)
 </div>
 
 #### Q. ***How do you convert date to another timezone in javascript?***
+
 You can use toLocaleString() method to convert date in one timezone to another. For example, let's convert current date to British English timezone as below,
 ```javascript
 console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 09:56:00
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are the properties used to get size of window?***
+
 You can use innerWidth, innerHeight, clientWidth, clientHeight properties of windows, document element and document body objects to find the size of a window. Let's use them combination of these properties to calculate the size of a window or document,
 ```javascript
 var width = window.innerWidth
@@ -2470,13 +2679,23 @@ var height = window.innerHeight
 || document.documentElement.clientHeight
 || document.body.clientHeight;
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is a conditional operator in javascript?***
+
 The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
 ```javascript
 var isAuthenticated = false;
 console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticated'); //Sorry, you are not authenticated
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***Can you apply chaining on conditional operator?***
+
 Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain. The syntax is going to be as below,
 ```javascript
 function traceValue(someParam) {
@@ -2500,6 +2719,7 @@ function traceValue(someParam) {
 </div>
 
 #### Q. ***What are the ways to execute javascript after page load?***
+
 You can execute javascript after page load in many different ways,  
 **a.) window.onload:**
 ```javascript
@@ -2513,13 +2733,23 @@ document.onload = function ...
 ```html
 <body onload="script();">
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is the difference between proto and prototype?***
+
 The `__proto__` object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas `prototype` is the object that is used to build `__proto__` when you create an object with new
 ```javascript
 ( new Employee ).__proto__ === Employee.prototype;
 ( new Employee ).prototype === undefined;
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***Give an example where do you really need semicolon?***
+
 It is recommended to use semicolons after every statement in JavaScript. For example, in the below case it throws an error ".. is not a function" at runtime due to missing semicolon.
 ```javascript
 // define a function
@@ -2547,6 +2777,7 @@ In this case, we are passing second function as an argument to the first functio
 </div>
 
 #### Q. ***What is a freeze method?***
+
 The freeze() method is used to freeze an object. Freezing an object does'nt allow adding new properties to an object,prevents from removing and prevents changing the enumerability, configurability, or writability of existing properties. i.e, It returns the passed object and does not create a frozen copy.
 ```javascript
 const obj = {
@@ -2560,15 +2791,26 @@ console.log(obj.prop); //100
 ```
 *Note: It causes a TypeError if the argument passed is not an object*.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is the purpose of freeze method?***
+
 Below are the main benefits of using freeze method,
 1. It is used for freezing objects and arrays.
 2. It is used to make an object immutable.
 
 #### Q. ***Why do I need to use freeze method?***
+
 In Object-oriented paradigm, an existing API contains certain elements that are not intended to be extended, modified, or re-used outside of their current context. Hence it works as `final` keyword which is used in various languages.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you detect a browser language preference?***
+
 You can use navigator object to detect a browser language preference as below,
 ```javascript
 var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
@@ -2577,7 +2819,12 @@ var language = navigator.languages && navigator.languages[0] || // Chrome / Fire
 
 console.log(language);
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How to convert string to title case with javascript?***
+
 Title case means that the first letter of each word is capitalized. You can convert a string to title case using the below function,
 ```javascript
     function toTitleCase(str) {
@@ -2590,7 +2837,12 @@ Title case means that the first letter of each word is capitalized. You can conv
     }
     toTitleCase("good morning john"); // Good Morning John
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***How do you detect javascript disabled in the page?***
+
 You can use `<noscript>` tag to detect javascript disabled or not. The code block inside `<noscript>` get executed when JavaScript is disabled, and are typically used to display alternative content when the page generated in JavaScript.
 ```html
 <script type="javascript">
@@ -2600,7 +2852,12 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
     <a href="next_page.html?noJS=true">JavaScript is disabled in the apge. Please click Next Page</a>
 </noscript>
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What are various operators supported by javascript?***
+
 An operator is capable of manipulating(mathematical and logical computations) a certain value or operand. There are various operators supported by JavaScript as below,
 1. **Arithmetic Operators:** Includes + (Addition),– (Subtraction), * (Multiplication), / (Division), % (Modulus), + + (Increment)  and – – (Decrement)
 2. **Comparison Operators:** Includes = =(Equal),!= (Not Equal), ===(Equal with type), > (Greater than),> = (Greater than or Equal to),< (Less than),<= (Less than or Equal to)
