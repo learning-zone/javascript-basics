@@ -367,24 +367,31 @@
 
 #### Q. ***What is difference between document.getElementById() and document.querySelector()?***
 
-* **document.getElementById()**: Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+* **document.getElementById()**
+
+Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
 
 ```javascript
 element = document.getElementById(id);
 ```
 
-* **document.querySelector()**: Returns the first matching Element node within the node\'s subtree. If no matching node is found, null is returned.
+* **document.querySelector()**
+
+Returns the first matching Element node within the node\'s subtree. If no matching node is found, null is returned.
 
 ```javascript
 element = document.querySelector(selectors);
 ```
 
-* **document.querySelectorAll()**: Returns a NodeList containing all matching Element nodes within the node\'s subtree, or an empty NodeList if no matches are found.
+* **document.querySelectorAll()**
+
+Returns a NodeList containing all matching Element nodes within the node\'s subtree, or an empty NodeList if no matches are found.
 
 ```javascript
 element = document.querySelectorAll(selectors);
 ```
-*Note: <code>querySelector()</code> is more useful when we want to use more complex selectors*.
+
+*Note: `querySelector()` is more useful when we want to use more complex selectors*.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -392,7 +399,9 @@ element = document.querySelectorAll(selectors);
 
 #### Q. ***When to use reduce(), map(), foreach() and filter() in JavaScript?***
 
-* **forEach()**:  It takes a callback function and run that callback function on each element of array one by one.
+* **forEach()**  
+
+It takes a callback function and run that callback function on each element of array one by one.
 
 Basically forEach works as a traditional for loop looping over the array and providing array elements to do operations on them.
 ```javascript
@@ -409,7 +418,9 @@ Output
 30 comes at 2
 ```
 
-* **filter()**: The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
+* **filter()** 
+
+The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
 
 *Note: filter does not update the existing array it will return a new filtered array every time*.
 ```javascript
@@ -425,9 +436,12 @@ Output
 [10, 30]
 ```
 
-* **map()**: map() like filter() & forEach() takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
+* **map()**
+
+map() like filter() & forEach() takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
 
 Like filter(), map() also returns an array. The provided callback to map modifies the array elements and save them into the new array upon completion that array get returned as the mapped array.
+
 ```javascript
 var arr = [10, 20, 30];
 
@@ -441,7 +455,9 @@ Output
 [100, 200, 300]
 ```
 
-* **reduce()**: reduce() method of the array object is used to reduce the array to one single value.
+* **reduce()** 
+
+reduce() method of the array object is used to reduce the array to one single value.
 
 ```javascript
 var arr = [10, 20, 30];
@@ -451,6 +467,7 @@ var sum = arr.reduce(function(sum, elem) {
 });
 console.log(sum); // Output: 60
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -741,6 +758,7 @@ Event capturing is a type of event propagation where the event is first captured
 Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
 
 **Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through `Object.getPrototypeOf(object)` or `__proto__` property whereas prototype on constructors function is available through **Object.prototype**.
+
 ```javascript
 function Person(firstName, lastName, age) {
   this.firstName = firstName;
@@ -759,13 +777,17 @@ var person = new Person("John", "K", 25);
 > person.hasOwnProperty("getFullName");  // false
 > person.getFullName(); // John K
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 #### Q. ***What is the difference between Call, Apply and Bind?***
 
-**a.) call():** The call() method invokes a function with a given `this` value and arguments provided one by one
+**a.) call()**
+
+The call() method invokes a function with a given `this` value and arguments provided one by one
+
 ```javascript
 var employee1 = {firstName: 'John', lastName: 'Rodson'};
 var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
@@ -777,7 +799,9 @@ function invite(greeting1, greeting2) {
 invite.call(employee1, 'Hello', 'How are you?'); // Hello John Rodson, How are you?
 invite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
 ```
-**b.) apply():** Invokes the function and allows you to pass in arguments as an array
+**b.) apply()** 
+
+Invokes the function and allows you to pass in arguments as an array
 ```javascript
 var employee1 = {firstName: 'John', lastName: 'Rodson'};
 var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
@@ -789,7 +813,11 @@ function invite(greeting1, greeting2) {
 invite.apply(employee1, ['Hello', 'How are you?']); // Hello John Rodson, How are you?
 invite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?
 ```
-**c.) bind():** returns a new function, allowing you to pass in an array and any number of arguments
+
+**c.) bind()**
+
+returns a new function, allowing you to pass in an array and any number of arguments
+
 ```javascript
 var employee1 = {firstName: 'John', lastName: 'Rodson'};
 var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
@@ -803,6 +831,7 @@ var inviteEmployee2 = invite.bind(employee2);
 inviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you?
 inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1027,6 +1056,7 @@ const sum = memoizedAdd();
 console.log(sum(10)); // Calculating result: 20
 console.log(sum(10)); // Fetching from cache: 20
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1041,13 +1071,15 @@ Some of the major features of service workers are
 * Intercept and handle network requests
 * Programmatically managing a cache of responses
 
-**Lifecycle of a Service Worker**  
+**Lifecycle of a Service Worker**
+
 It consists of the following phases:
 * Download
 * Installation
 * Activation
 
-**Registering a Service Worker**  
+**Registering a Service Worker**
+
 To register a service worker we first check if the browser supports it and then register it.
 
 ```javascript
@@ -1062,7 +1094,9 @@ if ('serviceWorker' in navigator) {
     console.log('Registration Failed', error);
   }
 ```
-**Installation of service worker**  
+
+**Installation of service worker**
+
 After the controlled page that takes care of the registration process, we come to the service worker script that handles the installation part.
 
 Basically, you will need to define a callback for the install event and then decide on the files that you wish to cache. Inside a callback, one needs to take of the following three points –
@@ -1070,8 +1104,9 @@ Basically, you will need to define a callback for the install event and then dec
 * Open a cache
 * Cache the files
 * Seek confirmation for the required caches and whether they have been successful.
+
 ```javascript
-var CACHENAME = 'My site’s cache'; 
+var CACHENAME = 'My site cache'; 
 var urlstocache = [ 
 	'/', 
   '/styles/main1.css', 
@@ -1087,8 +1122,11 @@ self.addEventListener('install', function(event) {
 		}) 
 );
 ```
-**Cache and return requests**  
+
+**Cache and return requests**
+
 After a service worker is installed and the user navigates to a different page or refreshes, the service worker will begin to receive fetch events, an example of which is below.
+
 ```javascript
 self.addEventListener('fetch', function(event) {
   event.respondWith(
@@ -1104,6 +1142,7 @@ self.addEventListener('fetch', function(event) {
   );
 });
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1160,7 +1199,9 @@ Service worker can\'t access the DOM directly. But it can communicate with the p
 </body>
 </html>
 ```
-**service-worker.js**  
+
+**service-worker.js** 
+
 ```javascript
 self.addEventListener("message", function(event) {
     //event.source.postMessage("Responding to " + event.data);
@@ -1169,6 +1210,7 @@ self.addEventListener("message", function(event) {
     }));
 });
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
