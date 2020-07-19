@@ -203,7 +203,7 @@
 | 190.|[Explain how prototypal inheritance works?](#q-explain-how-prototypal-inheritance-works)|
 | 191.|[Example of Prototypal Inheritance?](#q-example-of-prototypal-inheritance)|
 | 192.|[What do you think of AMD vs CommonJS?](#q-what-do-you-think-of-amd-vs-commonjs)|
-| 193.|[Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#q-explain-why-the-following-doesn-t-work-as-an-iife-function-foo-what-needs-to-be-changed-to-properly-make-it-an-iife)|
+| 193.|[Explain why the following does not work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#q-explain-why-the-following-does-not-work-as-an-iife-function-foo-what-needs-to-be-changed-to-properly-make-it-an-iife)|
 | 194.|[What is the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#q-what-is-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)|
 | 195.|[Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#q-can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)|
 | 196.|[What is a typical use case for anonymous functions?](#q-what-is-a-typical-use-case-for-anonymous-functions)|
@@ -281,24 +281,12 @@
 | 268.|[Explain how `this` works in JavaScript?](#q-explain-how-this-works-in-javascript)|
 | 269.|[Explain how prototypal inheritance works?](#q-explain-how-prototypal-inheritance-works)|
 | 270.|[What do you think of AMD vs CommonJS?](#q-what-do-you-think-of-amd-vs-commonjs)|
-| 271.|[Explain why the following doesnot work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?](#q-explain-why-the-following-doesn-t-work-as-an-iife-function-foo-what-needs-to-be-changed-to-properly-make-it-an-iife)|
-| 272.|[What is the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?](#q-what-is-the-difference-between-a-variable-that-is-null-undefined-or-undeclared-how-would-you-go-about-checking-for-any-of-these-states)|
 | 273.|[What is a closure, and how/why would you use one?](#q-what-is-a-closure-and-how-why-would-you-use-one)|
-| 274.|[Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#q-can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other-1)
-| 275.|[What is a typical use case for anonymous functions?](#q-what-is-a-typical-use-case-for-anonymous-functions-1)
-| 276.|[How do you organize your code? (module pattern, classical inheritance?)](#q-how-do-you-organize-your-code-module-pattern-classical-inheritance-1)
-| 277.|[What is the difference between host objects and native objects?](#q-what-is-the-difference-between-host-objects-and-native-objects-1)
-| 278.|[Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?](#q-difference-between-function-person-var-person-person-and-var-person-new-person-1)
-| 279.|[What is the difference between `.call` and `.apply`?](#q-what-is-the-difference-between-call-and-apply-1)
-| 280.|[Explain `Function.prototype.bind`?](#q-explain-functionprototypebind-1)
-| 281.|[When would you use `document.write()`?](#q-when-would-you-use-documentwrite-1)
-| 282.|[What is the difference between feature detection, feature inference, and using the UA string?](#q-what-is-the-difference-between-feature-detection-feature-inference-and-using-the-ua-string-1)
+| 274.|[Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#q-can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)|
 | 283.|[Have you ever used JavaScript templating? If so, what libraries have you used?](#q-have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)|
 | 284.|[Explain "hoisting" in JavaScript?](#q-explain-hoisting-in-javascript)|
-| 285.|[What is the difference between an "attribute" and a "property"?](#q-what-is-the-difference-between-an-attribute-and-a-property-1)
-| 286.|[Why is extending built-in JavaScript objects not a good idea?](#q-why-is-extending-built-in-javascript-objects-not-a-good-idea-1)
-| 287.|[Difference between document `load` event and document `DOMContentLoaded` event?](#q-difference-between-document-load-event-and-document-domcontentloaded-event-1)
-| 288.|[What is the difference between `==` and `===`?](#q-what-is-the-difference-between-and-1)
+| 285.|[What is the difference between an "attribute" and a "property"?](#q-what-is-the-difference-between-an-attribute-and-a-property)|
+| 287.|[Difference between document `load` event and document `DOMContentLoaded` event?](#q-difference-between-document-load-event-and-document-domcontentloaded-event)
 | 289.|[What is JSON and its common operations?](#q-what-is-json-and-its-common-operations)|
 | 290.|[What is the purpose of array slice method?](#q-what-is-the-purpose-of-array-slice-method)|
 | 291.|[What is the purpose of array splice method?](#q-what-is-the-purpose-of-array-splice-method)|
@@ -2807,7 +2795,7 @@ var height = window.innerHeight
 The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
 ```javascript
 var isAuthenticated = false;
-console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticated'); //Sorry, you are not authenticated
+console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticated');
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -4054,16 +4042,16 @@ I'm glad that with ES2015 modules, that has support for both synchronous and asy
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. ***Explain why the following doesn't work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?***
+#### Q. ***Explain why the following does not work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?***
 
 IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a *function declaration* and the latter (a pair of parentheses) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token )`.
 
 Here are two ways to fix it that involves adding more parentheses: `(function foo(){ })()` and `(function foo(){ }())`. Statements that begin with `function` are considered to be *function declarations*; by wrapping this function within `()`, it becomes a *function expression* which can then be executed with the subsequent `()`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
 
-You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can't use it. An example:
+You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can not use it. An example:
 
-```
-// Don't add JS syntax to this code block to prevent Prettier from formatting it.
+```js
+// Do not add JS syntax to this code block to prevent Prettier from formatting it.
 const foo = void function bar() { return 'foo'; }();
 
 console.log(foo); // undefined
@@ -6680,16 +6668,6 @@ const doubled = a.map(num => {
 ```
 
 The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-#### Q. ***What is the difference between host objects and native objects?***
-
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
-
-Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
