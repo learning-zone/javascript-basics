@@ -6703,19 +6703,6 @@ c.constructor.name;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a closure, and how/why would you use one?***
-
-A closure is the combination of a function and the lexical environment within which that function was declared. The word "lexical" refers to the fact that lexical scoping uses the location where a variable is declared within the source code to determine where that variable is available. Closures are functions that have access to the outer (enclosing) function's variables—scope chain even after the outer function has returned.
-
-**Why would you use one?**
-
-* Data privacy / emulating private methods with closures. Commonly used in the [module pattern](https://addyosmani.com/resources/essentialjsdesignpatterns/book/#modulepatternjavascript).
-* [Partial applications or currying](https://medium.com/javascript-scene/curry-or-partial-application-8150044c78b8#.l4b6l1i3x).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?***
 
 To understand the differences between the two, Let us look at what each function does.
@@ -6765,47 +6752,6 @@ const template = `<div>My name is: ${name}</div>`;
 
 However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain "hoisting" in JavaScript?***
-
-Hoisting is a term used to explain the behavior of variable declarations in your code. Variables declared or initialized with the `var` keyword will have their declaration "moved" up to the top of the current scope, which we refer to as hoisting. However, only the declaration is hoisted, the assignment (if there is one), will stay where it is.
-
-Note that the declaration is not actually moved - the JavaScript engine parses the declarations during compilation and becomes aware of declarations and their scopes. It is just easier to understand this behavior by visualizing the declarations as being hoisted to the top of their scope.
-
-```javascript
-// var declarations are hoisted.
-console.log(foo); // undefined
-var foo = 1;
-console.log(foo); // 1
-
-// let/const declarations are NOT hoisted.
-console.log(bar); // ReferenceError: bar is not defined
-let bar = 2;
-console.log(bar); // 2
-```
-
-Function declarations have the body hoisted while the function expressions (written in the form of variable declarations) only has the variable declaration hoisted.
-
-```javascript
-// Function Declaration
-console.log(foo); // [Function: foo]
-foo(); // 'FOOOOO'
-function foo() {
-  console.log('FOOOOO');
-}
-console.log(foo); // [Function: foo]
-
-// Function Expression
-console.log(bar); // undefined
-bar(); // Uncaught TypeError: bar is not a function
-var bar = function() {
-  console.log('BARRRR');
-};
-console.log(bar); // [Function: bar]
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
