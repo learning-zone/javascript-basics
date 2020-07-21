@@ -281,10 +281,8 @@
 | 268.|[Explain how `this` works in JavaScript?](#q-explain-how-this-works-in-javascript)|
 | 269.|[Explain how prototypal inheritance works?](#q-explain-how-prototypal-inheritance-works)|
 | 270.|[What do you think of AMD vs CommonJS?](#q-what-do-you-think-of-amd-vs-commonjs)|
-| 273.|[What is a closure, and how/why would you use one?](#q-what-is-a-closure-and-how-why-would-you-use-one)|
 | 274.|[Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?](#q-can-you-describe-the-main-difference-between-a-foreach-loop-and-a-map-loop-and-why-you-would-pick-one-versus-the-other)|
 | 283.|[Have you ever used JavaScript templating? If so, what libraries have you used?](#q-have-you-ever-used-javascript-templating-if-so-what-libraries-have-you-used)|
-| 284.|[Explain "hoisting" in JavaScript?](#q-explain-hoisting-in-javascript)|
 | 285.|[What is the difference between an "attribute" and a "property"?](#q-what-is-the-difference-between-an-attribute-and-a-property)|
 | 287.|[Difference between document `load` event and document `DOMContentLoaded` event?](#q-difference-between-document-load-event-and-document-domcontentloaded-event)
 | 289.|[What is JSON and its common operations?](#q-what-is-json-and-its-common-operations)|
