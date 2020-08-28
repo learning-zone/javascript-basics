@@ -1,4 +1,4 @@
-## ES6 Interview Questions and Answers
+# ES6 Interview Questions and Answers
 
 
 |Sl.No|  Questions                                                     |
@@ -29,7 +29,7 @@
 
 <br/>
 
-#### Q. Can you give an example for destructuring an object or an array?
+## Q. Can you give an example for destructuring an object or an array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
 
@@ -65,11 +65,13 @@ const { p, q } = o;
 console.log(p); // 42
 console.log(q); // true
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. List out important features of es6?
+## Q. List out important features of es6?
+
 **1. Template Strings**  
 
 Template literals are string literals allowing embedded expressions.
@@ -426,11 +428,13 @@ console.log(iterateIt.next().value); //output: E
 console.log(iterateIt.next().value); //output: S
 console.log(iterateIt.next().value); //output: 6
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
+## Q. ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
+
 Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
 
 ```javascript
@@ -486,11 +490,12 @@ document.body.innerHTML = `
   </div>
 `
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the benefit of using the arrow syntax for a method in a constructor?
+## Q. What is the benefit of using the arrow syntax for a method in a constructor?
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. 
 ```javascript
@@ -522,12 +527,14 @@ sayNameFromWindow1(); // undefined (because 'this' is now the window object)
 var sayNameFromWindow2 = john.sayName2;
 sayNameFromWindow2(); // John
 ```
-The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn't have to worry about the context changing.
+The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn\'t have to worry about the context changing.
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What are fat arrow functions? When you should not use arrow functions in ES6?
+## Q. What are fat arrow functions? When you should not use arrow functions in ES6?
+
 An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
 
 
@@ -558,7 +565,8 @@ button.addEventListener('click', () => {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. How does await and async works in es6?
+## Q. How does await and async works in es6?
+
 * **Promises**
 ```javascript
 const delay = seconds => {
@@ -614,11 +622,13 @@ const githubRequest = async(loginName) => {
 //githubRequest('eveporcello');
 githubRequest('pradeepkumar2');
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What are the benefits of using arrow function over es5 function? 
+## Q. What are the benefits of using arrow function over es5 function?
+
 **Arrow functions**  
 Arrows is a new syntax for functions, which brings several benefits:
 
@@ -640,11 +650,12 @@ var a4 = (x, y) => 1;
 //arrow with body has no implicit return
 var a5 = x => { return 1; };
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What are the differences between ES6 class and ES5 function constructors?
+## Q. What are the differences between ES6 class and ES5 function constructors?
 
 ```javascript
 // ES5 Function Constructor
@@ -687,11 +698,12 @@ class Student extends Person {
 ```
 
 It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What are the benefits of using spread syntax and how is it different from rest syntax?
+## Q. What are the benefits of using spread syntax and how is it different from rest syntax?
 
 ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and Rx.js projects.
 
@@ -738,7 +750,7 @@ const { e, f, ...others } = {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What are the differences between variables created using `let`, `var` or `const`?
+## Q. What are the differences between variables created using `let`, `var` or `const`?
 
 Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
@@ -813,7 +825,7 @@ baz = 'qux';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the difference between for..in and for..of?
+## Q. What is the difference between for..in and for..of?
 * **for in**: loops over enumerable property names of an object.
 * **for of**: (new in ES6) does use an object-specific iterator and loops over the values generated by that.
 
@@ -834,7 +846,7 @@ for (let i of list) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the Temporal Dead Zone in ES6?
+## Q. What is the Temporal Dead Zone in ES6?
 In ES6, let bindings are not subject to Variable Hoisting, which means that let declarations do not move to the top of the current execution context. Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the undefined value). The variable is in a “temporal dead zone” from the start of the block until the initialization is processed.
 
 ```javascript
@@ -843,7 +855,7 @@ console.log(aLet); // causes ReferenceError: aLet is not defined
 var aVar = 1;
 let aLet = 2;
 ```
-#### Q. What is the difference between ES6 Map and WeakMap?
+## Q. What is the difference between ES6 Map and WeakMap?
 **Map**  
 It is used to associate a key to a value irrespective of the datatype such as strings, numbers, objects etc. To assign values to a map you need to use the set method:
 ```javascript
@@ -873,12 +885,14 @@ delete window.obj
 3. There is no size property exists in WeakMap.
 
 **Browser support for Map and WeakMap**  
-The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. There’s no support in IE10. On mobile newer browsers also have support, but IE Mobile doesn’t.
+The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. There is no support in IE10. On mobile newer browsers also have support, but IE Mobile doesn\'t.
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What are default values in destructuring assignment?
+## Q. What are default values in destructuring assignment?
+
 A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment.  
 
 **Array Destructuring**  
@@ -899,7 +913,7 @@ console.log(x); // 10
 console.log(y); // 4
 console.log(z); // 6
 ```
-#### Q. How do you swap variables using Destructuring Assignment?
+## Q. How do you swap variables using Destructuring Assignment?
 ```javascript
 var x = 10, y = 20;
 
@@ -907,7 +921,7 @@ var x = 10, y = 20;
 console.log(x); // 20
 console.log(y); // 10
 ```
-#### Q. What is the output of below spread operator array?
+## Q. What is the output of below spread operator array?
 ```javascript
 [...'John']
 ```
@@ -918,7 +932,8 @@ console.log(y); // 10
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is modules in ES6?
+## Q. What is modules in ES6?
+
 To make objects, functions, classes or variables available to the outside world it’s as simple as exporting them and then importing them where needed in other files.
 
 **Benefits**  
@@ -964,7 +979,12 @@ export class Alligator {
 }
 ```
 
-#### Q. What is a trampoline function? What is it used for? 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a trampoline function? What is it used for? 
+
 The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
 
 The problem with regular recursion is that every recursive call adds a stack frame to the call stack, which you can visualize as a **pyramid** of calls. Here is a visualization of calling a factorial function recursively:
@@ -1031,7 +1051,12 @@ So the sole purpose of the trampoline function is to control the execution in an
 
 Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
 
-#### Q. What is the difference between Set and WeakSet in ES6?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between Set and WeakSet in ES6?
+
 **Set**   
 
 Using the `Set()` class we can create an array like heterogeneous iterable object, which will contain only unique values in it. Unique is not just unique by values but also by types. i.e. it will consider `"2"` and `2` separate or different.
@@ -1089,7 +1114,12 @@ myWeakSet.add(2); // ERROR, no primitive value
 |.forEach() is available to iterate|	No .forEach() to iterate  |
 |Nothing is auto destroyed	     |If an element object has no other reference left, it will be auto released to garbage collector|
 
-#### Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
+
 **XMLHttpRequest**  
 
 `XMLHttpRequest()` is a built-in browser object that allows to make HTTP requests in JavaScript. XMLHttpRequest has two modes of operation: **synchronous** and **asynchronous**.
@@ -1183,11 +1213,22 @@ fetch(userRequest)
         console.log("Something went wrong!", err);
     });
 ```
-#### Q. What is the difference between Promise and AJAX?
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between Promise and AJAX?
+
 Promises are a tool for managing asynchronous operations. They keep track of when asynchronous operations complete and what their results are and let you coordinate that completion and those results (including error conditions) with other code or other asynchronous operations. They aren't actually asynchronous operations in themselves. An Ajax call is a specific asynchronous operation that can be used with with a traditional callback interface or wrapped in a promise interface.
 
 An Ajax call is a specific type of asynchronous operation. We can make an Ajax call either with a traditional callback using the `XMLHttpRequest()` interface or we can make an Ajax call (in modern browsers), using a promise with the `fetch()` interface.
-#### Q. What is use of Proxies in es6?
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is use of Proxies in es6?
 The Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc).
 
 There are 3 key terms we need to define before we proceed:
@@ -1220,6 +1261,7 @@ console.log(p.a, p.b);
 console.log('c' in p, p.c); 
 //  false, 37
 ```
+
 There are many real-world applications for Proxies
 
 * validation
@@ -1231,7 +1273,6 @@ There are many real-world applications for Proxies
 
 
 #### Q. How could you make sure a const value is garbage collected?
-*TODO*
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
