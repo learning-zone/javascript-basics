@@ -7593,7 +7593,7 @@ With `splice` method, we modify the original array by deleting, replacing or add
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-### Q. <a name=20191009></a>109. What is the output?
+### Q. What is the output?
 
 ```javascript
 const food = ["🍕", "🍫", "🥑", "🍔"];
