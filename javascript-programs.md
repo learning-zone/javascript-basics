@@ -1,114 +1,139 @@
 ## Programming in JavaScript
 
 ### Q. Write a program in javascript. sum(2)(3); // Expected output is 5
+
 ```javascript
 function sum(x, y) {
   if (y !== undefined) {
     return x + y;
   } else {
-    return function(y) { return x + y; };
+    return function (y) {
+      return x + y;
+    };
   }
 }
 ```
+
 Output
+
 ```
 console.log(sum(2,3));   // Outputs 5
 console.log(sum(2)(3));  // Outputs 5
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. How to do Javascript file size and extension validation before upload?
+
 ```html
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
-<head>
-<meta http-equiv="Content-type" content="text/html;charset=UTF-8">
-<title>Show File Data</title>
-<script type='text/javascript'>
-function showFileSize() {
-    var input, file, extension;
+  <head>
+    <meta http-equiv="Content-type" content="text/html;charset=UTF-8" />
+    <title>Show File Data</title>
+    <script type="text/javascript">
+      function showFileSize() {
+        var input, file, extension;
 
-    // (Can't use `typeof FileReader === "function"` because apparently
-    // it comes back as "object" on some browsers. So just see if it's there
-    // at all.)
-    if (!window.FileReader) {
-        bodyAppend("p", "The file API isn't supported on this browser yet.");
-        return;
-    }
+        // (Can't use `typeof FileReader === "function"` because apparently
+        // it comes back as "object" on some browsers. So just see if it's there
+        // at all.)
+        if (!window.FileReader) {
+          bodyAppend("p", "The file API isn't supported on this browser yet.");
+          return;
+        }
 
-    input = document.getElementById('fileinput');
-    if (!input) {
-        bodyAppend("p", "Um, couldn't find the fileinput element.");
-    } else if (!input.files) {
-        bodyAppend("p", "This browser doesn't seem to support the `files` property of file inputs.");
-    } else if (!input.files[0]) {
-        bodyAppend("p", "Please select a file before clicking 'Load'");
-    } else {
-        file = input.files[0];
-        extension = file.name.substring(file.name.lastIndexOf('.') + 1);
-        bodyAppend("p", "File Name: " + file.name + "<br/>File Size: " + file.size + " bytes <br/>File Extension: " + extension);
-    }
-}
+        input = document.getElementById("fileinput");
+        if (!input) {
+          bodyAppend("p", "Um, couldn't find the fileinput element.");
+        } else if (!input.files) {
+          bodyAppend(
+            "p",
+            "This browser doesn't seem to support the `files` property of file inputs."
+          );
+        } else if (!input.files[0]) {
+          bodyAppend("p", "Please select a file before clicking 'Load'");
+        } else {
+          file = input.files[0];
+          extension = file.name.substring(file.name.lastIndexOf(".") + 1);
+          bodyAppend(
+            "p",
+            "File Name: " +
+              file.name +
+              "<br/>File Size: " +
+              file.size +
+              " bytes <br/>File Extension: " +
+              extension
+          );
+        }
+      }
 
-function bodyAppend(tagName, innerHTML) {
-    var elm;
+      function bodyAppend(tagName, innerHTML) {
+        var elm;
 
-    elm = document.createElement(tagName);
-    elm.innerHTML = innerHTML;
-    document.body.appendChild(elm);
-}
-</script>
-</head>
-<body>
-<form action='#' onsubmit="return false;">
-  <input type='file' id='fileinput'>
-  <input type='button' id='btnLoad' value='Load' onclick='showFileSize();'>
-</form>
-</body>
+        elm = document.createElement(tagName);
+        elm.innerHTML = innerHTML;
+        document.body.appendChild(elm);
+      }
+    </script>
+  </head>
+  <body>
+    <form action="#" onsubmit="return false;">
+      <input type="file" id="fileinput" />
+      <input
+        type="button"
+        id="btnLoad"
+        value="Load"
+        onclick="showFileSize();"
+      />
+    </form>
+  </body>
 </html>
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. How to create captcha using javascript?
+
 ```html
 <!DOCTYPE html>
 <html>
-<head>
+  <head>
     <title>JavaScript Captcha Example</title>
-</head>
-<script>
+  </head>
+  <script>
     var captcha;
-        
+
     function generateCaptcha() {
-        var a = Math.floor((Math.random() * 10));
-        var b = Math.floor((Math.random() * 10));
-        var c = Math.floor((Math.random() * 10));
-        var d = Math.floor((Math.random() * 10));
-        
-        captcha = a.toString() + b.toString() + c.toString() + d.toString();
-        document.getElementById("captcha").value = captcha;
+      var a = Math.floor(Math.random() * 10);
+      var b = Math.floor(Math.random() * 10);
+      var c = Math.floor(Math.random() * 10);
+      var d = Math.floor(Math.random() * 10);
+
+      captcha = a.toString() + b.toString() + c.toString() + d.toString();
+      document.getElementById("captcha").value = captcha;
     }
-        
+
     function check() {
-        var input=document.getElementById("inputText").value;
-        
-        if(input == captcha) {
-            alert("Valid Captcha");
-        } else {
-            alert("Invalid Captcha");
-        }
+      var input = document.getElementById("inputText").value;
+
+      if (input == captcha) {
+        alert("Valid Captcha");
+      } else {
+        alert("Invalid Captcha");
+      }
     }
-</script>
-<body onload="generateCaptcha()">
-  <input type="text" id="captcha" disabled/><br/><br/>
-  <input type="text" id="inputText"/><br/><br/>
-  <button onclick="generateCaptcha()">Refresh</button>
-  <button onclick="check()">Submit</button>
-</body>
+  </script>
+  <body onload="generateCaptcha()">
+    <input type="text" id="captcha" disabled /><br /><br />
+    <input type="text" id="inputText" /><br /><br />
+    <button onclick="generateCaptcha()">Refresh</button>
+    <button onclick="check()">Submit</button>
+  </body>
 </html>
 ```
 
@@ -117,103 +142,111 @@ function bodyAppend(tagName, innerHTML) {
 </div>
 
 ### Q. Create a Stopwatch program in javascript.
+
 ```html
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Stopwatch Example</title>
-</head>
-<body>
+  <head>
+    <title>Stopwatch Example</title>
+  </head>
+  <body>
     <form action="" method="post">
-        <h4>Simple stopwatch made in JavaScript</h4>
-        <input type="button" onclick="startWatch()" value="START" />
-        <input type="button" onclick="stopWatch()" value="STOP" />
-        <input type="button" onclick="resetWatch()" value="ZERO" />
+      <h4>Simple stopwatch made in JavaScript</h4>
+      <input type="button" onclick="startWatch()" value="START" />
+      <input type="button" onclick="stopWatch()" value="STOP" />
+      <input type="button" onclick="resetWatch()" value="ZERO" />
     </form>
-    <p id="res"><span id="min">0</span> : <span id="sec">00</span> : <span id="msec">000</span></p>
-    <p>In this example Date() methods co-operate with timing function setInterval().</p>
+    <p id="res">
+      <span id="min">0</span> : <span id="sec">00</span> :
+      <span id="msec">000</span>
+    </p>
+    <p>
+      In this example Date() methods co-operate with timing function
+      setInterval().
+    </p>
 
     <script type="text/javascript">
-    var timer = null;
-    var min_txt = document.getElementById("min");
-    var min = Number(min_txt.innerHTML);
-    var sec_txt = document.getElementById("sec");
-    var sec = Number(sec_txt.innerHTML);
-    var msec_txt = document.getElementById("msec"); 
-    var msec = Number(msec_txt.innerHTML);
-    function stopTimeMilliseconds(timer) {
-        if (timer) { 
-            clearInterval(timer);
-            return timer;
-        }
-        else return timer;
-    }
-    function startTimeMilliseconds() {
+      var timer = null;
+      var min_txt = document.getElementById("min");
+      var min = Number(min_txt.innerHTML);
+      var sec_txt = document.getElementById("sec");
+      var sec = Number(sec_txt.innerHTML);
+      var msec_txt = document.getElementById("msec");
+      var msec = Number(msec_txt.innerHTML);
+      function stopTimeMilliseconds(timer) {
+        if (timer) {
+          clearInterval(timer);
+          return timer;
+        } else return timer;
+      }
+      function startTimeMilliseconds() {
         var currDate = new Date();
-        return currDate.getTime();	
-    }
-    function getElapsedTimeMilliseconds(startMilliseconds) {
+        return currDate.getTime();
+      }
+      function getElapsedTimeMilliseconds(startMilliseconds) {
         if (startMilliseconds > 0) {
-            var currDate = new Date();
-            elapsedMilliseconds = (currDate.getTime() - startMilliseconds);
-            return elapsedMilliseconds;
+          var currDate = new Date();
+          elapsedMilliseconds = currDate.getTime() - startMilliseconds;
+          return elapsedMilliseconds;
         } else {
-          return elapsedMilliseconds = 0;
+          return (elapsedMilliseconds = 0);
         }
-    }
-    function startWatch() { 
+      }
+      function startWatch() {
         // START TIMER
-        timer = stopTimeMilliseconds(timer); 
+        timer = stopTimeMilliseconds(timer);
         var startMilliseconds = startTimeMilliseconds();
-        timer = setInterval(function() { 
-            var elapsedMilliseconds = getElapsedTimeMilliseconds(startMilliseconds); 
-            if (msec < 10) {
-                msec_txt.innerHTML = "00" + msec; 
-            } else if (msec < 100) {
-                msec_txt.innerHTML = "0" + msec;
-            } else {
-                msec_txt.innerHTML = msec;
-            }
-            if (sec < 10) {
-                sec_txt.innerHTML = "0" + sec;
-            } else {
-                sec_txt.innerHTML = sec; 
-            }
-            min_txt.innerHTML = min; 
-            msec = elapsedMilliseconds;
-            if (min >= 59 && sec >=59 && msec > 900) {
-                timer = stopTimeMilliseconds(timer);
-                return true;
-            }
-            if (sec > 59) {
-                sec = 0;
-                min++;
-            }
-            if (msec > 999) {
-                msec = 0;
-                sec++;
-                startWatch();
-            }
+        timer = setInterval(function () {
+          var elapsedMilliseconds = getElapsedTimeMilliseconds(
+            startMilliseconds
+          );
+          if (msec < 10) {
+            msec_txt.innerHTML = "00" + msec;
+          } else if (msec < 100) {
+            msec_txt.innerHTML = "0" + msec;
+          } else {
+            msec_txt.innerHTML = msec;
+          }
+          if (sec < 10) {
+            sec_txt.innerHTML = "0" + sec;
+          } else {
+            sec_txt.innerHTML = sec;
+          }
+          min_txt.innerHTML = min;
+          msec = elapsedMilliseconds;
+          if (min >= 59 && sec >= 59 && msec > 900) {
+            timer = stopTimeMilliseconds(timer);
+            return true;
+          }
+          if (sec > 59) {
+            sec = 0;
+            min++;
+          }
+          if (msec > 999) {
+            msec = 0;
+            sec++;
+            startWatch();
+          }
         }, 10);
-    }
-    function stopWatch() {
+      }
+      function stopWatch() {
         // STOP TIMER
         timer = stopTimeMilliseconds(timer);
         return true;
-    }
-    function resetWatch() {
+      }
+      function resetWatch() {
         // REZERO TIMER
         timer = stopTimeMilliseconds(timer);
-        msec_txt.innerHTML = "000"; 
+        msec_txt.innerHTML = "000";
         msec = 0;
-        sec_txt.innerHTML = "00"; 
+        sec_txt.innerHTML = "00";
         sec = 0;
-        min_txt.innerHTML = "0"; 
+        min_txt.innerHTML = "0";
         min = 0;
         return true;
-    }
-</script>
-</body>
+      }
+    </script>
+  </body>
 </html>
 ```
 
@@ -222,84 +255,106 @@ function bodyAppend(tagName, innerHTML) {
 </div>
 
 ### Q. Write a program to reverse a string?
+
 ```javascript
-function reverseString(str){
-    let stringRev ="";
-    for(let i = str.length; i >= 0; i--) {
-        stringRev = stringRev + str.charAt(i);
-    }
-    return stringRev;
+function reverseString(str) {
+  let stringRev = "";
+  for (let i = str.length; i >= 0; i--) {
+    stringRev = stringRev + str.charAt(i);
+  }
+  return stringRev;
 }
 alert(reverseString("Pradeep")); // Output: peedarP
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. How to check if object is empty or not in javaScript?
+
 ```javascript
 function isEmpty(obj) {
-    return Object.keys(obj).length === 0;
+  return Object.keys(obj).length === 0;
 }
 ```
+
 ### Q. JavaScript Regular Expression to validate Email
 
 ```javascript
-var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
+var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 ```
+
 ### Q. Use RegEx to test password strength in JavaScript?
 
 ```javascript
-
 var newPassword = "Pq5*@a{J";
-var regularExpression = new RegExp("^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})");
+var regularExpression = new RegExp(
+  "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*])(?=.{8,})"
+);
 
-if(!regularExpression.test(newPassword)) {
-    alert("Password should contain atleast one number and one special character !");   
+if (!regularExpression.test(newPassword)) {
+  alert(
+    "Password should contain atleast one number and one special character !"
+  );
 }
 ```
 
-|RegEx	           |Description                                                           |
-|------------------|----------------------------------------------------------------------|
-|^	               | The password string will start this way                              |
-|(?=.*[a-z])	   | The string must contain at least 1 lowercase alphabetical character  |
-|(?=.*[A-Z])	   | The string must contain at least 1 uppercase alphabetical character  |
-|(?=.*[0-9])	   | The string must contain at least 1 numeric character                 |
-|(?=.[!@#\$%\^&])| The string must contain at least one special character, but we are escaping reserved RegEx characters to avoid conflict  |
-|(?=.{8,})	       |The string must be eight characters or longer                          |
+| RegEx            | Description                                                                                                             |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------------- |
+| ^                | The password string will start this way                                                                                 |
+| (?=.\*[a-z])     | The string must contain at least 1 lowercase alphabetical character                                                     |
+| (?=.\*[A-Z])     | The string must contain at least 1 uppercase alphabetical character                                                     |
+| (?=.\*[0-9])     | The string must contain at least 1 numeric character                                                                    |
+| (?=.[!@#\$%\^&]) | The string must contain at least one special character, but we are escaping reserved RegEx characters to avoid conflict |
+| (?=.{8,})        | The string must be eight characters or longer                                                                           |
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. How to compare objects ES6?
+
 Example 01:
+
 ```javascript
 const matches = (obj, source) =>
-  Object.keys(source).every(key => obj.hasOwnProperty(key) && obj[key] === source[key]);
+  Object.keys(source).every(
+    (key) => obj.hasOwnProperty(key) && obj[key] === source[key]
+  );
 
-console.log(matches({ age: 25, hair: 'long', beard: true }, { hair: 'long', beard: true })); // true
-console.log(matches({ hair: 'long', beard: true }, { age: 25, hair: 'long', beard: true })); // false
-console.log(matches({ hair: 'long', beard: true }, { age: 26, hair: 'long', beard: true })); // false
+console.log(
+  matches({ age: 25, hair: "long", beard: true }, { hair: "long", beard: true })
+); // true
+console.log(
+  matches({ hair: "long", beard: true }, { age: 25, hair: "long", beard: true })
+); // false
+console.log(
+  matches({ hair: "long", beard: true }, { age: 26, hair: "long", beard: true })
+); // false
 ```
+
 Example 02:
+
 ```javascript
-const k1 = {fruit: '🥝'};
-const k2 = {fruit: '🥝'};
+const k1 = { fruit: "🥝" };
+const k2 = { fruit: "🥝" };
 
 // Using JavaScript
 JSON.stringify(k1) === JSON.stringify(k2); // true
 ```
+
 Example 03:
+
 ```javascript
 const one = {
-  fruit: '🥝',
-  energy: '255kJ',
+  fruit: "🥝",
+  energy: "255kJ",
 };
 
 const two = {
-  energy: '255kJ',
-  fruit: '🥝',
+  energy: "255kJ",
+  fruit: "🥝",
 };
 
 // Using JavaScript
@@ -311,20 +366,23 @@ JSON.stringify(one) === JSON.stringify(two); // false
 </div>
 
 ### Q. How to remove array element based on object property?
+
 ```javascript
 var myArray = [
-    {field: 'id', operator: 'eq'}, 
-    {field: 'cStatus', operator: 'eq'}, 
-    {field: 'money', operator: 'eq'}
+  { field: "id", operator: "eq" },
+  { field: "cStatus", operator: "eq" },
+  { field: "money", operator: "eq" },
 ];
 
-myArray = myArray.filter(function( obj ) {
-    return obj.field !== 'money';
+myArray = myArray.filter(function (obj) {
+  return obj.field !== "money";
 });
 
-Console.log(myArray); 
+Console.log(myArray);
 ```
+
 Output
+
 ```
 myArray = [
     {field: "id", operator: "eq"}
@@ -337,51 +395,62 @@ myArray = [
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log(+'meow'); // Output: NaN
+console.log(+"meow"); // Output: NaN
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var result;
 for (var i = 5; i > 0; i--) {
-    result = result + i;
+  result = result + i;
 }
 console.log(result); // Output: NaN
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var a = 1.2;
 console.log(typeof a); // Output: Number
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var x = 10;
 if (x) {
-    let x = 4;
+  let x = 4;
 }
 console.log(x); // Output: 10
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 console.log(0.1 + 0.2 == 0.3); // Output: false
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log(1 + -'1' + 2); // Output: 2
+console.log(1 + -"1" + 2); // Output: 2
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-(function(x) {
-    return (function(y) {
+(function (x) {
+  return (function (y) {
     console.log(x);
-    })(10);
-})(20);   // Output: 20
+  })(10);
+})(20); // Output: 20
 ```
 
 <div align="right">
@@ -389,334 +458,399 @@ console.log(1 + -'1' + 2); // Output: 2
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var num = 20;
-var getNumber = function() {
-    console.log(num);
-    var num = 10;
+var getNumber = function () {
+  console.log(num);
+  var num = 10;
 };
 getNumber(); // Output: undefined
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 function f1() {
-    num = 10;
+  num = 10;
 }
 f1();
-console.log('window.num: '+window.num); // output: 10
+console.log("window.num: " + window.num); // output: 10
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log('(null + undefined): '+(null + undefined)); // Output: NaN
+console.log("(null + undefined): " + (null + undefined)); // Output: NaN
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-(function() {
-    var a = (b = 3);
+(function () {
+  var a = (b = 3);
 })();
 
-console.log('value of a : ' + a); // Output: undefined
-console.log('value of b : ' + b); // Output: 3
+console.log("value of a : " + a); // Output: undefined
+console.log("value of b : " + b); // Output: 3
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var y = 1;
 if (function f() {}) {
-    y += typeof f;
+  y += typeof f;
 }
 console.log(y); // Output: 1Object
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var k = 1;
 if (1) {
-    eval(function foo() {});
-    k += typeof foo;
+  eval(function foo() {});
+  k += typeof foo;
 }
 console.log(k); // Output: 1undefined
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var k = 1;
 if (1) {
-    function foo() {}
-    k += typeof foo;
+  function foo() {}
+  k += typeof foo;
 }
 console.log(k); // Output: 1function
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log('(-1 / 0): '+(-1 / 0)); // Output: -Infinity
-console.log('(1 / 0): '+(1 / 0));   // Output: Infinity
-console.log('(0 / 0): '+(0 / 0));   // Output: NaN
-console.log('(0 / 1): '+(0 / 1));   // Output: 0
+console.log("(-1 / 0): " + -1 / 0); // Output: -Infinity
+console.log("(1 / 0): " + 1 / 0); // Output: Infinity
+console.log("(0 / 0): " + 0 / 0); // Output: NaN
+console.log("(0 / 1): " + 0 / 1); // Output: 0
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var a = 4;
-var b = '5';
+var b = "5";
 var c = 6;
 
-console.log('(a + b): '+(a + b)); // Output: 45
-console.log('(a - b): '+(a - b)); // Output: -1
-console.log('(a * b): '+(a * b)); // Output: 20
-console.log('(a / b): '+(a / b)); // Output: 0.8
-console.log('(a % b): '+(a % b)); // Output: 4
+console.log("(a + b): " + (a + b)); // Output: 45
+console.log("(a - b): " + (a - b)); // Output: -1
+console.log("(a * b): " + a * b); // Output: 20
+console.log("(a / b): " + a / b); // Output: 0.8
+console.log("(a % b): " + (a % b)); // Output: 4
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log("MAX : " + Math.max(10, 2, NaN));  // Output: NaN
-console.log("MAX : " + Math.max());            // Output: -Infinity
+console.log("MAX : " + Math.max(10, 2, NaN)); // Output: NaN
+console.log("MAX : " + Math.max()); // Output: -Infinity
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-(function(){
-    var a = b = 3;
+(function () {
+  var a = (b = 3);
 })();
 
-console.log("a defined? " + (typeof a !== 'undefined')); // Output: true
-console.log("b defined? " + (typeof b !== 'undefined')); // Output: true
+console.log("a defined? " + (typeof a !== "undefined")); // Output: true
+console.log("b defined? " + (typeof b !== "undefined")); // Output: true
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var myObject = {
-    foo: "bar",
-    func: function() {
-        var self = this;
-        console.log("outer func:  this.foo = " + this.foo); // Output: this.foo = bar
-        console.log("outer func:  self.foo = " + self.foo); // Output: self.foo = bar
-        (function() {
-            console.log("inner func:  this.foo = " + this.foo); // Output: this.foo = function foo() {}
-            console.log("inner func:  self.foo = " + self.foo); // Output: self.foo = bar
-        }());
-    }
+  foo: "bar",
+  func: function () {
+    var self = this;
+    console.log("outer func:  this.foo = " + this.foo); // Output: this.foo = bar
+    console.log("outer func:  self.foo = " + self.foo); // Output: self.foo = bar
+    (function () {
+      console.log("inner func:  this.foo = " + this.foo); // Output: this.foo = function foo() {}
+      console.log("inner func:  self.foo = " + self.foo); // Output: self.foo = bar
+    })();
+  },
 };
 myObject.func();
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log(0.1 + 0.2);        // Output: 0.30000000000000004
+console.log(0.1 + 0.2); // Output: 0.30000000000000004
 console.log(0.1 + 0.2 == 0.3); // Output: false
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-(function() {
-    console.log(1); 
-    setTimeout(function(){console.log(2)}, 1000); 
-    setTimeout(function(){console.log(3)}, 0); 
-    console.log(4);
+(function () {
+  console.log(1);
+  setTimeout(function () {
+    console.log(2);
+  }, 1000);
+  setTimeout(function () {
+    console.log(3);
+  }, 0);
+  console.log(4);
 })();
 // Output: 1, 4, 3, 2
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-var arr1 = "john".split('');
+var arr1 = "john".split("");
 var arr2 = arr1.reverse();
-var arr3 = "jones".split('');
+var arr3 = "jones".split("");
 arr2.push(arr3);
 console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); //array 1: length=5 last=j,o,n,e,s
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); //array 2: length=5 last=j,o,n,e,s
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log(1 +  "2" + "2");    // Output: 122
-console.log(1 +  +"2" + "2");   // Output: 32
-console.log(1 +  -"1" + "2");   // Output: 02
-console.log(+"1" +  "1" + "2"); // Output: 112
-console.log( "A" - "B" + "2");  // Output: NaN2
-console.log( "A" - "B" + 2);    // Output: NaN
+console.log(1 + "2" + "2"); // Output: 122
+console.log(1 + +"2" + "2"); // Output: 32
+console.log(1 + -"1" + "2"); // Output: 02
+console.log(+"1" + "1" + "2"); // Output: 112
+console.log("A" - "B" + "2"); // Output: NaN2
+console.log("A" - "B" + 2); // Output: NaN
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 for (var i = 0; i < 5; i++) {
-    setTimeout(function() { console.log(i); }, i * 1000 );
+  setTimeout(function () {
+    console.log(i);
+  }, i * 1000);
 }
 // Output: 145, 5, 5, 5, 5, 5
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 for (var i = 0; i < 5; i++) {
-    (function(x) {
-        setTimeout(function() { console.log(x); }, x * 1000 );
-    })(i);
+  (function (x) {
+    setTimeout(function () {
+      console.log(x);
+    }, x * 1000);
+  })(i);
 }
 //Output:- 0, 1, 2, 3, 4
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log("0 || 1 = "+(0 || 1)); // Output: 1
-console.log("1 || 2 = "+(1 || 2)); // Output: 1
-console.log("0 && 1 = "+(0 && 1)); // Output: 0
-console.log("1 && 2 = "+(1 && 2)); // Output: 2
+console.log("0 || 1 = " + (0 || 1)); // Output: 1
+console.log("1 || 2 = " + (1 || 2)); // Output: 1
+console.log("0 && 1 = " + (0 && 1)); // Output: 0
+console.log("1 && 2 = " + (1 && 2)); // Output: 2
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
-```javascript
-console.log(false == '0')  // Output: true
-console.log(false === '0') // Output: false
-```
-### Q. Predict the output of the following JavaScript code?
-```javascript
-var a={},
-b={key:'b'},
-c={key:'c'};
 
-a[b]=123;
-a[c]=456;
+```javascript
+console.log(false == "0"); // Output: true
+console.log(false === "0"); // Output: false
+```
+
+### Q. Predict the output of the following JavaScript code?
+
+```javascript
+var a = {},
+  b = { key: "b" },
+  c = { key: "c" };
+
+a[b] = 123;
+a[c] = 456;
 console.log(a[b]); // Output: 456
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10)); // Output: 3628800
+console.log(
+  (function f(n) {
+    return n > 1 ? n * f(n - 1) : n;
+  })(10)
+); // Output: 3628800
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-(function(x) {
-    return (function(y) {
-        console.log(x); //1
-    })(2)
-})(1); 
+(function (x) {
+  return (function (y) {
+    console.log(x); //1
+  })(2);
+})(1);
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var hero = {
-    _name: 'John Doe',
-    getSecretIdentity: function (){
-        return this._name;
-    }
+  _name: "John Doe",
+  getSecretIdentity: function () {
+    return this._name;
+  },
 };
 var stoleSecretIdentity = hero.getSecretIdentity;
 
-console.log(stoleSecretIdentity());    // Output: undefined
+console.log(stoleSecretIdentity()); // Output: undefined
 console.log(hero.getSecretIdentity()); // Output: John Doe
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var length = 10;
 function fn() {
-    console.log(this.length); 
+  console.log(this.length);
 }
 
 var obj = {
-    length: 5,
-    method: function(fn) {
+  length: 5,
+  method: function (fn) {
     fn();
     arguments[0]();
-    }
+  },
 };
 
 obj.method(fn, 1);
 //Output: 10, 2
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 (function () {
-    try {
-        throw new Error();
-    } catch (x) {
-        var x = 1, y = 2;
-        console.log(x);
-    }
+  try {
+    throw new Error();
+  } catch (x) {
+    var x = 1,
+      y = 2;
     console.log(x);
-    console.log(y);
+  }
+  console.log(x);
+  console.log(y);
 })();
-//Output:  1, undefined, 2 
+//Output:  1, undefined, 2
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var x = 21;
 var girl = function () {
-    console.log(x); // Output: undefined
-    var x = 20;
+  console.log(x); // Output: undefined
+  var x = 20;
 };
-girl ();
+girl();
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 console.log(1 < 2 < 3); // Output: true
 console.log(3 > 2 > 1); // Output: false
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 console.log(typeof typeof 1); // Output: string
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var b = 1;
-function outer(){
-    var b = 2
-    function inner(){
-        b++;
-        var b = 3;
-        console.log(b) //3
-    }
-    inner();
+function outer() {
+  var b = 2;
+  function inner() {
+    b++;
+    var b = 3;
+    console.log(b); //3
+  }
+  inner();
 }
 outer();
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. Hoisting example in javascript
+
 ```javascript
-x = 10
+x = 10;
 console.log(x);
 var x; // Output: 10
 ```
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 const arr = [1, 2];
-arr.push(3);       // Output: 1, 2, 3
+arr.push(3); // Output: 1, 2, 3
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-var o = new F(); 
-o.constructor === F; 
+var o = new F();
+o.constructor === F;
 ```
 
 <div align="right">
@@ -724,38 +858,49 @@ o.constructor === F;
 </div>
 
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-let sum = (a, b) => { a + b;}; 
-console.log(sum(10, 20)); // Output: undefined; return keyword is missing 
+let sum = (a, b) => {
+  a + b;
+};
+console.log(sum(10, 20)); // Output: undefined; return keyword is missing
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
-var arr = ['javascript', 'typescript', 'es6']; 
-var searchValue = (value) => {  
-        return arr.filter(item => {    
-        return item. indexOf(value) > -1; 
-        }); 
-} 
-console.log(searchValue ('script'));
+var arr = ["javascript", "typescript", "es6"];
+var searchValue = (value) => {
+  return arr.filter((item) => {
+    return item.indexOf(value) > -1;
+  });
+};
+console.log(searchValue("script"));
 ```
+
 ### Q. Write the program using fatarrow function?
+
 ```javascript
-var a = [1, 2, 3, 4]; 
-function sumUsingFunction (acc, value) {   
-  return acc + value; 
-} 
+var a = [1, 2, 3, 4];
+function sumUsingFunction(acc, value) {
+  return acc + value;
+}
 var sumOfArrayUsingFunc = a.reduce(sumUsingFunc);
 ```
+
 ### Q. Write a program that prints the numbers from 1 to 15. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”?
+
 ```javascript
-for (var i=1; i <= 15; i++){
-    if (i % 15 == 0) console.log("FizzBuzz");
-    else if (i % 3 == 0) console.log("Fizz");
-    else if (i % 5 == 0) console.log("Buzz");
-    else console.log(i);
+for (var i = 1; i <= 15; i++) {
+  if (i % 15 == 0) console.log("FizzBuzz");
+  else if (i % 3 == 0) console.log("Fizz");
+  else if (i % 5 == 0) console.log("Buzz");
+  else console.log(i);
 }
 ```
+
 Output:
+
 ```
 1
 2
@@ -773,13 +918,17 @@ Fizz
 14
 FizzBuzz
 ```
-Solution - 02 
+
+Solution - 02
+
 ```javascript
 for (var i = 1; i <= 15; i++) {
-  var f = i % 3 == 0, b = i % 5 == 0;
-  console.log(f ? b ? "FizzBuzz" : "Fizz" : b ? "Buzz" : i);
+  var f = i % 3 == 0,
+    b = i % 5 == 0;
+  console.log(f ? (b ? "FizzBuzz" : "Fizz") : b ? "Buzz" : i);
 }
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -787,7 +936,7 @@ for (var i = 1; i <= 15; i++) {
 ### Q. What will be the output of the following code?
 
 ```javascript
-var output = (function(x) {
+var output = (function (x) {
   delete x;
   return x;
 })(0);
@@ -795,15 +944,13 @@ var output = (function(x) {
 console.log(output);
 ```
 
-
 The code above will output `0` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **local variable**. `delete` operator doesn't affect local variables.
-
 
 ### Q. What will be the output of the following code?
 
 ```javascript
 var x = 1;
-var output = (function() {
+var output = (function () {
   delete x;
   return x;
 })();
@@ -820,8 +967,8 @@ The code above will output `1` as output. `delete` operator is used to delete a 
 ### Q. What will be the output of the following code?
 
 ```javascript
-var x = { foo : 1};
-var output = (function() {
+var x = { foo: 1 };
+var output = (function () {
   delete x.foo;
   return x.foo;
 })();
@@ -829,18 +976,16 @@ var output = (function() {
 console.log(output);
 ```
 
-
 The code above will output `undefined` as output. `delete` operator is used to delete a property from an object. Here `x` is an object which has foo as a property and from a self-invoking function, we are deleting the `foo` property of object `x` and after deletion, we are trying to reference deleted property `foo` which result `undefined`.
-
 
 ### Q. What will be the output of the following code?
 
 ```javascript
 var Employee = {
-  company: 'xyz'
-}
+  company: "xyz",
+};
 var emp1 = Object.create(Employee);
-delete emp1.company
+delete emp1.company;
 console.log(emp1.company);
 ```
 
@@ -864,25 +1009,25 @@ The code above will output `5` as output. When we used `delete` operator for del
 
 So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
 
-
 ### Q. What will be the output of the following code?
 
 ```javascript
 var bar = true;
-console.log(bar + 0);   
-console.log(bar + "xyz");  
-console.log(bar + true);  
+console.log(bar + 0);
+console.log(bar + "xyz");
+console.log(bar + true);
 console.log(bar + false);
 ```
 
-The code above will output `1, "truexyz", 2, 1` as output. Here's a general guideline  for the plus operator:
-  - Number + Number  -> Addition
-  - Boolean + Number -> Addition
-  - Boolean + Boolean -> Addition
-  - Number + String  -> Concatenation
-  - String + Boolean -> Concatenation
-  - String + String  -> Concatenation
-  
+The code above will output `1, "truexyz", 2, 1` as output. Here's a general guideline for the plus operator:
+
+- Number + Number -> Addition
+- Boolean + Number -> Addition
+- Boolean + Boolean -> Addition
+- Number + String -> Concatenation
+- String + Boolean -> Concatenation
+- String + String -> Concatenation
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -890,11 +1035,12 @@ The code above will output `1, "truexyz", 2, 1` as output. Here's a general guid
 ### Q. What will be the output of the following code?
 
 ```javascript
-var z = 1, y = z = typeof y;
+var z = 1,
+  y = (z = typeof y);
 console.log(y);
 ```
 
-The code above will print string `"undefined"` as output. According to associativity rule operator with the same precedence are processed based on their associativity property of operator. Here associativity of the assignment operator is `Right to Left` so first `typeof y` will evaluate first which is string `"undefined"` and assigned to `z` and then `y` would be assigned the value of z. The overall sequence will look like that: 
+The code above will print string `"undefined"` as output. According to associativity rule operator with the same precedence are processed based on their associativity property of operator. Here associativity of the assignment operator is `Right to Left` so first `typeof y` will evaluate first which is string `"undefined"` and assigned to `z` and then `y` would be assigned the value of z. The overall sequence will look like that:
 
 ```javascript
 var z;
@@ -908,17 +1054,20 @@ y = z;
 
 ```javascript
 // NFE (Named Function Expression)
-var foo = function bar() { return 12; };
+var foo = function bar() {
+  return 12;
+};
 typeof bar();
 ```
 
-
-The output will be `Reference Error`. To fix the bug we can try to rewrite the code a little bit: 
+The output will be `Reference Error`. To fix the bug we can try to rewrite the code a little bit:
 
 **Sample 1**
 
 ```javascript
-var bar = function() { return 12; };
+var bar = function () {
+  return 12;
+};
 typeof bar();
 ```
 
@@ -927,7 +1076,9 @@ or
 **Sample 2**
 
 ```javascript
-function bar() { return 12; };
+function bar() {
+  return 12;
+}
 typeof bar();
 ```
 
@@ -942,6 +1093,7 @@ var foo = function bar() {
 // foo is visible here
 // bar is undefined here
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -950,16 +1102,21 @@ var foo = function bar() {
 
 ```javascript
 bar();
-(function abc(){console.log('something')})();
-function bar(){console.log('bar got called')};
+(function abc() {
+  console.log("something");
+})();
+function bar() {
+  console.log("bar got called");
+}
 ```
 
-
 The output will be :
-``` 
+
+```
 bar got called
 something
 ```
+
 Since the function is called first and defined during parse time the JS engine will try to find any possible parse time definitions and start the execution loop which will mean function is called first even if the definition is post another function.
 
 ### Q. What will be the output of the following code?
@@ -990,6 +1147,7 @@ var salary = "1000$";
   console.log("My New Salary " + salary);
 })();
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1001,17 +1159,18 @@ function User(name) {
   this.name = name || "JsGeeks";
 }
 
-var person = new User("xyz")["location"] = "USA";
+var person = (new User("xyz")["location"] = "USA");
 console.log(person);
 ```
 
 The output of above code would be `"USA"`. Here `new User("xyz")` creates a brand new object and created property `location` on that and `USA` has been assigned to object property location and that has been referenced by the person.
 
 Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it's `"USA"`.
- Then it will be assigned to person. 
- 
- To better understand What is going on here, try to execute this code in console, line by line:
- ```javascript
+Then it will be assigned to person.
+
+To better understand What is going on here, try to execute this code in console, line by line:
+
+```javascript
 function User(name) {
   this.name = name || "JsGeeks";
 }
@@ -1031,43 +1190,45 @@ foo["location"] = "USA";
 ```javascript
 var strA = "hi there";
 var strB = strA;
-strB="bye there!";
-console.log (strA)
+strB = "bye there!";
+console.log(strA);
 ```
 
-The output will `'hi there'` because we're dealing with strings here. Strings are 
-passed by value, that is, copied. 
+The output will `'hi there'` because we're dealing with strings here. Strings are
+passed by value, that is, copied.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. What would be the output of following code?
+
 ```javascript
-var objA = {prop1: 42};
-var objB = objA; 
+var objA = { prop1: 42 };
+var objB = objA;
 objB.prop1 = 90;
-console.log(objA) 
+console.log(objA);
 ```
-The output will `{prop1: 90}` because we're dealing with objects here. Objects are 
-passed by reference, that is, `objA` and `objB` point to the same object in memory. 
+
+The output will `{prop1: 90}` because we're dealing with objects here. Objects are
+passed by reference, that is, `objA` and `objB` point to the same object in memory.
 
 ### Q. What would be the output of following code?
 
 ```javascript
-var objA = {prop1: 42};
+var objA = { prop1: 42 };
 var objB = objA;
 objB = {};
-console.log(objA)
+console.log(objA);
 ```
 
-The output will `{prop1: 42}`. 
+The output will `{prop1: 42}`.
 
 When we assign `objA` to `objB`, the `objB` variable will point
 to the same object as the `objB` variable.
 
 However, when we reassign `objB` to an empty object, we simply change where `objB` variable references to.
-This doesn't affect where `objA` variable references to. 
+This doesn't affect where `objA` variable references to.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1076,30 +1237,31 @@ This doesn't affect where `objA` variable references to.
 ### Q. What would be the output of following code?
 
 ```javascript
-var arrA = [0,1,2,3,4,5];
+var arrA = [0, 1, 2, 3, 4, 5];
 var arrB = arrA;
-arrB[0]=42;
-console.log(arrA)
+arrB[0] = 42;
+console.log(arrA);
 ```
 
-The output will be `[42,1,2,3,4,5]`. 
+The output will be `[42,1,2,3,4,5]`.
 
 Arrays are object in JavaScript and they are passed and assigned by reference. This is why
 both `arrA` and `arrB` point to the same array `[0,1,2,3,4,5]`. That's why changing the first
 element of the `arrB` will also modify `arrA`: it's the same array in the memory.
 
 ### Q. What would be the output of following code?
+
 ```javascript
-var arrA = [0,1,2,3,4,5];
+var arrA = [0, 1, 2, 3, 4, 5];
 var arrB = arrA.slice();
-arrB[0]=42;
-console.log(arrA)
+arrB[0] = 42;
+console.log(arrA);
 ```
 
-The output will be `[0,1,2,3,4,5]`. 
+The output will be `[0,1,2,3,4,5]`.
 
 The `slice` function copies all the elements of the array returning the new array. That's why
-`arrA` and `arrB` reference two completely different arrays. 
+`arrA` and `arrB` reference two completely different arrays.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1108,48 +1270,60 @@ The `slice` function copies all the elements of the array returning the new arra
 ### Q. What would be the output of following code?
 
 ```javascript
-var arrA = [{prop1: "value of array A!!"},  {someProp: "also value of array A!"}, 3,4,5];
+var arrA = [
+  { prop1: "value of array A!!" },
+  { someProp: "also value of array A!" },
+  3,
+  4,
+  5,
+];
 var arrB = arrA;
-arrB[0].prop1=42;
+arrB[0].prop1 = 42;
 console.log(arrA);
 ```
-The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`. 
+
+The output will be `[{prop1: 42}, {someProp: "also value of array A!"}, 3,4,5]`.
 
 Arrays are object in JS, so both varaibles arrA and arrB point to the same array. Changing
 `arrB[0]` is the same as changing `arrA[0]`
 
-
 ### Q. What would be the output of following code?
 
 ```javascript
-var arrA = [{prop1: "value of array A!!"}, {someProp: "also value of array A!"},3,4,5];
+var arrA = [
+  { prop1: "value of array A!!" },
+  { someProp: "also value of array A!" },
+  3,
+  4,
+  5,
+];
 var arrB = arrA.slice();
-arrB[0].prop1=42;
+arrB[0].prop1 = 42;
 arrB[3] = 20;
 console.log(arrA);
 ```
 
-The output will be `[{prop1: 42},  {someProp: "also value of array A!"}, 3,4,5]`. 
+The output will be `[{prop1: 42}, {someProp: "also value of array A!"}, 3,4,5]`.
 
 The `slice` function copies all the elements of the array returning the new array. However,
-it doesn't do deep copying. Instead it does shallow copying. You can imagine slice implemented like this: 
- 
- ```javascript
+it doesn't do deep copying. Instead it does shallow copying. You can imagine slice implemented like this:
+
+```javascript
 function slice(arr) {
-    var result = [];
-    for (i = 0; i< arr.length; i++) {
-        result.push(arr[i]);
-    }
-    return result; 
+  var result = [];
+  for (i = 0; i < arr.length; i++) {
+    result.push(arr[i]);
+  }
+  return result;
 }
 ```
 
-Look at the line with `result.push(arr[i])`. If `arr[i]` happens to be a number or string, 
-it will be passed by value, in other words, copied. If `arr[i]` is an object, it will be passed by reference. 
+Look at the line with `result.push(arr[i])`. If `arr[i]` happens to be a number or string,
+it will be passed by value, in other words, copied. If `arr[i]` is an object, it will be passed by reference.
 
 In case of our array `arr[0]` is an object `{prop1: "value of array A!!"}`. Only the reference
 to this object will be copied. This effectively means that arrays arrA and arrB share first
-two elements. 
+two elements.
 
 This is why changing the property of `arrB[0]` in `arrB` will also change the `arrA[0]`.
 
@@ -1160,42 +1334,42 @@ This is why changing the property of `arrB[0]` in `arrB` will also change the `a
 ### Q. console.log(employeeId);
 
 1.  Some Value
-2.  Undefined 
+2.  Undefined
 3.  Type Error
-4.  ReferenceError: employeeId is not defined 
+4.  ReferenceError: employeeId is not defined
 
-*Answer:* 4) ReferenceError: employeeId is not defined 
+_Answer:_ 4) ReferenceError: employeeId is not defined
 
 ### Q. What would be the output of following code?
 
 ```javascript
 console.log(employeeId);
-var employeeId = '19000';
+var employeeId = "19000";
 ```
 
 1.  Some Value
-2.  undefined 
+2.  undefined
 3.  Type Error
-4.  ReferenceError: employeeId is not defined 
+4.  ReferenceError: employeeId is not defined
 
-*Answer:* 2) undefined 
+_Answer:_ 2) undefined
 
 ### Q. What would be the output of following code?
 
 ```javascript
-var employeeId = '1234abe';
-(function(){
-	console.log(employeeId);
-	var employeeId = '122345';
+var employeeId = "1234abe";
+(function () {
+  console.log(employeeId);
+  var employeeId = "122345";
 })();
 ```
 
 1.  '122345'
-2.  undefined 
+2.  undefined
 3.  Type Error
-4.  ReferenceError: employeeId is not defined 
+4.  ReferenceError: employeeId is not defined
 
-*Answer:* 2) undefined 
+_Answer:_ 2) undefined
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1204,85 +1378,40 @@ var employeeId = '1234abe';
 ### Q. What would be the output of following code?
 
 ```javascript
-var employeeId = '1234abe';
-(function() {
-	console.log(employeeId);
-	var employeeId = '122345';
-	(function() {
-		var employeeId = 'abc1234';
-	}());
-}());
+var employeeId = "1234abe";
+(function () {
+  console.log(employeeId);
+  var employeeId = "122345";
+  (function () {
+    var employeeId = "abc1234";
+  })();
+})();
 ```
 
 1.  '122345'
-2.  undefined 
+2.  undefined
 3.  '1234abe'
-4.  ReferenceError: employeeId is not defined 
+4.  ReferenceError: employeeId is not defined
 
-*Answer:* 2) undefined 
+_Answer:_ 2) undefined
 
 ### Q. What would be the output of following code?
 
 ```javascript
-(function() {
-	console.log(typeof displayFunc);
-	var displayFunc = function(){
-		console.log("Hi I am inside displayFunc");
-	}
-}());
+(function () {
+  console.log(typeof displayFunc);
+  var displayFunc = function () {
+    console.log("Hi I am inside displayFunc");
+  };
+})();
 ```
 
 1.  undefined
-2.  function 
+2.  function
 3.  'Hi I am inside displayFunc'
-4.  ReferenceError: displayFunc is not defined 
+4.  ReferenceError: displayFunc is not defined
 
-*Answer:* 1) undefined 
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code?
-
-```javascript
-var employeeId = 'abc123';
-function foo(){
-	employeeId = '123bcd';
-	return;
-}
-foo();
-console.log(employeeId);
-```
-
-1.  undefined
-2.  '123bcd' 
-3.  'abc123'
-4.  ReferenceError: employeeId is not defined 
-
-*Answer:* 2) '123bcd' 
-
-### Q. What would be the output of following code?
-
-```javascript
-var employeeId = 'abc123';
-
-function foo() {
-	employeeId = '123bcd';
-	return;
-
-	function employeeId() {}
-}
-foo();
-console.log(employeeId);
-```
-
-1.  undefined
-2.  '123bcd' 
-3.  'abc123'
-4.  ReferenceError: employeeId is not defined 
-
-*Answer:* 3) 'abc123' 
+_Answer:_ 1) undefined
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1291,47 +1420,92 @@ console.log(employeeId);
 ### Q. What would be the output of following code?
 
 ```javascript
-var employeeId = 'abc123';
+var employeeId = "abc123";
+function foo() {
+  employeeId = "123bcd";
+  return;
+}
+foo();
+console.log(employeeId);
+```
+
+1.  undefined
+2.  '123bcd'
+3.  'abc123'
+4.  ReferenceError: employeeId is not defined
+
+_Answer:_ 2) '123bcd'
+
+### Q. What would be the output of following code?
+
+```javascript
+var employeeId = "abc123";
 
 function foo() {
-	employeeId();
-	return;
+  employeeId = "123bcd";
+  return;
 
-	function employeeId() {
-		console.log(typeof employeeId);
-	}
+  function employeeId() {}
+}
+foo();
+console.log(employeeId);
+```
+
+1.  undefined
+2.  '123bcd'
+3.  'abc123'
+4.  ReferenceError: employeeId is not defined
+
+_Answer:_ 3) 'abc123'
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code?
+
+```javascript
+var employeeId = "abc123";
+
+function foo() {
+  employeeId();
+  return;
+
+  function employeeId() {
+    console.log(typeof employeeId);
+  }
 }
 foo();
 ```
 
 1.  undefined
-2.  function 
+2.  function
 3.  string
-4.  ReferenceError: employeeId is not defined 
+4.  ReferenceError: employeeId is not defined
 
-*Answer:* 2) 'function'
+_Answer:_ 2) 'function'
 
 ### Q. What would be the output of following code?
 
 ```javascript
 function foo() {
-	employeeId();
-	var product = 'Car'; 
-	return;
+  employeeId();
+  var product = "Car";
+  return;
 
-	function employeeId() {
-		console.log(product);
-	}
+  function employeeId() {
+    console.log(product);
+  }
 }
 foo();
 ```
 
 1.  undefined
-2.  Type Error 
+2.  Type Error
 3.  'Car'
-4.  ReferenceError: product is not defined 
+4.  ReferenceError: product is not defined
 
-*Answer:* 1) undefined
+_Answer:_ 1) undefined
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1341,344 +1515,354 @@ foo();
 
 ```javascript
 (function foo() {
-	bar();
+  bar();
 
-	function bar() {
-		abc();
-		console.log(typeof abc);
-	}
+  function bar() {
+    abc();
+    console.log(typeof abc);
+  }
 
-	function abc() {
-		console.log(typeof bar);
-	}
-}());
+  function abc() {
+    console.log(typeof bar);
+  }
+})();
 ```
 
 1.  undefined undefined
-2.  Type Error 
+2.  Type Error
 3.  function function
-4.  ReferenceError: bar is not defined 
+4.  ReferenceError: bar is not defined
 
-*Answer:* 3) function function
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	'use strict';
-
-	var person = {
-		name: 'John'
-	};
-	person.salary = '10000$';
-	person['country'] = 'USA';
-
-	Object.defineProperty(person, 'phoneNo', {
-		value: '8888888888',
-		enumerable: true
-	})
-
-	console.log(Object.keys(person)); 
-})();
-```
-1.  Type Error
-2.  undefined 
-3.  ["name", "salary", "country", "phoneNo"]
-4.  ["name", "salary", "country"]
-	
-*Answer:* 3) ["name", "salary", "country", "phoneNo"]
+_Answer:_ 3) function function
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
-### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	'use strict';
-
-	var person = {
-		name: 'John'
-	};
-	person.salary = '10000$';
-	person['country'] = 'USA';
-
-	Object.defineProperty(person, 'phoneNo', {
-		value: '8888888888',
-		enumerable: false
-	})
-
-	console.log(Object.keys(person)); 
-})();
-```
-1.  Type Error
-2.  undefined 
-3.  ["name", "salary", "country", "phoneNo"]
-4.  ["name", "salary", "country"]
-	
-*Answer:* 4) ["name", "salary", "country"]
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var objA = {
-		foo: 'foo',
-		bar: 'bar'
-	};
-	var objB = {
-		foo: 'foo',
-		bar: 'bar'
-	};
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-*Answer:* 2) false false
-
-### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = new Object({foo: "foo"});
-	var objB = new Object({foo: "foo"});
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-*Answer:* 2) false false
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = Object.create({
-		foo: 'foo'
-	});
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-*Answer:* 2) false false
-
-### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = Object.create(objA);
-	console.log(objA == objB);
-	console.log(objA === objB);
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-*Answer:* 2) false false
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = Object.create(objA);
-	console.log(objA.toString() == objB.toString());
-	console.log(objA.toString() === objB.toString());
-}());
-```
-1.  false true
-2.  false false 
-3.  true false
-4.  true true
-	
-*Answer:* 4) true true
-
-### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	console.log(objA == objB);
-	console.log(objA === objB);
-	console.log(objA.toString() == objB.toString());
-	console.log(objA.toString() === objB.toString());
-}());
-```
-1.  true true true false
-2.  true false true true 
-3.  true true true true
-4.  true true false false
-	
-*Answer:* 3) true true true true
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	objB.foo = 'bar';
-	console.log(objA.foo);
-	console.log(objB.foo);
-}());
-```
-1.  foo bar
-2.  bar bar 
-3.  foo foo
-4.  bar foo
-	
-*Answer:* 2) bar bar
-
-### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = Object.create({
-		foo: 'foo'
-	});
-	var objB = objA;
-	objB.foo = 'bar';
-
-	delete objA.foo;
-	console.log(objA.foo);
-	console.log(objB.foo);
-}());
-```
-1.  foo bar
-2.  bar bar 
-3.  foo foo
-4.  bar foo
-	
-*Answer:* 3) foo foo
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code ?
-
-```javascript
-(function() {
-	var objA = {
-		foo: 'foo'
-	};
-	var objB = objA;
-	objB.foo = 'bar';
-
-	delete objA.foo;
-	console.log(objA.foo);
-	console.log(objB.foo);
-}());
-```
-1.  foo bar
-2.  undefined undefined 
-3.  foo foo
-4.  undefined bar
-	
-*Answer:* 2) undefined undefined 
-
-
-### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var array = new Array('100');
-	console.log(array);
-	console.log(array.length);
-}());
-```
-
-1.  undefined undefined
-2.  [undefined × 100] 100 
-3.  ["100"] 1
-4.  ReferenceError: array is not defined 
-
-*Answer:* 3) ["100"] 1
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code?
-
-```javascript
-(function() {
-	var array1 = [];
-	var array2 = new Array(100);
-	var array3 = new Array(['1',2,'3',4,5.6]);
-	console.log(array1);
-	console.log(array2);
-	console.log(array3);
-	console.log(array3.length);
-}());
-```
-
-1.  [] [] [Array[5]] 1
-2.  [] [undefined × 100] Array[5] 1
-3.  [] [] ['1',2,'3',4,5.6] 5
-4.  [] [] [Array[5]] 5 
-
-*Answer:* 1) [] [] [Array[5]] 1
 
 ### Q. What would be the output of following code?
 
 ```javascript
 (function () {
-  var array = new Array('a', 'b', 'c', 'd', 'e');
-  array[10] = 'f';
+  "use strict";
+
+  var person = {
+    name: "John",
+  };
+  person.salary = "10000$";
+  person["country"] = "USA";
+
+  Object.defineProperty(person, "phoneNo", {
+    value: "8888888888",
+    enumerable: true,
+  });
+
+  console.log(Object.keys(person));
+})();
+```
+
+1.  Type Error
+2.  undefined
+3.  ["name", "salary", "country", "phoneNo"]
+4.  ["name", "salary", "country"]
+
+_Answer:_ 3) ["name", "salary", "country", "phoneNo"]
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code?
+
+```javascript
+(function () {
+  "use strict";
+
+  var person = {
+    name: "John",
+  };
+  person.salary = "10000$";
+  person["country"] = "USA";
+
+  Object.defineProperty(person, "phoneNo", {
+    value: "8888888888",
+    enumerable: false,
+  });
+
+  console.log(Object.keys(person));
+})();
+```
+
+1.  Type Error
+2.  undefined
+3.  ["name", "salary", "country", "phoneNo"]
+4.  ["name", "salary", "country"]
+
+_Answer:_ 4) ["name", "salary", "country"]
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var objA = {
+    foo: "foo",
+    bar: "bar",
+  };
+  var objB = {
+    foo: "foo",
+    bar: "bar",
+  };
+  console.log(objA == objB);
+  console.log(objA === objB);
+})();
+```
+
+1.  false true
+2.  false false
+3.  true false
+4.  true true
+
+_Answer:_ 2) false false
+
+### Q. What would be the output of following code ?
+
+```javascript
+(function () {
+  var objA = new Object({ foo: "foo" });
+  var objB = new Object({ foo: "foo" });
+  console.log(objA == objB);
+  console.log(objA === objB);
+})();
+```
+
+1.  false true
+2.  false false
+3.  true false
+4.  true true
+
+_Answer:_ 2) false false
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code ?
+
+```javascript
+(function () {
+  var objA = Object.create({
+    foo: "foo",
+  });
+  var objB = Object.create({
+    foo: "foo",
+  });
+  console.log(objA == objB);
+  console.log(objA === objB);
+})();
+```
+
+1.  false true
+2.  false false
+3.  true false
+4.  true true
+
+_Answer:_ 2) false false
+
+### Q. What would be the output of following code ?
+
+```javascript
+(function () {
+  var objA = Object.create({
+    foo: "foo",
+  });
+  var objB = Object.create(objA);
+  console.log(objA == objB);
+  console.log(objA === objB);
+})();
+```
+
+1.  false true
+2.  false false
+3.  true false
+4.  true true
+
+_Answer:_ 2) false false
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code ?
+
+```javascript
+(function () {
+  var objA = Object.create({
+    foo: "foo",
+  });
+  var objB = Object.create(objA);
+  console.log(objA.toString() == objB.toString());
+  console.log(objA.toString() === objB.toString());
+})();
+```
+
+1.  false true
+2.  false false
+3.  true false
+4.  true true
+
+_Answer:_ 4) true true
+
+### Q. What would be the output of following code ?
+
+```javascript
+(function () {
+  var objA = Object.create({
+    foo: "foo",
+  });
+  var objB = objA;
+  console.log(objA == objB);
+  console.log(objA === objB);
+  console.log(objA.toString() == objB.toString());
+  console.log(objA.toString() === objB.toString());
+})();
+```
+
+1.  true true true false
+2.  true false true true
+3.  true true true true
+4.  true true false false
+
+_Answer:_ 3) true true true true
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code ?
+
+```javascript
+(function () {
+  var objA = Object.create({
+    foo: "foo",
+  });
+  var objB = objA;
+  objB.foo = "bar";
+  console.log(objA.foo);
+  console.log(objB.foo);
+})();
+```
+
+1.  foo bar
+2.  bar bar
+3.  foo foo
+4.  bar foo
+
+_Answer:_ 2) bar bar
+
+### Q. What would be the output of following code ?
+
+```javascript
+(function () {
+  var objA = Object.create({
+    foo: "foo",
+  });
+  var objB = objA;
+  objB.foo = "bar";
+
+  delete objA.foo;
+  console.log(objA.foo);
+  console.log(objB.foo);
+})();
+```
+
+1.  foo bar
+2.  bar bar
+3.  foo foo
+4.  bar foo
+
+_Answer:_ 3) foo foo
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code ?
+
+```javascript
+(function () {
+  var objA = {
+    foo: "foo",
+  };
+  var objB = objA;
+  objB.foo = "bar";
+
+  delete objA.foo;
+  console.log(objA.foo);
+  console.log(objB.foo);
+})();
+```
+
+1.  foo bar
+2.  undefined undefined
+3.  foo foo
+4.  undefined bar
+
+_Answer:_ 2) undefined undefined
+
+### Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var array = new Array("100");
+  console.log(array);
+  console.log(array.length);
+})();
+```
+
+1.  undefined undefined
+2.  [undefined × 100] 100
+3.  ["100"] 1
+4.  ReferenceError: array is not defined
+
+_Answer:_ 3) ["100"] 1
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var array1 = [];
+  var array2 = new Array(100);
+  var array3 = new Array(["1", 2, "3", 4, 5.6]);
+  console.log(array1);
+  console.log(array2);
+  console.log(array3);
+  console.log(array3.length);
+})();
+```
+
+1.  [] [] [Array[5]] 1
+2.  [] [undefined × 100] Array[5] 1
+3.  [] [] ['1',2,'3',4,5.6] 5
+4.  [] [] [Array[5]] 5
+
+_Answer:_ 1) [] [] [Array[5]] 1
+
+### Q. What would be the output of following code?
+
+```javascript
+(function () {
+  var array = new Array("a", "b", "c", "d", "e");
+  array[10] = "f";
   delete array[10];
   console.log(array.length);
-}());
+})();
 ```
 
 1.  11
@@ -1686,7 +1870,7 @@ foo();
 3.  6
 4.  undefined
 
-*Answer:* 1) 11
+_Answer:_ 1) 11
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1695,11 +1879,11 @@ foo();
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var animal = ['cow','horse'];
-		animal.push('cat');
-		animal.push('dog','rat','goat');
-		console.log(animal.length);
+(function () {
+  var animal = ["cow", "horse"];
+  animal.push("cat");
+  animal.push("dog", "rat", "goat");
+  console.log(animal.length);
 })();
 ```
 
@@ -1708,16 +1892,16 @@ foo();
 3.  6
 4.  undefined
 
-*Answer:* 3) 6
+_Answer:_ 3) 6
 
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var animal = ['cow','horse'];
-		animal.push('cat');
-		animal.unshift('dog','rat','goat');
-		console.log(animal);
+(function () {
+  var animal = ["cow", "horse"];
+  animal.push("cat");
+  animal.unshift("dog", "rat", "goat");
+  console.log(animal);
 })();
 ```
 
@@ -1726,7 +1910,7 @@ foo();
 3.  Type Error
 4.  undefined
 
-*Answer:* 1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
+_Answer:_ 1) [ 'dog', 'rat', 'goat', 'cow', 'horse', 'cat' ]
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1735,12 +1919,12 @@ foo();
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var array = [1,2,3,4,5];
-	console.log(array.indexOf(2));
-	console.log([{name: 'John'},{name : 'John'}].indexOf({name:'John'}));
-	console.log([[1],[2],[3],[4]].indexOf([3]));
-	console.log("abcdefgh".indexOf('e'));
+(function () {
+  var array = [1, 2, 3, 4, 5];
+  console.log(array.indexOf(2));
+  console.log([{ name: "John" }, { name: "John" }].indexOf({ name: "John" }));
+  console.log([[1], [2], [3], [4]].indexOf([3]));
+  console.log("abcdefgh".indexOf("e"));
 })();
 ```
 
@@ -1749,25 +1933,25 @@ foo();
 3.  1 -1 -1 -1
 4.  1 undefined -1 4
 
-*Answer:* 1) 1 -1 -1 4
+_Answer:_ 1) 1 -1 -1 4
 
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var array = [1,2,3,4,5,1,2,3,4,5,6];
-	console.log(array.indexOf(2));
-	console.log(array.indexOf(2,3));
-	console.log(array.indexOf(2,10));
+(function () {
+  var array = [1, 2, 3, 4, 5, 1, 2, 3, 4, 5, 6];
+  console.log(array.indexOf(2));
+  console.log(array.indexOf(2, 3));
+  console.log(array.indexOf(2, 10));
 })();
 ```
 
 1.  1 -1 -1
 2.  1 6 -1
-3.  1 1 -1 
+3.  1 1 -1
 4.  1 undefined undefined
 
-*Answer:* 2) 1 6 -1
+_Answer:_ 2) 1 6 -1
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1776,66 +1960,65 @@ foo();
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var numbers = [2,3,4,8,9,11,13,12,16];
-	var even = numbers.filter(function(element, index){
-		return element % 2 === 0; 
-	});
-	console.log(even);
+(function () {
+  var numbers = [2, 3, 4, 8, 9, 11, 13, 12, 16];
+  var even = numbers.filter(function (element, index) {
+    return element % 2 === 0;
+  });
+  console.log(even);
 
-	var containsDivisibleby3 = numbers.some(function(element, index){
-		return element % 3 === 0;
-	});
+  var containsDivisibleby3 = numbers.some(function (element, index) {
+    return element % 3 === 0;
+  });
 
-	console.log(containsDivisibleby3);	
+  console.log(containsDivisibleby3);
 })();
 ```
 
 1.  [ 2, 4, 8, 12, 16 ] [ 0, 3, 0, 0, 9, 0, 12]
 2.  [ 2, 4, 8, 12, 16 ] [ 3, 9, 12]
-3.  [ 2, 4, 8, 12, 16 ] true 
+3.  [ 2, 4, 8, 12, 16 ] true
 4.  [ 2, 4, 8, 12, 16 ] false
 
-*Answer:* 3) [ 2, 4, 8, 12, 16 ] true 
+_Answer:_ 3) [ 2, 4, 8, 12, 16 ] true
 
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var containers = [2,0,false,"", '12', true];
-	var containers = containers.filter(Boolean);
-	console.log(containers);
-	var containers = containers.filter(Number);
-	console.log(containers);
-	var containers = containers.filter(String);
-	console.log(containers);
-	var containers = containers.filter(Object);
-	console.log(containers);		
+(function () {
+  var containers = [2, 0, false, "", "12", true];
+  var containers = containers.filter(Boolean);
+  console.log(containers);
+  var containers = containers.filter(Number);
+  console.log(containers);
+  var containers = containers.filter(String);
+  console.log(containers);
+  var containers = containers.filter(Object);
+  console.log(containers);
 })();
 ```
 
-1.	[ 2, '12', true ]
-	[ 2, '12', true ]
-	[ 2, '12', true ]
-	[ 2, '12', true ]
-2.	[false, true]
-	[ 2 ]
-	['12']
-	[ ]
-3.	[2,0,false,"", '12', true]
-	[2,0,false,"", '12', true]
-	[2,0,false,"", '12', true]
-	[2,0,false,"", '12', true]
+1. [ 2, '12', true ]
+   [ 2, '12', true ]
+   [ 2, '12', true ]
+   [ 2, '12', true ]
+2. [false, true]
+   [ 2 ]
+   ['12']
+   [ ]
+3. [2,0,false,"", '12', true]
+   [2,0,false,"", '12', true]
+   [2,0,false,"", '12', true]
+   [2,0,false,"", '12', true]
 4. [ 2, '12', true ]
-	[ 2, '12', true, false ]
-	[ 2, '12', true,false ]
-	[ 2, '12', true,false]
+   [ 2, '12', true, false ]
+   [ 2, '12', true,false ]
+   [ 2, '12', true,false]
 
-
-*Answer:* 1) [ 2, '12', true ]
-			 [ 2, '12', true ]
-			 [ 2, '12', true ]
-			 [ 2, '12', true ]
+_Answer:_ 1) [ 2, '12', true ]
+[ 2, '12', true ]
+[ 2, '12', true ]
+[ 2, '12', true ]
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1844,13 +2027,13 @@ foo();
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var list = ['foo','bar','john','ritz'];
-	    console.log(list.slice(1));	
-	    console.log(list.slice(1,3));
-	    console.log(list.slice());
-	    console.log(list.slice(2,2));
-	    console.log(list);				
+(function () {
+  var list = ["foo", "bar", "john", "ritz"];
+  console.log(list.slice(1));
+  console.log(list.slice(1, 3));
+  console.log(list.slice());
+  console.log(list.slice(2, 2));
+  console.log(list);
 })();
 ```
 
@@ -1875,20 +2058,20 @@ foo();
    []
    [ 'foo', 'bar', 'john', 'ritz' ]
 
-*Answer:* 1) [ 'bar', 'john', 'ritz' ]
-		 	 [ 'bar', 'john' ]
-           [ 'foo', 'bar', 'john', 'ritz' ]
-           []
-           [ 'foo', 'bar', 'john', 'ritz' ]		
+_Answer:_ 1) [ 'bar', 'john', 'ritz' ]
+[ 'bar', 'john' ]
+[ 'foo', 'bar', 'john', 'ritz' ]
+[]
+[ 'foo', 'bar', 'john', 'ritz' ]
 
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var list = ['foo','bar','john'];
-	    console.log(list.splice(1));		
-	    console.log(list.splice(1,2));
-	    console.log(list);			
+(function () {
+  var list = ["foo", "bar", "john"];
+  console.log(list.splice(1));
+  console.log(list.splice(1, 2));
+  console.log(list);
 })();
 ```
 
@@ -1897,7 +2080,7 @@ foo();
 3.  [ 'bar', 'john' ] [ 'bar', 'john' ] [ 'bar', 'john' ]
 4.  [ 'bar', 'john' ] [] []
 
-*Answer:* 1.  [ 'bar', 'john' ] [] [ 'foo' ] 
+_Answer:_ 1. [ 'bar', 'john' ] [] [ 'foo' ]
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1906,10 +2089,10 @@ foo();
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var arrayNumb = [2, 8, 15, 16, 23, 42];
-	arrayNumb.sort();
-	console.log(arrayNumb);
+(function () {
+  var arrayNumb = [2, 8, 15, 16, 23, 42];
+  arrayNumb.sort();
+  console.log(arrayNumb);
 })();
 ```
 
@@ -1918,32 +2101,32 @@ foo();
 3.  [ 15, 16, 2, 23, 42, 8 ]
 4.  [ 2, 8, 15, 16, 23, 42 ]
 
-*Answer:* 3.  [ 15, 16, 2, 23, 42, 8 ]
+_Answer:_ 3. [ 15, 16, 2, 23, 42, 8 ]
 
 ### Q. What would be the output of following code?
 
 ```javascript
-function funcA(){
-	console.log("funcA ", this);
-	(function innerFuncA1(){
-		console.log("innerFunc1", this);
-		(function innerFunA11(){
-			console.log("innerFunA11", this);
-		})();
-	})();
+function funcA() {
+  console.log("funcA ", this);
+  (function innerFuncA1() {
+    console.log("innerFunc1", this);
+    (function innerFunA11() {
+      console.log("innerFunA11", this);
+    })();
+  })();
 }
-	
+
 console.log(funcA());
 ```
 
-1.  funcA  Window {...} 
-    innerFunc1 Window {...} 
+1.  funcA Window {...}
+    innerFunc1 Window {...}
     innerFunA11 Window {...}
-2.  undefined 
+2.  undefined
 3.  Type Error
-4.  ReferenceError: this is not defined 
-	
-*Answer:* 1) 
+4.  ReferenceError: this is not defined
+
+_Answer:_ 1)
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1953,41 +2136,41 @@ console.log(funcA());
 
 ```javascript
 var obj = {
-	message: "Hello",
-	innerMessage: !(function() {
-		console.log(this.message);
-	})()
+  message: "Hello",
+  innerMessage: !(function () {
+    console.log(this.message);
+  })(),
 };
-	
+
 console.log(obj.innerMessage);
 ```
 
-1.  ReferenceError: this.message is not defined 
-2.  undefined 
+1.  ReferenceError: this.message is not defined
+2.  undefined
 3.  Type Error
 4.  undefined true
-	
-*Answer:* 4) undefined true
+
+_Answer:_ 4) undefined true
 
 ### Q. What would be the output of following code?
 
 ```javascript
 var obj = {
-	message: "Hello",
-	innerMessage: function() {
-		return this.message;
-	}
+  message: "Hello",
+  innerMessage: function () {
+    return this.message;
+  },
 };
-	
+
 console.log(obj.innerMessage());
 ```
 
-1.  Hello 
-2.  undefined 
+1.  Hello
+2.  undefined
 3.  Type Error
 4.  ReferenceError: this.message is not defined
-	
-*Answer:* 1) Hello
+
+_Answer:_ 1) Hello
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1997,84 +2180,44 @@ console.log(obj.innerMessage());
 
 ```javascript
 var obj = {
-  message: 'Hello',
+  message: "Hello",
   innerMessage: function () {
     (function () {
       console.log(this.message);
-    }());
-  }
+    })();
+  },
 };
 console.log(obj.innerMessage());
 ```
 
-1.  Type Error 
-2.  Hello 
+1.  Type Error
+2.  Hello
 3.  undefined
 4.  ReferenceError: this.message is not defined
-	
-*Answer:* 3) undefined
-	
+
+_Answer:_ 3) undefined
+
 ### Q. What would be the output of following code?
 
 ```javascript
 var obj = {
-  message: 'Hello',
+  message: "Hello",
   innerMessage: function () {
-  	var self = this;
+    var self = this;
     (function () {
       console.log(self.message);
-    }());
-  }
+    })();
+  },
 };
 console.log(obj.innerMessage());
 ```
 
-1.  Type Error 
-2.  'Hello' 
+1.  Type Error
+2.  'Hello'
 3.  undefined
 4.  ReferenceError: self.message is not defined
-	
-*Answer:* 2) 'Hello'
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-### Q. What would be the output of following code?
-
-```javascript
-function myFunc(){
-	console.log(this.message);
-}
-myFunc.message = "Hi John";
-	
-console.log(myFunc());
-```
-
-1.  Type Error 
-2.  'Hi John' 
-3.  undefined
-4.  ReferenceError: this.message is not defined
-	
-*Answer:* 3) undefined
-
-### Q. What would be the output of following code?
-
-```javascript
-function myFunc(){
-	console.log(myFunc.message);
-}
-myFunc.message = "Hi John";
-	
-console.log(myFunc());
-```
-
-1.  Type Error 
-2.  'Hi John' 
-3.  undefined
-4.  ReferenceError: this.message is not defined
-	
-*Answer:* 2) 'Hi John'
+_Answer:_ 2) 'Hello'
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2084,36 +2227,76 @@ console.log(myFunc());
 
 ```javascript
 function myFunc() {
-  myFunc.message = 'Hi John';
+  console.log(this.message);
+}
+myFunc.message = "Hi John";
+
+console.log(myFunc());
+```
+
+1.  Type Error
+2.  'Hi John'
+3.  undefined
+4.  ReferenceError: this.message is not defined
+
+_Answer:_ 3) undefined
+
+### Q. What would be the output of following code?
+
+```javascript
+function myFunc() {
+  console.log(myFunc.message);
+}
+myFunc.message = "Hi John";
+
+console.log(myFunc());
+```
+
+1.  Type Error
+2.  'Hi John'
+3.  undefined
+4.  ReferenceError: this.message is not defined
+
+_Answer:_ 2) 'Hi John'
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What would be the output of following code?
+
+```javascript
+function myFunc() {
+  myFunc.message = "Hi John";
   console.log(myFunc.message);
 }
 console.log(myFunc());
 ```
 
-1.  Type Error 
-2.  'Hi John' 
+1.  Type Error
+2.  'Hi John'
 3.  undefined
 4.  ReferenceError: this.message is not defined
-	
-*Answer:* 2) 'Hi John'
+
+_Answer:_ 2) 'Hi John'
 
 ### Q. What would be the output of following code?
 
 ```javascript
-function myFunc(param1,param2) {
+function myFunc(param1, param2) {
   console.log(myFunc.length);
 }
 console.log(myFunc());
-console.log(myFunc("a","b"));
-console.log(myFunc("a","b","c","d"));
+console.log(myFunc("a", "b"));
+console.log(myFunc("a", "b", "c", "d"));
 ```
 
-1.  2 2 2 
+1.  2 2 2
 2.  0 2 4
 3.  undefined
 4.  ReferenceError
-	
-*Answer:* a) 2 2 2 
+
+_Answer:_ a) 2 2 2
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2126,44 +2309,44 @@ function myFunc() {
   console.log(arguments.length);
 }
 console.log(myFunc());
-console.log(myFunc("a","b"));
-console.log(myFunc("a","b","c","d"));
+console.log(myFunc("a", "b"));
+console.log(myFunc("a", "b", "c", "d"));
 ```
 
-1.  2 2 2 
+1.  2 2 2
 2.  0 2 4
 3.  undefined
 4.  ReferenceError
-	
-*Answer:* 2) 0 2 4 
+
+_Answer:_ 2) 0 2 4
 
 ### Q. What would be the output of following code?
 
 ```javascript
-function Person(name, age){
-	this.name = name || "John";
-	this.age = age || 24;
-	this.displayName = function(){
-		console.log(this.name);
-	}
+function Person(name, age) {
+  this.name = name || "John";
+  this.age = age || 24;
+  this.displayName = function () {
+    console.log(this.name);
+  };
 }
 
 Person.name = "John";
-Person.displayName = function(){
-	console.log(this.name);
-}
+Person.displayName = function () {
+  console.log(this.name);
+};
 
-var person1 = new Person('John');
-	person1.displayName();
-	Person.displayName();
+var person1 = new Person("John");
+person1.displayName();
+Person.displayName();
 ```
 
 1.  John Person
 2.  John John
 3.  John undefined
 4.  John John
-	
-*Answer:* 1) John Person 
+
+_Answer:_ 1) John Person
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2173,11 +2356,11 @@ var person1 = new Person('John');
 
 ```javascript
 function passWordMngr() {
-	var password = '12345678';
-	this.userName = 'John';
-	return {
-		pwd: password
-	};
+  var password = "12345678";
+  this.userName = "John";
+  return {
+    pwd: password,
+  };
 }
 // Block End
 var userInfo = passWordMngr();
@@ -2189,15 +2372,15 @@ console.log(userInfo.userName);
 2.  12345678 John
 3.  12345678 undefined
 4.  undefined undefined
-	
-*Answer:* 3) 12345678 undefined 
+
+_Answer:_ 3) 12345678 undefined
 
 ### Q. What would be the output of following code?
 
 ```javascript
-var employeeId = 'aq123';
+var employeeId = "aq123";
 function Employee() {
-  this.employeeId = 'bq1uy';
+  this.employeeId = "bq1uy";
 }
 console.log(Employee.employeeId);
 ```
@@ -2206,8 +2389,8 @@ console.log(Employee.employeeId);
 2.  aq123
 3.  bq1uy
 4.  undefined
-	
-*Answer:* 4) undefined 
+
+_Answer:_ 4) undefined
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2216,14 +2399,14 @@ console.log(Employee.employeeId);
 ### Q. What would be the output of following code?
 
 ```javascript
-var employeeId = 'aq123';
+var employeeId = "aq123";
 
 function Employee() {
-	this.employeeId = 'bq1uy';
+  this.employeeId = "bq1uy";
 }
 console.log(new Employee().employeeId);
-Employee.prototype.employeeId = 'kj182';
-Employee.prototype.JobId = '1BJKSJ';
+Employee.prototype.employeeId = "kj182";
+Employee.prototype.JobId = "1BJKSJ";
 console.log(new Employee().JobId);
 console.log(new Employee().employeeId);
 ```
@@ -2232,29 +2415,29 @@ console.log(new Employee().employeeId);
 2.  bq1uy 1BJKSJ bq1uy
 3.  bq1uy 1BJKSJ kj182
 4.  undefined 1BJKSJ kj182
-	
-*Answer:* 2) bq1uy 1BJKSJ bq1uy 
+
+_Answer:_ 2) bq1uy 1BJKSJ bq1uy
 
 ### Q. What would be the output of following code?
 
 ```javascript
-var employeeId = 'aq123';
+var employeeId = "aq123";
 (function Employee() {
-	try {
-		throw 'foo123';
-	} catch (employeeId) {
-		console.log(employeeId);
-	}
-	console.log(employeeId);
-}());
+  try {
+    throw "foo123";
+  } catch (employeeId) {
+    console.log(employeeId);
+  }
+  console.log(employeeId);
+})();
 ```
 
 1.  foo123 aq123
 2.  foo123 foo123
 3.  aq123 aq123
-4.  foo123 undefined 
-	
-*Answer:* 1) foo123 aq123 
+4.  foo123 undefined
+
+_Answer:_ 1) foo123 aq123
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2263,52 +2446,52 @@ var employeeId = 'aq123';
 ### Q. What would be the output of following code?
 
 ```javascript
-(function() {
-	var greet = 'Hello World';
-	var toGreet = [].filter.call(greet, function(element, index) {
-		return index > 5;
-	});
-	console.log(toGreet);
-}());
+(function () {
+  var greet = "Hello World";
+  var toGreet = [].filter.call(greet, function (element, index) {
+    return index > 5;
+  });
+  console.log(toGreet);
+})();
 ```
 
 1.  Hello World
 2.  undefined
 3.  World
-4.  [ 'W', 'o', 'r', 'l', 'd' ] 
-	
-*Answer:* 4) [ 'W', 'o', 'r', 'l', 'd' ]  
+4.  [ 'W', 'o', 'r', 'l', 'd' ]
+
+_Answer:_ 4) [ 'W', 'o', 'r', 'l', 'd' ]
 
 ### Q. What would be the output of following code?
 
 ```javascript
-(function() {
-	var fooAccount = {
-		name: 'John',
-		amount: 4000,
-		deductAmount: function(amount) {
-			this.amount -= amount;
-			return 'Total amount left in account: ' + this.amount;
-		}
-	};
-	var barAccount = {
-		name: 'John',
-		amount: 6000
-	};
-	var withdrawAmountBy = function(totalAmount) {
-		return fooAccount.deductAmount.bind(barAccount, totalAmount);
-	};
-	console.log(withdrawAmountBy(400)());
-	console.log(withdrawAmountBy(300)());
-}());
+(function () {
+  var fooAccount = {
+    name: "John",
+    amount: 4000,
+    deductAmount: function (amount) {
+      this.amount -= amount;
+      return "Total amount left in account: " + this.amount;
+    },
+  };
+  var barAccount = {
+    name: "John",
+    amount: 6000,
+  };
+  var withdrawAmountBy = function (totalAmount) {
+    return fooAccount.deductAmount.bind(barAccount, totalAmount);
+  };
+  console.log(withdrawAmountBy(400)());
+  console.log(withdrawAmountBy(300)());
+})();
 ```
 
 1. Total amount left in account: 5600 Total amount left in account: 5300
-2.  undefined undefined
-3.  Total amount left in account: 3600 Total amount left in account: 3300
-4.  Total amount left in account: 5600 Total amount left in account: 5600
-	
-*Answer:* 1) Total amount left in account: 5600 Total amount left in account: 5300 
+2. undefined undefined
+3. Total amount left in account: 3600 Total amount left in account: 3300
+4. Total amount left in account: 5600 Total amount left in account: 5600
+
+_Answer:_ 1) Total amount left in account: 5600 Total amount left in account: 5300
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2317,34 +2500,34 @@ var employeeId = 'aq123';
 ### Q. What would be the output of following code?
 
 ```javascript
-(function() {
-	var fooAccount = {
-		name: 'John',
-		amount: 4000,
-		deductAmount: function(amount) {
-			this.amount -= amount;
-			return this.amount;
-		}
-	};
-	var barAccount = {
-		name: 'John',
-		amount: 6000
-	};
-	var withdrawAmountBy = function(totalAmount) {
-		return fooAccount.deductAmount.apply(barAccount, [totalAmount]);
-	};
-	console.log(withdrawAmountBy(400));
-	console.log(withdrawAmountBy(300));
-	console.log(withdrawAmountBy(200));
-}());
+(function () {
+  var fooAccount = {
+    name: "John",
+    amount: 4000,
+    deductAmount: function (amount) {
+      this.amount -= amount;
+      return this.amount;
+    },
+  };
+  var barAccount = {
+    name: "John",
+    amount: 6000,
+  };
+  var withdrawAmountBy = function (totalAmount) {
+    return fooAccount.deductAmount.apply(barAccount, [totalAmount]);
+  };
+  console.log(withdrawAmountBy(400));
+  console.log(withdrawAmountBy(300));
+  console.log(withdrawAmountBy(200));
+})();
 ```
 
 1. 5600 5300 5100
 2. 3600 3300 3100
 3. 5600 3300 5100
 4. undefined undefined undefined
-	
-*Answer:* 1) 5600 5300 5100
+
+_Answer:_ 1) 5600 5300 5100
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2353,34 +2536,34 @@ var employeeId = 'aq123';
 ### Q. What would be the output of following code?
 
 ```javascript
-(function() {
-	var fooAccount = {
-		name: 'John',
-		amount: 6000,
-		deductAmount: function(amount) {
-			this.amount -= amount;
-			return this.amount;
-		}
-	};
-	var barAccount = {
-		name: 'John',
-		amount: 4000
-	};
-	var withdrawAmountBy = function(totalAmount) {
-		return fooAccount.deductAmount.call(barAccount, totalAmount);
-	};
-	console.log(withdrawAmountBy(400));
-	console.log(withdrawAmountBy(300));
-	console.log(withdrawAmountBy(200));
-}());
+(function () {
+  var fooAccount = {
+    name: "John",
+    amount: 6000,
+    deductAmount: function (amount) {
+      this.amount -= amount;
+      return this.amount;
+    },
+  };
+  var barAccount = {
+    name: "John",
+    amount: 4000,
+  };
+  var withdrawAmountBy = function (totalAmount) {
+    return fooAccount.deductAmount.call(barAccount, totalAmount);
+  };
+  console.log(withdrawAmountBy(400));
+  console.log(withdrawAmountBy(300));
+  console.log(withdrawAmountBy(200));
+})();
 ```
 
 1. 5600 5300 5100
 2. 3600 3300 3100
 3. 5600 3300 5100
 4. undefined undefined undefined
-	
-*Answer:* 2) 3600 3300 3100
+
+_Answer:_ 2) 3600 3300 3100
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2390,9 +2573,9 @@ var employeeId = 'aq123';
 
 ```javascript
 (function greetNewCustomer() {
-	console.log('Hello ' + this.name);
+  console.log("Hello " + this.name);
 }.bind({
-	name: 'John'
+  name: "John",
 })());
 ```
 
@@ -2400,33 +2583,32 @@ var employeeId = 'aq123';
 2. Reference Error
 3. Window
 4. undefined
-	
-*Answer:* 1) Hello John
+
+_Answer:_ 1) Hello John
 
 ### Q. What would be the output of following code ?
 
 ```javascript
-function getDataFromServer(apiUrl){
-    var name = "John";
-	return {
-		then : function(fn){
-			fn(name);
-		}
-	}
+function getDataFromServer(apiUrl) {
+  var name = "John";
+  return {
+    then: function (fn) {
+      fn(name);
+    },
+  };
 }
 
-getDataFromServer('www.google.com').then(function(name){
-	console.log(name);
+getDataFromServer("www.google.com").then(function (name) {
+  console.log(name);
 });
-
 ```
 
 1. John
 2. undefined
 3. Reference Error
 4. fn is not defined
-	
-*Answer:* 1) John
+
+_Answer:_ 1) John
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2435,33 +2617,33 @@ getDataFromServer('www.google.com').then(function(name){
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	var arrayNumb = [2, 8, 15, 16, 23, 42];
-	Array.prototype.sort = function(a,b){
-		return a - b;
-	};
-	arrayNumb.sort();
-	console.log(arrayNumb);
+(function () {
+  var arrayNumb = [2, 8, 15, 16, 23, 42];
+  Array.prototype.sort = function (a, b) {
+    return a - b;
+  };
+  arrayNumb.sort();
+  console.log(arrayNumb);
 })();
 
-(function(){
-	var numberArray = [2, 8, 15, 16, 23, 42];
-	numberArray.sort(function(a,b){
-		if(a == b){
-			return 0;
-		}else{
-			return a < b ? -1 : 1;
-		}
-	});
-	console.log(numberArray);
+(function () {
+  var numberArray = [2, 8, 15, 16, 23, 42];
+  numberArray.sort(function (a, b) {
+    if (a == b) {
+      return 0;
+    } else {
+      return a < b ? -1 : 1;
+    }
+  });
+  console.log(numberArray);
 })();
 
-(function(){
-	var numberArray = [2, 8, 15, 16, 23, 42];
-	numberArray.sort(function(a,b){
-		return a-b;
-	});
-	console.log(numberArray);
+(function () {
+  var numberArray = [2, 8, 15, 16, 23, 42];
+  numberArray.sort(function (a, b) {
+    return a - b;
+  });
+  console.log(numberArray);
 })();
 ```
 
@@ -2473,11 +2655,10 @@ getDataFromServer('www.google.com').then(function(name){
    [42, 23, 16, 15, 8, 2]
    [42, 23, 16, 15, 8, 2]
 4. Reference Error
-	
-*Answer:* 1) [ 2, 8, 15, 16, 23, 42 ]
-			 [ 2, 8, 15, 16, 23, 42 ]
-			 [ 2, 8, 15, 16, 23, 42 ]
-			
+
+_Answer:_ 1) [ 2, 8, 15, 16, 23, 42 ]
+[ 2, 8, 15, 16, 23, 42 ]
+[ 2, 8, 15, 16, 23, 42 ]
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2486,15 +2667,15 @@ getDataFromServer('www.google.com').then(function(name){
 ### Q. What would be the output of following code?
 
 ```javascript
-(function(){
-	function sayHello(){
-		var name = "Hi John";
-		return 
-		{
-			fullName: name
-		}
-	}
-	console.log(sayHello().fullName);
+(function () {
+  function sayHello() {
+    var name = "Hi John";
+    return;
+    {
+      fullName: name;
+    }
+  }
+  console.log(sayHello().fullName);
 })();
 ```
 
@@ -2502,14 +2683,14 @@ getDataFromServer('www.google.com').then(function(name){
 2. undefined
 3. Reference Error
 4. Uncaught TypeError: Cannot read property 'fullName' of undefined
-	
-*Answer:* 4) Uncaught TypeError: Cannot read property 'fullName' of undefined
+
+_Answer:_ 4) Uncaught TypeError: Cannot read property 'fullName' of undefined
 
 ### Q. What would be the output of following code?
 
 ```javascript
-function getNumber(){
-	return (2,4,5);
+function getNumber() {
+  return 2, 4, 5;
 }
 
 var numb = getNumber();
@@ -2520,8 +2701,8 @@ console.log(numb);
 2. undefined
 3. 2
 4. (2,4,5)
-	
-*Answer:* 1) 5
+
+_Answer:_ 1) 5
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2530,8 +2711,8 @@ console.log(numb);
 ### Q. What would be the output of following code?
 
 ```javascript
-function getNumber(){
-	return;
+function getNumber() {
+  return;
 }
 
 var numb = getNumber();
@@ -2542,18 +2723,21 @@ console.log(numb);
 2. undefined
 3. ""
 4. 0
-	
-*Answer:* 2) undefined
+
+_Answer:_ 2) undefined
 
 ### Q. What would be the output of following code?
 
 ```javascript
-function mul(x){
-	return function(y){
-		return [x*y, function(z){
-			return x*y + z;
-		}];
-	}
+function mul(x) {
+  return function (y) {
+    return [
+      x * y,
+      function (z) {
+        return x * y + z;
+      },
+    ];
+  };
 }
 
 console.log(mul(2)(3)[0]);
@@ -2564,8 +2748,8 @@ console.log(mul(2)(3)[1](4));
 2. undefined undefined
 3. Reference Error
 4. 10, 6
-	
-*Answer:* 1) 6, 10
+
+_Answer:_ 1) 6, 10
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2575,14 +2759,14 @@ console.log(mul(2)(3)[1](4));
 
 ```javascript
 function mul(x) {
-	return function(y) {
-		return {
-			result: x * y,
-			sum: function(z) {
-				return x * y + z;
-			}
-		};
-	};
+  return function (y) {
+    return {
+      result: x * y,
+      sum: function (z) {
+        return x * y + z;
+      },
+    };
+  };
 }
 console.log(mul(2)(3).result);
 console.log(mul(2)(3).sum(4));
@@ -2592,22 +2776,22 @@ console.log(mul(2)(3).sum(4));
 2. undefined undefined
 3. Reference Error
 4. 10, 6
-	
-*Answer:* 1) 6, 10
+
+_Answer:_ 1) 6, 10
 
 ### Q. What would be the output of following code?
 
 ```javascript
 function mul(x) {
-	return function(y) {
-		return function(z) {
-			return function(w) {
-				return function(p) {
-					return x * y * z * w * p;
-				};
-			};
-		};
-	};
+  return function (y) {
+    return function (z) {
+      return function (w) {
+        return function (p) {
+          return x * y * z * w * p;
+        };
+      };
+    };
+  };
 }
 console.log(mul(2)(3)(4)(5)(6));
 ```
@@ -2616,29 +2800,32 @@ console.log(mul(2)(3)(4)(5)(6));
 2. undefined
 3. Reference Error
 4. Type Error
-	
-*Answer:* 1) 720
+
+_Answer:_ 1) 720
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. What is the value of `foo`?
+
 ```javascript
-var foo = 10 + '20';
+var foo = 10 + "20";
 ```
 
-*Answer:* `'1020'`, because of type coercion from Number to String
+_Answer:_ `'1020'`, because of type coercion from Number to String
 
 ### Q. How would you make this work?
+
 ```javascript
 add(2, 5); // 7
 add(2)(5); // 7
 ```
 
-*Answer:* A general solution for any number of parameters
+_Answer:_ A general solution for any number of parameters
+
 ```javascript
-'use strict';
+"use strict";
 
 let sum = (arr) => arr.reduce((a, b) => a + b);
 let addGenerator = (numArgs, prevArgs) => {
@@ -2665,30 +2852,34 @@ add()()(2)(5); // 7
 </div>
 
 ### Q. What value is returned from the following statement?
+
 ```javascript
 "i'm a lasagna hog".split("").reverse().join("");
 ```
 
-*Answer:* It's actually a reverse method for a string - `'goh angasal a m\'i'`
+_Answer:_ It's actually a reverse method for a string - `'goh angasal a m\'i'`
 
 ### Q. What is the value of `window.foo`?
+
 ```javascript
-( window.foo || ( window.foo = "bar" ) );
+window.foo || (window.foo = "bar");
 ```
 
-*Answer:* Always `'bar'`
+_Answer:_ Always `'bar'`
 
 ### Q. What is the outcome of the two alerts below?
+
 ```javascript
 var foo = "Hello";
-(function() {
+(function () {
   var bar = " World";
   alert(foo + bar);
 })();
 alert(foo + bar);
 ```
 
-*Answer:*
+_Answer:_
+
 - First: `Hello World`
 - Second: Throws an exception, `ReferenceError: bar is not defined`
 
@@ -2697,60 +2888,68 @@ alert(foo + bar);
 </div>
 
 ### Q. What is the value of `foo.length`?
+
 ```javascript
 var foo = [];
 foo.push(1);
 foo.push(2);
 ```
 
-*Answer:* `.push` is mutable - `2`
+_Answer:_ `.push` is mutable - `2`
 
 ### Q. What is the value of `foo.x`?
+
 ```javascript
-var foo = {n: 1};
+var foo = { n: 1 };
 var bar = foo;
-foo.x = foo = {n: 2};
+foo.x = foo = { n: 2 };
 ```
 
-*Answer:* `undefined`. Rather, `bar.x` is `{n: 2}`.
+_Answer:_ `undefined`. Rather, `bar.x` is `{n: 2}`.
 
 `foo.x = foo = {n: 2}` is the same as `foo.x = (foo = {n: 2})`. It is because
 a left term is first referenced and then a right term is evaluated when an
 assignment is performed in JavaScript. When `foo.x` is referenced, it refers
-to an original object, `{n: 1}`. So, when the result of the right term, `{n:
-2}`, is evaluated, it will assigned to the original object, which is at the
+to an original object, `{n: 1}`. So, when the result of the right term, `{n: 2}`, is evaluated, it will assigned to the original object, which is at the
 moment referenced by `bar`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-### Q. What does the following code print?*
+### Q. What does the following code print?\*
+
 ```javascript
-console.log('one');
-setTimeout(function() {
-  console.log('two');
+console.log("one");
+setTimeout(function () {
+  console.log("two");
 }, 0);
-console.log('three');
+console.log("three");
 ```
 
-*Answer:* `one`, `three` and `two`. It's because `console.log('two');` will be
+_Answer:_ `one`, `three` and `two`. It's because `console.log('two');` will be
 invoked in the next event loop.
 
 ### Q. What would be the result of 1+2+'3'?
+
 The output is going to be `33`. Since `1` and `2` are numeric values, the result of first two digits is going to be a numeric value `3`. The next digit is a string type value because of that the addition of numeric value `3` and string type value `3` is just going to be a concatenation value `33`.
 
 ### Q. Write a script that returns the number of occurrences of character given a string as input?
+
 ```javascript
 function countCharacters(str) {
-  return str.replace(/ /g, '').toLowerCase().split('').reduce((arr, character) => {
-    if (character in arr) {
-      arr[character]++;
-    } else {
-      arr[character] = 1;
-    }
-    return arr;
-  }, {});
+  return str
+    .replace(/ /g, "")
+    .toLowerCase()
+    .split("")
+    .reduce((arr, character) => {
+      if (character in arr) {
+        arr[character]++;
+      } else {
+        arr[character] = 1;
+      }
+      return arr;
+    }, {});
 }
 console.log(countCharacters("the brown fox jumps over the lazy dog"));
 ```
@@ -2760,21 +2959,24 @@ console.log(countCharacters("the brown fox jumps over the lazy dog"));
 </div>
 
 ### Q. What is the value of `foo`?
+
 ```javascript
-var foo = 10 + '20';
+var foo = 10 + "20";
 ```
 
-*Answer:* `'1020'`, because of type coercion from Number to String
+_Answer:_ `'1020'`, because of type coercion from Number to String
 
 ### Q. How would you make this work?
+
 ```javascript
 add(2, 5); // 7
 add(2)(5); // 7
 ```
 
-*Answer:* A general solution for any number of parameters
+_Answer:_ A general solution for any number of parameters
+
 ```js
-'use strict';
+"use strict";
 
 let sum = (arr) => arr.reduce((a, b) => a + b);
 let addGenerator = (numArgs, prevArgs) => {
@@ -2795,65 +2997,71 @@ add()(2, 5); // 7
 add()(2)(5); // 7
 add()()(2)(5); // 7
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. What value is returned from the following statement?
+
 ```javascript
 "i'm a lasagna hog".split("").reverse().join("");
 ```
 
-*Answer:* It's actually a reverse method for a string - `'goh angasal a m\'i'`
+_Answer:_ It's actually a reverse method for a string - `'goh angasal a m\'i'`
 
 ### Q. What is the value of `window.foo`?
+
 ```javascript
-( window.foo || ( window.foo = "bar" ) );
+window.foo || (window.foo = "bar");
 ```
 
-*Answer:* Always `'bar'`
+_Answer:_ Always `'bar'`
 
 ### Q. What is the outcome of the two alerts below?
+
 ```javascript
 var foo = "Hello";
-(function() {
+(function () {
   var bar = " World";
   alert(foo + bar);
 })();
 alert(foo + bar);
 ```
 
-*Answer:*
+_Answer:_
+
 - First: `Hello World`
 - Second: Throws an exception, `ReferenceError: bar is not defined`
 
 ### Q. What is the value of `foo.length`?
+
 ```javascript
 var foo = [];
 foo.push(1);
 foo.push(2);
 ```
 
-*Answer:* `.push` is mutable - `2`
+_Answer:_ `.push` is mutable - `2`
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. What is the value of `foo.x`?
+
 ```javascript
-var foo = {n: 1};
+var foo = { n: 1 };
 var bar = foo;
-foo.x = foo = {n: 2};
+foo.x = foo = { n: 2 };
 ```
 
-*Answer:* `undefined`. Rather, `bar.x` is `{n: 2}`.
+_Answer:_ `undefined`. Rather, `bar.x` is `{n: 2}`.
 
 `foo.x = foo = {n: 2}` is the same as `foo.x = (foo = {n: 2})`. It is because
 a left term is first referenced and then a right term is evaluated when an
 assignment is performed in JavaScript. When `foo.x` is referenced, it refers
-to an original object, `{n: 1}`. So, when the result of the right term, `{n:
-2}`, is evaluated, it will assigned to the original object, which is at the
+to an original object, `{n: 1}`. So, when the result of the right term, `{n: 2}`, is evaluated, it will assigned to the original object, which is at the
 moment referenced by `bar`.
 
 <div align="right">
@@ -2861,67 +3069,83 @@ moment referenced by `bar`.
 </div>
 
 ### Q. What does the following code print?
+
 ```javascript
-console.log('one');
-setTimeout(function() {
-  console.log('two');
+console.log("one");
+setTimeout(function () {
+  console.log("two");
 }, 0);
-console.log('three');
+console.log("three");
 ```
 
-*Answer:* `one`, `three` and `two`. It's because `console.log('two');` will be
+_Answer:_ `one`, `three` and `two`. It's because `console.log('two');` will be
 invoked in the next event loop.
 
 ### Q. For which value of x the results of the following statements are not the same?
+
 ```javascript
 //  if( x <= 100 ) {...}
 if( !(x > 100) ) {...}
 ```
-*Answer:* `NaN <= 100` is `false` and `NaN > 100` is also false, so if the value of `x` is `NaN`, the statements are not the same.
+
+_Answer:_ `NaN <= 100` is `false` and `NaN > 100` is also false, so if the value of `x` is `NaN`, the statements are not the same.
 
 The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}`, etc.
 
 ### Q. What is g value?
+
 ```javascript
 f = g = 0;
 (function () {
   try {
-    f = function() {
-      return f();
-    } && f();
+    f =
+      function () {
+        return f();
+      } && f();
   } catch (e) {
     return g++ && f();
   } finally {
     return ++g;
   }
-  function f() { g += 5; return 0; }
-}) ();
+  function f() {
+    g += 5;
+    return 0;
+  }
+})();
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. What will be the output?
+
 ```javascript
 function b(b) {
-  return this.b && b(b)
+  return this.b && b(b);
 }
-b(b.bind(b))
+b(b.bind(b));
 ```
+
 ### Q. What will be the output?
+
 ```javascript
 c = (c) => {
-  return this.c && c(c)
-}
-c(c.bind(c))
+  return this.c && c(c);
+};
+c(c.bind(c));
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var g = 0;
 g = 1 && g++;
 console.log(g);
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 !function(){}()
 function(){}()
@@ -2930,56 +3154,78 @@ true && function(){}()
 function(){}
 !function(){}
 ```
+
 ### Q. What will expression return?
+
 ```javascript
-var a = b = true, c = (a) => a;
-(function a(a = c(b).a = c = () => a) { return a(); })()
+var a = (b = true),
+  c = (a) => a;
+(function a(a = (c(b).a = c = () => a)) {
+  return a();
+})();
 ```
+
 ### Q. Predict the output of the following JavaScript code?
+
 ```javascript
 var a = true;
-(a = function () { return a })()
+(a = function () {
+  return a;
+})();
 ```
+
 ### Q. What will be the output?
+
 ```javascript
 var v = 0;
 try {
-  throw v = (function(c) { throw v = function(a){ return v; } })();
+  throw (v = (function (c) {
+    throw (v = function (a) {
+      return v;
+    });
+  })());
 } catch (e) {
-  console.log (e()());
+  console.log(e()());
 }
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ### Q. What will the following code output?
+
 ```javascript
 const arr = [10, 12, 15, 21];
 for (var i = 0; i < arr.length; i++) {
-  setTimeout(function() {
-    console.log('Index: ' + i + ', element: ' + arr[i]);
+  setTimeout(function () {
+    console.log("Index: " + i + ", element: " + arr[i]);
   }, 3000);
 }
 ```
+
 ### Q. What will be the output of the following code?
+
 ```javascript
-var output = (function(x) {
+var output = (function (x) {
   delete x;
   return x;
 })(0);
 
 console.log(output);
 ```
+
 ### Q. What will be the output of the following code?
+
 ```javascript
 var Employee = {
-  company: 'xyz'
-}
+  company: "xyz",
+};
 var emp1 = Object.create(Employee);
-delete emp1.company
+delete emp1.company;
 console.log(emp1.company);
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -3007,23 +3253,27 @@ duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```javascript
 var arr = [10, 32, 65, 2];
 for (var i = 0; i < arr.length; i++) {
-  setTimeout(function() {
-    console.log('The index of this number is: ' + i);
+  setTimeout(function () {
+    console.log("The index of this number is: " + i);
   }, 3000);
 }
 ```
-For ES6, you can just replace `var i` with `let i`. 
+
+For ES6, you can just replace `var i` with `let i`.
 
 For ES5, you need to create a function scope like here:
 
-```javascript 
+```javascript
 var arr = [10, 32, 65, 2];
 for (var i = 0; i < arr.length; i++) {
-  setTimeout(function(j) {
-    return function () {
-      console.log('The index of this number is: ' + j)
-    };
-  }(i), 3000);
+  setTimeout(
+    (function (j) {
+      return function () {
+        console.log("The index of this number is: " + j);
+      };
+    })(i),
+    3000
+  );
 }
 ```
 
@@ -3032,8 +3282,8 @@ for (var i = 0; i < arr.length; i++) {
 </div>
 
 ### Q. What will be the output of the following code?
-```javascript
 
+```javascript
 console.log(eval("10 + 10")); // 20
 
 console.log(eval("5 + 5" + 10)); // 515
@@ -3044,7 +3294,9 @@ console.log(eval(10 + "5 + 5")); // 110
 
 console.log(eval(10 + "5 + 5 + 5")); // 115
 ```
+
 ### Q. What will be the output of the following code?
+
 ```javascript
 var x = 10;
 var y = 20;
@@ -3061,6 +3313,7 @@ console.log(result); // 200<br>4<br>40<br>
 </div>
 
 ### Q. What will be the output of the following code?
+
 ```javascript
 // Example 01:
 var prices = [12, 20, 18];
@@ -3084,7 +3337,7 @@ console.log(max);
 const fruits = ["apple", "orange"];
 const vegetables = ["carrot", "potato"];
 
-const result = ['bread', ...vegetables, 'chicken', ...fruits];
+const result = ["bread", ...vegetables, "chicken", ...fruits];
 console.log(result);
 
 // Example 06:
@@ -3097,6 +3350,7 @@ console.log([...country]);
 </div>
 
 ### Q. Given and object and property path. Get value from property path
+
 ```javascript
 function getPropertyValue(TEMP_OBJECT, path) {
   return path.split('.').reduce((prev, key) => {
@@ -3132,6 +3386,7 @@ path = "system.database.1.port";
 </div>
 
 ### Q. How to filter object from Arrays of Objects
+
 ```javascript
 let filteredArray = [{name: 'john'},{name: 'kelly'}].filter(value => value.name === 'kelly');
 
@@ -3139,8 +3394,9 @@ Filter method return Array of objects
 ```
 
 ### Q. How to replace all the occurrences of string
+
 ```javascript
-  str = str.replace(/test/g, '')
+str = str.replace(/test/g, "");
 ```
 
 <div align="right">
@@ -3148,16 +3404,21 @@ Filter method return Array of objects
 </div>
 
 ### Q. write a script that returns the number of occurrences of character given a string as input
+
 ```javascript
 function countCharacters(str) {
-  return str.replace(/ /g, '').toLowerCase().split('').reduce((p, c) => {
-    if (c in p) {
-      p[c]++;
-    } else {
-      p[c] = 1;
-    }
-    return p;
-  }, {});
+  return str
+    .replace(/ /g, "")
+    .toLowerCase()
+    .split("")
+    .reduce((p, c) => {
+      if (c in p) {
+        p[c]++;
+      } else {
+        p[c] = 1;
+      }
+      return p;
+    }, {});
 }
 console.log(countCharacters("the brown fox jumps over the lazy dog"));
 ```
@@ -3167,6 +3428,7 @@ console.log(countCharacters("the brown fox jumps over the lazy dog"));
 </div>
 
 ### Q. write a script that return the number of occurrences of a character in paragraph
+
 ```javascript
 function charCount(str, searchChar) {
   let count = 0;
@@ -3180,7 +3442,7 @@ function charCount(str, searchChar) {
   }
   return count;
 }
-console.log(charCount('the brown fox jumps over the lazy dog', 'o'));
+console.log(charCount("the brown fox jumps over the lazy dog", "o"));
 ```
 
 <div align="right">
@@ -3197,7 +3459,7 @@ function recursiveFactorial(n) {
   if (n === 1) {
     return 1;
   } else {
-    return n * recursiveFactorial(n -1);
+    return n * recursiveFactorial(n - 1);
   }
 }
 
@@ -3208,17 +3470,16 @@ function factorial(n) {
     throw Error("Value of N has to be greater then 1");
   }
   if (n === 1) {
-    return 1
+    return 1;
   }
   let result = 1;
-  for (let i=1; i <= n; i++) {
+  for (let i = 1; i <= n; i++) {
     result = result * i;
   }
   return result;
 }
 
 console.log(factorial(5));
-
 ```
 
 <div align="right">
@@ -3226,21 +3487,24 @@ console.log(factorial(5));
 </div>
 
 ### Q. Recursive and non recursive fibonacci-sequence
+
 ```javascript
 // 1, 1, 2, 3, 5, 8, 13, 21, 34
 
 function recursiveFibonacci(num) {
-  if(num <= 1) {
-        return 1;
-    } else {
-        return recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2);
-    }
+  if (num <= 1) {
+    return 1;
+  } else {
+    return recursiveFibonacci(num - 1) + recursiveFibonacci(num - 2);
+  }
 }
 
 console.log(recursiveFibonacci(8));
 
 function fibonnaci(num) {
-  let a = 1, b = 0, temp;
+  let a = 1,
+    b = 0,
+    temp;
   while (num >= 0) {
     temp = a;
     a = a + b;
@@ -3255,21 +3519,25 @@ console.log(fibonnaci(7));
 // Memoization fibonnaci
 
 function fibonnaci(num, memo = {}) {
-  if (num in memo) { return memo[num]; };
-  if (num <= 1) { return 1; }
-  return memo[num] = fibonnaci(num - 1, memo) + fibonnaci(num - 2, memo);
+  if (num in memo) {
+    return memo[num];
+  }
+  if (num <= 1) {
+    return 1;
+  }
+  return (memo[num] = fibonnaci(num - 1, memo) + fibonnaci(num - 2, memo));
 }
 
-console.log(fibonnaci(5)) // 8
+console.log(fibonnaci(5)); // 8
 ```
 
-
 ### Q. Random Number between min and max
+
 ```javascript
 // 5 to 7
 let min = 5;
 let max = 7;
-console.log(min + Math.floor(Math.random() * (max-min+1)));
+console.log(min + Math.floor(Math.random() * (max - min + 1)));
 ```
 
 <div align="right">
@@ -3277,18 +3545,24 @@ console.log(min + Math.floor(Math.random() * (max-min+1)));
 </div>
 
 ### Q. Get HTML form values as JSON object
-```javascript
-  // Use the array reduce function with form elements.
-  const formToJSON = elements => [].reduce.call(elements, (data, element) => {
-    data[element.name] = element.value;
-    // Check if name and value exist on element
-    // Check if it checkbox or radio button which can select multiple or single
-    //check for multiple select options
-    return data;
-  }, {});
 
-  // pass the elements to above method, to get values
-  document.querySelector('HTML_FORM_CLASS').elements  
+```javascript
+// Use the array reduce function with form elements.
+const formToJSON = (elements) =>
+  [].reduce.call(
+    elements,
+    (data, element) => {
+      data[element.name] = element.value;
+      // Check if name and value exist on element
+      // Check if it checkbox or radio button which can select multiple or single
+      //check for multiple select options
+      return data;
+    },
+    {}
+  );
+
+// pass the elements to above method, to get values
+document.querySelector("HTML_FORM_CLASS").elements;
 ```
 
 <div align="right">
@@ -3296,13 +3570,14 @@ console.log(min + Math.floor(Math.random() * (max-min+1)));
 </div>
 
 ### Q. Reverse the number
+
 ```javascript
 function reverse(num) {
   let result = 0;
-  while( num != 0 ) {
-     result = result * 10;
-     result = result + num % 10;
-     num = Math.floor( num / 10 );   
+  while (num != 0) {
+    result = result * 10;
+    result = result + (num % 10);
+    num = Math.floor(num / 10);
   }
   return result;
 }
@@ -3331,8 +3606,8 @@ console.log(removeDuplicate(ar));
 
 const removeDuplicates = (arr) => {
   let holder = {};
-  return arr.filter(el => {
-    if (!holder[el]){
+  return arr.filter((el) => {
+    if (!holder[el]) {
       holder[el] = true;
       return true;
     }
@@ -3351,11 +3626,13 @@ console.log([...new Set(arr)]);
 </div>
 
 ### Q. Deep copy of object or clone of object
+
 ```javascript
 function deepExtend(out = {}) {
   for (let i = 1; i < arguments.length; i++) {
-      let obj = arguments[i];
-    if (obj == null) // skip undefined and null [check with double equal not triple]
+    let obj = arguments[i];
+    if (obj == null)
+      // skip undefined and null [check with double equal not triple]
       continue;
 
     obj = Object(obj);
@@ -3363,20 +3640,23 @@ function deepExtend(out = {}) {
     for (let key in obj) {
       // avoid shadow hasownproperty of parent
       if (Object.prototype.hasOwnProperty.call(obj, key)) {
-        if (typeof obj[key] === 'object' && !Array.isArray(obj[key]) && obj[key] != null)
+        if (
+          typeof obj[key] === "object" &&
+          !Array.isArray(obj[key]) &&
+          obj[key] != null
+        )
           out[key] = deepExtend(out[key], obj[key]);
-        else
-          out[key] = obj[key];
+        else out[key] = obj[key];
       }
     }
   }
   return out;
-};
+}
 
 //Alternative if there are no function
 let cloneObj = JSON.parse(JSON.stringify(obj));
 
-console.log(deepExtend({}, {a:1, b:{c:2, d:3}}, {e:4, b:{f:1}}));
+console.log(deepExtend({}, { a: 1, b: { c: 2, d: 3 } }, { e: 4, b: { f: 1 } }));
 //output : { a: 1, b: {c: 2, d: 3, f: 1}, e: 4 }
 ```
 
@@ -3385,6 +3665,7 @@ console.log(deepExtend({}, {a:1, b:{c:2, d:3}}, {e:4, b:{f:1}}));
 </div>
 
 ### Q. Sort ticket based on flying order.
+
 ```javascript
 "use strict";
 
@@ -3398,11 +3679,11 @@ function SortTickets(tickets) {
   }
 
   // Get the starting point of ticket
-  let orderedTivckets =[...this.getStartingPoint()];
+  let orderedTivckets = [...this.getStartingPoint()];
 
   // Get the ticket destination.
-  let currentValue = orderedTickets[orderedTickets.length -1];
-  while(currentValue)  {
+  let currentValue = orderedTickets[orderedTickets.length - 1];
+  while (currentValue) {
     currentValue = this.tickets[currentValue];
     if (currentValue) {
       orderedTickets.push(currentValue);
@@ -3411,14 +3692,14 @@ function SortTickets(tickets) {
   console.log(orderedTickets);
 }
 
-SortTickets.prototype.getStartingPoint = function() {
+SortTickets.prototype.getStartingPoint = function () {
   for (let tick in this.tickets) {
     if (!(tick in this.reverseTickets)) {
-      return [tick,  this.tickets[tick]];
+      return [tick, this.tickets[tick]];
     }
   }
   return null;
-}
+};
 
 new SortTickets({
   Athens: "Rio",
@@ -3426,7 +3707,7 @@ new SortTickets({
   London: "NYC",
   ND: "Lahore",
   NYC: "Barcelona",
-  Rio: "ND"
+  Rio: "ND",
 });
 ```
 
@@ -3435,20 +3716,21 @@ new SortTickets({
 </div>
 
 ### Q. Cuncurrent execute function based on input number
+
 ```javascript
 function concurrent(num) {
   this.queue = [];
   this.num = num;
 }
 
-concurrent.prototype.enqueue = function(value) {
+concurrent.prototype.enqueue = function (value) {
   this.queue.push(value);
 };
 
-concurrent.prototype.start = function() {
+concurrent.prototype.start = function () {
   this.runningCount = 0;
-  while(this.queue.length > 0) {
-    if (this.runningCount < this.num) {  
+  while (this.queue.length > 0) {
+    if (this.runningCount < this.num) {
       this.queue.pop().call(this, () => {
         this.runningCount--;
         let count = this.runningCount;
@@ -3462,12 +3744,12 @@ concurrent.prototype.start = function() {
 };
 
 let callback = (done) => {
-  console.log('starting');
+  console.log("starting");
   setTimeout(() => {
-    console.log('stopped');
+    console.log("stopped");
     done();
   }, 200);
-}
+};
 
 let c = new concurrent(2);
 c.enqueue(callback);
@@ -3484,8 +3766,9 @@ c.start();
 </div>
 
 ### Q. Reversing an array
+
 ```javascript
-let a = [1,2,3,4,5];
+let a = [1, 2, 3, 4, 5];
 
 //Approach 1:
 console.log(a.reverse());
@@ -3500,19 +3783,23 @@ console.log(reverse);
 ```
 
 ### Q. Rotate 2D array
-```javascript
-const transpose = arr => arr[0].map((col, i) => arr.map(row => row[i]));
 
-console.log(transpose([
-  [1, 2, 3, 4],
-  [5, 6, 7, 8],
-  [9, 10, 11, 12]
-]));
+```javascript
+const transpose = (arr) => arr[0].map((col, i) => arr.map((row) => row[i]));
+
+console.log(
+  transpose([
+    [1, 2, 3, 4],
+    [5, 6, 7, 8],
+    [9, 10, 11, 12],
+  ])
+);
 ```
 
 ### Q. Get Column from 2D Array
+
 ```javascript
-const getColumn = (arr, n) => arr.map(x => x[n]);
+const getColumn = (arr, n) => arr.map((x) => x[n]);
 
 const twoDimensionalArray = [
   [1, 2, 3],
@@ -3520,16 +3807,18 @@ const twoDimensionalArray = [
   [7, 8, 9],
 ];
 
-console.log(getColumn(twoDimensionalArray, 1));   //Result = [2,5,8]
+console.log(getColumn(twoDimensionalArray, 1)); //Result = [2,5,8]
 ```
+
 ### Q. Get top N from array
+
 ```javascript
 function topN(arr, num) {
   let sorted = arr.sort((a, b) => a - b);
   return sorted.slice(sorted.length - num, sorted.length);
 }
 
-console.log(topN([1,8,3,4,5], 2));  // [5,8]
+console.log(topN([1, 8, 3, 4, 5], 2)); // [5,8]
 ```
 
 <div align="right">
@@ -3537,13 +3826,14 @@ console.log(topN([1,8,3,4,5], 2));  // [5,8]
 </div>
 
 ### Q. Get query params from Object
+
 ```javascript
 function getQueryParams(obj) {
-  let parms = '';
+  let parms = "";
   for (let key in obj) {
     if (obj.hasOwnProperty(key)) {
       if (parms.length > 0) {
-        parms +='&';
+        parms += "&";
       }
       parms += encodeURI(`${key}=${obj[key]}`);
     }
@@ -3551,11 +3841,13 @@ function getQueryParams(obj) {
   return parms;
 }
 
-console.log(getQueryParams({
-  name: 'Umesh',
-  tel: '48289',
-  add: '3333 emearld st'
-}));
+console.log(
+  getQueryParams({
+    name: "Umesh",
+    tel: "48289",
+    add: "3333 emearld st",
+  })
+);
 ```
 
 <div align="right">
@@ -3563,14 +3855,15 @@ console.log(getQueryParams({
 </div>
 
 ### Q. Consecutive 1's in binary
+
 ```javascript
-function consecutiveOne(num)  {
+function consecutiveOne(num) {
   let binaryArray = num.toString(2);
 
   let maxOccurence = 0,
-      occurence = 0;
+    occurence = 0;
   for (let val of binaryArray) {
-    if (val === '1') {
+    if (val === "1") {
       occurence += 1;
       maxOccurence = Math.max(maxOccurence, occurence);
     } else {
@@ -3581,7 +3874,7 @@ function consecutiveOne(num)  {
 }
 //13 = 1101 = 2
 //5 = 101 = 1
-console.log(consecutiveOne(5));  //1
+console.log(consecutiveOne(5)); //1
 ```
 
 <div align="right">
@@ -3589,41 +3882,44 @@ console.log(consecutiveOne(5));  //1
 </div>
 
 ### Q. Spiral travesal of matrix
+
 ```javascript
-var input = [[1,  2,   3,  4],
-             [5,  6,   7,  8],
-             [9,  10, 11, 12],
-             [13, 14, 15, 16]];
+var input = [
+  [1, 2, 3, 4],
+  [5, 6, 7, 8],
+  [9, 10, 11, 12],
+  [13, 14, 15, 16],
+];
 
-var spiralTraversal = function(matriks){
+var spiralTraversal = function (matriks) {
   let result = [];
-    var goAround = function(matrix) {
-        if (matrix.length === 0) {
-            return;
-        }
+  var goAround = function (matrix) {
+    if (matrix.length === 0) {
+      return;
+    }
 
-        // right
-        result = result.concat(matrix.shift());
+    // right
+    result = result.concat(matrix.shift());
 
-        // down
-        for (var j=0; j < matrix.length - 1; j++) {
-            result.push(matrix[j].pop());
-        }
+    // down
+    for (var j = 0; j < matrix.length - 1; j++) {
+      result.push(matrix[j].pop());
+    }
 
-        // bottom
-        result = result.concat(matrix.pop().reverse());
+    // bottom
+    result = result.concat(matrix.pop().reverse());
 
-        // up
-        for (var k=matrix.length-1; k > 0; k--) {
-            result.push(matrix[k].shift());
-        }
+    // up
+    for (var k = matrix.length - 1; k > 0; k--) {
+      result.push(matrix[k].shift());
+    }
 
-        return goAround(matrix);
-    };
+    return goAround(matrix);
+  };
 
-    goAround(matriks);
+  goAround(matriks);
 
-    return result;
+  return result;
 };
 console.log(spiralTraversal(input)); // [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
 ```
@@ -3633,12 +3929,13 @@ console.log(spiralTraversal(input)); // [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5
 </div>
 
 ### Q. Merge Sorted array and sort it.
+
 ```javascript
 function mergeSortedArray(arr1, arr2) {
   return [...new Set(arr1.concat(arr2))].sort((a, b) => a - b);
 }
 
-console.log(mergeSortedArray([1,2,3,4,5,6], [0, 3,4,7])); // [0, 1, 2, 3, 4, 5, 6, 7]
+console.log(mergeSortedArray([1, 2, 3, 4, 5, 6], [0, 3, 4, 7])); // [0, 1, 2, 3, 4, 5, 6, 7]
 ```
 
 <div align="right">
@@ -3646,22 +3943,25 @@ console.log(mergeSortedArray([1,2,3,4,5,6], [0, 3,4,7])); // [0, 1, 2, 3, 4, 5, 
 </div>
 
 ### Q. Anagram of words
+
 ```javascript
-const alphabetize = word => word.split('').sort().join('');
+const alphabetize = (word) => word.split("").sort().join("");
 
 function groupAnagram(wordsArr) {
- return wordsArr.reduce((p, c)=> {
-   const sortedWord = alphabetize(c);
-   if (sortedWord in p){
-     p[sortedWord].push(c);
-   } else {
-     p[sortedWord] = [c];
-   }
-   return p;
- }, {});
+  return wordsArr.reduce((p, c) => {
+    const sortedWord = alphabetize(c);
+    if (sortedWord in p) {
+      p[sortedWord].push(c);
+    } else {
+      p[sortedWord] = [c];
+    }
+    return p;
+  }, {});
 }
 
-console.log(groupAnagram(['map', 'art', 'how', 'rat', 'tar', 'who', 'pam', 'shoop']));
+console.log(
+  groupAnagram(["map", "art", "how", "rat", "tar", "who", "pam", "shoop"])
+);
 // result : {
 //  amp: ["map", "pam"],
 //  art: ["art", "rat", "tar"],
@@ -3675,20 +3975,28 @@ console.log(groupAnagram(['map', 'art', 'how', 'rat', 'tar', 'who', 'pam', 'shoo
 </div>
 
 ### Q. Print the largest (maximum) hourglass sum found in 2d array.
+
 ```javascript
 // if arr 6 X 6 then iterate it till 4 X 4  [reduce by two]
 // if arr 8 X 8 then iterate it till 6 X 6  [reduce by two]
 function main(arr) {
-    let maxScore = -999;
-    let len = arr.length;
-    for (let i =0; i< len - 2; i++){
-        for (let j =0; j< len - 2; j++){
-            let total = arr[i][j] + arr[i][j + 1] + arr[i][j + 2]  +arr[i+1][j + 1]+ arr[i+2][j] + arr[i+2][j +1] + arr[i+2][j + 2];
+  let maxScore = -999;
+  let len = arr.length;
+  for (let i = 0; i < len - 2; i++) {
+    for (let j = 0; j < len - 2; j++) {
+      let total =
+        arr[i][j] +
+        arr[i][j + 1] +
+        arr[i][j + 2] +
+        arr[i + 1][j + 1] +
+        arr[i + 2][j] +
+        arr[i + 2][j + 1] +
+        arr[i + 2][j + 2];
 
-            maxScore = Math.max(maxScore, total)
-        }
+      maxScore = Math.max(maxScore, total);
     }
-    console.log(maxScore);
+  }
+  console.log(maxScore);
 }
 ```
 
@@ -3697,21 +4005,24 @@ function main(arr) {
 </div>
 
 ### Q. Transform array of object to array
+
 ```javascript
-let data = [ {"vid":"aaa", "san":12},
-            {"vid":"aaa", "san":18},
-            {"vid":"aaa", "san":2},
-            {"vid":"bbb", "san":33},
-            {"vid":"bbb", "san":44},
-            {"vid":"aaa", "san":100}];
+let data = [
+  { vid: "aaa", san: 12 },
+  { vid: "aaa", san: 18 },
+  { vid: "aaa", san: 2 },
+  { vid: "bbb", san: 33 },
+  { vid: "bbb", san: 44 },
+  { vid: "aaa", san: 100 },
+];
 
 let newData = data.reduce((acc, item) => {
-  acc[item.vid] = acc[item.vid] || {vid: item.vid, san: []};
+  acc[item.vid] = acc[item.vid] || { vid: item.vid, san: [] };
   acc[item.vid]["san"].push(item.san);
-  return acc;  
+  return acc;
 }, {});
 
-console.log(Object.keys(newData).map(key => newData[key]));
+console.log(Object.keys(newData).map((key) => newData[key]));
 
 // Result
 // [[object Object] {
@@ -3728,23 +4039,23 @@ console.log(Object.keys(newData).map(key => newData[key]));
 </div>
 
 ### Q. Create a private variable or private method in object
+
 ```javascript
-let obj = function() {
+let obj = (function () {
   function getPrivateFunction() {
-    console.log('this is private function');
+    console.log("this is private function");
   }
-  let p = 'You are accessing private variable';
+  let p = "You are accessing private variable";
   return {
     getPrivateProperty: () => {
-       console.log(p);
+      console.log(p);
     },
-    callPrivateFunction: getPrivateFunction
+    callPrivateFunction: getPrivateFunction,
   };
-}();
-
+})();
 
 obj.getPrivateValue(); // You are accessing private variable
-console.log('p' in obj);  // false
+console.log("p" in obj); // false
 obj.callPrivateFunction(); // this is private function
 ```
 
@@ -3753,9 +4064,10 @@ obj.callPrivateFunction(); // this is private function
 </div>
 
 ### Q. Flatten only Array not objects
+
 ```javascript
-function flatten(arr, result =[]) {
-  arr.forEach(val => {
+function flatten(arr, result = []) {
+  arr.forEach((val) => {
     if (Array.isArray(val)) {
       flatten(val, result);
     } else {
@@ -3765,24 +4077,29 @@ function flatten(arr, result =[]) {
   return result;
 }
 
-let input = [1, {a: [2, [3]]}, 4, [5,[6]], [[7, ['hi']], 8, 9], 10];
+let input = [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
 console.log(flatten(input)); // [1, { a: [2, [3]]}, 4, 5, 6, 7, "hi", 8, 9, 10]
 
-function flattenIterative(out) {  // iteratively  
+function flattenIterative(out) {
+  // iteratively
   let result = out;
-  while(result.some(Array.isArray)) {
+  while (result.some(Array.isArray)) {
     result = [].concat.apply([], result);
   }
   return result;
 }
-var list1 = [[0, 1], [2, 3], [4, 5]];
-console.log(flattenIterative(list1));  // [0, 1, 2, 3, 4, 5]
+var list1 = [
+  [0, 1],
+  [2, 3],
+  [4, 5],
+];
+console.log(flattenIterative(list1)); // [0, 1, 2, 3, 4, 5]
 
 function flattenIterative1(current) {
   let result = [];
-  while(current.length) {
+  while (current.length) {
     let firstValue = current.shift();
-    if (Array.isArray(firstValue)) {      
+    if (Array.isArray(firstValue)) {
       current = firstValue.concat(current);
     } else {
       result.push(firstValue);
@@ -3791,10 +4108,10 @@ function flattenIterative1(current) {
   return result;
 }
 
-let input = [1, {a: [2, [3]]}, 4, [5,[6]], [[7, ['hi']], 8, 9], 10];
+let input = [1, { a: [2, [3]] }, 4, [5, [6]], [[7, ["hi"]], 8, 9], 10];
 console.log(flattenIterative1(input));
 var list2 = [0, [1, [2, [3, [4, [5]]]]]];
-console.log(flattenIterative1(list2));  // [0, 1, 2, 3, 4, 5]
+console.log(flattenIterative1(list2)); // [0, 1, 2, 3, 4, 5]
 ```
 
 <div align="right">
@@ -3802,12 +4119,13 @@ console.log(flattenIterative1(list2));  // [0, 1, 2, 3, 4, 5]
 </div>
 
 ### Q. Find max difference between two number in Array
+
 ```javascript
 function maxDifference(arr) {
   let maxDiff = 0;
 
-  for (let i=0; i< arr.length; i++) {
-    for (let j= i+1; j < arr.length; j++) {
+  for (let i = 0; i < arr.length; i++) {
+    for (let j = i + 1; j < arr.length; j++) {
       let diff = Math.abs(arr[i] - arr[j]);
       maxDiff = Math.max(maxDiff, diff);
     }
@@ -3815,12 +4133,15 @@ function maxDifference(arr) {
   return maxDiff;
 }
 
-console.log(maxDifference([1,2,4]));  // [1 - 4 ] = 3
+console.log(maxDifference([1, 2, 4])); // [1 - 4 ] = 3
 ```
+
 ### Q. swap two number in ES6 [destructing]
+
 ```javascript
-let a = 10, b = 5;
-[a,b] = [b,a];
+let a = 10,
+  b = 5;
+[a, b] = [b, a];
 ```
 
 <div align="right">
@@ -3828,27 +4149,29 @@ let a = 10, b = 5;
 </div>
 
 ### Q. Panagram ? it means all the 26 letters of alphabet are there
+
 ```javascript
 function panagram(input) {
-  if (input == null) {  // Check for null and undefined
-    return false
-  }
-
-  if (input.length < 26) { // if length is less then 26 then it is not
+  if (input == null) {
+    // Check for null and undefined
     return false;
   }
-  input = input.replace(/ /g, '').toLowerCase().split('');
+
+  if (input.length < 26) {
+    // if length is less then 26 then it is not
+    return false;
+  }
+  input = input.replace(/ /g, "").toLowerCase().split("");
   let obj = input.reduce((prev, current) => {
     if (!(current in prev)) {
       prev[current] = current;
     }
     return prev;
   }, {});
-  console.log(Object.keys(obj).length === 26 ? "panagram": "not pangram");
+  console.log(Object.keys(obj).length === 26 ? "panagram" : "not pangram");
 }
-processData('We promptly judged antique ivory buckles for the next prize'); // pangram
-processData('We promptly judged antique ivory buckles for the prize'); // Not Pangram
-
+processData("We promptly judged antique ivory buckles for the next prize"); // pangram
+processData("We promptly judged antique ivory buckles for the prize"); // Not Pangram
 ```
 
 <div align="right">
@@ -3856,31 +4179,32 @@ processData('We promptly judged antique ivory buckles for the prize'); // Not Pa
 </div>
 
 ### Q. Given two identical DOM trees (not the same one), and a node from one of them find the node in the other one.
+
 ```javascript
 function indexOf(arrLike, target) {
-    return Array.prototype.indexOf.call(arrLike, target);
+  return Array.prototype.indexOf.call(arrLike, target);
 }
 
 // Given a node and a tree, extract the nodes path
 function getPath(root, target) {
-    var current = target;
-    var path = [];
-    while(current !== root) {
-        let parentNode = current.parentNode;
-        path.unshift(indexOf(parentNode.childNodes, current));
-        current = parentNode;
-    }
-    return path;
+  var current = target;
+  var path = [];
+  while (current !== root) {
+    let parentNode = current.parentNode;
+    path.unshift(indexOf(parentNode.childNodes, current));
+    current = parentNode;
+  }
+  return path;
 }
 
 // Given a tree and a path, let's locate a node
 function locateNodeFromPath(node, path) {
-    return path.reduce((root, index) => root.childNodes[index], node);
+  return path.reduce((root, index) => root.childNodes[index], node);
 }
 
-const rootA = document.querySelector('#root-a');
-const rootB = document.querySelector('#root-b');
-const target = rootA.querySelector('.person__age');
+const rootA = document.querySelector("#root-a");
+const rootB = document.querySelector("#root-b");
+const target = rootA.querySelector(".person__age");
 
 console.log(locateNodeFromPath(rootB, getPath(rootA, target)));
 ```
@@ -3890,12 +4214,27 @@ console.log(locateNodeFromPath(rootB, getPath(rootA, target)));
 </div>
 
 ### Q. Convert a number into a Roman Numeral
+
 ```javascript
 function romanize(num) {
-  let lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1},
-      roman = '';
-  for ( let i in lookup ) {
-    while ( num >= lookup[i] ) {
+  let lookup = {
+      M: 1000,
+      CM: 900,
+      D: 500,
+      CD: 400,
+      C: 100,
+      XC: 90,
+      L: 50,
+      XL: 40,
+      X: 10,
+      IX: 9,
+      V: 5,
+      IV: 4,
+      I: 1,
+    },
+    roman = "";
+  for (let i in lookup) {
+    while (num >= lookup[i]) {
       roman += i;
       num -= lookup[i];
     }
@@ -3911,28 +4250,31 @@ console.log(romanize(3)); // III
 </div>
 
 ### Q. check if parenthesis is malformed or not
+
 ```javascript
 function matchParenthesis(str) {
-  let obj = {'{': '}', '(': ')', '[':']'};
+  let obj = { "{": "}", "(": ")", "[": "]" };
   let result = [];
   for (let s of str) {
-    if (s === '{' || s === '(' || s === '[') { // All opening brackets
+    if (s === "{" || s === "(" || s === "[") {
+      // All opening brackets
       result.push(s);
     } else {
       if (result.length > 0) {
         let lastValue = result.pop(); //pop the last value and compare with key
-        if (obj[lastValue] !== s) { // if it is not same then it is not formated properly
+        if (obj[lastValue] !== s) {
+          // if it is not same then it is not formated properly
           return false;
         }
       } else {
-        return false;  // empty array, there is nothing to pop. so it is not formated properly
+        return false; // empty array, there is nothing to pop. so it is not formated properly
       }
     }
   }
   return result.length === 0;
 }
 
-console.log(matchParenthesis('}{{}}'), matchParenthesis('{{[]}}')); // false - true  
+console.log(matchParenthesis("}{{}}"), matchParenthesis("{{[]}}")); // false - true
 ```
 
 <div align="right">
@@ -3940,6 +4282,7 @@ console.log(matchParenthesis('}{{}}'), matchParenthesis('{{[]}}')); // false - t
 </div>
 
 ### Q. Create Custom Event Emitter class
+
 ```javascript
 class EventEmitter {
   constructor() {
@@ -3956,20 +4299,20 @@ class EventEmitter {
   emit(eventName, ...args) {
     let eventColl = this.holder[eventName];
     if (eventColl) {
-      eventColl.forEach(callback => callback(args));
+      eventColl.forEach((callback) => callback(args));
     }
   }
 }
 
 let e = new EventEmitter();
-e.on('callme', function(args) {
+e.on("callme", function (args) {
   console.log(`you called me ${args}`);
 });
-e.on('callme', function(args) {
+e.on("callme", function (args) {
   console.log(`testing`);
 });
 
-e.emit('callme', ['a','b'], {firstName: 'umesh', lastName: 'gohil'});
+e.emit("callme", ["a", "b"], { firstName: "umesh", lastName: "gohil" });
 ```
 
 <div align="right">
@@ -3977,9 +4320,10 @@ e.emit('callme', ['a','b'], {firstName: 'umesh', lastName: 'gohil'});
 </div>
 
 ### Q. Max value from an array
+
 ```javascript
 const arr = [-2, -3, 4, 3, 2, 1];
-Math.max(...arr);   // Fastest
+Math.max(...arr); // Fastest
 
 Math.max.apply(Math, arr); // Slow
 ```
@@ -3989,6 +4333,7 @@ Math.max.apply(Math, arr); // Slow
 </div>
 
 ### Q. DOM methods
+
 ```javascript
 https://github.com/nefe/You-Dont-Need-jQuery
 
@@ -4027,19 +4372,20 @@ el.style    // get the style of el
 </div>
 
 ### Q. search function called after 500 ms
+
 ```javascript
-<input type="text" class="search" />
+<input type="text" class="search" />;
 
 let timer = null;
-function searchOptions(value){
+function searchOptions(value) {
   clearTimeout(timer);
   timer = setTimeout(() => {
-    console.log(`value is - ${value}`)
+    console.log(`value is - ${value}`);
   }, 500);
 }
 
-let search= document.querySelector('.search');
-search.addEventListener('keyup', function() {
+let search = document.querySelector(".search");
+search.addEventListener("keyup", function () {
   searchOptions(this.value);
 });
 ```
@@ -4049,20 +4395,21 @@ search.addEventListener('keyup', function() {
 </div>
 
 ### Q. Move all zero's to end
+
 ```javascript
-const moveZeroToEnd = arr => {
+const moveZeroToEnd = (arr) => {
   for (let i = 0, j = 0; j < arr.length; j++) {
     if (arr[j] !== 0) {
       if (i < j) {
-        [arr[i], arr[j]] = [arr[j], arr[i]]  // swap i and j
+        [arr[i], arr[j]] = [arr[j], arr[i]]; // swap i and j
       }
       i++;
     }
   }
   return arr;
-}
+};
 
-console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0]));  // [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
+console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0])); // [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
 ```
 
 <div align="right">
@@ -4070,21 +4417,22 @@ console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0]));  // [1, 8, 2, 3, 
 </div>
 
 ### Q. Decode message in matrix [diagional down right, diagional up right]
+
 ```javascript
 const decodeMessage = (mat) => {
   // check if matrix is null or empty
   if (mat == null || mat.length === 0) {
-    return '';
+    return "";
   }
   let x = mat.length - 1;
   let y = mat[0].length - 1;
-  let message = '';
+  let message = "";
   let decode = (mat, i = 0, j = 0, direction = "DOWN") => {
     message += mat[i][j];
 
     if (i === x) {
-      direction = "UP"
-    }  
+      direction = "UP";
+    }
 
     if (direction === "DOWN") {
       i++;
@@ -4101,16 +4449,16 @@ const decodeMessage = (mat) => {
   };
   decode(mat);
   return message;
-}
+};
 
 let mat = [
-  ['I','B','C','A','L','K','A'],
-  ['D','R','F','C','A','E','A'],
-  ['G','H','O','E','L','A','D'],
-  ['G','H','O','E','L','A','D']    
+  ["I", "B", "C", "A", "L", "K", "A"],
+  ["D", "R", "F", "C", "A", "E", "A"],
+  ["G", "H", "O", "E", "L", "A", "D"],
+  ["G", "H", "O", "E", "L", "A", "D"],
 ];
 
-console.log(decodeMessage(mat));  //IROELEA
+console.log(decodeMessage(mat)); //IROELEA
 ```
 
 <div align="right">
@@ -4118,6 +4466,7 @@ console.log(decodeMessage(mat));  //IROELEA
 </div>
 
 ### Q. find a pair in array, whose sum is equal to given number.
+
 ```javascript
 const hasPairSum = (arr, sum) => {
   if (arr == null && arr.length < 2) {
@@ -4128,7 +4477,7 @@ const hasPairSum = (arr, sum) => {
   let right = arr.length - 1;
   let result = false;
 
-  while(left < right && !result) {
+  while (left < right && !result) {
     let pairSum = arr[left] + arr[right];
     if (pairSum < sum) {
       left++;
@@ -4136,18 +4485,18 @@ const hasPairSum = (arr, sum) => {
       right--;
     } else {
       result = true;
-    }   
+    }
   }
   return result;
-}
+};
 
-console.log(hasPairSum([1,2,4,5], 8)); // null
-console.log(hasPairSum([1,2,4,4], 8)); // [2,3]
+console.log(hasPairSum([1, 2, 4, 5], 8)); // null
+console.log(hasPairSum([1, 2, 4, 4], 8)); // [2,3]
 
 const hasPairSum = (arr, sum) => {
   let difference = {};
   let hasPair = false;
-  arr.forEach(item => {
+  arr.forEach((item) => {
     let diff = sum - item;
     if (!difference[diff]) {
       difference[item] = true;
@@ -4157,7 +4506,7 @@ const hasPairSum = (arr, sum) => {
   });
   return hasPair;
 };
-console.log(hasPairSum([6, 4,3, 8], 8));
+console.log(hasPairSum([6, 4, 3, 8], 8));
 
 // NOTE: if array is not sorted then subtract the value with sum and store in difference
 // then see if that value exist in difference then return true.
@@ -4167,28 +4516,28 @@ console.log(hasPairSum([6, 4,3, 8], 8));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-### Q. Binary Search  [Array should be sorted]
+### Q. Binary Search [Array should be sorted]
 
 ```javascript
 function binarySearch(arr, val) {
   let startIndex = 0,
-      stopIndex = arr.length - 1,
-      middleIndex = Math.floor((startIndex + stopIndex) / 2);
+    stopIndex = arr.length - 1,
+    middleIndex = Math.floor((startIndex + stopIndex) / 2);
 
-  while(arr[middleIndex] !== val && startIndex < stopIndex){
-    if (val < arr[middleIndex]){
+  while (arr[middleIndex] !== val && startIndex < stopIndex) {
+    if (val < arr[middleIndex]) {
       stopIndex = middleIndex - 1;
-    } else if (val > arr[middleIndex]){
-       startIndex = middleIndex + 1;
+    } else if (val > arr[middleIndex]) {
+      startIndex = middleIndex + 1;
     }
     middleIndex = Math.floor((startIndex + stopIndex) / 2);
   }
 
-  return (arr[middleIndex] === val) ? middleIndex : -1;
+  return arr[middleIndex] === val ? middleIndex : -1;
 }
 
-console.log(binarySearch([-1,10,22,35,48,56,67], 22));
-console.log(binarySearch([-1,10,22,35,48,56,67], 27));
+console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 22));
+console.log(binarySearch([-1, 10, 22, 35, 48, 56, 67], 27));
 ```
 
 <div align="right">
@@ -4196,17 +4545,19 @@ console.log(binarySearch([-1,10,22,35,48,56,67], 27));
 </div>
 
 ### Q. Pascal triangle.
+
 ```javascript
 function pascalTriangle(n) {
-    let last = [1], triangle = [last];
-    for (let i = 0; i < n; i++) {
-        const ls = [0].concat(last),        //[0,1]           // [0,1,1]
-              rs = last.concat([0]);        //[1,0]           // [1,1,0]
-        last = rs.map((r, i) => ls[i] + r); //[1, 1]          // [1,2,1]
-        triangle = triangle.concat([last]); // [[1], [1,1]]   // [1], [1, 1], [1, 2, 1]
-    }
-    return triangle;   
-};
+  let last = [1],
+    triangle = [last];
+  for (let i = 0; i < n; i++) {
+    const ls = [0].concat(last), //[0,1]           // [0,1,1]
+      rs = last.concat([0]); //[1,0]           // [1,1,0]
+    last = rs.map((r, i) => ls[i] + r); //[1, 1]          // [1,2,1]
+    triangle = triangle.concat([last]); // [[1], [1,1]]   // [1], [1, 1], [1, 2, 1]
+  }
+  return triangle;
+}
 
 console.log(pascalTriangle(2));
 ```
@@ -4216,21 +4567,24 @@ console.log(pascalTriangle(2));
 </div>
 
 ### Q. Explain the code below. How many times the createVal function is called?
-```javascript
-function createVal(){
-  return Math.random();
-};
 
-function fun( val =  createVal()){
+```javascript
+function createVal() {
+  return Math.random();
+}
+
+function fun(val = createVal()) {
   console.log(val);
 }
 
 fun();
 fun(5);
 ```
-`createVal()` function will execute only once.  
+
+`createVal()` function will execute only once.
 
 Output
+
 ```
 0.2162050091554224
 VM298:6 5
@@ -4258,8 +4612,7 @@ sayHi();
 - C: `ReferenceError` and `21`
 - D: `undefined` and `ReferenceError`
 
-
-**Answer: D**  
+**Answer: D**
 
 Within the function, we first declare the `name` variable with the `var` keyword. This means that the variable gets hoisted (memory space is set up during the creation phase) with the default value of `undefined`, until we actually get to the line where we define the variable. We haven't defined the variable yet on the line where we try to log the `name` variable, so it still holds the value of `undefined`.
 
@@ -4285,7 +4638,6 @@ for (let i = 0; i < 3; i++) {
 - B: `0 1 2` and `3 3 3`
 - C: `3 3 3` and `0 1 2`
 
-
 **Answer: C**
 
 Because of the event queue in JavaScript, the `setTimeout` callback function is called _after_ the loop has been executed. Since the variable `i` in the first loop was declared using the `var` keyword, this value was global. During the loop, we incremented the value of `i` by `1` each time, using the unary operator `++`. By the time the `setTimeout` callback function was invoked, `i` was equal to `3` in the first example.
@@ -4304,7 +4656,7 @@ const shape = {
   diameter() {
     return this.radius * 2;
   },
-  perimeter: () => 2 * Math.PI * this.radius
+  perimeter: () => 2 * Math.PI * this.radius,
 };
 
 console.log(shape.diameter());
@@ -4315,7 +4667,6 @@ console.log(shape.perimeter());
 - B: `20` and `NaN`
 - C: `20` and `63`
 - D: `NaN` and `63`
-
 
 **Answer: B**
 
@@ -4340,7 +4691,6 @@ There is no value `radius` on that object, which returns `undefined`.
 - B: `false` and `NaN`
 - C: `false` and `false`
 
-
 **Answer: A**
 
 The unary plus tries to convert an operand to a number. `true` is `1`, and `false` is `0`.
@@ -4355,12 +4705,12 @@ The string `'Lydia'` is a truthy value. What we're actually asking, is "is this 
 
 ```javascript
 const bird = {
-  size: "small"
+  size: "small",
 };
 
 const mouse = {
   name: "Mickey",
-  small: true
+  small: true,
 };
 ```
 
@@ -4399,7 +4749,6 @@ console.log(d.greeting);
 - C: `undefined`
 - D: `ReferenceError`
 - E: `TypeError`
-
 
 **Answer: A**
 
@@ -4467,8 +4816,6 @@ console.log(freddie.colorChange("orange"));
 - C: `green`
 - D: `TypeError`
 
-
-
 **Answer: D**
 
 The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
@@ -4514,7 +4861,6 @@ bark.animal = "dog";
 - C: `"Woof"` gets logged.
 - D: `ReferenceError`
 
-
 **Answer: A**
 
 This is possible in JavaScript, because functions are objects! (Everything besides primitive types are objects)
@@ -4534,7 +4880,7 @@ function Person(firstName, lastName) {
 }
 
 const member = new Person("Lydia", "Hallie");
-Person.getFullName = function() {
+Person.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
 
@@ -4551,7 +4897,7 @@ console.log(member.getFullName());
 You can't add properties to a constructor like you can with regular objects. If you want to add a feature to all objects at once, you have to use the prototype instead. So in this case,
 
 ```js
-Person.prototype.getFullName = function() {
+Person.prototype.getFullName = function () {
   return `${this.firstName} ${this.lastName}`;
 };
 ```
@@ -4581,7 +4927,6 @@ console.log(sarah);
 - B: `Person {firstName: "Lydia", lastName: "Hallie"}` and `Person {firstName: "Sarah", lastName: "Smith"}`
 - C: `Person {firstName: "Lydia", lastName: "Hallie"}` and `{}`
 - D:`Person {firstName: "Lydia", lastName: "Hallie"}` and `ReferenceError`
-
 
 **Answer: A**
 
@@ -4754,8 +5099,6 @@ getAge(21);
 - C: `"object"`
 - D: `"NaN"`
 
-
-
 **Answer: C**
 
 The rest parameter (`...args`.) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
@@ -4781,8 +5124,6 @@ getAge();
 - C: `ReferenceError`
 - D: `TypeError`
 
-
-
 **Answer: C**
 
 With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
@@ -4802,8 +5143,6 @@ const sum = eval("10*10+5");
 - C: `TypeError`
 - D: `"10*10+5"`
 
-
-
 **Answer: A**
 
 `eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
@@ -4822,7 +5161,6 @@ sessionStorage.setItem("cool_secret", 123);
 - B: When the user closes the tab.
 - C: When the user closes the entire browser, not only the tab.
 - D: When the user shuts off their computer.
-
 
 **Answer: B**
 
@@ -4896,8 +5234,6 @@ console.log(obj);
 - C: `{ a: "three", b: "two" }`
 - D: `SyntaxError`
 
-
-
 **Answer: C**
 
 If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
@@ -4934,7 +5270,6 @@ for (let i = 1; i < 5; i++) {
 - C: `1` `2` `4`
 - D: `1` `3` `4`
 
-
 **Answer: C**
 
 The `continue` statement skips an iteration if a certain condition returns `true`.
@@ -4959,8 +5294,6 @@ name.giveLydiaPizza();
 - B: `TypeError: not a function`
 - C: `SyntaxError`
 - D: `undefined`
-
-
 
 **Answer: A**
 
@@ -4987,8 +5320,6 @@ console.log(a[b]);
 - B: `456`
 - C: `undefined`
 - D: `ReferenceError`
-
-
 
 **Answer: B**
 
@@ -5018,8 +5349,6 @@ baz();
 - B: `First` `Third` `Second`
 - C: `Second` `First` `Third`
 - D: `Second` `Third` `First`
-
-
 
 **Answer: B**
 
@@ -5058,9 +5387,7 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 ```html
 <div onclick="console.log('first div')">
   <div onclick="console.log('second div')">
-    <button onclick="console.log('button')">
-      Click!
-    </button>
+    <button onclick="console.log('button')">Click!</button>
   </div>
 </div>
 ```
@@ -5069,8 +5396,6 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 - B: Inner `div`
 - C: `button`
 - D: An array of all nested elements.
-
-
 
 **Answer: C**
 
@@ -5084,9 +5409,7 @@ The deepest nested element that caused the event is the target of the event. You
 
 ```html
 <div onclick="console.log('div')">
-  <p onclick="console.log('p')">
-    Click here!
-  </p>
+  <p onclick="console.log('p')">Click here!</p>
 </div>
 ```
 
@@ -5094,8 +5417,6 @@ The deepest nested element that caused the event is the target of the event. You
 - B: `div` `p`
 - C: `p`
 - D: `div`
-
-
 
 **Answer: A**
 
@@ -5123,8 +5444,6 @@ sayHi.bind(person, 21);
 - C: `Lydia is 21` `Lydia is 21`
 - D: `Lydia is 21` `function`
 
-
-
 **Answer: D**
 
 With both, we can pass the object to which we want the `this` keyword to refer to. However, `.call` is also _executed immediately_!
@@ -5149,8 +5468,6 @@ console.log(typeof sayHi());
 - B: `"number"`
 - C: `"function"`
 - D: `"undefined"`
-
-
 
 **Answer: B**
 
@@ -5177,8 +5494,6 @@ undefined;
 - B: `0`, `new Number(0)`, `''`, `new Boolean(false)`, `undefined`
 - C: `0`, `''`, `new Boolean(false)`, `undefined`
 - D: All of them are falsy
-
-
 
 **Answer: A**
 
@@ -5208,8 +5523,6 @@ console.log(typeof typeof 1);
 - C: `"object"`
 - D: `"undefined"`
 
-
-
 **Answer: B**
 
 `typeof 1` returns `"number"`.
@@ -5231,8 +5544,6 @@ console.log(numbers);
 - B: `[1, 2, 3, 11]`
 - C: `[1, 2, 3, 7 x empty, 11]`
 - D: `SyntaxError`
-
-
 
 **Answer: C**
 
@@ -5267,8 +5578,6 @@ depending on where you run it (it's different for every browser, node, etc.)
 - C: `1` `1` `2`
 - D: `1` `undefined` `undefined`
 
-
-
 **Answer: A**
 
 The `catch` block receives the argument `x`. This is not the same `x` as the variable when we pass arguments. This variable `x` is block-scoped.
@@ -5288,8 +5597,6 @@ Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we 
 - C: trick question! only objects
 - D: number or object
 
-
-
 **Answer: A**
 
 JavaScript only has primitive types and objects.
@@ -5305,7 +5612,10 @@ What differentiates a primitive from an object is that primitives do not have an
 ### Q. What is the output?
 
 ```javascript
-[[0, 1], [2, 3]].reduce(
+[
+  [0, 1],
+  [2, 3],
+].reduce(
   (acc, cur) => {
     return acc.concat(cur);
   },
@@ -5317,8 +5627,6 @@ What differentiates a primitive from an object is that primitives do not have an
 - B: `[6, 1, 2]`
 - C: `[1, 2, 0, 1, 2, 3]`
 - D: `[1, 2, 6]`
-
-
 
 **Answer: C**
 
@@ -5343,8 +5651,6 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 - C: `false` `true` `true`
 - D: `true` `true` `false`
 
-
-
 **Answer: B**
 
 `null` is falsy. `!null` returns `true`. `!true` returns `false`.
@@ -5368,8 +5674,6 @@ setInterval(() => console.log("Hi"), 1000);
 - C: the passed function
 - D: `undefined`
 
-
-
 **Answer: A**
 
 It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
@@ -5388,8 +5692,6 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 - B: `["Lydia"]`
 - C: `[[], "Lydia"]`
 - D: `[["L", "y", "d", "i", "a"]]`
-
-
 
 **Answer: A**
 
@@ -5418,8 +5720,6 @@ console.log(gen.next().value);
 - C: `10, 20`
 - D: `0, 10 and 10, 20`
 
-
-
 **Answer: C**
 
 Regular functions cannot be stopped mid-way after invocation. However, a generator function can be "stopped" midway, and later continue from where it stopped. Every time a generator function encounters a `yield` keyword, the function yields the value specified after it. Note that the generator function in that case doesn’t _return_ the value, it _yields_ the value.
@@ -5443,15 +5743,13 @@ const secondPromise = new Promise((res, rej) => {
   setTimeout(res, 100, "two");
 });
 
-Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
+Promise.race([firstPromise, secondPromise]).then((res) => console.log(res));
 ```
 
 - A: `"one"`
 - B: `"two"`
 - C: `"two" "one"`
 - D: `"one" "two"`
-
-
 
 **Answer: B**
 
@@ -5475,8 +5773,6 @@ console.log(members);
 - B: `[null]`
 - C: `[{}]`
 - D: `[{ name: "Lydia" }]`
-
-
 
 **Answer: D**
 
@@ -5503,7 +5799,7 @@ We are only modifying the value of the `person` variable, and not the first elem
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
+  age: 21,
 };
 
 for (const item in person) {
@@ -5515,8 +5811,6 @@ for (const item in person) {
 - B: `"name", "age"`
 - C: `"Lydia", 21`
 - D: `["name", "Lydia"], ["age", 21]`
-
-
 
 **Answer: B**
 
@@ -5536,8 +5830,6 @@ console.log(3 + 4 + "5");
 - B: `"75"`
 - C: `12`
 - D: `"12"`
-
-
 
 **Answer: B**
 
@@ -5562,8 +5854,6 @@ const num = parseInt("7*6", 10);
 - C: `7`
 - D: `NaN`
 
-
-
 **Answer: C**
 
 Only the first numbers in the string is returned. Based on the _radix_ (the second argument in order to specify what type of number we want to parse it to: base 10, hexadecimal, octal, binary, etc.), the `parseInt` checks whether the characters in the string are valid. Once it encounters a character that isn't a valid number in the radix, it stops parsing and ignores the following characters.
@@ -5577,7 +5867,7 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 ### Q. What is the output`?
 
 ```javascript
-[1, 2, 3].map(num => {
+[1, 2, 3].map((num) => {
   if (typeof num === "number") return;
   return num * 2;
 });
@@ -5587,8 +5877,6 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 - B: `[null, null, null]`
 - C: `[undefined, undefined, undefined]`
 - D: `[ 3 x empty ]`
-
-
 
 **Answer: C**
 
@@ -5620,8 +5908,6 @@ console.log(person, birthYear);
 - B: `{ name: "Sarah" }, "1998"`
 - C: `{ name: "Lydia" }, "1998"`
 - D: `{ name: "Sarah" }, "1997"`
-
-
 
 **Answer: A**
 
@@ -5659,8 +5945,6 @@ sayHi();
 - C: `SyntaxError: can only throw Error objects`
 - D: `Oh no an error: Hello world!`
 
-
-
 **Answer: D**
 
 With the `throw` statement, we can create custom errors. With this statement, you can throw exceptions. An exception can be a <b>string</b>, a <b>number</b>, a <b>boolean</b> or an <b>object</b>. In this case, our exception is the string `'Hello world'`.
@@ -5688,8 +5972,6 @@ console.log(myCar.make);
 - C: `ReferenceError`
 - D: `TypeError`
 
-
-
 **Answer: B**
 
 When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
@@ -5713,8 +5995,6 @@ console.log(typeof y);
 - B: `"number", "number"`
 - C: `"object", "number"`
 - D: `"number", "undefined"`
-
-
 
 **Answer: A**
 
@@ -5744,7 +6024,7 @@ class Dog {
   }
 }
 
-Dog.prototype.bark = function() {
+Dog.prototype.bark = function () {
   console.log(`Woof I am ${this.name}`);
 };
 
@@ -5761,8 +6041,6 @@ pet.bark();
 - B: `"Woof I am Mara"`, `"Woof I am Mara"`
 - C: `"Woof I am Mara"`, `undefined`
 - D: `TypeError`, `TypeError`
-
-
 
 **Answer: A**
 
@@ -5786,8 +6064,6 @@ console.log(set);
 - B: `[1, 2, 3, 4]`
 - C: `{1, 1, 2, 3, 4}`
 - D: `{1, 2, 3, 4}`
-
-
 
 **Answer: D**
 
@@ -5821,8 +6097,6 @@ console.log(myCounter);
 - C: `Error`
 - D: `NaN`
 
-
-
 **Answer: C**
 
 An imported module is _read-only_: you cannot modify the imported module. Only the module that exports them can change its value.
@@ -5848,8 +6122,6 @@ console.log(delete age);
 - C: `true`, `true`
 - D: `undefined`, `undefined`
 
-
-
 **Answer: A**
 
 The `delete` operator returns a boolean value: `true` on a successful deletion, else it'll return `false`. However, variables declared with the `var`, `const` or `let` keyword cannot be deleted using the `delete` operator.
@@ -5873,8 +6145,6 @@ console.log(y);
 - B: `[1, 2, 3, 4, 5]`
 - C: `1`
 - D: `[1]`
-
-
 
 **Answer: C**
 
@@ -5914,8 +6184,6 @@ console.log(admin);
 - C: `{ admin: true, user: ["Lydia", 21] }`
 - D: `{ admin: true }`
 
-
-
 **Answer: B**
 
 It's possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.
@@ -5940,8 +6208,6 @@ console.log(Object.keys(person));
 - C: `{ name: "Lydia"}`, `["name", "age"]`
 - D: `{ name: "Lydia"}`, `["age"]`
 
-
-
 **Answer: B**
 
 With the `defineProperty` method, we can add new properties to an object, or modify existing ones. When we add a property to an object using the `defineProperty` method, they are by default _not enumerable_. The `Object.keys` method returns all _enumerable_ property names from an object, in this case only `"name"`.
@@ -5958,7 +6224,7 @@ Properties added using the `defineProperty` method are immutable by default. You
 const settings = {
   username: "lydiahallie",
   level: 19,
-  health: 90
+  health: 90,
 };
 
 const data = JSON.stringify(settings, ["level", "health"]);
@@ -5969,8 +6235,6 @@ console.log(data);
 - B: `"{"username": "lydiahallie"}"`
 - C: `"["level", "health"]"`
 - D: `"{"username": "lydiahallie", "level":19, "health":90}"`
-
-
 
 **Answer: A**
 
@@ -5990,7 +6254,7 @@ If the replacer is a _function_, this function gets called on every property in 
 let num = 10;
 
 const increaseNumber = () => num++;
-const increasePassedNumber = number => number++;
+const increasePassedNumber = (number) => number++;
 
 const num1 = increaseNumber();
 const num2 = increasePassedNumber(num1);
@@ -6003,8 +6267,6 @@ console.log(num2);
 - B: `10`, `11`
 - C: `11`, `11`
 - D: `11`, `12`
-
-
 
 **Answer: A**
 
@@ -6036,17 +6298,15 @@ multiply(value);
 - C: `20`, `20`, `20`, `40`
 - D: `NaN`, `NaN`, `20`, `40`
 
-
-
 **Answer: C**
 
 In ES6, we can initialize parameters with a default value. The value of the parameter will be the default value, if no other value has been passed to the function, or if the value of the parameter is `"undefined"`. In this case, we spread the properties of the `value` object into a new object, so `x` has the default value of `{ number: 10 }`.
 
 The default argument is evaluated at _call time_! Every time we call the function, a _new_ object is created. We invoke the `multiply` function the first two times without passing a value: `x` has the default value of `{ number: 10 }`. We then log the multiplied value of that number, which is `20`.
 
-The third time we invoke multiply, we do pass an argument: the object called `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`. 
+The third time we invoke multiply, we do pass an argument: the object called `value`. The `*=` operator is actually shorthand for `x.number = x.number * 2`: we modify the value of `x.number`, and log the multiplied value `20`.
 
-The fourth time, we pass the `value` object again. `x.number` was previously modified to `20`, so `x.number *= 2` logs `40`. 
+The fourth time, we pass the `value` object again. `x.number` was previously modified to `20`, so `x.number *= 2` logs `40`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6063,21 +6323,20 @@ The fourth time, we pass the `value` object again. `x.number` was previously mod
 - C: `1` `undefined` and `2` `undefined` and `3` `undefined` and `4` `undefined`
 - D: `1` `2` and `undefined` `3` and `undefined` `4`
 
-
-
 **Answer: D**
 
-The first argument that the `reduce` method receives is the _accumulator_, `x` in this case. The second argument is the _current value_, `y`. With the reduce method, we execute a callback function on every element in the array, which could ultimately result in one single value. 
+The first argument that the `reduce` method receives is the _accumulator_, `x` in this case. The second argument is the _current value_, `y`. With the reduce method, we execute a callback function on every element in the array, which could ultimately result in one single value.
 
 In this example, we are not returning any values, we are simply logging the values of the accumulator and the current value.
 
 The value of the accumulator is equal to the previously returned value of the callback function. If you don't pass the optional `initialValue` argument to the `reduce` method, the accumulator is equal to the first element on the first call.
 
-On the first call, the accumulator (`x`) is `1`, and the current value (`y`) is `2`. We don't return from the callback function, we log the accumulator and current value: `1` and `2` get logged.  
+On the first call, the accumulator (`x`) is `1`, and the current value (`y`) is `2`. We don't return from the callback function, we log the accumulator and current value: `1` and `2` get logged.
 
-If you don't return a value from a function, it returns `undefined`. On the next call, the accumulator is `undefined`, and the current value is `3`. `undefined` and `3` get logged. 
+If you don't return a value from a function, it returns `undefined`. On the next call, the accumulator is `undefined`, and the current value is `3`. `undefined` and `3` get logged.
 
 On the fourth call, we again don't return from the callback function. The accumulator is again `undefined`, and the current value is `4`. `undefined` and `4` get logged.
+
 </p>
 </details>  
 ---
@@ -6093,10 +6352,10 @@ class Dog {
   constructor(name) {
     this.name = name;
   }
-};
+}
 
 class Labrador extends Dog {
-  // 1 
+  // 1
   constructor(name, size) {
     this.size = size;
   }
@@ -6110,13 +6369,12 @@ class Labrador extends Dog {
     super(name);
     this.size = size;
   }
-  // 4 
+  // 4
   constructor(name, size) {
     this.name = name;
     this.size = size;
   }
-
-};
+}
 ```
 
 - A: 1
@@ -6124,15 +6382,13 @@ class Labrador extends Dog {
 - C: 3
 - D: 4
 
-
-
 **Answer: B**
 
 In a derived class, you cannot access the `this` keyword before calling `super`. If you try to do that, it will throw a ReferenceError: 1 and 4 would throw a reference error.
 
-With the `super` keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the `name` argument, so we need to pass `name` to `super`. 
+With the `super` keyword, we call that parent class's constructor with the given arguments. The parent's constructor receives the `name` argument, so we need to pass `name` to `super`.
 
-The `Labrador` class receives two arguments, `name` since it extends `Dog`, and `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly  using constructor 2.
+The `Labrador` class receives two arguments, `name` since it extends `Dog`, and `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly using constructor 2.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6142,12 +6398,12 @@ The `Labrador` class receives two arguments, `name` since it extends `Dog`, and 
 
 ```javascript
 // index.js
-console.log('running index.js');
-import { sum } from './sum.js';
+console.log("running index.js");
+import { sum } from "./sum.js";
 console.log(sum(1, 2));
 
 // sum.js
-console.log('running sum.js');
+console.log("running sum.js");
 export const sum = (a, b) => a + b;
 ```
 
@@ -6156,13 +6412,11 @@ export const sum = (a, b) => a + b;
 - C: `running sum.js`, `3`, `running index.js`
 - D: `running index.js`, `undefined`, `running sum.js`
 
-
-
 **Answer: B**
 
 With the `import` keyword, all imported modules are _pre-parsed_. This means that the imported modules get run _first_, the code in the file which imports the module gets executed _after_.
 
-This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console. 
+This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6171,9 +6425,9 @@ This is a difference between `require()` in CommonJS and `import`! With `require
 ### Q. What is the output?
 
 ```javascript
-console.log(Number(2) === Number(2))
-console.log(Boolean(false) === Boolean(false))
-console.log(Symbol('foo') === Symbol('foo'))
+console.log(Number(2) === Number(2));
+console.log(Boolean(false) === Boolean(false));
+console.log(Symbol("foo") === Symbol("foo"));
 ```
 
 - A: `true`, `true`, `false`
@@ -6181,11 +6435,9 @@ console.log(Symbol('foo') === Symbol('foo'))
 - C: `true`, `false`, `true`
 - D: `true`, `true`, `true`
 
-
-
 **Answer: A**
 
-Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`. 
+Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6194,17 +6446,15 @@ Every Symbol is entirely unique. The purpose of the argument passed to the Symbo
 ### Q. What is the output?
 
 ```javascript
-const name = "Lydia Hallie"
-console.log(name.padStart(13))
-console.log(name.padStart(2))
+const name = "Lydia Hallie";
+console.log(name.padStart(13));
+console.log(name.padStart(2));
 ```
 
 - A: `"Lydia Hallie"`, `"Lydia Hallie"`
-- B: `"           Lydia Hallie"`, `"  Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
+- B: `" Lydia Hallie"`, `" Lydia Hallie"` (`"[13x whitespace]Lydia Hallie"`, `"[2x whitespace]Lydia Hallie"`)
 - C: `" Lydia Hallie"`, `"Lydia Hallie"` (`"[1x whitespace]Lydia Hallie"`, `"Lydia Hallie"`)
-- D: `"Lydia Hallie"`, `"Lyd"`, 
-
-
+- D: `"Lydia Hallie"`, `"Lyd"`,
 
 **Answer: C**
 
@@ -6226,8 +6476,6 @@ console.log("🥑" + "💻");
 - B: `257548`
 - C: A string containing their code points
 - D: Error
-
-
 
 **Answer: A**
 
@@ -6258,8 +6506,6 @@ console.log(/* 2 */); // JavaScript loves you back ❤️
 - C: `game.next().value` and `game.next("Yes").value`
 - D: `game.next.value()` and `game.next.value("Yes")`
 
-
-
 **Answer: C**
 
 A generator function "pauses" its execution when it sees the `yield` keyword. First, we have to let the function yield the string "Do you love JavaScript?", which can be done by calling `game.next().value`.
@@ -6282,8 +6528,6 @@ console.log(String.raw`Hello\nworld`);
 - B: `Hello` <br />&nbsp; &nbsp; &nbsp;`world`
 - C: `Hello\nworld`
 - D: `Hello\n` <br /> &nbsp; &nbsp; &nbsp;`world`
-
-
 
 **Answer: C**
 
@@ -6321,8 +6565,6 @@ console.log(data);
 - C: `Promise {<pending>}`
 - D: `undefined`
 
-
-
 **Answer: C**
 
 An async function always returns a promise. The `await` still has to wait for the promise to resolve: a pending promise gets returned when we call `getData()` in order to set `data` equal to it.
@@ -6353,8 +6595,6 @@ console.log(result);
 - C: `true`
 - D: `undefined`
 
-
-
 **Answer: B**
 
 The `.push()` method returns the _length_ of the new array! Previously, the array contained one element (the string `"banana"`) and had a length of `1`. After adding the string `"apple"` to the array, the array contains two elements, and has a length of `2`. This gets returned from the `addToList` function.
@@ -6383,8 +6623,6 @@ console.log(shape);
 - C: `{ x: 100 }`
 - D: `ReferenceError`
 
-
-
 **Answer: B**
 
 `Object.freeze` makes it impossible to add, remove, or modify properties of an object (unless the property's value is another object).
@@ -6410,8 +6648,6 @@ console.log(name);
 - C: `undefined`
 - D: `ReferenceError`
 
-
-
 **Answer: D**
 
 When we unpack the property `name` from the object on the right-hand side, we assign its value `"Lydia"` to a variable with the name `myName`.
@@ -6435,8 +6671,6 @@ function sum(a, b) {
 - A: Yes
 - B: No
 
-
-
 **Answer: A**
 
 A pure function is a function that _always_ returns the same result, if the same arguments are passed.
@@ -6452,7 +6686,7 @@ The `sum` function always returns the same result. If we pass `1` and `2`, it wi
 ```javascript
 const add = () => {
   const cache = {};
-  return num => {
+  return (num) => {
     if (num in cache) {
       return `From cache! ${cache[num]}`;
     } else {
@@ -6474,8 +6708,6 @@ console.log(addFunction(5 * 2));
 - C: `Calculated! 20` `From cache! 20` `From cache! 20`
 - D: `Calculated! 20` `From cache! 20` `Error`
 
-
-
 **Answer: C**
 
 The `add` function is a _memoized_ function. With memoization, we can cache the results of a function in order to speed up its execution. In this case, we create a `cache` object that stores the previously returned values.
@@ -6495,23 +6727,21 @@ The third time, we pass `5 * 2` to the function which gets evaluated to `10`. Th
 ### Q. What is the output?
 
 ```javascript
-const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
+const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"];
 
 for (let item in myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 
 for (let item of myLifeSummedUp) {
-  console.log(item)
+  console.log(item);
 }
 ```
 
 - A: `0` `1` `2` `3` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - B: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `"☕"` ` "💻"` `"🍷"` `"🍫"`
 - C: `"☕"` ` "💻"` `"🍷"` `"🍫"` and `0` `1` `2` `3`
-- D:  `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
-
-
+- D: `0` `1` `2` `3` and `{0: "☕", 1: "💻", 2: "🍷", 3: "🍫"}`
 
 **Answer: A**
 
@@ -6530,22 +6760,20 @@ With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable
 ### Q. What is the output?
 
 ```javascript
-const list = [1 + 2, 1 * 2, 1 / 2]
-console.log(list)
+const list = [1 + 2, 1 * 2, 1 / 2];
+console.log(list);
 ```
 
 - A: `["1 + 2", "1 * 2", "1 / 2"]`
 - B: `["12", 2, 0.5]`
 - C: `[3, 2, 0.5]`
-- D:  `[1, 1, 1]`
-
-
+- D: `[1, 1, 1]`
 
 **Answer: C**
 
 Array elements can hold any value. Numbers, strings, objects, other arrays, null, boolean values, undefined, and other expressions such as dates, functions, and calculations.
 
-The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
+The element will be equal to the returned value. `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6555,18 +6783,16 @@ The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` r
 
 ```javascript
 function sayHi(name) {
-  return `Hi there, ${name}`
+  return `Hi there, ${name}`;
 }
 
-console.log(sayHi())
+console.log(sayHi());
 ```
 
 - A: `Hi there, `
 - B: `Hi there, undefined`
 - C: `Hi there, null`
-- D:  `ReferenceError`
-
-
+- D: `ReferenceError`
 
 **Answer: B**
 
@@ -6585,29 +6811,27 @@ In this case, if we didn't pass a value or if we passed `undefined`, `name` woul
 ### Q. What is the output?
 
 ```javascript
-var status = "😎"
+var status = "😎";
 
 setTimeout(() => {
-  const status = "😍"
+  const status = "😍";
 
   const data = {
     status: "🥑",
     getStatus() {
-      return this.status
-    }
-  }
+      return this.status;
+    },
+  };
 
-  console.log(data.getStatus())
-  console.log(data.getStatus.call(this))
-}, 0)
+  console.log(data.getStatus());
+  console.log(data.getStatus.call(this));
+}, 0);
 ```
 
 - A: `"🥑"` and `"😍"`
 - B: `"🥑"` and `"😎"`
 - C: `"😍"` and `"😎"`
 - D: `"😎"` and `"😎"`
-
-
 
 **Answer: B**
 
@@ -6624,13 +6848,13 @@ With the `call` method, we can change the object to which the `this` keyword ref
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
-let city = person.city
-city = "Amsterdam"
+let city = person.city;
+city = "Amsterdam";
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{ name: "Lydia", age: 21 }`
@@ -6638,17 +6862,15 @@ console.log(person)
 - C: `{ name: "Lydia", age: 21, city: undefined }`
 - D: `"Amsterdam"`
 
-
-
 **Answer: A**
 
-We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`. 
+We set the variable `city` equal to the value of the property called `city` on the `person` object. There is no property on this object called `city`, so the variable `city` has the value of `undefined`.
 
 Note that we are _not_ referencing the `person` object itself! We simply set the variable `city` equal to the current value of the `city` property on the `person` object.
 
 Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the person object: there is no reference to that object.
 
-When logging the `person` object, the unmodified object gets returned. 
+When logging the `person` object, the unmodified object gets returned.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6659,23 +6881,21 @@ When logging the `person` object, the unmodified object gets returned.
 ```javascript
 function checkAge(age) {
   if (age < 18) {
-    const message = "Sorry, you're too young."
+    const message = "Sorry, you're too young.";
   } else {
-    const message = "Yay! You're old enough!"
+    const message = "Yay! You're old enough!";
   }
 
-  return message
+  return message;
 }
 
-console.log(checkAge(21))
+console.log(checkAge(21));
 ```
 
 - A: `"Sorry, you're too young."`
 - B: `"Yay! You're old enough!"`
 - C: `ReferenceError`
 - D: `undefined`
-
-
 
 **Answer: C**
 
@@ -6688,17 +6908,15 @@ Variables with the `const` and `let` keyword are _block-scoped_. A block is anyt
 ### Q. What kind of information would get logged?
 
 ```javascript
-fetch('https://www.website.com/api/user/1')
-  .then(res => res.json())
-  .then(res => console.log(res))
+fetch("https://www.website.com/api/user/1")
+  .then((res) => res.json())
+  .then((res) => console.log(res));
 ```
 
 - A: The result of the `fetch` method.
 - B: The result of the second invocation of the `fetch` method.
 - C: The result of the callback in the previous `.then()`.
-- D: It would always be undefined. 
-
-
+- D: It would always be undefined.
 
 **Answer: C**
 
@@ -6721,8 +6939,6 @@ function getName(name) {
 - C: `new Boolean(name)`
 - D: `name.length`
 
-
-
 **Answer: A**
 
 With `!!name`, we determine whether the value of `name` is truthy or falsy. If name is truthy, which we want to test for, `!name` returns `false`. `!false` (which is what `!!name` practically is) returns `true`.
@@ -6740,15 +6956,13 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 ### Q. What is the output?
 
 ```javascript
-console.log("I want pizza"[0])
+console.log("I want pizza"[0]);
 ```
 
 - A: `"""`
 - B: `"I"`
 - C: `SyntaxError`
 - D: `undefined`
-
-
 
 **Answer: B**
 
@@ -6764,10 +6978,10 @@ Note that this method is not supported in IE7 and below. In that case, use `.cha
 
 ```javascript
 function sum(num1, num2 = num1) {
-  console.log(num1 + num2)
+  console.log(num1 + num2);
 }
 
-sum(10)
+sum(10);
 ```
 
 - A: `NaN`
@@ -6775,13 +6989,11 @@ sum(10)
 - C: `ReferenceError`
 - D: `undefined`
 
-
-
 **Answer: B**
 
-You can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, and the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`.  `num1 + num2` returns `20`.
+You can set a default parameter's value equal to another parameter of the function, as long as they've been defined _before_ the default parameter. We pass the value `10` to the `sum` function. If the `sum` function only receives 1 argument, it means that the value for `num2` is not passed, and the value of `num1` is equal to the passed value `10` in this case. The default value of `num2` is the value of `num1`, which is `10`. `num1 + num2` returns `20`.
 
-If you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error. 
+If you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6790,14 +7002,14 @@ If you're trying to set a default parameter's value equal to a parameter which i
 ### Q. What is the output?
 
 ```javascript
-// module.js 
-export default () => "Hello world"
-export const name = "Lydia"
+// module.js
+export default () => "Hello world";
+export const name = "Lydia";
 
-// index.js 
-import * as data from "./module"
+// index.js
+import * as data from "./module";
 
-console.log(data)
+console.log(data);
 ```
 
 - A: `{ default: function default(), name: "Lydia" }`
@@ -6805,13 +7017,11 @@ console.log(data)
 - C: `{ default: "Hello world", name: "Lydia" }`
 - D: Global object of `module.js`
 
-
-
 **Answer: A**
 
-With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`. 
+With the `import * as name` syntax, we import _all exports_ from the `module.js` file into the `index.js` file as a new object called `data` is created. In the `module.js` file, there are two exports: the default export, and a named export. The default export is a function which returns the string `"Hello World"`, and the named export is a variable called `name` which has the value of the string `"Lydia"`.
 
-The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values. 
+The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6822,12 +7032,12 @@ The `data` object has a `default` property for the default export, other propert
 ```javascript
 class Person {
   constructor(name) {
-    this.name = name
+    this.name = name;
   }
 }
 
-const member = new Person("John")
-console.log(typeof member)
+const member = new Person("John");
+console.log(typeof member);
 ```
 
 - A: `"class"`
@@ -6835,19 +7045,17 @@ console.log(typeof member)
 - C: `"object"`
 - D: `"string"`
 
-
-
 **Answer: C**
 
 Classes are syntactical sugar for function constructors. The equivalent of the `Person` class as a function constructor would be:
 
 ```javascript
 function Person() {
-  this.name = name
+  this.name = name;
 }
 ```
 
-Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`. 
+Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6856,9 +7064,9 @@ Calling a function constructor with `new` results in the creation of an instance
 ### Q. What is the output?
 
 ```javascript
-let newList = [1, 2, 3].push(4)
+let newList = [1, 2, 3].push(4);
 
-console.log(newList.push(5))
+console.log(newList.push(5));
 ```
 
 - A: `[1, 2, 3, 4, 5]`
@@ -6866,11 +7074,9 @@ console.log(newList.push(5))
 - C: `[1, 2, 3, 4]`
 - D: `Error`
 
-
-
 **Answer: D**
 
-The `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`. 
+The `.push` method returns the _new length_ of the array, not the array itself! By setting `newList` equal to `[1, 2, 3].push(4)`, we set `newList` equal to the new length of the array: `4`.
 
 Then, we try to use the `.push` method on `newList`. Since `newList` is the numerical value `4`, we cannot use the `.push` method: a TypeError is thrown.
 
@@ -6882,25 +7088,24 @@ Then, we try to use the `.push` method on `newList`. Since `newList` is the nume
 
 ```javascript
 function giveLydiaPizza() {
-  return "Here is pizza!"
+  return "Here is pizza!";
 }
 
-const giveLydiaChocolate = () => "Here's chocolate... now go hit the gym already."
+const giveLydiaChocolate = () =>
+  "Here's chocolate... now go hit the gym already.";
 
-console.log(giveLydiaPizza.prototype)
-console.log(giveLydiaChocolate.prototype)
+console.log(giveLydiaPizza.prototype);
+console.log(giveLydiaChocolate.prototype);
 ```
 
-- A: `{ constructor: ...}` `{ constructor: ...}` 
-- B: `{}` `{ constructor: ...}` 
+- A: `{ constructor: ...}` `{ constructor: ...}`
+- B: `{}` `{ constructor: ...}`
 - C: `{ constructor: ...}` `{}`
 - D: `{ constructor: ...}` `undefined`
 
-
-
 **Answer: D**
 
-Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
+Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6911,28 +7116,26 @@ Regular functions, such as the `giveLydiaPizza` function, have a `prototype` pro
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
 for (const [x, y] of Object.entries(person)) {
-  console.log(x, y)
+  console.log(x, y);
 }
 ```
 
 - A: `name` `Lydia` and `age` `21`
-- B: `["name", "Lydia"]` and `["age", 21]` 
+- B: `["name", "Lydia"]` and `["age", 21]`
 - C: `["name", "age"]` and `undefined`
 - D: `Error`
-
-
 
 **Answer: A**
 
 `Object.entries(person)` returns an array of nested arrays, containing the keys and objects:
 
-`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]` 
+`[ [ 'name', 'Lydia' ], [ 'age', 21 ] ]`
 
-Using the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray. 
+Using the `for-of` loop, we can iterate over each element in the array, the subarrays in this case. We can destructure the subarrays instantly in the for-of loop, using `const [x, y]`. `x` is equal to the first element in the subarray, `y` is equal to the second element in the subarray.
 
 The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.
 The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.
@@ -6952,22 +7155,20 @@ getItems(["banana", "apple"], "pear", "orange")
 ```
 
 - A: `["banana", "apple", "pear", "orange"]`
-- B: `[["banana", "apple"], "pear", "orange"]` 
+- B: `[["banana", "apple"], "pear", "orange"]`
 - C: `["banana", "apple", ["pear"], "orange"]`
 - D: `SyntaxError`
 
-
-
 **Answer: D**
 
-`...args` is a rest parameter. The rest parameter's value is an array containing all remaining arguments, **and can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error. 
+`...args` is a rest parameter. The rest parameter's value is an array containing all remaining arguments, **and can only be the last parameter**! In this example, the rest parameter was the second parameter. This is not possible, and will throw a syntax error.
 
 ```javascript
 function getItems(fruitList, favoriteFruit, ...args) {
-  return [...fruitList, ...args, favoriteFruit]
+  return [...fruitList, ...args, favoriteFruit];
 }
 
-getItems(["banana", "apple"], "pear", "orange")
+getItems(["banana", "apple"], "pear", "orange");
 ```
 
 The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
@@ -6980,17 +7181,14 @@ The above example works. This returns the array `[ 'banana', 'apple', 'orange', 
 
 ```javascript
 function nums(a, b) {
-  if
-  (a > b)
-  console.log('a is bigger')
-  else 
-  console.log('b is bigger')
-  return 
-  a + b
+  if (a > b) console.log("a is bigger");
+  else console.log("b is bigger");
+  return;
+  a + b;
 }
 
-console.log(nums(4, 2))
-console.log(nums(1, 2))
+console.log(nums(4, 2));
+console.log(nums(1, 2));
 ```
 
 - A: `a is bigger`, `6` and `b is bigger`, `3`
@@ -6998,17 +7196,15 @@ console.log(nums(1, 2))
 - C: `undefined` and `undefined`
 - D: `SyntaxError`
 
-
-
 **Answer: B**
 
-In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc. 
+In JavaScript, we don't _have_ to write the semicolon (`;`) explicitly, however the JavaScript engine still adds them after statements. This is called **Automatic Semicolon Insertion**. A statement can for example be variables, or keywords like `throw`, `return`, `break`, etc.
 
 Here, we wrote a `return` statement, and another value `a + b` on a _new line_. However, since it's a new line, the engine doesn't know that it's actually the value that we wanted to return. Instead, it automatically added a semicolon after `return`. You could see this as:
 
 ```javascript
-  return;
-  a + b
+return;
+a + b;
 ```
 
 This means that `a + b` is never reached, since a function stops running after the `return` keyword. If no value gets returned, like here, the function returns `undefined`. Note that there is no automatic insertion after `if/else` statements!
@@ -7022,26 +7218,24 @@ This means that `a + b` is never reached, since a function stops running after t
 ```javascript
 class Person {
   constructor() {
-    this.name = "Lydia"
+    this.name = "Lydia";
   }
 }
 
 Person = class AnotherPerson {
   constructor() {
-    this.name = "Sarah"
+    this.name = "Sarah";
   }
-}
+};
 
-const member = new Person()
-console.log(member.name)
+const member = new Person();
+console.log(member.name);
 ```
 
 - A: `"Lydia"`
 - B: `"Sarah"`
 - C: `Error: cannot redeclare Person`
 - D: `SyntaxError`
-
-
 
 **Answer: B**
 
@@ -7055,19 +7249,17 @@ We can set classes equal to other classes/function constructors. In this case, w
 
 ```javascript
 const info = {
-  [Symbol('a')]: 'b'
-}
+  [Symbol("a")]: "b",
+};
 
-console.log(info)
-console.log(Object.keys(info))
+console.log(info);
+console.log(Object.keys(info));
 ```
 
 - A: `{Symbol('a'): 'b'}` and `["{Symbol('a')"]`
 - B: `{}` and `[]`
 - C: `{ a: "b" }` and `["a"]`
 - D: `{Symbol('a'): 'b'}` and `[]`
-
-
 
 **Answer: D**
 
@@ -7097,19 +7289,17 @@ console.log(getUser(user))
 - C: `[1, 2, 3, 4]` and `{ name: "Lydia", age: 21 }`
 - D: `Error` and `{ name: "Lydia", age: 21 }`
 
-
-
 **Answer: A**
 
 The `getList` function receives an array as its argument. Between the parentheses of the `getList` function, we destructure this array right away. You could see this as:
 
- `[x, ...y] = [1, 2, 3, 4]`
+`[x, ...y] = [1, 2, 3, 4]`
 
- With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
+With the rest parameter `...y`, we put all "remaining" arguments in an array. The remaining arguments are `2`, `3` and `4` in this case. The value of `y` is an array, containing all the rest parameters. The value of `x` is equal to `1` in this case, so when we log `[x, y]`, `[1, [2, 3, 4]]` gets logged.
 
- The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
+The `getUser` function receives an object. With arrow functions, we don't _have_ to write curly brackets if we just return one value. However, if you want to return an _object_ from an arrow function, you have to write it between parentheses, otherwise no value gets returned! The following function would have returned an object:
 
-```const getUser = user => ({ name: user.name, age: user.age })```
+`const getUser = user => ({ name: user.name, age: user.age })`
 
 Since no value gets returned in this case, the function returns `undefined`.
 
@@ -7120,9 +7310,9 @@ Since no value gets returned in this case, the function returns `undefined`.
 ### Q. What is the output?
 
 ```javascript
-const name = "Lydia"
+const name = "Lydia";
 
-console.log(name())
+console.log(name());
 ```
 
 - A: `SyntaxError`
@@ -7130,15 +7320,13 @@ console.log(name())
 - C: `TypeError`
 - D: `undefined`
 
-
-
 **Answer: C**
 
-The variable `name` holds the value of a string, which is not a function, thus cannot invoke. 
+The variable `name` holds the value of a string, which is not a function, thus cannot invoke.
 
 TypeErrors get thrown when a value is not of the expected type. JavaScript expected `name` to be a function since we're trying to invoke it. It was a string however, so a TypeError gets thrown: name is not a function!
 
-SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. 
+SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`.
 ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
 
 <div align="right">
@@ -7150,16 +7338,14 @@ ReferenceErrors get thrown when JavaScript isn't able to find a reference to a v
 ```javascript
 // 🎉✨ This is my 100th question! ✨🎉
 
-const output = `${[] && 'Im'}possible!
-You should${'' && `n't`} see a therapist after so much JavaScript lol`
+const output = `${[] && "Im"}possible!
+You should${"" && `n't`} see a therapist after so much JavaScript lol`;
 ```
 
 - A: `possible! You should see a therapist after so much JavaScript lol`
 - B: `Impossible! You should see a therapist after so much JavaScript lol`
 - C: `possible! You shouldn't see a therapist after so much JavaScript lol`
 - D: `Impossible! You shouldn't see a therapist after so much JavaScript lol`
-
-
 
 **Answer: B**
 
@@ -7174,19 +7360,17 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 ### Q. What is the value of output?
 
 ```javascript
-const one = (false || {} || null)
-const two = (null || false || "")
-const three = ([] || 0 || true)
+const one = false || {} || null;
+const two = null || false || "";
+const three = [] || 0 || true;
 
-console.log(one, two, three)
+console.log(one, two, three);
 ```
 
 - A: `false` `null` `[]`
 - B: `null` `""` `true`
 - C: `{}` `""` `[]`
 - D: `null` `null` `true`
-
-
 
 **Answer: C**
 
@@ -7205,20 +7389,20 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 ### Q. What is the value of output?
 
 ```javascript
-const myPromise = () => Promise.resolve('I have resolved!')
+const myPromise = () => Promise.resolve("I have resolved!");
 
 function firstFunction() {
-  myPromise().then(res => console.log(res))
-  console.log('second')
+  myPromise().then((res) => console.log(res));
+  console.log("second");
 }
 
 async function secondFunction() {
-  console.log(await myPromise())
-  console.log('second')
+  console.log(await myPromise());
+  console.log("second");
 }
 
-firstFunction()
-secondFunction()
+firstFunction();
+secondFunction();
 ```
 
 - A: `I have resolved!`, `second` and `I have resolved!`, `second`
@@ -7226,19 +7410,17 @@ secondFunction()
 - C: `I have resolved!`, `second` and `second`, `I have resolved!`
 - D: `second`, `I have resolved!` and `I have resolved!`, `second`
 
-
-
 **Answer: D**
 
 With a promise, we basically say _I want to execute this function, but I'll put it aside for now while it's running since this might take a while. Only when a certain value is resolved (or rejected), and when the call stack is empty, I want to use this value._
 
-We can get this value with both `.then` and the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` and `await`, they work a bit differently. 
+We can get this value with both `.then` and the `await` keyword in an `async` function. Although we can get a promise's value with both `.then` and `await`, they work a bit differently.
 
-In the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty. 
+In the `firstFunction`, we (sort of) put the myPromise function aside while it was running, but continued running the other code, which is `console.log('second')` in this case. Then, the function resolved with the string `I have resolved`, which then got logged after it saw that the callstack was empty.
 
 With the await keyword in `secondFunction`, we literally pause the execution of an async function until the value has been resolved befoer moving to the next line.
 
-This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged. 
+This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7247,14 +7429,14 @@ This means that it waited for the `myPromise` to resolve with the value `I have 
 ### Q. What is the value of output?
 
 ```javascript
-const set = new Set()
+const set = new Set();
 
-set.add(1)
-set.add("Lydia")
-set.add({ name: "Lydia" })
+set.add(1);
+set.add("Lydia");
+set.add({ name: "Lydia" });
 
 for (let item of set) {
-  console.log(item + 2)
+  console.log(item + 2);
 }
 ```
 
@@ -7263,15 +7445,13 @@ for (let item of set) {
 - C: `3`, `Lydia2`, `[Object object]2`
 - D: `"12"`, `Lydia2`, `[Object object]2`
 
-
-
 **Answer: C**
 
-The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string. 
+The `+` operator is not only used for adding numerical values, but we can also use it to concatenate strings. Whenever the JavaScript engine sees that one or more values are not a number, it coerces the number into a string.
 
 The first one is `1`, which is a numerical value. `1 + 2` returns the number 3.
 
-However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, which results in the string `"Lydia2"`. 
+However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is a number: `2` gets coerced into a string. `"Lydia"` and `"2"` get concatenated, which results in the string `"Lydia2"`.
 
 `{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
 
@@ -7282,7 +7462,7 @@ However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is 
 ### Q. What is its value?
 
 ```javascript
-Promise.resolve(5)
+Promise.resolve(5);
 ```
 
 - A: `5`
@@ -7290,13 +7470,11 @@ Promise.resolve(5)
 - C: `Promise {<resolved>: 5}`
 - D: `Error`
 
-
-
 **Answer: C**
 
 We can pass any type of value we want to `Promise.resolve`, either a promise or a non-promise. The method itself returns a promise with the resolved value. If you pass a regular function, it'll be a resolved promise with a regular value. If you pass a promise, it'll be a resolved promise with the resolved value of that passed promise.
 
-In this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`. 
+In this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7307,15 +7485,15 @@ In this case, we just passed the numerical value `5`. It returns a resolved prom
 ```javascript
 function compareMembers(person1, person2 = person) {
   if (person1 !== person2) {
-    console.log("Not the same!")
+    console.log("Not the same!");
   } else {
-    console.log("They are the same!")
+    console.log("They are the same!");
   }
 }
 
-const person = { name: "Lydia" }
+const person = { name: "Lydia" };
 
-compareMembers(person)
+compareMembers(person);
 ```
 
 - A: `Not the same!`
@@ -7323,17 +7501,15 @@ compareMembers(person)
 - C: `ReferenceError`
 - D: `SyntaxError`
 
-
-
 **Answer: B**
 
-Objects are passed by reference. When we check objects for strict equality (`===`), we're comparing their references. 
+Objects are passed by reference. When we check objects for strict equality (`===`), we're comparing their references.
 
 We set the default value for `person2` equal to the `person` object, and passed the `person` object as the value for `person1`.
 
 This means that both values have a reference to the same spot in memory, thus they are equal.
 
-The code block in the `else` statement gets run, and `They are the same!` gets logged. 
+The code block in the `else` statement gets run, and `They are the same!` gets logged.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7348,11 +7524,11 @@ const colorConfig = {
   green: true,
   black: true,
   yellow: false,
-}
+};
 
-const colors = ["pink", "red", "blue"]
+const colors = ["pink", "red", "blue"];
 
-console.log(colorConfig.colors[1])
+console.log(colorConfig.colors[1]);
 ```
 
 - A: `true`
@@ -7360,15 +7536,13 @@ console.log(colorConfig.colors[1])
 - C: `undefined`
 - D: `TypeError`
 
-
-
 **Answer: D**
 
-In JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig["colors"]`). 
+In JavaScript, we have two ways to access properties on an object: bracket notation, or dot notation. In this example, we use dot notation (`colorConfig.colors`) instead of bracket notation (`colorConfig["colors"]`).
 
 With dot notation, JavaScript tries to find the property on the object with that exact name. In this example, JavaScript tries to find a property called `colors` on the `colorConfig` object. There is no proprety called `colors`, so this returns `undefined`. Then, we try to access the value of the first element by using `[1]`. We cannot do this on a value that's `undefined`, so it throws a `TypeError`: `Cannot read property '1' of undefined`.
 
-JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object. 
+JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7377,17 +7551,15 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 ### Q. What is its value?
 
 ```javascript
-console.log('❤️' === '❤️')
+console.log("❤️" === "❤️");
 ```
 
 - A: `true`
 - B: `false`
 
-
-
 **Answer: A**
 
-Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true. 
+Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7396,26 +7568,24 @@ Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+276
 ### Q. Which of these methods modifies the original array?
 
 ```javascript
-const emojis = ['✨', '🥑', '😍']
+const emojis = ["✨", "🥑", "😍"];
 
-emojis.map(x => x + '✨')
-emojis.filter(x => x !== '🥑')
-emojis.find(x => x !== '🥑')
-emojis.reduce((acc, cur) => acc + '✨')
-emojis.slice(1, 2, '✨') 
-emojis.splice(1, 2, '✨')
+emojis.map((x) => x + "✨");
+emojis.filter((x) => x !== "🥑");
+emojis.find((x) => x !== "🥑");
+emojis.reduce((acc, cur) => acc + "✨");
+emojis.slice(1, 2, "✨");
+emojis.splice(1, 2, "✨");
 ```
 
 - A: `All of them`
 - B: `map` `reduce` `slice` `splice`
-- C: `map` `slice` `splice` 
+- C: `map` `slice` `splice`
 - D: `splice`
-
-
 
 **Answer: D**
 
-With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ✨ emoji instead. 
+With `splice` method, we modify the original array by deleting, replacing or adding elements. In this case, we removed 2 items from index 1 (we removed `'🥑'` and `'😍'`) and added the ✨ emoji instead.
 
 `map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value.
 
@@ -7426,24 +7596,22 @@ With `splice` method, we modify the original array by deleting, replacing or add
 ### Q. <a name=20191009></a>109. What is the output?
 
 ```javascript
-const food = ['🍕', '🍫', '🥑', '🍔']
-const info = { favoriteFood: food[0] }
+const food = ["🍕", "🍫", "🥑", "🍔"];
+const info = { favoriteFood: food[0] };
 
-info.favoriteFood = '🍝'
+info.favoriteFood = "🍝";
 
-console.log(food)
+console.log(food);
 ```
 
 - A: `['🍕', '🍫', '🥑', '🍔']`
 - B: `['🍝', '🍫', '🥑', '🍔']`
-- C: `['🍝', '🍕', '🍫', '🥑', '🍔']` 
+- C: `['🍝', '🍕', '🍫', '🥑', '🍔']`
 - D: `ReferenceError`
-
-
 
 **Answer: A**
 
-We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference 
+We set the value of the `favoriteFood` property on the `info` object equal to the string with the pizza emoji, `'🍕'`. A string is a primitive data type. In JavaScript, primitive data types act by reference
 
 In JavaScript, primitive data types (everything that's not an object) interact by _value_. In this case, we set the value of the `favoriteFood` property on the `info` object equal to the value of the first element in the `food` array, the string with the pizza emoji in this case (`'🍕'`). A string is a primitive data type, and interact by value (see my [blogpost](https://www.theavocoder.com/complete-javascript/2018/12/21/by-value-vs-by-reference) if you're interested in learning more)
 
@@ -7456,7 +7624,7 @@ Then, we change the value of the `favoriteFood` property on the `info` object. T
 ### Q. What does this method do?
 
 ```javascript
-JSON.parse()
+JSON.parse();
 ```
 
 - A: Parses JSON to a JavaScript value
@@ -7464,41 +7632,39 @@ JSON.parse()
 - C: Parses any JavaScript value to JSON
 - D: Parses JSON to a JavaScript object only
 
-
-
 **Answer: A**
 
-With the `JSON.parse()` method, we can parse JSON string to a JavaScript value. 
+With the `JSON.parse()` method, we can parse JSON string to a JavaScript value.
 
 ```javascript
 // Stringifying a number into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonNumber = JSON.stringify(4) // '4'
-JSON.parse(jsonNumber) // 4
+const jsonNumber = JSON.stringify(4); // '4'
+JSON.parse(jsonNumber); // 4
 
 // Stringifying an array value into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonArray = JSON.stringify([1, 2, 3]) // '[1, 2, 3]'
-JSON.parse(jsonArray) // [1, 2, 3]
+const jsonArray = JSON.stringify([1, 2, 3]); // '[1, 2, 3]'
+JSON.parse(jsonArray); // [1, 2, 3]
 
 // Stringifying an object  into valid JSON, then parsing the JSON string to a JavaScript value:
-const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
-JSON.parse(jsonArray) // { name: 'Lydia' }
+const jsonArray = JSON.stringify({ name: "Lydia" }); // '{"name":"Lydia"}'
+JSON.parse(jsonArray); // { name: 'Lydia' }
 ```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-### Q. What is the output? 
+### Q. What is the output?
 
 ```javascript
-let name = 'Lydia'
+let name = "Lydia";
 
 function getName() {
-  console.log(name)
-  let name = 'Sarah'
+  console.log(name);
+  let name = "Sarah";
 }
 
-getName()
+getName();
 ```
 
 - A: Lydia
@@ -7506,24 +7672,22 @@ getName()
 - C: `undefined`
 - D: `ReferenceError`
 
-
-
 **Answer: D**
 
-Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'Sarah'`. 
+Each function has its own _execution context_ (or _scope_). The `getName` function first looks within its own context (scope) to see if it contains the variable `name` we're trying to access. In this case, the `getName` function contains its own `name` variable: we declare the variable `name` with the `let` keyword, and with the value of `'Sarah'`.
 
-Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`. 
+Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
 
-If we wouldn't have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`. 
+If we wouldn't have declared the `name` variable within the `getName` function, the javascript engine would've looked down the _scope chain_. The outer scope has a variable called `name` with the value of `Lydia`. In that case, it would've logged `Lydia`.
 
 ```javascript
-let name = 'Lydia'
+let name = "Lydia";
 
 function getName() {
-  console.log(name)
+  console.log(name);
 }
 
-getName() // Lydia
+getName(); // Lydia
 ```
 
 <div align="right">
@@ -7534,26 +7698,24 @@ getName() // Lydia
 
 ```javascript
 function* generatorOne() {
-  yield ['a', 'b', 'c'];
+  yield ["a", "b", "c"];
 }
 
 function* generatorTwo() {
-  yield* ['a', 'b', 'c'];
+  yield* ["a", "b", "c"];
 }
 
-const one = generatorOne()
-const two = generatorTwo()
+const one = generatorOne();
+const two = generatorTwo();
 
-console.log(one.next().value)
-console.log(two.next().value)
+console.log(one.next().value);
+console.log(two.next().value);
 ```
 
 - A: `a` and `a`
 - B: `a` and `undefined`
 - C: `['a', 'b', 'c']` and `a`
 - D: `a` and `['a', 'b', 'c']`
-
-
 
 **Answer: C**
 
@@ -7562,17 +7724,17 @@ With the `yield` keyword, we `yield` values in a generator function. With the `y
 In `generatorOne`, we yield the entire array `['a', 'b', 'c']` using the `yield` keyword. The value of `value` property on the object returned by the `next` method on `one` (`one.next().value`) is equal to the entire array `['a', 'b', 'c']`.
 
 ```javascript
-console.log(one.next().value) // ['a', 'b', 'c']
-console.log(one.next().value) // undefined
+console.log(one.next().value); // ['a', 'b', 'c']
+console.log(one.next().value); // undefined
 ```
 
-In `generatorTwo`, we use the `yield*` keyword. This means that the first yielded value of `two`, is equal to the first yielded value in the iterator. The iterator is the array `['a', 'b', 'c']`. The first yielded value is `a`, so the first time we call `two.next().value`, `a` is returned. 
+In `generatorTwo`, we use the `yield*` keyword. This means that the first yielded value of `two`, is equal to the first yielded value in the iterator. The iterator is the array `['a', 'b', 'c']`. The first yielded value is `a`, so the first time we call `two.next().value`, `a` is returned.
 
 ```javascript
-console.log(two.next().value) // 'a'
-console.log(two.next().value) // 'b'
-console.log(two.next().value) // 'c'
-console.log(two.next().value) // undefined
+console.log(two.next().value); // 'a'
+console.log(two.next().value); // 'b'
+console.log(two.next().value); // 'c'
+console.log(two.next().value); // undefined
 ```
 
 <div align="right">
@@ -7582,7 +7744,7 @@ console.log(two.next().value) // undefined
 ### Q. What is the output?
 
 ```javascript
-console.log(`${(x => x)('I love')} to program`)
+console.log(`${((x) => x)("I love")} to program`);
 ```
 
 - A: `I love to program`
@@ -7590,10 +7752,9 @@ console.log(`${(x => x)('I love')} to program`)
 - C: `${(x => x)('I love') to program`
 - D: `TypeError`
 
-
 **Answer: A**
 
-Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`. 
+Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7604,19 +7765,17 @@ Expressions within template literals are evaluated first. This means that the st
 ```javascript
 let config = {
   alert: setInterval(() => {
-    console.log('Alert!')
-  }, 1000)
-}
+    console.log("Alert!");
+  }, 1000),
+};
 
-config = null
+config = null;
 ```
 
 - A: The `setInterval` callback won't be invoked
 - B: The `setInterval` callback gets invoked once
 - C: The `setInterval` callback will still be called every second
 - D: We never invoked `config.alert()`, config is `null`
-
-
 
 **Answer: C**
 
@@ -7629,17 +7788,17 @@ Normally when we set objects equal to `null`, those objects get _garbage collect
 ### Q. Which method(s) will return the value `'Hello world!'`?
 
 ```javascript
-const myMap = new Map()
-const myFunc = () => 'greeting'
+const myMap = new Map();
+const myFunc = () => "greeting";
 
-myMap.set(myFunc, 'Hello world!')
+myMap.set(myFunc, "Hello world!");
 
 //1
-myMap.get('greeting')
+myMap.get("greeting");
 //2
-myMap.get(myFunc)
+myMap.get(myFunc);
 //3
-myMap.get(() => 'greeting')
+myMap.get(() => "greeting");
 ```
 
 - A: 1
@@ -7647,14 +7806,12 @@ myMap.get(() => 'greeting')
 - C: 2 and 3
 - D: All of them
 
-
-
 **Answer: B**
 
-When adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, and the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, and the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`. 
+When adding a key/value pair using the `set` method, the key will be the value of the first argument passed to the `set` function, and the value will be the second argument passed to the `set` function. The key is the _function_ `() => 'greeting'` in this case, and the value `'Hello world'`. `myMap` is now `{ () => 'greeting' => 'Hello world!' }`.
 
 1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`.
-3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory. 
+3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7665,19 +7822,19 @@ When adding a key/value pair using the `set` method, the key will be the value o
 ```javascript
 const person = {
   name: "Lydia",
-  age: 21
-}
+  age: 21,
+};
 
-const changeAge = (x = { ...person }) => x.age += 1
+const changeAge = (x = { ...person }) => (x.age += 1);
 const changeAgeAndName = (x = { ...person }) => {
-  x.age += 1
-  x.name = "Sarah"
-}
+  x.age += 1;
+  x.name = "Sarah";
+};
 
-changeAge(person)
-changeAgeAndName()
+changeAge(person);
+changeAgeAndName();
 
-console.log(person)
+console.log(person);
 ```
 
 - A: `{name: "Sarah", age: 22}`
@@ -7687,12 +7844,11 @@ console.log(person)
 
 **Answer: C**
 
-Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object. 
+Both the `changeAge` and `changeAgeAndName` functions have a default parameter, namely a _newly_ created object `{ ...person }`. This object has copies of all the key/values in the `person` object.
 
 First, we invoke the `changeAge` function and pass the `person` object as its argument. This function increases the value of the `age` property by 1. `person` is now `{ name: "Lydia", age: 22 }`.
 
 Then, we invoke the `changeAgeAndName` function, however we don't pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it's a new object, it doesn't affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.
-
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
