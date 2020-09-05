@@ -1,6 +1,6 @@
 ## Programming in JavaScript
 
-#### Q. Write a program in javascript. sum(2)(3); // Expected output is 5
+### Q. Write a program in javascript. sum(2)(3); // Expected output is 5
 ```javascript
 function sum(x, y) {
   if (y !== undefined) {
@@ -19,7 +19,7 @@ console.log(sum(2)(3));  // Outputs 5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. How to do Javascript file size and extension validation before upload?
+### Q. How to do Javascript file size and extension validation before upload?
 ```html
 <!DOCTYPE HTML>
 <html>
@@ -73,7 +73,7 @@ function bodyAppend(tagName, innerHTML) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. How to create captcha using javascript?
+### Q. How to create captcha using javascript?
 ```html
 <!DOCTYPE html>
 <html>
@@ -116,7 +116,7 @@ function bodyAppend(tagName, innerHTML) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Create a Stopwatch program in javascript.
+### Q. Create a Stopwatch program in javascript.
 ```html
 <!DOCTYPE html>
 <html>
@@ -221,7 +221,7 @@ function bodyAppend(tagName, innerHTML) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Write a program to reverse a string?
+### Q. Write a program to reverse a string?
 ```javascript
 function reverseString(str){
     let stringRev ="";
@@ -236,18 +236,18 @@ alert(reverseString("Pradeep")); // Output: peedarP
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. How to check if object is empty or not in javaScript?
+### Q. How to check if object is empty or not in javaScript?
 ```javascript
 function isEmpty(obj) {
     return Object.keys(obj).length === 0;
 }
 ```
-#### Q. JavaScript Regular Expression to validate Email
+### Q. JavaScript Regular Expression to validate Email
 
 ```javascript
 var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/; 
 ```
-#### Q. Use RegEx to test password strength in JavaScript?
+### Q. Use RegEx to test password strength in JavaScript?
 
 ```javascript
 
@@ -272,7 +272,7 @@ if(!regularExpression.test(newPassword)) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. How to compare objects ES6?
+### Q. How to compare objects ES6?
 Example 01:
 ```javascript
 const matches = (obj, source) =>
@@ -305,7 +305,12 @@ const two = {
 // Using JavaScript
 JSON.stringify(one) === JSON.stringify(two); // false
 ```
-#### Q. How to remove array element based on object property?
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. How to remove array element based on object property?
 ```javascript
 var myArray = [
     {field: 'id', operator: 'eq'}, 
@@ -326,11 +331,16 @@ myArray = [
     {field: "cStatus", operator: "eq"}
 ]
 ```
-#### Q. Predict the output of the following JavaScript code?
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(+'meow'); // Output: NaN
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var result;
 for (var i = 5; i > 0; i--) {
@@ -338,12 +348,12 @@ for (var i = 5; i > 0; i--) {
 }
 console.log(result); // Output: NaN
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var a = 1.2;
 console.log(typeof a); // Output: Number
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var x = 10;
 if (x) {
@@ -355,17 +365,17 @@ console.log(x); // Output: 10
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(0.1 + 0.2 == 0.3); // Output: false
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(1 + -'1' + 2); // Output: 2
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 (function(x) {
     return (function(y) {
@@ -374,7 +384,11 @@ console.log(1 + -'1' + 2); // Output: 2
 })(20);   // Output: 20
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var num = 20;
 var getNumber = function() {
@@ -387,7 +401,7 @@ getNumber(); // Output: undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 function f1() {
     num = 10;
@@ -396,12 +410,12 @@ f1();
 console.log('window.num: '+window.num); // output: 10
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log('(null + undefined): '+(null + undefined)); // Output: NaN
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 (function() {
     var a = (b = 3);
@@ -411,7 +425,7 @@ console.log('value of a : ' + a); // Output: undefined
 console.log('value of b : ' + b); // Output: 3
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var y = 1;
 if (function f() {}) {
@@ -420,7 +434,7 @@ if (function f() {}) {
 console.log(y); // Output: 1Object
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var k = 1;
 if (1) {
@@ -433,7 +447,7 @@ console.log(k); // Output: 1undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var k = 1;
 if (1) {
@@ -443,7 +457,7 @@ if (1) {
 console.log(k); // Output: 1function
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log('(-1 / 0): '+(-1 / 0)); // Output: -Infinity
 console.log('(1 / 0): '+(1 / 0));   // Output: Infinity
@@ -451,7 +465,7 @@ console.log('(0 / 0): '+(0 / 0));   // Output: NaN
 console.log('(0 / 1): '+(0 / 1));   // Output: 0
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var a = 4;
 var b = '5';
@@ -467,13 +481,13 @@ console.log('(a % b): '+(a % b)); // Output: 4
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log("MAX : " + Math.max(10, 2, NaN));  // Output: NaN
 console.log("MAX : " + Math.max());            // Output: -Infinity
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 (function(){
     var a = b = 3;
@@ -483,7 +497,7 @@ console.log("a defined? " + (typeof a !== 'undefined')); // Output: true
 console.log("b defined? " + (typeof b !== 'undefined')); // Output: true
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var myObject = {
     foo: "bar",
@@ -503,13 +517,13 @@ myObject.func();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(0.1 + 0.2);        // Output: 0.30000000000000004
 console.log(0.1 + 0.2 == 0.3); // Output: false
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 (function() {
     console.log(1); 
@@ -520,7 +534,7 @@ console.log(0.1 + 0.2 == 0.3); // Output: false
 // Output: 1, 4, 3, 2
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var arr1 = "john".split('');
 var arr2 = arr1.reverse();
@@ -529,7 +543,7 @@ arr2.push(arr3);
 console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); //array 1: length=5 last=j,o,n,e,s
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); //array 2: length=5 last=j,o,n,e,s
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(1 +  "2" + "2");    // Output: 122
 console.log(1 +  +"2" + "2");   // Output: 32
@@ -542,7 +556,7 @@ console.log( "A" - "B" + 2);    // Output: NaN
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 for (var i = 0; i < 5; i++) {
     setTimeout(function() { console.log(i); }, i * 1000 );
@@ -550,7 +564,7 @@ for (var i = 0; i < 5; i++) {
 // Output: 145, 5, 5, 5, 5, 5
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 for (var i = 0; i < 5; i++) {
     (function(x) {
@@ -559,7 +573,7 @@ for (var i = 0; i < 5; i++) {
 }
 //Output:- 0, 1, 2, 3, 4
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log("0 || 1 = "+(0 || 1)); // Output: 1
 console.log("1 || 2 = "+(1 || 2)); // Output: 1
@@ -570,12 +584,12 @@ console.log("1 && 2 = "+(1 && 2)); // Output: 2
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(false == '0')  // Output: true
 console.log(false === '0') // Output: false
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var a={},
 b={key:'b'},
@@ -585,11 +599,11 @@ a[b]=123;
 a[c]=456;
 console.log(a[b]); // Output: 456
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10)); // Output: 3628800
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 (function(x) {
     return (function(y) {
@@ -601,7 +615,7 @@ console.log((function f(n){return ((n > 1) ? n * f(n-1) : n)})(10)); // Output: 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var hero = {
     _name: 'John Doe',
@@ -614,7 +628,7 @@ var stoleSecretIdentity = hero.getSecretIdentity;
 console.log(stoleSecretIdentity());    // Output: undefined
 console.log(hero.getSecretIdentity()); // Output: John Doe
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var length = 10;
 function fn() {
@@ -636,7 +650,7 @@ obj.method(fn, 1);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 (function () {
     try {
@@ -650,7 +664,7 @@ obj.method(fn, 1);
 })();
 //Output:  1, undefined, 2 
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var x = 21;
 var girl = function () {
@@ -659,17 +673,17 @@ var girl = function () {
 };
 girl ();
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(1 < 2 < 3); // Output: true
 console.log(3 > 2 > 1); // Output: false
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 console.log(typeof typeof 1); // Output: string
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var b = 1;
 function outer(){
@@ -687,19 +701,19 @@ outer();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Hoisting example in javascript
+### Q. Hoisting example in javascript
 ```javascript
 x = 10
 console.log(x);
 var x; // Output: 10
 ```
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 const arr = [1, 2];
 arr.push(3);       // Output: 1, 2, 3
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var o = new F(); 
 o.constructor === F; 
@@ -709,12 +723,12 @@ o.constructor === F;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 let sum = (a, b) => { a + b;}; 
 console.log(sum(10, 20)); // Output: undefined; return keyword is missing 
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var arr = ['javascript', 'typescript', 'es6']; 
 var searchValue = (value) => {  
@@ -724,7 +738,7 @@ var searchValue = (value) => {
 } 
 console.log(searchValue ('script'));
 ```
-#### Q. Write the program using fatarrow function?
+### Q. Write the program using fatarrow function?
 ```javascript
 var a = [1, 2, 3, 4]; 
 function sumUsingFunction (acc, value) {   
@@ -732,7 +746,7 @@ function sumUsingFunction (acc, value) {
 } 
 var sumOfArrayUsingFunc = a.reduce(sumUsingFunc);
 ```
-#### Q. Write a program that prints the numbers from 1 to 15. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”?
+### Q. Write a program that prints the numbers from 1 to 15. But for multiples of three print “Fizz” instead of the number and for the multiples of five print “Buzz”. For numbers which are multiples of both three and five print “FizzBuzz”?
 ```javascript
 for (var i=1; i <= 15; i++){
     if (i % 15 == 0) console.log("FizzBuzz");
@@ -770,7 +784,7 @@ for (var i = 1; i <= 15; i++) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 var output = (function(x) {
@@ -785,7 +799,7 @@ console.log(output);
 The code above will output `0` as output. `delete` operator is used to delete a property from an object. Here `x` is not an object it's **local variable**. `delete` operator doesn't affect local variables.
 
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 var x = 1;
@@ -803,7 +817,7 @@ The code above will output `1` as output. `delete` operator is used to delete a 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 var x = { foo : 1};
@@ -819,7 +833,7 @@ console.log(output);
 The code above will output `undefined` as output. `delete` operator is used to delete a property from an object. Here `x` is an object which has foo as a property and from a self-invoking function, we are deleting the `foo` property of object `x` and after deletion, we are trying to reference deleted property `foo` which result `undefined`.
 
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 var Employee = {
@@ -838,7 +852,7 @@ The code above will output `xyz` as output. Here `emp1` object got company as **
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 var trees = ["xyz", "xxxx", "test", "ryan", "apple"];
@@ -851,7 +865,7 @@ The code above will output `5` as output. When we used `delete` operator for del
 So when delete operator removes an array element that deleted element is no longer present in the array. In place of value at deleted index `undefined x 1` in **chrome** and `undefined` is placed at the index. If you do `console.log(trees)` output `["xyz", "xxxx", "test", undefined × 1, "apple"]` in Chrome and in Firefox `["xyz", "xxxx", "test", undefined, "apple"]`.
 
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 var bar = true;
@@ -873,7 +887,7 @@ The code above will output `1, "truexyz", 2, 1` as output. Here's a general guid
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 var z = 1, y = z = typeof y;
@@ -890,7 +904,7 @@ z = typeof y;
 y = z;
 ```
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 // NFE (Named Function Expression)
@@ -932,7 +946,7 @@ var foo = function bar() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the output of the following?
+### Q. What is the output of the following?
 
 ```javascript
 bar();
@@ -948,7 +962,7 @@ something
 ```
 Since the function is called first and defined during parse time the JS engine will try to find any possible parse time definitions and start the execution loop which will mean function is called first even if the definition is post another function.
 
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 
 ```javascript
 var salary = "1000$";
@@ -980,7 +994,7 @@ var salary = "1000$";
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of the following code?
+### Q. What would be the output of the following code?
 
 ```javascript
 function User(name) {
@@ -996,7 +1010,7 @@ The output of above code would be `"USA"`. Here `new User("xyz")` creates a bran
 Let say `new User("xyz")` created a object called `foo`. The value `"USA"` will be assigned to `foo["location"]`, but according to [ECMAScript Specification](http://www.ecma-international.org/ecma-262/6.0/#sec-assignment-operators-runtime-semantics-evaluation) , pt 12.14.4 the assignment will itself return the rightmost value: in our case it's `"USA"`.
  Then it will be assigned to person. 
  
- To better understand what's going on here, try to execute this code in console, line by line:
+ To better understand What is going on here, try to execute this code in console, line by line:
  ```javascript
 function User(name) {
   this.name = name || "JsGeeks";
@@ -1012,7 +1026,7 @@ foo["location"] = "USA";
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var strA = "hi there";
@@ -1028,7 +1042,7 @@ passed by value, that is, copied.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 ```javascript
 var objA = {prop1: 42};
 var objB = objA; 
@@ -1038,7 +1052,7 @@ console.log(objA)
 The output will `{prop1: 90}` because we're dealing with objects here. Objects are 
 passed by reference, that is, `objA` and `objB` point to the same object in memory. 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var objA = {prop1: 42};
@@ -1059,7 +1073,7 @@ This doesn't affect where `objA` variable references to.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var arrA = [0,1,2,3,4,5];
@@ -1074,7 +1088,7 @@ Arrays are object in JavaScript and they are passed and assigned by reference. T
 both `arrA` and `arrB` point to the same array `[0,1,2,3,4,5]`. That's why changing the first
 element of the `arrB` will also modify `arrA`: it's the same array in the memory.
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 ```javascript
 var arrA = [0,1,2,3,4,5];
 var arrB = arrA.slice();
@@ -1091,7 +1105,7 @@ The `slice` function copies all the elements of the array returning the new arra
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var arrA = [{prop1: "value of array A!!"},  {someProp: "also value of array A!"}, 3,4,5];
@@ -1105,7 +1119,7 @@ Arrays are object in JS, so both varaibles arrA and arrB point to the same array
 `arrB[0]` is the same as changing `arrA[0]`
 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var arrA = [{prop1: "value of array A!!"}, {someProp: "also value of array A!"},3,4,5];
@@ -1143,7 +1157,7 @@ This is why changing the property of `arrB[0]` in `arrB` will also change the `a
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. console.log(employeeId);
+### Q. console.log(employeeId);
 
 1.  Some Value
 2.  Undefined 
@@ -1152,7 +1166,7 @@ This is why changing the property of `arrB[0]` in `arrB` will also change the `a
 
 *Answer:* 4) ReferenceError: employeeId is not defined 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 console.log(employeeId);
@@ -1166,7 +1180,7 @@ var employeeId = '19000';
 
 *Answer:* 2) undefined 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var employeeId = '1234abe';
@@ -1187,7 +1201,7 @@ var employeeId = '1234abe';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var employeeId = '1234abe';
@@ -1207,7 +1221,7 @@ var employeeId = '1234abe';
 
 *Answer:* 2) undefined 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -1229,7 +1243,7 @@ var employeeId = '1234abe';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var employeeId = 'abc123';
@@ -1248,7 +1262,7 @@ console.log(employeeId);
 
 *Answer:* 2) '123bcd' 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var employeeId = 'abc123';
@@ -1274,7 +1288,7 @@ console.log(employeeId);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var employeeId = 'abc123';
@@ -1297,7 +1311,7 @@ foo();
 
 *Answer:* 2) 'function'
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function foo() {
@@ -1323,7 +1337,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function foo() {
@@ -1351,7 +1365,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -1382,7 +1396,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -1413,7 +1427,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -1436,7 +1450,7 @@ foo();
 	
 *Answer:* 2) false false
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 (function() {
@@ -1457,7 +1471,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 (function() {
@@ -1478,7 +1492,7 @@ foo();
 	
 *Answer:* 2) false false
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 (function() {
@@ -1501,7 +1515,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 (function() {
@@ -1520,7 +1534,7 @@ foo();
 	
 *Answer:* 4) true true
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 (function() {
@@ -1545,7 +1559,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 (function() {
@@ -1565,7 +1579,7 @@ foo();
 	
 *Answer:* 2) bar bar
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 (function() {
@@ -1591,7 +1605,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 (function() {
@@ -1614,7 +1628,7 @@ foo();
 *Answer:* 2) undefined undefined 
 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -1635,7 +1649,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -1656,7 +1670,7 @@ foo();
 
 *Answer:* 1) [] [] [Array[5]] 1
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function () {
@@ -1678,7 +1692,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1696,7 +1710,7 @@ foo();
 
 *Answer:* 3) 6
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1718,7 +1732,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1737,7 +1751,7 @@ foo();
 
 *Answer:* 1) 1 -1 -1 4
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1759,7 +1773,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1784,7 +1798,7 @@ foo();
 
 *Answer:* 3) [ 2, 4, 8, 12, 16 ] true 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1827,7 +1841,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1867,7 +1881,7 @@ foo();
            []
            [ 'foo', 'bar', 'john', 'ritz' ]		
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1889,7 +1903,7 @@ foo();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -1906,7 +1920,7 @@ foo();
 
 *Answer:* 3.  [ 15, 16, 2, 23, 42, 8 ]
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function funcA(){
@@ -1935,7 +1949,7 @@ console.log(funcA());
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var obj = {
@@ -1955,7 +1969,7 @@ console.log(obj.innerMessage);
 	
 *Answer:* 4) undefined true
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var obj = {
@@ -1979,7 +1993,7 @@ console.log(obj.innerMessage());
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var obj = {
@@ -2000,7 +2014,7 @@ console.log(obj.innerMessage());
 	
 *Answer:* 3) undefined
 	
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var obj = {
@@ -2026,7 +2040,7 @@ console.log(obj.innerMessage());
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function myFunc(){
@@ -2044,7 +2058,7 @@ console.log(myFunc());
 	
 *Answer:* 3) undefined
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function myFunc(){
@@ -2066,7 +2080,7 @@ console.log(myFunc());
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function myFunc() {
@@ -2083,7 +2097,7 @@ console.log(myFunc());
 	
 *Answer:* 2) 'Hi John'
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function myFunc(param1,param2) {
@@ -2105,7 +2119,7 @@ console.log(myFunc("a","b","c","d"));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function myFunc() {
@@ -2123,7 +2137,7 @@ console.log(myFunc("a","b","c","d"));
 	
 *Answer:* 2) 0 2 4 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function Person(name, age){
@@ -2155,7 +2169,7 @@ var person1 = new Person('John');
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function passWordMngr() {
@@ -2178,7 +2192,7 @@ console.log(userInfo.userName);
 	
 *Answer:* 3) 12345678 undefined 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var employeeId = 'aq123';
@@ -2199,7 +2213,7 @@ console.log(Employee.employeeId);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var employeeId = 'aq123';
@@ -2221,7 +2235,7 @@ console.log(new Employee().employeeId);
 	
 *Answer:* 2) bq1uy 1BJKSJ bq1uy 
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 var employeeId = 'aq123';
@@ -2246,7 +2260,7 @@ var employeeId = 'aq123';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -2265,7 +2279,7 @@ var employeeId = 'aq123';
 	
 *Answer:* 4) [ 'W', 'o', 'r', 'l', 'd' ]  
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -2300,7 +2314,7 @@ var employeeId = 'aq123';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -2336,7 +2350,7 @@ var employeeId = 'aq123';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function() {
@@ -2372,7 +2386,7 @@ var employeeId = 'aq123';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function greetNewCustomer() {
@@ -2389,7 +2403,7 @@ var employeeId = 'aq123';
 	
 *Answer:* 1) Hello John
 
-#### Q. What would be the output of following code ?
+### Q. What would be the output of following code ?
 
 ```javascript
 function getDataFromServer(apiUrl){
@@ -2418,7 +2432,7 @@ getDataFromServer('www.google.com').then(function(name){
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -2469,7 +2483,7 @@ getDataFromServer('www.google.com').then(function(name){
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 (function(){
@@ -2491,7 +2505,7 @@ getDataFromServer('www.google.com').then(function(name){
 	
 *Answer:* 4) Uncaught TypeError: Cannot read property 'fullName' of undefined
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function getNumber(){
@@ -2513,7 +2527,7 @@ console.log(numb);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function getNumber(){
@@ -2531,7 +2545,7 @@ console.log(numb);
 	
 *Answer:* 2) undefined
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function mul(x){
@@ -2557,7 +2571,7 @@ console.log(mul(2)(3)[1](4));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function mul(x) {
@@ -2581,7 +2595,7 @@ console.log(mul(2)(3).sum(4));
 	
 *Answer:* 1) 6, 10
 
-#### Q. What would be the output of following code?
+### Q. What would be the output of following code?
 
 ```javascript
 function mul(x) {
@@ -2609,14 +2623,14 @@ console.log(mul(2)(3)(4)(5)(6));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the value of `foo`?
+### Q. What is the value of `foo`?
 ```javascript
 var foo = 10 + '20';
 ```
 
 *Answer:* `'1020'`, because of type coercion from Number to String
 
-#### Q. How would you make this work?
+### Q. How would you make this work?
 ```javascript
 add(2, 5); // 7
 add(2)(5); // 7
@@ -2650,21 +2664,21 @@ add()()(2)(5); // 7
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What value is returned from the following statement?
+### Q. What value is returned from the following statement?
 ```javascript
 "i'm a lasagna hog".split("").reverse().join("");
 ```
 
 *Answer:* It's actually a reverse method for a string - `'goh angasal a m\'i'`
 
-#### Q. What is the value of `window.foo`?
+### Q. What is the value of `window.foo`?
 ```javascript
 ( window.foo || ( window.foo = "bar" ) );
 ```
 
 *Answer:* Always `'bar'`
 
-#### Q. What is the outcome of the two alerts below?
+### Q. What is the outcome of the two alerts below?
 ```javascript
 var foo = "Hello";
 (function() {
@@ -2682,7 +2696,7 @@ alert(foo + bar);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the value of `foo.length`?
+### Q. What is the value of `foo.length`?
 ```javascript
 var foo = [];
 foo.push(1);
@@ -2691,7 +2705,7 @@ foo.push(2);
 
 *Answer:* `.push` is mutable - `2`
 
-#### Q. What is the value of `foo.x`?
+### Q. What is the value of `foo.x`?
 ```javascript
 var foo = {n: 1};
 var bar = foo;
@@ -2711,7 +2725,7 @@ moment referenced by `bar`.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What does the following code print?*
+### Q. What does the following code print?*
 ```javascript
 console.log('one');
 setTimeout(function() {
@@ -2723,10 +2737,10 @@ console.log('three');
 *Answer:* `one`, `three` and `two`. It's because `console.log('two');` will be
 invoked in the next event loop.
 
-#### Q. What would be the result of 1+2+'3'?
+### Q. What would be the result of 1+2+'3'?
 The output is going to be `33`. Since `1` and `2` are numeric values, the result of first two digits is going to be a numeric value `3`. The next digit is a string type value because of that the addition of numeric value `3` and string type value `3` is just going to be a concatenation value `33`.
 
-#### Q. Write a script that returns the number of occurrences of character given a string as input?
+### Q. Write a script that returns the number of occurrences of character given a string as input?
 ```javascript
 function countCharacters(str) {
   return str.replace(/ /g, '').toLowerCase().split('').reduce((arr, character) => {
@@ -2745,14 +2759,14 @@ console.log(countCharacters("the brown fox jumps over the lazy dog"));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the value of `foo`?
+### Q. What is the value of `foo`?
 ```javascript
 var foo = 10 + '20';
 ```
 
 *Answer:* `'1020'`, because of type coercion from Number to String
 
-#### Q. How would you make this work?
+### Q. How would you make this work?
 ```javascript
 add(2, 5); // 7
 add(2)(5); // 7
@@ -2785,21 +2799,21 @@ add()()(2)(5); // 7
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What value is returned from the following statement?
+### Q. What value is returned from the following statement?
 ```javascript
 "i'm a lasagna hog".split("").reverse().join("");
 ```
 
 *Answer:* It's actually a reverse method for a string - `'goh angasal a m\'i'`
 
-#### Q. What is the value of `window.foo`?
+### Q. What is the value of `window.foo`?
 ```javascript
 ( window.foo || ( window.foo = "bar" ) );
 ```
 
 *Answer:* Always `'bar'`
 
-#### Q. What is the outcome of the two alerts below?
+### Q. What is the outcome of the two alerts below?
 ```javascript
 var foo = "Hello";
 (function() {
@@ -2813,7 +2827,7 @@ alert(foo + bar);
 - First: `Hello World`
 - Second: Throws an exception, `ReferenceError: bar is not defined`
 
-#### Q. What is the value of `foo.length`?
+### Q. What is the value of `foo.length`?
 ```javascript
 var foo = [];
 foo.push(1);
@@ -2826,7 +2840,7 @@ foo.push(2);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is the value of `foo.x`?
+### Q. What is the value of `foo.x`?
 ```javascript
 var foo = {n: 1};
 var bar = foo;
@@ -2842,7 +2856,11 @@ to an original object, `{n: 1}`. So, when the result of the right term, `{n:
 2}`, is evaluated, it will assigned to the original object, which is at the
 moment referenced by `bar`.
 
-#### Q. What does the following code print?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What does the following code print?
 ```javascript
 console.log('one');
 setTimeout(function() {
@@ -2854,7 +2872,7 @@ console.log('three');
 *Answer:* `one`, `three` and `two`. It's because `console.log('two');` will be
 invoked in the next event loop.
 
-#### Q. For which value of x the results of the following statements are not the same?
+### Q. For which value of x the results of the following statements are not the same?
 ```javascript
 //  if( x <= 100 ) {...}
 if( !(x > 100) ) {...}
@@ -2863,7 +2881,7 @@ if( !(x > 100) ) {...}
 
 The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}`, etc.
 
-#### Q. What is g value?
+### Q. What is g value?
 ```javascript
 f = g = 0;
 (function () {
@@ -2883,27 +2901,27 @@ f = g = 0;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What will be the output?
+### Q. What will be the output?
 ```javascript
 function b(b) {
   return this.b && b(b)
 }
 b(b.bind(b))
 ```
-#### Q. What will be the output?
+### Q. What will be the output?
 ```javascript
 c = (c) => {
   return this.c && c(c)
 }
 c(c.bind(c))
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var g = 0;
 g = 1 && g++;
 console.log(g);
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 !function(){}()
 function(){}()
@@ -2912,17 +2930,17 @@ true && function(){}()
 function(){}
 !function(){}
 ```
-#### Q. What will expression return?
+### Q. What will expression return?
 ```javascript
 var a = b = true, c = (a) => a;
 (function a(a = c(b).a = c = () => a) { return a(); })()
 ```
-#### Q. Predict the output of the following JavaScript code?
+### Q. Predict the output of the following JavaScript code?
 ```javascript
 var a = true;
 (a = function () { return a })()
 ```
-#### Q. What will be the output?
+### Q. What will be the output?
 ```javascript
 var v = 0;
 try {
@@ -2935,7 +2953,7 @@ try {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What will the following code output?
+### Q. What will the following code output?
 ```javascript
 const arr = [10, 12, 15, 21];
 for (var i = 0; i < arr.length; i++) {
@@ -2944,7 +2962,7 @@ for (var i = 0; i < arr.length; i++) {
   }, 3000);
 }
 ```
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 ```javascript
 var output = (function(x) {
   delete x;
@@ -2953,7 +2971,7 @@ var output = (function(x) {
 
 console.log(output);
 ```
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 ```javascript
 var Employee = {
   company: 'xyz'
@@ -2966,7 +2984,7 @@ console.log(emp1.company);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. Make this work:
+### Q. Make this work:
 
 ```javascript
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
@@ -2979,7 +2997,12 @@ function duplicate(arr) {
 
 duplicate([1, 2, 3, 4, 5]); // [1,2,3,4,5,1,2,3,4,5]
 ```
-#### Q. Fix the bug using ES5 only
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Fix the bug using ES5 only
 
 ```javascript
 var arr = [10, 32, 65, 2];
@@ -3003,7 +3026,12 @@ for (var i = 0; i < arr.length; i++) {
   }(i), 3000);
 }
 ```
-#### Q. What will be the output of the following code?
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What will be the output of the following code?
 ```javascript
 
 console.log(eval("10 + 10")); // 20
@@ -3016,7 +3044,7 @@ console.log(eval(10 + "5 + 5")); // 110
 
 console.log(eval(10 + "5 + 5 + 5")); // 115
 ```
-#### Q. What will be the output of the following code?
+### Q. What will be the output of the following code?
 ```javascript
 var x = 10;
 var y = 20;
@@ -3027,7 +3055,12 @@ var c = eval("x + 30") + "<br>";
 let result = a + b + c;
 console.log(result); // 200<br>4<br>40<br>
 ```
-#### Q. What will be the output of the following code?
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What will be the output of the following code?
 ```javascript
 // Example 01:
 var prices = [12, 20, 18];
@@ -3058,7 +3091,12 @@ console.log(result);
 const country = "USA";
 console.log([...country]);
 ```
-#### Q. Given and object and property path. Get value from property path
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Given and object and property path. Get value from property path
 ```javascript
 function getPropertyValue(TEMP_OBJECT, path) {
   return path.split('.').reduce((prev, key) => {
@@ -3089,20 +3127,27 @@ path = "system.database.1.port";
 //Output: 3307
 ```
 
-#### Q. How to filter object from Arrays of Objects
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. How to filter object from Arrays of Objects
 ```javascript
 let filteredArray = [{name: 'john'},{name: 'kelly'}].filter(value => value.name === 'kelly');
 
 Filter method return Array of objects
 ```
 
-#### Q. How to replace all the occurrences of string
+### Q. How to replace all the occurrences of string
 ```javascript
   str = str.replace(/test/g, '')
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. write a script that returns the number of occurrences of character given a string as input
+### Q. write a script that returns the number of occurrences of character given a string as input
 ```javascript
 function countCharacters(str) {
   return str.replace(/ /g, '').toLowerCase().split('').reduce((p, c) => {
@@ -3117,7 +3162,11 @@ function countCharacters(str) {
 console.log(countCharacters("the brown fox jumps over the lazy dog"));
 ```
 
-#### Q. write a script that return the number of occurrences of a character in paragraph
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. write a script that return the number of occurrences of a character in paragraph
 ```javascript
 function charCount(str, searchChar) {
   let count = 0;
@@ -3133,7 +3182,12 @@ function charCount(str, searchChar) {
 }
 console.log(charCount('the brown fox jumps over the lazy dog', 'o'));
 ```
-#### Q. Recursive and non-recursive Factorial function
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Recursive and non-recursive Factorial function
 
 ```javascript
 function recursiveFactorial(n) {
@@ -3167,7 +3221,11 @@ console.log(factorial(5));
 
 ```
 
-#### Q. Recursive and non recursive fibonacci-sequence
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Recursive and non recursive fibonacci-sequence
 ```javascript
 // 1, 1, 2, 3, 5, 8, 13, 21, 34
 
@@ -3206,7 +3264,7 @@ console.log(fibonnaci(5)) // 8
 ```
 
 
-#### Q. Random Number between min and max
+### Q. Random Number between min and max
 ```javascript
 // 5 to 7
 let min = 5;
@@ -3214,7 +3272,11 @@ let max = 7;
 console.log(min + Math.floor(Math.random() * (max-min+1)));
 ```
 
-#### Q. Get HTML form values as JSON object
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Get HTML form values as JSON object
 ```javascript
   // Use the array reduce function with form elements.
   const formToJSON = elements => [].reduce.call(elements, (data, element) => {
@@ -3229,7 +3291,11 @@ console.log(min + Math.floor(Math.random() * (max-min+1)));
   document.querySelector('HTML_FORM_CLASS').elements  
 ```
 
-#### Q. Reverse the number
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Reverse the number
 ```javascript
 function reverse(num) {
   let result = 0;
@@ -3244,7 +3310,12 @@ function reverse(num) {
 console.log(reverse(12345));
 ```
 
-#### Q. Remove Duplicate elements from Array
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Remove Duplicate elements from Array
+
 ```javascript
 var arr = [1, 2, 3, 5, 1, 5, 9, 1, 2, 8];
 function removeDuplicate() {
@@ -3275,7 +3346,11 @@ console.log(removeDuplicates(arr)); // ["1", "2", "3", "5", "8", "9"] // O(n)
 console.log([...new Set(arr)]);
 ```
 
-#### Q. Deep copy of object or clone of object
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Deep copy of object or clone of object
 ```javascript
 function deepExtend(out = {}) {
   for (let i = 1; i < arguments.length; i++) {
@@ -3305,7 +3380,11 @@ console.log(deepExtend({}, {a:1, b:{c:2, d:3}}, {e:4, b:{f:1}}));
 //output : { a: 1, b: {c: 2, d: 3, f: 1}, e: 4 }
 ```
 
-#### Q. Sort ticket based on flying order.
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Sort ticket based on flying order.
 ```javascript
 "use strict";
 
@@ -3351,7 +3430,11 @@ new SortTickets({
 });
 ```
 
-#### Q. Cuncurrent execute function based on input number
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Cuncurrent execute function based on input number
 ```javascript
 function concurrent(num) {
   this.queue = [];
@@ -3396,7 +3479,11 @@ c.enqueue(callback);
 c.start();
 ```
 
-#### Q. Reversing an array
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Reversing an array
 ```javascript
 let a = [1,2,3,4,5];
 
@@ -3412,7 +3499,7 @@ let reverse = a.reduce((prev, current) => {
 console.log(reverse);
 ```
 
-#### Q. Rotate 2D array
+### Q. Rotate 2D array
 ```javascript
 const transpose = arr => arr[0].map((col, i) => arr.map(row => row[i]));
 
@@ -3423,7 +3510,7 @@ console.log(transpose([
 ]));
 ```
 
-#### Q. Get Column from 2D Array
+### Q. Get Column from 2D Array
 ```javascript
 const getColumn = (arr, n) => arr.map(x => x[n]);
 
@@ -3435,7 +3522,7 @@ const twoDimensionalArray = [
 
 console.log(getColumn(twoDimensionalArray, 1));   //Result = [2,5,8]
 ```
-#### Q. Get top N from array
+### Q. Get top N from array
 ```javascript
 function topN(arr, num) {
   let sorted = arr.sort((a, b) => a - b);
@@ -3445,7 +3532,11 @@ function topN(arr, num) {
 console.log(topN([1,8,3,4,5], 2));  // [5,8]
 ```
 
-#### Q. Get query params from Object
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Get query params from Object
 ```javascript
 function getQueryParams(obj) {
   let parms = '';
@@ -3467,7 +3558,11 @@ console.log(getQueryParams({
 }));
 ```
 
-#### Q. Consecutive 1's in binary
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Consecutive 1's in binary
 ```javascript
 function consecutiveOne(num)  {
   let binaryArray = num.toString(2);
@@ -3488,7 +3583,12 @@ function consecutiveOne(num)  {
 //5 = 101 = 1
 console.log(consecutiveOne(5));  //1
 ```
-#### Q. Spiral travesal of matrix
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Spiral travesal of matrix
 ```javascript
 var input = [[1,  2,   3,  4],
              [5,  6,   7,  8],
@@ -3527,7 +3627,12 @@ var spiralTraversal = function(matriks){
 };
 console.log(spiralTraversal(input)); // [1, 2, 3, 4, 8, 12, 16, 15, 14, 13, 9, 5, 6, 7, 11, 10]
 ```
-#### Q. Merge Sorted array and sort it.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Merge Sorted array and sort it.
 ```javascript
 function mergeSortedArray(arr1, arr2) {
   return [...new Set(arr1.concat(arr2))].sort((a, b) => a - b);
@@ -3536,7 +3641,11 @@ function mergeSortedArray(arr1, arr2) {
 console.log(mergeSortedArray([1,2,3,4,5,6], [0, 3,4,7])); // [0, 1, 2, 3, 4, 5, 6, 7]
 ```
 
-#### Q. Anagram of words
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Anagram of words
 ```javascript
 const alphabetize = word => word.split('').sort().join('');
 
@@ -3560,7 +3669,12 @@ console.log(groupAnagram(['map', 'art', 'how', 'rat', 'tar', 'who', 'pam', 'shoo
 //  how: ["how", "who"]
 // }
 ```
-#### Q. Print the largest (maximum) hourglass sum found in 2d array.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Print the largest (maximum) hourglass sum found in 2d array.
 ```javascript
 // if arr 6 X 6 then iterate it till 4 X 4  [reduce by two]
 // if arr 8 X 8 then iterate it till 6 X 6  [reduce by two]
@@ -3577,7 +3691,12 @@ function main(arr) {
     console.log(maxScore);
 }
 ```
-#### Q. Transform array of object to array
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Transform array of object to array
 ```javascript
 let data = [ {"vid":"aaa", "san":12},
             {"vid":"aaa", "san":18},
@@ -3603,7 +3722,12 @@ console.log(Object.keys(newData).map(key => newData[key]));
 //   vid: "bbb"
 // }]
 ```
-#### Q. Create a private variable or private method in object
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Create a private variable or private method in object
 ```javascript
 let obj = function() {
   function getPrivateFunction() {
@@ -3623,7 +3747,12 @@ obj.getPrivateValue(); // You are accessing private variable
 console.log('p' in obj);  // false
 obj.callPrivateFunction(); // this is private function
 ```
-#### Q. Flatten only Array not objects
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Flatten only Array not objects
 ```javascript
 function flatten(arr, result =[]) {
   arr.forEach(val => {
@@ -3667,7 +3796,12 @@ console.log(flattenIterative1(input));
 var list2 = [0, [1, [2, [3, [4, [5]]]]]];
 console.log(flattenIterative1(list2));  // [0, 1, 2, 3, 4, 5]
 ```
-#### Q. Find max difference between two number in Array
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Find max difference between two number in Array
 ```javascript
 function maxDifference(arr) {
   let maxDiff = 0;
@@ -3683,13 +3817,17 @@ function maxDifference(arr) {
 
 console.log(maxDifference([1,2,4]));  // [1 - 4 ] = 3
 ```
-#### Q. swap two number in ES6 [destructing]
+### Q. swap two number in ES6 [destructing]
 ```javascript
 let a = 10, b = 5;
 [a,b] = [b,a];
 ```
 
-#### Q. Panagram ? it means all the 26 letters of alphabet are there
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Panagram ? it means all the 26 letters of alphabet are there
 ```javascript
 function panagram(input) {
   if (input == null) {  // Check for null and undefined
@@ -3712,7 +3850,12 @@ processData('We promptly judged antique ivory buckles for the next prize'); // p
 processData('We promptly judged antique ivory buckles for the prize'); // Not Pangram
 
 ```
-#### Q. Given two identical DOM trees (not the same one), and a node from one of them find the node in the other one.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Given two identical DOM trees (not the same one), and a node from one of them find the node in the other one.
 ```javascript
 function indexOf(arrLike, target) {
     return Array.prototype.indexOf.call(arrLike, target);
@@ -3741,7 +3884,12 @@ const target = rootA.querySelector('.person__age');
 
 console.log(locateNodeFromPath(rootB, getPath(rootA, target)));
 ```
-#### Q. Convert a number into a Roman Numeral
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Convert a number into a Roman Numeral
 ```javascript
 function romanize(num) {
   let lookup = {M:1000,CM:900,D:500,CD:400,C:100,XC:90,L:50,XL:40,X:10,IX:9,V:5,IV:4,I:1},
@@ -3757,7 +3905,12 @@ function romanize(num) {
 
 console.log(romanize(3)); // III
 ```
-#### Q. check if parenthesis is malformed or not
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. check if parenthesis is malformed or not
 ```javascript
 function matchParenthesis(str) {
   let obj = {'{': '}', '(': ')', '[':']'};
@@ -3782,8 +3935,11 @@ function matchParenthesis(str) {
 console.log(matchParenthesis('}{{}}'), matchParenthesis('{{[]}}')); // false - true  
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. Create Custom Event Emitter class
+### Q. Create Custom Event Emitter class
 ```javascript
 class EventEmitter {
   constructor() {
@@ -3815,14 +3971,24 @@ e.on('callme', function(args) {
 
 e.emit('callme', ['a','b'], {firstName: 'umesh', lastName: 'gohil'});
 ```
-#### Q. Max value from an array
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Max value from an array
 ```javascript
 const arr = [-2, -3, 4, 3, 2, 1];
 Math.max(...arr);   // Fastest
 
 Math.max.apply(Math, arr); // Slow
 ```
-#### Q. DOM methods
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. DOM methods
 ```javascript
 https://github.com/nefe/You-Dont-Need-jQuery
 
@@ -3855,7 +4021,12 @@ el.setAttribute | el.getAttribute | el.removeAttribute // attributes of el
 
 el.style    // get the style of el
 ```
-#### Q. search function called after 500 ms
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. search function called after 500 ms
 ```javascript
 <input type="text" class="search" />
 
@@ -3873,7 +4044,11 @@ search.addEventListener('keyup', function() {
 });
 ```
 
-#### Q. Move all zero's to end
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Move all zero's to end
 ```javascript
 const moveZeroToEnd = arr => {
   for (let i = 0, j = 0; j < arr.length; j++) {
@@ -3889,7 +4064,12 @@ const moveZeroToEnd = arr => {
 
 console.log(moveZeroToEnd([1, 8, 2, 0, 0, 0, 3, 4, 0, 5, 0]));  // [1, 8, 2, 3, 4, 5, 0, 0, 0, 0, 0]
 ```
-#### Q. Decode message in matrix [diagional down right, diagional up right]
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Decode message in matrix [diagional down right, diagional up right]
 ```javascript
 const decodeMessage = (mat) => {
   // check if matrix is null or empty
@@ -3932,7 +4112,12 @@ let mat = [
 
 console.log(decodeMessage(mat));  //IROELEA
 ```
-#### Q. find a pair in array, whose sum is equal to given number.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. find a pair in array, whose sum is equal to given number.
 ```javascript
 const hasPairSum = (arr, sum) => {
   if (arr == null && arr.length < 2) {
@@ -3978,7 +4163,12 @@ console.log(hasPairSum([6, 4,3, 8], 8));
 // then see if that value exist in difference then return true.
 ```
 
-#### Q. Binary Search  [Array should be sorted]
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Binary Search  [Array should be sorted]
+
 ```javascript
 function binarySearch(arr, val) {
   let startIndex = 0,
@@ -4001,7 +4191,11 @@ console.log(binarySearch([-1,10,22,35,48,56,67], 22));
 console.log(binarySearch([-1,10,22,35,48,56,67], 27));
 ```
 
-#### Q. Pascal triangle.
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Pascal triangle.
 ```javascript
 function pascalTriangle(n) {
     let last = [1], triangle = [last];
@@ -4017,7 +4211,11 @@ function pascalTriangle(n) {
 console.log(pascalTriangle(2));
 ```
 
-#### Q. Explain the code below. How many times the createVal function is called?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Explain the code below. How many times the createVal function is called?
 ```javascript
 function createVal(){
   return Math.random();
@@ -4038,7 +4236,11 @@ Output
 VM298:6 5
 ```
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 function sayHi() {
@@ -4063,7 +4265,11 @@ Within the function, we first declare the `name` variable with the `var` keyword
 
 Variables with the `let` keyword (and `const`) are hoisted, but unlike `var`, don't get <i>initialized</i>. They are not accessible before the line we declare (initialize) them. This is called the "temporal dead zone". When we try to access the variables before they are declared, JavaScript throws a `ReferenceError`.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 for (var i = 0; i < 3; i++) {
@@ -4086,7 +4292,11 @@ Because of the event queue in JavaScript, the `setTimeout` callback function is 
 
 In the second loop, the variable `i` was declared using the `let` keyword: variables declared with the `let` (and `const`) keyword are block-scoped (a block is anything between `{ }`). During each iteration, `i` will have a new value, and each value is scoped inside the loop.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 const shape = {
@@ -4115,8 +4325,11 @@ With arrow functions, the `this` keyword refers to its current surrounding scope
 
 There is no value `radius` on that object, which returns `undefined`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 +true;
@@ -4134,7 +4347,11 @@ The unary plus tries to convert an operand to a number. `true` is `1`, and `fals
 
 The string `'Lydia'` is a truthy value. What we're actually asking, is "is this truthy value falsy?". This returns `false`.
 
-#### Q. Which one is true?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Which one is true?
 
 ```javascript
 const bird = {
@@ -4162,7 +4379,11 @@ JavaScript interprets (or unboxes) statements. When we use bracket notation, it 
 
 However, with dot notation, this doesn't happen. `mouse` does not have a key called `bird`, which means that `mouse.bird` is `undefined`. Then, we ask for the `size` using dot notation: `mouse.bird.size`. Since `mouse.bird` is `undefined`, we're actually asking `undefined.size`. This isn't valid, and will throw an error similar to `Cannot read property "size" of undefined`.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 let c = { greeting: "Hey!" };
@@ -4190,7 +4411,11 @@ First, variable `c` holds a value to an object. Later, we assign `d` with the sa
 
 When you change one object, you change all of them.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 let a = 3;
@@ -4215,7 +4440,11 @@ When we use the `==` operator, it only checks whether it has the same _value_. T
 
 However, when we use the `===` operator, both value _and_ type should be the same. It's not: `new Number()` is not a number, it's an **object**. Both return `false.`
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 class Chameleon {
@@ -4244,8 +4473,11 @@ console.log(freddie.colorChange("orange"));
 
 The `colorChange` function is static. Static methods are designed to live only on the constructor in which they are created, and cannot be passed down to any children. Since `freddie` is a child, the function is not passed down, and not available on the `freddie` instance: a `TypeError` is thrown.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 let greeting;
@@ -4263,7 +4495,11 @@ It logs the object, because we just created an empty object on the global object
 
 In order to avoid this, we can use `"use strict"`. This makes sure that you have declared a variable before setting it equal to anything.
 
-#### Q. What happens when we do this?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What happens when we do this?
 
 ```javascript
 function bark() {
@@ -4285,7 +4521,11 @@ This is possible in JavaScript, because functions are objects! (Everything besid
 
 A function is a special type of object. The code you write yourself isn't the actual function. The function is an object with properties. This property is invocable.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -4318,7 +4558,11 @@ Person.prototype.getFullName = function() {
 
 would have made `member.getFullName()` work. Why is this beneficial? Say that we added this method to the constructor itself. Maybe not every `Person` instance needed this method. This would waste a lot of memory space, since they would still have that property, which takes of memory space for each instance. Instead, if we only add it to the prototype, we just have it at one spot in memory, yet they all have access to it!
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 function Person(firstName, lastName) {
@@ -4345,7 +4589,11 @@ For `sarah`, we didn't use the `new` keyword. When using `new`, it refers to the
 
 We said that `this.firstName` equals `"Sarah"` and `this.lastName` equals `"Smith"`. What we actually did, is defining `global.firstName = 'Sarah'` and `global.lastName = 'Smith'`. `sarah` itself is left `undefined`, since we don't return a value from the `Person` function.
 
-#### Q. What are the three phases of event propagation?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What are the three phases of event propagation?
 
 - A: Target > Capturing > Bubbling
 - B: Bubbling > Target > Capturing
@@ -4358,8 +4606,11 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 <img src="https://i.imgur.com/N18oRgd.png" width="200">
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. All object have prototypes.
+### Q. All object have prototypes.
 
 - A: true
 - B: false
@@ -4368,7 +4619,11 @@ During the **capturing** phase, the event goes through the ancestor elements dow
 
 All objects have prototypes, except for the **base object**. The base object is the object created by the user, or an object that is created using the `new` keyword. The base object has access to some methods and properties, such as `.toString`. This is the reason why you can use built-in JavaScript methods! All of such methods are available on the prototype. Although JavaScript can't find it directly on your object, it goes down the prototype chain and finds it there, which makes it accessible for you.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 function sum(a, b) {
@@ -4387,9 +4642,13 @@ sum(1, "2");
 
 JavaScript is a **dynamically typed language**: we don't specify what types certain variables are. Values can automatically be converted into another type without you knowing, which is called _implicit type coercion_. **Coercion** is converting from one type into another.
 
-In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so what's happening here is `"1" + "2"` which returns `"12"`.
+In this example, JavaScript converts the number `1` into a string, in order for the function to make sense and return a value. During the addition of a numeric type (`1`) and a string type (`'2'`), the number is treated as a string. We can concatenate strings like `"Hello" + "World"`, so What is happening here is `"1" + "2"` which returns `"12"`.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 let number = 0;
@@ -4417,7 +4676,11 @@ The **prefix** unary operator `++`:
 
 This returns `0 2 2`.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 function getPersonInfo(one, two, three) {
@@ -4440,7 +4703,11 @@ getPersonInfo`${person} is ${age} years old`;
 
 If you use tagged template literals, the value of the first argument is always an array of the string values. The remaining arguments get the values of the passed expressions!
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 function checkAge(data) {
@@ -4468,7 +4735,11 @@ The two objects that we are comparing don't have that: the object we passed as a
 
 This is why both `{ age: 18 } === { age: 18 }` and `{ age: 18 } == { age: 18 }` return `false`.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 function getAge(...args) {
@@ -4489,9 +4760,11 @@ getAge(21);
 
 The rest parameter (`...args`.) lets us "collect" all remaining arguments into an array. An array is an object, so `typeof args` returns `"object"`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 function getAge() {
@@ -4514,9 +4787,11 @@ getAge();
 
 With `"use strict"`, you can make sure that you don't accidentally declare global variables. We never declared the variable `age`, and since we use `"use strict"`, it will throw a reference error. If we didn't use `"use strict"`, it would have worked, since the property `age` would have gotten added to the global object.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's value of `sum`?
+### Q. What is value of `sum`?
 
 ```javascript
 const sum = eval("10*10+5");
@@ -4533,9 +4808,11 @@ const sum = eval("10*10+5");
 
 `eval` evaluates codes that's passed as a string. If it's an expression, like in this case, it evaluates the expression. The expression is `10 * 10 + 5`. This returns the number `105`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. How long is cool_secret accessible?
+### Q. How long is cool_secret accessible?
 
 ```javascript
 sessionStorage.setItem("cool_secret", 123);
@@ -4553,9 +4830,11 @@ The data stored in `sessionStorage` is removed after closing the _tab_.
 
 If you used `localStorage`, the data would've been there forever, unless for example `localStorage.clear()` is invoked.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 var num = 8;
@@ -4574,7 +4853,11 @@ console.log(num);
 With the `var` keyword, you can declare multiple variables with the same name. The variable will then hold the latest value.
 You cannot do this with `let` or `const` since they're block-scoped.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 const obj = { 1: "a", 2: "b", 3: "c" };
@@ -4597,7 +4880,11 @@ All object keys (excluding Symbols) are strings under the hood, even if you don'
 
 It doesn't work that way for a set. There is no `'1'` in our set: `set.has('1')` returns `false`. It has the numeric type `1`, `set.has(1)` returns `true`.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 const obj = { a: "one", b: "two", a: "three" };
@@ -4615,7 +4902,11 @@ console.log(obj);
 
 If you have two keys with the same name, the key will be replaced. It will still be in its first position, but with the last specified value.
 
-#### Q. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. The JavaScript global execution context creates two things for you: the global object, and the "this" keyword.
 
 - A: true
 - B: false
@@ -4623,9 +4914,13 @@ If you have two keys with the same name, the key will be replaced. It will still
 
 **Answer: A**
 
-The base execution context is the global execution context: it's what's accessible everywhere in your code.
+The base execution context is the global execution context: it's What is accessible everywhere in your code.
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 for (let i = 1; i < 5; i++) {
@@ -4644,9 +4939,11 @@ for (let i = 1; i < 5; i++) {
 
 The `continue` statement skips an iteration if a certain condition returns `true`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 String.prototype.giveLydiaPizza = () => {
@@ -4669,9 +4966,11 @@ name.giveLydiaPizza();
 
 `String` is a built-in constructor, which we can add properties to. I just added a method to its prototype. Primitive strings are automatically converted into a string object, generated by the string prototype function. So, all strings (string objects) have access to that method!
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q What's the output?
+### Q. What is the output?
 
 ```javascript
 const a = {};
@@ -4699,9 +4998,11 @@ However, when we stringify an object, it becomes `"[Object object]"`. So what we
 
 Then, we log `a[b]`, which is actually `a["Object object"]`. We just set that to `456`, so it returns `456`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 const foo = () => console.log("First");
@@ -4748,9 +5049,11 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 
 `bar` gets invoked, `"Second"` gets logged, and it's popped off the stack.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What is the event.target when clicking the button?
+### Q. What is the event.target when clicking the button?
 
 ```html
 <div onclick="console.log('first div')">
@@ -4773,9 +5076,11 @@ This is where an event loop starts to work. An **event loop** looks at the stack
 
 The deepest nested element that caused the event is the target of the event. You can stop bubbling by `event.stopPropagation`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. When you click the paragraph, what's the logged output?
+### Q. When you click the paragraph, What is the logged output?
 
 ```html
 <div onclick="console.log('div')">
@@ -4796,9 +5101,11 @@ The deepest nested element that caused the event is the target of the event. You
 
 If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -4824,9 +5131,11 @@ With both, we can pass the object to which we want the `this` keyword to refer t
 
 `.bind.` returns a _copy_ of the function, but with a bound context! It is not executed immediately.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 function sayHi() {
@@ -4849,8 +5158,11 @@ The `sayHi` function returns the returned value of the immediately invoked funct
 
 FYI: there are only 7 built-in types: `null`, `undefined`, `boolean`, `number`, `string`, `object`, and `symbol`. `"function"` is not a type, since functions are objects, it's of type `"object"`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. Which of these values are falsy?
+### Q. Which of these values are falsy?
 
 ```javascript
 0;
@@ -4881,9 +5193,11 @@ There are only six falsy values:
 
 Function constructors, like `new Number` and `new Boolean` are truthy.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 console.log(typeof typeof 1);
@@ -4901,9 +5215,11 @@ console.log(typeof typeof 1);
 `typeof 1` returns `"number"`.
 `typeof "number"` returns `"string"`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 const numbers = [1, 2, 3];
@@ -4926,9 +5242,11 @@ When you set a value to an element in an array that exceeds the length of the ar
 
 depending on where you run it (it's different for every browser, node, etc.)
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 (() => {
@@ -4959,9 +5277,11 @@ Later, we set this block-scoped variable equal to `1`, and set the value of the 
 
 Outside of the `catch` block, `x` is still `undefined`, and `y` is `2`. When we want to `console.log(x)` outside of the `catch` block, it returns `undefined`, and `y` returns `2`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. Everything in JavaScript is either a...
+### Q. Everything in JavaScript is either a...
 
 - A: primitive or object
 - B: function or object
@@ -4978,9 +5298,11 @@ Primitive types are `boolean`, `null`, `undefined`, `bigint`, `number`, `string`
 
 What differentiates a primitive from an object is that primitives do not have any properties or methods; however, you'll note that `'foo'.toUpperCase()` evaluates to `'FOO'` and does not result in a `TypeError`. This is because when you try to access a property or method on a primitive like a string, JavaScript will implicitly wrap the object using one of the wrapper classes, i.e. `String`, and then immediately discard the wrapper after the expression evaluates. All primitives except for `null` and `undefined` exhibit this behaviour.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 [[0, 1], [2, 3]].reduce(
@@ -5004,9 +5326,11 @@ What differentiates a primitive from an object is that primitives do not have an
 
 Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and get `[1, 2, 0, 1, 2, 3]`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 !!null;
@@ -5029,9 +5353,11 @@ Then, `[1, 2, 0, 1]` is `acc` and `[2, 3]` is `cur`. We concatenate them, and ge
 
 `1` is truthy. `!1` returns `false`. `!false` returns `true`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What does the `setInterval` method return in the browser?
+### Q. What does the `setInterval` method return in the browser?
 
 ```javascript
 setInterval(() => console.log("Hi"), 1000);
@@ -5048,9 +5374,11 @@ setInterval(() => console.log("Hi"), 1000);
 
 It returns a unique id. This id can be used to clear that interval with the `clearInterval()` function.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What does this return?
+### Q. What does this return?
 
 ```javascript
 [..."Lydia"];
@@ -5067,9 +5395,11 @@ It returns a unique id. This id can be used to clear that interval with the `cle
 
 A string is an iterable. The spread operator maps every character of an iterable to one element.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 function* generator(i) {
@@ -5098,9 +5428,11 @@ First, we initialize the generator function with `i` equal to `10`. We invoke th
 
 Then, we invoke the function again with the `next()` method. It starts to continue where it stopped previously, still with `i` equal to `10`. Now, it encounters the next `yield` keyword, and yields `i * 2`. `i` is equal to `10`, so it returns `10 * 2`, which is `20`. This results in `10, 20`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What does this return?
+### Q. What does this return?
 
 ```javascript
 const firstPromise = new Promise((res, rej) => {
@@ -5125,9 +5457,11 @@ Promise.race([firstPromise, secondPromise]).then(res => console.log(res));
 
 When we pass multiple promises to the `Promise.race` method, it resolves/rejects the _first_ promise that resolves/rejects. To the `setTimeout` method, we pass a timer: 500ms for the first promise (`firstPromise`), and 100ms for the second promise (`secondPromise`). This means that the `secondPromise` resolves first with the value of `'two'`. `res` now holds the value of `'two'`, which gets logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 let person = { name: "Lydia" };
@@ -5160,9 +5494,11 @@ Then, we set the variable `person` equal to `null`.
 
 We are only modifying the value of the `person` variable, and not the first element in the array, since that element has a different (copied) reference to the object. The first element in `members` still holds its reference to the original object. When we log the `members` array, the first element still holds the value of the object, which gets logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 const person = {
@@ -5186,9 +5522,11 @@ for (const item in person) {
 
 With a `for-in` loop, we can iterate through object keys, in this case `name` and `age`. Under the hood, object keys are strings (if they're not a Symbol). On every loop, we set the value of `item` equal to the current key it’s iterating over. First, `item` is equal to `name`, and gets logged. Then, `item` is equal to `age`, which gets logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 console.log(3 + 4 + "5");
@@ -5209,9 +5547,11 @@ Operator associativity is the order in which the compiler evaluates the expressi
 
 `7 + '5'` results in `"75"` because of coercion. JavaScript converts the number `7` into a string, see question 15. We can concatenate two strings using the `+`operator. `"7" + "5"` results in `"75"`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the value of `num`?
+### Q. What is the value of `num`?
 
 ```javascript
 const num = parseInt("7*6", 10);
@@ -5230,9 +5570,11 @@ Only the first numbers in the string is returned. Based on the _radix_ (the seco
 
 `*` is not a valid number. It only parses `"7"` into the decimal `7`. `num` now holds the value of `7`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output`?
+### Q. What is the output`?
 
 ```javascript
 [1, 2, 3].map(num => {
@@ -5254,9 +5596,11 @@ When mapping over the array, the value of `num` is equal to the element it’s c
 
 However, we don’t return a value. When we don’t return a value from the function, the function returns `undefined`. For every element in the array, the function block gets called, so for each element we return `undefined`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 function getInfo(member, year) {
@@ -5287,9 +5631,11 @@ The variable `birthYear` has a reference to the value `"1997"`. The argument `ye
 
 The value of `person` is an object. The argument `member` has a (copied) reference to the _same_ object. When we modify a property of the object `member` has a reference to, the value of `person` will also be modified, since they both have a reference to the same object. `person`'s `name` property is now equal to the value `"Lydia"`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 function greeting() {
@@ -5321,9 +5667,11 @@ With the `throw` statement, we can create custom errors. With this statement, yo
 
 With the `catch` statement, we can specify what to do if an exception is thrown in the `try` block. An exception is thrown: the string `'Hello world'`. `e` is now equal to that string, which we log. This results in `'Oh an error: Hello world'`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 function Car() {
@@ -5346,9 +5694,11 @@ console.log(myCar.make);
 
 When you return a property, the value of the property is equal to the _returned_ value, not the value set in the constructor function. We return the string `"Maserati"`, so `myCar.make` is equal to `"Maserati"`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 (() => {
@@ -5381,9 +5731,11 @@ Then, we declare a variable `x` with the value of `y`, which is `10`. Variables 
 
 However, we created a global variable `y` when setting `y` equal to `10`. This value is accessible anywhere in our code. `y` is defined, and holds a value of type `"number"`. `console.log(typeof y)` returns `"number"`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 class Dog {
@@ -5418,9 +5770,11 @@ We can delete properties from objects using the `delete` keyword, also on the pr
 
 When we try to invoke something that is not a function, a `TypeError` is thrown. In this case `TypeError: pet.bark is not a function`, since `pet.bark` is `undefined`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 const set = new Set([1, 1, 2, 3, 4]);
@@ -5441,9 +5795,11 @@ The `Set` object is a collection of _unique_ values: a value can only occur once
 
 We passed the iterable `[1, 1, 2, 3, 4]` with a duplicate value `1`. Since we cannot have two of the same values in a set, one of them is removed. This results in `{1, 2, 3, 4}`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 // counter.js
@@ -5473,9 +5829,11 @@ An imported module is _read-only_: you cannot modify the imported module. Only t
 
 When we try to increment the value of `myCounter`, it throws an error: `myCounter` is read-only and cannot be modified.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 const name = "Lydia";
@@ -5498,9 +5856,11 @@ The `delete` operator returns a boolean value: `true` on a successful deletion, 
 
 The `name` variable was declared with a `const` keyword, so its deletion is not successful: `false` is returned. When we set `age` equal to `21`, we actually added a property called `age` to the global object. You can successfully delete properties from objects this way, also the global object, so `delete age` returns `true`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What's the output?
+### Q. What is the output?
 
 ```javascript
 const numbers = [1, 2, 3, 4, 5];
@@ -5536,9 +5896,11 @@ The value of `a` is now `1`, and the value of `b` is now `2`. What we actually d
 
 This means that the value of `y` is equal to the first value in the array, which is the number `1`. When we log `y`, `1` is returned.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 6 What's the output?
+### Q. What is the output?
 
 ```javascript
 const user = { name: "Lydia", age: 21 };
@@ -5558,9 +5920,11 @@ console.log(admin);
 
 It's possible to combine objects using the spread operator `...`. It lets you create copies of the key/value pairs of one object, and add them to another object. In this case, we create copies of the `user` object, and add them to the `admin` object. The `admin` object now contains the copied key/value pairs, which results in `{ admin: true, name: "Lydia", age: 21 }`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 61. What's the output?
+### Q. What is the output?
 
 ```javascript
 const person = { name: "Lydia" };
@@ -5584,9 +5948,11 @@ With the `defineProperty` method, we can add new properties to an object, or mod
 
 Properties added using the `defineProperty` method are immutable by default. You can override this behavior using the `writable`, `configurable` and `enumerable` properties. This way, the `defineProperty` method gives you a lot more control over the properties you're adding to an object.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 6 What's the output?
+### Q. What is the output?
 
 ```javascript
 const settings = {
@@ -5614,9 +5980,11 @@ If the replacer is an _array_, only the property names included in the array wil
 
 If the replacer is a _function_, this function gets called on every property in the object you're stringifying. The value returned from this function will be the value of the property when it's added to the JSON string. If the value is `undefined`, this property is excluded from the JSON string.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 6 What's the output?
+### Q. What is the output?
 
 ```javascript
 let num = 10;
@@ -5644,9 +6012,11 @@ The unary operator `++` _first returns_ the value of the operand, _then incremen
 
 `num2` is `10`, since we passed `num1` to the `increasePassedNumber`. `number` is equal to `10`(the value of `num1`. Again, the unary operator `++` _first returns_ the value of the operand, _then increments_ the value of the operand. The value of `number` is `10`, so `num2` is equal to `10`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 6 What's the output?
+### Q. What is the output?
 
 ```javascript
 const value = { number: 10 };
@@ -5678,9 +6048,11 @@ The third time we invoke multiply, we do pass an argument: the object called `va
 
 The fourth time, we pass the `value` object again. `x.number` was previously modified to `20`, so `x.number *= 2` logs `40`. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 6 What's the output?
+### Q. What is the output?
 
 ```javascript
 [1, 2, 3, 4].reduce((x, y) => console.log(x, y));
@@ -5707,11 +6079,14 @@ If you don't return a value from a function, it returns `undefined`. On the next
 
 On the fourth call, we again don't return from the callback function. The accumulator is again `undefined`, and the current value is `4`. `undefined` and `4` get logged.
 </p>
-</details>
-  
+</details>  
 ---
 
-#### Q. 6 With which constructor can we successfully extend the `Dog` class?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. With which constructor can we successfully extend the `Dog` class?
 
 ```javascript
 class Dog {
@@ -5759,8 +6134,11 @@ With the `super` keyword, we call that parent class's constructor with the given
 
 The `Labrador` class receives two arguments, `name` since it extends `Dog`, and `size` as an extra property on the `Labrador` class. They both need to be passed to the constructor function on `Labrador`, which is done correctly  using constructor 2.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. 6 What's the output?
+### Q. What is the output?
 
 ```javascript
 // index.js
@@ -5786,9 +6164,11 @@ With the `import` keyword, all imported modules are _pre-parsed_. This means tha
 
 This is a difference between `require()` in CommonJS and `import`! With `require()`, you can load dependencies on demand while the code is being run. If we would have used `require` instead of `import`, `running index.js`, `running sum.js`, `3` would have been logged to the console. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 6 What's the output?
+### Q. What is the output?
 
 ```javascript
 console.log(Number(2) === Number(2))
@@ -5807,9 +6187,11 @@ console.log(Symbol('foo') === Symbol('foo'))
 
 Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 6 What's the output?
+### Q. What is the output?
 
 ```javascript
 const name = "Lydia Hallie"
@@ -5830,9 +6212,11 @@ With the `padStart` method, we can add padding to the beginning of a string. The
 
 If the argument passed to the `padStart` method is smaller than the length of the array, no padding will be added.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 What's the output?
+### Q. What is the output?
 
 ```javascript
 console.log("🥑" + "💻");
@@ -5849,9 +6233,11 @@ console.log("🥑" + "💻");
 
 With the `+` operator, you can concatenate strings. In this case, we are concatenating the string `"🥑"` with the string `"💻"`, resulting in `"🥑💻"`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 71. How can we log the values that are commented out after the console.log statement?
+### Q. How can we log the values that are commented out after the console.log statement?
 
 ```javascript
 function* startGame() {
@@ -5882,9 +6268,11 @@ Every line is executed, until it finds the first `yield` keyword. There is a `yi
 
 When we call `game.next("Yes").value`, the previous `yield` is replaced with the value of the parameters passed to the `next()` function, `"Yes"` in this case. The value of the variable `answer` is now equal to `"Yes"`. The condition of the if-statement returns `false`, and `JavaScript loves you back ❤️` gets logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 What's the output?
+### Q. What is the output?
 
 ```javascript
 console.log(String.raw`Hello\nworld`);
@@ -5913,9 +6301,11 @@ With `String.raw`, it would simply ignore the escape and print:
 
 In this case, the string is `Hello\nworld`, which gets logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 What's the output?
+### Q. What is the output?
 
 ```javascript
 async function getData() {
@@ -5943,9 +6333,11 @@ If we wanted to get access to the resolved value `"I made it"`, we could have us
 
 This would've logged `"I made it!"`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 What's the output?
+### Q. What is the output?
 
 ```javascript
 function addToList(item, list) {
@@ -5969,9 +6361,11 @@ The `.push()` method returns the _length_ of the new array! Previously, the arra
 
 The `push` method modifies the original array. If you wanted to return the _array_ from the function rather than the _length of the array_, you should have returned `list` after pushing `item` to it.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 What's the output?
+### Q. What is the output?
 
 ```javascript
 const box = { x: 10, y: 20 };
@@ -5999,9 +6393,11 @@ When we create the variable `shape` and set it equal to the frozen object `box`,
 
 Since `shape` is frozen, and since the value of `x` is not an object, we cannot modify the property `x`. `x` is still equal to `10`, and `{ x: 10, y: 20 }` gets logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 What's the output?
+### Q. What is the output?
 
 ```javascript
 const { name: myName } = { name: "Lydia" };
@@ -6024,9 +6420,11 @@ With `{ name: myName }`, we tell JavaScript that we want to create a new variabl
 
 Since we try to log `name`, a variable that is not defined, a ReferenceError gets thrown.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 Is this a pure function?
+### Q. Is this a pure function?
 
 ```javascript
 function sum(a, b) {
@@ -6045,9 +6443,11 @@ A pure function is a function that _always_ returns the same result, if the same
 
 The `sum` function always returns the same result. If we pass `1` and `2`, it will _always_ return `3` without side effects. If we pass `5` and `10`, it will _always_ return `15`, and so on. This is the definition of a pure function.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 What is the output?
+### Q. What is the output?
 
 ```javascript
 const add = () => {
@@ -6088,9 +6488,11 @@ The second time, the `cache` object contains the value that gets returned for `1
 
 The third time, we pass `5 * 2` to the function which gets evaluated to `10`. The `cache` object contains the value that gets returned for `10`. The condition of the if-statement `num in cache` returns `true`, and `'From cache! 20'` gets logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 7 What is the output?
+### Q. What is the output?
 
 ```javascript
 const myLifeSummedUp = ["☕", "💻", "🍷", "🍫"]
@@ -6121,9 +6523,11 @@ Where the keys are the enumerable properties. `0` `1` `2` `3` get logged.
 
 With a _for-of_ loop, we can iterate over **iterables**. An array is an iterable. When we iterate over the array, the variable "item" is equal to the element it's currently iterating over, `"☕"` ` "💻"` `"🍷"` `"🍫"` get logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 8 What is the output?
+### Q. What is the output?
 
 ```javascript
 const list = [1 + 2, 1 * 2, 1 / 2]
@@ -6143,9 +6547,11 @@ Array elements can hold any value. Numbers, strings, objects, other arrays, null
 
 The element will be equal to the returned value.  `1 + 2` returns `3`, `1 * 2` returns `2`, and `1 / 2` returns `0.5`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 81. What is the output?
+### Q. What is the output?
 
 ```javascript
 function sayHi(name) {
@@ -6172,9 +6578,11 @@ In ES6, we can overwrite this default `undefined` value with default parameters.
 
 In this case, if we didn't pass a value or if we passed `undefined`, `name` would always be equal to the string `Lydia`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 8 What is the output?
+### Q. What is the output?
 
 ```javascript
 var status = "😎"
@@ -6207,10 +6615,11 @@ The value of the `this` keyword is dependent on where you use it. In a **method*
 
 With the `call` method, we can change the object to which the `this` keyword refers. In **functions**, the `this` keyword refers to the _the object that the function belongs to_. We declared the `setTimeout` function on the _global object_, so within the `setTimeout` function, the `this` keyword refers to the _global object_. On the global object, there is a variable called _status_ with the value of `"😎"`. When logging `this.status`, `"😎"` gets logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-
-#### Q. 8 What is the output?
+### Q. What is the output?
 
 ```javascript
 const person = {
@@ -6241,9 +6650,11 @@ Then, we set `city` equal to the string `"Amsterdam"`. This doesn't change the p
 
 When logging the `person` object, the unmodified object gets returned. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 8 What is the output?
+### Q. What is the output?
 
 ```javascript
 function checkAge(age) {
@@ -6270,9 +6681,11 @@ console.log(checkAge(21))
 
 Variables with the `const` and `let` keyword are _block-scoped_. A block is anything between curly brackets (`{ }`). In this case, the curly brackets of the if/else statements. You cannot reference a variable outside of the block it's declared in, a ReferenceError gets thrown.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 8 What kind of information would get logged?
+### Q. What kind of information would get logged?
 
 ```javascript
 fetch('https://www.website.com/api/user/1')
@@ -6291,9 +6704,11 @@ fetch('https://www.website.com/api/user/1')
 
 The value of `res` in the second `.then` is equal to the returned value of the previous `.then`. You can keep chaining `.then`s like this, where the value is passed to the next handler.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 8 Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
+### Q. Which option is a way to set `hasName` equal to `true`, provided you cannot pass `true` as an argument?
 
 ```javascript
 function getName(name) {
@@ -6318,9 +6733,11 @@ By setting `hasName` equal to `name`, you set `hasName` equal to whatever value 
 
 `name.length` returns the length of the passed argument, not whether it's `true`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 8 What's the output?
+### Q. What is the output?
 
 ```javascript
 console.log("I want pizza"[0])
@@ -6339,9 +6756,11 @@ In order to get an character on a specific index in a string, you can use bracke
 
 Note that this method is not supported in IE7 and below. In that case, use `.charAt()`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 8 What's the output?
+### Q. What is the output?
 
 ```javascript
 function sum(num1, num2 = num1) {
@@ -6364,9 +6783,11 @@ You can set a default parameter's value equal to another parameter of the functi
 
 If you're trying to set a default parameter's value equal to a parameter which is defined _after_ (to the right), the parameter's value hasn't been initialized yet, which will throw an error. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 8 What's the output?
+### Q. What is the output?
 
 ```javascript
 // module.js 
@@ -6392,9 +6813,11 @@ With the `import * as name` syntax, we import _all exports_ from the `module.js`
 
 The `data` object has a `default` property for the default export, other properties have the names of the named exports and their corresponding values. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 class Person {
@@ -6426,9 +6849,11 @@ function Person() {
 
 Calling a function constructor with `new` results in the creation of an instance of `Person`, `typeof` keyword returns `"object"` for an instance. `typeof member` returns `"object"`. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 91. What's the output?
+### Q. What is the output?
 
 ```javascript
 let newList = [1, 2, 3].push(4)
@@ -6449,9 +6874,11 @@ The `.push` method returns the _new length_ of the array, not the array itself! 
 
 Then, we try to use the `.push` method on `newList`. Since `newList` is the numerical value `4`, we cannot use the `.push` method: a TypeError is thrown.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 function giveLydiaPizza() {
@@ -6475,9 +6902,11 @@ console.log(giveLydiaChocolate.prototype)
 
 Regular functions, such as the `giveLydiaPizza` function, have a `prototype` property, which is an object (prototype object) with a `constructor` property. Arrow functions however, such as the `giveLydiaChocolate` function, do not have this `prototype` property. `undefined` gets returned when trying to access the `prototype` property using `giveLydiaChocolate.prototype`. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 const person = {
@@ -6508,9 +6937,11 @@ Using the `for-of` loop, we can iterate over each element in the array, the suba
 The first subarray is `[ "name", "Lydia" ]`, with `x` equal to `"name"`, and `y` equal to `"Lydia"`, which get logged.
 The second subarray is `[ "age", 21 ]`, with `x` equal to `"age"`, and `y` equal to `21`, which get logged.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 function getItems(fruitList, ...args, favoriteFruit) {
@@ -6541,8 +6972,11 @@ getItems(["banana", "apple"], "pear", "orange")
 
 The above example works. This returns the array `[ 'banana', 'apple', 'orange', 'pear' ]`
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 function nums(a, b) {
@@ -6579,9 +7013,11 @@ Here, we wrote a `return` statement, and another value `a + b` on a _new line_. 
 
 This means that `a + b` is never reached, since a function stops running after the `return` keyword. If no value gets returned, like here, the function returns `undefined`. Note that there is no automatic insertion after `if/else` statements!
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 class Person {
@@ -6611,9 +7047,11 @@ console.log(member.name)
 
 We can set classes equal to other classes/function constructors. In this case, we set `Person` equal to `AnotherPerson`. The name on this constructor is `Sarah`, so the name property on the new `Person` instance `member` is `"Sarah"`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 const info = {
@@ -6637,9 +7075,11 @@ A Symbol is not _enumerable_. The Object.keys method returns all _enumerable_ ke
 
 This is one of the many qualities of a symbol: besides representing an entirely unique value (which prevents accidental name collision on objects, for example when working with 2 libraries that want to add properties to the same object), you can also "hide" properties on objects this way (although not entirely. You can still access symbols using the `Object.getOwnPropertySymbols()` method).
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 const getList = ([x, ...y]) => [x, y]
@@ -6673,9 +7113,11 @@ The `getList` function receives an array as its argument. Between the parenthese
 
 Since no value gets returned in this case, the function returns `undefined`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 9 What's the output?
+### Q. What is the output?
 
 ```javascript
 const name = "Lydia"
@@ -6699,9 +7141,11 @@ TypeErrors get thrown when a value is not of the expected type. JavaScript expec
 SyntaxErrors get thrown when you've written something that isn't valid JavaScript, for example when you've written the word `return` as `retrun`. 
 ReferenceErrors get thrown when JavaScript isn't able to find a reference to a value that you're trying to access.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 10 What's the value of output?
+### Q. What is the value of output?
 
 ```javascript
 // 🎉✨ This is my 100th question! ✨🎉
@@ -6723,9 +7167,11 @@ You should${'' && `n't`} see a therapist after so much JavaScript lol`
 
 `""` is a falsy value. If the left-hand value is falsy, nothing gets returned. `n't` doesn't get returned.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 101. What's the value of output?
+### Q. What is the value of output?
 
 ```javascript
 const one = (false || {} || null)
@@ -6752,9 +7198,11 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 
 `([] || 0 || "")`: the empty array`[]` is a truthy value. This is the first truthy value, which gets returned. `three` is equal to `[]`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 10 What's the value of output?
+### Q. What is the value of output?
 
 ```javascript
 const myPromise = () => Promise.resolve('I have resolved!')
@@ -6792,9 +7240,11 @@ With the await keyword in `secondFunction`, we literally pause the execution of 
 
 This means that it waited for the `myPromise` to resolve with the value `I have resolved`, and only once that happened, we moved to the next line: `second` got logged. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 10 What's the value of output?
+### Q. What is the value of output?
 
 ```javascript
 const set = new Set()
@@ -6825,9 +7275,11 @@ However, the second one is a string `"Lydia"`. `"Lydia"` is a string and `2` is 
 
 `{ name: "Lydia" }` is an object. Neither a number nor an object is a string, so it stringifies both. Whenever we stringify a regular object, it becomes `"[Object object]"`. `"[Object object]"` concatenated with `"2"` becomes `"[Object object]2"`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 10 What's its value?
+### Q. What is its value?
 
 ```javascript
 Promise.resolve(5)
@@ -6846,9 +7298,11 @@ We can pass any type of value we want to `Promise.resolve`, either a promise or 
 
 In this case, we just passed the numerical value `5`. It returns a resolved promise with the value `5`. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 10 What's its value?
+### Q. What is its value?
 
 ```javascript
 function compareMembers(person1, person2 = person) {
@@ -6881,9 +7335,11 @@ This means that both values have a reference to the same spot in memory, thus th
 
 The code block in the `else` statement gets run, and `They are the same!` gets logged. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 10 What's its value?
+### Q. What is its value?
 
 ```javascript
 const colorConfig = {
@@ -6914,9 +7370,11 @@ With dot notation, JavaScript tries to find the property on the object with that
 
 JavaScript interprets (or unboxes) statements. When we use bracket notation, it sees the first opening bracket `[` and keeps going until it finds the closing bracket `]`. Only then, it will evaluate the statement. If we would've used `colorConfig[colors[1]]`, it would have returned the value of the `red` property on the `colorConfig` object. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 10 What's its value?
+### Q. What is its value?
 
 ```javascript
 console.log('❤️' === '❤️')
@@ -6931,9 +7389,11 @@ console.log('❤️' === '❤️')
 
 Under the hood, emojis are unicodes. The unicodes for the heart emoji is `"U+2764 U+FE0F"`. These are always the same for the same emojis, so we're comparing two equal strings to each other, which returns true. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 10 Which of these methods modifies the original array?
+### Q. Which of these methods modifies the original array?
 
 ```javascript
 const emojis = ['✨', '🥑', '😍']
@@ -6959,9 +7419,11 @@ With `splice` method, we modify the original array by deleting, replacing or add
 
 `map`, `filter` and `slice` return a new array, `find` returns an element, and `reduce` returns a reduced value.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. <a name=20191009></a>109. What's the output?
+### Q. <a name=20191009></a>109. What is the output?
 
 ```javascript
 const food = ['🍕', '🍫', '🥑', '🍔']
@@ -6987,9 +7449,11 @@ In JavaScript, primitive data types (everything that's not an object) interact b
 
 Then, we change the value of the `favoriteFood` property on the `info` object. The `food` array hasn't changed, since the value of `favoriteFood` was merely a _copy_ of the value of the first element in the array, and doesn't have a reference to the same spot in memory as the element on `food[0]`. When we log food, it's still the original array, `['🍕', '🍫', '🥑', '🍔']`.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. 1 What does this method do?
+### Q. What does this method do?
 
 ```javascript
 JSON.parse()
@@ -7020,7 +7484,11 @@ const jsonArray = JSON.stringify({ name: "Lydia" }) // '{"name":"Lydia"}'
 JSON.parse(jsonArray) // { name: 'Lydia' }
 ```
 
-#### Q. What's the output? 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output? 
 
 ```javascript
 let name = 'Lydia'
@@ -7058,7 +7526,11 @@ function getName() {
 getName() // Lydia
 ```
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 function* generatorOne() {
@@ -7103,7 +7575,11 @@ console.log(two.next().value) // 'c'
 console.log(two.next().value) // undefined
 ```
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 console.log(`${(x => x)('I love')} to program`)
@@ -7119,9 +7595,11 @@ console.log(`${(x => x)('I love')} to program`)
 
 Expressions within template literals are evaluated first. This means that the string will contain the returned value of the expression, the immediately invoked function `(x => x)('I love')` in this case. We pass the value `'I love'` as an argument to the `x => x` arrow function. `x` is equal to `'I love'`, which gets returned. This results in `I love to program`. 
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-
-#### Q. What will happen?
+### Q. What will happen?
 
 ```javascript
 let config = {
@@ -7144,8 +7622,11 @@ config = null
 
 Normally when we set objects equal to `null`, those objects get _garbage collected_ as there is no reference anymore to that object. However, since the callback function within `setInterval` is an arrow function (thus bound to the `config` object), the callback function still holds a reference to the `config` object. As long as there is a reference, the object won't get garbage collected. Since it's not garbage collected, the `setInterval` callback function will still get invoked every 1000ms (1s).
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-#### Q. Which method(s) will return the value `'Hello world!'`?
+### Q. Which method(s) will return the value `'Hello world!'`?
 
 ```javascript
 const myMap = new Map()
@@ -7175,7 +7656,11 @@ When adding a key/value pair using the `set` method, the key will be the value o
 1 is wrong, since the key is not `'greeting'` but `() => 'greeting'`.
 3 is wrong, since we're creating a new function by passing it as a parameter to the `get` method. Object interact by _reference_. Functions are objects, which is why two functions are never strictly equal, even if they are identical: they have a reference to a different spot in memory. 
 
-#### Q. What's the output?
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. What is the output?
 
 ```javascript
 const person = {
@@ -7208,6 +7693,18 @@ First, we invoke the `changeAge` function and pass the `person` object as its ar
 
 Then, we invoke the `changeAgeAndName` function, however we don't pass a parameter. Instead, the value of `x` is equal to a _new_ object: `{ ...person }`. Since it's a new object, it doesn't affect the values of the properties on the `person` object. `person` is still equal to `{ name: "Lydia", age: 22 }`.
 
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+### Q. Predict the output
+
+```js
+if(2 == true) // returns false
+
+if(2 == false) // returns false
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
