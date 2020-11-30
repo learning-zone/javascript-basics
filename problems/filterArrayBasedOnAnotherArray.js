@@ -19,4 +19,11 @@ let newItems = items.reduce((acc, item) => {
   return acc;
 }, []);
 
+// alternative solution with filter, which is more readable
+
+let _newItems = items.filter(item => 
+  !excludes.some(exclude => item[exclude['k']] === exclude['v'])
+);
+
 console.log(newItems);
+console.log(_newItems);
