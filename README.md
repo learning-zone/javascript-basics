@@ -11,7 +11,7 @@
 
 |Sl.No| Questions                                                                         |
 |-----|-----------------------------------------------------------------------------------|
-| 01.|[What is difference between document.getElementById() and document.uerySelector()?](#q-what-is-difference-between-document-getelementbyid-and-document-ueryselector)|
+| 01.|[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-document-getelementbyid-and-document-queryselector)|
 | 02.|[When to use reduce(), map(), foreach() and filter() in JavaScript?](#q-when-to-use-reduce-map-foreach-and-filter-in-javascript)|
 | 03.|[What is Hoisting in JavaScript?](#q-what-is-hoisting-in-javascript)|
 | 04.|[What are closures?](#q-what-are-closures)|
