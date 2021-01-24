@@ -8743,10 +8743,11 @@ console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
 ## 335Q. ***How setTimeout() and setInterval() are different from each other ?***
 
 ```javascript
-#Syntax for setTimeout
+//Syntax for setTimeout
 
 function displayMessage() {
     console.log('This message will be displayed only once after 4s!') ;
@@ -8757,7 +8758,7 @@ setTimeout(displayMessage, 4000);
 ```
 
 ```javascript
-#Syntax for setInterval
+//Syntax for setInterval
 
 function displayMessage(){
     console.log('This message will be displayed after every 4s!') ;
@@ -8767,18 +8768,18 @@ setInterval(displayMessage, 4000) ;
 
 ```
 
-Usage : setTimeout(function/expression, timeout, param1, param2, ...) ;
+Usage : setTimeout( function/expression, timeout, param1, param2, ... ) ;
 
-where expression is the JavaScript code to run after the timeout milliseconds have elapsed. The params are optional.
+where expression/function is the JavaScript code to run after the timeout milliseconds have elapsed. The params are optional.
 
 Usage : setInterval ( function/expression, interval, param1, param2, ... );
 
 where expression/function is the  JavaScript code to run  repeatedly at specified interval of time has elpased . 
 
-Main Difference 
+Main Difference
 
-When you need to invoke a function once after a specified duration use setTimeout() function. 
-But, if you need to invoke a function repeatedly at a specified interval of time, then you should use setInterval() function.
+When you need to invoke a function/expression once after a specified duration use setTimeout() function. 
+But, if you need to invoke a function/expression repeatedly at a specified interval of time, then you should use setInterval() function.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
