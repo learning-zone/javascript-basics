@@ -348,6 +348,8 @@
 | 349.|[Explain types of Memory Leaks in JavaScript?](#q-explain-types-of-memory-leaks-in-javascript)|
 | 350.|[How accidental closures might cause memory leaks in IE?](#q-how-accidental-closures-might-cause-memory-leaks-in-ie)|
 | 351.|[How to convert Decimal to Binary in JavaScript?](#q-how-to-convert-decimal-to-binary-in-javascript)|
+| 352.|[What is difference between setTimeout() and setInterval()?](#q-what-is-difference-between-setTimeout()-and-setInterval())|
+
 
 <br/>
 
