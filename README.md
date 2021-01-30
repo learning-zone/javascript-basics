@@ -3952,7 +3952,7 @@ function findMin(arr) {
   var min = Infinity;
   while (length--) {
     if (arr[length] < min) {
-      min = arr[len];
+      min = arr[length];
     }
   }
   return min;
@@ -3961,7 +3961,7 @@ function findMin(arr) {
 function findMax(arr) {
   var length = arr.length
   var max = -Infinity;
-  while (len--) {
+  while (length--) {
     if (arr[length] > max) {
       max = arr[length];
     }
