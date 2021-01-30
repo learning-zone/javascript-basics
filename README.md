@@ -2008,6 +2008,47 @@ setInterval(function() { console.log("Good morning"); }, 2000);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How setTimeout() and setInterval() are different from each other?***
+
+```javascript
+//Syntax for setTimeout
+
+function displayMessage() {
+    console.log('This message will be displayed only once after 4s!') ;
+}
+
+setTimeout(displayMessage, 4000);
+ 
+```
+
+```javascript
+//Syntax for setInterval
+
+function displayMessage(){
+    console.log('This message will be displayed after every 4s!') ;
+}
+
+setInterval(displayMessage, 4000) ;
+
+```
+
+Usage : setTimeout( function/expression, timeout, param1, param2, ... ) ;
+
+where expression/function is the JavaScript code to run after the timeout milliseconds have elapsed. The params are optional.
+
+Usage : setInterval ( function/expression, interval, param1, param2, ... );
+
+where expression/function is the  JavaScript code to run  repeatedly at specified interval of time has elpased . 
+
+Main Difference
+
+When you need to invoke a function/expression once after a specified duration use setTimeout() function. 
+But, if you need to invoke a function/expression repeatedly at a specified interval of time, then you should use setInterval() function.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***Why is JavaScript treated as Single threaded?***
 
 JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
@@ -8740,47 +8781,6 @@ console.log(val.toString(8)); // 12  ==> Octal Conversion
 
 console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How setTimeout() and setInterval() are different from each other?***
-
-```javascript
-//Syntax for setTimeout
-
-function displayMessage() {
-    console.log('This message will be displayed only once after 4s!') ;
-}
-
-setTimeout(displayMessage, 4000);
- 
-```
-
-```javascript
-//Syntax for setInterval
-
-function displayMessage(){
-    console.log('This message will be displayed after every 4s!') ;
-}
-
-setInterval(displayMessage, 4000) ;
-
-```
-
-Usage : setTimeout( function/expression, timeout, param1, param2, ... ) ;
-
-where expression/function is the JavaScript code to run after the timeout milliseconds have elapsed. The params are optional.
-
-Usage : setInterval ( function/expression, interval, param1, param2, ... );
-
-where expression/function is the  JavaScript code to run  repeatedly at specified interval of time has elpased . 
-
-Main Difference
-
-When you need to invoke a function/expression once after a specified duration use setTimeout() function. 
-But, if you need to invoke a function/expression repeatedly at a specified interval of time, then you should use setInterval() function.
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
