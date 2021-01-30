@@ -8744,7 +8744,7 @@ console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## 335Q. ***How setTimeout() and setInterval() are different from each other ?***
+## Q. ***How setTimeout() and setInterval() are different from each other?***
 
 ```javascript
 //Syntax for setTimeout
