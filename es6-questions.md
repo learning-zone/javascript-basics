@@ -136,7 +136,7 @@ console.log(result); // ['A', 'B', 'C', 'X', 'Y', 'Z']
 ```javascript
 let fruits = ['Apple','Orange','Banana'];
 
-let newFruits = ['Cherry', ...names];
+let newFruits = ['Cherry', ...fruits];
 
 console.log(newFruits); // ['Cherry', 'Apple','Orange','Banana']
 ```
@@ -323,7 +323,7 @@ var phone = {
 console.log(phone.title);
 
 //ES-6
-var { title, price } = {
+var { title, price, description } = {
   title: "iPhone",
   price: 800,
   description: "The iPhone is a smartphone developed by Apple"
@@ -885,7 +885,7 @@ delete window.obj
 3. There is no size property exists in WeakMap.
 
 **Browser support for Map and WeakMap**  
-The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. There is no support in IE10. On mobile newer browsers also have support, but IE Mobile doesn\'t.
+The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. It's supported only in IE11 but not IE10 and below. On mobile, newer browsers also have support, but IE Mobile doesn\'t.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -934,7 +934,7 @@ console.log(y); // 10
 
 ## Q. What is modules in ES6?
 
-To make objects, functions, classes or variables available to the outside world it’s as simple as exporting them and then importing them where needed in other files.
+Making objects, functions, classes or variables available to the outside world is as simple as exporting them, and then importing them where needed in other files.
 
 **Benefits**  
 
@@ -1102,9 +1102,9 @@ myWeakSet.has(obj1); // true
 myWeakSet.has(obj2); // false
 myWeakSet.add(obj2); 
 myWeakSet.has(obj2); // true
-delete obj2; // don't take it literally. You cant delete object like that. Use scope to execute this.
-myWeakSet.has(obj2); // false, cause you deleted obj2, so WeakSet releases it automatically
-myWeakSet.delete(obj1); //obj1 deleted from the set
+delete obj2; // Don't take it literally - you can't delete objects like that. Use scope to execute this.
+myWeakSet.has(obj2); // false, because you deleted obj2, so WeakSet releases it automatically
+myWeakSet.delete(obj1); // obj1 deleted from the set
 myWeakSet.add(2); // ERROR, no primitive value
 ```
 |Set	                          |WeakSet                        |
