@@ -145,7 +145,7 @@ console.log(newFruits); // ['Cherry', 'Apple','Orange','Banana']
 let fruits = ['Apple','Orange','Banana'];
 
 var getFruits = (f1, f2, f3) => {
-console.log(Fruits: ${f1}, ${f2} and ${f3}); };
+console.log(`Fruits: ${f1}, ${f2} and ${f3}`); };
 
 getFruits(...fruits); // Fruits: Apple, Orange and Banana
 ```
