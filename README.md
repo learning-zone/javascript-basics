@@ -671,7 +671,7 @@ There are eight basic data types in JavaScript.
 
 * Single quotes: 'Hello'
 * Double quotes: "Hello"
-* Backticks: `Hello`
+* Backticks: \`Hello\`
 
 Example:
 
