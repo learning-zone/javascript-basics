@@ -704,7 +704,7 @@ console.log(number3);  // NaN
 
 **BigInt**
 
-In JavaScript, Number type can only represent numbers less than `(253 - 1)` and more than `-(253 - 1)`. However, if you need to use a larger number than that, you can use the BigInt data type.
+In JavaScript, Number type can only represent numbers less than (2<sup>53</sup> - 1) and more than -(2<sup>53</sup> - 1). However, if you need to use a larger number than that, you can use the BigInt data type.
 
 A BigInt number is created by appending `n` to the end of an integer.
 
