@@ -655,7 +655,7 @@ There are eight basic data types in JavaScript.
 
 |Data Types	  | Description	                         |Example                     |
 |-------------|--------------------------------------|----------------------------|
-|String	      |represents textual data	             |let str = 'Hi', let str2 = "Hello", let str3 = `Hello World` |
+|String	      |represents textual data	             |let str = 'Hi', let str2 = "Hello", let str3 = \`Hello World\`|
 |Number	      |an integer or a floating-point number |let num = 3, let num2 = 3.234, let num3 = 3e-2 |
 |BigInt	      |an integer with arbitrary precision	 |let num = 900719925124740999n, let num = 1n    |
 |Boolean	    |Any of two values: true or false	     |let flag = true             |
