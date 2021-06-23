@@ -1765,7 +1765,7 @@ console.log(user); // {name: "John"}
 In JavaScript, the typeof operator returns the data type of its operand in the form of a string. The operand can be any object, function, or variable.
 
 ```js
-typeof x; // "undefined"
+typeof undeclaredVariable; // "undefined"
 
 var a;
 typeof a; // "undefined"
@@ -1774,6 +1774,9 @@ a = "Hello World";
 typeof a; // "string"
 
 a = 42;
+typeof a; // "number"
+
+a = 3.1415
 typeof a; // "number"
 
 a = true;
