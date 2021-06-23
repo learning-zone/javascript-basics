@@ -1762,12 +1762,33 @@ console.log(user); // {name: "John"}
 
 ## Q. ***What is typeof operator?***
 
-You can use the JavaScript typeof operator to find the type of a JavaScript variable. It returns the type of a variable or an expression.
+In JavaScript, the typeof operator returns the data type of its operand in the form of a string. The operand can be any object, function, or variable.
 
-```javascript
-typeof "John Abraham"     // Returns "string"
-typeof (1 + 2)        // Returns "number"
+```js
+typeof x; // "undefined"
+
+var a;
+typeof a; // "undefined"
+
+a = "Hello World";
+typeof a; // "string"
+
+a = 42;
+typeof a; // "number"
+
+a = true;
+typeof a; // "boolean"
+
+a = null;
+typeof a; // "object"
+
+a = undefined;
+typeof a; // "undefined"
+
+a = { b: "c" };
+typeof a; // "object"
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
