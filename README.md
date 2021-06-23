@@ -1764,6 +1764,8 @@ console.log(user); // {name: "John"}
 
 In JavaScript, the typeof operator returns the data type of its operand in the form of a string. The operand can be any object, function, or variable.
 
+Example - 1
+
 ```js
 typeof undeclaredVariable; // "undefined"
 
@@ -1790,6 +1792,66 @@ typeof a; // "undefined"
 
 a = { b: "c" };
 typeof a; // "object"
+```
+
+Example - 2
+
+```js
+// Numbers
+typeof 37 === 'number';
+typeof 3.14 === 'number';
+typeof(42) === 'number';
+typeof Math.LN2 === 'number';
+typeof Infinity === 'number';
+typeof NaN === 'number';       
+typeof Number('1') === 'number';  // Number tries to parse things into numbers
+typeof Number('Hi') === 'number'; // including values that cannot be type coerced to a number
+
+typeof 42n === 'bigint';
+
+// Strings
+typeof '' === 'string';
+typeof 'Hello' === 'string';
+typeof `template literal` === 'string';
+typeof '1' === 'string';  // note that a number within a string is still typeof string
+typeof (typeof 1) === 'string';  // typeof always returns a string
+typeof String(1) === 'string';  // String converts anything into a string, safer than toString
+
+// Booleans
+typeof true === 'boolean';
+typeof false === 'boolean';
+typeof Boolean(1) === 'boolean'; // Boolean() will convert values based on if they're truthy or falsy
+typeof !!(1) === 'boolean'; // two calls of the ! (logical NOT) operator are equivalent to Boolean()
+
+// Symbols
+typeof Symbol() === 'symbol'
+typeof Symbol('foo') === 'symbol'
+typeof Symbol.iterator === 'symbol'
+
+// Undefined
+typeof undefined === 'undefined';
+typeof declaredButUndefinedVariable === 'undefined';
+typeof undeclaredVariable === 'undefined';
+
+// Objects
+typeof {a: 1} === 'object';
+
+// use Array.isArray or Object.prototype.toString.call
+// to differentiate regular objects from arrays
+typeof [1, 2, 4] === 'object';
+
+typeof new Date() === 'object';
+typeof /regex/ === 'object'; 
+
+// The following are confusing. 
+typeof new Boolean(true) === 'object';
+typeof new Number(1) === 'object';
+typeof new String('abc') === 'object';
+
+// Functions
+typeof function() {} === 'function';
+typeof class C {} === 'function';
+typeof Math.sin === 'function';
 ```
 
 <div align="right">
