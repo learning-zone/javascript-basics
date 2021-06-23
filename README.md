@@ -764,6 +764,7 @@ A value having the data type Symbol can be referred to as a symbol value. Symbol
 const value1 = Symbol('hello');
 const value2 = Symbol('hello');
 
+let result = (value1 === value2) ? true : false;  // false;
 
 // Note: Though value1 and value2 both contain 'hello', they are different as they are of the Symbol type.
 ```
