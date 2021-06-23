@@ -1764,7 +1764,7 @@ console.log(user); // {name: "John"}
 
 In JavaScript, the typeof operator returns the data type of its operand in the form of a string. The operand can be any object, function, or variable.
 
-Example - 1
+**Example: - 01**
 
 ```js
 typeof undeclaredVariable; // "undefined"
@@ -1794,7 +1794,7 @@ a = { b: "c" };
 typeof a; // "object"
 ```
 
-Example - 2
+**Example: - 02**
 
 ```js
 // Numbers
@@ -1886,6 +1886,33 @@ Below are the main differences between null and undefined,
 | The null value is a primitive value that represents the null, empty, or non-existent reference. | The undefined value is a primitive value used when a variable has not been assigned a value.|
 | Indicates the absence of a value for a variable | Indicates absence of variable itself |
 | Converted to zero (0) while performing primitive operations | Converted to NaN while performing primitive operations |
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the object type?***
+
+The object type refers to a compound value where you can set properties (named locations) that each hold their own values of any type.
+
+```js
+var person = { 
+    firstName: "John", 
+    lastName: "K", 
+    age: 25, 
+    getFullName: function () { 
+      return this.firstName + ' ' + this.lastName 
+    }
+};
+
+person.firstName; // returns James
+person.lastName; // returns Bond
+
+person["firstName"];// returns James
+person["lastName"];// returns Bond
+
+person.getFullName();
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
