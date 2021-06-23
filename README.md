@@ -651,12 +651,134 @@ var object = new function() {
 
 ## Q. ***What are the javascript data types?***
 
-Below are the list of javascript data types available
-1. Number
-2. String
-3. Boolean
-4. Object
-5. Undefined
+There are eight basic data types in JavaScript.
+
+|Data Types	  | Description	                         |Example                     |
+|-------------|--------------------------------------|----------------------------|
+|String	      |represents textual data	             |let str = 'Hi', let str2 = "Hello", let str3 = `Hello World` |
+|Number	      |an integer or a floating-point number |let num = 3, let num2 = 3.234, let num3 = 3e-2 |
+|BigInt	      |an integer with arbitrary precision	 |let num = 900719925124740999n, let num = 1n    |
+|Boolean	    |Any of two values: true or false	     |let flag = true             |
+|undefined	  |a data type whose variable is not initialized	|let a;             |
+|null	        |denotes a null value	                 |let a = null;               |
+|Symbol	      |data type whose instances are unique and immutable|let value = Symbol('hello');|
+|Object	      |key-value pairs of collection of data	|let student = { };         |
+
+
+**String**
+
+`String` is used to store text. In JavaScript, strings are surrounded by quotes:
+
+* Single quotes: 'Hello'
+* Double quotes: "Hello"
+* Backticks: `Hello`
+
+Example:
+
+```js
+//Strings 
+const firstName = 'John';
+const lastName = "K";
+const result = `The names are ${firstName} and ${lastName}`;
+```
+
+**Number**
+
+Number represents integer and floating numbers (decimals and exponentials). A number type can also be `+Infinity`, `-Infinity`, and `NaN` (not a number).
+
+```js
+const number1 = 3;
+const number2 = 3.433;
+const number3 = 3e5 // 3 * 10^5
+
+const number1 = 3/0;
+console.log(number1); // Infinity
+
+const number2 = -3/0;
+console.log(number2); // -Infinity
+
+// strings can't be divided by numbers
+const number3 = "abc"/3; 
+console.log(number3);  // NaN
+```
+
+**BigInt**
+
+In JavaScript, Number type can only represent numbers less than `(253 - 1)` and more than `-(253 - 1)`. However, if you need to use a larger number than that, you can use the BigInt data type.
+
+A BigInt number is created by appending `n` to the end of an integer.
+
+```js
+// BigInt value
+const num1 = 900719925124740998n;
+const num2 = 900719925124740998n;
+const num3 = 10;
+
+
+// Adding two big integers
+const result1 = num1 + num2;
+console.log(result1); // "1801439850249481996n"
+
+
+// Error! BitInt and number cannot be added
+const result2 = num1 + num2 + num3; 
+console.log(result2);  // Uncaught TypeError: Cannot mix BigInt and other types
+```
+
+**Boolean**
+
+This data type represents logical entities. Boolean represents one of two values: `true` or `false`. 
+
+```js
+const dataChecked = true;
+const valueCounted = false;
+```
+
+**undefined**
+
+The undefined data type represents value that is not assigned. If a variable is declared but the value is not assigned, then the value of that variable will be undefined. 
+
+```js
+let name;
+console.log(name); // undefined
+
+let name = undefined;
+console.log(name); // undefined
+```
+
+**null**
+
+In JavaScript, `null` is a special value that represents empty or unknown value.
+
+```js
+const number = null;
+```
+
+**Symbol**
+
+A value having the data type Symbol can be referred to as a symbol value. Symbol is an immutable primitive value that is unique.
+
+```js
+// Two symbols with the same description
+
+const value1 = Symbol('hello');
+const value2 = Symbol('hello');
+
+
+// Note: Though value1 and value2 both contain 'hello', they are different as they are of the Symbol type.
+```
+
+**Object**
+
+An object is a complex data type that allows us to store collections of data. 
+
+```js
+const employee = {
+    firstName: 'John',
+    lastName: 'K',
+    email: 'john.k@gmail.com'
+};
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
