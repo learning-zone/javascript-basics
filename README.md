@@ -1920,11 +1920,33 @@ person.getFullName();
 
 ## Q. ***What is eval?***
 
-The eval() function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
+The `eval()` function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
 
 ```javascript
-console.log(eval('1 + 2')); //  3
+console.log(eval('10 + 20')); // 30
+
+
+var x = 10;
+var y = 20;
+var z = '50';
+eval('x + y + 1'); // returns 30
+eval(z);           // returns 50
 ```
+
+If the argument of `eval()` is not a string, `eval()` returns the argument unchanged. In the following example, the String constructor is specified and eval() returns a String object rather than evaluating the string.
+
+```js
+eval(new String('10 + 20')); // returns a String object containing "10 + 20"
+eval('10 + 20');             // returns 30
+
+
+// work around
+var expression = new String('10 + 20');
+eval(expression.toString()); // returns 30
+```
+
+* *Note: The `eval()` function is not recommended to use because of the security reasons. It is not suggested to use because it is slower and makes code unreadable.*
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
