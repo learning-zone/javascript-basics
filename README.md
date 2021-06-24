@@ -9085,6 +9085,35 @@ console.log(val.toString(8)); // 12  ==> Octal Conversion
 
 console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is Coercion in JavaScript?***
+
+Type coercion is the automatic or implicit conversion of values from one data type to another (such as strings to numbers). Type conversion is similar to type coercion because they both convert values from one data type to another with one key difference — type coercion is implicit whereas type conversion can be either implicit or explicit.
+
+```js
+const value1 = '10';
+const value2 = 20;
+
+let sum = value1 + value2;
+
+console.log(sum);
+```
+In the above example, JavaScript has coerced the 10 from a number into a string and then concatenated the two values together, resulting in a string of 1020. JavaScript had a choice between a string or a number and decided to use a string.
+
+```js
+// Example of explicit coercion
+const value1 = '10';
+const value2 = 20;
+
+let sum = Number(value1) + value2;
+
+console.log(sum);
+```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
