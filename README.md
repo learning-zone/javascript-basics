@@ -1854,6 +1854,8 @@ typeof class C {} === 'function';
 typeof Math.sin === 'function';
 ```
 
+**[[Read More](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/typeof)]**
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -1929,7 +1931,7 @@ console.log(eval('10 + 20')); // 30
 var x = 10;
 var y = 20;
 var z = '50';
-eval('x + y + 1'); // returns 30
+eval('x + y + 1'); // returns 31
 eval(z);           // returns 50
 ```
 
@@ -8476,6 +8478,50 @@ So, to avoid these default browser behavior use `event.preventDefault()`.
 **Example**: A click event handler is registered for anchor tag, Based on some logic in the event handler  want to suppress the default browser behavior i.e loading the url.
 
 *Note: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`*;
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain arrays in JavaScript?***
+
+JavaScript array is an object that represents a collection of similar type of elements. It can holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions.
+
+```js
+// empty array
+const myList = [];
+
+
+// array of numbers
+const numberArray = [ 2, 4, 6, 8];
+
+
+// array of strings
+let fruits = ["Apple", "Orange", "Plum"];
+
+console.log(fruits[0]); // Apple
+console.log(fruits[1]); // Orange
+console.log(fruits[2]); // Plum
+
+
+// array with mixed data types
+let arr = ["Hello World",	10,	true];
+
+console.log(arr[0]);			// "Hello World"
+console.log(arr[1]);			// 10
+console.log(arr[2]);			// true
+console.log(arr.length);	// 3
+
+typeof arr;	// "object"
+
+
+// array with mixed data types
+const newData = [
+    {'task1': 'exercise'},
+    [1, 2 ,3],
+    function hello() { console.log('hello')}
+];
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
