@@ -5476,65 +5476,29 @@ Above implementation can also empty the array. But not recommended to use often.
 
 ## Q. ***How to check if an object is an array or not?***
 
-The best way to find whether an object is instance of a particular class or not using `toString` method from `Object.prototype`
+The `isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
 
-```javascript
-var arrayList = [1 , 2, 3];
+```js
+ // Creating some variables
+  var v1 = {name: "John", age: 22};   
+  var v2 = ["red", "green", "blue", "yellow"];
+  var v3 = [10, 20, 30, 40, 50];
+  var v4 = null;
+  
+  // Testing the variables data type
+  typeof(v1); // Returns: "object"
+  typeof(v2); // Returns: "object"
+  typeof(v3); // Returns: "object"
+  typeof(v3); // Returns: "object"
+  
+  // Testing if the variable is an array
+  Array.isArray(v1);  // Returns: false
+  Array.isArray(v2);  // Returns: true
+  Array.isArray(v3);  // Returns: true
+  Array.isArray(v4);  // Returns: false
 ```
 
-One of the best use cases of type checking of an object is when we do method overloading in JavaScript. To understand this, Let us say we have a method called `greet` which can take a single string and also a list of strings. To make our `greet` method workable in both situation we need to know what kind of parameter is being passed: is it single value or list of values?
-
-```javascript
-function greet(param) {
-  if() {
-    // here have to check whether param is array or not
-  }
-  else {
-  }
-}
-```
-
-However, in the above implementation it might not necessary to check the type of the array, we can check for single value string and put array logic code in else block, let see below code for the same.
-
-```javascript
- function greet(param) {
-   if(typeof param === 'string') {
-   }
-   else {
-     // If param is of type array then this block of code would execute
-   }
- }
-```
-
-Now it is fine we can go with the previous two implementations, but when we have a situation like a parameter can be `single value`, `array`, and `object` type then we will be in trouble.
-
-Coming back to checking the type of an object, As we mentioned that we can use `Object.prototype.toString`
-
-```javascript
-if(Object.prototype.toString.call(arrayList) === '[object Array]') {
-  console.log('Array!');
-}
-```
-
-If you are using `jQuery` then you can also used jQuery `isArray` method:
-
-```javascript
-if($.isArray(arrayList)) {
-  console.log('Array');
-} else {
-  console.log('Not an array');
-}
-```
-
-FYI jQuery uses `Object.prototype.toString.call` internally to check whether an object is an array or not.
-
-In modern browser, you can also use:
-
-```javascript
-Array.isArray(arrayList);
-```
-
-`Array.isArray` is supported by Chrome 5, Firefox 4.0, IE 9, Opera 10.5 and Safari 5
+*Note: The `Array.isArray()` method is supported in all major browsers, such as Chrome, Firefox, IE (9 and above)*
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7833,42 +7797,6 @@ unescape('%u0107');     // "ć"
 * screen.colorDepth
 * screen.pixelDepth
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How will you remove duplicates from an array in JavaScript?***
-
-**a.) Using set()**  
-```javascript
-const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
-
-let unique = [...new Set(names)];
-console.log(unique); // 'John', 'Paul', 'George', 'Ringo'
-```
-**b.) Using filter()**   
-```javascript
-const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
-
-let x = (names) => names.filter((v,i) => names.indexOf(v) === i)
-x(names); // 'John', 'Paul', 'George', 'Ringo'
-```
-**c.) Using forEach()**  
-```javascript
-const names = ['John', 'Paul', 'George', 'Ringo', 'John'];
-
-function removeDups(names) {
-  let unique = {};
-  names.forEach(function(i) {
-    if(!unique[i]) {
-      unique[i] = true;
-    }
-  });
-  return Object.keys(unique);
-}
-
-removeDups(names); // // 'John', 'Paul', 'George', 'Ringo'
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
