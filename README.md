@@ -5476,7 +5476,7 @@ Above implementation can also empty the array. But not recommended to use often.
 
 ## Q. ***How to check if an object is an array or not?***
 
-The `isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
+The `Array.isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
 
 ```js
  // Creating some variables
