@@ -1,4 +1,4 @@
-# Programming in JavaScript
+# JavaScript Programming Practice
 
 ## Q. ***Write a program in javascript. sum(2)(3);*** // Expected output is 5
 
@@ -25,7 +25,7 @@ console.log(sum(2)(3));  // Outputs 5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to do Javascript file size and extension validation before upload?***
+## Q. ***How to validate file size and extension before upload?***
 
 ```html
 <!DOCTYPE html>
@@ -97,7 +97,7 @@ console.log(sum(2)(3));  // Outputs 5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to create captcha using javascript?***
+## Q. ***Create captcha using javascript?***
 
 ```html
 <!DOCTYPE html>
