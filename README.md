@@ -277,7 +277,7 @@
 | 264.|[Write code for merge two JavaScript Object dynamically?](#q-write-code-for-merge-two-javascript-object-dynamically)|
 | 265.|[What is non-enumerable property in JavaScript and how you can create one?](#q-what-is-non-enumerable-property-in-javascript-and-how-you-can-create-one)|
 | 266.|[What is Function binding ?](#q-what-is-function-binding)|
-| 267.|[Explain event delegation?](#q-explain-event-delegation)|
+| 267.|[How setTimeout() and setInterval() are different from each other ?](#q-how-setTimeout()-and-setInterval()-are-different-from-each-other)|
 | 268.|[Explain how `this` works in JavaScript?](#q-explain-how-this-works-in-javascript)|
 | 269.|[Explain how prototypal inheritance works?](#q-explain-how-prototypal-inheritance-works)|
 | 270.|[What do you think of AMD vs CommonJS?](#q-what-do-you-think-of-amd-vs-commonjs)|
@@ -348,7 +348,7 @@
 | 349.|[Explain types of Memory Leaks in JavaScript?](#q-explain-types-of-memory-leaks-in-javascript)|
 | 350.|[How accidental closures might cause memory leaks in IE?](#q-how-accidental-closures-might-cause-memory-leaks-in-ie)|
 | 351.|[How to convert Decimal to Binary in JavaScript?](#q-how-to-convert-decimal-to-binary-in-javascript)|
-| 352.|[How setTimeout() and setInterval() are different from each other ?](#q-how-setTimeout()-and-setInterval()-are-different-from-each-other)|
+
 
 
 <br/>
