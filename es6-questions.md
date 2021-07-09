@@ -120,7 +120,7 @@ let fruits = ['Apple','Orange','Banana'];
 
 let newFruitArray = [...fruits];
 
-console.log(copiedList); // ['Apple','Orange','Banana']
+console.log(newFruitArray); // ['Apple','Orange','Banana']
 ```
 **2.2. Concatenating arrays**  
 ```javascript
