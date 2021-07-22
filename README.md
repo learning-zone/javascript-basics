@@ -2998,8 +2998,14 @@ console.log(pattern.test("How are you?")); //true
 The purpose of exec method is similar to test method but it returns a founded text as an object instead of returning true/false.
 
 ```javascript
+// Using test() method
 var pattern = /you/;
-console.log(pattern.test("How are you?")); //you
+console.log(pattern.test("How are you?")); // true
+
+
+// Using exec() method
+var pattern = /you/;
+console.log(pattern.exec("How are you?")); // ["you", index: 8, input: "How are you?", groups: undefined]
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
