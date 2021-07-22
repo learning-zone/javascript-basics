@@ -3530,16 +3530,21 @@ In the above code, it uses `get` handler which define the behavior of the proxy 
 ## Q. ***What is the purpose of seal method?***
 
 The `Object.seal()` method is used seal an object, by preventing new properties from being added to it and marking all existing properties as non-configurable. But values of present properties can still be changed as long as they are writable. 
-```javascript
+
+```js
 const object = {
     property: 'Welcome JS world'
 };
+
 Object.freeze(object);
+
 object.property = 'Welcome to object world';
-console.log(Object.isFrozen(object)); // Welcome to object world
+console.log(Object.isFrozen(object)); // true
+
 delete object.property; // You cannot delete when sealed
-console.log(object.property); //Welcome to object world
+console.log(object.property); // Welcome JS world
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
