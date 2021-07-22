@@ -11,7 +11,7 @@
 
 |Sl.No| Questions                                                                         |
 |-----|-----------------------------------------------------------------------------------|
-| 01.|[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-document-getelementbyid-and-document-queryselector)|
+| 01.|[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)|
 | 02.|[When to use reduce(), map(), foreach() and filter() in JavaScript?](#q-when-to-use-reduce-map-foreach-and-filter-in-javascript)|
 | 03.|[What is Hoisting in JavaScript?](#q-what-is-hoisting-in-javascript)|
 | 04.|[What are closures?](#q-what-are-closures)|
@@ -348,8 +348,6 @@
 | 349.|[Explain types of Memory Leaks in JavaScript?](#q-explain-types-of-memory-leaks-in-javascript)|
 | 350.|[How accidental closures might cause memory leaks in IE?](#q-how-accidental-closures-might-cause-memory-leaks-in-ie)|
 | 351.|[How to convert Decimal to Binary in JavaScript?](#q-how-to-convert-decimal-to-binary-in-javascript)|
-
-
 
 <br/>
 
