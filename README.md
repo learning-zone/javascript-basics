@@ -3643,6 +3643,7 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
 ## Q. ***How do you create an object with prototype?***
 
 The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
+
 ```javascript
 const user = {
   name: 'John',
@@ -3651,10 +3652,11 @@ const user = {
   }
 };
 
-const admin = Object.create(person);
+const admin = Object.create(user);
 admin.name = "Nick"; // Remember that "name" is a property set on "admin" but not on "user" object
 admin.printInfo(); // My name is Nick
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -3662,6 +3664,7 @@ admin.printInfo(); // My name is Nick
 ## Q. ***What is a WeakSet?***
 
 WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
+
 ```javascript
 new WeakSet([iterable]);
 ```
