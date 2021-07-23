@@ -4000,7 +4000,7 @@ The above multi-way branch statement provides an easy way to dispatch execution 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the conventions to be followed for the usage of switch case??***
+## Q. ***What are the conventions to be followed for the usage of switch case?***
 
 Below are the list of conventions should be taken care,
 1. The expression can be of type either number or string.
