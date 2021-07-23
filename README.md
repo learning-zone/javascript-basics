@@ -176,7 +176,7 @@
 | 163.|[What are the advantages of Getters and Setters?](#q-what-are-the-advantages-of-getters-and-setters)|
 | 164.|[Can I add getters and setters using defineProperty method?](#q-can-i-add-getters-and-setters-using-defineproperty-method)|
 | 165.|[What is the purpose of switch-case?](#q-what-is-the-purpose-of-switch-case)|
-| 166.|[What are the conventions to be followed for the usage of swtich case?](#q-what-are-the-conventions-to-be-followed-for-the-usage-of-swtich-case)|
+| 166.|[What are the conventions to be followed for the usage of switch case?](#q-what-are-the-conventions-to-be-followed-for-the-usage-of-switch-case)|
 | 167.|[What are the different ways to access object properties?](#q-what-are-the-different-ways-to-access-object-properties)|
 | 168.|[What are the function parameter rules?](#q-what-are-the-function-parameter-rules)|
 | 169.|[What is an error object?](#q-what-is-an-error-object)|
