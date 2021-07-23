@@ -1,4 +1,4 @@
-# JavaScript Programming Practice
+# JavaScript Coding Practice
 
 ## Q. ***Write a program in javascript. sum(2)(3);*** // Expected output is 5
 
