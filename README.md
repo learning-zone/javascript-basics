@@ -1898,21 +1898,21 @@ The object type refers to a compound value where you can set properties (named l
 
 ```js
 var person = { 
-    firstName: "John", 
-    lastName: "K", 
+    firstName: "Kamala", 
+    lastName: "Ramaswamy", 
     age: 25, 
     getFullName: function () { 
       return this.firstName + ' ' + this.lastName 
     }
 };
 
-person.firstName; // returns James
-person.lastName; // returns Bond
+person.firstName; // returns Kamala
+person.lastName; // returns Ramaswamy
 
-person["firstName"];// returns James
-person["lastName"];// returns Bond
+person["firstName"];// returns Kamala
+person["lastName"];// returns Ramaswamy
 
-person.getFullName();
+person.getFullName(); // returns Kamala Ramaswamy
 ```
 
 <div align="right">
