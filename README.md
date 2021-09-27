@@ -5,7 +5,7 @@
 ## Table of Contents
 
 * *[ES6 Interview Questions and Answers](es6-questions.md)*
-* *[JavaScript Coding Practice](javascript-programs.md)*
+* *[300+ JavaScript Coding Practice Questions](javascript-programs.md)*
 
 <br/>
 
@@ -9060,6 +9060,7 @@ console.log(sum);
 </div>
 
 #### Q. ***How to compare two objects in javascript?***
+#### Q. ***What is optional chaining in javascript?***
 
 *ToDo*
 
