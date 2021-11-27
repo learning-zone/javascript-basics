@@ -2613,7 +2613,7 @@ JSON arrays are written inside square brackets and array contain javascript obje
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you generate random integers?***
+## Q101. ***How do you generate random integers?***
 
 You can use Math.random() with Math.floor() to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,
 
@@ -2627,7 +2627,7 @@ Math.floor(Math.random() * 100) + 1;     // returns a random integer from 1 to 1
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Can you write a random integers function to print integers with in a range?***
+## Q102. ***Can you write a random integers function to print integers with in a range?***
 
 Yes, you can create a proper random function to return a random number between min and max (both included)
 
@@ -2642,7 +2642,7 @@ randomInteger(1, 1000); // returns a random integer from 1 to 1000
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the string methods available in Regular expression?***
+## Q103. ***What are the string methods available in Regular expression?***
 
 Regular Expressions has two string methods: search() and replace().
 The search() method uses an expression to search for a match, and returns the position of the match.
@@ -2661,7 +2661,7 @@ var n = msg.search(/John/i, "Buttler"); // Hello Buttler
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are modifiers in regular expression?***
+## Q104. ***What are modifiers in regular expression?***
 
 Modifiers can be used to perform case-insensitive and global searches. 
 
@@ -2682,7 +2682,7 @@ Example: Global Modifier
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are regular expression patterns?***
+## Q105. ***What are regular expression patterns?***
 
 Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,  
 
@@ -2708,7 +2708,7 @@ Regular Expressions provided group of patterns in order to match characters. Bas
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a RegExp object?***
+## Q106. ***What is a RegExp object?***
 
 RegExp object is a regular expression object with predefined properties and methods. 
 
@@ -2721,7 +2721,7 @@ console.log(regexp);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you search a string for a pattern?***
+## Q107. ***How do you search a string for a pattern?***
 
 You can use test() method of regular expression in order to search a string for a pattern, and returns true or false depending on the result.
 
@@ -2733,7 +2733,7 @@ console.log(pattern.test("How are you?")); //true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of exec method?***
+## Q108. ***What is the purpose of exec method?***
 
 The purpose of exec method is similar to test method but it returns a founded text as an object instead of returning true/false.
 
@@ -2745,7 +2745,7 @@ console.log(pattern.test("How are you?")); //you
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you change style of a HTML element?***
+## Q109. ***How do you change style of a HTML element?***
 
 You can change inline style or classname of a HTML element using javascript
 1. **Using style property:** You can modify inline style using style property
@@ -2762,7 +2762,7 @@ document.getElementById("title").style.className = "custom-title";
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a debugger statement?***
+## Q110. ***What is a debugger statement?***
 
 The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect.
 For example, in the below function a debugger statement has been inserted. So execution is paused at the debugger statement just like a breakpoint in the script source.
@@ -2778,7 +2778,7 @@ debugger;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of breakpoints in debugging?***
+## Q111. ***What is the purpose of breakpoints in debugging?***
 
 You can set breakpoints in the javascript code once the debugger statement is executed and debugger window pops up. At each breakpoint, javascript will stop executing, and let you examine the JavaScript values. After examining values, you can resume the execution of code using play button.
 
@@ -2786,7 +2786,7 @@ You can set breakpoints in the javascript code once the debugger statement is ex
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Can I use reserved words as identifiers?***
+## Q112. ***Can I use reserved words as identifiers?***
 
 No, you cannot use the reserved words as variables, labels, object or function names.
 
@@ -2797,7 +2797,7 @@ var else = "hello"; // Uncaught SyntaxError: Unexpected token else
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you detect a mobile browser without regexp?***
+## Q113. ***How do you detect a mobile browser without regexp?***
 
 You can detect mobile browser by simply running through a list of devices and checking if the useragent matches anything. This is an alternative solution for RegExp usage,
 
@@ -2822,7 +2822,7 @@ else {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you get the image width and height using JS?***
+## Q114. ***How do you get the image width and height using JS?***
 
 You can programmatically get the image and check the dimensions(width and height) using Javascript.
 
@@ -2837,7 +2837,7 @@ img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you make synchronous HTTP request?***
+## Q115. ***How do you make synchronous HTTP request?***
 
 Browsers provide an XMLHttpRequest object which can be used to make synchronous HTTP requests from JavaScript
 
@@ -2854,7 +2854,7 @@ function httpGet(theUrl)
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you make asynchronous HTTP request?***
+## Q116. ***How do you make asynchronous HTTP request?***
 
 Browsers provide an XMLHttpRequest object which can be used to make asynchronous HTTP requests from JavaScript by passing 3rd parameter as true.
 
@@ -2874,7 +2874,7 @@ function httpGetAsync(theUrl, callback)
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you convert date to another timezone in javascript?***
+## Q117. ***How do you convert date to another timezone in javascript?***
 
 You can use toLocaleString() method to convert date in one timezone to another. For example, let us convert current date to British English timezone as below,
 
@@ -2885,7 +2885,7 @@ console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 0
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the properties used to get size of window?***
+## Q118. ***What are the properties used to get size of window?***
 
 You can use innerWidth, innerHeight, clientWidth, clientHeight properties of windows, document element and document body objects to find the size of a window. Let us use them combination of these properties to calculate the size of a window or document,
 
@@ -2902,7 +2902,7 @@ var height = window.innerHeight
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a conditional operator in javascript?***
+## Q119. ***What is a conditional operator in javascript?***
 
 The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
 
@@ -2914,7 +2914,7 @@ console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticat
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Can you apply chaining on conditional operator?***
+## Q120. ***Can you apply chaining on conditional operator?***
 
 Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain. The syntax is going to be as below,
 
@@ -2939,7 +2939,7 @@ function traceValue(someParam) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the ways to execute javascript after page load?***
+## Q121. ***What are the ways to execute javascript after page load?***
 
 You can execute javascript after page load in many different ways,  
 **a.) window.onload:**
@@ -2958,7 +2958,7 @@ document.onload = function ...
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between proto and prototype?***
+## Q122. ***What is the difference between proto and prototype?***
 
 The `__proto__` object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas `prototype` is the object that is used to build `__proto__` when you create an object with new
 ```javascript
@@ -2969,7 +2969,7 @@ The `__proto__` object is the actual object that is used in the lookup chain to 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Give an example where do you really need semicolon?***
+## Q123. ***Give an example where do you really need semicolon?***
 
 It is recommended to use semicolons after every statement in JavaScript. For example, in the below case it throws an error ".. is not a function" at runtime due to missing semicolon.
 ```javascript
@@ -2997,7 +2997,7 @@ In this case, we are passing second function as an argument to the first functio
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a freeze method?***
+## Q124. ***What is a freeze method?***
 
 The freeze() method is used to freeze an object. Freezing an object does'nt allow adding new properties to an object,prevents from removing and prevents changing the enumerability, configurability, or writability of existing properties. i.e, It returns the passed object and does not create a frozen copy.
 ```javascript
@@ -3016,13 +3016,13 @@ console.log(obj.prop); //100
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of freeze method?***
+## Q125. ***What is the purpose of freeze method?***
 
 Below are the main benefits of using freeze method,
 1. It is used for freezing objects and arrays.
 2. It is used to make an object immutable.
 
-## Q. ***Why do I need to use freeze method?***
+## Q126. ***Why do I need to use freeze method?***
 
 In Object-oriented paradigm, an existing API contains certain elements that are not intended to be extended, modified, or re-used outside of their current context. Hence it works as `final` keyword which is used in various languages.
 
@@ -3030,7 +3030,7 @@ In Object-oriented paradigm, an existing API contains certain elements that are 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you detect a browser language preference?***
+## Q127. ***How do you detect a browser language preference?***
 
 You can use navigator object to detect a browser language preference as below,
 ```javascript
@@ -3044,7 +3044,7 @@ console.log(language);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to convert string to title case with javascript?***
+## Q128. ***How to convert string to title case with javascript?***
 
 Title case means that the first letter of each word is capitalized. You can convert a string to title case using the below function,
 ```javascript
@@ -3062,7 +3062,7 @@ Title case means that the first letter of each word is capitalized. You can conv
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you detect javascript disabled in the page?***
+## Q129. ***How do you detect javascript disabled in the page?***
 
 You can use `<noscript>` tag to detect javascript disabled or not. The code block inside `<noscript>` get executed when JavaScript is disabled, and are typically used to display alternative content when the page generated in JavaScript.
 ```html
@@ -3077,7 +3077,7 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are various operators supported by javascript?***
+## Q130. ***What are various operators supported by javascript?***
 
 An operator is capable of manipulating(mathematical and logical computations) a certain value or operand. There are various operators supported by JavaScript as below,
 1. **Arithmetic Operators:** Includes + (Addition),– (Subtraction), * (Multiplication), / (Division), % (Modulus), + + (Increment)  and – – (Decrement)
@@ -3091,7 +3091,7 @@ An operator is capable of manipulating(mathematical and logical computations) a 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a rest parameter?***
+## Q131. ***What is a rest parameter?***
 
 Rest parameter is an improved way to handle function parameter which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,
 ```javascript
@@ -3120,7 +3120,7 @@ console.log(fun(1,2,3,4,5)); //15
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What happens if you do not use rest parameter as a last argument?***
+## Q132. ***What happens if you do not use rest parameter as a last argument?***
 
 The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it does not make any sense and will throw an error.
 
@@ -3135,7 +3135,7 @@ function someFunc(a,…b,c) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the bitwise operators available in javascript?***
+## Q133. ***What are the bitwise operators available in javascript?***
 
 Below are the list of bit-wise logical operators used in JavaScript
 1. Bit-wise AND ( & )
@@ -3150,7 +3150,7 @@ Below are the list of bit-wise logical operators used in JavaScript
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you determine whether object is frozen or not?***
+## Q134. ***How do you determine whether object is frozen or not?***
 
 `Object.isFrozen()` method is used to determine if an object is frozen or not. An object is frozen if all of the below conditions hold true,
 1. If it is not extensible.
@@ -3169,7 +3169,7 @@ console.log(Object.isFrozen(object));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you determine two values same or not using object?***
+## Q135. ***How do you determine two values same or not using object?***
 
 The `Object.is()` method determines whether two values are the same value. For example, the usage with different types of values would be,
 ```javascript
@@ -3200,7 +3200,7 @@ Two values are the same if one of the following holds:
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you copy properties from one object to other?***
+## Q136. ***How do you copy properties from one object to other?***
 
 You can use `Object.assign()` method which is used to copy the values and properties from one or more source objects to a target object.  It returns the target object which has properties and values copied from the target object. The syntax would be as below,
 ```javascript
@@ -3222,7 +3222,7 @@ As observed in the above code, there is a common property(`b`) from source to ta
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the applications of assign method?***
+## Q137. ***What are the applications of assign method?***
 
 Below are the some of main applications of `Object.assign()` method,
 1. It is used for cloning an object.
@@ -3232,7 +3232,7 @@ Below are the some of main applications of `Object.assign()` method,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a proxy object?***
+## Q138. ***What is a proxy object?***
 
 The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc. The syntax would be as follows,
 ```javascript
@@ -3261,7 +3261,7 @@ In the above code, it uses `get` handler which define the behavior of the proxy 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of seal method?***
+## Q139. ***What is the purpose of seal method?***
 
 The `Object.seal()` method is used seal an object, by preventing new properties from being added to it and marking all existing properties as non-configurable. But values of present properties can still be changed as long as they are writable. 
 ```javascript
@@ -3278,7 +3278,7 @@ console.log(object.property); //Welcome to object world
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the applications of seal method?***
+## Q140. ***What are the applications of seal method?***
 
 Below are the main applications of `Object.seal()` method,
 1. It is used for sealing objects and arrays.
@@ -3288,7 +3288,7 @@ Below are the main applications of `Object.seal()` method,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the differences between freeze and seal methods?***
+## Q141. ***What are the differences between freeze and seal methods?***
 
 If an object is frozen using the `Object.freeze()` method then its properties become immutable and no changes can be made in them whereas if an object is sealed using the `Object.seal()` method then the changes can be made in the existing properties of the object.
 
@@ -3296,7 +3296,7 @@ If an object is frozen using the `Object.freeze()` method then its properties be
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you determine if an object is sealed or not?***
+## Q142. ***How do you determine if an object is sealed or not?***
 
 The `Object.isSealed()` method is used to determine if an object is sealed or not. An object is sealed if all of the below conditions hold true
 1. If it is not extensible.
@@ -3317,7 +3317,7 @@ console.log(Object.isSealed(object));      // checking whether the object is sea
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you get enumerable key and value pairs?***
+## Q143. ***How do you get enumerable key and value pairs?***
 
 The `Object.entries()` method is used to return an array of a given object own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let us see the functionality of object.entries() method in an example,
 ```javascript
@@ -3337,7 +3337,7 @@ for (let [key, value] of Object.entries(object)) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the main difference between Object.values and Object.entries method?***
+## Q144. ***What is the main difference between Object.values and Object.entries method?***
 
 The `Object.values()` method's behavior is similar to `Object.entries()` method but it returns an array of values instead [key,value] pairs.
 ```javascript
@@ -3355,7 +3355,7 @@ for (let value of Object.values(object)) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How can you get the list of keys of any object?***
+## Q145. ***How can you get the list of keys of any object?***
 
 You can use `Object.keys()` method which is used return an array of a given object's own property names, in the same order as we get with a normal loop. For example, you can get the keys of a user object,
 ```javascript
@@ -3371,7 +3371,7 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you create an object with prototype?***
+## Q146. ***How do you create an object with prototype?***
 
 The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
 ```javascript
@@ -3390,7 +3390,7 @@ admin.printInfo(); // My name is Nick
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a WeakSet?***
+## Q147. ***What is a WeakSet?***
 
 WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
 ```javascript
@@ -3409,7 +3409,7 @@ ws.has(user);    // false, user has been removed
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the differences between WeakSet and Set?***
+## Q148. ***What are the differences between WeakSet and Set?***
 
 The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
 Other differences are,
@@ -3422,7 +3422,7 @@ Other differences are,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***List down the collection of methods available on WeakSet?***
+## Q149. ***List down the collection of methods available on WeakSet?***
 
 Below are the list of methods available on WeakSet,
 1. add(value): A new object is appended with the given value to the weakset
@@ -3445,7 +3445,7 @@ weakSetObject.delete(secondObject);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a WeakMap?***
+## Q150. ***What is a WeakMap?***
 
 The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax is looking like as below,
 ```javascript
