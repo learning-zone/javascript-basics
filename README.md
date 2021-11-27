@@ -353,7 +353,7 @@
 
 <br/>
 
-## Q. ***What is difference between document.getElementById() and document.querySelector()?***
+## Q1. ***What is difference between document.getElementById() and document.querySelector()?***
 
 * **document.getElementById()**
 
