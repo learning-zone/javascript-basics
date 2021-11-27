@@ -1,6 +1,6 @@
 # JavaScript Coding Practice
 
-## Q. ***Write a program in javascript. sum(2)(3);*** // Expected output is 5
+## Q1. ***Write a program in javascript. sum(2)(3);*** // Expected output is 5
 
 ```javascript
 function sum(x, y) {
@@ -25,7 +25,7 @@ console.log(sum(2)(3));  // Outputs 5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to validate file size and extension before upload?***
+## Q2. ***How to validate file size and extension before upload?***
 
 ```html
 <!DOCTYPE html>
@@ -97,7 +97,7 @@ console.log(sum(2)(3));  // Outputs 5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Create captcha using javascript?***
+## Q3. ***Create captcha using javascript?***
 
 ```html
 <!DOCTYPE html>
@@ -141,7 +141,7 @@ console.log(sum(2)(3));  // Outputs 5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Create a Stopwatch program in javascript?***
+## Q4. ***Create a Stopwatch program in javascript?***
 
 ```html
 <!DOCTYPE html>
@@ -254,7 +254,7 @@ console.log(sum(2)(3));  // Outputs 5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Write a program to reverse a string?***
+## Q5. ***Write a program to reverse a string?***
 
 ```javascript
 function reverseString(str) {
@@ -271,7 +271,7 @@ alert(reverseString("Pradeep")); // Output: peedarP
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to check if object is empty or not in javaScript?***
+## Q6. ***How to check if object is empty or not in javaScript?***
 
 ```javascript
 function isEmpty(obj) {
@@ -279,13 +279,13 @@ function isEmpty(obj) {
 }
 ```
 
-## Q. ***JavaScript Regular Expression to validate Email***
+## Q7. ***JavaScript Regular Expression to validate Email***
 
 ```javascript
 var pattern = /^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$/;
 ```
 
-## Q. ***Use RegEx to test password strength in JavaScript?***
+## Q8. ***Use RegEx to test password strength in JavaScript?***
 
 ```javascript
 var newPassword = "Pq5*@a{J";
@@ -313,7 +313,7 @@ if (!regularExpression.test(newPassword)) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to compare objects ES6?***
+## Q9. ***How to compare objects ES6?***
 
 Example 01:
 
@@ -365,7 +365,7 @@ JSON.stringify(one) === JSON.stringify(two); // false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to remove array element based on object property?***
+## Q10. ***How to remove array element based on object property?***
 
 ```javascript
 var myArray = [
@@ -394,13 +394,13 @@ myArray = [
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q11. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log(+"meow"); // Output: NaN
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q12. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var result;
@@ -410,14 +410,14 @@ for (var i = 5; i > 0; i--) {
 console.log(result); // Output: NaN
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q13. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var a = 1.2;
 console.log(typeof a); // Output: Number
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q14. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var x = 10;
@@ -431,19 +431,19 @@ console.log(x); // Output: 10
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q15. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log(0.1 + 0.2 == 0.3); // Output: false
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q16. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log(1 + -"1" + 2); // Output: 2
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q17. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 (function (x) {
@@ -457,7 +457,7 @@ console.log(1 + -"1" + 2); // Output: 2
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q18. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var num = 20;
@@ -472,7 +472,7 @@ getNumber(); // Output: undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q19. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 function f1() {
@@ -482,13 +482,13 @@ f1();
 console.log("window.num: " + window.num); // output: 10
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q20. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log("(null + undefined): " + (null + undefined)); // Output: NaN
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q21. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 (function () {
@@ -499,7 +499,7 @@ console.log("value of a : " + a); // Output: undefined
 console.log("value of b : " + b); // Output: 3
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q22. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var y = 1;
@@ -509,7 +509,7 @@ if (function f() {}) {
 console.log(y); // Output: 1Object
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q23. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var k = 1;
@@ -524,7 +524,7 @@ console.log(k); // Output: 1undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q24. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var k = 1;
@@ -535,7 +535,7 @@ if (1) {
 console.log(k); // Output: 1function
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q25. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log("(-1 / 0): " + -1 / 0); // Output: -Infinity
@@ -544,7 +544,7 @@ console.log("(0 / 0): " + 0 / 0); // Output: NaN
 console.log("(0 / 1): " + 0 / 1); // Output: 0
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q26. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var a = 4;
@@ -562,14 +562,14 @@ console.log("(a % b): " + (a % b)); // Output: 4
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q27. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log("MAX : " + Math.max(10, 2, NaN)); // Output: NaN
 console.log("MAX : " + Math.max()); // Output: -Infinity
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q28. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 (function () {
@@ -580,7 +580,7 @@ console.log("a defined? " + (typeof a !== "undefined")); // Output: true
 console.log("b defined? " + (typeof b !== "undefined")); // Output: true
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q29. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var myObject = {
@@ -602,14 +602,14 @@ myObject.func();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q30. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log(0.1 + 0.2); // Output: 0.30000000000000004
 console.log(0.1 + 0.2 == 0.3); // Output: false
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q31. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 (function () {
@@ -625,7 +625,7 @@ console.log(0.1 + 0.2 == 0.3); // Output: false
 // Output: 1, 4, 3, 2
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q32. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var arr1 = "john".split("");
@@ -636,7 +636,7 @@ console.log("array 1: length=" + arr1.length + " last=" + arr1.slice(-1)); //arr
 console.log("array 2: length=" + arr2.length + " last=" + arr2.slice(-1)); //array 2: length=5 last=j,o,n,e,s
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q33. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log(1 + "2" + "2"); // Output: 122
@@ -651,7 +651,7 @@ console.log("A" - "B" + 2); // Output: NaN
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q34. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 for (var i = 0; i < 5; i++) {
@@ -662,7 +662,7 @@ for (var i = 0; i < 5; i++) {
 // Output: 145, 5, 5, 5, 5, 5
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q35. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 for (var i = 0; i < 5; i++) {
@@ -675,7 +675,7 @@ for (var i = 0; i < 5; i++) {
 //Output:- 0, 1, 2, 3, 4
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q36. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log("0 || 1 = " + (0 || 1)); // Output: 1
@@ -688,14 +688,14 @@ console.log("1 && 2 = " + (1 && 2)); // Output: 2
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q37. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log(false == "0"); // Output: true
 console.log(false === "0"); // Output: false
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q38. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 var a = {},
@@ -707,7 +707,7 @@ a[c] = 456;
 console.log(a[b]); // Output: 456
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q39. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 console.log(
@@ -717,7 +717,7 @@ console.log(
 ); // Output: 3628800
 ```
 
-## Q. ***Predict the output of the following JavaScript code?***
+## Q40. ***Predict the output of the following JavaScript code?***
 
 ```javascript
 (function (x) {
