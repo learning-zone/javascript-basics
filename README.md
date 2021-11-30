@@ -234,7 +234,7 @@
 | 221.|[What is an example of an immutable object in JavaScript?](#q-what-is-an-example-of-an-immutable-object-in-javascript)|
 | 222.|[How can you achieve immutability in your own code?](#q-how-can-you-achieve-immutability-in-your-own-code)|
 | 223.|[Explain the difference between synchronous and asynchronous functions?](#q-explain-the-difference-between-synchronous-and-asynchronous-functions)|
-| 224.|[What is event loop? What is the difference between call stack and task ueue?](#q-what-is-event-loop-what-is-the-difference-between-call-stack-and-task-ueue)|
+| 224.|[What is event loop? What is the difference between call stack and task queue?](#q-what-is-event-loop-what-is-the-difference-between-call-stack-and-task-queue)|
 | 225.|[Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`?](#q-explain-the-differences-on-the-usage-of-foo-between-function-foo-and-var-foo-function)|
 | 226.|[What are the differences between variables created using `let`, `var` or `const`?](#q-what-are-the-differences-between-variables-created-using-let-var-or-const)|
 | 227.|[What is the definition of a higher-order function?](#q-what-is-the-definition-of-a-higher-order-function)|
