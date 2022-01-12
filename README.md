@@ -858,6 +858,10 @@ console.log(window.value);  //accessing global variable from other function
 
 It’s a best practice to minimize global variables. Since the variable can be accessed anywhere in the program, they can cause strange behavior.
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is variable shadowing in javascript?***
 
 Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
@@ -7313,7 +7317,9 @@ console.log(x) // 1
 |    Hoisting               |             &#10004;               |                &#10060;                |
 |    Reassigning         |             &#10004;                |               &#10004;                |
 
-<br/>
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 ## Q. ***What is Associative Array? How do we use it?***
 
