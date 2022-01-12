@@ -842,16 +842,16 @@ console.log(window.dog); // Fluffy
 To declare JavaScript global variables inside the function, you need to use a window object. For example:
 
 ```javascript
-window.value=90;
+window.value = 90;
 ```
   
 Now it can be declared inside any function and can be accessed from any function. For example:
 
 ```javascript
-function m(){  
+function m() {  
 window.value=100;  //declaring global variable by window object  
 }  
-function n(){  
+function n() {  
 console.log(window.value);  //accessing global variable from other function  
 }  
 ```
