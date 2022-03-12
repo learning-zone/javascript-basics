@@ -8061,16 +8061,22 @@ c.retrieve(); // => The counter is currently at: 14
 
 ```js
 function splitArrayIntoChunksOfLen(arr, len) {
-  var chunks = [], i = 0, n = arr.length;
-  
+  let chunks = [],
+    i = 0,
+    n = arr.length;
+
   while (i < n) {
     chunks.push(arr.slice(i, (i += len)));
   }
   return chunks;
 }
-var alphabet = ["a", "b", "c", "d", "e", "f"];
-var alphabetPairs = splitArrayIntoChunksOfLen(alphabet, 2); //split into chunks of two
+let alphabet = ["a", "b", "c", "d", "e", "f"];
+let alphabetPairs = splitArrayIntoChunksOfLen(alphabet, 2); //split into chunks of two
+
+console.log(alphabetPairs);
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/splitarrayintochunksoflen-5od3rz?file=/src/index.js:0-345)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
