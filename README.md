@@ -4,8 +4,7 @@
 
 ## Table of Contents
 
-* *[ES6 Interview Questions and Answers](es6-questions.md)*
-* *[300+ JavaScript Coding Practice Questions](javascript-programs.md)*
+* [ES6 Interview Questions and Answers](es6-questions.md)
 
 <br/>
 
