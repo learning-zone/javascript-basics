@@ -1271,6 +1271,9 @@ There are many real-world applications for Proxies
 * revocable references
 * implementing the DOM in javascript
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 #### Q. How could you make sure a const value is garbage collected?
 
