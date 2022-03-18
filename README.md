@@ -2,9 +2,13 @@
 
 *Click <img src="assets/star.png" width="18" height="18" align="absmiddle" title="Star" /> if you like the project. Pull Request are highly appreciated.*
 
-## Table of Contents
+<br/>
+
+## Related Interview Questions
 
 * [ES6 Interview Questions and Answers](es6-questions.md)
+* [JavaScript Design Patterns](https://github.com/learning-zone/JavaScript-Design-Patterns/blob/main/README.md)
+* [JavaScript Coding Practice](https://github.com/learning-zone/JavaScript-Coding-Practice/blob/main/README.md)
 
 <br/>
 
