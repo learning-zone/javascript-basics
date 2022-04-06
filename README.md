@@ -803,8 +803,8 @@ someThing(4); // 9
 console.log(x); // 5
 ```
 
-### Note:
-### Using Undeclared Variables
+**Using Undeclared Variables:**
+
 - In strict mode, if you attempt to use an undeclared variable, you’ll get a reference error when you run your code. 
 - Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you’ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
 - Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
@@ -819,10 +819,7 @@ function someThing(y) {
 }
 someThing(4) // 5
 console.log(x) // 1
-
 ```
-
-
 
 ```javascript
 var x = 5; // global
@@ -834,6 +831,7 @@ function someThing(y) {
 someThing(4); // 7
 console.log(x); // 5
 ```
+
 A global variable is also an object of the current scope, such as the browser window:
 
 ```javascript
