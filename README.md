@@ -356,7 +356,7 @@
 
 <br/>
 
-## Q. ***What is difference between document.getElementById() and document.querySelector()?***
+## Q 1. ***What is difference between document.getElementById() and document.querySelector()?***
 
 * **document.getElementById()**
 
@@ -388,7 +388,7 @@ element = document.querySelectorAll(selectors);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***When to use reduce(), map(), foreach() and filter() in JavaScript?***
+## Q 2. ***When to use reduce(), map(), foreach() and filter() in JavaScript?***
 
 * **forEach()**  
 
@@ -465,7 +465,7 @@ console.log(sum); // Output: 60
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is Hoisting in JavaScript?***
+## Q 3. ***What is Hoisting in JavaScript?***
 
 Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
 
@@ -522,7 +522,7 @@ They will only get initialized when their lexical binding (assignment) is evalua
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are closures?***
+## Q 4. ***What are closures?***
 
 A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
 
@@ -548,7 +548,7 @@ As per the above code, the inner `function greetingInfo()` has access to the var
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you clone an object in JavaScript?***
+## Q 5. ***How do you clone an object in JavaScript?***
 
 Using the object spread operator `...`, the object own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
 
@@ -569,7 +569,7 @@ Other alternatives include:
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the possible ways to create objects in JavaScript?***
+## Q 6. ***What are the possible ways to create objects in JavaScript?***
 
 **a.) Object constructor**: The simpliest way to create an empty object is using Object constructor. Currently this approach is not recommended.
 
@@ -652,7 +652,7 @@ var object = new function() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the javascript data types?***
+## Q 7. ***What are the javascript data types?***
 
 There are eight basic data types in JavaScript.
 
@@ -788,7 +788,7 @@ const employee = {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are global variables?***
+## Q 8. ***What are global variables?***
 
 Global variables are declared outside of a function or declared with a window object for accessibility throughout the program (unless shadowed by locals). If you declare a variable without using var, even if it’s inside a function, it will still be seen as global:
 
@@ -864,7 +864,7 @@ It’s a best practice to minimize global variables. Since the variable can be a
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is variable shadowing in javascript?***
+## Q 9. ***What is variable shadowing in javascript?***
 
 Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
 
@@ -889,7 +889,7 @@ Output
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is an event flow?***
+## Q 10. ***What is an event flow?***
 
 Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
 
@@ -7239,7 +7239,7 @@ window.top – the reference to the topmost parent window.
 
 ## Q. ***In JavaScript, what is the difference between var x = 1 and x = 1?***
 
-### var x = 1:
+`var x = 1`:
 
 - Allowed in 'strict mode'.
 - The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
