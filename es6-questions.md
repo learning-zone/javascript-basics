@@ -29,6 +29,81 @@
 
 <br/>
 
+## Q. What are the differences between variables created using `let`, `var` or `const`?
+
+Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
+
+```js
+function foo() {
+  // All variables are accessible within functions.
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
+
+  console.log(bar); // bar
+  console.log(baz); // baz
+  console.log(qux); // qux
+}
+
+console.log(bar); // ReferenceError: bar is not defined
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+```js
+if (true) {
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
+}
+
+// var declared variables are accessible anywhere in the function scope.
+console.log(bar); // bar
+// let and const defined variables are not accessible outside of the block they were defined in.
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
+
+```js
+console.log(foo); // undefined
+var foo = 'foo';
+
+console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
+let baz = 'baz';
+
+console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
+const bar = 'bar';
+```
+
+Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
+
+```js
+var foo = 'foo';
+var foo = 'bar';
+console.log(foo); // "bar"
+
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+```
+
+`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
+
+```js
+// This is fine.
+let foo = 'foo';
+foo = 'bar';
+
+// This causes an exception.
+const baz = 'baz';
+baz = 'qux';
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. Can you give an example for destructuring an object or an array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
@@ -1366,6 +1441,503 @@ Promise.race([promise1, promise2]).then(function(value) {
   console.log(value); // "two" // Both promises will resolve, but promise2 is faster
 });
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a WeakSet?
+
+WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
+
+```js
+new WeakSet([iterable]);
+```
+Let us see the below example to explain It is behavior,
+```js
+var ws = new WeakSet();
+var user = {};
+ws.add(user);
+ws.has(user);    // true
+ws.delete(user); // removes user from the set
+ws.has(user);    // false, user has been removed
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the differences between WeakSet and Set?
+
+The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
+Other differences are,
+1. Sets can store any value Whereas WeakSets can store only collections of objects
+2. WeakSet does not have size property unlike Set
+3. WeakSet does not have methods such as clear, keys, values, entries, forEach.
+4. WeakSet is not iterable.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. List down the collection of methods available on WeakSet?
+
+Below are the list of methods available on WeakSet,
+1. add(value): A new object is appended with the given value to the weakset
+2. delete(value): Deletes the value from the WeakSet collection.
+3. has(value): It returns true if the value is present in the WeakSet Collection, otherwise it returns false.
+4. length(): It returns the length of weakSetObject
+Let us see the functionality of all the above methods in an example,
+```js
+var weakSetObject = new WeakSet();
+var firstObject = {};
+var secondObject = {};
+// add(value)
+weakSetObject.add(firstObject);
+weakSetObject.add(secondObject);
+console.log(weakSetObject.has(firstObject)); //true
+console.log(weakSetObject.length()); //2
+weakSetObject.delete(secondObject);
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a WeakMap?
+
+The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax is looking like as below,
+```js
+new WeakMap([iterable])
+```
+Let us see the below example to explain It is behavior,
+```js
+var ws = new WeakMap();
+var user = {};
+ws.set(user);
+ws.has(user);    // true
+ws.delete(user); // removes user from the map
+ws.has(user);    // false, user has been removed
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the differences between WeakMap and Map?
+
+The main difference is that references to key objects in Map are strong while references to key objects in WeakMap are weak. i.e, A key object in WeakMap can be garbage collected if there is no other reference to it.
+Other differences are,
+1. Maps can store any key type Whereas WeakMaps can store only collections of key objects
+2. WeakMap does not have size property unlike Map
+3. WeakMap does not have methods such as clear, keys, values, entries, forEach.
+4. WeakMap is not iterable.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. List down the collection of methods available on WeakMap?
+
+Below are the list of methods available on WeakMap,
+1. set(key, value): Sets the value for the key in the WeakMap object. Returns the WeakMap object.
+2. delete(key): Removes any value associated to the key.
+3. has(key): Returns a Boolean asserting whether a value has been associated to the key in the WeakMap object or not.
+4. get(key): Returns the value associated to the key, or undefined if there is none.
+Let us see the functionality of all the above methods in an example,
+```js
+var weakMapObject = new WeakMap();
+var firstObject = {};
+var secondObject = {};
+// set(key, value)
+weakMapObject.set(firstObject, 'John');
+weakMapObject.set(secondObject, 100);
+console.log(weakMapObject.has(firstObject)); //true
+console.log(weakMapObject.get(firstObject)); // John
+weakMapObject.delete(secondObject);
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a rest parameter?
+
+Rest parameter is an improved way to handle function parameter which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,
+```js
+function f(a, b, ...theArgs) {
+  // ...
+}
+```
+For example, let us take a sum example to calculate on dynamic number of parameters,
+```js
+function total(…args) {
+  let sum = 0;
+  for(let i of args) {
+    sum+=i;
+  }
+ return sum;
+}
+console.log(fun(1,2)); //3
+console.log(fun(1,2,3)); //6
+console.log(fun(1,2,3,4)); //13
+console.log(fun(1,2,3,4,5)); //15
+```
+
+*Note: Rest parameter is added in ES2015 or ES6*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What happens if you do not use rest parameter as a last argument?
+
+The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it does not make any sense and will throw an error.
+
+```js
+function someFunc(a,…b,c) {
+  //You code goes here
+  return;
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a proxy object?
+
+The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc. The syntax would be as follows,
+```js
+var p = new Proxy(target, handler);
+```
+Let us take an example of proxy object,
+```js
+var handler = {
+    get: function(obj, prop) {
+        return prop in obj ?
+            obj[prop] :
+            100;
+    }
+};
+
+var p = new Proxy({}, handler);
+p.a = 10;
+p.b = null;
+
+console.log(p.a, p.b); // 10, null
+console.log('c' in p, p.c); // false, 100
+```
+In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is Proxies and Reflection in JavaScript?
+
+JavaScript support for the Proxy and Reflect objects allowing you to intercept and define custom behavior for fundamental language operations (e.g. property lookup, assignment, enumeration, function invocation, etc). 
+
+**Proxies**  
+The `Proxy` object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc). For example getting a property on an object:
+```js
+var handler = {
+  get: function(target, name) {
+    return name in target ? target[name] : 42;
+  }
+};
+
+var p = new Proxy({}, handler);
+p.a = 1;
+console.log(p.a, p.b); // 1, 42
+```
+The Proxy object defines a target (an empty object here) and a handler object in which a get trap is implemented. Here, an object that is proxied will not return undefined when getting undefined properties, but will instead return the number 42.
+
+**Reflection**  
+Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object.
+
+`Reflect` helps with forwarding default operations from the handler to the target.
+```js
+Reflect.apply(Math.floor, undefined, [1.75]); // 1;
+
+Reflect.apply(String.fromCharCode, undefined, [104, 101, 108, 108, 111]); // "hello"
+
+Reflect.apply(RegExp.prototype.exec, /ab/, ['confabulation']).index; // 4
+
+Reflect.apply(''.charAt, 'ponies', [3]); // "i"
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is difference between async() or defer() keyword in JavaScript?
+
+**The async() Attribute**  
+The async attribute is used to indicate to the browser that the script file can be executed asynchronously. The HTML parser does not need to pause at the point it reaches the script tag to fetch and execute, the execution can happen whenever the script becomes ready after being fetched in parallel with the document parsing.
+```html
+<script async src="script.js">
+```
+This attribute is only available for externally located script files. When an external script has this attribute, the file can be downloaded while the HTML document is still parsing. Once it has been downloaded, the parsing is paused for the script to be executed.
+
+**The defer() Attribute**  
+The defer attribute tells the browser to only execute the script file once the HTML document has been fully parsed.
+```html
+<script defer src="script.js">
+```
+Like an asynchronously loaded script, the file can be downloaded while the HTML document is still parsing. However, even if the file is fully downloaded long before the document is finished parsing, the script is not executed until the parsing is complete.
+
+
+Asynchronous and deferred execution of scripts are more important when the <script> element is not located at the very end of the document. HTML documents are parsed in order, from the first opening <html> element to it is close. If an externally sourced JavaScript file is placed right before the closing </body> element, it becomes much less pertinent to use an async or defer attribute. Since the parser will have finished the vast majority of the document by that point, JavaScript files don not have much parsing left to block.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is difference between async() and await() in JavaScript?
+
+When an `async()` function is called, it returns a `Promise`. When the `async()` function returns a value, the `Promise` will be resolved with the returned value. When the `async()` function throws an exception or some value, the `Promise` will be rejected with the thrown value.
+
+An async function can contain an `await()` expression, which pauses the execution of the `async()` function and waits for the passed Promise's resolution, and then resumes the `async()` function's execution and returns the resolved value. 
+```js
+function resolveAfter2Seconds(x) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(x);
+        }, 2000);
+    });
+}
+
+async function add1(x) {
+    const a = await resolveAfter2Seconds(20);
+    const b = await resolveAfter2Seconds(30);
+    return x + a + b;
+}
+
+add1(10).then(v => {
+    console.log(v); // prints 60 after 4 seconds.
+});
+
+async function add2(x) {
+    const p_a = resolveAfter2Seconds(20);
+    const p_b = resolveAfter2Seconds(30);
+    return x + await p_a + await p_b;
+}
+
+add2(10).then(v => {
+    console.log(v); // prints 60 after 2 seconds.
+});
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is generator in JS?
+
+**Generator-Function**: A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the `yield` keyword rather than `return`. The `yield` statement suspends function’s execution and sends a value back to caller, but retains enough state to enable function to resume where it is left off. When resumed, the function continues execution immediately after the last `yield` run.
+Syntax 
+```js
+function* gen() {
+     yeild 1;
+     yeild 2;
+     ...
+     ...
+}
+```
+**Generator-Object**: Generator functions return a generator object. Generator objects are used either by calling the next method on the generator object or using the generator object in a “for in” loop.
+```js
+function * fun() {
+    yield 10;
+    yield 20;
+    yield 30;
+} 
+  
+// Calling the Generate Function
+var gen = fun();
+document.write(gen.next().value);
+document.write("<br>");
+document.write(gen.next().value);
+document.write("<br>");
+document.write(gen.next().value);
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. Compare Async-Await and Generators usage to achive same functionality?
+
+**Generators/Yield**
+
+Generators are objects created by generator functions — functions with an * (asterisk) next to their name. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator's caller. It can be thought of as a generator-based version of the return keyword.
+```js
+const generator = (function*() {
+  // waiting for .next()
+  const a = yield 5;
+  // waiting for .next()
+  console.log(a); // => 15
+})();
+
+console.log(generator.next()); // => { done: false, value: 5 }
+console.log(generator.next(15)); // => { done: true, value: undefined }
+```
+**Async/Await**
+
+Async keyword is used to define an asynchronous function, which returns a `AsyncFunction` object.
+
+Await keyword is used to pause async function execution until a `Promise` is fulfilled, that is resolved or rejected, and to resume execution of the `async` function after fulfillments. When resumed, the value of the `await` expression is that of the fulfilled `Promise`.
+
+**Key points:**  
+
+1. Await can only be used inside an async function.
+2. Functions with the async keyword will always return a promise.
+3. Multiple awaits will always run in sequential order under a same function.
+4. If a promise resolves normally, then await promisereturns the result. But in case of a rejection it throws the error, just if there were a throw statement at that line.
+5. Async function cannot wait for multiple promises at the same time.
+6. Performance issues can occur if using await after await as many times one statement doesn\'t depend on the previous one.
+
+```js
+
+async function asyncFunction() {
+
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("i am resolved!"), 1000)
+  });
+
+  const result = await promise; 
+  // wait till the promise resolves (*)
+
+  console.log(result); // "i am resolved!"
+}
+
+asyncFunction();
+```
+
+**Generator and Async-await — Comparison**  
+
+1. Generator functions/yield and Async functions/await can both be used to write asynchronous code that “waits”, which means code that looks as if it was synchronous, even though it really is asynchronous.
+2. Generator function are executed yield by yield i.e one yield-expression at a time by its iterator (the next method) where as Async-await, they are executed sequential await by await.
+3. Async/await makes it easier to implement a particular use case of Generators.
+4. The return value of Generator is always {value: X, done: Boolean} where as for Async function it will always be a promise that will either resolve to the value X or throw an error.
+5. Async function can be decomposed into Generator and promise implementation which are good to know stuff.
+
+Generators and async functions always return a specific type of object:
+- Generator functions: If you yield/return a value X, it will always return an iteration object with the form {value: X, done: Boolean}
+- Async functions: If you return a value X, it will always return a promise that will either resolve to the value X or throw an error.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. Explain the difference between Object.freeze() vs const?
+
+`const` applies to bindings ("variables"). It creates an immutable binding, i.e. you cannot assign a new value to the binding. `const` behaves like let. The only difference is, it defines a variable that cannot be reassigned. Variables declared by const are block scoped and not function scoped like variables declared with var.
+
+The const keyword applies to bindings and creates an immutable binding.
+```js
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+person = animal;
+console.log(person); //output { species: 'snake' }
+```
+If you change the person object declaration to be a constant the code above won’t work anymore:
+```js
+const person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+person = animal; // ERROR "person" is read-only
+console.log(person);
+```
+But you can change its values:
+```js
+const person = {
+   name: "Leonardo"
+};
+let animal = { 
+   species: "snake"
+};
+person.name = "Lima";
+console.log(person); //output { name: 'Lima' }
+```
+
+**Object.freeze**: works on values, and more specifically, object values. It makes an object immutable, i.e. you cannot change its properties. `Object.freeze()` takes an object as an argument and returns the same object as an immutable object. This implies that no properties of the object can be added, removed, or changed.
+
+It works on values and it makes an object immutable, i.e. you cannot change, add or delete its properties, but you can assign another instance.
+```js
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+Object.freeze(person);
+person = animal;
+console.log(person); { species: 'snake' }
+```
+Even using Object.freeze() I could assign animal object to to person. Now, let’s try change some property of the person:
+```js
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+Object.freeze(person);
+person.name = "Lima"; //TypeError: Cannot assign to read only property 'name' of object
+console.log(person);
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. Describe the Revealing Module Pattern in javascript?
+
+Javascript does not have the typical 'private' and 'public' specifiers of more traditional object oriented languages like C# or Java. However, you can achieve the same effect through the clever application of Javascript's function-level scoping. The Revealing Module pattern is a design pattern for Javascript applications that elegantly solves this problem.
+
+The central principle of the Revealing Module pattern is that all functionality and variables should be hidden unless deliberately exposed.
+
+The Revealing Module Pattern is one of the most popular ways of creating modules. Using the return statement we can return a object literal that ‘reveals’ only the methods or properties we want to be publicly available.
+```js
+var myModule = (function() {
+  'use strict';
+
+  var _privateProperty = 'Hello World';
+  var publicProperty = 'I am a public property';
+
+  function _privateMethod() {
+    console.log(_privateProperty);
+  }
+
+  function publicMethod() {
+    _privateMethod();
+  }
+    
+  return {
+    publicMethod: publicMethod,
+    publicProperty: publicProperty
+  };
+}());
+  
+myModule.publicMethod();    		        // outputs 'Hello World'   
+console.log(myModule.publicProperty);       // outputs 'I am a public property'
+console.log(myModule._privateProperty);     // is undefined protected by the module closure
+myModule._privateMethod();                  // is TypeError protected by the module closure
+```
+**Advantages**  
+This pattern allows the syntax of our scripts to be more consistent. It also makes it easier to tell at the end of the module which of our functions and variables may be accessed publicly, which eases readability.
+
+**Disadvantages**  
+A disadvantage of this pattern is that if a private function refers to a public function, that public function can’t be overridden if a patch is necessary. This is because the private function will continue to refer to the private implementation,and the pattern does not apply to public members, only to functions.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is an Iterator?
+
+An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `next()` method which returns an object with two properties: value (the next value in the sequence) and done (which is true if the last value in the sequence has been consumed).
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
