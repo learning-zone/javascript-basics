@@ -15,16 +15,16 @@
 
 |Sl.No| Questions                                                                         |
 |-----|-----------------------------------------------------------------------------------|
-| 01.|[What is difference between document.getElementById() and document.querySelector()?](#q-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)|
-| 02.|[When to use reduce(), map(), foreach() and filter() in JavaScript?](#q-when-to-use-reduce-map-foreach-and-filter-in-javascript)|
-| 03.|[What is Hoisting in JavaScript?](#q-what-is-hoisting-in-javascript)|
-| 04.|[What are closures?](#q-what-are-closures)|
-| 05.|[How do you clone an object in JavaScript?](#q-how-do-you-clone-an-object-in-javascript)|
-| 06.|[What are the possible ways to create objects in JavaScript?](#q-what-are-the-possible-ways-to-create-objects-in-javascript)|
-| 07.|[What are the javascript data types?](#q-what-are-the-javascript-data-types)|
-| 08.|[What are global variables?](#q-what-are-global-variables)|
-| 09.|[What is variable shadowing in javascript?](#q-what-is-variable-shadowing-in-javascript)|
-| 10.|[What is an event flow?](#q-what-is-an-event-flow)|
+| 01.|[What is difference between document.getElementById() and document.querySelector()?](#q-1-what-is-difference-between-documentgetelementbyid-and-documentqueryselector)|
+| 02.|[When to use reduce(), map(), foreach() and filter() in JavaScript?](#q-2-when-to-use-reduce-map-foreach-and-filter-in-javascript)|
+| 03.|[What is Hoisting in JavaScript?](#q-3-what-is-hoisting-in-javascript)|
+| 04.|[What are closures?](#q-4-what-are-closures)|
+| 05.|[How do you clone an object in JavaScript?](#q-5-how-do-you-clone-an-object-in-javascript)|
+| 06.|[What are the possible ways to create objects in JavaScript?](#q-6-what-are-the-possible-ways-to-create-objects-in-javascript)|
+| 07.|[What are the javascript data types?](#q-7-what-are-the-javascript-data-types)|
+| 08.|[What are global variables?](#q-8-what-are-global-variables)|
+| 09.|[What is variable shadowing in javascript?](#q-9-what-is-variable-shadowing-in-javascript)|
+| 10.|[What is an event flow?](#q-10-what-is-an-event-flow)|
 | 11.|[What is event bubbling?](#q-what-is-event-bubbling)|
 | 12.|[What is event capturing?](#q-what-is-event-capturing)|
 | 13.|[What is prototype chain?](#q-what-is-prototype-chain)|
