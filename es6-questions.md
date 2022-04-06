@@ -1275,6 +1275,101 @@ There are many real-world applications for Proxies
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. What is a promise?
+
+A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
+Syntax
+
+```javascript
+const promise = new Promise(function(resolve, reject) {
+  // promise description
+})
+```
+
+Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
+
+Promises have three states:
+1. **Pending:** This is an initial state of the Promise before an operation begins
+2. **Fulfilled:** This state indicates that specified operation was completed.
+3. **Rejected:** This state indicates that the operation did not complete. In this case an error value will be thrown.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is promise chaining?
+
+The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining.
+
+```javascript
+new Promise(function(resolve, reject) {
+
+  setTimeout(() => resolve(1), 1000);
+
+}).then(function(result) {
+
+  console.log(result); // 1
+  return result * 2;
+
+}).then(function(result) {
+
+  console.log(result); // 2
+  return result * 3;
+
+}).then(function(result) {
+
+  console.log(result); // 6
+  return result * 4;
+
+});
+```
+In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,
+1. The initial promise resolves in 1 second,
+2. After that `.then` handler is called by logging the result(1) and then return a promise with the value of result * 2.
+3. After that the value passed to the next `.then` handler by logging the result(2) and return a promise with result * 3.
+4. Finally the value passed to the last `.then` handler by logging the result(6) and return a promise with result * 4.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is promise.all()?
+
+`Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected.
+
+```javascript
+Promise.all([Promise1, Promise2, Promise3]) 
+        .then(result) => {   
+            console.log(result) 
+          }) 
+        .catch(error => console.log(`Error in promises ${error}`));
+```
+*Note: Remember that the order of the promises(output the result) is maintained as per input order*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the purpose of race method in promise?
+
+`Promise.race()` method will return the promise instance which is firstly resolved or rejected. Let us take an example of race() method where promise2 is resolved first
+
+```javascript
+var promise1 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 500, 'one');
+});
+var promise2 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, 'two');
+});
+
+Promise.race([promise1, promise2]).then(function(value) {
+  console.log(value); // "two" // Both promises will resolve, but promise2 is faster
+});
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. How could you make sure a const value is garbage collected?
 
 <div align="right">
