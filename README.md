@@ -13,6 +13,26 @@
 
 <br/>
 
+## Table of Contents
+
+* Variables
+* Data types
+* Type Conversions
+* Operators
+* Numbers
+* Strings
+* Arrays
+* Regular expressions
+* Objects
+* functions
+* Prototypes
+* Classes
+* Error handling
+* Promises
+* Events
+* Forms
+* Windows and Document
+
 ## Q. ***What are data types in javascript?***
 
 There are eight basic data types in JavaScript.
