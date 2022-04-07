@@ -19,19 +19,19 @@
 * Data types
 * Operators
 * Numbers
-* Strings
-* Arrays
+* String
+* Array
 * Regular expressions
-* Objects
 * functions
-* Prototypes
-* Classes
-* Error handling
-* Promises
-* Modules
 * Events
 * Forms
+* Objects
 * Windows and Document
+* Classes
+* Error handling
+* Inheritance
+* Promises
+* Modules
 * Design Pattern
 
 ## Q. ***What are global variables?***
