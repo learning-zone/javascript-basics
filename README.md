@@ -647,7 +647,7 @@ function Welcome(name) {
 }
 var myFunction = Welcome('John');
 myFunction('Welcome '); // Output: Welcome John
-myFunction('Hello Mr.'); // output: Hello Mr.John
+myFunction('Hello Mr.'); // output: Hello Mr. John
 ```
 
 As per the above code, the inner `function greetingInfo()` has access to the variables in the outer `function Welcome()` even after outer function has returned.
