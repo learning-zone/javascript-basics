@@ -34,6 +34,8 @@
 * Modules
 * Design Pattern
 
+## VARIABLES
+
 ## Q. ***What are global variables?***
 
 Global variables are declared outside of a function or declared with a window object for accessibility throughout the program (unless shadowed by locals). If you declare a variable without using var, even if it’s inside a function, it will still be seen as global:
@@ -536,6 +538,8 @@ console.log(x); // 20
 console.log(y); // 10
 ```
 
+## DATA TYPES
+
 ## Q. ***What are data types in javascript?***
 
 There are eight basic data types in JavaScript.
@@ -670,6 +674,8 @@ const employee = {
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
+## OPERATORS
 
 ## Q. ***What are various operators supported by javascript?***
 
@@ -957,6 +963,8 @@ console.log(emp1 instanceof Object); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## NUMBERS
+
 ## Q. ***How do you generate random integers?***
 
 You can use Math.random() with Math.floor() to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,
@@ -1080,52 +1088,173 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you compare two date objects?***
+## STRING
 
-You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
+## Q. ***How do you make first letter of the string in an uppercase?***
+
+You can create a function which uses chain of string methods such as charAt, toUpperCase and slice methods to generate a string with first letter in uppercase.
 
 ```js
-var d1 = new Date();
-var d2 = new Date(d1);
-console.log(d1.getTime() === d2.getTime()); //True
-console.log(d1 === d2); // False
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
 ```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between document.getElementById() and document.querySelector()?***
+## Q. ***Write a function which will test string as a literal and as an object ?***
 
-* **document.getElementById()**
-
-Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+For example: We can create string using string literal and using String constructor function. 
 
 ```js
-element = document.getElementById(id);
+ // using string literal
+ var ltrlStr = "Hi I am string literal";
+ // using String constructor function 
+ var objStr = new String("Hi I am string object");
 ```
 
-* **document.querySelector()**
-
-Returns the first matching Element node within the node\'s subtree. If no matching node is found, null is returned.
+We can use typeof operator to test string literal and instanceof operator to test String object.
 
 ```js
-element = document.querySelector(selectors);
+function isString(str) {
+	return typeof(str) == 'string' || str instanceof String;
+}
+
+var ltrlStr = "Hi I am string literal";
+var objStr = new String("Hi I am string object");
+console.log(isString(ltrlStr)); // true
+console.log(isString(objStr)); // true
 ```
-
-* **document.querySelectorAll()**
-
-Returns a NodeList containing all matching Element nodes within the node\'s subtree, or an empty NodeList if no matches are found.
-
-```js
-element = document.querySelectorAll(selectors);
-```
-
-*Note: `querySelector()` is more useful when we want to use more complex selectors*.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
+## Q. ***What is the difference between slice and splice?***
+
+Some of the major difference in a tabular form
+
+| Slice | Splice |
+|---- | ---------|
+| Doesn't modify the original array(immutable)  | Modifies the original array(mutable) |
+| Returns the subset of original array | Returns the deleted elements as array  |
+| Used to pick the elements from array | Used to insert or delete elements to/from array|
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you check whether a string contains a substring?***
+
+There are 3 possible ways to check whether a string contains a substring or not,  
+
+**a.) Using includes:** ES6 provided `String.prototype.includes` method to test a string contains a substring
+
+```js
+var mainString = "hello", subString = "hell";
+mainString.includes(subString)
+```
+
+**b.) Using indexOf:** In an ES5 or older environments, you can use `String.prototype.indexOf` which returns the index of a substring. If the index value is not equal to -1 then it means the substring exist in the main string.
+
+```js
+var mainString = "hello", subString = "hell";
+mainString.indexOf(subString) !== -1
+```
+
+**c.) Using RegEx:** The advanced solution is using Regular expression test method(`RegExp.test`), which allows for testing for against regular expressions
+
+```js
+var mainString = "hello", regex = "/hell/";
+regex.test(mainString)
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to convert string to title case with javascript?***
+
+Title case means that the first letter of each word is capitalized. You can convert a string to title case using the below function,
+
+```js
+function toTitleCase(str) {
+    return str.replace(
+        /\w\S*/g,
+        function(txt) {
+            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+        }
+    );
+}
+
+toTitleCase("good morning john"); // Good Morning John
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you trim a string in javascript?***
+
+JavaScript provided a trim method on string types to trim any whitespaces present at the begining or ending of the string.
+
+```js
+"  Hello World   ".trim(); //Hello World
+```
+
+If your browser(`< IE9`) doesnot support this method then you can use below polyfill.
+
+```js
+if (!String.prototype.trim) {
+    (function() {
+        // Make sure we trim BOM and NBSP
+        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
+        String.prototype.trim = function() {
+            return this.replace(rtrim, '');
+        };
+    })();
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is eval?***
+
+The `eval()` function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
+
+```js
+console.log(eval('10 + 20')); // 30
+
+var x = 10;
+var y = 20;
+var z = '50';
+eval('x + y + 1'); // returns 31
+eval(z);           // returns 50
+```
+
+If the argument of `eval()` is not a string, `eval()` returns the argument unchanged. In the following example, the String constructor is specified and eval() returns a String object rather than evaluating the string.
+
+```js
+eval(new String('10 + 20')); // returns a String object containing "10 + 20"
+eval('10 + 20');             // returns 30
+
+
+// work around
+var expression = new String('10 + 20');
+eval(expression.toString()); // returns 30
+```
+
+* *Note: The `eval()` function is not recommended to use because of the security reasons. It is not suggested to use because it is slower and makes code unreadable.*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## ARRAY
 
 ## Q. ***When to use reduce(), map(), foreach() and filter() in JavaScript?***
 
@@ -1197,6 +1326,320 @@ var sum = arr.reduce(function(sum, elem) {
 });
 console.log(sum); // Output: 60
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you define JSON arrays?***
+
+JSON arrays are written inside square brackets and array contain javascript objects. For example, the JSON array of users would be as below,
+
+```js
+"users":[
+  {"firstName":"John", "lastName":"Abrahm"},
+  {"firstName":"Anna", "lastName":"Smith"},
+  {"firstName":"Shane", "lastName":"Warn"}
+]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you sort elements in an array?***
+
+The sort() method is used to sort the elements of an array in place and returns the sorted array. The example usage would be as below,
+
+```js
+var months = ["Aug", "Sep", "Jan", "June"];
+months.sort();
+console.log(months); //  ["Aug", "Jan", "June", "Sep"]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of compareFunction while sorting arrays?***
+
+The compareFunction is used to define the sort order. If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value. Let us take an example to see the usage of compareFunction,
+
+```js
+let numbers = [1, 2, 5, 3, 4];
+numbers.sort((a, b) => b - a);
+console.log(numbers); // [5, 4, 3, 2, 1]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you reversing an array?***
+
+You can use reverse() method is used reverse the elements in an array. This method is useful to sort an array in descending order. Let us see the usage of reverse() method in an example,
+
+```js
+let numbers = [1, 2, 5, 3, 4];
+numbers.sort((a, b) => b - a);
+numbers.reverse();
+console.log(numbers); // [1, 2, 3, 4 ,5]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you find min and max value in an array?***
+
+You can use `Math.min` and `Math.max` methods on array variable to find the minimum and maximum elements with in an array. 
+Let us create two functions to find the min and max value with in an array,
+
+```js
+var marks = [50, 20, 70, 60, 45, 30];
+function findMin(arr) {
+  return Math.min.apply(null, arr);
+}
+function findMax(arr) {
+  return Math.max.apply(null, arr);
+}
+
+console.log(findMin(marks));
+console.log(findMax(marks));
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you find min and max values without Math functions?***
+
+You can write functions which loops through an array comparing each value with the lowest value or highest value to find the min and max values. Let us create those functions to find min an max values,
+
+```js
+var marks = [50, 20, 70, 60, 45, 30];
+function findMin(arr) {
+  var length = arr.length
+  var min = Infinity;
+  while (length--) {
+    if (arr[length] < min) {
+      min = arr[length];
+    }
+  }
+  return min;
+}
+
+function findMax(arr) {
+  var length = arr.length
+  var max = -Infinity;
+  while (length--) {
+    if (arr[length] > max) {
+      max = arr[length];
+    }
+  }
+  return max;
+}
+
+console.log(findMin(marks));
+console.log(findMax(marks));
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to empty an array in JavaScript?***
+
+For instance:
+
+```js
+var arrayList =  ['a', 'b', 'c', 'd', 'e', 'f'];
+```
+
+How can we empty the array above?
+
+There are a couple of ways by which we can empty an array, So Let us discuss all the possible way by which we can empty an array.
+
+**Method 1:**
+
+```js
+arrayList = [];
+```
+
+The code above will set the variable `arrayList` to a new empty array. This is recommended if you don\'t have **references to the original array** `arrayList` anywhere else because It will actually create a new empty array. You should be careful with this way of empty the array, because if you have referenced this array from another variable, then the original reference array will remain unchanged, Only use this way if you have only referenced the array by its original variable `arrayList`.
+
+For instance:
+
+```js
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
+var anotherArrayList = arrayList;  // Referenced arrayList by another variable
+arrayList = []; // Empty the array
+console.log(anotherArrayList); // Output ['a', 'b', 'c', 'd', 'e', 'f']
+```
+
+**Method 2:**
+
+```js
+arrayList.length = 0;
+```
+
+The code above will clear the existing array by setting its length to 0. This way of emptying an array will also update all the reference variables that point to the original array. 
+
+For instance:
+
+```js
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
+var anotherArrayList = arrayList;  // Referenced arrayList by another variable
+arrayList.length = 0; // Empty the array by setting length to 0
+console.log(anotherArrayList); // Output []
+```
+
+**Method 3:**
+
+```js
+arrayList.splice(0, arrayList.length);
+```
+
+Above implementation will also work perfectly. This way of empty the array will also update all the references of the original array.
+
+```js
+var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
+var anotherArrayList = arrayList;  // Referenced arrayList by another variable
+arrayList.splice(0, arrayList.length); // Empty the array by setting length to 0
+console.log(anotherArrayList); // Output []
+```
+
+**Method 4:**
+
+```js
+while(arrayList.length) {
+  arrayList.pop();
+}
+```
+
+Above implementation can also empty the array. But not recommended to use often.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Calculate the length of the associative array?***
+
+```js
+var counterArray = {
+  A : 3,
+  B : 4
+};
+counterArray["C"] = 1;
+```
+
+First of all, in case of JavaScript an associative array is the same as an object. Secondly, even though is no built-in function or property available to calculate the length/size an object, we can write such function ourselves.
+
+**Method 1:**
+
+`Object` has `keys` method which can we used to calculate the length of object.
+
+```js
+Object.keys(counterArray).length; // Output 3
+```
+
+**Method 2:**
+
+We can also calculate the length of object by iterating through the object and by doing a count of own property of object. This way we will ignoge the properties that came from the object's prototype chain:  
+
+```js
+function getLength(object) {
+  var count = 0;
+  for(key in object) {
+    // hasOwnProperty method check own property of object
+    if(object.hasOwnProperty(key)) count++;
+  }
+  return count;
+}
+```
+
+**Method 3:**
+
+All modern browsers (including IE9+) support the [`getOwnPropertyNames`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames) method, so we can calculate the length using the following code: 
+
+```js
+Object.getOwnPropertyNames(counterArray).length; // Output 3
+```
+
+**Method 4:**
+
+[Underscore](https://underscorejs.org/#size) and [lodash](https://lodash.com/docs/4.17.10#size) libraries have the method `size` dedicated to calculate the object length. We don\'t recommend to include one of these libraries just to use the `size` method, but if It is already used in your project - why not? 
+
+```js
+_.size({one: 1, two: 2, three: 3});
+=> 3
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is `undefined x 1` in JavaScript?***
+
+```js
+var trees = ["redwood", "bay", "cedar", "oak", "maple"];
+delete trees[3];
+```
+
+ - When you run the code above and do `console.log(trees);` in chrome developer console then you will get `["redwood", "bay", "cedar", undefined × 1, "maple"]`.
+ - In the recent versions of Chrome you will see the word `empty` of `undefined x 1`.
+ - When you run the same code in Firefox browser console then you will get `["redwood", "bay", "cedar", undefined, "maple"]`
+  
+Clearly we can see that Chrome has its own way of displaying uninitialized index in arrays. However when you check `trees[3] === undefined` in any browser you will get similar output as `true`.
+
+*Note: Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you compare two date objects?***
+
+You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
+
+```js
+var d1 = new Date();
+var d2 = new Date(d1);
+console.log(d1.getTime() === d2.getTime()); //True
+console.log(d1 === d2); // False
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is difference between document.getElementById() and document.querySelector()?***
+
+* **document.getElementById()**
+
+Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+
+```js
+element = document.getElementById(id);
+```
+
+* **document.querySelector()**
+
+Returns the first matching Element node within the node\'s subtree. If no matching node is found, null is returned.
+
+```js
+element = document.querySelector(selectors);
+```
+
+* **document.querySelectorAll()**
+
+Returns a NodeList containing all matching Element nodes within the node\'s subtree, or an empty NodeList if no matches are found.
+
+```js
+element = document.querySelectorAll(selectors);
+```
+
+*Note: `querySelector()` is more useful when we want to use more complex selectors*.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1564,6 +2007,7 @@ const arr2 = arr1.map(function(item) {
 });
 console.log(arr2);
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2172,38 +2616,6 @@ person.getFullName(); // returns Kamala Ramaswamy
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is eval?***
-
-The `eval()` function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
-
-```js
-console.log(eval('10 + 20')); // 30
-
-var x = 10;
-var y = 20;
-var z = '50';
-eval('x + y + 1'); // returns 31
-eval(z);           // returns 50
-```
-
-If the argument of `eval()` is not a string, `eval()` returns the argument unchanged. In the following example, the String constructor is specified and eval() returns a String object rather than evaluating the string.
-
-```js
-eval(new String('10 + 20')); // returns a String object containing "10 + 20"
-eval('10 + 20');             // returns 30
-
-
-// work around
-var expression = new String('10 + 20');
-eval(expression.toString()); // returns 30
-```
-
-* *Note: The `eval()` function is not recommended to use because of the security reasons. It is not suggested to use because it is slower and makes code unreadable.*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the difference between window and document?***
 
 The window is the first thing that gets loaded into the browser. This window object has the majority of the properties like length, innerWidth, innerHeight, name, if it has been closed, its parents, and more.
@@ -2627,35 +3039,6 @@ function redirect() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you check whether a string contains a substring?***
-
-There are 3 possible ways to check whether a string contains a substring or not,  
-
-**a.) Using includes:** ES6 provided `String.prototype.includes` method to test a string contains a substring
-
-```js
-var mainString = "hello", subString = "hell";
-mainString.includes(subString)
-```
-
-**b.) Using indexOf:** In an ES5 or older environments, you can use `String.prototype.indexOf` which returns the index of a substring. If the index value is not equal to -1 then it means the substring exist in the main string.
-
-```js
-var mainString = "hello", subString = "hell";
-mainString.indexOf(subString) !== -1
-```
-
-**c.) Using RegEx:** The advanced solution is using Regular expression test method(`RegExp.test`), which allows for testing for against regular expressions
-
-```js
-var mainString = "hello", regex = "/hell/";
-regex.test(mainString)
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you validate an email in javascript?***
 
 You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead client side. Because the javascript can be disabled on the client side.
@@ -2801,20 +3184,6 @@ sum(1, 2, 3) // returns 6
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you make first letter of the string in an uppercase?***
-
-You can create a function which uses chain of string methods such as charAt, toUpperCase and slice methods to generate a string with first letter in uppercase.
-
-```js
-function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you display the current date in javascript?***
 
 You can use `new Date()` to generate a new Date object containing the current date and time. 
@@ -2842,32 +3211,6 @@ You can use ECMAScript 6 `String.prototype.startsWith()` method to check a strin
 ```js
 "Good morning".startsWith("Good"); // true
 "Good morning".startsWith("morning"); // false
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you trim a string in javascript?***
-
-JavaScript provided a trim method on string types to trim any whitespaces present at the begining or ending of the string.
-
-```js
-"  Hello World   ".trim(); //Hello World
-```
-
-If your browser(`< IE9`) doesnot support this method then you can use below polyfill.
-
-```js
-if (!String.prototype.trim) {
-    (function() {
-        // Make sure we trim BOM and NBSP
-        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-        String.prototype.trim = function() {
-            return this.replace(rtrim, '');
-        };
-    })();
-}
 ```
 
 <div align="right">
@@ -3010,22 +3353,6 @@ var v4 = false;
 var v5 = [];
 var v6 = /()/;
 var v7 = function(){};
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you define JSON arrays?***
-
-JSON arrays are written inside square brackets and array contain javascript objects. For example, the JSON array of users would be as below,
-
-```js
-"users":[
-  {"firstName":"John", "lastName":"Abrahm"},
-  {"firstName":"Anna", "lastName":"Smith"},
-  {"firstName":"Shane", "lastName":"Warn"}
-]
 ```
 
 <div align="right">
@@ -3374,26 +3701,6 @@ console.log(language);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to convert string to title case with javascript?***
-
-Title case means that the first letter of each word is capitalized. You can convert a string to title case using the below function,
-
-```js
-    function toTitleCase(str) {
-        return str.replace(
-            /\w\S*/g,
-            function(txt) {
-                return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-            }
-        );
-    }
-    toTitleCase("good morning john"); // Good Morning John
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you detect javascript disabled in the page?***
 
 You can use `<noscript>` tag to detect javascript disabled or not. The code block inside `<noscript>` get executed when JavaScript is disabled, and are typically used to display alternative content when the page generated in JavaScript.
@@ -3638,18 +3945,6 @@ admin.printInfo(); // My name is Nick
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of uneval?***
-
-The `uneval()` is an inbuilt function which is used to create a string representation of the source code of an Object. It is a top-level function and is not associated with any object. 
-```js
-var a = 1;
-uneval(a); // returns a String containing 1
-uneval(function user() {}); // returns "(function user(){})"
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you encode an URL?***
 
 The encodeURI() function is used to encode complete URI which has special characters except (, / ? : @ & = + $ #) characters.
@@ -3687,18 +3982,6 @@ The window object provided print() method which is used to prints the contents o
 ```
 *Note: In most browsers, it will block while the print dialog is open*.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between uneval and eval?***
-
-The `uneval()` function returns the source of a given object; whereas the `eval` function does the opposite, by evaluating that source code in a different memory area. 
-```js
-var msg = uneval(function greeting() { return 'Hello, Good morning'; });
-var greeting = eval(msg);
-greeting(); // returns "Hello, Good morning"
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -3957,96 +4240,6 @@ Below are the list of properties available on Intl object,
 5. **PluralRules:** Objects that enable plural-sensitive formatting and language-specific rules for plurals.
 6. **RelativeTimeFormat:** Objects that enable language-sensitive relative time formatting.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you sort elements in an array?***
-
-The sort() method is used to sort the elements of an array in place and returns the sorted array. The example usage would be as below,
-```js
-var months = ["Aug", "Sep", "Jan", "June"];
-months.sort();
-console.log(months); //  ["Aug", "Jan", "June", "Sep"]
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of compareFunction while sorting arrays?***
-
-The compareFunction is used to define the sort order. If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value. Let us take an example to see the usage of compareFunction,
-```js
-let numbers = [1, 2, 5, 3, 4];
-numbers.sort((a, b) => b - a);
-console.log(numbers); // [5, 4, 3, 2, 1]
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you reversing an array?***
-
-You can use reverse() method is used reverse the elements in an array. This method is useful to sort an array in descending order. Let us see the usage of reverse() method in an example,
-```js
-let numbers = [1, 2, 5, 3, 4];
-numbers.sort((a, b) => b - a);
-numbers.reverse();
-console.log(numbers); // [1, 2, 3, 4 ,5]
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you find min and max value in an array?***
-
-You can use `Math.min` and `Math.max` methods on array variable to find the minimum and maximum elements with in an array. Let us create two functions to find the min and max value with in an array,
-```js
-var marks = [50, 20, 70, 60, 45, 30];
-function findMin(arr) {
-  return Math.min.apply(null, arr);
-}
-function findMax(arr) {
-  return Math.max.apply(null, arr);
-}
-
-console.log(findMin(marks));
-console.log(findMax(marks));
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you find min and max values without Math functions?***
-
-You can write functions which loops through an array comparing each value with the lowest value or highest value to find the min and max values. Let us create those functions to find min an max values,
-```js
-var marks = [50, 20, 70, 60, 45, 30];
-function findMin(arr) {
-  var length = arr.length
-  var min = Infinity;
-  while (length--) {
-    if (arr[length] < min) {
-      min = arr[length];
-    }
-  }
-  return min;
-}
-
-function findMax(arr) {
-  var length = arr.length
-  var max = -Infinity;
-  while (length--) {
-    if (arr[length] > max) {
-      max = arr[length];
-    }
-  }
-  return max;
-}
-
-console.log(findMin(marks));
-console.log(findMax(marks));
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -4922,80 +5115,6 @@ In Javascript function defined inside has access to outer function variable and 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to empty an array in JavaScript?***
-
-For instance:
-
-```js
-var arrayList =  ['a', 'b', 'c', 'd', 'e', 'f'];
-```
-
-How can we empty the array above?
-
-There are a couple of ways by which we can empty an array, So Let us discuss all the possible way by which we can empty an array.
-
-**Method 1**
-
-```js
-arrayList = [];
-```
-
-The code above will set the variable `arrayList` to a new empty array. This is recommended if you don\'t have **references to the original array** `arrayList` anywhere else because It will actually create a new empty array. You should be careful with this way of empty the array, because if you have referenced this array from another variable, then the original reference array will remain unchanged, Only use this way if you have only referenced the array by its original variable `arrayList`.
-
-For instance:
-
-```js
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList = []; // Empty the array
-console.log(anotherArrayList); // Output ['a', 'b', 'c', 'd', 'e', 'f']
-```
-
-**Method 2**
-
-```js
-arrayList.length = 0;
-```
-
-The code above will clear the existing array by setting its length to 0. This way of emptying an array will also update all the reference variables that point to the original array. 
-
-For instance:
-
-```js
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList.length = 0; // Empty the array by setting length to 0
-console.log(anotherArrayList); // Output []
-```
-
-**Method 3**
-
-```js
-arrayList.splice(0, arrayList.length);
-```
-
-Above implementation will also work perfectly. This way of empty the array will also update all the references of the original array.
-
-```js
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList.splice(0, arrayList.length); // Empty the array by setting length to 0
-console.log(anotherArrayList); // Output []
-```
-
-**Method 4**
-
-```js
-while(arrayList.length) {
-  arrayList.pop();
-}
-```
-Above implementation can also empty the array. But not recommended to use often.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How to check if an object is an array or not?***
 
 The `Array.isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
@@ -5021,25 +5140,6 @@ The `Array.isArray()` method determines whether an object is an array. This func
 ```
 
 *Note: The `Array.isArray()` method is supported in all major browsers, such as Chrome, Firefox, IE (9 and above)*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is `undefined x 1` in JavaScript?***
-
-```js
-var trees = ["redwood", "bay", "cedar", "oak", "maple"];
-delete trees[3];
-```
-
- - When you run the code above and do `console.log(trees);` in chrome developer console then you will get `["redwood", "bay", "cedar", undefined × 1, "maple"]`.
- - In the recent versions of Chrome you will see the word `empty` of `undefined x 1`.
- - When you run the same code in Firefox browser console then you will get `["redwood", "bay", "cedar", undefined, "maple"]`
-  
-Clearly we can see that Chrome has its own way of displaying uninitialized index in arrays. However when you check `trees[3] === undefined` in any browser you will get similar output as `true`.
-
-*Note: Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome*.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5116,61 +5216,6 @@ foo = function foo() {
   // Some code stuff
 }
 foo(); // Now foo is defined here
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Calculate the length of the associative array?***
-
-```js
-var counterArray = {
-  A : 3,
-  B : 4
-};
-counterArray["C"] = 1;
-```
-
-First of all, in case of JavaScript an associative array is the same as an object. Secondly, even though is no built-in function or property available to calculate the length/size an object, we can write such function ourselves.
-
-**Method 1**
-
-`Object` has `keys` method which can we used to calculate the length of object.
-
-```js
-Object.keys(counterArray).length; // Output 3
-```
-
-**Method 2**
-
-We can also calculate the length of object by iterating through the object and by doing a count of own property of object. This way we will ignoge the properties that came from the object's prototype chain:  
-
-```js
-function getLength(object) {
-  var count = 0;
-  for(key in object) {
-    // hasOwnProperty method check own property of object
-    if(object.hasOwnProperty(key)) count++;
-  }
-  return count;
-}
-```
-
-**Method 3**
-
-All modern browsers (including IE9+) support the [`getOwnPropertyNames`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames) method, so we can calculate the length using the following code: 
-
-```js
-Object.getOwnPropertyNames(counterArray).length; // Output 3
-```
-
-**Method 4**
-
-[Underscore](https://underscorejs.org/#size) and [lodash](https://lodash.com/docs/4.17.10#size) libraries have the method `size` dedicated to calculate the object length. We don\'t recommend to include one of these libraries just to use the `size` method, but if It is already used in your project - why not? 
-
-```js
-_.size({one: 1, two: 2, three: 3});
-=> 3
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5940,61 +5985,6 @@ delete employee.name;  // fails silently unless It is in strict mode
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Write a log function which will add prefix `(your message)` to every message you log using console.log ?***
- 
- For example, If you log `console.log("Some message")` then output should be **(your message) Some message**
-
-Logging error message or some informative message is always required when you dealing with client side JavaScript using console.log method. Some time you want to add some prefix to identify message generated log from your application hence you would like to prefix your app name in every console.log. 
-
-A general way to do this keep adding your app name in every console.log message like 
-
-```js
-console.log('your app name' + 'some error message');
-```
-But doing in this way you have to write your app name everytime when you log message using console.
-
-There are some best way we can achieve this 
-
-```js
-function appLog() {
-  var args = Array.prototype.slice.call(arguments);
-  args.unshift('your app name');
-  console.log.apply(console, args);
-}
-
-appLog("Some error message"); 
-//output of above console: 'your app name Some error message'
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Write a function which will test string as a literal and as an object ?***
-
-For example: We can create string using string literal and using String constructor function. 
-
-```js
- // using string literal
- var ltrlStr = "Hi I am string literal";
- // using String constructor function 
- var objStr = new String("Hi I am string object");
-```
- We can use typeof operator to test string literal and instanceof operator to test String object.
-
-```js
- function isString(str) {
- 	return typeof(str) == 'string' || str instanceof String;
- }
- 
- var ltrlStr = "Hi I am string literal";
- var objStr = new String("Hi I am string object");
- console.log(isString(ltrlStr)); // true
- console.log(isString(objStr)); // true
-``` 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is typical use case for anonymous function in JavaScript?***
 
 Anonymous functions basically used in following scenario.
@@ -6466,20 +6456,6 @@ let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //retur
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between slice and splice?***
-
-Some of the major difference in a tabular form
-
-| Slice | Splice |
-|---- | ---------|
-| Doesn't modify the original array(immutable)  | Modifies the original array(mutable) |
-| Returns the subset of original array | Returns the deleted elements as array  |
-| Used to pick the elements from array | Used to insert or delete elements to/from array|
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you compare Object and Map?***
 
 **Objects** are similar to **Maps** in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
@@ -6818,28 +6794,6 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 * You allow technology to be what it is supposed to be — an aid to reach a goal faster than without it, not a “must” to be able to reach a goal in the first place.
 * If you need to add new features, you can do so after checking if they are supported at a certain stage, or you can add it to the most basic level of functionality and make it better in more sophisticated environments. In any case, the maintenance happens at the same spot and not in two different places. Keeping a progressively enhanced product up-to-date is much less work than maintaining two versions.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain escape() and unescape() functions?***
-
-The `escape()` [deprecated] function computes a new string in which certain characters have been replaced by a hexadecimal escape sequence.
-```js
-escape('abc123');     // "abc123"
-escape('äöü');        // "%E4%F6%FC"
-escape('ć');          // "%u0107"
-
-// special characters
-escape('@*_+-./');    // "@*_+-./"
-```
-
-The `unescape()` [deprecated] function computes a new string in which hexadecimal escape sequences are replaced with the character that it represents. The escape sequences might be introduced by a function like escape. Usually, `decodeURI()` or `decodeURIComponent()` are preferred over `unescape()`.
-```js
-unescape('abc123');     // "abc123"
-unescape('%E4%F6%FC');  // "äöü"
-unescape('%u0107');     // "ć"
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7526,6 +7480,7 @@ var even = function(element) {
 console.log(array.some(even)); // Output: true
 ``` 
 **m.) array.indexOf()**: The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
 ```js
 var beasts = ['ant', 'bison', 'camel'];
 
@@ -7632,20 +7587,6 @@ doSomething(param1, param2, function(err, paramx){
 * Using Async.js
 * Using Promises
 * Using Async-Await
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why is eval() considered evil and dangerous?***
-
-The `eval()` function evaluates JavaScript code represented as a string.
-```js
-console.log(eval('2 + 2')); // Output: 4
-```
-`eval()` is heavily discouraged because it combines several common issues.
-* **Performance** - eval() runs the interpreter/compiler. If your code is compiled, then this is a big hit, because you need to call a possibly-heavy compiler in the middle of run-time. However, JavaScript is still mostly an interpreted language, which means that calling eval() is not a big performance hit in the general case.
-* **Code injection** - eval() potentially runs a string of code under elevated privileges. For example, a program running as administrator/root would never want to eval() user input, because that input could potentially be "rm -rf /etc/important-file" or worse.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
