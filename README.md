@@ -957,6 +957,37 @@ console.log(emp1 instanceof Object); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How do you generate random integers?***
+
+You can use Math.random() with Math.floor() to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,
+
+```js
+Math.floor(Math.random() * 10) + 1;     // returns a random integer from 1 to 10
+Math.floor(Math.random() * 100) + 1;     // returns a random integer from 1 to 100
+```
+
+*Note: Math.random() returns a random number between 0 (inclusive), and 1 (exclusive)*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Can you write a random integers function to print integers with in a range?***
+
+Yes, you can create a proper random function to return a random number between min and max (both included)
+
+```js
+function randomInteger(min, max) {
+  return Math.floor(Math.random() * (max - min + 1) ) + min;
+}
+randomInteger(1, 100); // returns a random integer from 1 to 100
+randomInteger(1, 1000); // returns a random integer from 1 to 1000
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is isNaN?***
 
 The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
@@ -3001,36 +3032,6 @@ JSON arrays are written inside square brackets and array contain javascript obje
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you generate random integers?***
-
-You can use Math.random() with Math.floor() to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,
-
-```js
-Math.floor(Math.random() * 10) + 1;     // returns a random integer from 1 to 10
-Math.floor(Math.random() * 100) + 1;     // returns a random integer from 1 to 100
-```
-
-*Note: Math.random() returns a random number between 0 (inclusive), and 1 (exclusive)*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Can you write a random integers function to print integers with in a range?***
-
-Yes, you can create a proper random function to return a random number between min and max (both included)
-
-```js
-function randomInteger(min, max) {
-  return Math.floor(Math.random() * (max - min + 1) ) + min;
-}
-randomInteger(1, 100); // returns a random integer from 1 to 100
-randomInteger(1, 1000); // returns a random integer from 1 to 1000
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What are the string methods available in Regular expression?***
 
 Regular Expressions has two string methods: search() and replace().
@@ -3838,23 +3839,6 @@ objectName["property"]
 3. **Expression notation:** It uses expression in the square brackets
 ```js
 objectName[expression]
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the function parameter rules?***
-
-JavaScript functions follow below rules for parameters,
-1. The function definitions do not specify data types for parameters.
-2. Do not perform type checking on the passed arguments.
-3. Do not check the number of arguments received.
-i.e, The below function follows the above rules,
-```js
-function functionName(parameter1, parameter2, parameter3) {
-  console.log(parameter1); // 1
-}
-functionName(1);
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
