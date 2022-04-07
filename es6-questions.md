@@ -29,88 +29,13 @@
 
 <br/>
 
-## Q. What are the differences between variables created using `let`, `var` or `const`?
-
-Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
-
-```js
-function foo() {
-  // All variables are accessible within functions.
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
-
-  console.log(bar); // bar
-  console.log(baz); // baz
-  console.log(qux); // qux
-}
-
-console.log(bar); // ReferenceError: bar is not defined
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
-```
-
-```js
-if (true) {
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
-}
-
-// var declared variables are accessible anywhere in the function scope.
-console.log(bar); // bar
-// let and const defined variables are not accessible outside of the block they were defined in.
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
-```
-
-`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
-
-```js
-console.log(foo); // undefined
-var foo = 'foo';
-
-console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
-let baz = 'baz';
-
-console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
-const bar = 'bar';
-```
-
-Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
-
-```js
-var foo = 'foo';
-var foo = 'bar';
-console.log(foo); // "bar"
-
-let baz = 'baz';
-let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
-```
-
-`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
-
-```js
-// This is fine.
-let foo = 'foo';
-foo = 'bar';
-
-// This causes an exception.
-const baz = 'baz';
-baz = 'qux';
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. Can you give an example for destructuring an object or an array?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
 
 **Array Destructuring**
 
-```javascript
+```js
 // Variable assignment.
 const foo = ['one', 'two', 'three'];
 const [one, two, three] = foo;
@@ -120,7 +45,7 @@ console.log(two); // "two"
 console.log(three); // "three"
 ```
 
-```javascript
+```js
 // Swapping variables
 let a = 1;
 let b = 3;
@@ -132,7 +57,7 @@ console.log(b); // 1
 
 **Object Destructuring**
 
-```javascript
+```js
 // Variable assignment.
 const o = { p: 42, q: true };
 const { p, q } = o;
@@ -159,7 +84,7 @@ Template literals are string literals allowing embedded expressions.
 * String formatting
 * String tagging for safe HTML escaping, localization and more
 
-```javascript
+```js
 let greeting = `Hello World!`;
 
 // String Substitution
@@ -177,7 +102,7 @@ fn`Hello ${you}! You're looking ${adjective} today!`
 
 **2. Spread Operator**  
 Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. 
-```javascript
+```js
 function sum(x, y, z) {
   return x + y + z;
 }
@@ -190,7 +115,7 @@ console.log(sum.apply(null, numbers)); // 6
 ```
 **2.1. Copying an array**
 
-```javascript
+```js
 let fruits = ['Apple','Orange','Banana'];
 
 let newFruitArray = [...fruits];
@@ -198,7 +123,7 @@ let newFruitArray = [...fruits];
 console.log(newFruitArray); // ['Apple','Orange','Banana']
 ```
 **2.2. Concatenating arrays**  
-```javascript
+```js
 let arr1 = ['A', 'B', 'C'];
 
 let arr2 = ['X', 'Y', 'Z'];
@@ -208,7 +133,7 @@ let result = [...arr1, ...arr2];
 console.log(result); // ['A', 'B', 'C', 'X', 'Y', 'Z']
 ```
 **2.3. Spreading elements together with an individual element**
-```javascript
+```js
 let fruits = ['Apple','Orange','Banana'];
 
 let newFruits = ['Cherry', ...fruits];
@@ -216,7 +141,7 @@ let newFruits = ['Cherry', ...fruits];
 console.log(newFruits); // ['Cherry', 'Apple','Orange','Banana']
 ```
 **2.4. Spreading elements on function calls**
-```javascript
+```js
 let fruits = ['Apple','Orange','Banana'];
 
 var getFruits = (f1, f2, f3) => {
@@ -225,7 +150,7 @@ console.log(`Fruits: ${f1}, ${f2} and ${f3}`); };
 getFruits(...fruits); // Fruits: Apple, Orange and Banana
 ```
 **2.5. Spread syntax for object literals**
-```javascript
+```js
 var obj1 = { id: 101, name: 'Jhon Doe' }
 var obj2 = { age: 25, country: 'USA'}
 
@@ -238,7 +163,7 @@ console.log(employee); //{ "id": 101, "name": "Jhon Doe", "age": 25, "country": 
 
 Sets are a new object type with ES6 (ES2015) that allow to create collections of unique values. The values in a set can be either simple primitives like strings or integers, but more complex object types like object literals or arrays can also be part of a set.
 
-```javascript
+```js
 let animals = new Set();
 
 animals.add('🐷');
@@ -306,7 +231,7 @@ for (let animal of moreAnimals) {
 
 Sets also have the `keys` and `values` methods, with keys being an alias for values, so both methods do exactly the same thing. Using either of these methods returns a new iterator object with the values of the set in the same order in which they were added to the set.
 
-```javascript
+```js
 let partyItems = new Set(['🍕', '🍾', '🎊']);
 let items = partyItems.values();
 
@@ -334,7 +259,7 @@ console.log(items.next().done);
 ```
 
 **4. Default Parametrs**
-```javascript
+```js
 function add(x = 10, y = 20) {
   console.log(x + y);
 }
@@ -345,7 +270,7 @@ add(30, 40); // 70
 
 The `repeat()` method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
 
-```javascript
+```js
 var cat = {
   meow(times){
     console.log("meow ".repeat(times));
@@ -355,13 +280,13 @@ cat.meow(2); // meow meow
 ```
 
 **6. Arrow Function (=>)**  
-```javascript
+```js
 var add = (x, y) => x + y;
 console.log(add(10, 20)); // 30;
 
 ```
 **7. Arrow function with `this`**
-```javascript
+```js
 var person = {
   first: "Alex",
   actions: ["bike", "hike", "ski", "surf"],
@@ -389,7 +314,7 @@ var person = {
 ```
 
 **8. Destructing Assignment**
-```javascript
+```js
 var phone = {
   title: "iPhone",
   price: 800,
@@ -408,7 +333,7 @@ console.log(title); // iPhone
 **9. Generators**  
 
 A generator is a function that can stop midway and then continue from where it stopped. In short, a generator appears to be a function but it behaves like an `iterator`.
-```javascript
+```js
 function* generator(num) {
   yield num + 1;
   yield num + 2;
@@ -425,7 +350,7 @@ console.log(gen.next().value); // 15
 ```  
 
 **9.1. Implementing Iterables**  
-```javascript
+```js
 function * iterableObj() {
   yield 'This';
   yield 'is';
@@ -440,7 +365,7 @@ for (const val of iterableObj()) {
 // iterable.
 ```
 **9.2 Infinite Data Streams**  
-```javascript
+```js
 function * naturalNumbers() {
   let num = 1;
   while (true) {
@@ -460,7 +385,7 @@ console.log(numbers.next().value) // 2
 **10. Symbols()**  
 
 They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
-```javascript
+```js
 const symbol1 = Symbol();
 const symbol2 = Symbol(42);
 const symbol3 = Symbol('foo');
@@ -473,7 +398,7 @@ console.log(Symbol('foo') === Symbol('foo')); // false
 
 Symbols primary use case is for making private object properties, which can be only of type String or Symbol (Numbers are automatically converted to Strings).
 
-```javascript
+```js
 const sym = Symbol()
 
 const privateObject = {
@@ -485,7 +410,7 @@ privateObject[sym] // 'Hello World'
 **10.1 Global Symbols**  
 
 A Global Symbol Registry exists where we can store and access Global Symbols. We can use the `Symbol.for(key)` method to both create and access Global Symbols.
-```javascript
+```js
 const sym1 = Symbol.for('hello') // If the Symbol does not exist, it's created
 
 const sym2 = Symbol.for('hello') // The Symbol exists, so it is returned
@@ -495,7 +420,7 @@ sym1 === sym2 // true
 **11. Iterator**  
   
 The iterable is a interface that specifies that an object can be accessible if it implements a method who is key is `[symbol.iterator]`.
-```javascript
+```js
 var title = 'ES6';
 var iterateIt = title[Symbol.iterator]();
 
@@ -512,7 +437,7 @@ console.log(iterateIt.next().value); //output: 6
 
 Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
 
-```javascript
+```js
 var person = { name: 'Tyler', age: 28 };
 console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!');
 // 'Hi, my name is Tyler and I am 28 years old!'
@@ -520,7 +445,7 @@ console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' year
 
 With template literals, you can now create that same output like this instead:
 
-```javascript
+```js
 const person = { name: 'Tyler', age: 28 };
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
@@ -530,7 +455,7 @@ Note that you use backticks, not quotes, to indicate that you are using a templa
 
 A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
 
-```javascript
+```js
 console.log('This is line one.\nThis is line two.');
 // This is line one.
 // This is line two.
@@ -538,7 +463,7 @@ console.log('This is line one.\nThis is line two.');
 
 Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
 
-```javascript
+```js
 console.log('This is line one.\n' +
 	'This is line two.');
 // This is line one.
@@ -547,7 +472,7 @@ console.log('This is line one.\n' +
 
 Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
 
-```javascript
+```js
 console.log(`This is line one.
 This is line two.`);
 // This is line one.
@@ -556,7 +481,7 @@ This is line two.`);
 
 Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
 
-```javascript
+```js
 const person = { name: 'Tyler', age: 28 };
 document.body.innerHTML = `
   <div>
@@ -573,7 +498,7 @@ document.body.innerHTML = `
 ## Q. What is the benefit of using the arrow syntax for a method in a constructor?
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can't change after that. So, when the constructor is used to create a new object, `this` will always refer to that object. 
-```javascript
+```js
 const Person = function(firstName) {
   this.firstName = firstName;
   this.sayName1 = function() { console.log(this.firstName); };
@@ -620,7 +545,7 @@ An arrow function is a shorter syntax for a function expression and does not hav
 **When should not use Arrow Functions**  
 **1. Object methods**  
 When you call cat.jumps, the number of lives does not decrease. It is because this is not bound to anything, and will inherit the value of this from its parent scope.
-```javascript
+```js
 var cat = {
   lives: 9,
   jumps: () => {
@@ -630,7 +555,7 @@ var cat = {
 ```
 **2. Callback functions with dynamic context**  
 If we click the button, we would get a TypeError. It is because this is not bound to the button, but instead bound to its parent scope.
-```javascript
+```js
 var button = document.getElementById('press');
 button.addEventListener('click', () => {
   this.classList.toggle('on');
@@ -643,7 +568,7 @@ button.addEventListener('click', () => {
 ## Q. How does await and async works in es6?
 
 * **Promises**
-```javascript
+```js
 const delay = seconds => {
     return new Promise(resolve => {
         setTimeout(resolve, seconds * 1000)
@@ -655,7 +580,7 @@ delay(1).then(() => console.log('One seconds wait'));
 delay(5).then(() => console.log('Five seconds wait'));
 ```
 * **Loading data with fetch()**
-```javascript
+```js
 const getPeopleInSpace = () =>
     fetch('http://api.open-notify.org/astros.json')
         .then(res => res.json());
@@ -664,7 +589,7 @@ getPeopleInSpace()
     .then(console.log);
 ```
 * **Async() and await()**
-```javascript
+```js
 const delay = seconds => {
     return new Promise(
         resolve => setTimeout(resolve, seconds * 1000)
@@ -682,7 +607,7 @@ const countToFive = async() => {
 countToFive();
 ```
 * **Async with fetch**
-```javascript
+```js
 const githubRequest = async(loginName) => {
     try{
         var response = await fetch(`http://api.github.com/users/${loginName}/followers`);
@@ -711,7 +636,7 @@ Arrows is a new syntax for functions, which brings several benefits:
 * The syntax allows an implicit return when there is no body block, resulting in shorter and simpler code in some cases
 * Last but not least, `=>` is shorter and simpler than `function`, although stylistic issues are often subjective
 
-```javascript
+```js
 //arrow function with no parameters
 var a1 = () => 1;
  
@@ -732,7 +657,7 @@ var a5 = x => { return 1; };
 
 ## Q. What are the differences between ES6 class and ES5 function constructors?
 
-```javascript
+```js
 // ES5 Function Constructor
 function Person(name) {
   this.name = name;
@@ -750,7 +675,7 @@ For simple constructors, they look pretty similar.
 
 The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
 
-```javascript
+```js
 // ES5 Function Constructor
 function Student(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
@@ -782,7 +707,7 @@ It's much more verbose to use inheritance in ES5 and the ES6 version is easier t
 
 ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and Rx.js projects.
 
-```javascript
+```js
 function addCookiesInArray(arr) {
   return [...arr, 'Cookies'];
 }
@@ -792,7 +717,7 @@ const result = addCookiesInArray(['I', 'really', "don't", 'like']);
 console.log(result); // ["I", "really", "don't", "like", "Cookies"]
 ```
 
-```javascript
+```js
 const person = {
   name: 'Todd',
   age: 29,
@@ -805,7 +730,7 @@ console.log(copyOfPerson); // {name: "Todd", age: 29}
 
 ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
 
-```javascript
+```js
 function addFiveToABunchOfNumbers(...numbers) {
   return numbers.map(x => x + 5);
 }
@@ -821,92 +746,19 @@ const { e, f, ...others } = {
   h: 4,
 }; // e: 1, f: 2, others: { g: 3, h: 4 }
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
-## Q. What are the differences between variables created using `let`, `var` or `const`?
-
-Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
-
-```javascript
-function foo() {
-  // All variables are accessible within functions.
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
-
-  console.log(bar); // bar
-  console.log(baz); // baz
-  console.log(qux); // qux
-}
-
-console.log(bar); // ReferenceError: bar is not defined
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
-```
-
-```javascript
-if (true) {
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
-}
-
-// var declared variables are accessible anywhere in the function scope.
-console.log(bar); // bar
-// let and const defined variables are not accessible outside of the block they were defined in.
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
-```
-
-`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
-
-```javascript
-console.log(foo); // undefined
-
-var foo = 'foo';
-console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
-
-let baz = 'baz';
-console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
-
-const bar = 'bar';
-```
-
-Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
-
-```javascript
-var foo = 'foo';
-var foo = 'bar';
-console.log(foo); // "bar"
-
-let baz = 'baz';
-let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
-```
-
-`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
-
-```javascript
-// This is fine.
-let foo = 'foo';
-foo = 'bar';
-
-// This causes an exception.
-const baz = 'baz';
-baz = 'qux';
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. What is the difference between for..in and for..of?
+
 * **for in**: loops over enumerable property names of an object.
 * **for of**: (new in ES6) does use an object-specific iterator and loops over the values generated by that.
 
 Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a **list of keys** on the object being iterated, whereas `for..of` returns a **list of values** of the numeric properties of the object being iterated.  
 Example:
-```javascript
+```js
 let list = [4, 5, 6];
 
 for (let i in list) {
@@ -921,30 +773,21 @@ for (let i of list) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the Temporal Dead Zone in ES6?
-In ES6, let bindings are not subject to Variable Hoisting, which means that let declarations do not move to the top of the current execution context. Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the undefined value). The variable is in a “temporal dead zone” from the start of the block until the initialization is processed.
-
-```javascript
-console.log(aVar); // undefined
-console.log(aLet); // causes ReferenceError: aLet is not defined
-var aVar = 1;
-let aLet = 2;
-```
 ## Q. What is the difference between ES6 Map and WeakMap?
 **Map**  
 It is used to associate a key to a value irrespective of the datatype such as strings, numbers, objects etc. To assign values to a map you need to use the set method:
-```javascript
+```js
 window.obj = {}
 var map = new Map()
 map.set(window.obj, 123)
 ```
 Then, to retrieve the object call get:
-```javascript
+```js
 map.get(window.obj) // => 123
 ```
 **WeakMap**  
 WeakMap accepts only objects but not any primitive values (strings, numbers)
-```javascript
+```js
 function Obj(){
     this.val = new Array(10000000).join("---")
 }
@@ -954,7 +797,9 @@ var map = new WeakMap()
 map.set(window.obj, 123)
 delete window.obj
 ```
+
 **Differences between Map and WeakMap**  
+
 1. A WeakMap accepts only objects as keys whereas a Map,in addition to objects, accepts primitive datatype such as strings, numbers etc.
 2. WeakMap objects doesn't avert garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as Map.prototype.keys() to get the keys.
 3. There is no size property exists in WeakMap.
@@ -970,8 +815,9 @@ The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. 
 
 A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment.  
 
-**Array Destructuring**  
-```javascript
+**Array Destructuring**
+
+```js
 var x, y, z;
 
 [x=2, y=4, z=6] = [10];
@@ -980,32 +826,15 @@ console.log(y); // 4
 console.log(z); // 6
 ```
 
-**Object Destructuring**  
-```javascript
+**Object Destructuring**
+
+```js
 var {x=2, y=4, z=6} = {x: 10};
 
 console.log(x); // 10
 console.log(y); // 4
 console.log(z); // 6
 ```
-## Q. How do you swap variables using Destructuring Assignment?
-```javascript
-var x = 10, y = 20;
-
-[x, y] = [y, x];
-console.log(x); // 20
-console.log(y); // 10
-```
-## Q. What is the output of below spread operator array?
-```javascript
-[...'John']
-```
-**Output**:  ['J', 'o', 'h', 'n']  
-**Explanation**: The string is an iterable type and the spread operator with in an array maps every character of an iterable to one element. Hence, each character of a string becomes an element within an Array.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. What is modules in ES6?
 
@@ -1020,7 +849,7 @@ Making objects, functions, classes or variables available to the outside world i
 * Module code (usually) helps eradicate naming conflicts. Function `x()` in module1 cannot clash with function x() in module2. Options such as namespacing are employed so calls become `module1.x()` and `module2.x()`.
 
 **Exporting**
-```javascript
+```js
 export const myNumbers = [1, 2, 3, 4];
 const animals = ['Panda', 'Bear', 'Eagle']; // Not available directly outside the module
 
@@ -1035,11 +864,11 @@ export class Alligator {
 }
 ```
 **Exporting with alias**
-```javascript
+```js
 export { myNumbers, myLogger as Logger, Alligator }
 ```
 **Default export**
-```javascript
+```js
 export const myNumbers = [1, 2, 3, 4];
 const animals = ['Panda', 'Bear', 'Eagle'];
 
@@ -1105,7 +934,7 @@ One obvious way is to **get rid of recursion**, and rewrite the code to be itera
 When that is not possible we need a bit more complex code where instead of executing directly the recursive steps, we will utilize `higher order functions` to return a wrapper function instead of executing the recursive step directly, and let another function control the execution.
 
 In your example, the **repeat** function wraps the regular recursive call with a function, and it returns that function instead of executing the recursive call:
-```javascript
+```js
 function repeat(operation, num) {
     return function() {
        if (num <= 0) return
@@ -1115,7 +944,7 @@ function repeat(operation, num) {
 }
 ```
 The returned function is the next step of recursive execution and the trampoline is a mechanism to execute these steps in a controlled and iterative fashion in the while loop:
-```javascript
+```js
 function trampoline(fn) {
     while(fn && typeof fn === 'function') {
         fn = fn()
@@ -1137,11 +966,11 @@ Using a trampoline is obviously less performant than simple recursion, since you
 Using the `Set()` class we can create an array like heterogeneous iterable object, which will contain only unique values in it. Unique is not just unique by values but also by types. i.e. it will consider `"2"` and `2` separate or different.
 
 Syntax:  
-```javascript
+```js
 var mySet = new Set([iterable]);
 ```
 Example:
-```javascript
+```js
 var mySet= new Set([0,1]);
 
 mySet.add(2); // 0, 1, 2
@@ -1163,11 +992,11 @@ mySet.clear(); // Set Cleared
 A `WeakSet()` is a collection similar to Set, which holds unique values; but it only holds Objects and nothing else. If an object which is there in your WeakSet object has no other reference variable left, it will automatically be deleted.
 
 Syntax:
-```javascript
+```js
 var myWeakSet = new WeakSet([iterable with only objects]);
 ```
 Example:
-```javascript
+```js
 var myWeakSet = new WeakSet([{a:1}]);
 var obj1 = {o:1};
 var obj2 = {o:2};
@@ -1198,7 +1027,7 @@ myWeakSet.add(2); // ERROR, no primitive value
 **XMLHttpRequest**  
 
 `XMLHttpRequest()` is a built-in browser object that allows to make HTTP requests in JavaScript. XMLHttpRequest has two modes of operation: **synchronous** and **asynchronous**.
-```javascript
+```js
 if (window.XMLHttpRequest) {
   // code for IE7+, Firefox, Chrome, Opera, Safari
   xhr = new XMLHttpRequest();
@@ -1231,7 +1060,7 @@ Fetch allows to make network requests similar to `XMLHttpRequest`. Fetch makes i
 **Making a request using fetch()**  
 
 A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful `.then()` function will receive Response object, if request fails then `.catch()` function will receive an error object
-```javascript
+```js
 fetch('https://api.github.com/users/learning-zone')
     .then(function (response) {
         return response.json();
@@ -1246,7 +1075,7 @@ fetch('https://api.github.com/users/learning-zone')
 **Headers Object**  
 
 The Headers interface allows to create own headers object via the `Headers()` constructor. A headers object is a collection of name-value pairs.
-```javascript
+```js
 let reqHeader = new Headers();
 reqHeader.append('Content-Type', 'text/json');
 let initObject = {
@@ -1267,7 +1096,7 @@ fetch('https://api.github.com/users/learning-zone', initObject)
 **Request Object**  
 
 The Request Object represents a resource request. Instead of passing an URL of the resource into the fetch() call, you can create a request object using the Request() constructor, and pass that as an argument to fetch(). By passing Request object to the fetch(), you can make customised requests.
-```javascript
+```js
 let reqHeader = new Headers();
 reqHeader.append('Content-Type', 'text/json');
 
@@ -1304,6 +1133,7 @@ An Ajax call is a specific type of asynchronous operation. We can make an Ajax c
 </div>
 
 ## Q. What is use of Proxies in es6?
+
 The Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc).
 
 There are 3 key terms we need to define before we proceed:
@@ -1313,11 +1143,11 @@ There are 3 key terms we need to define before we proceed:
 * **target** — object which the proxy virtualizes
 
 Syntax
-```javascript
+```js
 const p = new Proxy(target, handler)
 ```
 Example:
-```javascript
+```js
 const handler = {
   get: function(obj, prop) {
     return prop in obj ?
@@ -1355,7 +1185,7 @@ There are many real-world applications for Proxies
 A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
 Syntax
 
-```javascript
+```js
 const promise = new Promise(function(resolve, reject) {
   // promise description
 })
@@ -1376,7 +1206,7 @@ Promises have three states:
 
 The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining.
 
-```javascript
+```js
 new Promise(function(resolve, reject) {
 
   setTimeout(() => resolve(1), 1000);
@@ -1412,7 +1242,7 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
 
 `Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected.
 
-```javascript
+```js
 Promise.all([Promise1, Promise2, Promise3]) 
         .then(result) => {   
             console.log(result) 
@@ -1429,7 +1259,7 @@ Promise.all([Promise1, Promise2, Promise3])
 
 `Promise.race()` method will return the promise instance which is firstly resolved or rejected. Let us take an example of race() method where promise2 is resolved first
 
-```javascript
+```js
 var promise1 = new Promise(function(resolve, reject) {
     setTimeout(resolve, 500, 'one');
 });
