@@ -17,7 +17,6 @@
 
 * Variables
 * Data types
-* Type Conversions
 * Operators
 * Numbers
 * Strings
@@ -29,9 +28,513 @@
 * Classes
 * Error handling
 * Promises
+* Modules
 * Events
 * Forms
 * Windows and Document
+* Design Pattern
+
+## Q. ***What are global variables?***
+
+Global variables are declared outside of a function or declared with a window object for accessibility throughout the program (unless shadowed by locals). If you declare a variable without using var, even if it’s inside a function, it will still be seen as global:
+
+```js
+
+var x = 5; // global
+function someThing(y) {
+  var z = x + y;
+  console.log(z);
+}
+someThing(4); // 9
+console.log(x); // 5
+```
+
+**Using Undeclared Variables:**
+
+- In strict mode, if you attempt to use an undeclared variable, you\'ll get a reference error when you run your code. 
+- Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you’ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
+- Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
+But unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
+
+```js
+var x = 5; // global
+function someThing(y) {
+  x = 1; // still global!
+  var z = x + y;
+  console.log(z);
+}
+someThing(4) // 5
+console.log(x) // 1
+```
+
+```js
+var x = 5; // global
+function someThing(y) {
+  var x = 3; // local
+  var z = x + y;
+  console.log(z);
+}
+someThing(4); // 7
+console.log(x); // 5
+```
+
+A global variable is also an object of the current scope, such as the browser window:
+
+```js
+var dog = “Fluffy”;
+console.log(dog); // Fluffy;
+
+var dog = “Fluffy”;
+console.log(window.dog); // Fluffy
+```
+
+To declare JavaScript global variables inside the function, you need to use a window object. For example:
+
+```js
+window.value = 90;
+```
+  
+Now it can be declared inside any function and can be accessed from any function. For example:
+
+```js
+function m() {  
+  window.value = 100;  //declaring global variable by window object  
+}  
+
+function n() {  
+  console.log(window.value);  //accessing global variable from other function  
+}  
+```
+
+It\'s a best practice to minimize global variables. Since the variable can be accessed anywhere in the program, they can cause strange behavior.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the differences between variables created using `let`, `var` or `const`?
+
+Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
+
+```js
+function foo() {
+  // All variables are accessible within functions.
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
+
+  console.log(bar); // bar
+  console.log(baz); // baz
+  console.log(qux); // qux
+}
+
+console.log(bar); // ReferenceError: bar is not defined
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+```js
+if (true) {
+  var bar = 'bar';
+  let baz = 'baz';
+  const qux = 'qux';
+}
+
+// var declared variables are accessible anywhere in the function scope.
+console.log(bar); // bar
+// let and const defined variables are not accessible outside of the block they were defined in.
+console.log(baz); // ReferenceError: baz is not defined
+console.log(qux); // ReferenceError: qux is not defined
+```
+
+`var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
+
+```js
+console.log(foo); // undefined
+var foo = 'foo';
+
+console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
+let baz = 'baz';
+
+console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
+const bar = 'bar';
+```
+
+Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
+
+```js
+var foo = 'foo';
+var foo = 'bar';
+console.log(foo); // "bar"
+
+let baz = 'baz';
+let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+```
+
+`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
+
+```js
+// This is fine.
+let foo = 'foo';
+foo = 'bar';
+
+// This causes an exception.
+const baz = 'baz';
+baz = 'qux';
+```
+
+## Q. ***What is Hoisting in JavaScript?***
+
+Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+
+**Example 01:** Variable Hoisting  
+
+```js
+console.log(message); // output : undefined
+var message = "The variable Has been hoisted";
+```
+
+The above code looks like as below to the interpreter,
+
+```js
+var message;
+console.log(message);
+message = "The variable Has been hoisted";
+```
+
+**Example 02:** Function Hoisting
+
+```js
+function hoist() {
+  a = 20;
+  var b = 100;
+}
+
+hoist();
+
+console.log(a);
+/* 
+Accessible as a global variable outside hoist() function
+Output: 20
+*/
+
+console.log(b);
+/*
+Since it was declared, it is confined to the hoist() function scope.
+We can't print it out outside the confines of the hoist() function.
+Output: ReferenceError: b is not defined
+*/
+```
+
+All declarations (function, var, let, const and class) are hoisted in JavaScript, while the `var` declarations are initialized with `undefined`, but `let` and `const` declarations remain uninitialized.
+
+```js
+console.log(a);
+let a = 3;
+
+// Output: ReferenceError: a is not defined
+```
+
+They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can’t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call **Temporal Dead Zone**, A time span between variable creation and its initialization where they can’t be accessed.
+
+*Note: JavaScript only hoists declarations, not initialisation*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the Temporal Dead Zone in ES6?
+
+In ES6, let bindings are not subject to Variable Hoisting, which means that let declarations do not move to the top of the current execution context. Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the undefined value). The variable is in a “temporal dead zone” from the start of the block until the initialization is processed.
+
+```javascript
+console.log(aVar); // undefined
+console.log(aLet); // causes ReferenceError: aLet is not defined
+var aVar = 1;
+let aLet = 2;
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of double exclamation?***
+
+The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, true.
+For example, you can test IE version using this expression as below,
+
+```js
+let isIE11 = false;
+isIE11 = !!navigator.userAgent.match(/Trident.*rv[ :]*11\./);
+console.log(isIE11); // returns true or false
+```
+
+If you do not use this expression then it returns the original value.
+
+```js
+console.log(navigator.userAgent.match(/Trident.*rv[ :]*11\./));  // returns either an Array or null
+```
+
+*Note: The expression !! is not an operator, but it is just twice of ! operator*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***In JavaScript, what is the difference between var x = 1 and x = 1?***
+
+`var x = 1`:
+
+- Allowed in 'strict mode'.
+- The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+- Variables declared using var inside a { } block can be accessed from outside the block.
+- Variables defined using var inside a function are not accessible (visible) from outside the function.
+- Duplicate variable declarations using var will not trigger an error, even in strict mode, and the variable will not lose its value unless another assignment is performed.
+
+```js
+var x = 1;
+
+if (x === 1) {
+  var x = 2;
+
+  console.log(x);
+  // expected output: 2
+}
+
+console.log(x);
+// expected output: 2
+```
+
+```js
+var x = 5; // global
+function someThing(y) {
+  var x = 3; // local
+  var z = x + y;
+  console.log(z);
+}
+someThing(4); // 7
+console.log(x); // 5
+```
+
+`x = 1`:
+
+- Not allowed in 'strict mode'.
+- Undeclared Variables like: x = 1 is accessible in: (Block scope - Function scope - Global scope)
+- Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you’ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
+- Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
+- Unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
+- Not recommended.
+
+```js
+var x = 5; // global
+function someThing(y) {
+  x = 1; // still global!
+  var z = x + y;
+  console.log(z);
+}
+someThing(4) // 5
+console.log(x) // 1
+```
+
+**Example:**
+
+```js
+{
+  console.log(x + y); // NaN
+  var x = 1;
+  var y = 2;
+}
+```
+
+```js
+{
+  console.log(x + y); // Uncaught ReferenceError: x is not defined
+   x = 1;
+   y = 2;
+}
+```
+
+<br/>
+
+|                              |             var x = 1                  |                    x = 1                    |
+|           :---:              |                :---:                       |                     :---:                    |
+|    Strict mode         |            &#10004;                 |                 &#10060;              |
+|    Block scope        |            &#10060;                 |                 &#10004;               |
+|    Function scope   |            &#10004;                 |                 &#10004;               |
+|    Global scope       |             &#10004;                |                &#10004;                |
+|    Hoisting               |             &#10004;               |                &#10060;                |
+|    Reassigning         |             &#10004;                |               &#10004;                |
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is undefined property?***
+
+The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
+
+```js
+var user;    // Value is undefined, type is undefined
+console.log(typeof(user)) //undefined
+```
+
+Any variable can be emptied by setting the value to undefined.
+
+```js
+user = undefined
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between null and undefined?***
+
+Below are the main differences between null and undefined,
+
+| Null | Undefined |
+|---- | -----------|
+| It is an assignment value which indicates that variable points to no object.  | It is not an assignment value where a variable has been declared but has not yet been assigned a value. |
+| Type of null is object | Type of undefined is undefined  |
+| The null value is a primitive value that represents the null, empty, or non-existent reference. | The undefined value is a primitive value used when a variable has not been assigned a value.|
+| Indicates the absence of a value for a variable | Indicates absence of variable itself |
+| Converted to zero (0) while performing primitive operations | Converted to NaN while performing primitive operations |
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the differences between undeclared and undefined variables?***
+
+Below are the major differences between undeclared and undefined variables,
+
+| undeclared | undefined |
+|---- | ---------
+| These variables do not exist in a program and are not declared  | These variables declared in the program but have not assigned any value |
+| If you try to read the value of an undeclared variable, then a runtime error is encountered | If you try to read the value of an undefined variable, an undefined value is returned.  |
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you assign default values to variables?***
+
+You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,
+
+```js
+var a = b || c;
+```
+
+As per the above expression, variable 'a 'will get the value of 'c' only if 'b' is falsy (if is null, false, undefined, 0, empty string, or NaN), otherwise 'a' will get the value of 'b'.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the precedence order between local and global variables?***
+
+A local variable takes precedence over a global variable with the same name. 
+
+```js
+var msg = "Good morning";
+function greeting() {
+  msg = "Good Evening";
+  console.log(msg);
+}
+greeting();
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?***
+
+**Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
+
+```js
+function foo() {
+  x = 1; // Throws a ReferenceError in strict mode
+}
+
+foo();
+console.log(x); // 1
+```
+
+A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
+
+```js
+var foo;
+console.log(foo); // undefined
+console.log(foo === undefined); // true
+console.log(typeof foo === 'undefined'); // true
+
+console.log(foo == null); // true. Wrong, don't use this to check!
+
+function bar() {}
+var baz = bar();
+console.log(baz); // undefined
+```
+
+A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
+
+```js
+var foo = null;
+console.log(foo === null); // true
+console.log(typeof foo === 'object'); // true
+
+console.log(foo == undefined); // true. Wrong, don't use this to check!
+```
+
+As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring if I do not intend to use it yet. If you use a linter in your workflow, it will usually also be able to check that you are not referencing undeclared variables.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is difference between private variable, public variable and static variable? How we achieve this in JS?***
+
+Private and public variables are two ways of information hiding. An object can have private and public variables. Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
+Static variables are related to a class. They come into existence as soon as a class come into existence.
+
+Now, JavaScript natively doesn\'t support these concepts. But you can use JavaScript's closure techniques to achieve the similar results.
+
+```js
+function MyClass () { // constructor function
+  var privateVariable = "foo";  // Private variable 
+
+  this.publicVariable = "bar";  // Public variable 
+
+  this.privilegedMethod = function () {  // Public Method
+    alert(privateVariable);
+  };
+}
+
+// Instance method will be available to all instances but only load once in memory 
+MyClass.prototype.publicMethod = function () {    
+  alert(this.publicVariable);
+};
+
+// Static variable shared by all instances
+MyClass.staticProperty = "baz";
+
+var myInstance = new MyClass();
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. How do you swap variables using Destructuring Assignment?
+
+```js
+var x = 10, y = 20;
+
+[x, y] = [y, x];
+
+console.log(x); // 20
+console.log(y); // 10
+```
 
 ## Q. ***What are data types in javascript?***
 
@@ -168,79 +671,32 @@ const employee = {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are global variables?***
+## Q. ***What are various operators supported by javascript?***
 
-Global variables are declared outside of a function or declared with a window object for accessibility throughout the program (unless shadowed by locals). If you declare a variable without using var, even if it’s inside a function, it will still be seen as global:
+An operator is capable of manipulating(mathematical and logical computations) a certain value or operand. There are various operators supported by JavaScript as below,
 
-```js
+1. **Arithmetic Operators:** Includes + (Addition),– (Subtraction), * (Multiplication), / (Division), % (Modulus), + + (Increment)  and – – (Decrement)
+2. **Comparison Operators:** Includes = =(Equal),!= (Not Equal), ===(Equal with type), > (Greater than),> = (Greater than or Equal to),< (Less than),<= (Less than or Equal to)
+3. **Logical Operators:** Includes &&(Logical AND),||(Logical OR),!(Logical NOT)
+4. **Assignment Operators:** Includes = (Assignment Operator), += (Add and Assignment Operator), – = (Subtract and Assignment Operator), *= (Multiply and Assignment), /= (Divide and Assignment), %= (Modules and Assignment)
+5. **Ternary Operators:** It includes conditional(: ?) Operator
+6. **typeof Operator:** It uses to find type of variable. The syntax looks like `typeof variable`
 
-var x = 5; // global
-function someThing(y) {
-  var z = x + y;
-  console.log(z);
-}
-someThing(4); // 9
-console.log(x); // 5
-```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-**Using Undeclared Variables:**
+## Q. ***What are the bitwise operators available in javascript?***
 
-- In strict mode, if you attempt to use an undeclared variable, you’ll get a reference error when you run your code. 
-- Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you’ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
-- Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
-But unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
+Below are the list of bit-wise logical operators used in JavaScript
 
-```js
-var x = 5; // global
-function someThing(y) {
-  x = 1; // still global!
-  var z = x + y;
-  console.log(z);
-}
-someThing(4) // 5
-console.log(x) // 1
-```
-
-```js
-var x = 5; // global
-function someThing(y) {
-  var x = 3; // local
-  var z = x + y;
-  console.log(z);
-}
-someThing(4); // 7
-console.log(x); // 5
-```
-
-A global variable is also an object of the current scope, such as the browser window:
-
-```js
-var dog = “Fluffy”;
-console.log(dog); // Fluffy;
-
-var dog = “Fluffy”;
-console.log(window.dog); // Fluffy
-```
-
-To declare JavaScript global variables inside the function, you need to use a window object. For example:
-
-```js
-window.value = 90;
-```
-  
-Now it can be declared inside any function and can be accessed from any function. For example:
-
-```js
-function m() {  
-  window.value = 100;  //declaring global variable by window object  
-}  
-
-function n() {  
-  console.log(window.value);  //accessing global variable from other function  
-}  
-```
-
-It\'s a best practice to minimize global variables. Since the variable can be accessed anywhere in the program, they can cause strange behavior.
+1. Bit-wise AND ( & )
+2. Bit-Wise OR ( | )
+3. Bit-Wise XOR ( ^ )
+4. Bit-Wise NOT ( ~ )
+5. Left Shift ( << )
+6. Sign Propagating Right Shift ( >> )
+7. Zero fill Right Shift ( >>> )
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -274,154 +730,6 @@ null === undefined // false
 []==[] or []===[] //false, refer different objects in memory
 {}=={} or {}==={} //false, refer different objects in memory
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is Hoisting in JavaScript?***
-
-Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
-
-**Example 01:** Variable Hoisting  
-
-```js
-console.log(message); // output : undefined
-var message = "The variable Has been hoisted";
-```
-
-The above code looks like as below to the interpreter,
-
-```js
-var message;
-console.log(message);
-message = "The variable Has been hoisted";
-```
-
-**Example 02:** Function Hoisting
-
-```js
-function hoist() {
-  a = 20;
-  var b = 100;
-}
-
-hoist();
-
-console.log(a);
-/* 
-Accessible as a global variable outside hoist() function
-Output: 20
-*/
-
-console.log(b);
-/*
-Since it was declared, it is confined to the hoist() function scope.
-We can't print it out outside the confines of the hoist() function.
-Output: ReferenceError: b is not defined
-*/
-```
-
-All declarations (function, var, let, const and class) are hoisted in JavaScript, while the `var` declarations are initialized with `undefined`, but `let` and `const` declarations remain uninitialized.
-
-```js
-console.log(a);
-let a = 3;
-
-// Output: ReferenceError: a is not defined
-```
-
-They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can’t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call **Temporal Dead Zone**, A time span between variable creation and its initialization where they can’t be accessed.
-
-*Note: JavaScript only hoists declarations, not initialisation*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***In JavaScript, what is the difference between var x = 1 and x = 1?***
-
-`var x = 1`:
-
-- Allowed in 'strict mode'.
-- The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
-- Variables declared using var inside a { } block can be accessed from outside the block.
-- Variables defined using var inside a function are not accessible (visible) from outside the function.
-- Duplicate variable declarations using var will not trigger an error, even in strict mode, and the variable will not lose its value unless another assignment is performed.
-
-```js
-var x = 1;
-
-if (x === 1) {
-  var x = 2;
-
-  console.log(x);
-  // expected output: 2
-}
-
-console.log(x);
-// expected output: 2
-```
-
-```js
-var x = 5; // global
-function someThing(y) {
-  var x = 3; // local
-  var z = x + y;
-  console.log(z);
-}
-someThing(4); // 7
-console.log(x); // 5
-```
-
-`x = 1`:
-
-- Not allowed in 'strict mode'.
-- Undeclared Variables like: x = 1 is accessible in: (Block scope - Function scope - Global scope)
-- Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you’ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
-- Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
-- Unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
-- Not recommended.
-
-```js
-var x = 5; // global
-function someThing(y) {
-  x = 1; // still global!
-  var z = x + y;
-  console.log(z);
-}
-someThing(4) // 5
-console.log(x) // 1
-```
-
-**Example:**
-
-```js
-{
-  console.log(x + y); // NaN
-  var x = 1;
-  var y = 2;
-}
-```
-
-```js
-{
-  console.log(x + y); // Uncaught ReferenceError: x is not defined
-   x = 1;
-   y = 2;
-}
-```
-
-<br/>
-
-|                              |             var x = 1                  |                    x = 1                    |
-|           :---:              |                :---:                       |                     :---:                    |
-|    Strict mode         |            &#10004;                 |                 &#10060;              |
-|    Block scope        |            &#10060;                 |                 &#10004;               |
-|    Function scope   |            &#10004;                 |                 &#10004;               |
-|    Global scope       |             &#10004;                |                &#10004;                |
-|    Hoisting               |             &#10004;               |                &#10060;                |
-|    Reassigning         |             &#10004;                |               &#10004;                |
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -465,36 +773,185 @@ typeof a; // "object"
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is undefined property?***
+## Q. ***What is an Unary operator?***
 
-The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
-
+The unary(+) operator is used to convert a variable to a number.If the variable cannot be converted, it will still become a number but with the value NaN. Let us see this behavior in an action.
 ```js
-var user;    // Value is undefined, type is undefined
-console.log(typeof(user)) //undefined
+var x = "100";
+var y = + x;
+console.log(typeof x, typeof y); // string, number
+
+var a = "Hello";
+var b = + a;
+console.log(typeof a, typeof b, b); // string, number, NaN
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
-Any variable can be emptied by setting the value to undefined.
+## Q. ***What is the purpose of delete operator?***
+
+The delete keyword is used to delete the property as well as its value.
 
 ```js
-user = undefined
+var user= {name: "John", age:20};
+delete user.age;
+
+console.log(user); // {name: "John"}
 ```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between null and undefined?***
+## Q. ***What is a conditional operator in javascript?***
 
-Below are the main differences between null and undefined,
+The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
 
-| Null | Undefined |
-|---- | -----------|
-| It is an assignment value which indicates that variable points to no object.  | It is not an assignment value where a variable has been declared but has not yet been assigned a value. |
-| Type of null is object | Type of undefined is undefined  |
-| The null value is a primitive value that represents the null, empty, or non-existent reference. | The undefined value is a primitive value used when a variable has not been assigned a value.|
-| Indicates the absence of a value for a variable | Indicates absence of variable itself |
-| Converted to zero (0) while performing primitive operations | Converted to NaN while performing primitive operations |
+```js
+var isAuthenticated = false;
+console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticated');
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Can you apply chaining on conditional operator?***
+
+Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain. The syntax is going to be as below,
+
+```js
+function traceValue(someParam) {
+    return condition1 ? value1
+        : condition2 ? value2
+        : condition3 ? value3
+        : value4;
+}
+
+// The above conditional operator is equivalent to:
+
+function traceValue(someParam) {
+    if (condition1) { return value1; }
+    else if (condition2) { return value2; }
+    else if (condition3) { return value3; }
+    else { return value4; }
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between `==` and `===`?***
+
+`==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
+
+```js
+1 == '1'; // true
+1 == [1]; // true
+1 == true; // true
+0 == ''; // true
+0 == '0'; // true
+0 == false; // true
+```
+
+My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
+
+```js
+var a = null;
+console.log(a == null); // true
+console.log(a == undefined); // true
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between `typeof` and `instanceof`?***
+
+`typeof` is an operator that returns a string with the type of whatever you pass.
+
+The `typeof` operator checks if a value belongs to one of the seven basic types: `number`, `string`, `boolean`, `object`, `function`, `undefined` or `Symbol`.
+
+`typeof(null)` will return `object`.
+
+`instanceof` is much more intelligent: it works on the level of prototypes. In particular, it tests to see if the right operand appears anywhere in the prototype chain of the left. `instanceof` doesn’t work with primitive types. It `instanceof` operator checks the current object and returns true if the object is of the specified type, for example:
+
+```js
+var dog = new Animal();
+dog instanceof Animal; // Output : true
+```
+
+Here `dog instanceof Animal` is true since `dog` inherits from `Animal.prototype`
+
+```js
+var name = new String("xyz");
+name instanceof String; // Output : true
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Best way to detect reference values of any type in JavaScript?***
+
+ In Javascript Object are called as reference type, Any value other then primitive is definitely a reference type. There are several built-in reference type such as **Object**, **Array**, **Function**, **Date**, **null** and **Error**.
+
+Detecting object using `typeof` operator
+
+```js
+console.log(typeof {});           // object
+console.log(typeof []);           // object
+console.log(typeof new Array());  // object
+console.log(typeof null);         // object 
+console.log(typeof new RegExp()); // object
+console.log(typeof new Date());   // object
+```
+
+But the downside of using typeof operator to detect an object is that typeof returns `object` for `null` (However this is fact that null is an object in JavaScript).
+
+The best way to detect an object of specific reference type using `instanceof` operator.
+
+>Syntax : **value** instanceof **constructor**
+
+```js
+//Detecting an array
+if(value instanceof Array){
+	console.log("value is type of array");
+}
+```
+
+```js
+// Employee constructor function
+function Employee(name){
+	this.name = name; // Public property
+}
+
+var emp1 = new Employee('John');
+
+console.log(emp1 instanceof Employee); // true
+```
+
+`instanceof` not only check the constructor which is used to create an object but also check It is prototype chain see below example.
+
+```js
+console.log(emp1 instanceof Object); // true
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the output of below spread operator array?***
+
+```js
+[...'Hello']
+```
+
+**Output**:  ['H', 'e', 'l', 'l', 'o']  
+
+**Explanation**: The string is an iterable type and the spread operator with in an array maps every character of an iterable to one element. Hence, each character of a string becomes an element within an Array.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -514,14 +971,16 @@ typeof(NaN) //Number
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the differences between undeclared and undefined variables?***
+## Q. ***How to convert Decimal to Binary in JavaScript?***
 
-Below are the major differences between undeclared and undefined variables,
+```js
 
-| undeclared | undefined |
-|---- | ---------
-| These variables do not exist in a program and are not declared  | These variables declared in the program but have not assigned any value |
-| If you try to read the value of an undeclared variable, then a runtime error is encountered | If you try to read the value of an undefined variable, an undefined value is returned.  |
+var val = 10;
+
+console.log(val.toString(2)); // 1010  ==> Binary Conversion
+console.log(val.toString(8)); // 12  ==> Octal Conversion
+console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -537,6 +996,68 @@ isFinite(NaN);       // false
 isFinite(-Infinity); // false
 
 isFinite(100);         // true
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***For which value of `x` the results of the following statements are not the same?***
+
+```js
+//  if( x <= 100 ) {...}
+if( !(x > 100) ) {...}
+```
+
+`NaN <= 100` is `false` and `NaN > 100` is also `false`, so if the
+value of `x` is `NaN`, the statements are not the same.
+
+The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}` , etc.
+
+This is why you need to pay attention when you deal with numeric variables. `NaN` can’t be equal, less than or more than any other numeric value, so the only reliable way to check if the value is `NaN`, is to use `isNaN()` function.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain NEGATIVE_INFINITY in JavaScript?***
+
+```js
+Number.NEGATIVE_INFINITY;
+```
+
+- Negative infinity is a number in javascript, which is derived by 'dividing negative number by zero'.
+- A number object needs not to be created to access this static property.
+- The value of negative infinity is the same as the negative value of the infinity property of the global object.
+
+```js
+function checkNumber(smallNumber) {
+  if (smallNumber === Number.NEGATIVE_INFINITY) {
+    return 'Process number as -Infinity';
+  }
+  return smallNumber;
+}
+
+console.log(checkNumber(-Number.MAX_VALUE));
+// expected output: -1.7976931348623157e+308
+
+console.log(checkNumber(-Number.MAX_VALUE * 2));
+// expected output: "Process number as -Infinity"
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you compare two date objects?***
+
+You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
+
+```js
+var d1 = new Date();
+var d2 = new Date(d1);
+console.log(d1.getTime() === d2.getTime()); //True
+console.log(d1 === d2); // False
 ```
 
 <div align="right">
@@ -652,7 +1173,7 @@ console.log(sum); // Output: 60
 
 ## Q. ***What are closures?***
 
-A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function’s variables. The closure has three scope chains
+A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function\'s variables. The closure has three scope chains
 
 * Own scope where variables defined between its curly brackets
 * Outer function’s variables
@@ -768,7 +1289,7 @@ class Person {
 var object = new Person("Alex");
 ```
 
-**g.) Singleton pattern**: A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don't accidentally create multiple instances.
+**g.) Singleton pattern**: A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don\'t accidentally create multiple instances.
 
 ```js
 var object = new function() {
@@ -1148,7 +1669,7 @@ console.log(sum(10)); // Fetching from cache: 20
 
 ## Q. ***What is a service worker?***
 
-A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don't need a web page or user interaction. 
+A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don\'t need a web page or user interaction. 
 
 Some of the major features of service workers are 
 * Offline first web application development
@@ -1588,43 +2109,7 @@ function myFunction() {
   y = 3.14;   // This will cause an error
 }
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
-## Q. ***What is the purpose of double exclamation?***
-
-The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, true.
-For example, you can test IE version using this expression as below,
-
-```js
-let isIE11 = false;
-isIE11 = !!navigator.userAgent.match(/Trident.*rv[ :]*11\./);
-console.log(isIE11); // returns true or false
-```
-
-If you do not use this expression then it returns the original value.
-
-```js
-console.log(navigator.userAgent.match(/Trident.*rv[ :]*11\./));  // returns either an Array or null
-```
-
-*Note: The expression !! is not an operator, but it is just twice of ! operator*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of delete operator?***
-
-The delete keyword is used to delete the property as well as its value.
-
-```js
-var user= {name: "John", age:20};
-delete user.age;
-
-console.log(user); // {name: "John"}
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -2209,7 +2694,7 @@ const clientCode = urlParams.get('clientCode');
 "key" in obj
 ```
 
-and If you want to check if a key doesn't exist, remember to use parenthesis,
+and If you want to check if a key doesn\'t exist, remember to use parenthesis,
 
 ```js
 !("key" in obj)
@@ -2227,7 +2712,7 @@ obj.hasOwnProperty("key") // true
 
 ## Q. ***How do you loop through or enumerate javascript object?***
 
-You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn't come from the prototype using `hasOwnProperty` method.
+You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn\'t come from the prototype using `hasOwnProperty` method.
 
 ```js
 var object = {
@@ -2319,21 +2804,6 @@ document.write(today);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you compare two date objects?***
-
-You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
-
-```js
-var d1 = new Date();
-var d2 = new Date(d1);
-console.log(d1.getTime() === d2.getTime()); //True
-console.log(d1 === d2); // False
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you check if a string starts with another string?***
 
 You can use ECMAScript 6 `String.prototype.startsWith()` method to check a string starts with another string or not. But it is not yet supported in all browsers. Let us see an example to see this usage,
@@ -2395,20 +2865,6 @@ object.key3 = "value3";
 ```js
 obj["key3"] = "value3";
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you assign default values to variables?***
-
-You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,
-
-```js
-var a = b || c;
-```
-
-As per the above expression, variable 'a 'will get the value of 'c' only if 'b' is falsy (if is null, false, undefined, 0, empty string, or NaN), otherwise 'a' will get the value of 'b'.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2723,17 +3179,6 @@ debugger;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Can I use reserved words as identifiers?***
-
-No, you cannot use the reserved words as variables, labels, object or function names.
-
-```js
-var else = "hello"; // Uncaught SyntaxError: Unexpected token else
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you detect a mobile browser without regexp?***
 
 You can detect mobile browser by simply running through a list of devices and checking if the useragent matches anything. This is an alternative solution for RegExp usage,
@@ -2838,45 +3283,6 @@ var width = window.innerWidth
 var height = window.innerHeight
 || document.documentElement.clientHeight
 || document.body.clientHeight;
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a conditional operator in javascript?***
-
-The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
-
-```js
-var isAuthenticated = false;
-console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticated');
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Can you apply chaining on conditional operator?***
-
-Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain. The syntax is going to be as below,
-
-```js
-function traceValue(someParam) {
-    return condition1 ? value1
-        : condition2 ? value2
-        : condition3 ? value3
-        : value4;
-}
-
-// The above conditional operator is equivalent to:
-
-function traceValue(someParam) {
-    if (condition1) { return value1; }
-    else if (condition2) { return value2; }
-    else if (condition3) { return value3; }
-    else { return value4; }
-}
 ```
 
 <div align="right">
@@ -2999,37 +3405,6 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
     <a href="next_page.html?noJS=true">JavaScript is disabled in the apge. Please click Next Page</a>
 </noscript>
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are various operators supported by javascript?***
-
-An operator is capable of manipulating(mathematical and logical computations) a certain value or operand. There are various operators supported by JavaScript as below,
-
-1. **Arithmetic Operators:** Includes + (Addition),– (Subtraction), * (Multiplication), / (Division), % (Modulus), + + (Increment)  and – – (Decrement)
-2. **Comparison Operators:** Includes = =(Equal),!= (Not Equal), ===(Equal with type), > (Greater than),> = (Greater than or Equal to),< (Less than),<= (Less than or Equal to)
-3. **Logical Operators:** Includes &&(Logical AND),||(Logical OR),!(Logical NOT)
-4. **Assignment Operators:** Includes = (Assignment Operator), += (Add and Assignment Operator), – = (Subtract and Assignment Operator), *= (Multiply and Assignment), /= (Divide and Assignment), %= (Modules and Assignment)
-5. **Ternary Operators:** It includes conditional(: ?) Operator
-6. **typeof Operator:** It uses to find type of variable. The syntax looks like `typeof variable`
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the bitwise operators available in javascript?***
-
-Below are the list of bit-wise logical operators used in JavaScript
-
-1. Bit-wise AND ( & )
-2. Bit-Wise OR ( | )
-3. Bit-Wise XOR ( ^ )
-4. Bit-Wise NOT ( ~ )
-5. Left Shift ( << )
-6. Sign Propagating Right Shift ( >> )
-7. Zero fill Right Shift ( >>> )
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -3354,22 +3729,6 @@ console.log(z); // 50
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the precedence order between local and global variables?***
-
-A local variable takes precedence over a global variable with the same name. 
-
-```js
-var msg = "Good morning";
-function greeting() {
-  msg = "Good Evening";
-  console.log(msg);
-}
-greeting();
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What are javascript accessors?***
 
 ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses `get` keyword whereas Setters uses `set` keyword.
@@ -3618,22 +3977,6 @@ Below are the list of properties available on Intl object,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is an Unary operator?***
-
-The unary(+) operator is used to convert a variable to a number.If the variable cannot be converted, it will still become a number but with the value NaN. Let us see this behavior in an action.
-```js
-var x = "100";
-var y = + x;
-console.log(typeof x, typeof y); // string, number
-
-var a = "Hello";
-var b = + a;
-console.log(typeof a, typeof b, b); // string, number, NaN
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you sort elements in an array?***
 
 The sort() method is used to sort the elements of an array in place and returns the sorted array. The example usage would be as below,
@@ -3840,50 +4183,6 @@ console.log(foo); // undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?***
-
-**Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
-
-```js
-function foo() {
-  x = 1; // Throws a ReferenceError in strict mode
-}
-
-foo();
-console.log(x); // 1
-```
-
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
-
-```js
-var foo;
-console.log(foo); // undefined
-console.log(foo === undefined); // true
-console.log(typeof foo === 'undefined'); // true
-
-console.log(foo == null); // true. Wrong, don't use this to check!
-
-function bar() {}
-var baz = bar();
-console.log(baz); // undefined
-```
-
-A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
-
-```js
-var foo = null;
-console.log(foo === null); // true
-console.log(typeof foo === 'object'); // true
-
-console.log(foo == undefined); // true. Wrong, don't use this to check!
-```
-
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring if I do not intend to use it yet. If you use a linter in your workflow, it will usually also be able to check that you are not referencing undeclared variables.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is a typical use case for anonymous functions?***
 
 They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
@@ -4003,7 +4302,7 @@ In my experience, it is most useful for binding the value of `this` in methods o
 
 **Feature Detection**
 
-Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn't), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
+Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn\'t), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
 
 ```js
 if ('geolocation' in navigator) {
@@ -4132,31 +4431,6 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between `==` and `===`?***
-
-`==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions. The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
-
-```js
-1 == '1'; // true
-1 == [1]; // true
-1 == true; // true
-0 == ''; // true
-0 == '0'; // true
-0 == false; // true
-```
-
-My advice is never to use the `==` operator, except for convenience when comparing against `null` or `undefined`, where `a == null` will return `true` if `a` is `null` or `undefined`.
-
-```js
-var a = null;
-console.log(a == null); // true
-console.log(a == undefined); // true
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Explain the same-origin policy with regards to JavaScript?***
 
 The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
@@ -4194,14 +4468,6 @@ Disadvantages:
 * Concatenation of scripts written in different strict modes might cause issues.
 
 Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why is it, in general, a good idea to leave the global scope of a website as-is and never touch it?***
-
-Every script has access to the global scope, and if everyone uses the global namespace to define their variables, collisions will likely occur. Use the module pattern (IIFEs) to encapsulate your variables within a local namespace.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -4270,7 +4536,7 @@ Disadvantages:
 * These languages will always be behind the latest JavaScript standard.
 * Developers should be cognizant of what their code is being compiled to — because that is what would actually be running, and that is what matters in the end.
 
-Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don't really see the need for CoffeeScript these days.
+Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don\'t really see the need for CoffeeScript these days.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -4288,7 +4554,7 @@ For arrays:
 
 * `for` loops - `for (var i = 0; i < arr.length; i++)`. The common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use that instead. So this becomes: `for (let i = 0; i < arr.length; i++)`.
 * `forEach` - `arr.forEach(function (el, index) { ... })`. This construct can be more convenient at times because you do not have to use the `index` if all you need is the array elements. There are also the `every` and `some` methods which will allow you to terminate the iteration early.
-* `for-of` loops - `for (let elem of arr) { ... }`. ES6 introduces a new loop, the `for-of` loop, that allows you to loop over objects that conform to the [iterable protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) such as `String`, `Array`, `Map`, `Set`, etc. It combines the advantages of the `for` loop and the `forEach()` method. The advantage of the `for` loop is that you can break from it, and the advantage of `forEach()` is that it is more concise than the `for` loop because you don't need a counter variable. With the `for-of` loop, you get both the ability to break from a loop and a more concise syntax.
+* `for-of` loops - `for (let elem of arr) { ... }`. ES6 introduces a new loop, the `for-of` loop, that allows you to loop over objects that conform to the [iterable protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) such as `String`, `Array`, `Map`, `Set`, etc. It combines the advantages of the `for` loop and the `forEach()` method. The advantage of the `for` loop is that you can break from it, and the advantage of `forEach()` is that it is more concise than the `for` loop because you don\'t need a counter variable. With the `for-of` loop, you get both the ability to break from a loop and a more concise syntax.
 
 Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. Before ES6, we used `for` loops when we needed to prematurely terminate the loop using `break`. But now with ES6, we can do that with `for-of` loops. I would use `for` loops when I need even more flexibility, such as incrementing the iterator more than once per loop.
 
@@ -4413,7 +4679,7 @@ Asynchronous functions usually accept a callback as a parameter and execution co
 
 The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
 
-If you haven't already checked out Philip Robert's [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), you should. It is one of the most viewed videos on JavaScript.
+If you haven\'t already checked out Philip Robert's [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), you should. It is one of the most viewed videos on JavaScript.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -4447,7 +4713,7 @@ var foo = function() {
 
 ## Q. ***What is the definition of a higher-order function?***
 
-A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn't just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
+A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn\'t just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
 
 **Map**
 
@@ -4529,7 +4795,7 @@ Static class members (properties/methods) are not tied to a specific instance of
 
 ## Q. ***What is the difference between `undefined` and `not defined` in JavaScript?***
 
-In JavaScript if you try to use a variable that doesn't exist and has not been declared, then JavaScript will throw an error `var name is not defined` and the script will stop executing thereafter. But If you use `typeof undeclared_variable` then it will return `undefined`.
+In JavaScript if you try to use a variable that doesn\'t exist and has not been declared, then JavaScript will throw an error `var name is not defined` and the script will stop executing thereafter. But If you use `typeof undeclared_variable` then it will return `undefined`.
 
 Before starting further discussion Let us understand the difference between declaration and definition.
 
@@ -4554,23 +4820,6 @@ A variable can be neither declared nor defined. When we try to reference such va
 ```js
 console.log(y);  // Output: ReferenceError: y is not defined
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***For which value of `x` the results of the following statements are not the same?***
-
-```js
-//  if( x <= 100 ) {...}
-if( !(x > 100) ) {...}
-```
-`NaN <= 100` is `false` and `NaN > 100` is also `false`, so if the
-value of `x` is `NaN`, the statements are not the same.
-
-The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}` , etc.
-
-This is why you need to pay attention when you deal with numeric variables. `NaN` can’t be equal, less than or more than any other numeric value, so the only reliable way to check if the value is `NaN`, is to use `isNaN()` function.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -4707,7 +4956,7 @@ There are a couple of ways by which we can empty an array, So Let us discuss all
 arrayList = [];
 ```
 
-The code above will set the variable `arrayList` to a new empty array. This is recommended if you don't have **references to the original array** `arrayList` anywhere else because It will actually create a new empty array. You should be careful with this way of empty the array, because if you have referenced this array from another variable, then the original reference array will remain unchanged, Only use this way if you have only referenced the array by its original variable `arrayList`.
+The code above will set the variable `arrayList` to a new empty array. This is recommended if you don\'t have **references to the original array** `arrayList` anywhere else because It will actually create a new empty array. You should be careful with this way of empty the array, because if you have referenced this array from another variable, then the original reference array will remain unchanged, Only use this way if you have only referenced the array by its original variable `arrayList`.
 
 For instance:
 
@@ -4888,31 +5137,6 @@ foo(); // Now foo is defined here
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between `typeof` and `instanceof`?***
-
-`typeof` is an operator that returns a string with the type of whatever you pass.
-
-The `typeof` operator checks if a value belongs to one of the seven basic types: `number`, `string`, `boolean`, `object`, `function`, `undefined` or `Symbol`.
-
-`typeof(null)` will return `object`.
-
-`instanceof` is much more intelligent: it works on the level of prototypes. In particular, it tests to see if the right operand appears anywhere in the prototype chain of the left. `instanceof` doesn’t work with primitive types. It `instanceof` operator checks the current object and returns true if the object is of the specified type, for example:
-
-```js
-var dog = new Animal();
-dog instanceof Animal; // Output : true
-```
-
-Here `dog instanceof Animal` is true since `dog` inherits from `Animal.prototype`
-
-```js
-var name = new String("xyz");
-name instanceof String; // Output : true
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Calculate the length of the associative array?***
 
 ```js
@@ -4958,7 +5182,7 @@ Object.getOwnPropertyNames(counterArray).length; // Output 3
 
 **Method 4**
 
-[Underscore](https://underscorejs.org/#size) and [lodash](https://lodash.com/docs/4.17.10#size) libraries have the method `size` dedicated to calculate the object length. We don't recommend to include one of these libraries just to use the `size` method, but if It is already used in your project - why not? 
+[Underscore](https://underscorejs.org/#size) and [lodash](https://lodash.com/docs/4.17.10#size) libraries have the method `size` dedicated to calculate the object length. We don\'t recommend to include one of these libraries just to use the `size` method, but if It is already used in your project - why not? 
 
 ```js
 _.size({one: 1, two: 2, three: 3});
@@ -5130,7 +5354,7 @@ obj1.myMethod(); // will print "Hi there" following with obj1.
 
 ## Q. ***What is IIFE (Immediately Invoked Function Expression) and how it can be useful?***
 
-IIFE a function that runs as soon as It is defined. Usually It is anonymous (doesn't have a function name), but it also can be named. Here's an example of IIFE:
+IIFE a function that runs as soon as It is defined. Usually It is anonymous (doesn\'t have a function name), but it also can be named. Here's an example of IIFE:
 
 ```js
 (function() {
@@ -5139,12 +5363,12 @@ IIFE a function that runs as soon as It is defined. Usually It is anonymous (doe
 // outputs "Hi, I'm IIFE!"
 ```
 
-So, here's how it works. Remember the difference between function statements (`function a () {}`) and function expressions (`var a = function() {}`)? So, IIFE is a function expression. To make it an expression we surround our function declaration into the parens. We do it to explicitly tell the parser that It is an expression, not a statement (JS doesn't allow statements in parens).
+So, here's how it works. Remember the difference between function statements (`function a () {}`) and function expressions (`var a = function() {}`)? So, IIFE is a function expression. To make it an expression we surround our function declaration into the parens. We do it to explicitly tell the parser that It is an expression, not a statement (JS doesn\'t allow statements in parens).
 
 After the function you can see the two `()` braces, this is how we run the function we just declared. 
 
 That's it. The rest is details.  
-- The function inside IIFE doesn't have to be anonymous. This one will work perfectly fine and will help to detect your function in a stacktrace during debugging: 
+- The function inside IIFE doesn\'t have to be anonymous. This one will work perfectly fine and will help to detect your function in a stacktrace during debugging: 
   ```js
   (function myIIFEFunc() {
     console.log("Hi, I'm IIFE!");
@@ -5346,37 +5570,7 @@ So when we do deep clone then we should copy every property (including the neste
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Best way to detect `undefined` object property in JavaScript?***
 
-> Suppose we have given an object `person`
-
-```js
-var person = {
-	name: 'Alex',
-	age : 24
-}
-```
-Here the `person` object has a `name` and `age` property. Now we are trying to access the **salary** property which we haven't declared on the person object so while accessing it will return undefined. So how we will ensure whether property is undefined or not before performing some operation over it?
-
-**Explanation:**
-
-We can use `typeof` operator to check undefined
-
-```js
-if(typeof someProperty === 'undefined'){
-	console.log('something is undefined here');
-}
-```
-Now we are trying to access salary property of person object.
-
-```js
-if(typeof person.salary === 'undefined'){
-	console.log("salary is undefined here because we haven't declared");
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. ***Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object?***
 
@@ -5441,7 +5635,7 @@ Method 1: We can use `in` operator on objet to check own property or inherited p
 console.log('name' in person); // checking own property print true 
 console.log('salary' in person); // checking undefined property print false
 ```
-`in` operator also look into inherited property if it doesn't find property defined as own property. For instance If I check existence of toString property as we know that we haven't declared this property on person object so `in` operator look into there base property.
+`in` operator also look into inherited property if it doesn\'t find property defined as own property. For instance If I check existence of toString property as we know that we haven\'t declared this property on person object so `in` operator look into there base property.
 
 Here 
 
@@ -5455,33 +5649,6 @@ console.log(person.hasOwnProperty('toString')); // print false
 console.log(person.hasOwnProperty('name')); // print true
 console.log(person.hasOwnProperty('salary')); // print false
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is NaN, why do we need it, and when can it break the page?***
-
-`NaN` stands for “not a number.” and it can break your table of numbers when it has an arithmetic operation that is not allowed. Here are some examples of how you can get `NaN`:
-
-```js
-Math.sqrt(-5);
-Math.log(-1);
-parseFloat("foo"); /* this is common: you get JSON from the server, convert some strings from JSON to a number and end up with NaN in your UI. */
-```
-
-`NaN` is not equal to any number, it’s not less or more than any number, also It is not equal to itself: 
-
-```js
-NaN !== NaN
-NaN < 2 // false
-NaN > 2 // false
-NaN === 2 // false
-```
-
-To check if the current value of the variable is NaN, you have to use the `isNaN` function. This is why we can often see NaN in the webpages: it requires special check which a lot of developers forget to do. 
-
-Further reading: [great blogpost on ariya.io](https://ariya.io/2014/05/the-curious-case-of-javascript-nan)
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -5559,50 +5726,7 @@ function(value){
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Best way to detect reference values of any type in JavaScript?***
 
- In Javascript Object are called as reference type, Any value other then primitive is definitely a reference type. There are several built-in reference type such as **Object**, **Array**, **Function**, **Date**, **null** and **Error**.
-
-Detecting object using `typeof` operator
-
-```js
-console.log(typeof {});           // object
-console.log(typeof []);           // object
-console.log(typeof new Array());  // object
-console.log(typeof null);         // object 
-console.log(typeof new RegExp()); // object
-console.log(typeof new Date());   // object
-```
-But the downside of using typeof operator to detect an object is that typeof returns `object` for `null` (However this is fact that null is an object in JavaScript).
-
-The best way to detect an object of specific reference type using `instanceof` operator.
-
->Syntax : **value** instanceof **constructor**   
-
-```js
-//Detecting an array
-if(value instanceof Array){
-	console.log("value is type of array");
-}
-```
-```js
-// Employee constructor function
-function Employee(name){
-	this.name = name; // Public property
-}
-
-var emp1 = new Employee('John');
-
-console.log(emp1 instanceof Employee); // true
-```
-`instanceof` not only check the constructor which is used to create an object but also check It is prototype chain see below example.
-
-```js
-console.log(emp1 instanceof Object); // true
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. ***How does Object.create method works JavaScript?***
 
@@ -6070,7 +6194,7 @@ function merge(toObj, fromObj) {
 
 ## Q. ***What is non-enumerable property in JavaScript and how you can create one?***
 
-Object can have properties that don't show up when you iterate through object using for...in loop or using Object.keys() to get an array of property names. This properties is know as non-enumerable properties.
+Object can have properties that don\'t show up when you iterate through object using for...in loop or using Object.keys() to get an array of property names. This properties is know as non-enumerable properties.
 
 Let say we have following object
 
@@ -6102,14 +6226,14 @@ Object.defineProperty(person, 'phoneNo',{
 
 Object.keys(person); // ['name', 'salary', 'country']
 ```
-In the example above `phoneNo` property didn't show up because we made it non-enumerable by setting **enumerable:false**
+In the example above `phoneNo` property didn\'t show up because we made it non-enumerable by setting **enumerable:false**
 
 Now Let us try to change value of `phoneNo`
 
 ```js
 person.phoneNo = '7777777777'; 
 ```
-Changing non-enumerable property value will return error in `strict mode`. In non-strict mode it won't through any error but it won't change the value of phoneNo.
+Changing non-enumerable property value will return error in `strict mode`. In non-strict mode it won\'t through any error but it won\'t change the value of phoneNo.
 
 **Bonus**
 
@@ -6552,37 +6676,6 @@ var circle = new Circle(5);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between private variable, public variable and static variable? How we achieve this in JS?***
-
-Private and public variables are two ways of information hiding. An object can have private and public variables. Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
-Static variables are related to a class. They come into existence as soon as a class come into existence.
-
-Now, JavaScript natively doesn't support these concepts. But you can use JavaScript's closure techniques to achieve the similar results.
-```js
-function MyClass () { // constructor function
-  var privateVariable = "foo";  // Private variable 
-
-  this.publicVariable = "bar";  // Public variable 
-
-  this.privilegedMethod = function () {  // Public Method
-    alert(privateVariable);
-  };
-}
-
-// Instance method will be available to all instances but only load once in memory 
-MyClass.prototype.publicMethod = function () {    
-  alert(this.publicVariable);
-};
-
-// Static variable shared by all instances
-MyClass.staticProperty = "baz";
-
-var myInstance = new MyClass();
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How to add and remove properties to object in runtime?***
 
 **Creating an Object**  
@@ -6727,7 +6820,7 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 
 **Progressive Enhancement** is when you create a web site that is available to everyone, but then add advanced functionality in layers that improves the experience for those who can access it. For instance, a basic text website can be upgraded to include a design (stylesheets), interactive functionality (javascript), and video (flash). But the website continues to function as just a text-based website.
 
-**Graceful Degradation** is an aspect of `fault-tolerant` systems where your design continues to function even if certain points of the design can't work. For example, HTML5 works in all browsers because HTML parsers themselves don't break if there are unrecognised tags. But since older browsers don't recognise those tags, they also can't provide the functionality associated with them (such as the various new input types like range, number, date, time, color, etc.). Another example is setting color and background-color together in CSS, but possibly overriding the color with an image. If the image doesn't load, you want the text to still be legible, but that might not be the case if you don't ensure that the background colour is one that allows the text to be legible.
+**Graceful Degradation** is an aspect of `fault-tolerant` systems where your design continues to function even if certain points of the design can\'t work. For example, HTML5 works in all browsers because HTML parsers themselves don\'t break if there are unrecognised tags. But since older browsers don\'t recognise those tags, they also can\'t provide the functionality associated with them (such as the various new input types like range, number, date, time, color, etc.). Another example is setting color and background-color together in CSS, but possibly overriding the color with an image. If the image doesn\'t load, you want the text to still be legible, but that might not be the case if you don\'t ensure that the background colour is one that allows the text to be legible.
 
 **When to use graceful degradation**  
 * You retrofit an old product and you don’t have the time, access or insight to change or replace it.
@@ -6741,53 +6834,6 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 * You allow technology to be what it is supposed to be — an aid to reach a goal faster than without it, not a “must” to be able to reach a goal in the first place.
 * If you need to add new features, you can do so after checking if they are supported at a certain stage, or you can add it to the most basic level of functionality and make it better in more sophisticated environments. In any case, the maintenance happens at the same spot and not in two different places. Keeping a progressively enhanced product up-to-date is much less work than maintaining two versions.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***In JavaScript, why is the “this” operator inconsistent?***
-
-The this variable is attached to functions. Whenever you invoke a function, this is given a certain value, depending on how you invoke the function. This is often called the invocation pattern.
-
-There are four ways to invoke functions in javascript. You can invoke the function as a method, as a function, as a constructor, and with apply.  
-
-**As a Method**  
-A method is a function that's attached to an object
-```js
-var foo = {};
-foo.someMethod = function(){
-    alert(this);
-}
-```
-When invoked as a method, this will be bound to the object the function/method is a part of.  
-
-**As a Function**  
-If you have a stand alone function, the this variable will be bound to the "global" object, almost always the window object in the context of a browser.
-```js
-var foo = function(){
-    alert(this);
- }
- foo();
- ```
-**As a Constructor**  
-When invoked as a constructor, a new Object will be created, and this will be bound to that object. Again, if you have inner functions and they're used as callbacks, you'll be invoking them as functions, and this will be bound to the global object. Use that var that = this; trick/pattern.
-```js
-function Foo(){
-    this.confusing = 'hell yeah';
-}
-var myObject = new Foo();
-```
-**With the Apply Method**  
-Finally, every function has a method (yes, functions are objects in Javascript) named apply. Apply lets you determine what the value of this will be, and also lets you pass in an array of arguments.
-```js
-function foo(a,b){
-    alert(a);
-    alert(b);
-    alert(this);
-}
-var args = ['ah','be'];
-foo.apply('omg',args);
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -6827,35 +6873,6 @@ unescape('%u0107');     // "ć"
 * screen.availHeight
 * screen.colorDepth
 * screen.pixelDepth
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain NEGATIVE_INFINITY in JavaScript?***
-
-```js
-Number.NEGATIVE_INFINITY;
-```
-
-- Negative infinity is a number in javascript, which is derived by 'dividing negative number by zero'.
-- A number object needs not to be created to access this static property.
-- The value of negative infinity is the same as the negative value of the infinity property of the global object.
-
-```js
-function checkNumber(smallNumber) {
-  if (smallNumber === Number.NEGATIVE_INFINITY) {
-    return 'Process number as -Infinity';
-  }
-  return smallNumber;
-}
-
-console.log(checkNumber(-Number.MAX_VALUE));
-// expected output: -1.7976931348623157e+308
-
-console.log(checkNumber(-Number.MAX_VALUE * 2));
-// expected output: "Process number as -Infinity"
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6977,7 +6994,7 @@ x["whatever"] = 10;
 console.log(x.foo);      // shows 3
 console.log(x.whatever); // shows 10
 ```
-Object properties can be accessed either via the `x.foo` syntax or via the array-like syntax `x["foo"]`. The advantage of the latter syntax is that you can use a variable as the property name like `x[myvar]` and using the latter syntax, you can use property names that contain characters that Javascript won't allow in the `x.foo` syntax.
+Object properties can be accessed either via the `x.foo` syntax or via the array-like syntax `x["foo"]`. The advantage of the latter syntax is that you can use a variable as the property name like `x[myvar]` and using the latter syntax, you can use property names that contain characters that Javascript won\'t allow in the `x.foo` syntax.
 
 An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
 
@@ -7900,23 +7917,6 @@ function copy() {
 ## Q. ***Explain types of Memory Leaks in JavaScript?***
 
 *[Reference](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to convert Decimal to Binary in JavaScript?***
-
-```js
-
-var val = 10;
-
-console.log(val.toString(2)); // 1010  ==> Binary Conversion
-
-console.log(val.toString(8)); // 12  ==> Octal Conversion
-
-console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
