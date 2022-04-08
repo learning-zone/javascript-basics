@@ -573,39 +573,6 @@ To avoid confusion and potential conflicts, you can write var thiz = this or var
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between private variable, public variable and static variable? How we achieve this in JS?***
-
-Private and public variables are two ways of information hiding. An object can have private and public variables. Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
-Static variables are related to a class. They come into existence as soon as a class come into existence.
-
-Now, JavaScript natively doesn\'t support these concepts. But you can use JavaScript's closure techniques to achieve the similar results.
-
-```js
-function MyClass () { // constructor function
-  var privateVariable = "foo";  // Private variable 
-
-  this.publicVariable = "bar";  // Public variable 
-
-  this.privilegedMethod = function () {  // Public Method
-    alert(privateVariable);
-  };
-}
-
-// Instance method will be available to all instances but only load once in memory 
-MyClass.prototype.publicMethod = function () {    
-  alert(this.publicVariable);
-};
-
-// Static variable shared by all instances
-MyClass.staticProperty = "baz";
-
-var myInstance = new MyClass();
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. How do you swap variables using Destructuring Assignment?
 
 ```js
@@ -4661,6 +4628,174 @@ window.history.pushState('newPage', 'Title', '/newPage.html');
 
 # CLASSES
 
+## Q. ***Example of Prototypal Inheritance?***
+
+We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
+
+```js
+if (typeof Object.create !== 'function') {
+  Object.create = function (parent) {
+    function Tmp() {}
+    Tmp.prototype = parent;
+    return new Tmp();
+  };
+}
+
+const Parent = function() {
+  this.name = "Parent";
+}
+
+Parent.prototype.greet = function() { console.log("hello from Parent"); }
+
+const child = Object.create(Parent.prototype);
+
+child.cry = function() {
+  console.log("waaaaaahhhh!");
+}
+
+child.cry();
+// Outputs: waaaaaahhhh!
+
+child.greet();
+// Outputs: hello from Parent
+```
+
+Things to note are:
+
+* `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
+* We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
+  * Object.create(Parent.prototype);
+  * Object.create(new Parent(null));
+  * Object.create(objLiteral);
+  * Currently, `child.constructor` is pointing to the `Parent`:
+
+```js
+child.constructor
+ƒ () {
+  this.name = "Parent";
+}
+child.constructor.name
+"Parent"
+```
+  * If we'd like to correct this, one option would be to do:
+
+```js
+function Child() {
+  Parent.call(this);
+  this.name = 'child';
+}
+
+Child.prototype = Parent.prototype;
+Child.prototype.constructor = Child;
+
+const c = new Child();
+
+c.cry();
+// Outputs: waaaaaahhhh!
+
+c.greet();
+// Outputs: hello from Parent
+
+c.constructor.name;
+// Outputs: "Child"
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is difference between private variable, public variable and static variable? How we achieve this in JS?***
+
+Private and public variables are two ways of information hiding. An object can have private and public variables. Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
+Static variables are related to a class. They come into existence as soon as a class come into existence.
+
+Now, JavaScript natively doesn\'t support these concepts. But you can use JavaScript's closure techniques to achieve the similar results.
+
+```js
+function MyClass () { // constructor function
+  var privateVariable = "foo";  // Private variable 
+
+  this.publicVariable = "bar";  // Public variable 
+
+  this.privilegedMethod = function () {  // Public Method
+    alert(privateVariable);
+  };
+}
+
+// Instance method will be available to all instances but only load once in memory 
+MyClass.prototype.publicMethod = function () {    
+  alert(this.publicVariable);
+};
+
+// Static variable shared by all instances
+MyClass.staticProperty = "baz";
+
+var myInstance = new MyClass();
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between proto and prototype?***
+
+The `__proto__` object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas `prototype` is the object that is used to build `__proto__` when you create an object with new
+
+```js
+( new Employee ).__proto__ === Employee.prototype;
+( new Employee ).prototype === undefined;
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you create an object with prototype?***
+
+The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
+
+```js
+const user = {
+  name: 'John',
+  printInfo: function () {
+    console.log(`My name is ${this.name}.`);
+  }
+};
+
+const admin = Object.create(user);
+admin.name = "Nick"; // Remember that "name" is a property set on "admin" but not on "user" object
+admin.printInfo(); // My name is Nick
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?***
+
+This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is to use PascalCase for functions that are intended to be used as constructors.
+
+`var person = Person()` invokes the `Person` as a function, and not as a constructor. Invoking as such is a common mistake if the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return `undefined` and that gets assigned to the variable intended as the instance.
+
+`var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
+
+```js
+function Person(name) {
+  this.name = name;
+}
+
+var person = Person('John');
+console.log(person); // undefined
+console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
+
+var person = new Person('John');
+console.log(person); // Person { name: "John" }
+console.log(person.name); // "john"
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What are the pros and cons of promises over callbacks?***
 
 Below are the list of pros and cons of promises over callbacks,  
@@ -4803,19 +4938,6 @@ You can use toLocaleString() method to convert date in one timezone to another. 
 ```js
 console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 09:56:00
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between proto and prototype?***
-
-The `__proto__` object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas `prototype` is the object that is used to build `__proto__` when you create an object with new
-
-```js
-( new Employee ).__proto__ === Employee.prototype;
-( new Employee ).prototype === undefined;
-```
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -5095,27 +5217,6 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you create an object with prototype?***
-
-The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
-
-```js
-const user = {
-  name: 'John',
-  printInfo: function () {
-    console.log(`My name is ${this.name}.`);
-  }
-};
-
-const admin = Object.create(user);
-admin.name = "Nick"; // Remember that "name" is a property set on "admin" but not on "user" object
-admin.printInfo(); // My name is Nick
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you encode an URL?***
 
 The encodeURI() function is used to encode complete URI which has special characters except (, / ? : @ & = + $ #) characters.
@@ -5373,81 +5474,6 @@ console.log(import.meta); // { url: "file:///home/user/welcome-module.js" }
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Example of Prototypal Inheritance?***
-
-We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
-
-```js
-if (typeof Object.create !== 'function') {
-  Object.create = function (parent) {
-    function Tmp() {}
-    Tmp.prototype = parent;
-    return new Tmp();
-  };
-}
-
-const Parent = function() {
-  this.name = "Parent";
-}
-
-Parent.prototype.greet = function() { console.log("hello from Parent"); }
-
-const child = Object.create(Parent.prototype);
-
-child.cry = function() {
-  console.log("waaaaaahhhh!");
-}
-
-child.cry();
-// Outputs: waaaaaahhhh!
-
-child.greet();
-// Outputs: hello from Parent
-```
-
-Things to note are:
-
-* `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
-* We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
-  * Object.create(Parent.prototype);
-  * Object.create(new Parent(null));
-  * Object.create(objLiteral);
-  * Currently, `child.constructor` is pointing to the `Parent`:
-
-```js
-child.constructor
-ƒ () {
-  this.name = "Parent";
-}
-child.constructor.name
-"Parent"
-```
-  * If we'd like to correct this, one option would be to do:
-
-```js
-function Child() {
-  Parent.call(this);
-  this.name = 'child';
-}
-
-Child.prototype = Parent.prototype;
-Child.prototype.constructor = Child;
-
-const c = new Child();
-
-c.cry();
-// Outputs: waaaaaahhhh!
-
-c.greet();
-// Outputs: hello from Parent
-
-c.constructor.name;
-// Outputs: "Child"
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Explain why the following does not work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?***
 
 IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a *function declaration* and the latter (a pair of parentheses) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token )`.
@@ -5474,32 +5500,6 @@ In the past, I've used Backbone for my models which encourages a more OOP approa
 The module pattern is still great, but these days, I use React/Redux which utilize a single-directional data flow based on Flux architecture. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
 
 I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?***
-
-This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is to use PascalCase for functions that are intended to be used as constructors.
-
-`var person = Person()` invokes the `Person` as a function, and not as a constructor. Invoking as such is a common mistake if the function is intended to be used as a constructor. Typically, the constructor does not return anything, hence invoking the constructor like a normal function will return `undefined` and that gets assigned to the variable intended as the instance.
-
-`var person = new Person()` creates an instance of the `Person` object using the `new` operator, which inherits from `Person.prototype`. An alternative would be to use `Object.create`, such as: `Object.create(Person.prototype)`.
-
-```js
-function Person(name) {
-  this.name = name;
-}
-
-var person = Person('John');
-console.log(person); // undefined
-console.log(person.name); // Uncaught TypeError: Cannot read property 'name' of undefined
-
-var person = new Person('John');
-console.log(person); // Person { name: "John" }
-console.log(person.name); // "john"
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
