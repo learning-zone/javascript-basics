@@ -1256,6 +1256,234 @@ eval(expression.toString()); // returns 30
 
 ## ARRAY
 
+## Q. ***Explain arrays in JavaScript?***
+
+JavaScript array is an object that represents a collection of similar type of elements. It can holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions.
+
+```js
+// empty array
+const myList = [];
+
+
+// array of numbers
+const numberArray = [ 2, 4, 6, 8];
+
+
+// array of strings
+let fruits = ["Apple", "Orange", "Plum"];
+
+console.log(fruits[0]); // Apple
+console.log(fruits[1]); // Orange
+console.log(fruits[2]); // Plum
+
+
+// array with mixed data types
+let arr = ["Hello World",	10,	true];
+
+console.log(arr[0]);			// "Hello World"
+console.log(arr[1]);			// 10
+console.log(arr[2]);			// true
+console.log(arr.length);	// 3
+
+typeof arr;	// "object"
+
+// array with mixed data types
+const newData = [
+    {'task1': 'exercise'},
+    [1, 2 ,3],
+    function hello() { console.log('hello')}
+];
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]***
+
+**a.) array.join()**: The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+
+```js
+var elements = ['Fire', 'Air', 'Water'];
+
+console.log(elements.join()); // Output: "Fire,Air,Water"
+console.log(elements.join('')); // Output: "FireAirWater"
+console.log(elements.join('-')); // Output: "Fire-Air-Water"
+```
+
+**b.) array.pop()**: The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
+
+```js
+var plants = ['broccoli', 'cauliflower', 'kale'];
+
+console.log(plants.pop()); // Output: "kale"
+console.log(plants); // Output: Array ["broccoli", "cauliflower"]
+console.log(plants.pop()); // Output: "cauliflower"
+console.log(plants.pop()); // Output: "broccoli"
+console.log(plants.pop()); // Output: "undefined"
+```
+
+**c.) array.push()**: The push() method adds one or more elements to the end of an array and returns the new length of the array.
+
+```js
+const animals = ['pigs', 'goats', 'sheep'];
+
+const count = animals.push('cows');
+console.log(count); // Output: 4
+console.log(animals); // Output: Array ["pigs", "goats", "sheep", "cows"]
+```
+
+**d.) array.shift()**: The shift() method removes the first element from an array and returns that removed element. This method 
+changes the length of the array.
+
+```js
+var fruits = ["Banana", "Orange", "Apple", "Mango"];
+fruits.shift();
+console.log(fruits) // Output: Array ["Orange", "Apple", "Mango"]
+```
+
+**e.) array.unshift()**: The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+
+```js
+var fruits = ["Banana", "Orange", "Apple"];
+fruits.unshift("Mango","Pineapple");
+console.log(fruits); // Output: Array ["Mango", "Pineapple", "Banana", "Orange", "Apple"]
+```
+
+**f.) array.concat()**: The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+
+```js
+const array1 = ['a', 'b', 'c'];
+const array2 = ['d', 'e', 'f'];
+
+console.log(array1.concat(array2)); // Output: Array ["a", "b", "c", "d", "e", "f"]
+```
+
+**g.) array.map()**: The map() method creates a new array with the results of calling a provided function on every element in the calling array.
+
+```js
+var array1 = [1, 4, 9, 16];
+
+// pass a function to map
+const map1 = array1.map(x => x * 2); 
+
+console.log(map1); // Output: Array [2, 8, 18, 32]
+```
+
+**h.) array.filter()**: The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+
+```js
+var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction'];
+
+const result = words.filter(word => word.length > 6);
+
+console.log(result); // Output: Array ["exuberant", "destruction"]
+```
+
+**i.) array.reduce()**: The reduce() method executes a reducer function (that you provide) on each element of the array, 
+resulting in a single output value.
+
+```js
+const array1 = [1, 2, 3, 4];
+const reducer = (accumulator, currentValue) => accumulator + currentValue;
+
+console.log(array1.reduce(reducer)); // Output: 10
+console.log(array1.reduce(reducer, 5)); // Output: 15
+```
+
+**j.) array.reduceRight()**: The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
+
+```js
+const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
+  (accumulator, currentValue) => accumulator.concat(currentValue)
+);
+
+console.log(array1); // Output: Array [4, 5, 2, 3, 0, 1]
+```
+
+**k.) array.every()**: The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value. 
+
+```js
+function isBelowThreshold(currentValue) {
+  return currentValue < 40;
+}
+
+var array1 = [1, 30, 39, 29, 10, 13];
+console.log(array1.every(isBelowThreshold)); // Output: true
+```
+
+**l.) array.some()**: The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value. 
+
+```js
+var array = [1, 2, 3, 4, 5];
+
+var even = function(element) {
+  // checks whether an element is even
+  return element % 2 === 0;
+};
+
+console.log(array.some(even)); // Output: true
+``` 
+
+**m.) array.indexOf()**: The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+
+```js
+var beasts = ['ant', 'bison', 'camel'];
+
+console.log(beasts.indexOf('camel')); // Output: 2
+console.log(beasts.indexOf('giraffe')); // Output: -1
+```
+
+**n.) array.lastIndexOf()**: The lastIndexOf() method returns the index within the calling String object of the last occurrence 
+of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
+
+```js
+var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
+
+var searchTerm = 'dog';
+
+console.log('The index of the first "' + searchTerm + '" from the end is ' + paragraph.lastIndexOf(searchTerm));
+// Output: "The index of the first "dog" from the end is 52"
+```
+
+**o.) array.find()**: The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+
+```js
+var array1 = [5, 12, 8, 130, 44];
+
+var found = array1.find(function(element) {
+  return element > 100;
+});
+
+console.log(found); // Output: 130
+```
+
+**p.) array.findIndex()**: The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+
+```js
+var array1 = [5, 12, 8, 130, 44];
+
+function isLargeNumber(element) {
+  return element > 20;
+}
+
+console.log(array1.findIndex(isLargeNumber)); // Output: 3
+```
+
+**q.) array.includes()**: The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+
+```js
+var array1 = [1, 2, 3];
+console.log(array1.includes(2)); // Output: true
+
+var pets = ['cat', 'dog', 'bat'];
+console.log(pets.includes('at')); // Output: false
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***When to use reduce(), map(), foreach() and filter() in JavaScript?***
 
 * **forEach():**  
@@ -1593,6 +1821,215 @@ delete trees[3];
 Clearly we can see that Chrome has its own way of displaying uninitialized index in arrays. However when you check `trees[3] === undefined` in any browser you will get similar output as `true`.
 
 *Note: Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?***
+
+To understand the differences between the two, Let us look at what each function does.
+
+**`forEach`**
+
+* Iterates through the elements in an array.
+* Executes a callback for each element.
+* Does not return a value.
+
+```js
+const a = [1, 2, 3];
+const doubled = a.forEach((num, index) => {
+  // Do something with num and/or index.
+});
+
+// doubled = undefined
+```
+
+**`map`**
+
+* Iterates through the elements in an array.
+* "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
+
+```js
+const a = [1, 2, 3];
+const doubled = a.map(num => {
+  return num * 2;
+});
+
+// doubled = [2, 4, 6]
+```
+
+The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is JSON and its common operations?***
+
+**JSON** is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
+Parsing: **Converting a string to a native object
+
+```js
+JSON.parse(text)
+```
+
+Stringification: converting a native object to a string so it can be transmitted across the network
+
+```js
+JSON.stringify(object)
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of array slice method?***
+
+The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
+
+```js
+let arrayIntegers = [1, 2, 3, 4, 5];
+let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
+let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
+let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
+```
+
+*Note: Slice method wonot mutate the original array but it returns the subset as new array*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of array splice method?***
+
+The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the option second argument indicates the number of elements to be deleted. Each additional argument is added to the array. Some of the examples of this method are,
+
+```js
+let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
+let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
+let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
+
+let arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array: [3, 4, 5]
+let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
+let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
+```
+
+*Note: Splice method modifies the original array and returns the deleted array*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is Associative Array? How do we use it?***
+
+Associative arrays are dynamic objects that  the user redefines as needed. When you assign values ​​to keys in a variable of type Array, the array is transformed into an object, and it loses the attributes and methods of Array. The `length` attribute has no effect because the variable is not longer of Array type.
+
+**An associative array is declared or dynamically created:**
+
+```js
+var arr = { "one": 1, "two": 2, "three": 3 }; 
+```
+
+Unlike simple arrays, we use curly braces instead of square brackets. This has implicitly created a variable of type Object.
+The content is accessed by keys, whatever the method used to declare the array.
+
+```js
+var y = arr["one"];
+```
+
+**An associative array is also an object**  
+we can create an associative array with the Object reserved word, then and assign keys and values:
+
+```js
+var obj = new Object();
+obj["one"] = 1;
+obj["two"] = 2;
+obj["three"] = 3;
+for(var i in obj) {
+     document.write(i + "=" + obj[i] + '<br>');
+}
+
+// Output
+one = 1
+two = 2
+three = 3
+```
+
+**Attributes of a JavaScript object are also keys:**  
+
+```js
+var oa = new Object();
+oa.one = 1;
+oa.two = 2;
+oa.three = 3;
+for(var i in oa) {
+     document.write(i + "=" + x[i] + '<br>');
+}
+```
+
+**An associative array is scanned with for in**  
+We can not use a simple for loop because the elements are not accessible by an index (besides the fact that we must use a special function to determine the position of the last), but the simpler for in loop is ideal.
+
+Keys are assigned to the variable "key", and with the key we access the value.
+
+```js
+var arr = { "one" : 1, "two" : 2, "three": 3 };  
+for(var key in arr) {
+  var value = arr[key];
+  document.write(key + " = " + value + '<br>');
+}
+```
+
+**List of properties:**  
+
+```js
+Object.keys(arr)
+
+Object.keys(arr).length
+
+var a2 = { "a":1, "b":2, "c":3 }
+document.write("Size=" + Object.keys(a2).length
+```
+
+**List of values:**  
+
+We can transform an associative array, ie an object, into a simple array. With the method that returns the list of keys, and the map method (ECMAScript 1.6), we also obtain the values:
+
+```js
+var a3 = Object.keys(a2).map(function (k) { return a2[k];})
+document.write(a3)
+
+// output
+1,2,3
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Why extending array is bad idea?***
+
+Polyfilling or shimming standard functionality like `Array.prototype.filter` so that it works in older browsers is a good idea in my opinion. Usually the advice for not extending `Array.prototype` or other native prototypes might come down to one of these:
+
+1. `for..in` might not work properly
+1. Someone else might also want to extend Array with the same function name
+1. It might not work properly in every browser, even with the shim.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is unshift() method in JavaScript?***
+
+The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
+
+```js
+var arr = [1, 2, 3];
+
+console.log(arr.unshift(4, 5)); // 5
+console.log(arr); // Array [4, 5, 1, 2, 3]
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6355,107 +6792,6 @@ c.constructor.name;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?***
-
-To understand the differences between the two, Let us look at what each function does.
-
-**`forEach`**
-
-* Iterates through the elements in an array.
-* Executes a callback for each element.
-* Does not return a value.
-
-```js
-const a = [1, 2, 3];
-const doubled = a.forEach((num, index) => {
-  // Do something with num and/or index.
-});
-
-// doubled = undefined
-```
-
-**`map`**
-
-* Iterates through the elements in an array.
-* "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
-
-```js
-const a = [1, 2, 3];
-const doubled = a.map(num => {
-  return num * 2;
-});
-
-// doubled = [2, 4, 6]
-```
-
-The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Have you ever used JavaScript templating? If so, what libraries have you used?***
-
-Yes. Handlebars, Underscore, Lodash, AngularJS, and JSX. I disliked templating in AngularJS because it made heavy use of strings in the directives and typos would go uncaught. JSX is my new favorite as it is closer to JavaScript and there is barely any syntax to learn. Nowadays, you can even use ES2015 template string literals as a quick way for creating templates without relying on third-party code.
-
-```js
-const template = `<div>My name is: ${name}</div>`;
-```
-
-However, do be aware of a potential XSS in the above approach as the contents are not escaped for you, unlike in templating libraries.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is JSON and its common operations?***
-
-**JSON** is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
-Parsing: **Converting a string to a native object
-```js
-JSON.parse(text)
-```
-Stringification: converting a native object to a string so it can be transmitted across the network
-```js
-JSON.stringify(object)
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of array slice method?***
-
-The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
-```js
-let arrayIntegers = [1, 2, 3, 4, 5];
-let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
-let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
-let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
-```
-*Note: Slice method wonot mutate the original array but it returns the subset as new array*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of array splice method?***
-
-The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the option second argument indicates the number of elements to be deleted. Each additional argument is added to the array. Some of the examples of this method are,
-```js
-let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
-let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
-let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
-
-let arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array: [3, 4, 5]
-let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
-let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
-```
-*Note: Splice method modifies the original array and returns the deleted array*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you compare Object and Map?***
 
 **Objects** are similar to **Maps** in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
@@ -6526,81 +6862,6 @@ elem.dispatchEvent(event);
 window.frames – the collection of “children” windows (for nested frames).
 window.parent – the reference to the “parent” (outer) window.
 window.top – the reference to the topmost parent window.
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is Associative Array? How do we use it?***
-
-Associative arrays are dynamic objects that  the user redefines as needed. When you assign values ​​to keys in a variable of type Array, the array is transformed into an object, and it loses the attributes and methods of Array. The `length` attribute has no effect because the variable is not longer of Array type.
-
-**An associative array is declared or dynamically created**  
-```js
-var arr = { "one": 1, "two": 2, "three": 3 }; 
-```
-
-Unlike simple arrays, we use curly braces instead of square brackets. This has implicitly created a variable of type Object.
-The content is accessed by keys, whatever the method used to declare the array.
-```js
-var y = arr["one"];
-```
-**An associative array is also an object**  
-we can create an associative array with the Object reserved word, then and assign keys and values:
-```js
-var obj = new Object();
-obj["one"] = 1;
-obj["two"] = 2;
-obj["three"] = 3;
-for(var i in obj) {
-     document.write(i + "=" + obj[i] + '<br>');
-}
-```
-Output
-```
-one = 1
-two = 2
-three = 3
-```
-**Attributes of a JavaScript object are also keys**  
-```js
-var oa = new Object();
-oa.one = 1;
-oa.two = 2;
-oa.three = 3;
-for(var i in oa) {
-     document.write(i + "=" + x[i] + '<br>');
-}
-```
-**An associative array is scanned with for in**  
-We can not use a simple for loop because the elements are not accessible by an index (besides the fact that we must use a special function to determine the position of the last), but the simpler for in loop is ideal.
-
-Keys are assigned to the variable "key", and with the key we access the value.
-```js
-var arr = { "one" : 1, "two" : 2, "three": 3 };  
-for(var key in arr) {
-  var value = arr[key];
-  document.write(key + " = " + value + '<br>');
-}
-```
-**List of properties**  
-```js
-Object.keys(arr)
-
-Object.keys(arr).length
-
-var a2 = { "a":1, "b":2, "c":3 }
-document.write("Size=" + Object.keys(a2).length
-```
-**List of values**  
-We can transform an associative array, ie an object, into a simple array. With the method that returns the list of keys, and the map method (ECMAScript 1.6), we also obtain the values:
-```js
-var a3 = Object.keys(a2).map(function (k) { return a2[k];})
-document.write(a3)
-```
-Result
-```
-1,2,3
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6735,17 +6996,6 @@ Now, we can use our regexIt method as shown below:
 var result = 'Hello World';
 result.regexIt();
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why extending array is bad idea?***
-
-Polyfilling or shimming standard functionality like `Array.prototype.filter` so that it works in older browsers is a good idea in my opinion. Usually the advice for not extending `Array.prototype` or other native prototypes might come down to one of these:
-1. `for..in` might not work properly
-1. Someone else might also want to extend Array with the same function name
-1. It might not work properly in every browser, even with the shim.
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7099,19 +7349,6 @@ decodeURIComponent("%"); // URIError
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is unshift() method in JavaScript?***
-
-The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
-```js
-var arr = [1, 2, 3];
-
-console.log(arr.unshift(4, 5)); // Output: 5
-console.log(arr); // Output: Array [4, 5, 1, 2, 3]
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the difference between HTMLCollection and NodeList?***
 
 **HTMLCollection**
@@ -7331,199 +7568,6 @@ So, to avoid these default browser behavior use `event.preventDefault()`.
 
 *Note: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`*;
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain arrays in JavaScript?***
-
-JavaScript array is an object that represents a collection of similar type of elements. It can holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions.
-
-```js
-// empty array
-const myList = [];
-
-
-// array of numbers
-const numberArray = [ 2, 4, 6, 8];
-
-
-// array of strings
-let fruits = ["Apple", "Orange", "Plum"];
-
-console.log(fruits[0]); // Apple
-console.log(fruits[1]); // Orange
-console.log(fruits[2]); // Plum
-
-
-// array with mixed data types
-let arr = ["Hello World",	10,	true];
-
-console.log(arr[0]);			// "Hello World"
-console.log(arr[1]);			// 10
-console.log(arr[2]);			// true
-console.log(arr.length);	// 3
-
-typeof arr;	// "object"
-
-
-// array with mixed data types
-const newData = [
-    {'task1': 'exercise'},
-    [1, 2 ,3],
-    function hello() { console.log('hello')}
-];
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]***
-
-**a.) array.join()**: The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator. 
-```js
-var elements = ['Fire', 'Air', 'Water'];
-
-console.log(elements.join()); // Output: "Fire,Air,Water"
-console.log(elements.join('')); // Output: "FireAirWater"
-console.log(elements.join('-')); // Output: "Fire-Air-Water"
-```
-**b.) array.pop()**: The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
-```js
-var plants = ['broccoli', 'cauliflower', 'kale'];
-
-console.log(plants.pop()); // Output: "kale"
-console.log(plants); // Output: Array ["broccoli", "cauliflower"]
-console.log(plants.pop()); // Output: "cauliflower"
-console.log(plants.pop()); // Output: "broccoli"
-console.log(plants.pop()); // Output: "undefined"
-```
-**c.) array.push()**: The push() method adds one or more elements to the end of an array and returns the new length of the array.
-```js
-const animals = ['pigs', 'goats', 'sheep'];
-
-const count = animals.push('cows');
-console.log(count); // Output: 4
-console.log(animals); // Output: Array ["pigs", "goats", "sheep", "cows"]
-```
-**d.) array.shift()**: The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
-```js
-var fruits = ["Banana", "Orange", "Apple", "Mango"];
-fruits.shift();
-console.log(fruits) // Output: Array ["Orange", "Apple", "Mango"]
-```
-**e.) array.unshift()**: The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
-```js
-var fruits = ["Banana", "Orange", "Apple"];
-fruits.unshift("Mango","Pineapple");
-console.log(fruits); // Output: Array ["Mango", "Pineapple", "Banana", "Orange", "Apple"]
-```
-**f.) array.concat()**: The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
-```js
-const array1 = ['a', 'b', 'c'];
-const array2 = ['d', 'e', 'f'];
-
-console.log(array1.concat(array2)); // Output: Array ["a", "b", "c", "d", "e", "f"]
-```
-**g.) array.map()**: The map() method creates a new array with the results of calling a provided function on every element in the calling array.
-```js
-var array1 = [1, 4, 9, 16];
-
-// pass a function to map
-const map1 = array1.map(x => x * 2); 
-
-console.log(map1); // Output: Array [2, 8, 18, 32]
-```
-**h.) array.filter()**: The filter() method creates a new array with all elements that pass the test implemented by the provided function.
-```js
-var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction'];
-
-const result = words.filter(word => word.length > 6);
-
-console.log(result); // Output: Array ["exuberant", "destruction"]
-```
-**i.) array.reduce()**: The reduce() method executes a reducer function (that you provide) on each element of the array, resulting in a single output value.
-```js
-const array1 = [1, 2, 3, 4];
-const reducer = (accumulator, currentValue) => accumulator + currentValue;
-
-console.log(array1.reduce(reducer)); // Output: 10
-console.log(array1.reduce(reducer, 5)); // Output: 15
-```
-**j.) array.reduceRight()**: The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
-```js
-const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
-  (accumulator, currentValue) => accumulator.concat(currentValue)
-);
-
-console.log(array1); // Output: Array [4, 5, 2, 3, 0, 1]
-```
-**k.) array.every()**: The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value. 
-```js
-function isBelowThreshold(currentValue) {
-  return currentValue < 40;
-}
-
-var array1 = [1, 30, 39, 29, 10, 13];
-console.log(array1.every(isBelowThreshold)); // Output: true
-```
-**l.) array.some()**: The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value. 
-```js
-var array = [1, 2, 3, 4, 5];
-
-var even = function(element) {
-  // checks whether an element is even
-  return element % 2 === 0;
-};
-
-console.log(array.some(even)); // Output: true
-``` 
-**m.) array.indexOf()**: The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
-
-```js
-var beasts = ['ant', 'bison', 'camel'];
-
-console.log(beasts.indexOf('camel')); // Output: 2
-console.log(beasts.indexOf('giraffe')); // Output: -1
-```
-**n.) array.lastIndexOf()**: The lastIndexOf() method returns the index within the calling String object of the last occurrence of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
-```js
-var paragraph = 'The quick brown fox jumps over the lazy dog. If the dog barked, was it really lazy?';
-
-var searchTerm = 'dog';
-
-console.log('The index of the first "' + searchTerm + '" from the end is ' + paragraph.lastIndexOf(searchTerm));
-// Output: "The index of the first "dog" from the end is 52"
-```
-**o.) array.find()**: The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
-```js
-var array1 = [5, 12, 8, 130, 44];
-
-var found = array1.find(function(element) {
-  return element > 100;
-});
-
-console.log(found); // Output: 130
-```
-**p.) array.findIndex()**: The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
-```js
-var array1 = [5, 12, 8, 130, 44];
-
-function isLargeNumber(element) {
-  return element > 20;
-}
-
-console.log(array1.findIndex(isLargeNumber)); // Output: 3
-```
-**q.) array.includes()**: The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
-```js
-var array1 = [1, 2, 3];
-console.log(array1.includes(2)); // Output: true
-
-var pets = ['cat', 'dog', 'bat'];
-console.log(pets.includes('at')); // Output: false
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
