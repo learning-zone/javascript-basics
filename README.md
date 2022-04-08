@@ -15,24 +15,24 @@
 
 ## Table of Contents
 
-* Variables
-* Data types
-* Operators
-* Numbers
-* String
-* Array
-* Regular expressions
-* functions
-* Events
-* Forms
-* Objects
-* Windows and Document
-* Classes
-* Error handling
-* Inheritance
-* Promises
-* Modules
-* Design Pattern
+* [Variables](#variables)
+* [Data types](#data-types)
+* [Operators](#operators)
+* [Numbers](#numbers)
+* [String](#string)
+* [Array](#array)
+* [Regular expressions](#regular-expressions)
+* [functions](#functions)
+* [Events](#events)
+* [Forms](#forms)
+* [Objects](#objects)
+* [Windows and Document Object](#windows-and-document-object)
+* [Classes](#classes)
+* [Error handling](#error-handling)
+* [Inheritance](#inheritance)
+* [Promises](#promises)
+* [Modules](#modules)
+* [Design Pattern](#design-pattern)
 
 ## VARIABLES
 
