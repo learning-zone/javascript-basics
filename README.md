@@ -24,7 +24,6 @@
 * [Regular Expression](#regular-expression)
 * [Functions](#functions)
 * [Events](#events)
-* [Forms](#forms)
 * [Objects](#objects)
 * [Windows and Document Object](#windows-and-document-object)
 * [Classes](#classes)
@@ -521,6 +520,28 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
 As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring if I do not intend to use it yet. If you use a linter in your workflow, it will usually also be able to check that you are not referencing undeclared variables.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is variable shadowing in javascript?***
+
+Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
+
+If there is a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
+
+```js
+var val = 10;
+
+function Hoist(val) {
+    alert(val);
+}
+Hoist(20);
+
+// Output
+20
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -3696,26 +3717,7 @@ Below are the list of events available for server sent events
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you clone an object in JavaScript?***
-
-Using the object spread operator `...`, the object own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
-
-```js
-const obj = { a: 1, b: 2 }
-const shallowClone = { ...obj }
-```
-
-With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original. Deep-cloning is much more complex in order to effectively clone any type of object (Date, RegExp, Function, Set, etc) that may be nested within the object.
-
-Other alternatives include:
-
-* **JSON.parse(JSON.stringify(obj))** can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references).
-* **Object.assign({}, obj)** is another alternative.
-* **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+## OBJECTS
 
 ## Q. ***What are the possible ways to create objects in JavaScript?***
 
@@ -3800,24 +3802,427 @@ var object = new function() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is variable shadowing in javascript?***
+## Q. ***What are the recommendations to create new object?***
 
-Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
+It is recommended to avoid creating new objects using `new Object()`. Instead you can initialize values based on it is type to create the objects.
 
-If there is a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
+1. Assign {} instead of new Object()
+2. Assign "" instead of new String()
+3. Assign 0 instead of new Number()
+4. Assign false instead of new Boolean()
+5. Assign [] instead of new Array()
+6. Assign /()/ instead of new RegExp()
+7. Assign function (){} instead of new Function()
+
+You can define them as an example,
 
 ```js
-var val = 10;
-
-function Hoist(val) {
-    alert(val);
-}
-Hoist(20);
-
-// Output
-20
+var v1 = {};
+var v2 = "";
+var v3 = 0;
+var v4 = false;
+var v5 = [];
+var v6 = /()/;
+var v7 = function(){};
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you clone an object in JavaScript?***
+
+Using the object spread operator `...`, the object own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
+
+```js
+const obj = { a: 1, b: 2 }
+const shallowClone = { ...obj }
+```
+
+With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original. Deep-cloning is much more complex in order to effectively clone any type of object (Date, RegExp, Function, Set, etc) that may be nested within the object.
+
+Other alternatives include:
+
+* **JSON.parse(JSON.stringify(obj))** can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references).
+* **Object.assign({}, obj)** is another alternative.
+* **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between native, host and user objects?***
+
+* `Native objects` are objects that are part of the JavaScript language defined by the ECMAScript specification. For example, String, Math, RegExp, Object, Function etc core objects defined in the ECMAScript spec.
+* `Host objects` are objects provided by the browser or runtime environment (Node). For example, window, XmlHttpRequest, DOM nodes etc considered as host objects.
+* `User objects` are objects defined in the javascript code. For example, User object created for profile information.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the properties of Intl object?***
+
+Below are the list of properties available on Intl object,
+1. **Collator:** These are the objects that enable language-sensitive string comparison.
+2. **DateTimeFormat:** These are the objects that enable language-sensitive date and time formatting.
+3. **ListFormat:** These are the objects that enable language-sensitive list formatting.
+4. **NumberFormat:** Objects that enable language-sensitive number formatting.
+5. **PluralRules:** Objects that enable plural-sensitive formatting and language-specific rules for plurals.
+6. **RelativeTimeFormat:** Objects that enable language-sensitive relative time formatting.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain the difference between mutable and immutable objects?***
+
+Immutability is a core principle in functional programming, and has lots to offer to object-oriented programs as well. A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is an example of an immutable object in JavaScript?***
+
+In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable.
+
+Some built-in immutable JavaScript objects are `Math`, `Date`.
+
+Here are a few ways to add/simulate immutability on plain JavaScript objects.
+
+**Object Constant Properties:**
+
+By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
+
+```js
+let myObject = {};
+Object.defineProperty(myObject, 'number', {
+  value: 42,
+  writable: false,
+  configurable: false,
+});
+console.log(myObject.number); // 42
+myObject.number = 43;
+console.log(myObject.number); // 42
+```
+
+**Prevent Extensions:**
+
+If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
+
+```js
+var myObject = {
+  a: 2
+};
+
+Object.preventExtensions(myObject);
+
+myObject.b = 3;
+myObject.b; // undefined
+```
+
+In non-strict mode, the creation of `b` fails silently. In strict mode, it throws a `TypeError`.
+
+**Seal:**
+
+`Object.seal()` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions()` on it, but also marks all its existing properties as `configurable: false`.
+
+So, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties (though you can still modify their values).
+
+**Freeze:**
+
+`Object.freeze()` creates a frozen object, which means it takes an existing object and essentially calls `Object.seal()` on it, but it also marks all "data accessor" properties as writable:false, so that their values cannot be changed.
+
+This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).
+
+```js
+var immutable = Object.freeze({});
+```
+
+Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. `Object.freeze()` preserves the enumerability, configurability, writability and the prototype of the object. It returns the passed object and does not create a frozen copy.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How can you achieve immutability in your own code?***
+
+One way to achieve immutability is to use libraries like [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) or [immer](https://github.com/immerjs/immer).
+
+The alternative is to use `const` declarations combined with the techniques mentioned above for creation. For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
+
+Examples:
+
+```js
+// Array Example
+const arr = [1, 2, 3];
+const newArr = [...arr, 4]; // [1, 2, 3, 4]
+
+// Object Example
+const human = Object.freeze({race: 'human'});
+const john = { ...human, name: 'John' }; // {race: "human", name: "John"}
+const alienJohn = { ...john, race: 'alien' }; // {race: "alien", name: "John"}
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the drawback of declaring methods directly in JavaScript objects?***
+
+One of the drawback of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object. Let us see it on example:
+
+```js
+var Employee = function (name, company, salary) {
+  this.name = name || "";       
+  this.company = company || "";
+  this.salary = salary || 5000;
+
+  // We can create a method like this:
+  this.formatSalary = function () {
+      return "$ " + this.salary;
+  };
+};
+
+// we can also create method in Employee's prototype:
+Employee.prototype.formatSalary2 = function() {
+    return "$ " + this.salary;
+}
+
+//creating objects
+var emp1 = new Employee('Yuri Garagin', 'Company 1', 1000000);
+var emp2 = new Employee('Dinesh Gupta', 'Company 2', 1039999);
+var emp3 = new Employee('Erich Fromm', 'Company 3', 1299483);
+```
+
+Here each instance variable `emp1`, `emp2`, `emp3` has own copy of `formatSalary` method. However the `formatSalary2` will only be added once to an object `Employee.prototype`.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you compare Object and Map?***
+
+**Objects** are similar to **Maps** in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
+
+1. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map, including functions, objects, and any primitive.
+2. The keys in Map are ordered while keys added to object are not. Thus, when iterating over it, a Map object returns keys in order of insertion.
+3. You can get the size of a Map easily with the size property, while the number of properties in an Object must be determined manually.
+4. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
+5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
+6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to extend built-in objects?***
+
+All objects in JS contains a prototype property, even the variables we declare. Since we don’t have access to the JS source code, thus, we cannot insert our custom functionality in String object by fiddling with JS source code, we use the String object’s prototype as another approach to insert our functionality.
+```js
+String.prototype.regexIt = function() {
+  /*
+    Since were attaching our custom function to String object,
+    we don't need an argument instead, we use 'this' to access our argument
+    as it points to the String value attached.
+  */
+  var input = this;
+
+  // do something with input and
+
+  return input;
+}
+```
+Now, we can use our regexIt method as shown below:
+```js
+var result = 'Hello World';
+result.regexIt();
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is shallow copy and deep copy in javascript?***
+
+**Shallow copy**
+
+Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
+
+**Deep copy**
+
+A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
+
+<img src="assets/deepcopy.png" alt="Shallow Copy and Deep Copy" />
+
+A Shallow copy of the object can be done using `object.assign()` method in javascript.
+```js
+let obj = {
+  a: 1,
+  b: 2,
+};
+let objCopy = Object.assign({}, obj);
+console.log(objCopy); // Result - { a: 1, b: 2 }
+```
+A Deep copy of the object can be done using JSON.parse(JSON.stringify(object));
+```js
+let obj = { 
+  a: 1,
+  b: { 
+    c: 2,
+  },
+}
+let newObj = JSON.parse(JSON.stringify(obj));
+obj.b.c = 20;
+console.log(obj); // { a: 1, b: { c: 20 } }
+console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Write code for merge two JavaScript Object dynamically?***
+
+Let say you have two objects 
+
+```js
+var person = {
+	name : 'John',
+	age  : 24
+}
+
+var address = {
+	addressLine1 : 'Some Location x',
+	addressLine2 : 'Some Location y',
+	city : 'NewYork'
+} 
+```
+Write merge function which will take two object and add all the own property of second object into first object.
+
+```js
+merge(person , address); 
+ 
+/* Now person should have 5 properties 
+name , age , addressLine1 , addressLine2 , city */
+```
+**Method 1: Using ES6, Object.assign method**
+
+```js
+const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
+```
+ 
+**Method 2: Without using built-in function**
+
+```js
+function merge(toObj, fromObj) {
+  // Make sure both of the parameter is an object
+  if (typeof toObj === 'object' && typeof fromObj === 'object') {
+    for (var pro in fromObj) {
+      // Assign only own properties not inherited properties
+      if (fromObj.hasOwnProperty(pro)) {
+        // Assign property and value
+        toObj[pro] = fromObj[pro];
+      }
+    }
+  }else{
+  	throw "Merge function can apply only on object";
+  }
+}
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to compare two objects in javascript?***
+
+ToDo
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is non-enumerable property in JavaScript and how you can create one?***
+
+Object can have properties that don\'t show up when you iterate through object using for...in loop or using Object.keys() to get an array of property names. This properties is know as non-enumerable properties.
+
+Let say we have following object
+
+```js
+var person = {
+	name: 'John'
+};
+person.salary = '10000$';
+person['country'] = 'USA';
+
+console.log(Object.keys(person)); // ['name', 'salary', 'country']
+```
+As we know that person object properties `name`, `salary` ,`country` are enumerable hence It is shown up when we called Object.keys(person).
+
+To create a non-enumerable property we have to use **Object.defineProperty()**. This is a special method for creating non-enumerable property in JavaScript.
+
+```js
+var person = {
+	name: 'John'
+};
+person.salary = '10000$';
+person['country'] = 'USA';
+
+// Create non-enumerable property
+Object.defineProperty(person, 'phoneNo',{
+	value : '8888888888',
+	enumerable: false
+})
+
+Object.keys(person); // ['name', 'salary', 'country']
+```
+In the example above `phoneNo` property didn\'t show up because we made it non-enumerable by setting **enumerable:false**
+
+Now Let us try to change value of `phoneNo`
+
+```js
+person.phoneNo = '7777777777'; 
+```
+Changing non-enumerable property value will return error in `strict mode`. In non-strict mode it won\'t through any error but it won\'t change the value of phoneNo.
+
+**Bonus**
+
+**Object.defineProperty()** is also let you create read-only properties as we saw above, we are not able to modify phoneNo value of a person object.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you check whether an object can be extendable or not?***
+
+The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
+```js
+const newObject = {};
+console.log(Object.isExtensible(newObject)); //true
+```
+*Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the different ways to make an object non-extensible?***
+
+
+* `Object.preventExtensions()`
+* `Object.seal()`
+* `Object.freeze()`
+
+```js
+var newObject = {};
+
+Object.preventExtensions(newObject); // Prevent objects are non-extensible
+Object.isExtensible(newObject); // false
+
+var sealedObject = Object.seal({}); // Sealed objects are non-extensible
+Object.isExtensible(sealedObject); // false
+
+var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
+Object.isExtensible(frozenObject); // false
+```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -4306,16 +4711,6 @@ console.log(navigator.platform);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between native, host and user objects?***
-
-* `Native objects` are objects that are part of the JavaScript language defined by the ECMAScript specification. For example, String, Math, RegExp, Object, Function etc core objects defined in the ECMAScript spec.
-* `Host objects` are objects provided by the browser or runtime environment (Node). For example, window, XmlHttpRequest, DOM nodes etc considered as host objects.
-* `User objects` are objects defined in the javascript code. For example, User object created for profile information.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What are the pros and cons of promises over callbacks?***
 
 Below are the list of pros and cons of promises over callbacks,  
@@ -4550,34 +4945,6 @@ object.key3 = "value3";
 
 ```js
 obj["key3"] = "value3";
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the recommendations to create new object?***
-
-It is recommended to avoid creating new objects using `new Object()`. Instead you can initialize values based on it is type to create the objects.
-
-1. Assign {} instead of new Object()
-2. Assign "" instead of new String()
-3. Assign 0 instead of new Number()
-4. Assign false instead of new Boolean()
-5. Assign [] instead of new Array()
-6. Assign /()/ instead of new RegExp()
-7. Assign function (){} instead of new Function()
-
-You can define them as an example,
-
-```js
-var v1 = {};
-var v2 = "";
-var v3 = 0;
-var v4 = false;
-var v5 = [];
-var v6 = /()/;
-var v7 = function(){};
 ```
 
 <div align="right">
@@ -5288,20 +5655,6 @@ console.log(User.isAdmin); //false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the properties of Intl object?***
-
-Below are the list of properties available on Intl object,
-1. **Collator:** These are the objects that enable language-sensitive string comparison.
-2. **DateTimeFormat:** These are the objects that enable language-sensitive date and time formatting.
-3. **ListFormat:** These are the objects that enable language-sensitive list formatting.
-4. **NumberFormat:** Objects that enable language-sensitive number formatting.
-5. **PluralRules:** Objects that enable plural-sensitive formatting and language-specific rules for plurals.
-6. **RelativeTimeFormat:** Objects that enable language-sensitive relative time formatting.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you get meta data of a module?***
 
 You can use `import.meta` object which is a meta-property exposing context-specific meta data to a JavaScript module. It contains information about the current module, such as module's URL. In browser, you might get different meta data than NodeJS.
@@ -5414,16 +5767,6 @@ In the past, I've used Backbone for my models which encourages a more OOP approa
 The module pattern is still great, but these days, I use React/Redux which utilize a single-directional data flow based on Flux architecture. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
 
 I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between host objects and native objects?***
-
-Native objects are objects that are part of the JavaScript language defined by the ECMAScript specification, such as `String`, `Math`, `RegExp`, `Object`, `Function`, etc.
-
-Host objects are provided by the runtime environment (browser or Node), such as `window`, `XMLHTTPRequest`, etc.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5727,99 +6070,6 @@ for (let [index, elem] of arr.entries()) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Explain the difference between mutable and immutable objects?***
-
-Immutability is a core principle in functional programming, and has lots to offer to object-oriented programs as well. A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is an example of an immutable object in JavaScript?***
-
-In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable.
-
-Some built-in immutable JavaScript objects are `Math`, `Date`.
-
-Here are a few ways to add/simulate immutability on plain JavaScript objects.
-
-**Object Constant Properties**
-
-By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
-
-```js
-let myObject = {};
-Object.defineProperty(myObject, 'number', {
-  value: 42,
-  writable: false,
-  configurable: false,
-});
-console.log(myObject.number); // 42
-myObject.number = 43;
-console.log(myObject.number); // 42
-```
-
-**Prevent Extensions**
-
-If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
-
-```js
-var myObject = {
-  a: 2
-};
-
-Object.preventExtensions(myObject);
-
-myObject.b = 3;
-myObject.b; // undefined
-```
-
-In non-strict mode, the creation of `b` fails silently. In strict mode, it throws a `TypeError`.
-
-**Seal**
-
-`Object.seal()` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions()` on it, but also marks all its existing properties as `configurable: false`.
-
-So, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties (though you can still modify their values).
-
-**Freeze**
-
-`Object.freeze()` creates a frozen object, which means it takes an existing object and essentially calls `Object.seal()` on it, but it also marks all "data accessor" properties as writable:false, so that their values cannot be changed.
-
-This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).
-
-```js
-var immutable = Object.freeze({});
-```
-
-Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. `Object.freeze()` preserves the enumerability, configurability, writability and the prototype of the object. It returns the passed object and does not create a frozen copy.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How can you achieve immutability in your own code?***
-
-One way to achieve immutability is to use libraries like [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) or [immer](https://github.com/immerjs/immer).
-
-The alternative is to use `const` declarations combined with the techniques mentioned above for creation. For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
-
-Examples:
-
-```js
-// Array Example
-const arr = [1, 2, 3];
-const newArr = [...arr, 4]; // [1, 2, 3, 4]
-
-// Object Example
-const human = Object.freeze({race: 'human'});
-const john = { ...human, name: 'John' }; // {race: "human", name: "John"}
-const alienJohn = { ...john, race: 'alien' }; // {race: "alien", name: "John"}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Explain the difference between synchronous and asynchronous functions?***
 
 Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case, the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
@@ -5833,39 +6083,6 @@ Asynchronous functions usually accept a callback as a parameter and execution co
 ## Q. ***Why you might want to create static class members?***
 
 Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the drawback of declaring methods directly in JavaScript objects?***
-
-One of the drawback of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object. Let us see it on example:
-
-```js
-var Employee = function (name, company, salary) {
-  this.name = name || "";       
-  this.company = company || "";
-  this.salary = salary || 5000;
-
-  // We can create a method like this:
-  this.formatSalary = function () {
-      return "$ " + this.salary;
-  };
-};
-
-// we can also create method in Employee's prototype:
-Employee.prototype.formatSalary2 = function() {
-    return "$ " + this.salary;
-}
-
-//creating objects
-var emp1 = new Employee('Yuri Garagin', 'Company 1', 1000000);
-var emp2 = new Employee('Dinesh Gupta', 'Company 2', 1039999);
-var emp3 = new Employee('Erich Fromm', 'Company 3', 1299483);
-```
-
-Here each instance variable `emp1`, `emp2`, `emp3` has own copy of `formatSalary` method. However the `formatSalary2` will only be added once to an object `Employee.prototype`.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6658,109 +6875,6 @@ delete employee.name;  // fails silently unless It is in strict mode
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Write code for merge two JavaScript Object dynamically?***
-
-Let say you have two objects 
-
-```js
-var person = {
-	name : 'John',
-	age  : 24
-}
-
-var address = {
-	addressLine1 : 'Some Location x',
-	addressLine2 : 'Some Location y',
-	city : 'NewYork'
-} 
-```
-Write merge function which will take two object and add all the own property of second object into first object.
-
-```js
-merge(person , address); 
- 
-/* Now person should have 5 properties 
-name , age , addressLine1 , addressLine2 , city */
-```
-**Method 1: Using ES6, Object.assign method**
-
-```js
-const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
-```
- 
-**Method 2: Without using built-in function**
-
-```js
-function merge(toObj, fromObj) {
-  // Make sure both of the parameter is an object
-  if (typeof toObj === 'object' && typeof fromObj === 'object') {
-    for (var pro in fromObj) {
-      // Assign only own properties not inherited properties
-      if (fromObj.hasOwnProperty(pro)) {
-        // Assign property and value
-        toObj[pro] = fromObj[pro];
-      }
-    }
-  }else{
-  	throw "Merge function can apply only on object";
-  }
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is non-enumerable property in JavaScript and how you can create one?***
-
-Object can have properties that don\'t show up when you iterate through object using for...in loop or using Object.keys() to get an array of property names. This properties is know as non-enumerable properties.
-
-Let say we have following object
-
-```js
-var person = {
-	name: 'John'
-};
-person.salary = '10000$';
-person['country'] = 'USA';
-
-console.log(Object.keys(person)); // ['name', 'salary', 'country']
-```
-As we know that person object properties `name`, `salary` ,`country` are enumerable hence It is shown up when we called Object.keys(person).
-
-To create a non-enumerable property we have to use **Object.defineProperty()**. This is a special method for creating non-enumerable property in JavaScript.
-
-```js
-var person = {
-	name: 'John'
-};
-person.salary = '10000$';
-person['country'] = 'USA';
-
-// Create non-enumerable property
-Object.defineProperty(person, 'phoneNo',{
-	value : '8888888888',
-	enumerable: false
-})
-
-Object.keys(person); // ['name', 'salary', 'country']
-```
-In the example above `phoneNo` property didn\'t show up because we made it non-enumerable by setting **enumerable:false**
-
-Now Let us try to change value of `phoneNo`
-
-```js
-person.phoneNo = '7777777777'; 
-```
-Changing non-enumerable property value will return error in `strict mode`. In non-strict mode it won\'t through any error but it won\'t change the value of phoneNo.
-
-**Bonus**
-
-**Object.defineProperty()** is also let you create read-only properties as we saw above, we are not able to modify phoneNo value of a person object.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Explain how prototypal inheritance works?***
 
 All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain.
@@ -6836,21 +6950,6 @@ c.greet();
 c.constructor.name;
 // Outputs: "Child"
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you compare Object and Map?***
-
-**Objects** are similar to **Maps** in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
-
-1. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map, including functions, objects, and any primitive.
-2. The keys in Map are ordered while keys added to object are not. Thus, when iterating over it, a Map object returns keys in order of insertion.
-3. You can get the size of a Map easily with the size property, while the number of properties in an Object must be determined manually.
-4. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
-5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
-6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7001,32 +7100,6 @@ delete employee.weapon;
 Output
 ```
 true
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to extend built-in objects?***
-
-All objects in JS contains a prototype property, even the variables we declare. Since we don’t have access to the JS source code, thus, we cannot insert our custom functionality in String object by fiddling with JS source code, we use the String object’s prototype as another approach to insert our functionality.
-```js
-String.prototype.regexIt = function() {
-  /*
-    Since were attaching our custom function to String object,
-    we don't need an argument instead, we use 'this' to access our argument
-    as it points to the String value attached.
-  */
-  var input = this;
-
-  // do something with input and
-
-  return input;
-}
-```
-Now, we can use our regexIt method as shown below:
-```js
-var result = 'Hello World';
-result.regexIt();
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7435,80 +7508,6 @@ The difference between this property and firstElementChild, is that firstChild r
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is shallow copy and deep copy in javascript?***
-
-**Shallow copy**
-
-Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
-
-**Deep copy**
-
-A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
-
-<img src="assets/deepcopy.png" alt="Shallow Copy and Deep Copy" />
-
-A Shallow copy of the object can be done using `object.assign()` method in javascript.
-```js
-let obj = {
-  a: 1,
-  b: 2,
-};
-let objCopy = Object.assign({}, obj);
-console.log(objCopy); // Result - { a: 1, b: 2 }
-```
-A Deep copy of the object can be done using JSON.parse(JSON.stringify(object));
-```js
-let obj = { 
-  a: 1,
-  b: { 
-    c: 2,
-  },
-}
-let newObj = JSON.parse(JSON.stringify(obj));
-obj.b.c = 20;
-console.log(obj); // { a: 1, b: { c: 20 } }
-console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you check whether an object can be extendable or not?***
-
-The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
-```js
-const newObject = {};
-console.log(Object.isExtensible(newObject)); //true
-```
-*Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the different ways to make an object non-extensible?***
-
-
-* `Object.preventExtensions()`
-* `Object.seal()`
-* `Object.freeze()`
-
-```js
-var newObject = {};
-
-Object.preventExtensions(newObject); // Prevent objects are non-extensible
-Object.isExtensible(newObject); // false
-
-var sealedObject = Object.seal({}); // Sealed objects are non-extensible
-Object.isExtensible(sealedObject); // false
-
-var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
-Object.isExtensible(frozenObject); // false
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do I modify the url without reloading the page?***
 
 The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. Example:
@@ -7710,7 +7709,6 @@ console.log(sum);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. ***How to compare two objects in javascript?***
 #### Q. ***What is optional chaining in javascript?***
 
 *ToDo*
