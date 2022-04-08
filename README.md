@@ -25,10 +25,9 @@
 * [Functions](#functions)
 * [Events](#events)
 * [Objects](#objects)
-* [Windows and Document Object](#windows-and-document-object)
+* [Window Object](#window-object)
 * [Classes](#classes)
 * [Error handling](#error-handling)
-* [Inheritance](#inheritance)
 * [Promises](#promises)
 * [Modules](#modules)
 * [Design Pattern](#design-pattern)
@@ -2599,6 +2598,63 @@ sum.length // 4 is the number of parameters expected.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is the difference between Call, Apply and Bind?***
+
+**call():**
+
+The call() method invokes a function with a given `this` value and arguments provided one by one
+
+```js
+var employee1 = {firstName: 'John', lastName: 'Rodson'};
+var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
+
+function invite(greeting1, greeting2) {
+    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
+}
+
+invite.call(employee1, 'Hello', 'How are you?'); // Hello John Rodson, How are you?
+invite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
+```
+
+**apply():**
+
+Invokes the function and allows you to pass in arguments as an array
+
+```js
+var employee1 = {firstName: 'John', lastName: 'Rodson'};
+var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
+
+function invite(greeting1, greeting2) {
+    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
+}
+
+invite.apply(employee1, ['Hello', 'How are you?']); // Hello John Rodson, How are you?
+invite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?
+```
+
+**bind():**
+
+returns a new function, allowing you to pass in an array and any number of arguments
+
+```js
+var employee1 = {firstName: 'John', lastName: 'Rodson'};
+var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
+
+function invite(greeting1, greeting2) {
+    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
+}
+
+var inviteEmployee1 = invite.bind(employee1);
+var inviteEmployee2 = invite.bind(employee2);
+
+inviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you?
+inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is the difference between `.call` and `.apply`?***
 
 Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
@@ -4132,714 +4188,6 @@ function merge(toObj, fromObj) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to compare two objects in javascript?***
-
-ToDo
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is non-enumerable property in JavaScript and how you can create one?***
-
-Object can have properties that don\'t show up when you iterate through object using for...in loop or using Object.keys() to get an array of property names. This properties is know as non-enumerable properties.
-
-Let say we have following object
-
-```js
-var person = {
-	name: 'John'
-};
-person.salary = '10000$';
-person['country'] = 'USA';
-
-console.log(Object.keys(person)); // ['name', 'salary', 'country']
-```
-As we know that person object properties `name`, `salary` ,`country` are enumerable hence It is shown up when we called Object.keys(person).
-
-To create a non-enumerable property we have to use **Object.defineProperty()**. This is a special method for creating non-enumerable property in JavaScript.
-
-```js
-var person = {
-	name: 'John'
-};
-person.salary = '10000$';
-person['country'] = 'USA';
-
-// Create non-enumerable property
-Object.defineProperty(person, 'phoneNo',{
-	value : '8888888888',
-	enumerable: false
-})
-
-Object.keys(person); // ['name', 'salary', 'country']
-```
-In the example above `phoneNo` property didn\'t show up because we made it non-enumerable by setting **enumerable:false**
-
-Now Let us try to change value of `phoneNo`
-
-```js
-person.phoneNo = '7777777777'; 
-```
-Changing non-enumerable property value will return error in `strict mode`. In non-strict mode it won\'t through any error but it won\'t change the value of phoneNo.
-
-**Bonus**
-
-**Object.defineProperty()** is also let you create read-only properties as we saw above, we are not able to modify phoneNo value of a person object.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you check whether an object can be extendable or not?***
-
-The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
-```js
-const newObject = {};
-console.log(Object.isExtensible(newObject)); //true
-```
-*Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the different ways to make an object non-extensible?***
-
-
-* `Object.preventExtensions()`
-* `Object.seal()`
-* `Object.freeze()`
-
-```js
-var newObject = {};
-
-Object.preventExtensions(newObject); // Prevent objects are non-extensible
-Object.isExtensible(newObject); // false
-
-var sealedObject = Object.seal({}); // Sealed objects are non-extensible
-Object.isExtensible(sealedObject); // false
-
-var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
-Object.isExtensible(frozenObject); // false
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is prototype chain?***
-
-Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
-
-**Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through `Object.getPrototypeOf(object)` or `__proto__` property whereas prototype on constructors function is available through **Object.prototype**.
-
-```js
-function Person(firstName, lastName, age) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.age = age;
-}
-//Person class created
-Person.prototype.getFullName = function() {
-  return this.firstName + " " + this.lastName;
-}
-
-// we have added getFullName method in Person’s prototype.
-var person = new Person("John", "K", 25);
-// It will create an instance of the Person class
-> person.hasOwnProperty("firstName");  // true
-> person.hasOwnProperty("getFullName");  // false
-> person.getFullName(); // John K
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between Call, Apply and Bind?***
-
-**call():**
-
-The call() method invokes a function with a given `this` value and arguments provided one by one
-
-```js
-var employee1 = {firstName: 'John', lastName: 'Rodson'};
-var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
-
-function invite(greeting1, greeting2) {
-    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
-}
-
-invite.call(employee1, 'Hello', 'How are you?'); // Hello John Rodson, How are you?
-invite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
-```
-
-**apply():**
-
-Invokes the function and allows you to pass in arguments as an array
-
-```js
-var employee1 = {firstName: 'John', lastName: 'Rodson'};
-var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
-
-function invite(greeting1, greeting2) {
-    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
-}
-
-invite.apply(employee1, ['Hello', 'How are you?']); // Hello John Rodson, How are you?
-invite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?
-```
-
-**bind():**
-
-returns a new function, allowing you to pass in an array and any number of arguments
-
-```js
-var employee1 = {firstName: 'John', lastName: 'Rodson'};
-var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
-
-function invite(greeting1, greeting2) {
-    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
-}
-
-var inviteEmployee1 = invite.bind(employee1);
-var inviteEmployee2 = invite.bind(employee2);
-
-inviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you?
-inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a service worker?***
-
-A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don\'t need a web page or user interaction. 
-
-Some of the major features of service workers are 
-* Offline first web application development
-* Periodic background syncs, push notifications
-* Intercept and handle network requests
-* Programmatically managing a cache of responses
-
-**Lifecycle of a Service Worker**
-
-It consists of the following phases:
-* Download
-* Installation
-* Activation
-
-**Registering a Service Worker**
-
-To register a service worker we first check if the browser supports it and then register it.
-
-```js
-if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/ServiceWorker.js')
-  .then(function(response) {
-
-    // Service worker registration done
-    console.log('Registration Successful', response);
-  }, function(error) {
-    // Service worker registration failed
-    console.log('Registration Failed', error);
-  }
-```
-
-**Installation of service worker:**
-
-After the controlled page that takes care of the registration process, we come to the service worker script that handles the installation part.
-
-Basically, you will need to define a callback for the install event and then decide on the files that you wish to cache. Inside a callback, one needs to take of the following three points –
-
-* Open a cache
-* Cache the files
-* Seek confirmation for the required caches and whether they have been successful.
-
-```js
-var CACHENAME = 'My site cache'; 
-var urlstocache = [ 
-	'/', 
-  '/styles/main1.css', 
-	'/script/main1.js' 
-]; 
-self.addEventListener('install', function(event) { 
-	// Performing installation steps 
-	event.waitUntil( 
-		caches.open(CACHENAME) 
-		.then(function(cache) { 
-			console.log('Opening of cache'); 
-			return cache.addAll(urlstocache);
-		}) 
-);
-```
-
-**Cache and return requests:**
-
-After a service worker is installed and the user navigates to a different page or refreshes, the service worker will begin to receive fetch events, an example of which is below.
-
-```js
-self.addEventListener('fetch', function(event) {
-  event.respondWith(
-    caches.match(event.request)
-      .then(function(response) {
-        // Cache hit - return response
-        if (response) {
-          return response;
-        }
-        return fetch(event.request);
-      }
-    )
-  );
-});
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you manipulate DOM using service worker?***
-
-Service worker can\'t access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
-
-**Example:** service-worker.html
-```html
-<!doctype html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Service Worker</title>
-</head>
-<body>
-(Look in the console.)
-<script>
-(function() {
-    "use strict";
-
-    if (!navigator.serviceWorker || !navigator.serviceWorker.register) {
-        console.log("This browser doesn't support service workers");
-        return;
-    }
-
-    // Listen to messages from service workers.
-    navigator.serviceWorker.addEventListener('message', function(event) {
-        console.log("Got reply from service worker: " + event.data);
-    });
-
-    // Are we being controlled?
-    if (navigator.serviceWorker.controller) {
-        // Yes, send our controller a message.
-        console.log("Sending 'hi' to controller");
-        navigator.serviceWorker.controller.postMessage("hi");
-    } else {
-        // No, register a service worker to control pages like us.
-        // Note that it won't control this instance of this page, it only takes effect
-        // for pages in its scope loaded *after* It is installed.
-        navigator.serviceWorker.register("service-worker.js")
-            .then(function(registration) {
-                console.log("Service worker registered, scope: " + registration.scope);
-                console.log("Refresh the page to talk to it.");
-                // If we want to, we might do `location.reload();` so that we'd be controlled by it
-            })
-            .catch(function(error) {
-                console.log("Service worker registration failed: " + error.message);
-            });
-    }
-})();
-</script>
-</body>
-</html>
-```
-
-**service-worker.js** 
-
-```js
-self.addEventListener("message", function(event) {
-    //event.source.postMessage("Responding to " + event.data);
-    self.clients.matchAll().then(all => all.forEach(client => {
-        client.postMessage("Responding to " + event.data);
-    }));
-});
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you reuse information across service worker restarts?***
-
-The problem with service worker is that it get terminated when not in use, and restarted when it is next needed, so you cannot rely on global state within a service worker `onfetch` and `onmessage` handlers. In this case, service workers will have access to IndexedDB API in order to persist and reuse across restarts.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a post message?***
-
-Post message is a method that enables cross-origin communication between Window objects.(i.e, between a page and a pop-up that it spawned, or between a page and an iframe embedded within it). Generally, scripts on different pages are allowed to access each other if and only if the pages follow same-origin policy(i.e, pages share the same protocol, port number, and host).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a web-storage event and its event handler?***
-
-The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
-The syntax would be as below
-
-```js
-  window.onstorage = functionRef;
-```
-
-Let us take the example usage of onstorage event handler which logs the storage key and its values
-
-```js
-if (typeof(Storage) !== "undefined") {
-  window.onstorage = function(e) {
-    console.log('The ' + e.key +
-      ' key has been changed from ' + e.oldValue +
-      ' to ' + e.newValue + '.');
-  };
-} else {
-  // Browser doesnot support web-storage 
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to use Web Workers in javascript?***
-
-**Step 01: Create a Web Workers file**: Write a script to increment the count value.
-
-```js
-// counter.js
-let i = 0;
-
-function timedCount() {
-  i = i + 1;
-  postMessage(i);
-  setTimeout("timedCount()",500);
-}
-
-timedCount();
-```
-
-Here `postMessage()` method is used to post a message back to the HTML page.  
-
-**Step 02: Create a Web Worker Object**: Create a web worker object by checking for browser support.
-
-```js
-if (typeof(w) == "undefined") {
-  w = new Worker("counter.js");
-}
-```
-
-and we can receive messages from web workers
-
-```js
-w.onmessage = function(event){
-  document.getElementById("message").innerHTML = event.data;
-};
-```
-
-**Step 03: Terminate a Web Workers**: Web workers will continue to listen for messages (even after the external script is finished) until it is terminated. You can use terminate() method to terminate listening the messages.
-
-```js
-w.terminate();
-```
-
-**Step 04: Reuse the Web Workers**: If you set the worker variable to undefined you can reuse the code
-
-```js
-w = undefined;
-```
-
-**Example:**
-
-```html
-<!DOCTYPE html>
-<html>
-<body>
-  <p>Count numbers: <output id="result"></output></p>
-  <button onclick="startWorker()">Start</button>
-  <button onclick="stopWorker()">Stop</button>
-  
-  <script>
-    var w;
-
-    function startWorker() {
-      if (typeof(Worker) !== "undefined") {
-        if (typeof(w) == "undefined") {
-          w = new Worker("counter.js");
-        }
-        w.onmessage = function(event) {
-          document.getElementById("result").innerHTML = event.data;
-        };
-      } else {
-        document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
-      }
-    }
-
-    function stopWorker() {
-      w.terminate();
-      w = undefined;
-    }
-  </script>
-</body>
-</html>
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the restrictions of web workers on DOM?***
-
-WebWorkers do not have access to below javascript objects since they are defined in an external files
-
-1. Window object
-2. Document object
-3. Parent object
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a strict mode in javascript?***
-
-Strict Mode is a new feature in ECMAScript 5 that allows to place a program, or a function, in a **strict** operating context. This way it prevents certain actions from being taken and throws more exceptions. The literal expression `'use strict';` instructs the browser to use the javascript code in the Strict mode.
-
-Strict mode is useful to write **secure javaScript** by notifying "bad syntax" into real errors. For example, it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object.
-
-The strict mode is declared by adding "use strict"; to the beginning of a script or a function.
-If declare at the beginning of a script, it has global scope.
-
-```js
-'use strict';
-x = 3.14; // This will cause an error because x is not declared
-```
-and if you declare inside a function, it has local scope
-
-```js
-x = 3.14;       // This will not cause an error.
-myFunction();
-
-function myFunction() {
-  'use strict';
-  y = 3.14;   // This will cause an error
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the object type?***
-
-The object type refers to a compound value where you can set properties (named locations) that each hold their own values of any type.
-
-```js
-var person = { 
-    firstName: "Kamala", 
-    lastName: "Ramaswamy", 
-    age: 25, 
-    getFullName: function () { 
-      return this.firstName + ' ' + this.lastName 
-    }
-};
-
-person.firstName; // returns Kamala
-person.lastName; // returns Ramaswamy
-
-person["firstName"];// returns Kamala
-person["lastName"];// returns Ramaswamy
-
-person.getFullName(); // returns Kamala Ramaswamy
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between window and document?***
-
-The window is the first thing that gets loaded into the browser. This window object has the majority of the properties like length, innerWidth, innerHeight, name, if it has been closed, its parents, and more.
-
-The document object is html, aspx, php, or other document that will be loaded into the browser. The document actually gets loaded inside the window object and has properties available to it like title, URL, cookie, etc.
-
-| Window | Document |
-|------- | ---------|
-| It is the root level element in any web page  | It is the direct child of the window object. This is also known as Document Object Model(DOM) |
-| By default window object is available implicitly in the page | You can access it via window.document or document.  |
-| It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById(), getElementByTagName(), createElement() etc  |
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you access history in javascript?***
-
-The `window.history` object contains the browsers history. You can load previous and next URLs in the history using `back()` and `next()` methods.
-
-```js
-function goBack() {
-  window.history.back()
-}
-function goForward() {
-  window.history.forward()
-}
-```
-
-*Note: You can also access history without window prefix*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you find operating system details?***
-
-The `window.navigator` object contains information about the visitor\'s browser os details. Some of the OS properties are avaialble under platform property,
-
-```js
-console.log(navigator.platform);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the pros and cons of promises over callbacks?***
-
-Below are the list of pros and cons of promises over callbacks,  
-
-**Pros:**
-
-1. It avoids callback hell which is unreadable
-2. Easy to write sequential asynchronous code with .then()
-3. Easy to write parallel asynchronous code with Promise.all()
-4. Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
-
-**Cons:**
-
-1. It makes little complex code
-2. You need to load a polyfill if ES6 is not supported
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between an attribute and a property?***
-
-Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
-
-```html
-<input type="text" value="Name:">
-```
-
-You can retrieve the attribute value as below,
-
-```js
-const input = document.querySelector('input');
-console.log(input.getAttribute('value')); // Good morning
-console.log(input.value); // Good morning
-```
-
-And after you change the value of the text field to "Good evening", it becomes like
-
-```js
-console.log(input.getAttribute('value')); // Good morning
-console.log(input.value); // Good evening
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is same-origin policy?***
-
-The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Is JavaScript a compiled or interpreted language?***
-
-JavaScript is an interpreted language, not a compiled language. An interpreter in the browser reads over the JavaScript code, interprets each line, and runs it. Nowadays  modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is BOM?***
-
-The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you redirect new page in javascript?***
-
-In vanilla javascript, you can redirect to a new page using `location` property of window object. The syntax would be as follows,
-
-```js
-function redirect() {
-  window.location.href = 'newPage.html';
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you get the current url with javascript?***
-
-You can use `window.location.href` expression to get the current url path and you can use the same expression for updating the URL too. You can also use `document.URL` for read-only purpose but this solution has issues in FF.
-
-```js
-console.log('location.href', window.location.href); // Returns full URL
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the various url properties of location object?***
-
-The below `Location` object properties can be used to access URL components of the page
-
-|Properties|Description|
-|----------|------------|
-|href      |The entire URL|
-|protocol  |The protocol of the URL|
-|host      |The hostname and port of the URL|
-|hostname  |The hostname of the URL|
-|port      |The port number in the URL|
-|pathname  |The path name of the URL|
-|search    |The query portion of the URL|
-|hash      |The anchor portion of the URL|
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do get query string values in javascript?***
-
-You can use URLSearchParams to get query string values in javascript. Let us see an example to get the client code value from URL query string,
-
-```js
-const urlParams = new URLSearchParams(window.location.search);
-const clientCode = urlParams.get('clientCode');
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you check if a key exists in an object?***
 
 **a.) Using in operator:** You can use the in operator whether a key exists in an object or not
@@ -4951,6 +4299,319 @@ obj["key3"] = "value3";
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is non-enumerable property in JavaScript and how you can create one?***
+
+Object can have properties that don\'t show up when you iterate through object using for...in loop or using Object.keys() to get an array of property names. This properties is know as non-enumerable properties.
+
+Let say we have following object
+
+```js
+var person = {
+	name: 'John'
+};
+person.salary = '10000$';
+person['country'] = 'USA';
+
+console.log(Object.keys(person)); // ['name', 'salary', 'country']
+```
+As we know that person object properties `name`, `salary` ,`country` are enumerable hence It is shown up when we called Object.keys(person).
+
+To create a non-enumerable property we have to use **Object.defineProperty()**. This is a special method for creating non-enumerable property in JavaScript.
+
+```js
+var person = {
+	name: 'John'
+};
+person.salary = '10000$';
+person['country'] = 'USA';
+
+// Create non-enumerable property
+Object.defineProperty(person, 'phoneNo',{
+	value : '8888888888',
+	enumerable: false
+})
+
+Object.keys(person); // ['name', 'salary', 'country']
+```
+In the example above `phoneNo` property didn\'t show up because we made it non-enumerable by setting **enumerable:false**
+
+Now Let us try to change value of `phoneNo`
+
+```js
+person.phoneNo = '7777777777'; 
+```
+Changing non-enumerable property value will return error in `strict mode`. In non-strict mode it won\'t through any error but it won\'t change the value of phoneNo.
+
+**Bonus**
+
+**Object.defineProperty()** is also let you create read-only properties as we saw above, we are not able to modify phoneNo value of a person object.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you check whether an object can be extendable or not?***
+
+The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
+```js
+const newObject = {};
+console.log(Object.isExtensible(newObject)); //true
+```
+*Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the different ways to make an object non-extensible?***
+
+* `Object.preventExtensions()`
+* `Object.seal()`
+* `Object.freeze()`
+
+```js
+var newObject = {};
+
+Object.preventExtensions(newObject); // Prevent objects are non-extensible
+Object.isExtensible(newObject); // false
+
+var sealedObject = Object.seal({}); // Sealed objects are non-extensible
+Object.isExtensible(sealedObject); // false
+
+var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
+Object.isExtensible(frozenObject); // false
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the object type?***
+
+The object type refers to a compound value where you can set properties (named locations) that each hold their own values of any type.
+
+```js
+var person = { 
+    firstName: "Kamala", 
+    lastName: "Ramaswamy", 
+    age: 25, 
+    getFullName: function () { 
+      return this.firstName + ' ' + this.lastName 
+    }
+};
+
+person.firstName; // returns Kamala
+person.lastName; // returns Ramaswamy
+
+person["firstName"];// returns Kamala
+person["lastName"];// returns Ramaswamy
+
+person.getFullName(); // returns Kamala Ramaswamy
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to compare two objects in javascript?***
+
+ToDo
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+# WINDOW OBJECT
+
+## Q. ***What is the difference between window and document?***
+
+The window is the first thing that gets loaded into the browser. This window object has the majority of the properties like length, innerWidth, innerHeight, name, if it has been closed, its parents, and more.
+
+The document object is html, aspx, php, or other document that will be loaded into the browser. The document actually gets loaded inside the window object and has properties available to it like title, URL, cookie, etc.
+
+| Window | Document |
+|------- | ---------|
+| It is the root level element in any web page  | It is the direct child of the window object. This is also known as Document Object Model(DOM) |
+| By default window object is available implicitly in the page | You can access it via window.document or document.  |
+| It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById(), getElementByTagName(), createElement() etc  |
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you access history in javascript?***
+
+The `window.history` object contains the browsers history. You can load previous and next URLs in the history using `back()` and `next()` methods.
+
+```js
+function goBack() {
+  window.history.back()
+}
+function goForward() {
+  window.history.forward()
+}
+```
+
+*Note: You can also access history without window prefix*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you find operating system details?***
+
+The `window.navigator` object contains information about the visitor\'s browser os details. Some of the OS properties are avaialble under platform property,
+
+```js
+console.log(navigator.platform);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is BOM?***
+
+The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you redirect new page in javascript?***
+
+In vanilla javascript, you can redirect to a new page using `location` property of window object. The syntax would be as follows,
+
+```js
+function redirect() {
+  window.location.href = 'newPage.html';
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you get the current url with javascript?***
+
+You can use `window.location.href` expression to get the current url path and you can use the same expression for updating the URL too. You can also use `document.URL` for read-only purpose but this solution has issues in FF.
+
+```js
+console.log('location.href', window.location.href); // Returns full URL
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the various url properties of location object?***
+
+The below `Location` object properties can be used to access URL components of the page
+
+|Properties|Description|
+|----------|------------|
+|href      |The entire URL|
+|protocol  |The protocol of the URL|
+|host      |The hostname and port of the URL|
+|hostname  |The hostname of the URL|
+|port      |The port number in the URL|
+|pathname  |The path name of the URL|
+|search    |The query portion of the URL|
+|hash      |The anchor portion of the URL|
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do get query string values in javascript?***
+
+You can use URLSearchParams to get query string values in javascript. Let us see an example to get the client code value from URL query string,
+
+```js
+const urlParams = new URLSearchParams(window.location.search);
+const clientCode = urlParams.get('clientCode');
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is difference between window.frames window.parent and window.top in JavaScript?***
+
+```
+window.frames – the collection of “children” windows (for nested frames).
+window.parent – the reference to the “parent” (outer) window.
+window.top – the reference to the topmost parent window.
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the properties used to get size of window?***
+
+You can use innerWidth, innerHeight, clientWidth, clientHeight properties of windows, document element and document body objects to find the size of a window. Let us use them combination of these properties to calculate the size of a window or document,
+
+```js
+var width = window.innerWidth
+|| document.documentElement.clientWidth
+|| document.body.clientWidth;
+
+var height = window.innerHeight
+|| document.documentElement.clientHeight
+|| document.body.clientHeight;
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the ways to execute javascript after page load?***
+
+You can execute javascript after page load in many different ways,  
+**a.) window.onload:**
+```js
+window.onload = function ...
+```
+**b.) document.onload:**
+```js
+document.onload = function ...
+```
+**c.) body onload:**
+```html
+<body onload="script();">
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Difference between document `load` event and document `DOMContentLoaded` event?***
+
+The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+
+`window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What do you understand by Screen objects?***
+
+* **window**: is the execution context and global object for that context's JavaScript
+* **document**: contains the DOM, initialized by parsing HTML
+* **screen**: The screen object contains information about the visitor's screen.
+
+**Properties:**  
+* screen.width
+* screen.height
+* screen.availWidth
+* screen.availHeight
+* screen.colorDepth
+* screen.pixelDepth
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How do you change style of a HTML element?***
 
 You can change inline style or classname of a HTML element using javascript
@@ -4964,6 +4625,101 @@ document.getElementById("title").style.fontSize = "30px";
 ```js
 document.getElementById("title").style.className = "custom-title";
 ```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you print the contents of web page?***
+
+The window object provided print() method which is used to prints the contents of the current window. It opens Print dialog box which lets you choose between various printing options. 
+```html
+  <input type="button" value="Print" onclick="window.print()" />
+```
+*Note: In most browsers, it will block while the print dialog is open*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do I modify the url without reloading the page?***
+
+The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. Example:
+```js
+window.history.pushState('newPage', 'Title', '/newPage.html');
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***When would you use `document.write()`?***
+
+`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+# CLASSES
+
+## Q. ***What are the pros and cons of promises over callbacks?***
+
+Below are the list of pros and cons of promises over callbacks,  
+
+**Pros:**
+
+1. It avoids callback hell which is unreadable
+2. Easy to write sequential asynchronous code with .then()
+3. Easy to write parallel asynchronous code with Promise.all()
+4. Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
+
+**Cons:**
+
+1. It makes little complex code
+2. You need to load a polyfill if ES6 is not supported
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between an attribute and a property?***
+
+Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
+
+```html
+<input type="text" value="Name:">
+```
+
+You can retrieve the attribute value as below,
+
+```js
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Good morning
+console.log(input.value); // Good morning
+```
+
+And after you change the value of the text field to "Good evening", it becomes like
+
+```js
+console.log(input.getAttribute('value')); // Good morning
+console.log(input.value); // Good evening
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is same-origin policy?***
+
+The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Is JavaScript a compiled or interpreted language?***
+
+JavaScript is an interpreted language, not a compiled language. An interpreter in the browser reads over the JavaScript code, interprets each line, and runs it. Nowadays  modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -5046,43 +4802,6 @@ You can use toLocaleString() method to convert date in one timezone to another. 
 
 ```js
 console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 09:56:00
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the properties used to get size of window?***
-
-You can use innerWidth, innerHeight, clientWidth, clientHeight properties of windows, document element and document body objects to find the size of a window. Let us use them combination of these properties to calculate the size of a window or document,
-
-```js
-var width = window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
-
-var height = window.innerHeight
-|| document.documentElement.clientHeight
-|| document.body.clientHeight;
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the ways to execute javascript after page load?***
-
-You can execute javascript after page load in many different ways,  
-**a.) window.onload:**
-```js
-window.onload = function ...
-```
-**b.) document.onload:**
-```js
-document.onload = function ...
-```
-**c.) body onload:**
-```html
-<body onload="script();">
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5422,18 +5141,6 @@ try {
   console.error(e);
 }
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you print the contents of web page?***
-
-The window object provided print() method which is used to prints the contents of the current window. It opens Print dialog box which lets you choose between various printing options. 
-```html
-  <input type="button" value="Print" onclick="window.print()" />
-```
-*Note: In most browsers, it will block while the print dialog is open*.
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -5798,14 +5505,6 @@ console.log(person.name); // "john"
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***When would you use `document.write()`?***
-
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the difference between feature detection, feature inference, and using the UA string?***
 
 **Feature Detection**
@@ -5914,16 +5613,6 @@ But after you change the value of the text field by adding "World!" to it, this 
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Difference between document `load` event and document `DOMContentLoaded` event?***
-
-The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
-
-`window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6987,17 +6676,6 @@ switch(x) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between window.frames window.parent and window.top in JavaScript?***
-
-```
-window.frames – the collection of “children” windows (for nested frames).
-window.parent – the reference to the “parent” (outer) window.
-window.top – the reference to the topmost parent window.
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is difference between Classic Inheritance and Prototypical Inheritance?***
 
 **Class Inheritance**: instances inherit from classes (like a blueprint — a description of the class), and create sub-class relationships: hierarchical class taxonomies. Instances are typically instantiated via constructor functions with the new keyword. Class inheritance may or may not use the class keyword from ES6.
@@ -7148,24 +6826,6 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 * When a new browser comes out or a browser extension becomes widely adopted you can enhance to yet another level without having to touch the original solution — graceful degradation would require you to alter the original solution.
 * You allow technology to be what it is supposed to be — an aid to reach a goal faster than without it, not a “must” to be able to reach a goal in the first place.
 * If you need to add new features, you can do so after checking if they are supported at a certain stage, or you can add it to the most basic level of functionality and make it better in more sophisticated environments. In any case, the maintenance happens at the same spot and not in two different places. Keeping a progressively enhanced product up-to-date is much less work than maintaining two versions.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What do you understand by Screen objects?***
-
-* **window**: is the execution context and global object for that context's JavaScript
-* **document**: contains the DOM, initialized by parsing HTML
-* **screen**: The screen object contains information about the visitor's screen.
-
-**Properties:**  
-* screen.width
-* screen.height
-* screen.availWidth
-* screen.availHeight
-* screen.colorDepth
-* screen.pixelDepth
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7508,16 +7168,6 @@ The difference between this property and firstElementChild, is that firstChild r
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do I modify the url without reloading the page?***
-
-The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. Example:
-```js
-window.history.pushState('newPage', 'Title', '/newPage.html');
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is throttling and debouncing in javascript?***
 
 Debouncing and throttling techniques are used to limit the number of times a function can execute. These are two widely-used techniques to improve the performance of code that gets executed repeatedly within a period of time.
@@ -7703,6 +7353,359 @@ const value2 = 20;
 let sum = Number(value1) + value2;
 
 console.log(sum);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is prototype chain?***
+
+Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
+
+**Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through `Object.getPrototypeOf(object)` or `__proto__` property whereas prototype on constructors function is available through **Object.prototype**.
+
+```js
+function Person(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+}
+//Person class created
+Person.prototype.getFullName = function() {
+  return this.firstName + " " + this.lastName;
+}
+
+// we have added getFullName method in Person’s prototype.
+var person = new Person("John", "K", 25);
+// It will create an instance of the Person class
+> person.hasOwnProperty("firstName");  // true
+> person.hasOwnProperty("getFullName");  // false
+> person.getFullName(); // John K
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a service worker?***
+
+A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don\'t need a web page or user interaction. 
+
+Some of the major features of service workers are 
+* Offline first web application development
+* Periodic background syncs, push notifications
+* Intercept and handle network requests
+* Programmatically managing a cache of responses
+
+**Lifecycle of a Service Worker**
+
+It consists of the following phases:
+* Download
+* Installation
+* Activation
+
+**Registering a Service Worker**
+
+To register a service worker we first check if the browser supports it and then register it.
+
+```js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/ServiceWorker.js')
+  .then(function(response) {
+
+    // Service worker registration done
+    console.log('Registration Successful', response);
+  }, function(error) {
+    // Service worker registration failed
+    console.log('Registration Failed', error);
+  }
+```
+
+**Installation of service worker:**
+
+After the controlled page that takes care of the registration process, we come to the service worker script that handles the installation part.
+
+Basically, you will need to define a callback for the install event and then decide on the files that you wish to cache. Inside a callback, one needs to take of the following three points –
+
+* Open a cache
+* Cache the files
+* Seek confirmation for the required caches and whether they have been successful.
+
+```js
+var CACHENAME = 'My site cache'; 
+var urlstocache = [ 
+	'/', 
+  '/styles/main1.css', 
+	'/script/main1.js' 
+]; 
+self.addEventListener('install', function(event) { 
+	// Performing installation steps 
+	event.waitUntil( 
+		caches.open(CACHENAME) 
+		.then(function(cache) { 
+			console.log('Opening of cache'); 
+			return cache.addAll(urlstocache);
+		}) 
+);
+```
+
+**Cache and return requests:**
+
+After a service worker is installed and the user navigates to a different page or refreshes, the service worker will begin to receive fetch events, an example of which is below.
+
+```js
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+      }
+    )
+  );
+});
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you manipulate DOM using service worker?***
+
+Service worker can\'t access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
+
+**Example:** service-worker.html
+```html
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Service Worker</title>
+</head>
+<body>
+(Look in the console.)
+<script>
+(function() {
+    "use strict";
+
+    if (!navigator.serviceWorker || !navigator.serviceWorker.register) {
+        console.log("This browser doesn't support service workers");
+        return;
+    }
+
+    // Listen to messages from service workers.
+    navigator.serviceWorker.addEventListener('message', function(event) {
+        console.log("Got reply from service worker: " + event.data);
+    });
+
+    // Are we being controlled?
+    if (navigator.serviceWorker.controller) {
+        // Yes, send our controller a message.
+        console.log("Sending 'hi' to controller");
+        navigator.serviceWorker.controller.postMessage("hi");
+    } else {
+        // No, register a service worker to control pages like us.
+        // Note that it won't control this instance of this page, it only takes effect
+        // for pages in its scope loaded *after* It is installed.
+        navigator.serviceWorker.register("service-worker.js")
+            .then(function(registration) {
+                console.log("Service worker registered, scope: " + registration.scope);
+                console.log("Refresh the page to talk to it.");
+                // If we want to, we might do `location.reload();` so that we'd be controlled by it
+            })
+            .catch(function(error) {
+                console.log("Service worker registration failed: " + error.message);
+            });
+    }
+})();
+</script>
+</body>
+</html>
+```
+
+**service-worker.js** 
+
+```js
+self.addEventListener("message", function(event) {
+    //event.source.postMessage("Responding to " + event.data);
+    self.clients.matchAll().then(all => all.forEach(client => {
+        client.postMessage("Responding to " + event.data);
+    }));
+});
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you reuse information across service worker restarts?***
+
+The problem with service worker is that it get terminated when not in use, and restarted when it is next needed, so you cannot rely on global state within a service worker `onfetch` and `onmessage` handlers. In this case, service workers will have access to IndexedDB API in order to persist and reuse across restarts.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a post message?***
+
+Post message is a method that enables cross-origin communication between Window objects.(i.e, between a page and a pop-up that it spawned, or between a page and an iframe embedded within it). Generally, scripts on different pages are allowed to access each other if and only if the pages follow same-origin policy(i.e, pages share the same protocol, port number, and host).
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a web-storage event and its event handler?***
+
+The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
+The syntax would be as below
+
+```js
+  window.onstorage = functionRef;
+```
+
+Let us take the example usage of onstorage event handler which logs the storage key and its values
+
+```js
+if (typeof(Storage) !== "undefined") {
+  window.onstorage = function(e) {
+    console.log('The ' + e.key +
+      ' key has been changed from ' + e.oldValue +
+      ' to ' + e.newValue + '.');
+  };
+} else {
+  // Browser doesnot support web-storage 
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to use Web Workers in javascript?***
+
+**Step 01: Create a Web Workers file**: Write a script to increment the count value.
+
+```js
+// counter.js
+let i = 0;
+
+function timedCount() {
+  i = i + 1;
+  postMessage(i);
+  setTimeout("timedCount()",500);
+}
+
+timedCount();
+```
+
+Here `postMessage()` method is used to post a message back to the HTML page.  
+
+**Step 02: Create a Web Worker Object**: Create a web worker object by checking for browser support.
+
+```js
+if (typeof(w) == "undefined") {
+  w = new Worker("counter.js");
+}
+```
+
+and we can receive messages from web workers
+
+```js
+w.onmessage = function(event){
+  document.getElementById("message").innerHTML = event.data;
+};
+```
+
+**Step 03: Terminate a Web Workers**: Web workers will continue to listen for messages (even after the external script is finished) until it is terminated. You can use terminate() method to terminate listening the messages.
+
+```js
+w.terminate();
+```
+
+**Step 04: Reuse the Web Workers**: If you set the worker variable to undefined you can reuse the code
+
+```js
+w = undefined;
+```
+
+**Example:**
+
+```html
+<!DOCTYPE html>
+<html>
+<body>
+  <p>Count numbers: <output id="result"></output></p>
+  <button onclick="startWorker()">Start</button>
+  <button onclick="stopWorker()">Stop</button>
+  
+  <script>
+    var w;
+
+    function startWorker() {
+      if (typeof(Worker) !== "undefined") {
+        if (typeof(w) == "undefined") {
+          w = new Worker("counter.js");
+        }
+        w.onmessage = function(event) {
+          document.getElementById("result").innerHTML = event.data;
+        };
+      } else {
+        document.getElementById("result").innerHTML = "Sorry! No Web Worker support.";
+      }
+    }
+
+    function stopWorker() {
+      w.terminate();
+      w = undefined;
+    }
+  </script>
+</body>
+</html>
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the restrictions of web workers on DOM?***
+
+WebWorkers do not have access to below javascript objects since they are defined in an external files
+
+1. Window object
+2. Document object
+3. Parent object
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a strict mode in javascript?***
+
+Strict Mode is a new feature in ECMAScript 5 that allows to place a program, or a function, in a **strict** operating context. This way it prevents certain actions from being taken and throws more exceptions. The literal expression `'use strict';` instructs the browser to use the javascript code in the Strict mode.
+
+Strict mode is useful to write **secure javaScript** by notifying "bad syntax" into real errors. For example, it eliminates accidentally creating a global variable by throwing an error and also throws an error for assignment to a non-writable property, a getter-only property, a non-existing property, a non-existing variable, or a non-existing object.
+
+The strict mode is declared by adding "use strict"; to the beginning of a script or a function.
+If declare at the beginning of a script, it has global scope.
+
+```js
+'use strict';
+x = 3.14; // This will cause an error because x is not declared
+```
+and if you declare inside a function, it has local scope
+
+```js
+x = 3.14;       // This will not cause an error.
+myFunction();
+
+function myFunction() {
+  'use strict';
+  y = 3.14;   // This will cause an error
+}
 ```
 
 <div align="right">
