@@ -3622,28 +3622,15 @@ Event capturing is a type of event propagation where the event is first captured
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is server-sent events?***
+## Q. ***How do you submit a form using JavaScript?***
 
-Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
-
-The `EventSource` object is used to receive server-sent event notifications. For example, we can receive messages from server as below,
+You can submit a form using JavaScript use document.form[0].submit(). All the form input information is submitted using onsubmit event handler
 
 ```js
-if(typeof(EventSource) !== "undefined") {
-  var source = new EventSource("sse_generator.js");
-  source.onmessage = function(event) {
-    document.getElementById("output").innerHTML += event.data + "<br>";
-  };
+function submit() {
+    document.form[0].submit();
 }
 ```
-
-Below are the list of events available for server sent events
-
-| Event | Description |
-|------ |--------------|
-| onopen  | It is used when a connection to the server is opened |
-| onmessage | This event is used when a message is received  |
-| onerror | It happens when an error occurs|
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -3669,6 +3656,41 @@ Event delegation is a technique involving adding event listeners to a parent ele
 
 * Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
 * There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between document load and DOMContentLoaded events?***
+
+The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is server-sent events?***
+
+Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
+
+The `EventSource` object is used to receive server-sent event notifications. For example, we can receive messages from server as below,
+
+```js
+if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("sse_generator.js");
+  source.onmessage = function(event) {
+    document.getElementById("output").innerHTML += event.data + "<br>";
+  };
+}
+```
+
+Below are the list of events available for server sent events
+
+| Event | Description |
+|------ |--------------|
+| onopen  | It is used when a connection to the server is opened |
+| onmessage | This event is used when a message is received  |
+| onerror | It happens when an error occurs|
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -4272,20 +4294,6 @@ function goForward() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you submit a form using JavaScript?***
-
-You can submit a form using JavaScript use document.form[0].submit(). All the form input information is submitted using onsubmit event handler
-
-```js
-function submit() {
-    document.form[0].submit();
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you find operating system details?***
 
 The `window.navigator` object contains information about the visitor\'s browser os details. Some of the OS properties are avaialble under platform property,
@@ -4293,14 +4301,6 @@ The `window.navigator` object contains information about the visitor\'s browser 
 ```js
 console.log(navigator.platform);
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between document load and DOMContentLoaded events?***
-
-The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7542,7 +7542,7 @@ $(window).on('resize', _.debounce(function() {
 
 **Example: Use Case**  
 
-* Throttling a button click so we can’t spam click
+* Throttling a button click so we can't spam click
 * Throttling an API call
 * Throttling a mousemove event handler
 * Debouncing a resize event handler
@@ -7571,6 +7571,7 @@ var invalidjson = '{"firstName""James","lastName":"Bond"}';
 console.log("With Valid JSON Text: "+isValidJson(validjson)); //true
 console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
