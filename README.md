@@ -22,7 +22,7 @@
 * [String](#string)
 * [Array](#array)
 * [Regular Expression](#regular-expression)
-* [functions](#functions)
+* [Functions](#functions)
 * [Events](#events)
 * [Forms](#forms)
 * [Objects](#objects)
@@ -419,6 +419,38 @@ Below are the major differences between undeclared and undefined variables,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is the difference between `undefined` and `not defined` in JavaScript?***
+
+In JavaScript if you try to use a variable that doesn\'t exist and has not been declared, then JavaScript will throw an error `var name is not defined` and the script will stop executing thereafter. But If you use `typeof undeclared_variable` then it will return `undefined`.
+
+Before starting further discussion Let us understand the difference between declaration and definition.
+
+`var x` is a declaration because you are not defining what value it holds yet, but you are declaring its existence and the need for memory allocation.
+
+```js
+var x; // declaring x
+console.log(x); // output: undefined
+```
+
+`var x = 1` is both declaration and definition (also we can say we are doing initialisation), Here declaration and assignment of value happen inline for variable x, In JavaScript every variable declaration and function declaration brings to the top of its current scope in which It is declared then assignment happen in order this term is called `hoisting`.
+
+A variable can be declared but not defined. When we try to access it, It will result `undefined`.
+
+```js
+var x; // Declaration
+typeof x === 'undefined'; // Will return true
+```
+
+A variable can be neither declared nor defined. When we try to reference such variable then the result will be `not defined`.
+
+```js
+console.log(y);  // Output: ReferenceError: y is not defined
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How do you assign default values to variables?***
 
 You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,
@@ -489,6 +521,33 @@ console.log(foo == undefined); // true. Wrong, don't use this to check!
 ```
 
 As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring if I do not intend to use it yet. If you use a linter in your workflow, it will usually also be able to check that you are not referencing undeclared variables.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain var self = this in JavaScript?***
+
+`self` is being used to maintain a reference to the original this even as the context is changing. It is a technique often used in event handlers (especially in closures).
+
+`this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping(in C open/close {} curly braces refers to a block). JavaScript has two scopes namely, global and local scope.
+
+```js
+function Note() {
+  var self = this;
+
+  var note = document.createElement('div');
+  note.className = 'note';
+  note.addEventListener('mousedown', function(e) { return self.onMouseDown(e) }, false);
+  note.addEventListener('click', function() { return self.onNoteClick() }, false);
+  this.note = note;
+  // ...
+}
+```
+
+*Note: 'self' should not be used this way anymore, since modern browsers provide a global variable self pointing to the global object of either a normal window or a WebWorker.*
+
+To avoid confusion and potential conflicts, you can write var thiz = this or var that = this instead.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2048,6 +2107,34 @@ console.log(arr); // Array [4, 5, 1, 2, 3]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is the purpose JSON stringify?***
+
+When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using stringify() method.
+
+```js
+var userJSON = {'name': 'John', age: 31}
+var userString = JSON.stringify(user);
+console.log(userString); //"{"name":"John","age":31}"
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you parse JSON string?***
+
+When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using parse() method.
+
+```js
+var userString = '{"name":"John","age":31}';
+var userJSON = JSON.parse(userString);
+console.log(userJSON);// {name: "John", age: 31}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Regular Expression
 
 ## Q. ***What are the string methods available in Regular expression?***
@@ -2840,6 +2927,65 @@ If your answer is yes then go and create named function rather anonymous functio
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is Function binding ?***
+
+ Function binding falls in advance JavaScript category and this is very popular technique to use in conjunction with event handler and callback function to preserve code execution context while passing function as a parameter.
+
+Example:
+
+```js
+var clickHandler = {
+	message: 'click event handler',
+	handleClick: function(event) {
+		console.log(this.message);
+	}
+};
+
+var btn = document.getElementById('myBtn');
+// Add click event to btn
+btn.addEventListener('click', clickHandler.handleClick);
+```
+
+Here in this example clickHandler object is created which contain message properties and handleClick method.
+
+We have assigned handleClick method to a DOM button, which will be executed in response of click. When the button is clicked, then handleClick method is being called and console message. Here console.log should log the `click event handler` message but it actually log `undefined`.
+
+The problem of displaying `undefined` is because of the execution context of clickHandler.handleClick method is not being saved hence `this` pointing to button `btn` object. We can fix this issue using bind method.
+
+```js
+var clickHandler = {
+	message: 'click event handler',
+	handleClick: function(event) {
+		console.log(this.message);
+	}
+};
+
+var btn = document.getElementById('myBtn');
+// Add click event to btn and bind the clickHandler object
+btn.addEventListener('click', clickHandler.handleClick.bind(clickHandler));
+```
+
+`bind` method is available to all the function similar to call and apply method which take argument value of `this`.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain how `this` works in JavaScript?***
+
+The following rules are applied when we use `this` keyword in javascript
+
+1. If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
+2. If `apply`, `call`, or `bind` are used to call/create a function, `this` inside the function is the object that is passed in as the argument.
+3. If a function is called as a method, such as `obj.method()` — `this` is the object that the function is a property of.
+4. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In a browser, it is the `window` object. If in strict mode (`'use strict'`), `this` will be `undefined` instead of the global object.
+5. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
+6. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How do you compare two date objects?***
 
 You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
@@ -3081,7 +3227,452 @@ doSomething(param1, param2, function(err, paramx){
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is a callback function?***
+
+A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action.
+
+```js
+function callbackFunction(name) {
+  console.log('Hello ' + name);
+}
+
+function outerFunction(callback) {
+  let name = prompt('Please enter your name.');
+  callback(name);
+}
+
+outerFunction(callbackFunction);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Why do we need callbacks?***
+
+The callbacks are needed because javascript is a event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
+
+Let us take an example with first function invoking an API call(simulated by setTimeout) and next function which logs the message.
+
+```js
+function firstFunction() {
+  // Simulate a code delay
+  setTimeout( function() {
+    console.log('First function called');
+  }, 1000 );
+}
+function secondFunction() {
+  console.log('Second function called');
+}
+firstFunction();
+secondFunction();
+
+Output
+// Second function called
+// First function called
+```
+
+As observed from the output, javascript didnot wait for the response of first function and remaining code block get executed. So callbacks used in a way to make sure that certain code does not execute until other code finished execution.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a callback hell?***
+
+Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
+
+```js
+async1(function() {
+    async2(function() {
+        async3(function() {
+            async4(function() {
+                ....
+            });
+        });
+    });
+});
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is callback in callback?***
+
+You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks.
+
+```js
+loadScript('/script1.js', function(script) {
+    console.log('first script is loaded');
+
+  loadScript('/script2.js', function(script) {
+
+    console.log('second script is loaded');
+
+    loadScript('/script3.js', function(script) {
+
+        console.log('third script is loaded');
+      // after all scripts are loaded
+    });
+  })
+});
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## EVENTS
+
+## Q. ***what are events in javascript?***
+
+Events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can `react` on these events. Some of the examples of HTML events are,
+
+1. Web page has finished loading
+2. Input field was changed
+3. Button was clicked
+
+Example: click event for button element
+
+```html
+<!doctype html>
+<html>
+<head>
+  <script>
+    function greeting() {
+      alert('Hello! Good morning');
+    }
+  </script>
+</head>
+<body>
+  <button type="button" onclick="greeting()">Click me</button>
+</body>
+</html>
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to create and trigger events in javascript?***
+
+Events can be created with the Event constructor as follows:
+
+```js
+var event = new Event('build');
+
+// Listen for the event.
+elem.addEventListener('build', function (e) { /* ... */ }, false);
+
+// Dispatch the event.
+elem.dispatchEvent(event);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?***
+
+**a.) event.stopPropagation()**:  Whenever a event is raised, event will propagate or bubble up till the window object level.
+
+**Example**: Parent Div containing a Child Div and both are registered for click events. When Child Div clicked, event handlers for both Child Div and Parent Div will be fired. To avoid the event bubbling  to top level DOM hierarchy, use the `event.stopPropagation()`.
+
+**b.) event.stopImmediatePropagation()**: The event handlers will be called in the order they have registered. Lets say for a Div element click event is registered from different places. Then when the  Div element is clicked, the click event handler will be fired in all the places.
+
+Since `event.stopPropagation()` will only stop event propagation to parent level and  not at the same element level, so to avoid the event firing at multiple places  we have to use `event.stopImmediatePropagation()`.
+
+**c.) event.preventDefault()**:  Browsers have default behaviors like
+
+* when a anchor tag is clicked, it will load the url specified in the href attribute,
+* when a text content is double clicked it will selected the text.
+So, to avoid these default browser behavior use `event.preventDefault()`.
+
+**Example**: A click event handler is registered for anchor tag, Based on some logic in the event handler  want to suppress the default browser behavior i.e loading the url.
+
+*Note: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`*;
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the use of preventDefault method?***
+
+The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
+
+```js
+document.getElementById("link").addEventListener("click", function(event) {
+   event.preventDefault();
+});
+```
+
+*Note: Remember that not all events are cancelable*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the use of stopPropagation method?***
+
+The stopPropagation method is used to stop the event from bubbling up the event chain. For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
+
+```html
+<p>Click DIV1 Element</p>
+<div onclick="secondFunc()">DIV 2
+  <div onclick="firstFunc(event)">DIV 1</div>
+</div>
+
+<script>
+function firstFunc(event) {
+  alert("DIV 1");
+  event.stopPropagation();
+}
+
+function secondFunc() {
+  alert("DIV 2");
+}
+</script>
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of clearTimeout method?***
+
+The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer.
+For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
+
+```js
+var msg;
+function greeting() {
+  alert('Good morning');
+}
+function start() {
+  msg =setTimeout(greeting, 3000);
+}
+function stop() {
+    clearTimeout(msg);
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of clearInterval method?***
+
+The `clearInterval()` function is used in javascript to clear the interval which has been set by `setInterval()` function. i.e, The return value returned by setInterval() function is stored in a variable and it’s passed into the clearInterval() function to clear the interval.
+For example, the below setInterval method is used to display the message for every 3 seconds. This interval can be cleared by clearInterval() method.
+
+```js
+var msg;
+function greeting() {
+  alert('Good morning');
+}
+function start() {
+  msg = setInterval(greeting, 3000);
+}
+function stop() {
+    clearInterval(msg);
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the use of setTimeout?***
+
+The setTimeout() method is used to call a function or evaluates an expression after a specified number of milliseconds. For example, let us log a message after 2 seconds using setTimeout method,
+
+```js
+setTimeout(function() { console.log("Good morning"); }, 2000);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the use of setInterval?***
+
+The setInterval() method is used to call a function or evaluates an expression at specified intervals (in milliseconds). For example, let us log a message after 2 seconds using setInterval method,
+
+```js
+setInterval(function() { console.log("Good morning"); }, 2000);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How setTimeout() and setInterval() are different from each other?***
+
+```js
+//Syntax for setTimeout
+
+function displayMessage() {
+    console.log('This message will be displayed only once after 4s!') ;
+}
+
+setTimeout(displayMessage, 4000);
+```
+
+```js
+//Syntax for setInterval
+
+function displayMessage(){
+    console.log('This message will be displayed after every 4s!') ;
+}
+
+setInterval(displayMessage, 4000) ;
+
+```
+
+Usage : setTimeout( function/expression, timeout, param1, param2, ... ) ;
+
+where expression/function is the JavaScript code to run after the timeout milliseconds have elapsed. The params are optional.
+
+Usage : setInterval ( function/expression, interval, param1, param2, ... );
+
+where expression/function is the  JavaScript code to run  repeatedly at specified interval of time has elpased . 
+
+Main Difference
+
+When you need to invoke a function/expression once after a specified duration use setTimeout() function. 
+But, if you need to invoke a function/expression repeatedly at a specified interval of time, then you should use setInterval() function.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Why is JavaScript treated as Single threaded?***
+
+JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is an event delegation?***
+
+Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it.
+For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
+
+```js
+var form = document.querySelector('#registration-form');
+
+// Listen for changes to fields inside the form
+form.addEventListener('input', function (event) {
+
+// Log the field that was changed
+console.log(event.target);
+
+}, false);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is an event flow?***
+
+Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
+
+There are two ways of event flow
+
+* Top to Bottom(Event Capturing)
+* Bottom to Top (Event Bubbling)
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is event bubbling?***
+
+Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
+
+Example: If you click on EM, the handler on DIV runs.  
+
+```html
+<div onclick="alert('The handler!')">
+  <em>If you click on <code>EM</code>, the handler on <code>DIV</code> runs.</em>
+</div>
+```
+
+**Stopping bubbling:**  
+
+```html
+
+<body onclick="alert(`the bubbling doesn\'t reach here`)">
+  <button onclick="event.stopPropagation()">Click me</button>
+</body>
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is event capturing?***
+
+Event capturing is a type of event propagation where the event is first captured by the outermost element and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is server-sent events?***
+
+Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
+
+The `EventSource` object is used to receive server-sent event notifications. For example, we can receive messages from server as below,
+
+```js
+if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("sse_generator.js");
+  source.onmessage = function(event) {
+    document.getElementById("output").innerHTML += event.data + "<br>";
+  };
+}
+```
+
+Below are the list of events available for server sent events
+
+| Event | Description |
+|------ |--------------|
+| onopen  | It is used when a connection to the server is opened |
+| onmessage | This event is used when a message is received  |
+| onerror | It happens when an error occurs|
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of void(0)?***
+
+The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML document that uses `href="JavaScript:void(0);"` within an `<a>` element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.  
+
+For example, the below link notify the message without reloading the page
+
+```html
+<a href="JavaScript:void(0);" onclick="alert('Well done!')">Click Me!</a>
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain event delegation?***
+
+Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
+
+* Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
+* There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 ## Q. ***How do you clone an object in JavaScript?***
 
@@ -3204,52 +3795,6 @@ Hoist(20);
 // Output
 20
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is an event flow?***
-
-Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
-
-There are two ways of event flow
-
-* Top to Bottom(Event Capturing)
-* Bottom to Top (Event Bubbling)
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is event bubbling?***
-
-Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
-
-Example: If you click on EM, the handler on DIV runs.  
-
-```html
-<div onclick="alert('The handler!')">
-  <em>If you click on <code>EM</code>, the handler on <code>DIV</code> runs.</em>
-</div>
-```
-
-* **Stopping bubbling**  
-
-```html
-
-<body onclick="alert(`the bubbling doesn\'t reach here`)">
-  <button onclick="event.stopPropagation()">Click me</button>
-</body>
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is event capturing?***
-
-Event capturing is a type of event propagation where the event is first captured by the outermost element and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -3636,129 +4181,6 @@ WebWorkers do not have access to below javascript objects since they are defined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a callback function?***
-
-A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action.
-
-```js
-function callbackFunction(name) {
-  console.log('Hello ' + name);
-}
-
-function outerFunction(callback) {
-  let name = prompt('Please enter your name.');
-  callback(name);
-}
-
-outerFunction(callbackFunction);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why do we need callbacks?***
-
-The callbacks are needed because javascript is a event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
-
-Let us take an example with first function invoking an API call(simulated by setTimeout) and next function which logs the message.
-
-```js
-function firstFunction() {
-  // Simulate a code delay
-  setTimeout( function() {
-    console.log('First function called');
-  }, 1000 );
-}
-function secondFunction() {
-  console.log('Second function called');
-}
-firstFunction();
-secondFunction();
-
-Output
-// Second function called
-// First function called
-```
-
-As observed from the output, javascript didnot wait for the response of first function and remaining code block get executed. So callbacks used in a way to make sure that certain code does not execute until other code finished execution.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a callback hell?***
-
-Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
-
-```js
-async1(function() {
-    async2(function() {
-        async3(function() {
-            async4(function() {
-                ....
-            });
-        });
-    });
-});
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is server-sent events?***
-
-Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
-
-The `EventSource` object is used to receive server-sent event notifications. For example, we can receive messages from server as below,
-
-```js
-if(typeof(EventSource) !== "undefined") {
-  var source = new EventSource("sse_generator.js");
-  source.onmessage = function(event) {
-    document.getElementById("output").innerHTML += event.data + "<br>";
-  };
-}
-```
-
-Below are the list of events available for server sent events
-
-| Event | Description |
-|------ |--------------|
-| onopen  | It is used when a connection to the server is opened |
-| onmessage | This event is used when a message is received  |
-| onerror | It happens when an error occurs|
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is callback in callback?***
-
-You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks.
-
-```js
-loadScript('/script1.js', function(script) {
-    console.log('first script is loaded');
-
-  loadScript('/script2.js', function(script) {
-
-    console.log('second script is loaded');
-
-    loadScript('/script3.js', function(script) {
-
-        console.log('third script is loaded');
-      // after all scripts are loaded
-    });
-  })
-});
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is a strict mode in javascript?***
 
 Strict Mode is a new feature in ECMAScript 5 that allows to place a program, or a function, in a **strict** operating context. This way it prevents certain actions from being taken and throws more exceptions. The literal expression `'use strict';` instructs the browser to use the javascript code in the Strict mode.
@@ -3949,20 +4371,6 @@ The same-origin policy is a policy that prevents JavaScript from making requests
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of void(0)?***
-
-The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML document that uses `href="JavaScript:void(0);"` within an `<a>` element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.  
-
-For example, the below link notify the message without reloading the page
-
-```html
-<a href="JavaScript:void(0);" onclick="alert('Well done!')">Click Me!</a>
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Is JavaScript a compiled or interpreted language?***
 
 JavaScript is an interpreted language, not a compiled language. An interpreter in the browser reads over the JavaScript code, interprets each line, and runs it. Nowadays  modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
@@ -3971,254 +4379,9 @@ JavaScript is an interpreted language, not a compiled language. An interpreter i
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are events?***
-
-Events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can `react` on these events. Some of the examples of HTML events are,
-
-1. Web page has finished loading
-2. Input field was changed
-3. Button was clicked
-
-Example: click event for button element
-
-```html
-<!doctype html>
-<html>
-<head>
-  <script>
-    function greeting() {
-      alert('Hello! Good morning');
-    }
-  </script>
-</head>
-<body>
-  <button type="button" onclick="greeting()">Click me</button>
-</body>
-</html>
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the use of preventDefault method?***
-
-The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
-
-```js
-document.getElementById("link").addEventListener("click", function(event) {
-   event.preventDefault();
-});
-```
-
-*Note: Remember that not all events are cancelable*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the use of stopPropagation method?***
-
-The stopPropagation method is used to stop the event from bubbling up the event chain. For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
-
-```html
-<p>Click DIV1 Element</p>
-<div onclick="secondFunc()">DIV 2
-  <div onclick="firstFunc(event)">DIV 1</div>
-</div>
-
-<script>
-function firstFunc(event) {
-  alert("DIV 1");
-  event.stopPropagation();
-}
-
-function secondFunc() {
-  alert("DIV 2");
-}
-</script>
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the steps involved in return false usage?***
-
-The return false statement in event handlers performs the below steps,
-
-1. First it stops the browser default action or behaviour.
-2. It prevents the event from propagating the DOM
-3. Stops callback execution and returns immediately when called.
-
 ## Q. ***What is BOM?***
 
 The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of clearTimeout method?***
-
-The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer.
-For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
-
-```js
-var msg;
-function greeting() {
-  alert('Good morning');
-}
-function start() {
-  msg =setTimeout(greeting, 3000);
-}
-function stop() {
-    clearTimeout(msg);
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of clearInterval method?***
-
-The `clearInterval()` function is used in javascript to clear the interval which has been set by `setInterval()` function. i.e, The return value returned by setInterval() function is stored in a variable and it’s passed into the clearInterval() function to clear the interval.
-For example, the below setInterval method is used to display the message for every 3 seconds. This interval can be cleared by clearInterval() method.
-
-```js
-var msg;
-function greeting() {
-  alert('Good morning');
-}
-function start() {
-  msg = setInterval(greeting, 3000);
-}
-function stop() {
-    clearInterval(msg);
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the use of setTimeout?***
-
-The setTimeout() method is used to call a function or evaluates an expression after a specified number of milliseconds. For example, let us log a message after 2 seconds using setTimeout method,
-
-```js
-setTimeout(function() { console.log("Good morning"); }, 2000);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the use of setInterval?***
-
-The setInterval() method is used to call a function or evaluates an expression at specified intervals (in milliseconds). For example, let us log a message after 2 seconds using setInterval method,
-
-```js
-setInterval(function() { console.log("Good morning"); }, 2000);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How setTimeout() and setInterval() are different from each other?***
-
-```js
-//Syntax for setTimeout
-
-function displayMessage() {
-    console.log('This message will be displayed only once after 4s!') ;
-}
-
-setTimeout(displayMessage, 4000);
-```
-
-```js
-//Syntax for setInterval
-
-function displayMessage(){
-    console.log('This message will be displayed after every 4s!') ;
-}
-
-setInterval(displayMessage, 4000) ;
-
-```
-
-Usage : setTimeout( function/expression, timeout, param1, param2, ... ) ;
-
-where expression/function is the JavaScript code to run after the timeout milliseconds have elapsed. The params are optional.
-
-Usage : setInterval ( function/expression, interval, param1, param2, ... );
-
-where expression/function is the  JavaScript code to run  repeatedly at specified interval of time has elpased . 
-
-Main Difference
-
-When you need to invoke a function/expression once after a specified duration use setTimeout() function. 
-But, if you need to invoke a function/expression repeatedly at a specified interval of time, then you should use setInterval() function.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why is JavaScript treated as Single threaded?***
-
-JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is an event delegation?***
-
-Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it.
-For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
-
-```js
-var form = document.querySelector('#registration-form');
-
-// Listen for changes to fields inside the form
-form.addEventListener('input', function (event) {
-
-// Log the field that was changed
-console.log(event.target);
-
-}, false);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose JSON stringify?***
-
-When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using stringify() method.
-
-```js
-var userJSON = {'name': 'John', age: 31}
-var userString = JSON.stringify(user);
-console.log(userString); //"{"name":"John","age":31}"
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you parse JSON string?***
-
-When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using parse() method.
-
-```js
-var userString = '{"name":"John","age":31}';
-var userJSON = JSON.parse(userString);
-console.log(userJSON);// {name: "John", age: 31}
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5150,17 +5313,6 @@ console.log(import.meta); // { url: "file:///home/user/welcome-module.js" }
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Explain event delegation?***
-
-Event delegation is a technique involving adding event listeners to a parent element instead of adding them to the descendant elements. The listener will fire whenever the event is triggered on the descendant elements due to event bubbling up the DOM. The benefits of this technique are:
-
-* Memory footprint goes down because only one single handler is needed on the parent element, rather than having to attach event handlers on each descendant.
-* There is no need to unbind the handler from elements that are removed and to bind the event for new elements.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Example of Prototypal Inheritance?***
 
 We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
@@ -5678,51 +5830,9 @@ Asynchronous functions usually accept a callback as a parameter and execution co
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is event loop? What is the difference between call stack and task queue?***
-
-The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
-
-If you haven\'t already checked out Philip Robert's [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), you should. It is one of the most viewed videos on JavaScript.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Why you might want to create static class members?***
 
 Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between `undefined` and `not defined` in JavaScript?***
-
-In JavaScript if you try to use a variable that doesn\'t exist and has not been declared, then JavaScript will throw an error `var name is not defined` and the script will stop executing thereafter. But If you use `typeof undeclared_variable` then it will return `undefined`.
-
-Before starting further discussion Let us understand the difference between declaration and definition.
-
-`var x` is a declaration because you are not defining what value it holds yet, but you are declaring its existence and the need for memory allocation.
-
-```js
-var x; // declaring x
-console.log(x); // output: undefined
-```
-
-`var x = 1` is both declaration and definition (also we can say we are doing initialisation), Here declaration and assignment of value happen inline for variable x, In JavaScript every variable declaration and function declaration brings to the top of its current scope in which It is declared then assignment happen in order this term is called `hoisting`.
-
-A variable can be declared but not defined. When we try to access it, It will result `undefined`.
-
-```js
-var x; // Declaration
-typeof x === 'undefined'; // Will return true
-```
-
-A variable can be neither declared nor defined. When we try to reference such variable then the result will be `not defined`.
-
-```js
-console.log(y);  // Output: ReferenceError: y is not defined
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6651,65 +6761,6 @@ Changing non-enumerable property value will return error in `strict mode`. In no
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is Function binding ?***
-
- Function binding falls in advance JavaScript category and this is very popular technique to use in conjunction with event handler and callback function to preserve code execution context while passing function as a parameter.
-
-Example:
-
-```js
-var clickHandler = {
-	message: 'click event handler',
-	handleClick: function(event) {
-		console.log(this.message);
-	}
-};
-
-var btn = document.getElementById('myBtn');
-// Add click event to btn
-btn.addEventListener('click', clickHandler.handleClick);
-```
-
-Here in this example clickHandler object is created which contain message properties and handleClick method.
-
-We have assigned handleClick method to a DOM button, which will be executed in response of click. When the button is clicked, then handleClick method is being called and console message. Here console.log should log the `click event handler` message but it actually log `undefined`.
-
-The problem of displaying `undefined` is because of the execution context of clickHandler.handleClick method is not being saved hence `this` pointing to button `btn` object. We can fix this issue using bind method.
-
-```js
-var clickHandler = {
-	message: 'click event handler',
-	handleClick: function(event) {
-		console.log(this.message);
-	}
-};
-
-var btn = document.getElementById('myBtn');
-// Add click event to btn and bind the clickHandler object
-btn.addEventListener('click', clickHandler.handleClick.bind(clickHandler));
-```
-
-`bind` method is available to all the function similar to call and apply method which take argument value of `this`.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain how `this` works in JavaScript?***
-
-The following rules are applied when we use `this` keyword in javascript
-
-1. If the `new` keyword is used when calling the function, `this` inside the function is a brand new object.
-2. If `apply`, `call`, or `bind` are used to call/create a function, `this` inside the function is the object that is passed in as the argument.
-3. If a function is called as a method, such as `obj.method()` — `this` is the object that the function is a property of.
-4. If a function is invoked as a free function invocation, meaning it was invoked without any of the conditions present above, `this` is the global object. In a browser, it is the `window` object. If in strict mode (`'use strict'`), `this` will be `undefined` instead of the global object.
-5. If multiple of the above rules apply, the rule that is higher wins and will set the `this` value.
-6. If the function is an ES2015 arrow function, it ignores all the rules above and receives the `this` value of its surrounding scope at the time it is created.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Explain how prototypal inheritance works?***
 
 All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain.
@@ -6832,22 +6883,6 @@ switch(x) {
       break;
     }
 }
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to create and trigger events in javascript?***
-
-Events can be created with the Event constructor as follows:
-```js
-var event = new Event('build');
-
-// Listen for the event.
-elem.addEventListener('build', function (e) { /* ... */ }, false);
-
-// Dispatch the event.
-elem.dispatchEvent(event);
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7080,33 +7115,6 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 * Information stored on the client’s end only.
 * View state will retain values in the event of a postback operation occurring.
 * View state is used to allow the persistence of page-instance-specific data.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain var self = this in JavaScript?***
-
-`self` is being used to maintain a reference to the original this even as the context is changing. It is a technique often used in event handlers (especially in closures).
-
-`this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping(in C open/close {} curly braces refers to a block). JavaScript has two scopes namely, global and local scope.
-
-```js
-function Note() {
-  var self = this;
-
-  var note = document.createElement('div');
-  note.className = 'note';
-  note.addEventListener('mousedown', function(e) { return self.onMouseDown(e) }, false);
-  note.addEventListener('click', function() { return self.onNoteClick() }, false);
-  this.note = note;
-  // ...
-}
-```
-
-*Note: 'self' should not be used this way anymore, since modern browsers provide a global variable self pointing to the global object of either a normal window or a WebWorker.*
-
-To avoid confusion and potential conflicts, you can write var thiz = this or var that = this instead.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7465,66 +7473,6 @@ console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?***
-
-**a.) event.stopPropagation()**:  Whenever a event is raised, event will propagate or bubble up till the window object level.
-
-**Example**: Parent Div containing a Child Div and both are registered for click events. When Child Div clicked, event handlers for both Child Div and Parent Div will be fired. To avoid the event bubbling  to top level DOM hierarchy, use the `event.stopPropagation()`.
-
-**b.) event.stopImmediatePropagation()**: The event handlers will be called in the order they have registered. Lets say for a Div element click event is registered from different places. Then when the  Div element is clicked, the click event handler will be fired in all the places.
-
-Since `event.stopPropagation()` will only stop event propagation to parent level and  not at the same element level, so to avoid the event firing at multiple places  we have to use `event.stopImmediatePropagation()`.
-
-**c.) event.preventDefault()**:  Browsers have default behaviors like
-
-* when a anchor tag is clicked, it will load the url specified in the href attribute,
-* when a text content is double clicked it will selected the text.
-So, to avoid these default browser behavior use `event.preventDefault()`.
-
-**Example**: A click event handler is registered for anchor tag, Based on some logic in the event handler  want to suppress the default browser behavior i.e loading the url.
-
-*Note: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`*;
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between encryption and hashing?***
-
-**Encryption**  
-Encryption is the process of encoding simple text and other information that can be accessed by the sole authorized entity if it has a decryption key. It will protect your sensitive data from being accessed by cybercriminals. It is the most effective way of achieving data security in modern communication systems. There are a number of encryption systems, where an asymmetric encryption is also known as public-key encryption, symmetric encryption and hybrid encryption are the most common.
-
-* **Symmetric encryption** – Uses the same secret key to encrypt and decrypt the message. The secret key can be a word, a number or a string of random letters.  Both the sender and the receiver should have the key. It is the oldest technique of encryption.
-* **Asymmetric encryption** – It deploys two keys, a public key known by everyone and a private key known only by the receiver. The public key is used to encrypt the message and a private key is used to decrypt it. Asymmetric encryption is little slower than symmetric encryption and consumes more processing power when encrypting data.
-* **Hybrid encryption** – It is a process of encryption that blends both symmetric and asymmetric encryption. It takes advantage of the strengths of the two encryptions and minimizes their weakness.
-
-**Purpose of encryption**  
-* Confidentiality – Encrypted message cannot be read or changed by another person.
-* Encrypt – It transforms data in such a way that only specific individuals can transform the message.
-* Granular access control – Users are limited to what they can see and do.
-* It makes auditing for accountability easy. In the case of message leaked, it is easy to trace who did that and when thus security breaches can be sorted out efficiently.
-* Authentication – the origin of the message received can be traced thus facilitating authentication.
-
-**Hashing**  
-
-In hashing, data is converted to the hash using some hashing function, which can be any number generated from string or text. Various hashing algorithms are MD5, SHA256. Data once hashed is non-reversible.
-
-Hash function can be any function that is used to map data of arbitrary size to data of fixed size. The data structure hash table is used for storing of data.
-
-For example: When images are sent to different server and text is sent to a different server for efficiency purposes. So for verifying images that the images are not tampered in between data transfer over the internet, hashing algorithm like `MD5()`, `SHA()` algorithm can be used.
-
-**Purpose of hashing**  
-
-* Hashing can be used to compare a large amount of data. Hash values can be created for different data, meaning that it is easier comparing hashes than the data itself.
-* It is easy to find a record when the data is hashed.
-* Hashing algorithms are used in cryptographic applications like a digital signature.
-* Hashing is used to generate random strings to avoid duplication of data stored in databases.
-* Geometric hashing – widely used in computer graphics to find closet pairs and proximity problems in planes. It is also called grid method and it has also been adopted in telecommunications.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you check whether an object can be extendable or not?***
 
 The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
@@ -7556,17 +7504,6 @@ Object.isExtensible(sealedObject); // false
 
 var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
 Object.isExtensible(frozenObject); // false
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Is enums feature available in javascript?***
-
-No, javascript does not natively support enums. But there are different kind of solutions to simulate them even though they may not provide exact equivalent. For example, you can use freeze or seal on object,
-
-```js
-var DaysEnum = Object.freeze({"monday":1, "tuesday":2, "wednesday":3, ...})
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
