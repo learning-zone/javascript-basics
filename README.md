@@ -21,7 +21,7 @@
 * [Numbers](#numbers)
 * [String](#string)
 * [Array](#array)
-* [Regular expressions](#regular-expressions)
+* [Regular Expression](#regular-expression)
 * [functions](#functions)
 * [Events](#events)
 * [Forms](#forms)
@@ -1104,9 +1104,9 @@ function capitalizeFirstLetter(string) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Write a function which will test string as a literal and as an object ?***
+## Q. ***Write a function which will test string as a literal and as an object?***
 
-For example: We can create string using string literal and using String constructor function. 
+For example: We can create string using string literal and using String constructor function.
 
 ```js
  // using string literal
@@ -1249,6 +1249,19 @@ eval(expression.toString()); // returns 30
 ```
 
 * *Note: The `eval()` function is not recommended to use because of the security reasons. It is not suggested to use because it is slower and makes code unreadable.*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you check if a string starts with another string?***
+
+You can use ECMAScript 6 `String.prototype.startsWith()` method to check a string starts with another string or not. But it is not yet supported in all browsers. Let us see an example to see this usage,
+
+```js
+"Good morning".startsWith("Good"); // true
+"Good morning".startsWith("morning"); // false
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2035,6 +2048,798 @@ console.log(arr); // Array [4, 5, 1, 2, 3]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Regular Expression
+
+## Q. ***What are the string methods available in Regular expression?***
+
+Regular Expressions has two string methods: search() and replace().
+The search() method uses an expression to search for a match, and returns the position of the match.
+
+```js
+var msg = "Hello John";
+var n = msg.search(/John/i); // 6
+```
+
+The replace() method is used return a modified string where the pattern is replaced.
+
+```js
+var msg = "Hello John";
+var n = msg.search(/John/i, "Buttler"); // Hello Buttler
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are modifiers in regular expression?***
+
+Modifiers can be used to perform case-insensitive and global searches.
+
+| Modifier | Description |
+|---- | -----------------|
+| i  | Perform case-insensitive matching |
+| g | Perform a global match rather than stops at first match  |
+| m | Perform multiline matching|
+
+Example: Global Modifier
+
+```js
+  var text = "Learn JS one by one";
+  var pattern = /one/g;
+  var result = text.match(pattern); // one,one
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are regular expression patterns?***
+
+Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,  
+
+**1. Brackets:**
+
+These are used to find a range of characters.
+For example, below are some use cases,
+
+* [abc]: Used to find any of the characters between the brackets(a,b,c)
+* [0-9]: Used to find any of the digits between the brackets
+* (a|b): Used to find any of the alternatives separated with |
+
+**2. Metacharacters:**
+
+These are characters with a special meaning
+For example, below are some use cases,
+
+* \d: Used to find a digit
+* \s: Used to find a whitespace character
+* \b: Used to find a match at the beginning or ending of a word
+
+**3. Quantifiers:**
+
+These are useful to define quantities
+For example, below are some use cases,
+
+* n+: Used to find matches for any string that contains at least one n
+* n*: Used to find matches for any string that contains zero or more occurrences of n
+* n?: Used to find	matches for any string that contains zero or one occurrences of n
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a RegExp object?***
+
+RegExp object is a regular expression object with predefined properties and methods.
+
+```js
+var regexp = new RegExp('\\w+');
+console.log(regexp);
+// expected output: /\w+/
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you search a string for a pattern?***
+
+You can use test() method of regular expression in order to search a string for a pattern, and returns true or false depending on the result.
+
+```js
+var pattern = /you/;
+console.log(pattern.test("How are you?")); //true
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of exec method?***
+
+The purpose of exec method is similar to test method but it returns a founded text as an object instead of returning true/false.
+
+```js
+// Using test() method
+var pattern = /you/;
+console.log(pattern.test("How are you?")); // true
+
+
+// Using exec() method
+var pattern = /you/;
+console.log(pattern.exec("How are you?")); // ["you", index: 8, input: "How are you?", groups: undefined]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you validate an email in javascript?***
+
+You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead client side. Because the javascript can be disabled on the client side.
+
+```js
+function validateEmail(email) {
+    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(String(email).toLowerCase());
+}
+```
+
+The above regular expression regular accepts unicode characters.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you detect a mobile browser using regexp?***
+
+You can detect mobile browser by simply running through a list of devices and checking if the useragent matches anything. This is an alternative solution for RegExp usage,
+
+```js
+function detectMobile() {
+  if (
+    navigator.userAgent.match(/Android/i) ||
+    navigator.userAgent.match(/webOS/i) ||
+    navigator.userAgent.match(/iPhone/i) ||
+    navigator.userAgent.match(/iPad/i) ||
+    navigator.userAgent.match(/iPod/i) ||
+    navigator.userAgent.match(/BlackBerry/i) ||
+    navigator.userAgent.match(/Windows Phone/i)
+  ) {
+    return true;
+  } else {
+    return false;
+  }
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## FUNCTIONS
+
+## Q. ***What is a first class function?***
+
+JavaScript functions are first-class functions meaning functions and objects are treated as the same thing. Functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function "first-class citizens in JavaScript"
+
+**Example:** Assign a function to a variable
+
+```js
+const message = function() {
+   console.log("Hello World!");
+}
+
+message(); // Invoke it using the variable
+```
+
+**Example:** Pass a function as an Argument
+
+```js
+function sayHello() {
+   return "Hello, ";
+}
+function greeting(helloMessage, name) {
+  console.log(helloMessage() + name);
+}
+// Pass `sayHello` as an argument to `greeting` function
+greeting(sayHello, "JavaScript!");
+```
+
+**Example:** Return a function
+
+```js
+function sayHello() {
+   return function() {
+      console.log("Hello!");
+   }
+}
+```
+
+**Example:** Using a variable
+
+```js
+const sayHello = function() {
+   return function() {
+      console.log("Hello!");
+   }
+}
+const myFunc = sayHello();
+myFunc();
+```
+
+**Example:** Using double parentheses
+
+```js
+function sayHello() {
+   return function() {
+      console.log("Hello!");
+   }
+}
+sayHello()();
+```
+
+We are using double parentheses `()()` to invoke the returned function as well.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a higher order function?***
+
+A Higher-Order function is a function that receives a function as an argument or returns the function as output.
+
+For example, `Array.prototype.map()`, `Array.prototype.filter()` and `Array.prototype.reduce()` are some of the Higher-Order functions in javascript.
+
+```js
+const arr1 = [1, 2, 3];
+const arr2 = arr1.map(function(item) {
+  return item * 2;
+});
+console.log(arr2);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a unary function?***
+
+Unary function (i.e. monadic) is a function that accepts exactly one argument. Let us take an example of unary function. It stands for single argument accepted by a function.
+
+```js
+const unaryFunction = a => console.log (a + 10); //Add 10 to the given argument and display the value
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is currying function?***
+
+Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument.
+
+```js
+function volume(length) {
+  return function(width) {
+    return function(height) {
+      return height * width * length;
+    }
+  }
+}
+
+volume(2)(3)(4); // 24
+```
+
+Curried functions are great to improve code re-usability and functional composition.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a pure function?***
+
+Pure functions are functions that accept an input and returns a value without modifying any data outside its scope(Side Effects). Its output or return value must depend on the input/arguments and pure functions must return a value.
+
+**Example:**
+
+```js
+function impure(arg) {
+    finalR.s = 90
+    return arg * finalR.s
+}
+```
+
+The above function is not a pure function because it modified a state `finalR.s` outside its scope.
+
+```js
+function pure(arg) {
+    return arg * 4
+}
+```
+
+Here is a pure function. It didn’t side effect any external state and it returns an output based on the input.
+
+A function must pass two tests to be considered “pure”:
+
+1. Same inputs always return same outputs
+1. No side-effects
+
+**1. Same Input => Same Output**  
+Compare this:
+
+```js
+const add = (x, y) => x + y;
+
+add(2, 4); // 6
+```
+
+To this
+
+```js
+let x = 2;
+
+const add = (y) => {
+  x += y;
+};
+
+add(4); // x === 6 (the first time)
+```
+
+**2. Pure Functions = Consistent Results:**
+
+The first example returns a value based on the given parameters, regardless of where/when you call it.
+
+If you pass 2 and 4, you’ll always get 6.
+
+Nothing else affects the output.
+
+**Benefits:**
+
+* One of the major benefits of using pure functions is they are immediately testable. They will always produce the same result if you pass in the same arguments.
+* The pure functions are easier to parallelize
+* They also makes maintaining and refactoring code much easier.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is memoization in JavaScript?***
+
+Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results.  Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
+
+```js
+// A simple memoized function to Add Number
+const memoizedAdd = () => {
+  let cache = {};
+  return (number) => {
+    if (number in cache) {
+      console.log('Fetching from cache: ');
+      return cache[number];
+    }
+    else {
+      console.log('Calculating result: ');
+      let result = number + 10;
+      cache[number] = result;
+      return result;
+    }
+  }
+}
+// returned function from memoizedAdd
+const sum = memoizedAdd();
+
+console.log(sum(10)); // Calculating result: 20
+console.log(sum(10)); // Fetching from cache: 20
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is an arguments object?***
+
+The arguments object is an Array-like object accessible inside functions that contains the values of the arguments passed to that function. For example, let us see how to use arguments object inside sum function,
+
+```js
+function sum() {
+    var total = 0;
+    for (var i = 0, len = arguments.length; i < len; ++i) {
+        total += arguments[i];
+    }
+    return total;
+}
+
+sum(1, 2, 3) // returns 6
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Can we define properties for functions?***
+
+Yes, We can define properties for functions because functions are also objects.
+
+```js
+fn = function(x) {
+  //Function code goes here
+}
+
+fn.name = "John";
+
+fn.profile = function(y) {
+  //Profile code goes here
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the way to find the number of parameters expected by a function?***
+
+You can use `function.length` syntax to find the number of parameters expected by a function. Let us take an example of `sum` function to calculate the sum of numbers,
+
+```js
+function sum(num1, num2, num3, num4){
+    return num1 + num2 + num3 + num4;
+}
+sum.length // 4 is the number of parameters expected.
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between `.call` and `.apply`?***
+
+Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
+
+```js
+function add(a, b) {
+  return a + b;
+}
+
+console.log(add.call(null, 1, 2)); // 3
+console.log(add.apply(null, [1, 2])); // 3
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain `Function.prototype.bind`?***
+
+[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
+
+> The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
+
+In my experience, it is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This is frequently done in React components.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is an anonymous function?***
+
+An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. The syntax would be as below,
+
+```js
+function (optionalParameters) {
+  //do something
+}
+
+const myFunction = function(){ //Anonymous function assigned to a variable
+  //do something
+};
+
+[1, 2, 3].map(function(element){ //Anonymous function used as a callback function
+  //do something
+});
+```
+
+Example:
+
+```js
+var x = function (a, b) {return a * b};
+var z = x(5, 10);
+console.log(z); // 50
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is a typical use case for anonymous functions?***
+
+They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
+
+```js
+(function() {
+  // Some code here.
+})();
+```
+
+As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
+
+```js
+setTimeout(function() {
+  console.log('Hello world!');
+}, 1000);
+```
+
+Arguments to functional programming constructs or Lodash (similar to callbacks).
+
+```js
+const arr = [1, 2, 3];
+const double = arr.map(function(el) {
+  return el * 2;
+});
+
+console.log(double); // [2, 4, 6]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`?***
+
+The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question above [on hoisting](#explain-hoisting). If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
+
+**Function Declaration:**
+
+```js
+foo(); // 'FOOOOO'
+function foo() {
+  console.log('FOOOOO');
+}
+```
+
+**Function Expression:**
+
+```js
+foo(); // Uncaught TypeError: foo is not a function
+var foo = function() {
+  console.log('FOOOOO');
+};
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the definition of a higher-order function?***
+
+A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn\'t just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
+
+**Map:**
+
+Let say we have an array of names which we need to transform each string to uppercase.
+
+```js
+const names = ['irish', 'daisy', 'anna'];
+```
+
+The imperative way will be as such:
+
+```js
+const transformNamesToUppercase = function(names) {
+  const results = [];
+  for (let i = 0; i < names.length; i++) {
+    results.push(names[i].toUpperCase());
+  }
+  return results;
+};
+transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+```
+
+Use `.map(transformerFn)` makes the code shorter and more declarative.
+
+```js
+const transformNamesToUppercase = function(names) {
+  return names.map(name => name.toUpperCase());
+};
+transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Can you give an example of a curry function and why this syntax offers an advantage?***
+
+Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It is important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each accepts one parameter.
+
+```js
+function curry(fn) {
+  if (fn.length === 0) {
+    return fn;
+  }
+
+  function _curried(depth, args) {
+    return function(newArgument) {
+      if (depth - 1 === 0) {
+        return fn(...args, newArgument);
+      }
+      return _curried(depth - 1, [...args, newArgument]);
+    };
+  }
+
+  return _curried(fn.length, []);
+}
+
+function add(a, b) {
+  return a + b;
+}
+
+var curriedAdd = curry(add);
+var addFive = curriedAdd(5);
+
+var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between a method and a function in javascript?***
+
+In JS, that difference is quite subtle. A function is a piece of code that is called by name and function itself not associated with any object and not defined inside any object. It can be passed data to operate on (i.e. parameter) and can optionally return data (the return value).
+
+```js
+// Function statement
+function myFunc() {
+  // Do some stuff;
+}
+
+// Calling the function
+myFunc();
+```
+
+Here myFunc() function call is not associated with object hence not invoked through any object.
+
+A function can take a form of immediately invoked function expression (IIFE):
+
+```js
+
+// Anonymous Self-invoking Function
+(function() {
+  // Do some stuff;
+})();
+```
+
+Finally there are also arrow functions:
+
+```js
+const myFunc = arg => {
+    console.log("hello", arg)
+} 
+```
+
+A method is a piece of code that is called by its name and that is associated with the object. Methods are functions. When you call a method like this `obj1.myMethod()`, the reference to `obj1` gets assigned (bound) to `this` variable. In other words, the value of `this` will be `obj1` inside `myMethod`.
+
+Here are some examples of methods:
+
+**Example 1:**
+
+```js
+var obj1 = {
+  attribute: "xyz",
+  myMethod: function () {  // Method
+    console.log(this.attribute);
+  }
+};
+
+// Call the method
+obj1.myMethod();
+```
+
+Here `obj1` is an object and `myMethod` is a method which is associated with `obj1`.
+
+**Example 2:**
+
+In ES6 we have classes. There the methods will look like this:
+
+```js
+class MyAwesomeClass {
+  myMethod() {
+    console.log("hi there");
+  }
+}
+
+const obj1 = new MyAwesomeClass();
+obj1.myMethod();
+```
+
+Understand: the method is not some kind of special type of a function, and It is not about how you declare a function. It is the way we **call** a function. Look at that: 
+
+```js
+var obj1 = {
+  prop1: "buddy"
+}; 
+var myFunc = function () {
+  console.log("Hi there", this);
+};
+// Let us call myFunc as a function: 
+myFunc(); // will output "Hi there undefined" or "Hi there Window"
+ 
+obj1.myMethod = myFunc;
+//now we're calling myFunc as a method of obj1, so this will point to obj1
+obj1.myMethod(); // will print "Hi there" following with obj1. 
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is typical use case for anonymous function in JavaScript?***
+
+Anonymous functions basically used in following scenario.
+
+a.) No name is needed if function is only used in one place, then there is no need to add a name to function.
+
+Example: setTimeout function
+
+```js
+setTimeout(function(){
+	alert("Hello");
+},1000);
+```
+Here there is no need of using named function when we are sure 	that function which will alert `hello` would use only once in	application.
+
+b.) Anonymous functions are declared inline and inline functions have advantages in the case that they can access variable in the parent scopes.
+
+Let us take a example of event handler. Notify event of particular 	type (such as click) for a given object. 
+
+Let say we have HTML element (button) on which we want to add click event and when user do click on button we would like toexecute some logic.
+
+```html
+<button id="myBtn"></button>
+```
+Add Event Listener 
+
+```js
+var btn = document.getElementById('myBtn');
+btn.addEventListener('click', function () {
+  alert('button clicked');
+});
+```
+	
+Above example shows used of anonymous function as a callback function in event handler.
+	
+c.) Passing anonymous function as a parameter to calling function.
+	
+**Example:** 
+
+```js
+// Function which will execute callback function
+function processCallback(callback){
+	if(typeof callback === 'function'){
+		callback();
+	}
+}
+
+// Call function and pass anonymous function as callback 
+processCallback(function(){
+	alert("Hi I am anonymous callback function");
+});
+```
+The best way to make a decision for using anonymous function is to ask the following question:
+
+Will the function which I am going to define, be used anywhere else?
+
+If your answer is yes then go and create named function rather anonymous function.
+
+**Advantage of using anonymous function:**
+
+* It can reduce a bit of code, particularly in recursive function and in callback function.
+* Avoid needless global namespace pollutions.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How do you compare two date objects?***
 
 You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
@@ -2107,6 +2912,176 @@ As per the above code, the inner `function greetingInfo()` has access to the var
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
+
+## Q. ***Name the two functions that are used to create an HTML element dynamically?***
+
+**createElement**  
+In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
+Syntax
+
+```js
+var element = document.createElement(tagName[, options]);
+```
+
+HTML
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>||Working with elements||</title>
+  </head>
+<body>
+  <div id="div1">The text above has been created dynamically.</div>
+</body>
+</html>
+```
+
+JavaScript
+
+```js
+document.body.onload = addElement;
+
+function addElement () { 
+  // create a new div element 
+  var newDiv = document.createElement("div"); 
+  // and give it some content 
+  var newContent = document.createTextNode("Hi there and greetings!"); 
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);  
+
+  // add the newly created element and its content into the DOM 
+  var currentDiv = document.getElementById("div1"); 
+  document.body.insertBefore(newDiv, currentDiv); 
+}
+```
+
+**Create Dynamic Button:**
+
+```js
+var btn = document.createElement("BUTTON");
+btn.innerHTML = "CLICK ME";
+document.body.appendChild(btn);
+```
+
+**Removing Elements Dynamically:** 
+
+```js
+function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is callback() function in javascript?***
+
+A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+
+```js
+function greeting(name) {
+  alert('Hello ' + name);
+}
+
+function processUserInput(callback) {
+  var name = prompt('Please enter your name.');
+  callback(name);
+}
+
+processUserInput(greeting);
+```
+
+The above example is a synchronous callback, as it is executed immediately.
+
+*Note: callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks. A good example is the callback functions executed inside a `.then()` block chained onto the end of a promise after that promise fulfills or rejects. This structure is used in many modern web APIs, such as `fetch()`*.
+
+In JavaScript, functions are objects. Because of this, functions can take functions as arguments, and can be returned by other functions. Functions that do this are called `higher-order` functions. Any function that is passed as an argument is called a callback function.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***When to use function declarations and expressions in JavaScript?***
+
+**Function Declarations:**
+
+A declared function is “saved for later use”, and will be executed later, when it is invoked (called).
+
+```js
+// Function declaration
+function add(num1, num2) {
+	return num1 + num2;
+}
+```
+
+function is only declared here. For using it, it must be invoked using function name. e.g add(10, 20);  
+
+**Function Expression:**
+
+A function expression can be stored in a variable:
+
+```js
+// Function expression
+var add = function (num1, num2) {
+	return num1 + num2;
+};
+```
+
+After a function expression has been stored in a variable, the variable can be used as a function. Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
+
+**Difference:**
+
+* `Function declarations` load before any code is executed while `Function expressions` load only when the interpreter reaches that line of code.
+* Similar to the `var` statement, function declarations are hoisted to the top of other code. Function expressions aren’t hoisted, which allows them to retain a copy of the local variables from the scope where they were defined.  
+
+**Benefits of Function Expressions:**  
+
+There are several different ways that function expressions become more useful than function declarations.
+
+* As closures
+* As arguments to other functions
+* As Immediately Invoked Function Expressions (IIFE)
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to avoid callback hell in javascript?***
+
+**Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.  
+
+Example
+
+```js
+doSomething(param1, param2, function(err, paramx){
+    doMore(paramx, function(err, result){
+        insertRow(result, function(err){
+            yetAnotherOperation(someparameter, function(s){
+                somethingElse(function(x){
+                });
+            });
+        });
+    });
+});
+```
+
+**Techniques for avoiding callback hell:**  
+
+* Write comments
+* Split functions into smaller functions
+* Using Async.js
+* Using Promises
+* Using Async-Await
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## EVENTS
 
 ## Q. ***How do you clone an object in JavaScript?***
 
@@ -2366,219 +3341,6 @@ inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a first class function?***
-
-JavaScript functions are first-class functions meaning functions and objects are treated as the same thing. Functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function "first-class citizens in JavaScript"
-
-**Example:** Assign a function to a variable
-
-```js
-const message = function() {
-   console.log("Hello World!");
-}
-
-message(); // Invoke it using the variable
-```
-
-**Example:** Pass a function as an Argument
-
-```js
-function sayHello() {
-   return "Hello, ";
-}
-function greeting(helloMessage, name) {
-  console.log(helloMessage() + name);
-}
-// Pass `sayHello` as an argument to `greeting` function
-greeting(sayHello, "JavaScript!");
-```
-
-**Example:** Return a function
-
-```js
-function sayHello() {
-   return function() {
-      console.log("Hello!");
-   }
-}
-```
-
-**Example:** Using a variable
-
-```js
-const sayHello = function() {
-   return function() {
-      console.log("Hello!");
-   }
-}
-const myFunc = sayHello();
-myFunc();
-```
-
-**Example:** Using double parentheses
-
-```js
-function sayHello() {
-   return function() {
-      console.log("Hello!");
-   }
-}
-sayHello()();
-```
-We are using double parentheses `()()` to invoke the returned function as well.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a higher order function?***
-
-A Higher-Order function is a function that receives a function as an argument or returns the function as output.
-
-For example, `Array.prototype.map()`, `Array.prototype.filter()` and `Array.prototype.reduce()` are some of the Higher-Order functions in javascript.
-
-```js
-const arr1 = [1, 2, 3];
-const arr2 = arr1.map(function(item) {
-  return item * 2;
-});
-console.log(arr2);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a unary function?***
-
-Unary function (i.e. monadic) is a function that accepts exactly one argument. Let us take an example of unary function. It stands for single argument accepted by a function.
-
-```js
-const unaryFunction = a => console.log (a + 10); //Add 10 to the given argument and display the value
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is currying function?***
-
-Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument.
-
-```js
-function volume(length) {
-  return function(width) {
-    return function(height) {
-      return height * width * length;
-    }
-  }
-}
-
-volume(2)(3)(4); // 24
-```
-Curried functions are great to improve code re-usability and functional composition.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a pure function?***
-
-Pure functions are functions that accept an input and returns a value without modifying any data outside its scope(Side Effects). Its output or return value must depend on the input/arguments and pure functions must return a value.
-
-**Example:**
-
-```js
-function impure(arg) {
-    finalR.s = 90
-    return arg * finalR.s
-}
-```
-
-The above function is not a pure function because it modified a state `finalR.s` outside its scope.
-
-```js
-function pure(arg) {
-    return arg * 4
-}
-```
-
-Here is a pure function. It didn’t side effect any external state and it returns an output based on the input.
-
-A function must pass two tests to be considered “pure”:
-
-1. Same inputs always return same outputs
-1. No side-effects
-
-**1. Same Input => Same Output**  
-Compare this:
-
-```js
-const add = (x, y) => x + y;
-
-add(2, 4); // 6
-```
-
-To this
-
-```js
-let x = 2;
-
-const add = (y) => {
-  x += y;
-};
-
-add(4); // x === 6 (the first time)
-```
-
-**2. Pure Functions = Consistent Results:**
-
-The first example returns a value based on the given parameters, regardless of where/when you call it.
-
-If you pass 2 and 4, you’ll always get 6.
-
-Nothing else affects the output.
-
-**Benefits:**
-
-* One of the major benefits of using pure functions is they are immediately testable. They will always produce the same result if you pass in the same arguments.
-* The pure functions are easier to parallelize
-* They also makes maintaining and refactoring code much easier.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is memoization in JavaScript?***
-
-Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results.  Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
-
-```js
-// A simple memoized function to Add Number
-const memoizedAdd = () => {
-  let cache = {};
-  return (number) => {
-    if (number in cache) {
-      console.log('Fetching from cache: ');
-      return cache[number];
-    }
-    else {
-      console.log('Calculating result: ');
-      let result = number + 10;
-      cache[number] = result;
-      return result;
-    }
-  }
-}
-// returned function from memoizedAdd
-const sum = memoizedAdd();
-console.log(sum(10)); // Calculating result: 20
-console.log(sum(10)); // Fetching from cache: 20
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is a service worker?***
 
 A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don\'t need a web page or user interaction. 
@@ -2613,7 +3375,7 @@ if ('serviceWorker' in navigator) {
   }
 ```
 
-**Installation of service worker**
+**Installation of service worker:**
 
 After the controlled page that takes care of the registration process, we come to the service worker script that handles the installation part.
 
@@ -2641,7 +3403,7 @@ self.addEventListener('install', function(event) {
 );
 ```
 
-**Cache and return requests**
+**Cache and return requests:**
 
 After a service worker is installed and the user navigates to a different page or refreshes, the service worker will begin to receive fetch events, an example of which is below.
 
@@ -3476,23 +4238,6 @@ function redirect() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you validate an email in javascript?***
-
-You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead client side. Because the javascript can be disabled on the client side.
-
-```js
-function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
-}
-```
-
-The above regular expression regular accepts unicode characters.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you get the current url with javascript?***
 
 You can use `window.location.href` expression to get the current url path and you can use the same expression for updating the URL too. You can also use `document.URL` for read-only purpose but this solution has issues in FF.
@@ -3601,26 +4346,6 @@ Object.entries(obj).length === 0 && obj.constructor === Object
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is an arguments object?***
-
-The arguments object is an Array-like object accessible inside functions that contains the values of the arguments passed to that function. For example, let us see how to use arguments object inside sum function,
-
-```js
-function sum() {
-    var total = 0;
-    for (var i = 0, len = arguments.length; i < len; ++i) {
-        total += arguments[i];
-    }
-    return total;
-}
-
-sum(1, 2, 3) // returns 6
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you display the current date in javascript?***
 
 You can use `new Date()` to generate a new Date object containing the current date and time. 
@@ -3635,19 +4360,6 @@ var yyyy = today.getFullYear();
 
 today = mm + '/' + dd + '/' + yyyy;
 document.write(today);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you check if a string starts with another string?***
-
-You can use ECMAScript 6 `String.prototype.startsWith()` method to check a string starts with another string or not. But it is not yet supported in all browsers. Let us see an example to see this usage,
-
-```js
-"Good morning".startsWith("Good"); // true
-"Good morning".startsWith("morning"); // false
 ```
 
 <div align="right">
@@ -3675,93 +4387,6 @@ object.key3 = "value3";
 
 ```js
 obj["key3"] = "value3";
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Can we define properties for functions?***
-
-Yes, We can define properties for functions because functions are also objects.
-
-```js
-fn = function(x) {
-  //Function code goes here
-}
-
-fn.name = "John";
-
-fn.profile = function(y) {
-  //Profile code goes here
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the way to find the number of parameters expected by a function?***
-
-You can use `function.length` syntax to find the number of parameters expected by a function. Let us take an example of `sum` function to calculate the sum of numbers,
-
-```js
-function sum(num1, num2, num3, num4){
-    return num1 + num2 + num3 + num4;
-}
-sum.length // 4 is the number of parameters expected.
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are break and continue statements?***
-
-The break statement is used to "jumps out" of a loop. i.e, It breaks the loop and continues executing the code after the loop.
-
-```js
-for (i = 0; i < 10; i++) {
-  if (i === 5) { break; }
-  text += "Number: " + i + "<br>";
-}
-```
-
-The continue statement is used to "jumps over" one iteration in the loop. i.e, It breaks one iteration (in the loop), if a specified condition occurs, and continues with the next iteration in the loop.
-
-```js
-for (i = 0; i < 10; i++) {
-    if (i === 5) { continue; }
-    text += "Number: " + i + "<br>";
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are js labels?***
-
-The label statement allows us to name loops and blocks in JavaScript. We can then use these labels to refer back to the code later. For example, the below code with labels avoids printing the numbers when they are same,
-
-```js
-var i, j;
-
-loop1:
-for (i = 0; i < 3; i++) {
-  loop2:
-  for (j = 0; j < 3; j++) {
-      if (i === j) {
-        continue loop1;
-      }
-      console.log('i = ' + i + ', j = ' + j);
-  }
-}
-
-// Output:
-"i = 1, j = 0"
-"i = 2, j = 0"
-"i = 2, j = 1"
 ```
 
 <div align="right">
@@ -3796,120 +4421,6 @@ var v7 = function(){};
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the string methods available in Regular expression?***
-
-Regular Expressions has two string methods: search() and replace().
-The search() method uses an expression to search for a match, and returns the position of the match.
-
-```js
-var msg = "Hello John";
-var n = msg.search(/John/i); // 6
-```
-
-The replace() method is used return a modified string where the pattern is replaced.
-
-```js
-var msg = "Hello John";
-var n = msg.search(/John/i, "Buttler"); // Hello Buttler
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are modifiers in regular expression?***
-
-Modifiers can be used to perform case-insensitive and global searches. 
-
-| Modifier | Description |
-|---- | -----------------|
-| i  | Perform case-insensitive matching |
-| g | Perform a global match rather than stops at first match  |
-| m | Perform multiline matching|
-
-Example: Global Modifier
-
-```js
-  var text = "Learn JS one by one";
-  var pattern = /one/g;
-  var result = text.match(pattern); // one,one
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are regular expression patterns?***
-
-Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,  
-
-**1. Brackets:** These are used to find a range of characters.
-  For example, below are some use cases,
-
-  * [abc]: Used to find any of the characters between the brackets(a,b,c)
-  * [0-9]: Used to find any of the digits between the brackets
-  * (a|b): Used to find any of the alternatives separated with |
-
-**2. Metacharacters:** These are characters with a special meaning
-  For example, below are some use cases,
-  * \d: Used to find a digit
-  * \s: Used to find a whitespace character
-  * \b: Used to find a match at the beginning or ending of a word
-
-**3. Quantifiers:** These are useful to define quantities
-  For example, below are some use cases,
-  * n+: Used to find matches for any string that contains at least one n
-  * n*: Used to find matches for any string that contains zero or more occurrences of n
-  * n?: Used to find	matches for any string that contains zero or one occurrences of n
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a RegExp object?***
-
-RegExp object is a regular expression object with predefined properties and methods. 
-
-```js
-var regexp = new RegExp('\\w+');
-console.log(regexp);
-// expected output: /\w+/
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you search a string for a pattern?***
-
-You can use test() method of regular expression in order to search a string for a pattern, and returns true or false depending on the result.
-
-```js
-var pattern = /you/;
-console.log(pattern.test("How are you?")); //true
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of exec method?***
-
-The purpose of exec method is similar to test method but it returns a founded text as an object instead of returning true/false.
-
-```js
-// Using test() method
-var pattern = /you/;
-console.log(pattern.test("How are you?")); // true
-
-
-// Using exec() method
-var pattern = /you/;
-console.log(pattern.exec("How are you?")); // ["you", index: 8, input: "How are you?", groups: undefined]
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you change style of a HTML element?***
 
 You can change inline style or classname of a HTML element using javascript
@@ -3937,32 +4448,6 @@ function getProfile() {
 // code goes here
 debugger;
 // code goes here
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you detect a mobile browser without regexp?***
-
-You can detect mobile browser by simply running through a list of devices and checking if the useragent matches anything. This is an alternative solution for RegExp usage,
-
-```js
-function detectmob() {
-if( navigator.userAgent.match(/Android/i)
-|| navigator.userAgent.match(/webOS/i)
-|| navigator.userAgent.match(/iPhone/i)
-|| navigator.userAgent.match(/iPad/i)
-|| navigator.userAgent.match(/iPod/i)
-|| navigator.userAgent.match(/BlackBerry/i)
-|| navigator.userAgent.match(/Windows Phone/i)
-){
-    return true;
-  }
-else {
-    return false;
-  }
 }
 ```
 
@@ -4423,33 +4908,6 @@ The window object provided print() method which is used to prints the contents o
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is an anonymous function?***
-
-An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. The syntax would be as below,
-```js
-function (optionalParameters) {
-  //do something
-}
-
-const myFunction = function(){ //Anonymous function assigned to a variable
-  //do something
-};
-
-[1, 2, 3].map(function(element){ //Anonymous function used as a callback function
-  //do something
-});
-```
-Example:
-```js
-var x = function (a, b) {return a * b};
-var z = x(5, 10);
-console.log(z); // 50
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What are javascript accessors?***
 
 ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses `get` keyword whereas Setters uses `set` keyword.
@@ -4797,37 +5255,6 @@ console.log(foo); // undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a typical use case for anonymous functions?***
-
-They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
-
-```js
-(function() {
-  // Some code here.
-})();
-```
-
-As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
-
-```js
-setTimeout(function() {
-  console.log('Hello world!');
-}, 1000);
-```
-
-Arguments to functional programming constructs or Lodash (similar to callbacks).
-
-```js
-const arr = [1, 2, 3];
-const double = arr.map(function(el) {
-  return el * 2;
-});
-console.log(double); // [2, 4, 6]
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you organize your code? (module pattern, classical inheritance?)***
 
 In the past, I've used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
@@ -4871,34 +5298,6 @@ var person = new Person('John');
 console.log(person); // Person { name: "John" }
 console.log(person.name); // "john"
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between `.call` and `.apply`?***
-
-Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
-
-```js
-function add(a, b) {
-  return a + b;
-}
-
-console.log(add.call(null, 1, 2)); // 3
-console.log(add.apply(null, [1, 2])); // 3
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain `Function.prototype.bind`?***
-
-[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
-
-> The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
-
-In my experience, it is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This is frequently done in React components.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5020,16 +5419,6 @@ But after you change the value of the text field by adding "World!" to it, this 
 console.log(input.getAttribute('value')); // Hello
 console.log(input.value); // Hello World!
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why is extending built-in JavaScript objects not a good idea?***
-
-Extending a built-in/native JavaScript object means adding properties/functions to its `prototype`. While this may seem like a good idea at first, it is dangerous in practice. Imagine your code uses a few libraries that both extend the `Array.prototype` by adding the same `contains` method, the implementations will overwrite each other and your code will break if the behavior of these two methods is not the same.
-
-The only time you may want to extend a native object is when you want to create a polyfill, essentially providing your own implementation for a method that is part of the JavaScript specification but might not exist in the user's browser due to it being an older browser.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5294,106 +5683,6 @@ Asynchronous functions usually accept a callback as a parameter and execution co
 The event loop is a single-threaded loop that monitors the call stack and checks if there is any work to be done in the task queue. If the call stack is empty and there are callback functions in the task queue, a function is dequeued and pushed onto the call stack to be executed.
 
 If you haven\'t already checked out Philip Robert's [talk on the Event Loop](https://2014.jsconf.eu/speakers/philip-roberts-what-the-heck-is-the-event-loop-anyway.html), you should. It is one of the most viewed videos on JavaScript.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`?***
-
-The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question above [on hoisting](#explain-hoisting). If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
-
-**Function Declaration**
-
-```js
-foo(); // 'FOOOOO'
-function foo() {
-  console.log('FOOOOO');
-}
-```
-
-**Function Expression**
-
-```js
-foo(); // Uncaught TypeError: foo is not a function
-var foo = function() {
-  console.log('FOOOOO');
-};
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the definition of a higher-order function?***
-
-A higher-order function is any function that takes one or more functions as arguments, which it uses to operate on some data, and/or returns a function as a result. Higher-order functions are meant to abstract some operation that is performed repeatedly. The classic example of this is `map`, which takes an array and a function as arguments. `map` then uses this function to transform each item in the array, returning a new array with the transformed data. Other popular examples in JavaScript are `forEach`, `filter`, and `reduce`. A higher-order function doesn\'t just need to be manipulating arrays as there are many use cases for returning a function from another function. `Function.prototype.bind` is one such example in JavaScript.
-
-**Map**
-
-Let say we have an array of names which we need to transform each string to uppercase.
-
-```js
-const names = ['irish', 'daisy', 'anna'];
-```
-
-The imperative way will be as such:
-
-```js
-const transformNamesToUppercase = function(names) {
-  const results = [];
-  for (let i = 0; i < names.length; i++) {
-    results.push(names[i].toUpperCase());
-  }
-  return results;
-};
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
-```
-
-Use `.map(transformerFn)` makes the code shorter and more declarative.
-
-```js
-const transformNamesToUppercase = function(names) {
-  return names.map(name => name.toUpperCase());
-};
-transformNamesToUppercase(names); // ['IRISH', 'DAISY', 'ANNA']
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Can you give an example of a curry function and why this syntax offers an advantage?***
-
-Currying is a pattern where a function with more than one parameter is broken into multiple functions that, when called in series, will accumulate all of the required parameters one at a time. This technique can be useful for making code written in a functional style easier to read and compose. It is important to note that for a function to be curried, it needs to start out as one function, then broken out into a sequence of functions that each accepts one parameter.
-
-```js
-function curry(fn) {
-  if (fn.length === 0) {
-    return fn;
-  }
-
-  function _curried(depth, args) {
-    return function(newArgument) {
-      if (depth - 1 === 0) {
-        return fn(...args, newArgument);
-      }
-      return _curried(depth - 1, [...args, newArgument]);
-    };
-  }
-
-  return _curried(fn.length, []);
-}
-
-function add(a, b) {
-  return a + b;
-}
-
-var curriedAdd = curry(add);
-var addFive = curriedAdd(5);
-
-var result = [0, 1, 2, 3, 4, 5].map(addFive); // [5, 6, 7, 8, 9, 10]
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5729,94 +6018,6 @@ As of 2017, Service Workers are not supported in IE and Safari.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between a method and a function in javascript?***
-
-In JS, that difference is quite subtle. A function is a piece of code that is called by name and function itself not associated with any object and not defined inside any object. It can be passed data to operate on (i.e. parameter) and can optionally return data (the return value).
-
-```js
-// Function statement
-function myFunc() {
-  // Do some stuff;
-}
-
-// Calling the function
-myFunc();
-```
-
-Here myFunc() function call is not associated with object hence not invoked through any object.
-
-A function can take a form of immediately invoked function expression (IIFE):
-
-```js
-
-// Anonymous Self-invoking Function
-(function() {
-  // Do some stuff;
-})();
-```
-
-Finally there are also arrow functions: 
-
-```js
-const myFunc = arg => {
-    console.log("hello", arg)
-} 
-```
-
-A method is a piece of code that is called by its name and that is associated with the object. Methods are functions. When you call a method like this `obj1.myMethod()`, the reference to `obj1` gets assigned (bound) to `this` variable. In other words, the value of `this` will be `obj1` inside `myMethod`. 
-
-Here are some examples of methods: 
-
-**Example 1**
-
-```js
-var obj1 = {
-  attribute: "xyz",
-  myMethod: function () {  // Method
-    console.log(this.attribute);
-  }
-};
-
-// Call the method
-obj1.myMethod();
-```
-
-Here `obj1` is an object and `myMethod` is a method which is associated with `obj1`.
-
-**Example 2**
-
-In ES6 we have classes. There the methods will look like this:
-
-```js
-class MyAwesomeClass {
-  myMethod() {
-    console.log("hi there");
-  }
-}
-
-const obj1 = new MyAwesomeClass();
-obj1.myMethod();
-```
-
-Understand: the method is not some kind of special type of a function, and It is not about how you declare a function. It is the way we **call** a function. Look at that: 
-
-```js
-var obj1 = {
-  prop1: "buddy"
-}; 
-var myFunc = function () {
-  console.log("Hi there", this);
-};
-// Let us call myFunc as a function: 
-myFunc(); // will output "Hi there undefined" or "Hi there Window"
- 
-obj1.myMethod = myFunc;
-//now we're calling myFunc as a method of obj1, so this will point to obj1
-obj1.myMethod(); // will print "Hi there" following with obj1. 
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. ***What is IIFE (Immediately Invoked Function Expression) and how it can be useful?***
 
@@ -6119,81 +6320,6 @@ console.log(person.hasOwnProperty('salary')); // print false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to check if the value of a variable in an array?***
-
-We always encounter in such situation where we need to know whether value is type of array or not.
-
-For instance : the code below perform some operation based value type
-
-```js
-function(value){
-	if("value is an array"){
-		// Then perform some operation
-	}else{
-		// otherwise
-	}
-}
-```
-
-Let us discuss some way to detect an array in JavaScript.
-
-**Method 1:**
-
-Juriy Zaytsev (Also known as kangax) proposed an elegant solution to this.
-
-```js
-function isArray(value){
-  return Object.prototype.toString.call(value) === '[object Array]';
-}
-```
-This approach is most popular way to detecting a value of type array in JavaScript and recommended to use. This approach relies on the fact that, native toString() method on a given value produce a standard string in all browser. 
-
-
-**Method 2:** 
-
-Duck typing test for array type detection
-
-```js
-// Duck typing arrays
-function isArray(value){
-  return typeof value.sort === 'function';
-}
-```
-As we can see above isArray method will return true if value object have `sort` method of type `function`. Now assume you have created a object with sort method
-
-```js
-var bar = {
-  sort: function(){
-    // Some code 
-  }
-}
-```
-Now when you check `isArray(bar)` then it will return true because bar object has sort method, But the fact is bar is not an array.
-
-So this method is not a best way to detect an array as you can see It is not handle the case when some object has sort method.
-
-**Method 3:** 
-
-ECMAScript 5 has introduced **Array.isArray()** method to detect an array type value. The sole purpose of this method is accurately detecting whether a value is an array or not.
-
-In many JavaScript libraries you may see the code below for detecting an value of type array.
-
-```js
-function(value){
-   // ECMAScript 5 feature
-	if(typeof Array.isArray === 'function'){
-		return Array.isArray(value);
-	}else{
-	   return Object.prototype.toString.call(value) === '[object Array]';
-	}
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-
-
 ## Q. ***How does Object.create method works JavaScript?***
 
 The ECMAScript 5 **Object.create()** method is the easiest way for one object to inherit from another, without invoking a constructor function. 
@@ -6418,135 +6544,6 @@ employee.name = "xyz"; // fails silently unless in strict mode
 employee.age = 30;     // fails silently unless in strict mode
 delete employee.name;  // fails silently unless It is in strict mode
 ``` 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is typical use case for anonymous function in JavaScript?***
-
-Anonymous functions basically used in following scenario.
-
-a.) No name is needed if function is only used in one place, then there is no need to add a name to function.
-
-Example: setTimeout function
-
-```js
-setTimeout(function(){
-	alert("Hello");
-},1000);
-```
-Here there is no need of using named function when we are sure 	that function which will alert `hello` would use only once in	application.
-
-b.) Anonymous functions are declared inline and inline functions have advantages in the case that they can access variable in the parent scopes.
-
-Let us take a example of event handler. Notify event of particular 	type (such as click) for a given object. 
-
-Let say we have HTML element (button) on which we want to add click event and when user do click on button we would like toexecute some logic.
-
-```html
-<button id="myBtn"></button>
-```
-Add Event Listener 
-
-```js
-var btn = document.getElementById('myBtn');
-btn.addEventListener('click', function () {
-  alert('button clicked');
-});
-```
-	
-Above example shows used of anonymous function as a callback function in event handler.
-	
-c.) Passing anonymous function as a parameter to calling function.
-	
-**Example:** 
-
-```js
-// Function which will execute callback function
-function processCallback(callback){
-	if(typeof callback === 'function'){
-		callback();
-	}
-}
-
-// Call function and pass anonymous function as callback 
-processCallback(function(){
-	alert("Hi I am anonymous callback function");
-});
-```
-The best way to make a decision for using anonymous function is to ask the following question:
-
-Will the function which I am going to define, be used anywhere else?
-
-If your answer is yes then go and create named function rather anonymous function.
-
-**Advantage of using anonymous function:**
-
-* It can reduce a bit of code, particularly in recursive function and in callback function.
-* Avoid needless global namespace pollutions.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to set a default parameter value?***
-
- If you are coming from python/c# you might be using default value for function parameter incase value(formal parameter) has not been passed. For instance : 
-
-```python
-// Define sentEmail function 
-// configuration : Configuration object
-// provider : Email Service provider, Default would be gmail
-def sentEmail(configuration, provider = 'Gmail'):
-	# Your code logic
-```
-**In Pre ES6/ES2015**
-
-There are a lot of ways by which you can achieve this in pre ES2015.
-
-Let us understand the code below by which we achieved setting default parameter value.
-
-**Method 1: Setting default parameter value** 
-
-```js
-function sentEmail(configuration, provider) {
-  // Set default value if user has not passed value for provider
-  provider = typeof provider !== 'undefined' ? provider : 'Gmail'  
-  // Your code logic
-;
-}
-// In this call we are not passing provider parameter value
-sentEmail({
-  from: 'xyz@gmail.com',
-  subject: 'Test Email'
-});
-// Here we are passing Yahoo Mail as a provider value
-sentEmail({
-  from: 'xyz@gmail.com',
-  subject: 'Test Email'
-}, 'Yahoo Mail');
-```
-
-**Method 2: Setting default parameter value** 
-
-```js
-function sentEmail(configuration, provider) {
-  // Set default value if user has not passed value for provider
-  provider = provider || 'Gmail'  
-  // Your code logic
-;
-}
-// In this call we are not passing provider parameter value
-sentEmail({
-  from: 'xyz@gmail.com',
-  subject: 'Test Email'
-});
-// Here we are passing Yahoo Mail as a provider value
-sentEmail({
-  from: 'xyz@gmail.com',
-  subject: 'Test Email'
-}, 'Yahoo Mail');
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -7430,86 +7427,6 @@ The difference between this property and firstElementChild, is that firstChild r
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Name the two functions that are used to create an HTML element dynamically?***
-
-**createElement**  
-In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
-Syntax
-```js
-var element = document.createElement(tagName[, options]);
-```
-HTML
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-      <title>||Working with elements||</title>
-  </head>
-<body>
-  <div id="div1">The text above has been created dynamically.</div>
-</body>
-</html>
-```
-JavaScript
-```js
-document.body.onload = addElement;
-
-function addElement () { 
-  // create a new div element 
-  var newDiv = document.createElement("div"); 
-  // and give it some content 
-  var newContent = document.createTextNode("Hi there and greetings!"); 
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);  
-
-  // add the newly created element and its content into the DOM 
-  var currentDiv = document.getElementById("div1"); 
-  document.body.insertBefore(newDiv, currentDiv); 
-}
-```
-**Create Dynamic Button**  
-```js
-var btn = document.createElement("BUTTON");
-btn.innerHTML = "CLICK ME";
-document.body.appendChild(btn);
-```
-**Removing Elements Dynamically**  
-```js
-function removeElement(elementId) {
-    // Removes an element from the document
-    var element = document.getElementById(elementId);
-    element.parentNode.removeChild(element);
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is callback() function in javascript?***
-
-A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
-```js
-function greeting(name) {
-  alert('Hello ' + name);
-}
-
-function processUserInput(callback) {
-  var name = prompt('Please enter your name.');
-  callback(name);
-}
-
-processUserInput(greeting);
-```
-The above example is a synchronous callback, as it is executed immediately.
-
-*Note: callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks. A good example is the callback functions executed inside a `.then()` block chained onto the end of a promise after that promise fulfills or rejects. This structure is used in many modern web APIs, such as `fetch()`*.
-
-In JavaScript, functions are objects. Because of this, functions can take functions as arguments, and can be returned by other functions. Functions that do this are called `higher-order` functions. Any function that is passed as an argument is called a callback function.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is shallow copy and deep copy in javascript?***
 
 **Shallow copy**
@@ -7567,70 +7484,6 @@ So, to avoid these default browser behavior use `event.preventDefault()`.
 **Example**: A click event handler is registered for anchor tag, Based on some logic in the event handler  want to suppress the default browser behavior i.e loading the url.
 
 *Note: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`*;
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***When to use function declarations and expressions in JavaScript?***
-
-**Function Declarations**
-A declared function is “saved for later use”, and will be executed later, when it is invoked (called).
-```js
-// Function declaration
-function add(num1, num2) {
-	return num1 + num2;
-}
-```
-function is only declared here. For using it, it must be invoked using function name. e.g add(10, 20);  
-
-**Function Expression**   
-A function expression can be stored in a variable:
-```js
-// Function expression
-var add = function (num1, num2) {
-	return num1 + num2;
-};
-```
-After a function expression has been stored in a variable, the variable can be used as a function. Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
-
-**Difference**  
-* `Function declarations` load before any code is executed while `Function expressions` load only when the interpreter reaches that line of code.
-* Similar to the `var` statement, function declarations are hoisted to the top of other code. Function expressions aren’t hoisted, which allows them to retain a copy of the local variables from the scope where they were defined.  
-
-**Benefits of Function Expressions**  
-There are several different ways that function expressions become more useful than function declarations.
-* As closures
-* As arguments to other functions
-* As Immediately Invoked Function Expressions (IIFE)
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to avoid callback hell in javascript?***
-
-**Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.  
-
-Example
-```js
-doSomething(param1, param2, function(err, paramx){
-    doMore(paramx, function(err, result){
-        insertRow(result, function(err){
-            yetAnotherOperation(someparameter, function(s){
-                somethingElse(function(x){
-                });
-            });
-        });
-    });
-});
-```
-**Techniques for avoiding callback hell**  
-* Write comments
-* Split functions into smaller functions
-* Using Async.js
-* Using Promises
-* Using Async-Await
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
