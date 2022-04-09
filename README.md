@@ -729,11 +729,6 @@ console.log(typeof test2); // undefined
 
 **Difference:**
 
-* `null` is an assigned value. It means nothing.
-* `undefined` means a variable has been declared but not defined yet.
-* `null` is an object. `undefined` is of type `undefined`.
-* `null !== undefined` but `null == undefined`.
-
 | Null | Undefined |
 |---- | -----------|
 | It is an assignment value which indicates that variable points to no object.  | It is not an assignment value where a variable has been declared but has not yet been assigned a value. |
