@@ -716,51 +716,6 @@ console.log(typeof test2); // undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the differences between undeclared and `undefined` variables?***
-
-Below are the major differences between undeclared and undefined variables,
-
-| undeclared | undefined |
-|---- | ---------
-| These variables do not exist in a program and are not declared  | These variables declared in the program but have not assigned any value |
-| If you try to read the value of an undeclared variable, then a runtime error is encountered | If you try to read the value of an undefined variable, an undefined value is returned.  |
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between `undefined` and `not defined` in JavaScript?***
-
-In JavaScript if you try to use a variable that doesn\'t exist and has not been declared, then JavaScript will throw an error `var name is not defined` and the script will stop executing thereafter. But If you use `typeof undeclared_variable` then it will return `undefined`.
-
-Before starting further discussion Let us understand the difference between declaration and definition.
-
-`var x` is a declaration because you are not defining what value it holds yet, but you are declaring its existence and the need for memory allocation.
-
-```js
-var x; // declaring x
-console.log(x); // output: undefined
-```
-
-`var x = 1` is both declaration and definition (also we can say we are doing initialisation), Here declaration and assignment of value happen inline for variable x, In JavaScript every variable declaration and function declaration brings to the top of its current scope in which It is declared then assignment happen in order this term is called `hoisting`.
-
-A variable can be declared but not defined. When we try to access it, It will result `undefined`.
-
-```js
-var x; // Declaration
-typeof x === 'undefined'; // Will return true
-```
-
-A variable can be neither declared nor defined. When we try to reference such variable then the result will be `not defined`.
-
-```js
-console.log(y);  // Output: ReferenceError: y is not defined
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you assign default values to variables?***
 
 You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,
