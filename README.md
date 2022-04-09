@@ -14,23 +14,25 @@
 
 ## Table of Contents
 
-* [Introduction](#introduction)
-* [Variables](#variables)
-* [Data types](#data-types)
-* [Operators](#operators)
-* [Numbers](#numbers)
-* [String](#string)
-* [Array](#array)
-* [Regular Expression](#regular-expression)
-* [Functions](#functions)
-* [Events](#events)
-* [Objects](#objects)
-* [Window Object](#window-object)
-* [Classes](#classes)
-* [Error handling](#error-handling)
-* [Promises](#promises)
-* [Modules](#modules)
-* [Miscellaneous](#miscellaneous)
+* [Introduction](#-introduction)
+* [Variables](#-variables)
+* [Data types](#-data-types)
+* [Operators](#-operators)
+* [Numbers](#-numbers)
+* [String](#-string)
+* [Array](#-array)
+* [Regular Expression](#-regular-expression)
+* [Functions](#-functions)
+* [Events](#-events)
+* [Objects](#-objects)
+* [Window Object](#-window-object)
+* [Classes](#-classes)
+* [Error handling](#-error-handling)
+* [Promises](#-promises)
+* [Modules](#-modules)
+* [Miscellaneous](#-miscellaneous)
+
+<br/>
 
 ## # Introduction
 
