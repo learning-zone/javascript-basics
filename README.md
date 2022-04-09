@@ -1,4 +1,4 @@
-# JavaScript Interview Questions
+# JavaScript Interview Questions ( vES6 )
 
 *Click <img src="assets/star.png" width="18" height="18" align="absmiddle" title="Star" /> if you like the project. Pull Request are highly appreciated.*
 
@@ -34,12 +34,12 @@
 
 ## Introduction
 
-## Q. List out important features of es6?
+## Q. List out important features of JavaScript ES6?
 
 **1. Template Strings:**
 
 Template literals are string literals allowing embedded expressions.
- 
+
 **Benefits:**
 
 * String interpolation
@@ -2371,6 +2371,53 @@ console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is JSON and its common operations?***
+
+**JSON** is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
+Parsing: **Converting a string to a native object
+
+```js
+JSON.parse(text)
+```
+
+Stringification: converting a native object to a string so it can be transmitted across the network
+
+```js
+JSON.stringify(object)
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose JSON stringify?***
+
+When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using stringify() method.
+
+```js
+var userJSON = {'name': 'John', age: 31}
+var userString = JSON.stringify(user);
+console.log(userString); //"{"name":"John","age":31}"
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you parse JSON string?***
+
+When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using parse() method.
+
+```js
+var userString = '{"name":"John","age":31}';
+var userJSON = JSON.parse(userString);
+console.log(userJSON);// {name: "John", age: 31}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How do you sort elements in an array?***
 
 The sort() method is used to sort the elements of an array in place and returns the sorted array. The example usage would be as below,
@@ -2669,25 +2716,6 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is JSON and its common operations?***
-
-**JSON** is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
-Parsing: **Converting a string to a native object
-
-```js
-JSON.parse(text)
-```
-
-Stringification: converting a native object to a string so it can be transmitted across the network
-
-```js
-JSON.stringify(object)
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the purpose of array slice method?***
 
 The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
@@ -2833,34 +2861,6 @@ var arr = [1, 2, 3];
 
 console.log(arr.unshift(4, 5)); // 5
 console.log(arr); // Array [4, 5, 1, 2, 3]
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose JSON stringify?***
-
-When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using stringify() method.
-
-```js
-var userJSON = {'name': 'John', age: 31}
-var userString = JSON.stringify(user);
-console.log(userString); //"{"name":"John","age":31}"
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you parse JSON string?***
-
-When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using parse() method.
-
-```js
-var userString = '{"name":"John","age":31}';
-var userJSON = JSON.parse(userString);
-console.log(userJSON);// {name: "John", age: 31}
 ```
 
 <div align="right">
