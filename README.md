@@ -29,6 +29,7 @@
 * [Classes](#-classes)
 * [Error handling](#-error-handling)
 * [Promises](#-promises)
+* [Collections](#-collections)
 * [Modules](#-modules)
 * [Miscellaneous](#-miscellaneous)
 
@@ -141,99 +142,10 @@ console.log(employee); //{ "id": 101, "name": "Jhon Doe", "age": 25, "country": 
 Sets are a new object type with ES6 (ES2015) that allow to create collections of unique values. The values in a set can be either simple primitives like strings or integers, but more complex object types like object literals or arrays can also be part of a set.
 
 ```js
-let animals = new Set();
+let numbers = new Set([10, 20, 20, 30, 40, 50]);
 
-animals.add('🐷');
-animals.add('🐼');
-animals.add('🐢');
-animals.add('🐿');
-console.log(animals.size); // 4
-animals.add('🐼');
-console.log(animals.size); // 4
-
-console.log(animals.has('🐷')); // true
-animals.delete('🐷');
-console.log(animals.has('🐷')); // false
-
-animals.forEach(animal => {
-  console.log(`Hey ${animal}!`);
-});
-
-// Hey 🐼!
-// Hey 🐢!
-// Hey 🐿!
-
-animals.clear();
-console.log(animals.size); // 0
-
-
-// Example 02: Pass-In Arrray
-let myAnimals = new Set(['🐷', '🐢', '🐷', '🐷']);
-
-myAnimals.add(['🐨', '🐑']);
-myAnimals.add({ name: 'Rud', type: '🐢' });
-console.log(myAnimals.size); // 4
-
-myAnimals.forEach(animal => {
-  console.log(animal);
-});
-
-
-// 🐷
-// 🐢
-// ["🐨", "🐑"]
-// Object { name: "Rud", type: "🐢" }
-
-
-// Example 03: Strings are a valid iterable so they can also be passed-in to initialize a set
-console.log('Only unique characters will be in this set.'.length); // 43
-
-let sentence = new Set('Only unique characters will be in this set.');
-console.log(sentence.size); // 18
-
-
-// Example 04: On top of using forEach on a set, for…of loops can also be used to iterate over sets
-let moreAnimals = new Set(['🐺', '🐴', '🐕', '🐇']);
-
-for (let animal of moreAnimals) {
-  console.log(`Howdy ${ animal }`);
-}
-
-// Howdy 🐺
-// Howdy 🐴
-// Howdy 🐕
-// Howdy 🐇
-```
-
-**Sets: Keys and Values:**  
-
-Sets also have the `keys` and `values` methods, with keys being an alias for values, so both methods do exactly the same thing. Using either of these methods returns a new iterator object with the values of the set in the same order in which they were added to the set.
-
-```js
-let partyItems = new Set(['🍕', '🍾', '🎊']);
-let items = partyItems.values();
-
-console.log(items.next());
-console.log(items.next());
-console.log(items.next());
-console.log(items.next().done);
-
-// Object {
-//   done: false,
-//   value: "🍕"
-// }
-
-// Object {
-//   done: false,
-//   value: "🍾"
-// }
-
-// Object {
-//   done: false,
-//   value: "🎊"
-// }
-
-// true
+console.log(numbers); // Set(5) {10, 20, 30, 40, 50}
+console.log(typeof numbers); // Object
 ```
 
 **4. Default Parametrs:**
@@ -242,6 +154,7 @@ console.log(items.next().done);
 function add(x = 10, y = 20) {
   console.log(x + y);
 }
+
 add(30, 40); // 70
 ```
 
@@ -258,7 +171,7 @@ var cat = {
 cat.meow(2); // meow meow 
 ```
 
-**6. Arrow Function (=>):** 
+**6. Arrow Function (=>):**
 
 ```js
 var add = (x, y) => x + y;
@@ -333,46 +246,9 @@ console.log(gen.next().value); // 14
 console.log(gen.next().value); // 15
 ```  
 
-**9.1. Implementing Iterables:**
-
-```js
-function * iterableObj() {
-  yield 'This';
-  yield 'is';
-  yield 'iterable.'
-}
-for (const val of iterableObj()) {
-  console.log(val);
-}
-
-// This
-// is 
-// iterable.
-```
-
-**9.2 Infinite Data Streams:** 
-
-```js
-function * naturalNumbers() {
-  let num = 1;
-  while (true) {
-    yield num;
-    num = num + 1
-  }
-}
-const numbers = naturalNumbers();
-console.log(numbers.next().value) // 1
-console.log(numbers.next().value) // 2
-```
-
-**Advantages of Generators:**  
-
-**a) Lazy Evaluation**: Lazy Evaluation is an evaluation model which delays the evaluation of an expression until its value is needed.
-**b) Memory Efficient**: We generate only the values that are needed. With normal functions, we needed to pre-generate all the values and keep them around in case we use them later. However, with generators, we can defer the computation till we need it.
-
 **10. Symbols():**  
 
-They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
+They are tokens that serve as unique IDs. We create symbols via the factory function Symbol(). Symbols primary use case is for making private object properties, which can be only of type String or Symbol (Numbers are automatically converted to Strings).
 
 ```js
 const symbol1 = Symbol();
@@ -382,32 +258,6 @@ const symbol3 = Symbol('foo');
 console.log(typeof symbol1); // symbol
 console.log(symbol3.toString()); // Symbol(foo)
 console.log(Symbol('foo') === Symbol('foo')); // false
-```
-
-**Usage:**  
-
-Symbols primary use case is for making private object properties, which can be only of type String or Symbol (Numbers are automatically converted to Strings).
-
-```js
-const sym = Symbol()
-
-const privateObject = {
-  [sym]: 'Hello World'
-}
-
-privateObject[sym] // 'Hello World'
-```
-
-**10.1 Global Symbols:**  
-
-A Global Symbol Registry exists where we can store and access Global Symbols. We can use the `Symbol.for(key)` method to both create and access Global Symbols.
-
-```js
-const sym1 = Symbol.for('hello') // If the Symbol does not exist, it's created
-
-const sym2 = Symbol.for('hello') // The Symbol exists, so it is returned
-
-sym1 === sym2 // true
 ```
 
 **11. Iterator:**  
@@ -2089,7 +1939,9 @@ const { e, f, ...others } = {
 * **for of**: (new in ES6) does use an object-specific iterator and loops over the values generated by that.
 
 Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a **list of keys** on the object being iterated, whereas `for..of` returns a **list of values** of the numeric properties of the object being iterated.  
+
 Example:
+
 ```js
 let list = [4, 5, 6];
 
@@ -2101,106 +1953,6 @@ for (let i of list) {
    console.log(i); // "4", "5", "6"
 }
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. What is the difference between ES6 Map and WeakMap?
-**Map**  
-It is used to associate a key to a value irrespective of the datatype such as strings, numbers, objects etc. To assign values to a map you need to use the set method:
-```js
-window.obj = {}
-var map = new Map()
-map.set(window.obj, 123)
-```
-Then, to retrieve the object call get:
-```js
-map.get(window.obj) // => 123
-```
-**WeakMap**  
-WeakMap accepts only objects but not any primitive values (strings, numbers)
-```js
-function Obj(){
-    this.val = new Array(10000000).join("---")
-}
-
-window.obj = new Obj();
-var map = new WeakMap()
-map.set(window.obj, 123)
-delete window.obj
-```
-
-**Differences between Map and WeakMap**  
-
-1. A WeakMap accepts only objects as keys whereas a Map,in addition to objects, accepts primitive datatype such as strings, numbers etc.
-2. WeakMap objects doesn't avert garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as Map.prototype.keys() to get the keys.
-3. There is no size property exists in WeakMap.
-
-**Browser support for Map and WeakMap**  
-The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. It's supported only in IE11 but not IE10 and below. On mobile, newer browsers also have support, but IE Mobile doesn\'t.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. What is the difference between Set and WeakSet in ES6?
-
-**Set**   
-
-Using the `Set()` class we can create an array like heterogeneous iterable object, which will contain only unique values in it. Unique is not just unique by values but also by types. i.e. it will consider `"2"` and `2` separate or different.
-
-Syntax:  
-```js
-var mySet = new Set([iterable]);
-```
-Example:
-```js
-var mySet= new Set([0,1]);
-
-mySet.add(2); // 0, 1, 2
-mySet.add(2); // 0, 1, 2
-mySet.add("Hello"); // 0, 1, 2, 'Hello'
-mySet.add({a:1, b:2}); // 0, 1, 2, 'Hello', {a:1, b:2}
- 
-mySet.add(function(){}); // 0, 1, 2, 'Hello', {a:1, b:2}, [Function]
- 
-mySet.has("Hello"); // ture
-mySet.delete("Hello"); // 'Hello' deleted
-mySet.has("Hello"); // false
- 
-mySet.size; // 5
-mySet.clear(); // Set Cleared
-```
-**WeakSet**  
-
-A `WeakSet()` is a collection similar to Set, which holds unique values; but it only holds Objects and nothing else. If an object which is there in your WeakSet object has no other reference variable left, it will automatically be deleted.
-
-Syntax:
-```js
-var myWeakSet = new WeakSet([iterable with only objects]);
-```
-Example:
-```js
-var myWeakSet = new WeakSet([{a:1}]);
-var obj1 = {o:1};
-var obj2 = {o:2};
-
-myWeakSet.add(obj1); 
-myWeakSet.has(obj1); // true
-myWeakSet.has(obj2); // false
-myWeakSet.add(obj2); 
-myWeakSet.has(obj2); // true
-delete obj2; // Don't take it literally - you can't delete objects like that. Use scope to execute this.
-myWeakSet.has(obj2); // false, because you deleted obj2, so WeakSet releases it automatically
-myWeakSet.delete(obj1); // obj1 deleted from the set
-myWeakSet.add(2); // ERROR, no primitive value
-```
-|Set	                          |WeakSet                        |
-|-------------------------------|-------------------------------|
-|Can contain any type of values |	Can only contain objects      |
-|To find number of elements use .size	|To find elements count use .length|
-|.forEach() is available to iterate|	No .forEach() to iterate  |
-|Nothing is auto destroyed	     |If an element object has no other reference left, it will be auto released to garbage collector|
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2648,18 +2400,6 @@ _.size({one: 1, two: 2, three: 3});
 => 3
 ```
 
-## Q. What is an Iterator?
-
-An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `next()` method which returns an object with two properties: value (the next value in the sequence) and done (which is true if the last value in the sequence has been consumed).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is `undefined x 1` in JavaScript?***
 
 ```js
@@ -2865,117 +2605,6 @@ console.log(arr.unshift(4, 5)); // 5
 console.log(arr); // Array [4, 5, 1, 2, 3]
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. What is a WeakSet?
-
-WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
-
-```js
-new WeakSet([iterable]);
-```
-Let us see the below example to explain It is behavior,
-```js
-var ws = new WeakSet();
-var user = {};
-ws.add(user);
-ws.has(user);    // true
-ws.delete(user); // removes user from the set
-ws.has(user);    // false, user has been removed
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. What are the differences between WeakSet and Set?
-
-The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
-Other differences are,
-1. Sets can store any value Whereas WeakSets can store only collections of objects
-2. WeakSet does not have size property unlike Set
-3. WeakSet does not have methods such as clear, keys, values, entries, forEach.
-4. WeakSet is not iterable.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. List down the collection of methods available on WeakSet?
-
-Below are the list of methods available on WeakSet,
-1. add(value): A new object is appended with the given value to the weakset
-2. delete(value): Deletes the value from the WeakSet collection.
-3. has(value): It returns true if the value is present in the WeakSet Collection, otherwise it returns false.
-4. length(): It returns the length of weakSetObject
-Let us see the functionality of all the above methods in an example,
-```js
-var weakSetObject = new WeakSet();
-var firstObject = {};
-var secondObject = {};
-// add(value)
-weakSetObject.add(firstObject);
-weakSetObject.add(secondObject);
-console.log(weakSetObject.has(firstObject)); //true
-console.log(weakSetObject.length()); //2
-weakSetObject.delete(secondObject);
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. What is a WeakMap?
-
-The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax is looking like as below,
-```js
-new WeakMap([iterable])
-```
-Let us see the below example to explain It is behavior,
-```js
-var ws = new WeakMap();
-var user = {};
-ws.set(user);
-ws.has(user);    // true
-ws.delete(user); // removes user from the map
-ws.has(user);    // false, user has been removed
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. What are the differences between WeakMap and Map?
-
-The main difference is that references to key objects in Map are strong while references to key objects in WeakMap are weak. i.e, A key object in WeakMap can be garbage collected if there is no other reference to it.
-Other differences are,
-1. Maps can store any key type Whereas WeakMaps can store only collections of key objects
-2. WeakMap does not have size property unlike Map
-3. WeakMap does not have methods such as clear, keys, values, entries, forEach.
-4. WeakMap is not iterable.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. List down the collection of methods available on WeakMap?
-
-Below are the list of methods available on WeakMap,
-1. set(key, value): Sets the value for the key in the WeakMap object. Returns the WeakMap object.
-2. delete(key): Removes any value associated to the key.
-3. has(key): Returns a Boolean asserting whether a value has been associated to the key in the WeakMap object or not.
-4. get(key): Returns the value associated to the key, or undefined if there is none.
-Let us see the functionality of all the above methods in an example,
-```js
-var weakMapObject = new WeakMap();
-var firstObject = {};
-var secondObject = {};
-// set(key, value)
-weakMapObject.set(firstObject, 'John');
-weakMapObject.set(secondObject, 100);
-console.log(weakMapObject.has(firstObject)); //true
-console.log(weakMapObject.get(firstObject)); // John
-weakMapObject.delete(secondObject);
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -6897,6 +6526,257 @@ add2(10).then(v => {
     console.log(v); // prints 60 after 2 seconds.
 });
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## # Collections
+
+## Q. What is the difference between ES6 Map and WeakMap?
+
+**Map:**  
+
+It is used to associate a key to a value irrespective of the datatype such as strings, numbers, objects etc. To assign values to a map you need to use the set method:
+
+```js
+window.obj = {}
+var map = new Map()
+map.set(window.obj, 123)
+```
+
+Then, to retrieve the object call get:
+
+```js
+map.get(window.obj) // => 123
+```
+
+**WeakMap:**
+
+WeakMap accepts only objects but not any primitive values (strings, numbers)
+
+```js
+function Obj(){
+    this.val = new Array(10000000).join("---")
+}
+
+window.obj = new Obj();
+var map = new WeakMap()
+map.set(window.obj, 123)
+delete window.obj
+```
+
+**Differences between Map and WeakMap:**  
+
+1. A WeakMap accepts only objects as keys whereas a Map,in addition to objects, accepts primitive datatype such as strings, numbers etc.
+2. WeakMap objects doesn't avert garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as Map.prototype.keys() to get the keys.
+3. There is no size property exists in WeakMap.
+
+**Browser support for Map and WeakMap:**
+
+The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. It's supported only in IE11 but not IE10 and below. On mobile, newer browsers also have support, but IE Mobile doesn\'t.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between Set and WeakSet in ES6?
+
+**Set:**
+
+Using the `Set()` class we can create an array like heterogeneous iterable object, which will contain only unique values in it. Unique is not just unique by values but also by types. i.e. it will consider `"2"` and `2` separate or different.
+
+Syntax:  
+
+```js
+var mySet = new Set([iterable]);
+```
+
+Example:
+
+```js
+var mySet= new Set([0,1]);
+
+mySet.add(2); // 0, 1, 2
+mySet.add(2); // 0, 1, 2
+mySet.add("Hello"); // 0, 1, 2, 'Hello'
+mySet.add({a:1, b:2}); // 0, 1, 2, 'Hello', {a:1, b:2}
+ 
+mySet.add(function(){}); // 0, 1, 2, 'Hello', {a:1, b:2}, [Function]
+ 
+mySet.has("Hello"); // ture
+mySet.delete("Hello"); // 'Hello' deleted
+mySet.has("Hello"); // false
+ 
+mySet.size; // 5
+mySet.clear(); // Set Cleared
+```
+
+**WeakSet:**
+
+A `WeakSet()` is a collection similar to Set, which holds unique values; but it only holds Objects and nothing else. If an object which is there in your WeakSet object has no other reference variable left, it will automatically be deleted.
+
+Syntax:
+
+```js
+var myWeakSet = new WeakSet([iterable with only objects]);
+```
+
+Example:
+
+```js
+var myWeakSet = new WeakSet([{a:1}]);
+var obj1 = {o:1};
+var obj2 = {o:2};
+
+myWeakSet.add(obj1); 
+myWeakSet.has(obj1); // true
+myWeakSet.has(obj2); // false
+myWeakSet.add(obj2); 
+myWeakSet.has(obj2); // true
+delete obj2; // Don't take it literally - you can't delete objects like that. Use scope to execute this.
+myWeakSet.has(obj2); // false, because you deleted obj2, so WeakSet releases it automatically
+myWeakSet.delete(obj1); // obj1 deleted from the set
+myWeakSet.add(2); // ERROR, no primitive value
+```
+
+|Set	                          |WeakSet                        |
+|-------------------------------|-------------------------------|
+|Can contain any type of values |	Can only contain objects      |
+|To find number of elements use .size	|To find elements count use .length|
+|.forEach() is available to iterate|	No .forEach() to iterate  |
+|Nothing is auto destroyed	     |If an element object has no other reference left, it will be auto released to garbage collector|
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a WeakSet?
+
+WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
+
+```js
+new WeakSet([iterable]);
+```
+Let us see the below example to explain It is behavior,
+
+```js
+var ws = new WeakSet();
+var user = {};
+ws.add(user);
+ws.has(user);    // true
+ws.delete(user); // removes user from the set
+ws.has(user);    // false, user has been removed
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the differences between WeakSet and Set?
+
+The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
+Other differences are,
+1. Sets can store any value Whereas WeakSets can store only collections of objects
+2. WeakSet does not have size property unlike Set
+3. WeakSet does not have methods such as clear, keys, values, entries, forEach.
+4. WeakSet is not iterable.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. List down the collection of methods available on WeakSet?
+
+Below are the list of methods available on WeakSet,
+1. add(value): A new object is appended with the given value to the weakset
+2. delete(value): Deletes the value from the WeakSet collection.
+3. has(value): It returns true if the value is present in the WeakSet Collection, otherwise it returns false.
+4. length(): It returns the length of weakSetObject
+
+Let us see the functionality of all the above methods in an example,
+
+```js
+var weakSetObject = new WeakSet();
+var firstObject = {};
+var secondObject = {};
+// add(value)
+weakSetObject.add(firstObject);
+weakSetObject.add(secondObject);
+console.log(weakSetObject.has(firstObject)); //true
+console.log(weakSetObject.length()); //2
+weakSetObject.delete(secondObject);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a WeakMap?
+
+The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax is looking like as below,
+
+```js
+new WeakMap([iterable])
+```
+
+Let us see the below example to explain It is behavior,
+
+```js
+var ws = new WeakMap();
+var user = {};
+ws.set(user);
+ws.has(user);    // true
+ws.delete(user); // removes user from the map
+ws.has(user);    // false, user has been removed
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the differences between WeakMap and Map?
+
+The main difference is that references to key objects in Map are strong while references to key objects in WeakMap are weak. i.e, A key object in WeakMap can be garbage collected if there is no other reference to it.
+Other differences are,
+
+1. Maps can store any key type Whereas WeakMaps can store only collections of key objects
+2. WeakMap does not have size property unlike Map
+3. WeakMap does not have methods such as clear, keys, values, entries, forEach.
+4. WeakMap is not iterable.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. List down the collection of methods available on WeakMap?
+
+Below are the list of methods available on WeakMap,
+1. set(key, value): Sets the value for the key in the WeakMap object. Returns the WeakMap object.
+2. delete(key): Removes any value associated to the key.
+3. has(key): Returns a Boolean asserting whether a value has been associated to the key in the WeakMap object or not.
+4. get(key): Returns the value associated to the key, or undefined if there is none.
+Let us see the functionality of all the above methods in an example,
+
+```js
+var weakMapObject = new WeakMap();
+var firstObject = {};
+var secondObject = {};
+// set(key, value)
+weakMapObject.set(firstObject, 'John');
+weakMapObject.set(secondObject, 100);
+console.log(weakMapObject.has(firstObject)); //true
+console.log(weakMapObject.get(firstObject)); // John
+weakMapObject.delete(secondObject);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is an Iterator?
+
+An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `next()` method which returns an object with two properties: value (the next value in the sequence) and done (which is true if the last value in the sequence has been consumed).
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
