@@ -588,7 +588,7 @@ console.log(navigator.userAgent.match(/Trident.*rv[ :]*11\./));  // returns eith
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***In JavaScript, what is the difference between var x = 1 and x = 1?***
+## Q. ***In JavaScript, what is the difference between `var x = 1` and `x = 1`?***
 
 `var x = 1`:
 
@@ -676,7 +676,7 @@ console.log(x) // 1
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is undefined property?***
+## Q. ***What is `undefined` property?***
 
 The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
 
@@ -695,7 +695,7 @@ user = undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between null vs undefined?***
+## Q. ***What is difference between `null` vs `undefined`?***
 
 **Null:**
 
@@ -741,7 +741,7 @@ console.log(typeof test2); // undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the differences between undeclared and undefined variables?***
+## Q. ***What are the differences between undeclared and `undefined` variables?***
 
 Below are the major differences between undeclared and undefined variables,
 
@@ -817,50 +817,6 @@ greeting();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between a variable that is: `null`, `undefined` or undeclared? How would you go about checking for any of these states?***
-
-**Undeclared** variables are created when you assign a value to an identifier that is not previously created using `var`, `let` or `const`. Undeclared variables will be defined globally, outside of the current scope. In strict mode, a `ReferenceError` will be thrown when you try to assign to an undeclared variable. Undeclared variables are bad just like how global variables are bad. Avoid them at all cost! To check for them, wrap its usage in a `try`/`catch` block.
-
-```js
-function foo() {
-  x = 1; // Throws a ReferenceError in strict mode
-}
-
-foo();
-console.log(x); // 1
-```
-
-A variable that is `undefined` is a variable that has been declared, but not assigned a value. It is of type `undefined`. If a function does not return any value as the result of executing it is assigned to a variable, the variable also has the value of `undefined`. To check for it, compare using the strict equality (`===`) operator or `typeof` which will give the `'undefined'` string. Note that you should not be using the abstract equality operator to check, as it will also return `true` if the value is `null`.
-
-```js
-var foo;
-console.log(foo); // undefined
-console.log(foo === undefined); // true
-console.log(typeof foo === 'undefined'); // true
-
-console.log(foo == null); // true. Wrong, don't use this to check!
-
-function bar() {}
-var baz = bar();
-console.log(baz); // undefined
-```
-
-A variable that is `null` will have been explicitly assigned to the `null` value. It represents no value and is different from `undefined` in the sense that it has been explicitly assigned. To check for `null,` simply compare using the strict equality operator. Note that like the above, you should not be using the abstract equality operator (`==`) to check, as it will also return `true` if the value is `undefined`.
-
-```js
-var foo = null;
-console.log(foo === null); // true
-console.log(typeof foo === 'object'); // true
-
-console.log(foo == undefined); // true. Wrong, don't use this to check!
-```
-
-As a personal habit, I never leave my variables undeclared or unassigned. I will explicitly assign `null` to them after declaring if I do not intend to use it yet. If you use a linter in your workflow, it will usually also be able to check that you are not referencing undeclared variables.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is variable shadowing in javascript?***
 
 Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
@@ -883,7 +839,7 @@ Hoist(20);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Explain var self = this in JavaScript?***
+## Q. ***Explain `var self = this` in JavaScript?***
 
 `self` is being used to maintain a reference to the original this even as the context is changing. It is a technique often used in event handlers (especially in closures).
 
