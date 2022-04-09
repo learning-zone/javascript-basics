@@ -9,12 +9,12 @@
 * [JavaScript ES6 Basics](https://github.com/learning-zone/JavaScript-ES6-Basics/blob/main/README.md)
 * [JavaScript Design Patterns](https://github.com/learning-zone/JavaScript-Design-Patterns/blob/main/README.md)
 * [JavaScript Coding Practice](https://github.com/learning-zone/JavaScript-Coding-Practice/blob/main/README.md)
-* [ES6 Interview Questions and Answers](es6-questions.md)
 
 <br/>
 
 ## Table of Contents
 
+* [Introduction](#introduction)
 * [Variables](#variables)
 * [Data types](#data-types)
 * [Operators](#operators)
@@ -30,7 +30,400 @@
 * [Error handling](#error-handling)
 * [Promises](#promises)
 * [Modules](#modules)
-* [Design Pattern](#design-pattern)
+* [Miscellaneous](#miscellaneous)
+
+## Introduction
+
+## Q. List out important features of es6?
+
+**1. Template Strings:**
+
+Template literals are string literals allowing embedded expressions.
+ 
+**Benefits:**
+
+* String interpolation
+* Embedded expressions
+* Multiline strings without hacks
+* String formatting
+* String tagging for safe HTML escaping, localization and more
+
+```js
+let greeting = `Hello World!`;
+
+// String Substitution
+let name = "Alex";
+console.log(`Hi, ${name}!`); // Output: "Hi, Alex!"
+
+
+// Multiline Strings
+let greeting = "Hello \
+World";
+
+// Tagged Templates
+fn`Hello ${you}! You're looking ${adjective} today!`
+```
+
+**2. Spread Operator:**
+
+Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. 
+
+```js
+function sum(x, y, z) {
+  return x + y + z;
+}
+
+const numbers = [1, 2, 3];
+
+console.log(sum(...numbers)); // 6
+
+console.log(sum.apply(null, numbers)); // 6
+```
+
+**2.1. Copying an array:**
+
+```js
+let fruits = ['Apple','Orange','Banana'];
+
+let newFruitArray = [...fruits];
+
+console.log(newFruitArray); // ['Apple','Orange','Banana']
+```
+
+**2.2. Concatenating arrays:**  
+
+```js
+let arr1 = ['A', 'B', 'C'];
+
+let arr2 = ['X', 'Y', 'Z'];
+
+let result = [...arr1, ...arr2];
+
+console.log(result); // ['A', 'B', 'C', 'X', 'Y', 'Z']
+```
+
+**2.3. Spreading elements together with an individual element:**
+
+```js
+let fruits = ['Apple','Orange','Banana'];
+
+let newFruits = ['Cherry', ...fruits];
+
+console.log(newFruits); // ['Cherry', 'Apple','Orange','Banana']
+```
+
+**2.4. Spreading elements on function calls:**
+
+```js
+let fruits = ['Apple','Orange','Banana'];
+
+var getFruits = (f1, f2, f3) => {
+console.log(`Fruits: ${f1}, ${f2} and ${f3}`); };
+
+getFruits(...fruits); // Fruits: Apple, Orange and Banana
+```
+
+**2.5. Spread syntax for object literals:**
+
+```js
+var obj1 = { id: 101, name: 'Jhon Doe' }
+var obj2 = { age: 25, country: 'USA'}
+
+const employee = { ...obj1, ...obj2 }
+
+console.log(employee); //{ "id": 101, "name": "Jhon Doe", "age": 25, "country": "USA" }
+```
+
+**3. Sets:**  
+
+Sets are a new object type with ES6 (ES2015) that allow to create collections of unique values. The values in a set can be either simple primitives like strings or integers, but more complex object types like object literals or arrays can also be part of a set.
+
+```js
+let animals = new Set();
+
+animals.add('🐷');
+animals.add('🐼');
+animals.add('🐢');
+animals.add('🐿');
+console.log(animals.size); // 4
+animals.add('🐼');
+console.log(animals.size); // 4
+
+console.log(animals.has('🐷')); // true
+animals.delete('🐷');
+console.log(animals.has('🐷')); // false
+
+animals.forEach(animal => {
+  console.log(`Hey ${animal}!`);
+});
+
+// Hey 🐼!
+// Hey 🐢!
+// Hey 🐿!
+
+animals.clear();
+console.log(animals.size); // 0
+
+
+// Example 02: Pass-In Arrray
+let myAnimals = new Set(['🐷', '🐢', '🐷', '🐷']);
+
+myAnimals.add(['🐨', '🐑']);
+myAnimals.add({ name: 'Rud', type: '🐢' });
+console.log(myAnimals.size); // 4
+
+myAnimals.forEach(animal => {
+  console.log(animal);
+});
+
+
+// 🐷
+// 🐢
+// ["🐨", "🐑"]
+// Object { name: "Rud", type: "🐢" }
+
+
+// Example 03: Strings are a valid iterable so they can also be passed-in to initialize a set
+console.log('Only unique characters will be in this set.'.length); // 43
+
+let sentence = new Set('Only unique characters will be in this set.');
+console.log(sentence.size); // 18
+
+
+// Example 04: On top of using forEach on a set, for…of loops can also be used to iterate over sets
+let moreAnimals = new Set(['🐺', '🐴', '🐕', '🐇']);
+
+for (let animal of moreAnimals) {
+  console.log(`Howdy ${ animal }`);
+}
+
+// Howdy 🐺
+// Howdy 🐴
+// Howdy 🐕
+// Howdy 🐇
+```
+
+**Sets: Keys and Values:**  
+
+Sets also have the `keys` and `values` methods, with keys being an alias for values, so both methods do exactly the same thing. Using either of these methods returns a new iterator object with the values of the set in the same order in which they were added to the set.
+
+```js
+let partyItems = new Set(['🍕', '🍾', '🎊']);
+let items = partyItems.values();
+
+console.log(items.next());
+console.log(items.next());
+console.log(items.next());
+console.log(items.next().done);
+
+// Object {
+//   done: false,
+//   value: "🍕"
+// }
+
+// Object {
+//   done: false,
+//   value: "🍾"
+// }
+
+// Object {
+//   done: false,
+//   value: "🎊"
+// }
+
+// true
+```
+
+**4. Default Parametrs:**
+
+```js
+function add(x = 10, y = 20) {
+  console.log(x + y);
+}
+add(30, 40); // 70
+```
+
+**5. repeat():**  
+
+The `repeat()` method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
+
+```js
+var cat = {
+  meow(times){
+    console.log("meow ".repeat(times));
+  }
+};
+cat.meow(2); // meow meow 
+```
+
+**6. Arrow Function (=>):** 
+
+```js
+var add = (x, y) => x + y;
+console.log(add(10, 20)); // 30;
+```
+
+**7. Arrow function with `this`**
+
+```js
+var person = {
+  first: "Alex",
+  actions: ["bike", "hike", "ski", "surf"],
+  printActions: function() {
+    var _this = this;
+    this.actions.forEach(function(action) {
+      var str = _this.first + " likes to " + action;
+      console.log(str);
+    });
+  }
+};
+person.printActions();
+
+//ES-6
+var person = {
+  first: "Alex",
+  actions: ["bike", "hike", "ski", "surf"],
+  printActions() {
+    this.actions.forEach(action => {
+      var str = this.first + " likes to " + action;
+      console.log(str);
+    });
+  }
+};
+```
+
+**8. Destructing Assignment:**
+
+```js
+var phone = {
+  title: "iPhone",
+  price: 800,
+  description: "The iPhone is a smartphone developed by Apple"
+};
+console.log(phone.title);
+
+//ES-6
+var { title, price, description } = {
+  title: "iPhone",
+  price: 800,
+  description: "The iPhone is a smartphone developed by Apple"
+};
+console.log(title); // iPhone
+```
+
+**9. Generators:**  
+
+A generator is a function that can stop midway and then continue from where it stopped. In short, a generator appears to be a function but it behaves like an `iterator`.
+
+```js
+function* generator(num) {
+  yield num + 1;
+  yield num + 2;
+  yield num + 3;
+  yield num + 4;
+  yield num + 5;
+}
+var gen = generator(10);
+console.log(gen.next().value); // 11
+console.log(gen.next().value); // 12
+console.log(gen.next().value); // 13
+console.log(gen.next().value); // 14
+console.log(gen.next().value); // 15
+```  
+
+**9.1. Implementing Iterables:**
+
+```js
+function * iterableObj() {
+  yield 'This';
+  yield 'is';
+  yield 'iterable.'
+}
+for (const val of iterableObj()) {
+  console.log(val);
+}
+
+// This
+// is 
+// iterable.
+```
+
+**9.2 Infinite Data Streams:** 
+
+```js
+function * naturalNumbers() {
+  let num = 1;
+  while (true) {
+    yield num;
+    num = num + 1
+  }
+}
+const numbers = naturalNumbers();
+console.log(numbers.next().value) // 1
+console.log(numbers.next().value) // 2
+```
+
+**Advantages of Generators:**  
+
+**a) Lazy Evaluation**: Lazy Evaluation is an evaluation model which delays the evaluation of an expression until its value is needed.
+**b) Memory Efficient**: We generate only the values that are needed. With normal functions, we needed to pre-generate all the values and keep them around in case we use them later. However, with generators, we can defer the computation till we need it.
+
+**10. Symbols():**  
+
+They are tokens that serve as unique IDs. We create symbols via the factory function Symbol()
+
+```js
+const symbol1 = Symbol();
+const symbol2 = Symbol(42);
+const symbol3 = Symbol('foo');
+
+console.log(typeof symbol1); // symbol
+console.log(symbol3.toString()); // Symbol(foo)
+console.log(Symbol('foo') === Symbol('foo')); // false
+```
+
+**Usage:**  
+
+Symbols primary use case is for making private object properties, which can be only of type String or Symbol (Numbers are automatically converted to Strings).
+
+```js
+const sym = Symbol()
+
+const privateObject = {
+  [sym]: 'Hello World'
+}
+
+privateObject[sym] // 'Hello World'
+```
+
+**10.1 Global Symbols:**  
+
+A Global Symbol Registry exists where we can store and access Global Symbols. We can use the `Symbol.for(key)` method to both create and access Global Symbols.
+
+```js
+const sym1 = Symbol.for('hello') // If the Symbol does not exist, it's created
+
+const sym2 = Symbol.for('hello') // The Symbol exists, so it is returned
+
+sym1 === sym2 // true
+```
+
+**11. Iterator:**  
+  
+The iterable is a interface that specifies that an object can be accessible if it implements a method who is key is `[symbol.iterator]`.
+
+```js
+var title = 'ES6';
+var iterateIt = title[Symbol.iterator]();
+
+console.log(iterateIt.next().value); //output: E
+console.log(iterateIt.next().value); //output: S
+console.log(iterateIt.next().value); //output: 6
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 ## VARIABLES
 
@@ -107,6 +500,68 @@ function n() {
 ```
 
 It\'s a best practice to minimize global variables. Since the variable can be accessed anywhere in the program, they can cause strange behavior.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?
+
+Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
+
+```js
+var person = { name: 'Tyler', age: 28 };
+console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!');
+// 'Hi, my name is Tyler and I am 28 years old!'
+```
+
+With template literals, you can now create that same output like this instead:
+
+```js
+const person = { name: 'Tyler', age: 28 };
+console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
+// 'Hi, my name is Tyler and I am 28 years old!'
+```
+
+Note that you use backticks, not quotes, to indicate that you are using a template literal and that you can insert expressions inside the `${}` placeholders.
+
+A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
+
+```js
+console.log('This is line one.\nThis is line two.');
+// This is line one.
+// This is line two.
+```
+
+Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
+
+```js
+console.log('This is line one.\n' +
+	'This is line two.');
+// This is line one.
+// This is line two.
+```
+
+Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
+
+```js
+console.log(`This is line one.
+This is line two.`);
+// This is line one.
+// This is line two.
+```
+
+Another use case of template literals would be to use as a substitute for templating libraries for simple variable interpolations:
+
+```js
+const person = { name: 'Tyler', age: 28 };
+document.body.innerHTML = `
+  <div>
+    <p>Name: ${person.name}</p>
+    <p>Name: ${person.age}</p>
+  </div>
+`
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -235,7 +690,7 @@ let a = 3;
 // Output: ReferenceError: a is not defined
 ```
 
-They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can’t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call **Temporal Dead Zone**, A time span between variable creation and its initialization where they can’t be accessed.
+They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can\'t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call **Temporal Dead Zone**, A time span between variable creation and its initialization where they can\'t be accessed.
 
 *Note: JavaScript only hoists declarations, not initialisation*
 
@@ -388,9 +843,44 @@ user = undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between null and undefined?***
+## Q. ***What is difference between null vs undefined?***
 
-Below are the main differences between null and undefined,
+**Null:**
+
+`Null` means an empty or non-existent value. Null is assigned, and explicitly means nothing.
+
+```js
+var test = null;
+console.log(test); // null
+```
+
+`null` is also an object. Interestingly, this was actually an error in the original JavaScript implementation:
+
+```js
+console.log(typeof test); // object
+```
+
+**Undefined:**
+
+Undefined means a variable has been declared, but the value of that variable has not yet been defined. For example:
+
+```js
+var test2;
+console.log(test2); // undefined
+```
+
+Unlike null, undefined is of the type undefined:
+
+```js
+console.log(typeof test2); // undefined
+```
+
+**Difference:**
+
+* `null` is an assigned value. It means nothing.
+* `undefined` means a variable has been declared but not defined yet.
+* `null` is an object. `undefined` is of type `undefined`.
+* `null !== undefined` but `null == undefined`.
 
 | Null | Undefined |
 |---- | -----------|
@@ -920,7 +1410,7 @@ console.log(a == undefined); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between `typeof` and `instanceof`?***
+## Q. ***What is the difference between `typeof` and `instanceof` operator?***
 
 `typeof` is an operator that returns a string with the type of whatever you pass.
 
@@ -928,7 +1418,7 @@ The `typeof` operator checks if a value belongs to one of the seven basic types:
 
 `typeof(null)` will return `object`.
 
-`instanceof` is much more intelligent: it works on the level of prototypes. In particular, it tests to see if the right operand appears anywhere in the prototype chain of the left. `instanceof` doesn’t work with primitive types. It `instanceof` operator checks the current object and returns true if the object is of the specified type, for example:
+`instanceof` is much more intelligent: it works on the level of prototypes. In particular, it tests to see if the right operand appears anywhere in the prototype chain of the left. `instanceof` doesn\'t work with primitive types. It `instanceof` operator checks the current object and returns true if the object is of the specified type, for example:
 
 ```js
 var dog = new Animal();
@@ -1099,7 +1589,7 @@ value of `x` is `NaN`, the statements are not the same.
 
 The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}` , etc.
 
-This is why you need to pay attention when you deal with numeric variables. `NaN` can’t be equal, less than or more than any other numeric value, so the only reliable way to check if the value is `NaN`, is to use `isNaN()` function.
+This is why you need to pay attention when you deal with numeric variables. `NaN` can\'t be equal, less than or more than any other numeric value, so the only reliable way to check if the value is `NaN`, is to use `isNaN()` function.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1543,6 +2033,230 @@ console.log(pets.includes('at')); // Output: false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. What are the benefits of using spread syntax and how is it different from rest syntax?
+
+ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and Rx.js projects.
+
+```js
+function addCookiesInArray(arr) {
+  return [...arr, 'Cookies'];
+}
+
+const result = addCookiesInArray(['I', 'really', "don't", 'like']); 
+
+console.log(result); // ["I", "really", "don't", "like", "Cookies"]
+```
+
+```js
+const person = {
+  name: 'Todd',
+  age: 29,
+};
+
+const copyOfPerson = { ...person };
+
+console.log(copyOfPerson); // {name: "Todd", age: 29}
+```
+
+ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
+
+```js
+function addFiveToABunchOfNumbers(...numbers) {
+  return numbers.map(x => x + 5);
+}
+
+const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
+
+const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
+
+const { e, f, ...others } = {
+  e: 1,
+  f: 2,
+  g: 3,
+  h: 4,
+}; // e: 1, f: 2, others: { g: 3, h: 4 }
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between for..in and for..of?
+
+* **for in**: loops over enumerable property names of an object.
+* **for of**: (new in ES6) does use an object-specific iterator and loops over the values generated by that.
+
+Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a **list of keys** on the object being iterated, whereas `for..of` returns a **list of values** of the numeric properties of the object being iterated.  
+Example:
+```js
+let list = [4, 5, 6];
+
+for (let i in list) {
+   console.log(i); // "0", "1", "2",
+}
+
+for (let i of list) {
+   console.log(i); // "4", "5", "6"
+}
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between ES6 Map and WeakMap?
+**Map**  
+It is used to associate a key to a value irrespective of the datatype such as strings, numbers, objects etc. To assign values to a map you need to use the set method:
+```js
+window.obj = {}
+var map = new Map()
+map.set(window.obj, 123)
+```
+Then, to retrieve the object call get:
+```js
+map.get(window.obj) // => 123
+```
+**WeakMap**  
+WeakMap accepts only objects but not any primitive values (strings, numbers)
+```js
+function Obj(){
+    this.val = new Array(10000000).join("---")
+}
+
+window.obj = new Obj();
+var map = new WeakMap()
+map.set(window.obj, 123)
+delete window.obj
+```
+
+**Differences between Map and WeakMap**  
+
+1. A WeakMap accepts only objects as keys whereas a Map,in addition to objects, accepts primitive datatype such as strings, numbers etc.
+2. WeakMap objects doesn't avert garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as Map.prototype.keys() to get the keys.
+3. There is no size property exists in WeakMap.
+
+**Browser support for Map and WeakMap**  
+The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. It's supported only in IE11 but not IE10 and below. On mobile, newer browsers also have support, but IE Mobile doesn\'t.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between Set and WeakSet in ES6?
+
+**Set**   
+
+Using the `Set()` class we can create an array like heterogeneous iterable object, which will contain only unique values in it. Unique is not just unique by values but also by types. i.e. it will consider `"2"` and `2` separate or different.
+
+Syntax:  
+```js
+var mySet = new Set([iterable]);
+```
+Example:
+```js
+var mySet= new Set([0,1]);
+
+mySet.add(2); // 0, 1, 2
+mySet.add(2); // 0, 1, 2
+mySet.add("Hello"); // 0, 1, 2, 'Hello'
+mySet.add({a:1, b:2}); // 0, 1, 2, 'Hello', {a:1, b:2}
+ 
+mySet.add(function(){}); // 0, 1, 2, 'Hello', {a:1, b:2}, [Function]
+ 
+mySet.has("Hello"); // ture
+mySet.delete("Hello"); // 'Hello' deleted
+mySet.has("Hello"); // false
+ 
+mySet.size; // 5
+mySet.clear(); // Set Cleared
+```
+**WeakSet**  
+
+A `WeakSet()` is a collection similar to Set, which holds unique values; but it only holds Objects and nothing else. If an object which is there in your WeakSet object has no other reference variable left, it will automatically be deleted.
+
+Syntax:
+```js
+var myWeakSet = new WeakSet([iterable with only objects]);
+```
+Example:
+```js
+var myWeakSet = new WeakSet([{a:1}]);
+var obj1 = {o:1};
+var obj2 = {o:2};
+
+myWeakSet.add(obj1); 
+myWeakSet.has(obj1); // true
+myWeakSet.has(obj2); // false
+myWeakSet.add(obj2); 
+myWeakSet.has(obj2); // true
+delete obj2; // Don't take it literally - you can't delete objects like that. Use scope to execute this.
+myWeakSet.has(obj2); // false, because you deleted obj2, so WeakSet releases it automatically
+myWeakSet.delete(obj1); // obj1 deleted from the set
+myWeakSet.add(2); // ERROR, no primitive value
+```
+|Set	                          |WeakSet                        |
+|-------------------------------|-------------------------------|
+|Can contain any type of values |	Can only contain objects      |
+|To find number of elements use .size	|To find elements count use .length|
+|.forEach() is available to iterate|	No .forEach() to iterate  |
+|Nothing is auto destroyed	     |If an element object has no other reference left, it will be auto released to garbage collector|
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are default values in destructuring assignment?
+
+A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment.  
+
+**Array Destructuring:**
+
+```js
+var x, y, z;
+
+[x=2, y=4, z=6] = [10];
+console.log(x); // 10
+console.log(y); // 4
+console.log(z); // 6
+```
+
+**Object Destructuring:**
+
+```js
+var {x=2, y=4, z=6} = {x: 10};
+
+console.log(x); // 10
+console.log(y); // 4
+console.log(z); // 6
+```
+
+## Q. Can you give an example for destructuring an array?
+
+Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
+
+```js
+// Variable assignment.
+const foo = ['one', 'two', 'three'];
+const [one, two, three] = foo;
+
+console.log(one); // "one"
+console.log(two); // "two"
+console.log(three); // "three"
+```
+
+```js
+// Swapping variables
+let a = 1;
+let b = 3;
+
+[a, b] = [b, a];
+console.log(a); // 3
+console.log(b); // 1
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***When to use reduce(), map(), foreach() and filter() in JavaScript?***
 
 * **forEach():**  
@@ -1628,6 +2342,29 @@ JSON arrays are written inside square brackets and array contain javascript obje
   {"firstName":"Anna", "lastName":"Smith"},
   {"firstName":"Shane", "lastName":"Warn"}
 ]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to validate JSON Object in javascript?***
+
+```js
+function isValidJson(json) {
+    try {
+        JSON.parse(json);
+        return true;
+    } catch (e) {
+        return false;
+    }
+}
+
+var validjson = '{"firstName":"James","lastName":"Bond"}'; 
+var invalidjson = '{"firstName""James","lastName":"Bond"}'; 
+
+console.log("With Valid JSON Text: "+isValidJson(validjson)); //true
+console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
 ```
 
 <div align="right">
@@ -1861,6 +2598,14 @@ Object.getOwnPropertyNames(counterArray).length; // Output 3
 _.size({one: 1, two: 2, three: 3});
 => 3
 ```
+
+## Q. What is an Iterator?
+
+An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `next()` method which returns an object with two properties: value (the next value in the sequence) and done (which is true if the last value in the sequence has been consumed).
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -2122,6 +2867,161 @@ console.log(userJSON);// {name: "John", age: 31}
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. What is a WeakSet?
+
+WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
+
+```js
+new WeakSet([iterable]);
+```
+Let us see the below example to explain It is behavior,
+```js
+var ws = new WeakSet();
+var user = {};
+ws.add(user);
+ws.has(user);    // true
+ws.delete(user); // removes user from the set
+ws.has(user);    // false, user has been removed
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the differences between WeakSet and Set?
+
+The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
+Other differences are,
+1. Sets can store any value Whereas WeakSets can store only collections of objects
+2. WeakSet does not have size property unlike Set
+3. WeakSet does not have methods such as clear, keys, values, entries, forEach.
+4. WeakSet is not iterable.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. List down the collection of methods available on WeakSet?
+
+Below are the list of methods available on WeakSet,
+1. add(value): A new object is appended with the given value to the weakset
+2. delete(value): Deletes the value from the WeakSet collection.
+3. has(value): It returns true if the value is present in the WeakSet Collection, otherwise it returns false.
+4. length(): It returns the length of weakSetObject
+Let us see the functionality of all the above methods in an example,
+```js
+var weakSetObject = new WeakSet();
+var firstObject = {};
+var secondObject = {};
+// add(value)
+weakSetObject.add(firstObject);
+weakSetObject.add(secondObject);
+console.log(weakSetObject.has(firstObject)); //true
+console.log(weakSetObject.length()); //2
+weakSetObject.delete(secondObject);
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a WeakMap?
+
+The WeakMap object is a collection of key/value pairs in which the keys are weakly referenced. In this case, keys must be objects and the values can be arbitrary values. The syntax is looking like as below,
+```js
+new WeakMap([iterable])
+```
+Let us see the below example to explain It is behavior,
+```js
+var ws = new WeakMap();
+var user = {};
+ws.set(user);
+ws.has(user);    // true
+ws.delete(user); // removes user from the map
+ws.has(user);    // false, user has been removed
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the differences between WeakMap and Map?
+
+The main difference is that references to key objects in Map are strong while references to key objects in WeakMap are weak. i.e, A key object in WeakMap can be garbage collected if there is no other reference to it.
+Other differences are,
+1. Maps can store any key type Whereas WeakMaps can store only collections of key objects
+2. WeakMap does not have size property unlike Map
+3. WeakMap does not have methods such as clear, keys, values, entries, forEach.
+4. WeakMap is not iterable.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. List down the collection of methods available on WeakMap?
+
+Below are the list of methods available on WeakMap,
+1. set(key, value): Sets the value for the key in the WeakMap object. Returns the WeakMap object.
+2. delete(key): Removes any value associated to the key.
+3. has(key): Returns a Boolean asserting whether a value has been associated to the key in the WeakMap object or not.
+4. get(key): Returns the value associated to the key, or undefined if there is none.
+Let us see the functionality of all the above methods in an example,
+```js
+var weakMapObject = new WeakMap();
+var firstObject = {};
+var secondObject = {};
+// set(key, value)
+weakMapObject.set(firstObject, 'John');
+weakMapObject.set(secondObject, 100);
+console.log(weakMapObject.has(firstObject)); //true
+console.log(weakMapObject.get(firstObject)); // John
+weakMapObject.delete(secondObject);
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a rest parameter?
+
+Rest parameter is an improved way to handle function parameter which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,
+```js
+function f(a, b, ...theArgs) {
+  // ...
+}
+```
+For example, let us take a sum example to calculate on dynamic number of parameters,
+```js
+function total(…args) {
+  let sum = 0;
+  for(let i of args) {
+    sum+=i;
+  }
+ return sum;
+}
+console.log(fun(1,2)); //3
+console.log(fun(1,2,3)); //6
+console.log(fun(1,2,3,4)); //13
+console.log(fun(1,2,3,4,5)); //15
+```
+
+*Note: Rest parameter is added in ES2015 or ES6*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What happens if you do not use rest parameter as a last argument?
+
+The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it does not make any sense and will throw an error.
+
+```js
+function someFunc(a,…b,c) {
+  //You code goes here
+  return;
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Regular Expression
 
 ## Q. ***What are the string methods available in Regular expression?***
@@ -2293,6 +3193,110 @@ function detectMobile() {
 
 ## FUNCTIONS
 
+## Q. What are fat arrow functions? When you should not use arrow functions in ES6?
+
+An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
+
+**Arrow functions in ES6 has two limitations:**
+
+* Don't work with new
+* Fixed this bound to scope at initialisation
+
+**When should not use Arrow Functions:** 
+
+**1. Object methods**  
+When you call cat.jumps, the number of lives does not decrease. It is because this is not bound to anything, and will inherit the value of this from its parent scope.
+```js
+var cat = {
+  lives: 9,
+  jumps: () => {
+    this.lives--;
+  }
+}
+```
+
+**2. Callback functions with dynamic context:**  
+
+If we click the button, we would get a TypeError. It is because this is not bound to the button, but instead bound to its parent scope.
+
+```js
+var button = document.getElementById('press');
+button.addEventListener('click', () => {
+  this.classList.toggle('on');
+});
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the benefit of using the arrow syntax for a method in a constructor?
+
+The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can\'t change after that. So, when the constructor is used to create a new object, `this` will always refer to that object.
+
+```js
+const Person = function(firstName) {
+  this.firstName = firstName;
+  this.sayName1 = function() { console.log(this.firstName); };
+  this.sayName2 = () => { console.log(this.firstName); };
+};
+
+const john = new Person('John');
+const dave = new Person('Dave');
+
+john.sayName1(); // John
+john.sayName2(); // John
+
+// The regular function can have its 'this' value changed, but the arrow function cannot
+john.sayName1.call(dave); // Dave (because "this" is now the dave object)
+john.sayName2.call(dave); // John
+
+john.sayName1.apply(dave); // Dave (because 'this' is now the dave object)
+john.sayName2.apply(dave); // John
+
+john.sayName1.bind(dave)(); // Dave (because 'this' is now the dave object)
+john.sayName2.bind(dave)(); // John
+
+var sayNameFromWindow1 = john.sayName1;
+sayNameFromWindow1(); // undefined (because 'this' is now the window object)
+
+var sayNameFromWindow2 = john.sayName2;
+sayNameFromWindow2(); // John
+```
+
+The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn\'t have to worry about the context changing.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the benefits of using arrow function over es5 function?
+
+Arrows is a new syntax for functions, which brings several benefits:
+
+* Arrow syntax automatically binds `this` to the surrounding code’s context
+* The syntax allows an implicit return when there is no body block, resulting in shorter and simpler code in some cases
+* Last but not least, `=>` is shorter and simpler than `function`, although stylistic issues are often subjective
+
+```js
+//arrow function with no parameters
+var a1 = () => 1;
+ 
+//arrow with one parameter can be defined without parentheses
+var a2 = x => 1;
+var a3 = (x) => 1;
+ 
+//arrow with multiple params requires parentheses
+var a4 = (x, y) => 1;
+ 
+//arrow with body has no implicit return
+var a5 = x => { return 1; };
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is a first class function?***
 
 JavaScript functions are first-class functions meaning functions and objects are treated as the same thing. Functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function "first-class citizens in JavaScript"
@@ -2432,7 +3436,7 @@ function pure(arg) {
 }
 ```
 
-Here is a pure function. It didn’t side effect any external state and it returns an output based on the input.
+Here is a pure function. It didn\'t side effect any external state and it returns an output based on the input.
 
 A function must pass two tests to be considered “pure”:
 
@@ -3030,6 +4034,111 @@ The following rules are applied when we use `this` keyword in javascript
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. What is generator in JS?
+
+**Generator-Function:**
+
+A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the `yield` keyword rather than `return`. The `yield` statement suspends function’s execution and sends a value back to caller, but retains enough state to enable function to resume where it is left off. When resumed, the function continues execution immediately after the last `yield` run.
+
+Syntax 
+
+```js
+function* gen() {
+     yeild 1;
+     yeild 2;
+     ...
+     ...
+}
+```
+
+**Generator-Object:** 
+
+Generator functions return a generator object. Generator objects are used either by calling the next method on the generator object or using the generator object in a “for in” loop.
+
+```js
+function * fun() {
+    yield 10;
+    yield 20;
+    yield 30;
+} 
+  
+// Calling the Generate Function
+var gen = fun();
+document.write(gen.next().value);
+document.write("<br>");
+document.write(gen.next().value);
+document.write("<br>");
+document.write(gen.next().value);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. Compare Async-Await and Generators usage to achive same functionality?
+
+**Generators/Yield**
+
+Generators are objects created by generator functions — functions with an * (asterisk) next to their name. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator's caller. It can be thought of as a generator-based version of the return keyword.
+```js
+const generator = (function*() {
+  // waiting for .next()
+  const a = yield 5;
+  // waiting for .next()
+  console.log(a); // => 15
+})();
+
+console.log(generator.next()); // => { done: false, value: 5 }
+console.log(generator.next(15)); // => { done: true, value: undefined }
+```
+**Async/Await**
+
+Async keyword is used to define an asynchronous function, which returns a `AsyncFunction` object.
+
+Await keyword is used to pause async function execution until a `Promise` is fulfilled, that is resolved or rejected, and to resume execution of the `async` function after fulfillments. When resumed, the value of the `await` expression is that of the fulfilled `Promise`.
+
+**Key points:**  
+
+1. Await can only be used inside an async function.
+2. Functions with the async keyword will always return a promise.
+3. Multiple awaits will always run in sequential order under a same function.
+4. If a promise resolves normally, then await promisereturns the result. But in case of a rejection it throws the error, just if there were a throw statement at that line.
+5. Async function cannot wait for multiple promises at the same time.
+6. Performance issues can occur if using await after await as many times one statement doesn\'t depend on the previous one.
+
+```js
+
+async function asyncFunction() {
+
+  const promise = new Promise((resolve, reject) => {
+    setTimeout(() => resolve("i am resolved!"), 1000)
+  });
+
+  const result = await promise; 
+  // wait till the promise resolves (*)
+
+  console.log(result); // "i am resolved!"
+}
+
+asyncFunction();
+```
+
+**Generator and Async-await — Comparison**  
+
+1. Generator functions/yield and Async functions/await can both be used to write asynchronous code that “waits”, which means code that looks as if it was synchronous, even though it really is asynchronous.
+2. Generator function are executed yield by yield i.e one yield-expression at a time by its iterator (the next method) where as Async-await, they are executed sequential await by await.
+3. Async/await makes it easier to implement a particular use case of Generators.
+4. The return value of Generator is always {value: X, done: Boolean} where as for Async function it will always be a promise that will either resolve to the value X or throw an error.
+5. Async function can be decomposed into Generator and promise implementation which are good to know stuff.
+
+Generators and async functions always return a specific type of object:
+- Generator functions: If you yield/return a value X, it will always return an iteration object with the form {value: X, done: Boolean}
+- Async functions: If you return a value X, it will always return a promise that will either resolve to the value X or throw an error.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How do you compare two date objects?***
 
 You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
@@ -3226,7 +4335,7 @@ After a function expression has been stored in a variable, the variable can be u
 **Difference:**
 
 * `Function declarations` load before any code is executed while `Function expressions` load only when the interpreter reaches that line of code.
-* Similar to the `var` statement, function declarations are hoisted to the top of other code. Function expressions aren’t hoisted, which allows them to retain a copy of the local variables from the scope where they were defined.  
+* Similar to the `var` statement, function declarations are hoisted to the top of other code. Function expressions aren\'t hoisted, which allows them to retain a copy of the local variables from the scope where they were defined.  
 
 **Benefits of Function Expressions:**  
 
@@ -3713,33 +4822,6 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is server-sent events?***
-
-Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
-
-The `EventSource` object is used to receive server-sent event notifications. For example, we can receive messages from server as below,
-
-```js
-if(typeof(EventSource) !== "undefined") {
-  var source = new EventSource("sse_generator.js");
-  source.onmessage = function(event) {
-    document.getElementById("output").innerHTML += event.data + "<br>";
-  };
-}
-```
-
-Below are the list of events available for server sent events
-
-| Event | Description |
-|------ |--------------|
-| onopen  | It is used when a connection to the server is opened |
-| onmessage | This event is used when a message is received  |
-| onerror | It happens when an error occurs|
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## OBJECTS
 
 ## Q. ***What are the possible ways to create objects in JavaScript?***
@@ -3847,6 +4929,23 @@ var v4 = false;
 var v5 = [];
 var v6 = /()/;
 var v7 = function(){};
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. Can you give an example for destructuring an object?
+
+Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
+
+```js
+// Variable assignment.
+const o = { p: 42, q: true };
+const { p, q } = o;
+
+console.log(p); // 42
+console.log(q); // true
 ```
 
 <div align="right">
@@ -4041,7 +5140,7 @@ Here each instance variable `emp1`, `emp2`, `emp3` has own copy of `formatSalary
 
 ## Q. ***How to extend built-in objects?***
 
-All objects in JS contains a prototype property, even the variables we declare. Since we don’t have access to the JS source code, thus, we cannot insert our custom functionality in String object by fiddling with JS source code, we use the String object’s prototype as another approach to insert our functionality.
+All objects in JS contains a prototype property, even the variables we declare. Since we don\'t have access to the JS source code, thus, we cannot insert our custom functionality in String object by fiddling with JS source code, we use the String object’s prototype as another approach to insert our functionality.
 ```js
 String.prototype.regexIt = function() {
   /*
@@ -4215,6 +5314,119 @@ Object.keys(obj).length === 0 && obj.constructor === Object
 Object.entries(obj).length === 0 && obj.constructor === Object 
 ```
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is use of Proxies in es6?
+
+The Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc).
+
+There are 3 key terms we need to define before we proceed:
+
+* **handler** — the placeholder object which contains the trap(s)
+* **traps** — the method(s) that provide property access
+* **target** — object which the proxy virtualizes
+
+Syntax
+```js
+const p = new Proxy(target, handler)
+```
+Example:
+```js
+const handler = {
+  get: function(obj, prop) {
+    return prop in obj ?
+      obj[prop] :
+      37;
+  }
+};
+
+const p = new Proxy({}, handler);
+p.a = 1;
+p.b = undefined;
+
+console.log(p.a, p.b); 
+//  1, undefined
+
+console.log('c' in p, p.c); 
+//  false, 37
+```
+
+There are many real-world applications for Proxies
+
+* validation
+* value correction
+* property lookup extensions
+* tracing property accesses
+* revocable references
+* implementing the DOM in javascript
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a proxy object?
+
+The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc. The syntax would be as follows,
+```js
+var p = new Proxy(target, handler);
+```
+Let us take an example of proxy object,
+```js
+var handler = {
+    get: function(obj, prop) {
+        return prop in obj ?
+            obj[prop] :
+            100;
+    }
+};
+
+var p = new Proxy({}, handler);
+p.a = 10;
+p.b = null;
+
+console.log(p.a, p.b); // 10, null
+console.log('c' in p, p.c); // false, 100
+```
+In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is Proxies and Reflection in JavaScript?
+
+JavaScript support for the Proxy and Reflect objects allowing you to intercept and define custom behavior for fundamental language operations (e.g. property lookup, assignment, enumeration, function invocation, etc). 
+
+**Proxies**  
+The `Proxy` object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc). For example getting a property on an object:
+```js
+var handler = {
+  get: function(target, name) {
+    return name in target ? target[name] : 42;
+  }
+};
+
+var p = new Proxy({}, handler);
+p.a = 1;
+console.log(p.a, p.b); // 1, 42
+```
+The Proxy object defines a target (an empty object here) and a handler object in which a get trap is implemented. Here, an object that is proxied will not return undefined when getting undefined properties, but will instead return the number 42.
+
+**Reflection**  
+Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object.
+
+`Reflect` helps with forwarding default operations from the handler to the target.
+```js
+Reflect.apply(Math.floor, undefined, [1.75]); // 1;
+
+Reflect.apply(String.fromCharCode, undefined, [104, 101, 108, 108, 111]); // "hello"
+
+Reflect.apply(RegExp.prototype.exec, /ab/, ['confabulation']).index; // 4
+
+Reflect.apply(''.charAt, 'ponies', [3]); // "i"
+```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -4626,9 +5838,113 @@ window.history.pushState('newPage', 'Title', '/newPage.html');
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is the difference between an attribute and a property?***
+
+Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
+
+```html
+<input type="text" value="Name:">
+```
+
+You can retrieve the attribute value as below,
+
+```js
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Good morning
+console.log(input.value); // Good morning
+```
+
+And after you change the value of the text field to "Good evening", it becomes like
+
+```js
+console.log(input.getAttribute('value')); // Good morning
+console.log(input.value); // Good evening
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between an "attribute" and a "property"?***
+
+Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
+
+```js
+const input = document.querySelector('input');
+console.log(input.getAttribute('value')); // Hello
+console.log(input.value); // Hello
+```
+
+But after you change the value of the text field by adding "World!" to it, this becomes:
+
+```js
+console.log(input.getAttribute('value')); // Hello
+console.log(input.value); // Hello World!
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?***
+
+The `load` event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
+
+The DOM event `DOMContentLoaded` will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between firstChild and firstElementChild?***
+
+**firstChild:**
+
+The firstChild property returns the first child node of the specified node, as a Node object.
+
+```html
+<ul id="myList">
+    <li>Coffee</li>
+    <li>Tea</li>
+</ul>
+```
+
+```js
+var list = document.getElementById("myList").firstChild.innerHTML; // Coffee
+```
+
+**firstElementChild:**  
+
+The firstElementChild property returns the first child element of the specified element.
+
+```html
+<ul id="myList">
+  <li>Coffee</li>
+  <li>Tea</li>
+</ul>
+```
+
+```js
+var list = document.getElementById("myList").firstElementChild.innerHTML; // Coffee
+```
+
+**Difference:**
+
+The difference between this property and firstElementChild, is that firstChild returns the first child node as an element node, a text node or a comment node (depending on which one's first), while firstElementChild returns the first child node as an element node (ignores text and comment nodes).
+
+*Note: Whitespace inside elements is considered as text, and text is considered as nodes*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 # CLASSES
 
-## Q. ***Example of Prototypal Inheritance?***
+## Q. ***Explain how prototypal inheritance works?***
+
+All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain.
+
+**Example:**
 
 We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
 
@@ -4703,6 +6019,130 @@ c.constructor.name;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***Example of Prototypal Inheritance?***
+
+We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
+
+```js
+if (typeof Object.create !== 'function') {
+  Object.create = function (parent) {
+    function Tmp() {}
+    Tmp.prototype = parent;
+    return new Tmp();
+  };
+}
+
+const Parent = function() {
+  this.name = "Parent";
+}
+
+Parent.prototype.greet = function() { console.log("hello from Parent"); }
+
+const child = Object.create(Parent.prototype);
+
+child.cry = function() {
+  console.log("waaaaaahhhh!");
+}
+
+child.cry();
+// Outputs: waaaaaahhhh!
+
+child.greet();
+// Outputs: hello from Parent
+```
+
+Things to note are:
+
+* `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
+* We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
+  * Object.create(Parent.prototype);
+  * Object.create(new Parent(null));
+  * Object.create(objLiteral);
+  * Currently, `child.constructor` is pointing to the `Parent`:
+
+```js
+child.constructor
+ƒ () {
+  this.name = "Parent";
+}
+child.constructor.name
+"Parent"
+```
+  * If we'd like to correct this, one option would be to do:
+
+```js
+function Child() {
+  Parent.call(this);
+  this.name = 'child';
+}
+
+Child.prototype = Parent.prototype;
+Child.prototype.constructor = Child;
+
+const c = new Child();
+
+c.cry();
+// Outputs: waaaaaahhhh!
+
+c.greet();
+// Outputs: hello from Parent
+
+c.constructor.name;
+// Outputs: "Child"
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What are the differences between ES6 class and ES5 function constructors?
+
+```js
+// ES5 Function Constructor
+function Person(name) {
+  this.name = name;
+}
+
+// ES6 Class
+class Person {
+  constructor(name) {
+    this.name = name;
+  }
+}
+```
+
+For simple constructors, they look pretty similar.
+
+The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+
+```js
+// ES5 Function Constructor
+function Student(name, studentId) {
+  // Call constructor of superclass to initialize superclass-derived members.
+  Person.call(this, name);
+
+  // Initialize subclass's own members.
+  this.studentId = studentId;
+}
+
+Student.prototype = Object.create(Person.prototype);
+Student.prototype.constructor = Student;
+
+// ES6 Class
+class Student extends Person {
+  constructor(name, studentId) {
+    super(name);
+    this.studentId = studentId;
+  }
+}
+```
+
+It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is difference between private variable, public variable and static variable? How we achieve this in JS?***
 
 Private and public variables are two ways of information hiding. An object can have private and public variables. Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
@@ -4730,6 +6170,41 @@ MyClass.prototype.publicMethod = function () {
 MyClass.staticProperty = "baz";
 
 var myInstance = new MyClass();
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is difference between Classic Inheritance and Prototypical Inheritance?***
+
+**Class Inheritance**: instances inherit from classes (like a blueprint — a description of the class), and create sub-class relationships: hierarchical class taxonomies. Instances are typically instantiated via constructor functions with the new keyword. Class inheritance may or may not use the class keyword from ES6.
+
+**Prototypal Inheritance**: instances inherit directly from other objects. Instances are typically instantiated via factory functions or Object.create(). Instances may be composed from many different objects, allowing for easy selective inheritance.
+
+**Features**  
+
+* Classes: create tight coupling or hierarchies/taxonomies.
+* Prototypes: mentions of concatenative inheritance, prototype delegation, functional inheritance, object composition.
+* No preference for prototypal inheritance & composition over class inheritance.
+
+The difference between classical inheritance and prototypal inheritance is that classical inheritance is limited to classes inheriting from other classes while prototypal inheritance supports the cloning of any object using an object linking mechanism. A prototype basically acts as a template for other objects, whether they are extending the base object or not.
+
+```js
+function Circle(radius) {
+  this.radius = radius;
+}
+
+Circle.prototype.area = function () {
+  var radius = this.radius;
+  return Math.PI * radius * radius;
+};
+
+Circle.prototype.circumference: function () {
+  return 2 * Math.PI * this.radius;
+};
+
+var circle = new Circle(5);
 ```
 
 <div align="right">
@@ -4770,6 +6245,151 @@ admin.printInfo(); // My name is Nick
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How does Object.create method works JavaScript?***
+
+The ECMAScript 5 **Object.create()** method is the easiest way for one object to inherit from another, without invoking a constructor function. 
+
+**For instance:** 
+
+```js
+var employee = {
+  name: 'Alex',
+  displayName: function () {
+    console.log(this.name);
+  }
+};
+
+var emp1 = Object.create(employee);
+console.log(emp1.displayName());  // output "Alex"
+```
+
+In the example above, we create a new object `emp1` that inherits from `employee`. In other words `emp1`'s prototype is set to `employee`. After this emp1 is able to access the same properties and method on employee until new properties or method with the same name are defined.
+
+**For instance:** Defining `displayName()` method on `emp1` will not automatically override the employee `displayName`.
+
+```js
+emp1.displayName = function() {
+	console.log('xyz-Anonymous');
+};
+
+employee.displayName(); //Alex
+emp1.displayName();//xyz-Anonymous
+``` 
+
+In addition to this **`Object.create(`)** method also allows to specify a second argument which is an object containing additional properties and methods to add to the new object.
+
+**For example**
+
+```js
+var emp1 = Object.create(employee, {
+	name: {
+		value: "John"
+	}
+});
+
+emp1.displayName(); // "John"
+employee.displayName(); // "Alex"
+```
+In the example above, `emp1` is created with It is own value for name, so calling **displayName()** method will display `"John"` instead of `"Alex"`.
+
+Object created in this manner give you full control over newly created object. You are free to add, remove any properties and method you want.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How to use constructor functions for inheritance in JavaScript?***
+
+Let say we have `Person` class which has name, age, salary properties and **incrementSalary()** method.
+
+```js
+function Person(name, age, salary) {
+  this.name = name;
+  this.age = age;
+  this.salary = salary;
+  this.incrementSalary = function (byValue) {
+    this.salary = this.salary + byValue;
+  };
+}
+```
+
+Now we wish to create Employee class which contains all the properties of Person class and wanted to add some additional properties into Employee class.
+
+```js
+function Employee(company){
+	this.company = company;
+}
+
+//Prototypal Inheritance 
+Employee.prototype = new Person("Alex", 24,5000);
+```
+In the example above, **Employee** type inherits from **Person**. It does so by assigning a new instance of `Person` to `Employee` prototype. After that, every instance of `Employee` inherits its properties and methods from `Person`.
+
+```js
+//Prototypal Inheritance 
+Employee.prototype = new Person("Alex", 24,5000);
+
+var emp1 = new Employee("Google");
+
+console.log(emp1 instanceof Person); // true
+console.log(emp1 instanceof Employee); // true
+```
+
+Let us understand Constructor inheritance 
+
+```js
+//Defined Person class
+function Person(name){
+	this.name = name || "Alex";
+}
+
+var obj = {};
+
+// obj inherit Person class properties and method 
+Person.call(obj); // constructor inheritance
+
+console.log(obj); // Object {name: "Alex"}
+```
+Here we saw calling **Person.call(obj)** define the name properties from `Person` to `obj`.
+
+```js
+console.log(name in obj); // true
+```
+Type-based inheritance is best used with developer defined constructor function rather than natively in JavaScript. In addition to this also allows flexibility in how we create similar type of object.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is prototype chain?***
+
+Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
+
+**Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through `Object.getPrototypeOf(object)` or `__proto__` property whereas prototype on constructors function is available through **Object.prototype**.
+
+```js
+function Person(firstName, lastName, age) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.age = age;
+}
+//Person class created
+Person.prototype.getFullName = function() {
+  return this.firstName + " " + this.lastName;
+}
+
+// we have added getFullName method in Person’s prototype.
+var person = new Person("John", "K", 25);
+// It will create an instance of the Person class
+> person.hasOwnProperty("firstName");  // true
+> person.hasOwnProperty("getFullName");  // false
+> person.getFullName(); // John K
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***Difference between: `function Person(){}`, `var person = Person()`, and `var person = new Person()`?***
 
 This question is pretty vague. My best guess at its intention is that it is asking about constructors in JavaScript. Technically speaking, `function Person(){}` is just a normal function declaration. The convention is to use PascalCase for functions that are intended to be used as constructors.
@@ -4796,6 +6416,205 @@ console.log(person.name); // "john"
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## ERROR HANDLING
+
+## Q. ***Define the various types of errors which occur in JavaScript programming language?***
+
+When an exception occurs, an object representing the error is created and thrown.  The JavaScript language defines seven types of built-in error objects. 
+
+**Error**: The “Error” type is used to represent generic exceptions.  This type of exception is most often used for implementing user defined exceptions. 
+```js
+var error = new Error("error message");
+```
+**RangeError**: “RangeError” exceptions are generated by numbers that fall outside of a specified range.
+```js
+var pi = 3.14159;
+
+pi.toFixed(100000);  // RangeError
+```
+**ReferenceError**: A “ReferenceError” exception is thrown when a non-existent variable is accessed.  These exceptions commonly occur when an existing variable name is misspelled. 
+```js
+function foo() {
+  bar++;  // ReferenceError
+}
+```
+**SyntaxError**: A “SyntaxError” is thrown when the rules of the JavaScript language are broken. 
+```js
+if (foo) {  // SyntaxError
+  // the closing curly brace is missing
+```
+**TypeError**: A “TypeError” exception occurs when a value is not of the expected type.  Attempting to call a non-existent object method is a common cause of this type of exception. 
+```js
+var foo = {};
+
+foo.bar(); // TypeError
+```
+**URIError**: A “URIError” exception is thrown by methods such as encodeURI() and decodeURI() when they encounter a malformed URI. The following example generates a “URIError” while attempting to decode the string “%”.  The “%” character represents the beginning of a URI escape sequence.  Since nothing follows the “%” in this example, the string is an invalid escape sequence, and therefore a malformed URI component.
+```js
+decodeURIComponent("%"); // URIError
+```
+**EvalError**: “EvalError” exceptions are thrown when the eval() function is used improperly.  These exceptions are not used in the most recent version of the EcmaScript standard.  However, they are still supported in order to maintain backwards compatibility with older versions of the standard.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is an error object?***
+
+An error object is a built in error object that provides error information when an error occurs. It has two properties: name and message. For example, the below function logs error details,
+```js
+try {
+  greeting("Welcome");
+}
+catch(err) {
+  console.log(err.name + "<br>" + err.message);
+}
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***When you get a syntax error?***
+
+A SyntaxError is thrown if you try to evaluate code with a syntax error. For example, the below missing quote for the function parameter throws a syntax error
+```js
+try {
+  eval("greeting('welcome)");   // Missing ' will produce an error
+}
+catch(err) {
+  console.log(err.name);
+}
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the different error names from error object?***
+
+There are 6 different types of error names returned from error object
+
+| Error Name | Description |
+|----------- |-------------|
+| EvalError  | An error has occurred in the eval() function |
+| RangeError | An error has occurred with a number "out of range"  |
+| ReferenceError | An error due to an illegal reference|
+| SyntaxError | An error due to a syntax error|
+| TypeError | An error due to a type error |
+| URIError | An error due to encodeURI() |
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the various statements in error handling?***
+
+Below are the list of statements used in an error handling,
+1. **try:** This statement is used to test a block of code for errors
+2. **catch:** This statement is used to handle the error
+3. **throw:** This statement is used to create custom errors.
+4. **finally:** This statement is used to execute code after try and catch regardless of the result.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## PROMISES
+
+## Q. What is a promise?
+
+A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
+Syntax
+
+```js
+const promise = new Promise(function(resolve, reject) {
+  // promise description
+})
+```
+
+Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
+
+Promises have three states:
+1. **Pending:** This is an initial state of the Promise before an operation begins
+2. **Fulfilled:** This state indicates that specified operation was completed.
+3. **Rejected:** This state indicates that the operation did not complete. In this case an error value will be thrown.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is promise chaining?
+
+The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining.
+
+```js
+new Promise(function(resolve, reject) {
+
+  setTimeout(() => resolve(1), 1000);
+
+}).then(function(result) {
+
+  console.log(result); // 1
+  return result * 2;
+
+}).then(function(result) {
+
+  console.log(result); // 2
+  return result * 3;
+
+}).then(function(result) {
+
+  console.log(result); // 6
+  return result * 4;
+
+});
+```
+In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,
+1. The initial promise resolves in 1 second,
+2. After that `.then` handler is called by logging the result(1) and then return a promise with the value of result * 2.
+3. After that the value passed to the next `.then` handler by logging the result(2) and return a promise with result * 3.
+4. Finally the value passed to the last `.then` handler by logging the result(6) and return a promise with result * 4.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is promise.all()?
+
+`Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected.
+
+```js
+Promise.all([Promise1, Promise2, Promise3]) 
+        .then(result) => {   
+            console.log(result) 
+          }) 
+        .catch(error => console.log(`Error in promises ${error}`));
+```
+*Note: Remember that the order of the promises(output the result) is maintained as per input order*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the purpose of race method in promise?
+
+`Promise.race()` method will return the promise instance which is firstly resolved or rejected. Let us take an example of race() method where promise2 is resolved first
+
+```js
+var promise1 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 500, 'one');
+});
+var promise2 = new Promise(function(resolve, reject) {
+    setTimeout(resolve, 100, 'two');
+});
+
+Promise.race([promise1, promise2]).then(function(value) {
+  console.log(value); // "two" // Both promises will resolve, but promise2 is faster
+});
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What are the pros and cons of promises over callbacks?***
 
 Below are the list of pros and cons of promises over callbacks,  
@@ -4816,59 +6635,322 @@ Below are the list of pros and cons of promises over callbacks,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between an attribute and a property?***
+## Q. ***What are the pros and cons of using Promises instead of callbacks?***
 
-Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
+**Pros**
 
+* Avoid callback hell which can be unreadable.
+* Makes it easy to write sequential asynchronous code that is readable with `.then()`.
+* Makes it easy to write parallel asynchronous code with `Promise.all()`.
+* With promises, these scenarios which are present in callbacks-only coding, will not happen:
+  * Call the callback too early
+  * Call the callback too late (or never)
+  * Call the callback too few or too many times
+  * Fail to pass along any necessary environment/parameters
+  * Swallow any errors/exceptions that may happen
+
+**Cons**
+
+* Slightly more complex code (debatable).
+* In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. How does await and async works in es6?
+
+* **Promises**
+
+```js
+const delay = seconds => {
+    return new Promise(resolve => {
+        setTimeout(resolve, seconds * 1000)
+    });
+};
+
+console.log("Zero seconds wait");
+delay(1).then(() => console.log('One seconds wait'));
+delay(5).then(() => console.log('Five seconds wait'));
+```
+
+* **Loading data with fetch()**
+
+```js
+const getPeopleInSpace = () =>
+    fetch('http://api.open-notify.org/astros.json')
+        .then(res => res.json());
+
+getPeopleInSpace()
+    .then(console.log);
+```
+
+* **Async() and await():**
+
+```js
+const delay = seconds => {
+    return new Promise(
+        resolve => setTimeout(resolve, seconds * 1000)
+    )
+};
+
+const countToFive = async() => {
+    console.log('zero seconds wait');
+    await delay(2);
+    console.log('Two seconds wait');
+    await delay(5);
+    console.log('Five seconds wait');
+}
+
+countToFive();
+```
+
+* **Async with fetch:**
+
+```js
+const githubRequest = async(loginName) => {
+    try{
+        var response = await fetch(`http://api.github.com/users/${loginName}/followers`);
+        var json = await response.json();
+        var followerList = json.map(user => user.login);
+        console.log(followerList);
+    } catch(e){
+        console.log("Data didn't load", e);
+    }
+};
+
+//githubRequest('eveporcello');
+githubRequest('pradeepkumar2');
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
+
+**XMLHttpRequest:**  
+
+`XMLHttpRequest()` is a built-in browser object that allows to make HTTP requests in JavaScript. XMLHttpRequest has two modes of operation: **synchronous** and **asynchronous**.
+```js
+if (window.XMLHttpRequest) {
+  // code for IE7+, Firefox, Chrome, Opera, Safari
+  xhr = new XMLHttpRequest();
+} else {
+  // code for IE6, IE5
+  xhr = new ActiveXObject('Microsoft.XMLHTTP');
+}
+
+xhr.onreadystatechange = function() {
+  if (this.readyState == 4 && this.status == 200) {
+    console.log(this.responseText);
+  }
+};
+xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true); // this makes asynchronous true or false
+xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+xhr.send();
+```
+
+**Fetch():**  
+
+Fetch allows to make network requests similar to `XMLHttpRequest`. Fetch makes it easier to make asynchronous requests and handle responses better than with the older XMLHttpRequest. It is an improvement over the `XMLHttpRequest` API. The main difference between `Fetch()` and `XMLHttpRequest()` is that the Fetch API uses Promises, hence avoiding **callback hell**.
+
+
+**Fetch Interfaces**  
+
+* **fetch()**: The fetch() method used to fetch a resource.
+* **Headers**: Represents response/request headers, allows to query them and take different actions depending on the results.
+* **Request**: Represents a resource request.
+* **Response**: Represents the response to a request.
+
+**Making a request using fetch()**  
+
+A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful `.then()` function will receive Response object, if request fails then `.catch()` function will receive an error object
+```js
+fetch('https://api.github.com/users/learning-zone')
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
+```
+**Headers Object**  
+
+The Headers interface allows to create own headers object via the `Headers()` constructor. A headers object is a collection of name-value pairs.
+```js
+let reqHeader = new Headers();
+reqHeader.append('Content-Type', 'text/json');
+let initObject = {
+    method: 'GET', headers: reqHeader,
+};
+
+fetch('https://api.github.com/users/learning-zone', initObject)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
+```
+**Request Object**  
+
+The Request Object represents a resource request. Instead of passing an URL of the resource into the fetch() call, you can create a request object using the Request() constructor, and pass that as an argument to fetch(). By passing Request object to the fetch(), you can make customised requests.
+```js
+let reqHeader = new Headers();
+reqHeader.append('Content-Type', 'text/json');
+
+let initObject = {
+    method: 'GET', headers: reqHeader,
+};
+
+var userRequest = new Request('https://api.github.com/users/learning-zone', initObject);
+
+fetch(userRequest)
+    .then(function (response) {
+        return response.json();
+    })
+    .then(function (data) {
+        console.log(data);
+    })
+    .catch(function (err) {
+        console.log("Something went wrong!", err);
+    });
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between Promise and AJAX?
+
+Promises are a tool for managing asynchronous operations. They keep track of when asynchronous operations complete and what their results are and let you coordinate that completion and those results (including error conditions) with other code or other asynchronous operations. They aren't actually asynchronous operations in themselves. An Ajax call is a specific asynchronous operation that can be used with with a traditional callback interface or wrapped in a promise interface.
+
+An Ajax call is a specific type of asynchronous operation. We can make an Ajax call either with a traditional callback using the `XMLHttpRequest()` interface or we can make an Ajax call (in modern browsers), using a promise with the `fetch()` interface.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is difference between async() or defer() keyword in JavaScript?
+
+**The async() Attribute**  
+The async attribute is used to indicate to the browser that the script file can be executed asynchronously. The HTML parser does not need to pause at the point it reaches the script tag to fetch and execute, the execution can happen whenever the script becomes ready after being fetched in parallel with the document parsing.
 ```html
-<input type="text" value="Name:">
+<script async src="script.js">
 ```
+This attribute is only available for externally located script files. When an external script has this attribute, the file can be downloaded while the HTML document is still parsing. Once it has been downloaded, the parsing is paused for the script to be executed.
 
-You can retrieve the attribute value as below,
-
-```js
-const input = document.querySelector('input');
-console.log(input.getAttribute('value')); // Good morning
-console.log(input.value); // Good morning
+**The defer() Attribute**  
+The defer attribute tells the browser to only execute the script file once the HTML document has been fully parsed.
+```html
+<script defer src="script.js">
 ```
+Like an asynchronously loaded script, the file can be downloaded while the HTML document is still parsing. However, even if the file is fully downloaded long before the document is finished parsing, the script is not executed until the parsing is complete.
 
-And after you change the value of the text field to "Good evening", it becomes like
 
+Asynchronous and deferred execution of scripts are more important when the <script> element is not located at the very end of the document. HTML documents are parsed in order, from the first opening <html> element to it is close. If an externally sourced JavaScript file is placed right before the closing </body> element, it becomes much less pertinent to use an async or defer attribute. Since the parser will have finished the vast majority of the document by that point, JavaScript files don not have much parsing left to block.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is difference between async() and await() in JavaScript?
+
+When an `async()` function is called, it returns a `Promise`. When the `async()` function returns a value, the `Promise` will be resolved with the returned value. When the `async()` function throws an exception or some value, the `Promise` will be rejected with the thrown value.
+
+An async function can contain an `await()` expression, which pauses the execution of the `async()` function and waits for the passed Promise's resolution, and then resumes the `async()` function's execution and returns the resolved value. 
 ```js
-console.log(input.getAttribute('value')); // Good morning
-console.log(input.value); // Good evening
+function resolveAfter2Seconds(x) {
+    return new Promise(resolve => {
+        setTimeout(() => {
+            resolve(x);
+        }, 2000);
+    });
+}
+
+async function add1(x) {
+    const a = await resolveAfter2Seconds(20);
+    const b = await resolveAfter2Seconds(30);
+    return x + a + b;
+}
+
+add1(10).then(v => {
+    console.log(v); // prints 60 after 4 seconds.
+});
+
+async function add2(x) {
+    const p_a = resolveAfter2Seconds(20);
+    const p_b = resolveAfter2Seconds(30);
+    return x + await p_a + await p_b;
+}
+
+add2(10).then(v => {
+    console.log(v); // prints 60 after 2 seconds.
+});
 ```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is same-origin policy?***
+## MODULES
 
-The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
+## Q. What is modules in ES6?
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
+Making objects, functions, classes or variables available to the outside world is as simple as exporting them, and then importing them where needed in other files.
 
-## Q. ***Is JavaScript a compiled or interpreted language?***
+**Benefits**  
 
-JavaScript is an interpreted language, not a compiled language. An interpreter in the browser reads over the JavaScript code, interprets each line, and runs it. Nowadays  modern browsers use a technology known as Just-In-Time (JIT) compilation, which compiles JavaScript to executable bytecode just as it is about to run.
+* Code can be split into smaller files of self-contained functionality.
+* The same modules can be shared across any number of applications.
+* Ideally, modules need never be examined by another developer, because they’ve has been proven to work.
+* Code referencing a module understands it’s a dependency. If the module file is changed or moved, the problem is immediately obvious.
+* Module code (usually) helps eradicate naming conflicts. Function `x()` in module1 cannot clash with function x() in module2. Options such as namespacing are employed so calls become `module1.x()` and `module2.x()`.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a debugger statement?***
-
-The debugger statement invokes any available debugging functionality, such as setting a breakpoint. If no debugging functionality is available, this statement has no effect.
-For example, in the below function a debugger statement has been inserted. So execution is paused at the debugger statement just like a breakpoint in the script source.
+**Exporting:**
 
 ```js
-function getProfile() {
-// code goes here
-debugger;
-// code goes here
+export const myNumbers = [1, 2, 3, 4];
+const animals = ['Panda', 'Bear', 'Eagle']; // Not available directly outside the module
+
+export function myLogger() {
+  console.log(myNumbers, animals);
+}
+
+export class Alligator {
+   constructor() {
+     // ...
+   }
+}
+```
+
+**Exporting with alias:**
+
+```js
+export { myNumbers, myLogger as Logger, Alligator }
+```
+
+**Default export:**
+
+```js
+export const myNumbers = [1, 2, 3, 4];
+const animals = ['Panda', 'Bear', 'Eagle'];
+
+export default function myLogger() {
+  console.log(myNumbers, pets);
+}
+
+export class Alligator {
+  constructor() {
+    // ...
+  }
 }
 ```
 
@@ -4876,17 +6958,48 @@ debugger;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you get the image width and height using JS?***
+## Q. Describe the Revealing Module Pattern in javascript?
 
-You can programmatically get the image and check the dimensions(width and height) using Javascript.
+Javascript does not have the typical 'private' and 'public' specifiers of more traditional object oriented languages like C# or Java. However, you can achieve the same effect through the clever application of Javascript's function-level scoping. The Revealing Module pattern is a design pattern for Javascript applications that elegantly solves this problem.
+
+The central principle of the Revealing Module pattern is that all functionality and variables should be hidden unless deliberately exposed.
+
+The Revealing Module Pattern is one of the most popular ways of creating modules. Using the return statement we can return a object literal that ‘reveals’ only the methods or properties we want to be publicly available.
 
 ```js
-var img = new Image();
-img.onload = function() {
-  console.log(this.width + 'x' + this.height);
-}
-img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
+var myModule = (function() {
+  'use strict';
+
+  var _privateProperty = 'Hello World';
+  var publicProperty = 'I am a public property';
+
+  function _privateMethod() {
+    console.log(_privateProperty);
+  }
+
+  function publicMethod() {
+    _privateMethod();
+  }
+    
+  return {
+    publicMethod: publicMethod,
+    publicProperty: publicProperty
+  };
+}());
+  
+myModule.publicMethod();    		        // outputs 'Hello World'   
+console.log(myModule.publicProperty);       // outputs 'I am a public property'
+console.log(myModule._privateProperty);     // is undefined protected by the module closure
+myModule._privateMethod();                  // is TypeError protected by the module closure
 ```
+
+**Advantages**  
+
+This pattern allows the syntax of our scripts to be more consistent. It also makes it easier to tell at the end of the module which of our functions and variables may be accessed publicly, which eases readability.
+
+**Disadvantages**  
+
+A disadvantage of this pattern is that if a private function refers to a public function, that public function can’t be overridden if a patch is necessary. This is because the private function will continue to refer to the private implementation,and the pattern does not apply to public members, only to functions.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -4973,6 +7086,85 @@ Below are the main benefits of using freeze method,
 ## Q. ***Why do I need to use freeze method?***
 
 In Object-oriented paradigm, an existing API contains certain elements that are not intended to be extended, modified, or re-used outside of their current context. Hence it works as `final` keyword which is used in various languages.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain the difference between Object.freeze() vs const?***
+
+`const` applies to bindings ("variables"). It creates an immutable binding, i.e. you cannot assign a new value to the binding. `const` behaves like let. The only difference is, it defines a variable that cannot be reassigned. Variables declared by const are block scoped and not function scoped like variables declared with var.
+
+The const keyword applies to bindings and creates an immutable binding.
+
+```js
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+person = animal;
+console.log(person); //output { species: 'snake' }
+```
+
+If you change the person object declaration to be a constant the code above won’t work anymore:
+
+```js
+const person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+person = animal; // ERROR "person" is read-only
+console.log(person);
+```
+
+But you can change its values:
+
+```js
+const person = {
+   name: "Leonardo"
+};
+let animal = { 
+   species: "snake"
+};
+person.name = "Lima";
+console.log(person); //output { name: 'Lima' }
+```
+
+**Object.freeze**: 
+
+Works on values, and more specifically, object values. It makes an object immutable, i.e. you cannot change its properties. `Object.freeze()` takes an object as an argument and returns the same object as an immutable object. This implies that no properties of the object can be added, removed, or changed.
+
+It works on values and it makes an object immutable, i.e. you cannot change, add or delete its properties, but you can assign another instance.
+
+```js
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+Object.freeze(person);
+person = animal;
+console.log(person); { species: 'snake' }
+```
+
+Even using Object.freeze() I could assign animal object to to person. Now, let’s try change some property of the person:
+
+```js
+let person = {
+   name: "Leonardo"
+};
+let animal = {
+   species: "snake"
+};
+Object.freeze(person);
+person.name = "Lima"; //TypeError: Cannot assign to read only property 'name' of object
+console.log(person);
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5360,65 +7552,6 @@ objectName[expression]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is an error object?***
-
-An error object is a built in error object that provides error information when an error occurs. It has two properties: name and message. For example, the below function logs error details,
-```js
-try {
-  greeting("Welcome");
-}
-catch(err) {
-  console.log(err.name + "<br>" + err.message);
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***When you get a syntax error?***
-
-A SyntaxError is thrown if you try to evaluate code with a syntax error. For example, the below missing quote for the function parameter throws a syntax error
-```js
-try {
-  eval("greeting('welcome)");   // Missing ' will produce an error
-}
-catch(err) {
-  console.log(err.name);
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the different error names from error object?***
-
-There are 6 different types of error names returned from error object
-
-| Error Name | Description |
-|----------- |-------------|
-| EvalError  | An error has occurred in the eval() function |
-| RangeError | An error has occurred with a number "out of range"  |
-| ReferenceError | An error due to an illegal reference|
-| SyntaxError | An error due to a syntax error|
-| TypeError | An error due to a type error |
-| URIError | An error due to encodeURI() |
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the various statements in error handling?***
-
-Below are the list of statements used in an error handling,
-1. **try:** This statement is used to test a block of code for errors
-2. **catch:** This statement is used to handle the error
-3. **throw:** This statement is used to create custom errors.
-4. **finally:** This statement is used to execute code after try and catch regardless of the result.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is an Intl object?***
 
 The Intl object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting. It provides an access to several constructors and language sensitive functions.
@@ -5439,29 +7572,7 @@ console.log(new Intl.DateTimeFormat('en-AU').format(date)); // 07/08/2019
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a decorator?***
 
-A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. Let us define admin decorator for user class at design time,
-```js
-function admin(isAdmin) {
-  return function(target) {
-      target.isAdmin = isAdmin;
-  }
-}
-
-@admin(true)
-class User() {
-}
-console.log(User.isAdmin); //true
-
-@admin(false)
-class User() {
-}
-console.log(User.isAdmin); //false
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. ***How do you get meta data of a module?***
 
@@ -5597,27 +7708,6 @@ These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) i
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between an "attribute" and a "property"?***
-
-Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
-
-```js
-const input = document.querySelector('input');
-console.log(input.getAttribute('value')); // Hello
-console.log(input.value); // Hello
-```
-
-But after you change the value of the text field by adding "World!" to it, this becomes:
-
-```js
-console.log(input.getAttribute('value')); // Hello
-console.log(input.value); // Hello World!
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Explain the same-origin policy with regards to JavaScript?***
 
 The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
@@ -5655,49 +7745,6 @@ Disadvantages:
 * Concatenation of scripts written in different strict modes might cause issues.
 
 Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?***
-
-The `load` event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
-
-The DOM event `DOMContentLoaded` will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the extent of your experience with Promises and/or their polyfills?***
-
-Possess working knowledge of it. A promise is an object that may produce a single value sometime in the future: either a resolved value or a reason that It is not resolved (e.g., a network error occurred). A promise may be in one of 3 possible states: fulfilled, rejected, or pending. Promise users can attach callbacks to handle the fulfilled value or the reason for rejection.
-
-Some common polyfills are `$.deferred`, Q and Bluebird but not all of them comply with the specification. ES2015 supports Promises out of the box and polyfills are typically not needed these days.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the pros and cons of using Promises instead of callbacks?***
-
-**Pros**
-
-* Avoid callback hell which can be unreadable.
-* Makes it easy to write sequential asynchronous code that is readable with `.then()`.
-* Makes it easy to write parallel asynchronous code with `Promise.all()`.
-* With promises, these scenarios which are present in callbacks-only coding, will not happen:
-  * Call the callback too early
-  * Call the callback too late (or never)
-  * Call the callback too few or too many times
-  * Fail to pass along any necessary environment/parameters
-  * Swallow any errors/exceptions that may happen
-
-**Cons**
-
-* Slightly more complex code (debatable).
-* In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6278,24 +8325,6 @@ function Clone(object){
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are promises and how they are useful?***
-
-We use promises for handling asynchronous interactions in a sequential manner. They are especially useful when we need to do an async operation and THEN do another async operation based on the results of the first one. For example, if you want to request the list of all flights and then for each flight you want to request some details about it. The promise represents the future value. It has an internal state (`pending`, `fulfilled` and `rejected`) and works like a state machine.
-
-A promise object has `then` method, where you can specify what to do when the promise is fulfilled or rejected.
-
-You can chain `then()` blocks, thus avoiding the callback hell. You can handle errors in the `catch()` block.  After a promise is set to fulfilled or rejected state, it becomes immutable.
-
-Also mention that you know about more sophisticated concepts: 
- - `async/await` which makes the code appear even more linear
- - RxJS observables can be viewed as the recyclable promises
-
-Be sure that you can implement the promise, read [one of the articles on a topic](https://opensourceconnections.com/blog/2014/02/16/a-simple-promise-implementation-in-about-20-lines-of-javascript/), and learn the source code of the [simplest promise implementation](https://gist.github.com/softwaredoug/9044640). 
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How to check whether a key exist in a JavaScript object or not?***
 
 Let say we have `person` object with property **name** and **age**
@@ -6332,122 +8361,6 @@ console.log(person.hasOwnProperty('toString')); // print false
 console.log(person.hasOwnProperty('name')); // print true
 console.log(person.hasOwnProperty('salary')); // print false
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How does Object.create method works JavaScript?***
-
-The ECMAScript 5 **Object.create()** method is the easiest way for one object to inherit from another, without invoking a constructor function. 
-
-**For instance:** 
-
-```js
-var employee = {
-  name: 'Alex',
-  displayName: function () {
-    console.log(this.name);
-  }
-};
-
-var emp1 = Object.create(employee);
-console.log(emp1.displayName());  // output "Alex"
-```
-
-In the example above, we create a new object `emp1` that inherits from `employee`. In other words `emp1`'s prototype is set to `employee`. After this emp1 is able to access the same properties and method on employee until new properties or method with the same name are defined.
-
-**For instance:** Defining `displayName()` method on `emp1` will not automatically override the employee `displayName`.
-
-```js
-emp1.displayName = function() {
-	console.log('xyz-Anonymous');
-};
-
-employee.displayName(); //Alex
-emp1.displayName();//xyz-Anonymous
-``` 
-
-In addition to this **`Object.create(`)** method also allows to specify a second argument which is an object containing additional properties and methods to add to the new object.
-
-**For example**
-
-```js
-var emp1 = Object.create(employee, {
-	name: {
-		value: "John"
-	}
-});
-
-emp1.displayName(); // "John"
-employee.displayName(); // "Alex"
-```
-In the example above, `emp1` is created with It is own value for name, so calling **displayName()** method will display `"John"` instead of `"Alex"`.
-
-Object created in this manner give you full control over newly created object. You are free to add, remove any properties and method you want.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to use constructor functions for inheritance in JavaScript?***
-
-Let say we have `Person` class which has name, age, salary properties and **incrementSalary()** method.
-
-```js
-function Person(name, age, salary) {
-  this.name = name;
-  this.age = age;
-  this.salary = salary;
-  this.incrementSalary = function (byValue) {
-    this.salary = this.salary + byValue;
-  };
-}
-```
-
-Now we wish to create Employee class which contains all the properties of Person class and wanted to add some additional properties into Employee class.
-
-```js
-function Employee(company){
-	this.company = company;
-}
-
-//Prototypal Inheritance 
-Employee.prototype = new Person("Alex", 24,5000);
-```
-In the example above, **Employee** type inherits from **Person**. It does so by assigning a new instance of `Person` to `Employee` prototype. After that, every instance of `Employee` inherits its properties and methods from `Person`.
-
-```js
-//Prototypal Inheritance 
-Employee.prototype = new Person("Alex", 24,5000);
-
-var emp1 = new Employee("Google");
-
-console.log(emp1 instanceof Person); // true
-console.log(emp1 instanceof Employee); // true
-```
-
-Let us understand Constructor inheritance 
-
-```js
-//Defined Person class
-function Person(name){
-	this.name = name || "Alex";
-}
-
-var obj = {};
-
-// obj inherit Person class properties and method 
-Person.call(obj); // constructor inheritance
-
-console.log(obj); // Object {name: "Alex"}
-```
-Here we saw calling **Person.call(obj)** define the name properties from `Person` to `obj`.
-
-```js
-console.log(name in obj); // true
-```
-Type-based inheritance is best used with developer defined constructor function rather than natively in JavaScript. In addition to this also allows flexibility in how we create similar type of object.
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -6564,151 +8477,10 @@ delete employee.name;  // fails silently unless It is in strict mode
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Explain how prototypal inheritance works?***
-
-All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain.
-
-**Example:**
-
-We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
-
-```js
-if (typeof Object.create !== 'function') {
-  Object.create = function (parent) {
-    function Tmp() {}
-    Tmp.prototype = parent;
-    return new Tmp();
-  };
-}
-
-const Parent = function() {
-  this.name = "Parent";
-}
-
-Parent.prototype.greet = function() { console.log("hello from Parent"); }
-
-const child = Object.create(Parent.prototype);
-
-child.cry = function() {
-  console.log("waaaaaahhhh!");
-}
-
-child.cry();
-// Outputs: waaaaaahhhh!
-
-child.greet();
-// Outputs: hello from Parent
-```
-
-Things to note are:
-
-* `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
-* We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
-  * Object.create(Parent.prototype);
-  * Object.create(new Parent(null));
-  * Object.create(objLiteral);
-  * Currently, `child.constructor` is pointing to the `Parent`:
-
-```js
-child.constructor
-ƒ () {
-  this.name = "Parent";
-}
-child.constructor.name
-"Parent"
-```
-  * If we'd like to correct this, one option would be to do:
-
-```js
-function Child() {
-  Parent.call(this);
-  this.name = 'child';
-}
-
-Child.prototype = Parent.prototype;
-Child.prototype.constructor = Child;
-
-const c = new Child();
-
-c.cry();
-// Outputs: waaaaaahhhh!
-
-c.greet();
-// Outputs: hello from Parent
-
-c.constructor.name;
-// Outputs: "Child"
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you redeclare variables in switch block without an error?***
-
-If you try to redeclare variables in a `switch block` then it will cause errors because there is only one block. For example, the below code block throws a syntax error as below,
-```js
-let counter = 1;
-switch(x) {
-    case 0:
-      let name;
-      break;
-
-    case 1:
-      let name; // SyntaxError for redeclaration.
-      break;
-}
-```
-To avoid this error, you can create a nested block inside a case clause will create a new block scoped lexical environment.
-```js
-let counter = 1;
-switch(x) {
-    case 0: {
-      let name;
-      break;
-    }
-    case 1: {
-      let name; // No SyntaxError for redeclaration.
-      break;
-    }
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is difference between Classic Inheritance and Prototypical Inheritance?***
-
-**Class Inheritance**: instances inherit from classes (like a blueprint — a description of the class), and create sub-class relationships: hierarchical class taxonomies. Instances are typically instantiated via constructor functions with the new keyword. Class inheritance may or may not use the class keyword from ES6.
-
-**Prototypal Inheritance**: instances inherit directly from other objects. Instances are typically instantiated via factory functions or Object.create(). Instances may be composed from many different objects, allowing for easy selective inheritance.
-
-**Features**  
-
-* Classes: create tight coupling or hierarchies/taxonomies.
-* Prototypes: mentions of concatenative inheritance, prototype delegation, functional inheritance, object composition.
-* No preference for prototypal inheritance & composition over class inheritance.
-
-The difference between classical inheritance and prototypal inheritance is that classical inheritance is limited to classes inheriting from other classes while prototypal inheritance supports the cloning of any object using an object linking mechanism. A prototype basically acts as a template for other objects, whether they are extending the base object or not.
-```js
-function Circle(radius) {
-    this.radius = radius;
-}
-Circle.prototype.area = function () {
-    var radius = this.radius;
-    return Math.PI * radius * radius;
-};
-Circle.prototype.circumference: function () {
-    return 2 * Math.PI * this.radius;
-};
-var circle = new Circle(5);
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How to add and remove properties to object in runtime?***
 
-**Creating an Object**  
+**Creating an Object:**
+
 There are two ways to construct an object in JavaScript:
 * The object literal, which uses curly brackets: {}
 * The object constructor, which uses the new keyword
@@ -6731,8 +8503,10 @@ const employee = {
     },
 };
 ```
-**Accessing Object Properties**  
-There are two ways to access an object’s properties.
+
+**Accessing Object Properties:**
+
+There are two ways to access an object\'s properties.
 
 * Dot notation: .
 * Bracket notation: []
@@ -6755,7 +8529,9 @@ Output
 ```
 "Hi, my name is Gimli!"
 ```
-**Adding and Modifying Object Properties**  
+
+**Adding and Modifying Object Properties:**  
+
 ```js
 // Add new age property to gimli
 employee.age = 22;
@@ -6769,16 +8545,18 @@ Output
 ```
 22
 ```
-**Removing Object Properties**  
+
+**Removing Object Properties:**  
+
 In order to remove a property from an object, you will utilize the delete keyword. delete is an operator that removes a property from an object.
 ```js
 // Remove weapon from gimli
 delete employee.weapon;
-```
-Output
-```
+
+// Output
 true
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -6786,46 +8564,29 @@ true
 ## Q. ***What is difference between browser detection and feature detection?***
 
 Feature detection is just a way of determining if a feature exists in certain browsers. A good example is a modern HTML5 feature ‘Location’.
+
 ```js
 if (navigator.geolocation) {
   // detect users location here B-) and do something 
 }
 ```
+
 Browser detection is generally done by reading a property known as `navigator.userAgent` that contains a string with a lot of information about the browser that is currently being used to visit the page.
 
 Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
+
 ```js
 if (document.getElementsByTagName) {
     element = document.getElementById(id);
 }
 ```
 Checking the UA string is an old practice and should not be used anymore. You keep changing the UA checks and never benefit from newly implemented features, e.g.:
+
 ```js
 if (navigator.userAgent.indexOf("MSIE 7") > -1){
     //do something
 }
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is difference between Graceful Degradation and Progressive Enhancement?***
-
-**Progressive Enhancement** is when you create a web site that is available to everyone, but then add advanced functionality in layers that improves the experience for those who can access it. For instance, a basic text website can be upgraded to include a design (stylesheets), interactive functionality (javascript), and video (flash). But the website continues to function as just a text-based website.
-
-**Graceful Degradation** is an aspect of `fault-tolerant` systems where your design continues to function even if certain points of the design can\'t work. For example, HTML5 works in all browsers because HTML parsers themselves don\'t break if there are unrecognised tags. But since older browsers don\'t recognise those tags, they also can\'t provide the functionality associated with them (such as the various new input types like range, number, date, time, color, etc.). Another example is setting color and background-color together in CSS, but possibly overriding the color with an image. If the image doesn\'t load, you want the text to still be legible, but that might not be the case if you don\'t ensure that the background colour is one that allows the text to be legible.
-
-**When to use graceful degradation**  
-* You retrofit an old product and you don’t have the time, access or insight to change or replace it.
-* You just don’t have time to finish a product with full progressive enhancement (often a sign of bad planning or running out of budget).
-* The product you have is an edge case, for example very high traffic sites where every millisecond of performance means a difference of millions of dollars.
-* Your product by definition is so dependent on scripting that it makes more sense to maintain a “basic” version rather than enhancing one (Maps, email clients, feed readers).
-
-**When to use progressive enhancement**  
-* Regardless of environment and ability you deliver a product that works.
-* When a new browser comes out or a browser extension becomes widely adopted you can enhance to yet another level without having to touch the original solution — graceful degradation would require you to alter the original solution.
-* You allow technology to be what it is supposed to be — an aid to reach a goal faster than without it, not a “must” to be able to reach a goal in the first place.
-* If you need to add new features, you can do so after checking if they are supported at a certain stage, or you can add it to the most basic level of functionality and make it better in more sophisticated environments. In any case, the maintenance happens at the same spot and not in two different places. Keeping a progressively enhanced product up-to-date is much less work than maintaining two versions.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -6833,7 +8594,9 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 
 ## Q. ***What do you understand by ViewState and SessionState?***
 
-**a.) Session State**: contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It is a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
+**a.) Session State**: 
+
+Contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It is a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
 
 * Maintained at session level.
 * Session state value availability is in all pages available in a user session.
@@ -6841,7 +8604,9 @@ if (navigator.userAgent.indexOf("MSIE 7") > -1){
 * In session state, user data remains in the server.  The availability of the data is guaranteed until either the user closes the session or the browser is closed.
 * Session state is used for the persistence of user-specific data on the server’s end.
 
-**b.) View State**: on the other hand is information specific to particular web page. It is stored in a hidden field so that it is not visible to the user.
+**b.) View State**: 
+
+On the other hand is information specific to particular web page. It is stored in a hidden field so that it is not visible to the user.
 
 * Maintained at page level only.
 * View state can only be visible from a single page and not multiple pages.
@@ -6871,38 +8636,6 @@ document.getElementById("yourId").appendChild(p);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between null vs undefined?***
-
-**Null**  
-`Null` means an empty or non-existent value. Null is assigned, and explicitly means nothing.
-```js
-var test = null;
-console.log(test); // null
-```
-`null` is also an object. Interestingly, this was actually an error in the original JavaScript implementation:
-```js
-console.log(typeof test); // object
-```
-**Undefined**  
-Undefined means a variable has been declared, but the value of that variable has not yet been defined. For example:
-```js
-var test2;
-console.log(test2); // undefined
-```
-Unlike null, undefined is of the type undefined:
-```js
-console.log(typeof test2); // undefined
-```
-**Difference**  
-* `null` is an assigned value. It means nothing.
-* `undefined` means a variable has been declared but not defined yet.
-* `null` is an object. `undefined` is of type `undefined`.
-* `null !== undefined` but `null == undefined`.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is difference between array[] vs object()?***
 
 `[]` is declaring an array.
@@ -6923,303 +8656,6 @@ console.log(x.whatever); // shows 10
 Object properties can be accessed either via the `x.foo` syntax or via the array-like syntax `x["foo"]`. The advantage of the latter syntax is that you can use a variable as the property name like `x[myvar]` and using the latter syntax, you can use property names that contain characters that Javascript won\'t allow in the `x.foo` syntax.
 
 An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is request header in javascript?***
-
-The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
-Syntax
-```js
-var myHeaders = request.headers;
-```
-Example
-```js
-var myHeaders = new Headers();
-myHeaders.append('Content-Type', 'image/jpeg');
-
-var myInit = { 
-  method: 'GET',
-  headers: myHeaders,
-  mode: 'cors',
-  cache: 'default' 
-};
-
-var myRequest = new Request('flowers.jpg', myInit);
-myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is rendering in JavaScript?***
-
-JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
-These are the different steps involved in the JavaScript rendering process:
-
-<img src="assets/javascript-stages.png" alt="JavaScript Rendering Process" />
-
-1. **JavaScript**: Typically JavaScript is used to handle work that will result in visual changes. 
-2. **Style calculations**: This is the process of figuring out which CSS rules apply to which elements. They are applied and the final styles for each element are calculated. 
-3. **Layout**: Once the browser knows which rules apply to an element it can begin to calculate how much space it takes up and where it is on screen. 
-4. **Paint**: Painting is the process of filling in pixels. It involves drawing out text, colors, images, borders, and shadows, essentially every visual part of the elements. 
-5. **Compositing**: Since the parts of the page were drawn into potentially multiple layers they need to be drawn to the screen in the correct order so that the page renders correctly.
-
-The main responsibility of the rendering engine is to display the requested page on the browser screen.
-Rendering engines can display HTML and XML documents and images. 
-
-Similar to the JavaScript engines, different browsers use different rendering engines as well. These are some of the popular ones:
-* **Gecko** — Firefox
-* **WebKit** — Safari
-* **Blink** — Chrome, Opera (from version 15 onwards)
-
-**The process of rendering**
-
-The rendering engine receives the contents of the requested document from the networking layer.
-
-<img src="assets/rendering-process.png" alt="Rendering Process" />
-
-**Constructing the DOM tree**
-
-The first step of the rendering engine is parsing the HTML document and converting the parsed elements to actual DOM nodes in a DOM tree.
-```html
-<html>
-  <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" type="text/css" href="theme.css">
-  </head>
-  <body>
-    <p> Hello, <span> World! </span> </p>
-    <div> 
-      <img src="smiley.gif" alt="Smiley face" height="42" width="42">
-    </div>
-  </body>
-</html>
-```
-The DOM tree for this HTML will look like this:
-
-<img src="assets/html-dom-tree.png" alt="HTML DOM Tree" />
-
-Basically, each element is represented as the parent node to all of the elements, which are directly contained inside of it. And this is applied recursively.
-
-**Constructing the CSSOM tree**
-
-CSSOM refers to the CSS Object Model. While the browser was constructing the DOM of the page, it encountered a link tag in the head section which was referencing the external theme.css CSS style sheet. Anticipating that it might need that resource to render the page, it immediately dispatched a request for it. Let’s imagine that the theme.css file has the following contents:
-```css
-body { 
-  font-size: 16px;
-}
-
-p { 
-  font-weight: bold; 
-}
-
-span { 
-  color: red; 
-}
-
-p span { 
-  display: none; 
-}
-
-img { 
-  float: right; 
-}
-```
-As with the HTML, the engine needs to convert the CSS into something that the browser can work with — the CSSOM. Here is how the CSSOM tree will look like:
-
-<img src="assets/css-dom-tree.png" alt="CSS DOM Tree" />
-
-When computing the final set of styles for any object on the page, the browser starts with the most general rule applicable to that node (for example, if it is a child of a body element, then all body styles apply) and then recursively refines the computed styles by applying more specific rules.
-
-**Painting the render tree** 
-
-In this stage, the renderer tree is traversed and the renderer’s paint() method is called to display the content on the screen.
-Painting can be global or incremental (similar to layout):
-
-* **Global** — the entire tree gets repainted.
-* **Incremental** — only some of the renderers change in a way that does not affect the entire tree. The renderer invalidates its rectangle on the screen. This causes the OS to see it as a region that needs repainting and to generate a paint event. The OS does it in a smart way by merging several regions into one.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Define the various types of errors which occur in JavaScript programming language?***
-
-When an exception occurs, an object representing the error is created and thrown.  The JavaScript language defines seven types of built-in error objects. 
-
-**Error**: The “Error” type is used to represent generic exceptions.  This type of exception is most often used for implementing user defined exceptions. 
-```js
-var error = new Error("error message");
-```
-**RangeError**: “RangeError” exceptions are generated by numbers that fall outside of a specified range.
-```js
-var pi = 3.14159;
-
-pi.toFixed(100000);  // RangeError
-```
-**ReferenceError**: A “ReferenceError” exception is thrown when a non-existent variable is accessed.  These exceptions commonly occur when an existing variable name is misspelled. 
-```js
-function foo() {
-  bar++;  // ReferenceError
-}
-```
-**SyntaxError**: A “SyntaxError” is thrown when the rules of the JavaScript language are broken. 
-```js
-if (foo) {  // SyntaxError
-  // the closing curly brace is missing
-```
-**TypeError**: A “TypeError” exception occurs when a value is not of the expected type.  Attempting to call a non-existent object method is a common cause of this type of exception. 
-```js
-var foo = {};
-
-foo.bar(); // TypeError
-```
-**URIError**: A “URIError” exception is thrown by methods such as encodeURI() and decodeURI() when they encounter a malformed URI. The following example generates a “URIError” while attempting to decode the string “%”.  The “%” character represents the beginning of a URI escape sequence.  Since nothing follows the “%” in this example, the string is an invalid escape sequence, and therefore a malformed URI component.
-```js
-decodeURIComponent("%"); // URIError
-```
-**EvalError**: “EvalError” exceptions are thrown when the eval() function is used improperly.  These exceptions are not used in the most recent version of the EcmaScript standard.  However, they are still supported in order to maintain backwards compatibility with older versions of the standard.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between HTMLCollection and NodeList?***
-
-**HTMLCollection**
-
-An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node’s name or id attributes. Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
-
-**NodeList**
-
-A NodeList object is a collection of nodes. The NodeList interface provides the abstraction of an ordered collection of nodes, without defining or constraining how this collection is implemented. NodeList objects in the DOM are live or static based on the interface used to retrieve them
-
-**Difference**
-
-An HTMLCollection is a list of webpage elements (div, p, ul, li, img objects, etc…) which form part of the DOM, and are of a specific node type usually referred to as an element node. A NodeList is also a list of nodes, but it can contain a list not only of element nodes, but other types of nodes as well. So it is a more generic list of nodes than HTMLCollection. HTMLCollection tells you that what it contains are webpage elements, specifically.
-
-Both interfaces are collections of DOM nodes. They differ in the methods they provide and in the type of nodes they can contain. While a NodeList can contain any node type, an HTMLCollection is supposed to only contain Element nodes.
-An HTMLCollection provides the same methods as a NodeList and additionally a method called namedItem.
-
-Collections are always used when access has to be provided to multiple nodes, e.g. most selector methods (such as getElementsByTagName) return multiple nodes or getting a reference to all children (element.childNodes).
-
-**Attribute Node**
-
-Refers to the attributes of an element node.  
-```js
-// html: <div id=”my-id” /> 
-let element = document.getElementById(“my-id”); 
-let myIdAttribute = element.getAttributeNode(“id”); 
-console.log(myIdAttribute); // output: my-id
-```
-**Text Node**
-
-Refers to the text of an element.
-```js
-// html: <div id=”my-id”></div>
-let element = document.getElementById(“my-id”);
-let text = document.createTextNode(“Some Text”);
-element.appendChild(text);
-// updated html: <div id=”my-id”>Some Text</div>
-```
-**Comment Node**
-
-```js
-<!-- This is what a comment node looks like -->
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between firstChild and firstElementChild?***
-
-**firstChild**  
-The firstChild property returns the first child node of the specified node, as a Node object.
-```html
-<ul id="myList">
-    <li>Coffee</li>
-    <li>Tea</li>
-</ul>
-```
-```js
-var list = document.getElementById("myList").firstChild.innerHTML; // Coffee
-```
-**firstElementChild**  
-The firstElementChild property returns the first child element of the specified element.
-```html
-<ul id="myList">
-  <li>Coffee</li>
-  <li>Tea</li>
-</ul>
-```
-```js
-var list = document.getElementById("myList").firstElementChild.innerHTML; // Coffee
-```
-
-**Difference**  
-The difference between this property and firstElementChild, is that firstChild returns the first child node as an element node, a text node or a comment node (depending on which one's first), while firstElementChild returns the first child node as an element node (ignores text and comment nodes).
-
-*Note: Whitespace inside elements is considered as text, and text is considered as nodes*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is throttling and debouncing in javascript?***
-
-Debouncing and throttling techniques are used to limit the number of times a function can execute. These are two widely-used techniques to improve the performance of code that gets executed repeatedly within a period of time.
-
-**Throttling** enforces a maximum number of times a function can be called over time. As in "execute this function at most once every 100 milliseconds."
-
-Example:
-```js
-$("body").on('scroll', _.throttle(function() {
-  // Do expensive things
-}, 100));
-```
-**Debouncing** enforces that a function not be called again until a certain amount of time has passed without it being called. As in "execute this function only if 100 milliseconds have passed without it being called."
-
-Example:
-```js
-$(window).on('resize', _.debounce(function() {
-  // Do expensive things
-}, 100));
-```
-
-**Example: Use Case**  
-
-* Throttling a button click so we can't spam click
-* Throttling an API call
-* Throttling a mousemove event handler
-* Debouncing a resize event handler
-* Debouncing a scroll event handler
-* Debouncing a save function in an autosave feature
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to validate JSON Object in javascript?***
-
-```js
-function isValidJson(json) {
-    try {
-        JSON.parse(json);
-        return true;
-    } catch (e) {
-        return false;
-    }
-}
-
-var validjson = '{"firstName":"James","lastName":"Bond"}'; 
-var invalidjson = '{"firstName""James","lastName":"Bond"}'; 
-
-console.log("With Valid JSON Text: "+isValidJson(validjson)); //true
-console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7353,35 +8789,6 @@ const value2 = 20;
 let sum = Number(value1) + value2;
 
 console.log(sum);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is prototype chain?***
-
-Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
-
-**Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through `Object.getPrototypeOf(object)` or `__proto__` property whereas prototype on constructors function is available through **Object.prototype**.
-
-```js
-function Person(firstName, lastName, age) {
-  this.firstName = firstName;
-  this.lastName = lastName;
-  this.age = age;
-}
-//Person class created
-Person.prototype.getFullName = function() {
-  return this.firstName + " " + this.lastName;
-}
-
-// we have added getFullName method in Person’s prototype.
-var person = new Person("John", "K", 25);
-// It will create an instance of the Person class
-> person.hasOwnProperty("firstName");  // true
-> person.hasOwnProperty("getFullName");  // false
-> person.getFullName(); // John K
 ```
 
 <div align="right">
@@ -7712,7 +9119,356 @@ function myFunction() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## MISCELLANEOUS
+
+## Q. ***What is a decorator?***
+
+A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. Let us define admin decorator for user class at design time,
+```js
+function admin(isAdmin) {
+  return function(target) {
+      target.isAdmin = isAdmin;
+  }
+}
+
+@admin(true)
+class User() {
+}
+console.log(User.isAdmin); //true
+
+@admin(false)
+class User() {
+}
+console.log(User.isAdmin); //false
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is request header in javascript?***
+
+The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
+Syntax
+```js
+var myHeaders = request.headers;
+```
+Example
+```js
+var myHeaders = new Headers();
+myHeaders.append('Content-Type', 'image/jpeg');
+
+var myInit = { 
+  method: 'GET',
+  headers: myHeaders,
+  mode: 'cors',
+  cache: 'default' 
+};
+
+var myRequest = new Request('flowers.jpg', myInit);
+myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is rendering in JavaScript?***
+
+JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
+These are the different steps involved in the JavaScript rendering process:
+
+<img src="assets/javascript-stages.png" alt="JavaScript Rendering Process" />
+
+1. **JavaScript**: Typically JavaScript is used to handle work that will result in visual changes. 
+2. **Style calculations**: This is the process of figuring out which CSS rules apply to which elements. They are applied and the final styles for each element are calculated. 
+3. **Layout**: Once the browser knows which rules apply to an element it can begin to calculate how much space it takes up and where it is on screen. 
+4. **Paint**: Painting is the process of filling in pixels. It involves drawing out text, colors, images, borders, and shadows, essentially every visual part of the elements. 
+5. **Compositing**: Since the parts of the page were drawn into potentially multiple layers they need to be drawn to the screen in the correct order so that the page renders correctly.
+
+The main responsibility of the rendering engine is to display the requested page on the browser screen.
+Rendering engines can display HTML and XML documents and images. 
+
+Similar to the JavaScript engines, different browsers use different rendering engines as well. These are some of the popular ones:
+* **Gecko** — Firefox
+* **WebKit** — Safari
+* **Blink** — Chrome, Opera (from version 15 onwards)
+
+**The process of rendering**
+
+The rendering engine receives the contents of the requested document from the networking layer.
+
+<img src="assets/rendering-process.png" alt="Rendering Process" />
+
+**Constructing the DOM tree**
+
+The first step of the rendering engine is parsing the HTML document and converting the parsed elements to actual DOM nodes in a DOM tree.
+```html
+<html>
+  <head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" type="text/css" href="theme.css">
+  </head>
+  <body>
+    <p> Hello, <span> World! </span> </p>
+    <div> 
+      <img src="smiley.gif" alt="Smiley face" height="42" width="42">
+    </div>
+  </body>
+</html>
+```
+The DOM tree for this HTML will look like this:
+
+<img src="assets/html-dom-tree.png" alt="HTML DOM Tree" />
+
+Basically, each element is represented as the parent node to all of the elements, which are directly contained inside of it. And this is applied recursively.
+
+**Constructing the CSSOM tree**
+
+CSSOM refers to the CSS Object Model. While the browser was constructing the DOM of the page, it encountered a link tag in the head section which was referencing the external theme.css CSS style sheet. Anticipating that it might need that resource to render the page, it immediately dispatched a request for it. Let’s imagine that the theme.css file has the following contents:
+```css
+body { 
+  font-size: 16px;
+}
+
+p { 
+  font-weight: bold; 
+}
+
+span { 
+  color: red; 
+}
+
+p span { 
+  display: none; 
+}
+
+img { 
+  float: right; 
+}
+```
+As with the HTML, the engine needs to convert the CSS into something that the browser can work with — the CSSOM. Here is how the CSSOM tree will look like:
+
+<img src="assets/css-dom-tree.png" alt="CSS DOM Tree" />
+
+When computing the final set of styles for any object on the page, the browser starts with the most general rule applicable to that node (for example, if it is a child of a body element, then all body styles apply) and then recursively refines the computed styles by applying more specific rules.
+
+**Painting the render tree** 
+
+In this stage, the renderer tree is traversed and the renderer’s paint() method is called to display the content on the screen.
+Painting can be global or incremental (similar to layout):
+
+* **Global** — the entire tree gets repainted.
+* **Incremental** — only some of the renderers change in a way that does not affect the entire tree. The renderer invalidates its rectangle on the screen. This causes the OS to see it as a region that needs repainting and to generate a paint event. The OS does it in a smart way by merging several regions into one.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between HTMLCollection and NodeList?***
+
+**HTMLCollection**
+
+An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node’s name or id attributes. Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
+
+**NodeList**
+
+A NodeList object is a collection of nodes. The NodeList interface provides the abstraction of an ordered collection of nodes, without defining or constraining how this collection is implemented. NodeList objects in the DOM are live or static based on the interface used to retrieve them
+
+**Difference**
+
+An HTMLCollection is a list of webpage elements (div, p, ul, li, img objects, etc…) which form part of the DOM, and are of a specific node type usually referred to as an element node. A NodeList is also a list of nodes, but it can contain a list not only of element nodes, but other types of nodes as well. So it is a more generic list of nodes than HTMLCollection. HTMLCollection tells you that what it contains are webpage elements, specifically.
+
+Both interfaces are collections of DOM nodes. They differ in the methods they provide and in the type of nodes they can contain. While a NodeList can contain any node type, an HTMLCollection is supposed to only contain Element nodes.
+An HTMLCollection provides the same methods as a NodeList and additionally a method called namedItem.
+
+Collections are always used when access has to be provided to multiple nodes, e.g. most selector methods (such as getElementsByTagName) return multiple nodes or getting a reference to all children (element.childNodes).
+
+**Attribute Node**
+
+Refers to the attributes of an element node.  
+```js
+// html: <div id=”my-id” /> 
+let element = document.getElementById(“my-id”); 
+let myIdAttribute = element.getAttributeNode(“id”); 
+console.log(myIdAttribute); // output: my-id
+```
+**Text Node**
+
+Refers to the text of an element.
+```js
+// html: <div id=”my-id”></div>
+let element = document.getElementById(“my-id”);
+let text = document.createTextNode(“Some Text”);
+element.appendChild(text);
+// updated html: <div id=”my-id”>Some Text</div>
+```
+**Comment Node**
+
+```js
+<!-- This is what a comment node looks like -->
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. What is a trampoline function? What is it used for? 
+
+The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
+
+The problem with regular recursion is that every recursive call adds a stack frame to the call stack, which you can visualize as a **pyramid** of calls. Here is a visualization of calling a factorial function recursively:
+```
+(factorial 3)
+(* 3 (factorial 2))
+(* 3 (* 2 (factorial 1)))
+(* 3 (* 2 (* 1 (factorial 0)))) 
+(* 3 (* 2 (* 1 1)))
+(* 3 (* 2 1))
+(* 3 2)
+6
+```
+Here is a visualization of the stack where each vertical dash is a stack frame:
+```
+         ---|---
+      ---|     |---
+   ---|            |--- 
+---                    ---
+```
+The problem is that the stack has limited size, and stacking up these stack frames can overflow the stack. Depending on the stack size, a calculation of a larger factorial would overflow the stack. That is why regular recursion in Javascript could be considered dangerous.
+
+An optimal execution model would be something like a **trampoline** instead of a **pyramid**, where each recursive call is executed in place, and does not stack up on the call stack. That execution in languages supporting tail call optimization could look like:
+```
+(fact 3)
+(fact-tail 3 1)
+(fact-tail 2 3)
+(fact-tail 1 6)
+(fact-tail 0 6)
+6
+```
+You can visualize the stack like a bouncing trampoline:
+```
+   ---|---   ---|---   ---|---
+---      ---       ---       
+```
+This is clearly better since the stack has always only one frame, and from the visualization you can also see why it is called a trampoline. This prevents the stack from overflowing.
+
+Since we don't have the luxury of `tail call optimization` in Javascript, we need to figure out a way to turn regular recursion into an optimized version that will execute in trampoline-fashion.
+
+One obvious way is to **get rid of recursion**, and rewrite the code to be iterative.
+
+When that is not possible we need a bit more complex code where instead of executing directly the recursive steps, we will utilize `higher order functions` to return a wrapper function instead of executing the recursive step directly, and let another function control the execution.
+
+In your example, the **repeat** function wraps the regular recursive call with a function, and it returns that function instead of executing the recursive call:
+```js
+function repeat(operation, num) {
+    return function() {
+       if (num <= 0) return
+       operation()
+       return repeat(operation, --num)
+    }
+}
+```
+The returned function is the next step of recursive execution and the trampoline is a mechanism to execute these steps in a controlled and iterative fashion in the while loop:
+```js
+function trampoline(fn) {
+    while(fn && typeof fn === 'function') {
+        fn = fn()
+    }
+}
+```
+So the sole purpose of the trampoline function is to control the execution in an iterative way, and that ensures the stack to have only a single stack frame on the stack at any given time.
+
+Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is throttling and debouncing in javascript?***
+
+Debouncing and throttling techniques are used to limit the number of times a function can execute. These are two widely-used techniques to improve the performance of code that gets executed repeatedly within a period of time.
+
+**Throttling** enforces a maximum number of times a function can be called over time. As in "execute this function at most once every 100 milliseconds."
+
+Example:
+```js
+$("body").on('scroll', _.throttle(function() {
+  // Do expensive things
+}, 100));
+```
+**Debouncing** enforces that a function not be called again until a certain amount of time has passed without it being called. As in "execute this function only if 100 milliseconds have passed without it being called."
+
+Example:
+```js
+$(window).on('resize', _.debounce(function() {
+  // Do expensive things
+}, 100));
+```
+
+**Example: Use Case**  
+
+* Throttling a button click so we can't spam click
+* Throttling an API call
+* Throttling a mousemove event handler
+* Debouncing a resize event handler
+* Debouncing a scroll event handler
+* Debouncing a save function in an autosave feature
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is same-origin policy?***
+
+The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is server-sent events?***
+
+Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
+
+The `EventSource` object is used to receive server-sent event notifications. For example, we can receive messages from server as below,
+
+```js
+if(typeof(EventSource) !== "undefined") {
+  var source = new EventSource("sse_generator.js");
+  source.onmessage = function(event) {
+    document.getElementById("output").innerHTML += event.data + "<br>";
+  };
+}
+```
+
+Below are the list of events available for server sent events
+
+| Event | Description |
+|------ |--------------|
+| onopen  | It is used when a connection to the server is opened |
+| onmessage | This event is used when a message is received  |
+| onerror | It happens when an error occurs|
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you get the image width and height using JS?***
+
+You can programmatically get the image and check the dimensions(width and height) using Javascript.
+
+```js
+var img = new Image();
+img.onload = function() {
+  console.log(this.width + 'x' + this.height);
+}
+img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 #### Q. ***What is optional chaining in javascript?***
+#### Q. ***How could you make sure a const value is garbage collected?***
 
 *ToDo*
 
