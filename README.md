@@ -7607,11 +7607,21 @@ The same-origin policy prevents JavaScript from making requests across domain bo
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is `"use strict";`? What are the advantages and disadvantages to using it?***
+## Q. ***What is strict mode?***
 
-'use strict' is a statement used to enable strict mode to entire scripts or individual functions. Strict mode is a way to opt into a restricted variant of JavaScript.
+The Strict Mode is allows you to place a program, or a function, in a `strict` operating context. This strict context prevents certain actions from being taken and throws more exceptions.
 
-Advantages:
+**Example:**
+
+```js
+(function(){
+"use strict";
+
+// Define your library strictly...
+})();
+```
+
+**Advantages:**
 
 * Makes it impossible to accidentally create global variables.
 * Makes assignments which would otherwise silently fail to throw an exception.
@@ -7620,14 +7630,6 @@ Advantages:
 * `this` is undefined in the global context.
 * It catches some common coding bloopers, throwing exceptions.
 * It disables features that are confusing or poorly thought out.
-
-Disadvantages:
-
-* Many missing features that some developers might be used to.
-* No more access to `function.caller` and `function.arguments`.
-* Concatenation of scripts written in different strict modes might cause issues.
-
-Overall, I think the benefits outweigh the disadvantages, and I never had to rely on the features that strict mode blocks. I would recommend using strict mode.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
