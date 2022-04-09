@@ -357,7 +357,7 @@ It\'s a best practice to minimize global variables. Since the variable can be ac
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***what are template literals in es6?***
+## Q. ***What are template literals in es6?***
 
 Template literals help make it simple to do string interpolation, or to include variables in a string.
 
