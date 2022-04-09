@@ -32,7 +32,7 @@
 * [Modules](#modules)
 * [Miscellaneous](#miscellaneous)
 
-## Introduction
+## # Introduction
 
 ## Q. List out important features of JavaScript ES6?
 
@@ -425,7 +425,7 @@ console.log(iterateIt.next().value); //output: 6
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## VARIABLES
+## # VARIABLES
 
 ## Q. ***What are global variables?***
 
@@ -1074,7 +1074,7 @@ console.log(x); // 20
 console.log(y); // 10
 ```
 
-## DATA TYPES
+## # DATA TYPES
 
 ## Q. ***What are data types in javascript?***
 
@@ -1211,7 +1211,7 @@ const employee = {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## OPERATORS
+## # OPERATORS
 
 ## Q. ***What are various operators supported by javascript?***
 
@@ -1499,7 +1499,7 @@ console.log(emp1 instanceof Object); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## NUMBERS
+## # NUMBERS
 
 ## Q. ***How do you generate random integers?***
 
@@ -1624,7 +1624,7 @@ console.log(checkNumber(-Number.MAX_VALUE * 2));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## STRING
+## # STRING
 
 ## Q. ***How do you make first letter of the string in an uppercase?***
 
@@ -1803,7 +1803,7 @@ You can use ECMAScript 6 `String.prototype.startsWith()` method to check a strin
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## ARRAY
+## # ARRAY
 
 ## Q. ***Explain arrays in JavaScript?***
 
@@ -3022,7 +3022,7 @@ function someFunc(a,…b,c) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Regular Expression
+## # Regular Expression
 
 ## Q. ***What are the string methods available in Regular expression?***
 
@@ -3191,7 +3191,7 @@ function detectMobile() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## FUNCTIONS
+## # FUNCTIONS
 
 ## Q. What are fat arrow functions? When you should not use arrow functions in ES6?
 
@@ -4476,7 +4476,7 @@ loadScript('/script1.js', function(script) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## EVENTS
+## # EVENTS
 
 ## Q. ***what are events in javascript?***
 
@@ -4822,7 +4822,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## OBJECTS
+## # OBJECTS
 
 ## Q. ***What are the possible ways to create objects in JavaScript?***
 
@@ -5600,7 +5600,7 @@ ToDo
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-# WINDOW OBJECT
+# # WINDOW OBJECT
 
 ## Q. ***What is the difference between window and document?***
 
@@ -5938,7 +5938,7 @@ The difference between this property and firstElementChild, is that firstChild r
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-# CLASSES
+# # CLASSES
 
 ## Q. ***Explain how prototypal inheritance works?***
 
@@ -6416,7 +6416,7 @@ console.log(person.name); // "john"
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## ERROR HANDLING
+## # ERROR HANDLING
 
 ## Q. ***Define the various types of errors which occur in JavaScript programming language?***
 
@@ -6518,7 +6518,7 @@ Below are the list of statements used in an error handling,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## PROMISES
+## # PROMISES
 
 ## Q. What is a promise?
 
@@ -6900,7 +6900,7 @@ add2(10).then(v => {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## MODULES
+## # MODULES
 
 ## Q. What is modules in ES6?
 
@@ -9119,7 +9119,7 @@ function myFunction() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## MISCELLANEOUS
+## # MISCELLANEOUS
 
 ## Q. ***What is a decorator?***
 
