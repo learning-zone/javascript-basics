@@ -357,20 +357,13 @@ It\'s a best practice to minimize global variables. Since the variable can be ac
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***ES6 Template Literals offer a lot of flexibility in generating strings, can you give an example?***
+## Q. ***what are template literals in es6?***
 
-Template literals help make it simple to do string interpolation, or to include variables in a string. Before ES2015, it was common to do something like this:
-
-```js
-var person = { name: 'Tyler', age: 28 };
-console.log('Hi, my name is ' + person.name + ' and I am ' + person.age + ' years old!');
-// 'Hi, my name is Tyler and I am 28 years old!'
-```
-
-With template literals, you can now create that same output like this instead:
+Template literals help make it simple to do string interpolation, or to include variables in a string.
 
 ```js
 const person = { name: 'Tyler', age: 28 };
+
 console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
@@ -381,15 +374,6 @@ A second helpful use case is in creating multi-line strings. Before ES2015, you 
 
 ```js
 console.log('This is line one.\nThis is line two.');
-// This is line one.
-// This is line two.
-```
-
-Or if you wanted to break it up into multiple lines in your code so you didn't have to scroll to the right in your text editor to read a long string, you could also write it like this:
-
-```js
-console.log('This is line one.\n' +
-	'This is line two.');
 // This is line one.
 // This is line two.
 ```
@@ -407,6 +391,7 @@ Another use case of template literals would be to use as a substitute for templa
 
 ```js
 const person = { name: 'Tyler', age: 28 };
+
 document.body.innerHTML = `
   <div>
     <p>Name: ${person.name}</p>
