@@ -368,16 +368,6 @@ console.log(`Hi, my name is ${person.name} and I am ${person.age} years old!`);
 // 'Hi, my name is Tyler and I am 28 years old!'
 ```
 
-Note that you use backticks, not quotes, to indicate that you are using a template literal and that you can insert expressions inside the `${}` placeholders.
-
-A second helpful use case is in creating multi-line strings. Before ES2015, you could create a multi-line string like this:
-
-```js
-console.log('This is line one.\nThis is line two.');
-// This is line one.
-// This is line two.
-```
-
 Template literals, however, preserve whatever spacing you add to them. For example, to create that same multi-line output that we created above, you can simply do:
 
 ```js
