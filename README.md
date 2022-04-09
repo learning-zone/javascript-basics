@@ -7537,71 +7537,18 @@ This is a browser-reported string that allows the network protocol peers to iden
 
 ## Q. ***Explain Ajax in detail?***
 
-Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute use JSON instead of XML, due to the advantages of JSON being native to JavaScript.
+Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. 
+
+By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute use JSON instead of XML, due to the advantages of JSON being native to JavaScript.
 
 The `XMLHttpRequest` API is frequently used for the asynchronous communication or these days, the `fetch` API.
 
-**Advantages**
+**Advantages:**
 
 * Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
 * Reduce connections to the server since scripts and stylesheets only have to be requested once.
 * State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
 * Basically most of the advantages of an SPA.
-
-**Disadvantages**
-
-* Dynamic webpages are harder to bookmark.
-* Does not work if JavaScript has been disabled in the browser.
-* Some webcrawlers do not execute JavaScript and would not see content that has been loaded by JavaScript.
-* Basically most of the disadvantages of an SPA.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain how JSONP works (and how It is not really Ajax)***
-
-JSONP (JSON with Padding) is a method commonly used to bypass the cross-domain policies in web browsers because Ajax requests from the current page to a cross-origin domain is not allowed.
-
-JSONP works by making a request to a cross-origin domain via a `<script>` tag and usually with a `callback` query parameter, for example: `https://example.com?callback=printData`. The server will then wrap the data within a function called `printData` and return it to the client.
-
-```html
-<!-- https://mydomain.com -->
-<script>
-function printData(data) {
-  console.log(`My name is ${data.name}!`);
-}
-</script>
-
-<script src="https://example.com?callback=printData"></script>
-```
-
-```js
-// File loaded from https://example.com?callback=printData
-printData({ name: 'Yang Shun' });
-```
-
-The client has to have the `printData` function in its global scope and the function will be executed by the client when the response from the cross-origin domain is received.
-
-JSONP can be unsafe and has some security implications. As JSONP is really JavaScript, it can do everything else JavaScript can do, so you need to trust the provider of the JSONP data.
-
-These days, [CORS](http://en.wikipedia.org/wiki/Cross-origin_resource_sharing) is the recommended approach and JSONP is seen as a hack.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain the same-origin policy with regards to JavaScript?***
-
-The same-origin policy prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. This policy prevents a malicious script on one page from obtaining access to sensitive data on another web page through that page's Document Object Model.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why is it called a Ternary expression, what does the word "Ternary" indicate?***
-
-"Ternary" indicates three, and a ternary expression accepts three operands, the test condition, the "then" expression and the "else" expression. Ternary expressions are not specific to JavaScript and I'm not sure why it is even in this list.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7630,62 +7577,6 @@ The Strict Mode is allows you to place a program, or a function, in a `strict` o
 * `this` is undefined in the global context.
 * It catches some common coding bloopers, throwing exceptions.
 * It disables features that are confusing or poorly thought out.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are some of the advantages/disadvantages of writing JavaScript code in a language that compiles to JavaScript?***
-
-Some examples of languages that compile to JavaScript include CoffeeScript, Elm, ClojureScript, PureScript, and TypeScript.
-
-Advantages:
-
-* Fixes some of the longstanding problems in JavaScript and discourages JavaScript anti-patterns.
-* Enables you to write shorter code, by providing some syntactic sugar on top of JavaScript, which I think ES5 lacks, but ES2015 is awesome.
-* Static types are awesome (in the case of TypeScript) for large projects that need to be maintained over time.
-
-Disadvantages:
-
-* Require a build/compile process as browsers only run JavaScript and your code will need to be compiled into JavaScript before being served to browsers.
-* Debugging can be a pain if your source maps do not map nicely to your pre-compiled source.
-* Most developers are not familiar with these languages and will need to learn it. There's a ramp up cost involved for your team if you use it for your projects.
-* Smaller community (depends on the language), which means resources, tutorials, libraries, and tooling would be harder to find.
-* IDE/editor support might be lacking.
-* These languages will always be behind the latest JavaScript standard.
-* Developers should be cognizant of what their code is being compiled to — because that is what would actually be running, and that is what matters in the end.
-
-Practically, ES2015 has vastly improved JavaScript and made it much nicer to write. I don\'t really see the need for CoffeeScript these days.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What language constructions do you use for iterating over object properties and array items?***
-
-For objects:
-
-* `for-in` loops - `for (var property in obj) { console.log(property); }`. However, this will also iterate through its inherited properties, and you will add an `obj.hasOwnProperty(property)` check before using it.
-* `Object.keys()` - `Object.keys(obj).forEach(function (property) { ... })`. `Object.keys()` is a static method that will lists all enumerable properties of the object that you pass it.
-* `Object.getOwnPropertyNames()` - `Object.getOwnPropertyNames(obj).forEach(function (property) { ... })`. `Object.getOwnPropertyNames()` is a static method that will lists all enumerable and non-enumerable properties of the object that you pass it.
-
-For arrays:
-
-* `for` loops - `for (var i = 0; i < arr.length; i++)`. The common pitfall here is that `var` is in the function scope and not the block scope and most of the time you would want block scoped iterator variable. ES2015 introduces `let` which has block scope and it is recommended to use that instead. So this becomes: `for (let i = 0; i < arr.length; i++)`.
-* `forEach` - `arr.forEach(function (el, index) { ... })`. This construct can be more convenient at times because you do not have to use the `index` if all you need is the array elements. There are also the `every` and `some` methods which will allow you to terminate the iteration early.
-* `for-of` loops - `for (let elem of arr) { ... }`. ES6 introduces a new loop, the `for-of` loop, that allows you to loop over objects that conform to the [iterable protocol](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Iteration_protocols#The_iterable_protocol) such as `String`, `Array`, `Map`, `Set`, etc. It combines the advantages of the `for` loop and the `forEach()` method. The advantage of the `for` loop is that you can break from it, and the advantage of `forEach()` is that it is more concise than the `for` loop because you don\'t need a counter variable. With the `for-of` loop, you get both the ability to break from a loop and a more concise syntax.
-
-Most of the time, I would prefer the `.forEach` method, but it really depends on what you are trying to do. Before ES6, we used `for` loops when we needed to prematurely terminate the loop using `break`. But now with ES6, we can do that with `for-of` loops. I would use `for` loops when I need even more flexibility, such as incrementing the iterator more than once per loop.
-
-Also, when using the `for-of` loop, if you need to access both the index and value of each array element, you can do so with the ES6 Array `entries()` method and destructuring:
-
-```js
-const arr = ['a', 'b', 'c'];
-
-for (let [index, elem] of arr.entries()) {
-  console.log(index, ': ', elem);
-}
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7752,39 +7643,6 @@ innerArg = 5
 innerFuncVar = y
 globalVar = abc
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Write a mul function which will work properly when invoked with following syntax?***
-
-```js
-console.log(mul(2)(3)(4)); // output : 24
-console.log(mul(4)(3)(4)); // output : 48
-```
-
-
-Below is the code followed by the explanation of how it works:
-
-```js
-function mul (x) {
-  return function (y) { // anonymous function
-    return function (z) { // anonymous function
-      return x * y * z;
-    };
-  };
-}
-```
-
-Here the `mul` function accepts the first argument and returns the anonymous function which takes the second parameter and returns the anonymous function which takes the third parameter and returns the multiplication of arguments which is being passed in successive
-
-In Javascript function defined inside has access to outer function variable and function is the first class object so it can be returned by the function as well and passed as an argument in another function.
-- A function is an instance of the Object type
-- A function can have properties and has a link back to its constructor method
-- A function can be stored as variable
-- A function can be pass as a parameter to another function
-- A function can be returned from another function
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
