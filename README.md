@@ -662,11 +662,11 @@ console.log(navigator.userAgent.match(/Trident.*rv[ :]*11\./));  // returns eith
 
 `var x = 1`:
 
-- Allowed in 'strict mode'.
-- The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
-- Variables declared using var inside a { } block can be accessed from outside the block.
-- Variables defined using var inside a function are not accessible (visible) from outside the function.
-- Duplicate variable declarations using var will not trigger an error, even in strict mode, and the variable will not lose its value unless another assignment is performed.
+* Allowed in 'strict mode'.
+* The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+* Variables declared using var inside a { } block can be accessed from outside the block.
+* Variables defined using var inside a function are not accessible (visible) from outside the function.
+* Duplicate variable declarations using var will not trigger an error, even in strict mode, and the variable will not lose its value unless another assignment is performed.
 
 ```js
 var x = 1;
@@ -695,12 +695,12 @@ console.log(x); // 5
 
 `x = 1`:
 
-- Not allowed in 'strict mode'.
-- Undeclared Variables like: x = 1 is accessible in: (Block scope - Function scope - Global scope)
-- Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you’ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
-- Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
-- Unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
-- Not recommended.
+* Not allowed in 'strict mode'.
+* Undeclared Variables like: x = 1 is accessible in: (Block scope - Function scope - Global scope)
+* Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you\'ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
+* Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
+* Unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
+* Not recommended.
 
 ```js
 var x = 5; // global
