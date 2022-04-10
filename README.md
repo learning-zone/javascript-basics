@@ -74,7 +74,7 @@ function sum(x, y, z) {
 }
 const numbers = [10, 20, 30];
 
-// using Spread Operator
+// Using Spread Operator
 console.log(sum(...numbers)); // 60
 
 // Using Apply (ES5)
@@ -86,24 +86,32 @@ console.log(sum.apply(null, numbers)); // 60
 **2.1. Copying an array:**
 
 ```js
-let fruits = ['Apple','Orange','Banana'];
-
+let fruits = ["Apple", "Orange", "Banana"];
 let newFruitArray = [...fruits];
 
-console.log(newFruitArray); // ['Apple','Orange','Banana']
+console.log(newFruitArray); 
+
+//Output 
+['Apple','Orange','Banana']
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-wy1q0l?file=/src/index.js)**
 
 **2.2. Concatenating arrays:**  
 
 ```js
-let arr1 = ['A', 'B', 'C'];
-
-let arr2 = ['X', 'Y', 'Z'];
+let arr1 = ["A", "B", "C"];
+let arr2 = ["X", "Y", "Z"];
 
 let result = [...arr1, ...arr2];
 
-console.log(result); // ['A', 'B', 'C', 'X', 'Y', 'Z']
+console.log(result); 
+
+// Output
+['A', 'B', 'C', 'X', 'Y', 'Z']
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-m7v6gg?file=/src/index.js)**
 
 **2.3. Spreading elements together with an individual element:**
 
