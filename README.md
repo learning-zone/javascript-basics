@@ -52,20 +52,17 @@ Template literals are string literals allowing embedded expressions.
 * String tagging for safe HTML escaping, localization and more
 
 ```js
-let greeting = `Hello World!`;
-
 // String Substitution
-let name = "Alex";
-console.log(`Hi, ${name}!`); // Output: "Hi, Alex!"
+let name = `Abhinav Sharma`;
+console.log(`Hi, ${name}!`); // Output: "Abhinav Sharma"
 
-
-// Multiline Strings
-let greeting = "Hello \
-World";
-
-// Tagged Templates
-fn`Hello ${you}! You're looking ${adjective} today!`
+// Multiline String
+let msg = `Hello \
+World`;
+console.log(`${msg}`); // Output: "Hello World"
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-template-strings-dwj699?file=/src/index.js)**
 
 **2. Spread Operator:**
 
