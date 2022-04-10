@@ -733,14 +733,14 @@ console.log(x) // 1
 
 <br/>
 
-|                              |             var x = 1                  |                    x = 1                    |
-|           :---:              |                :---:                       |                     :---:                    |
-|    Strict mode         |            &#10004;                 |                 &#10060;              |
-|    Block scope        |            &#10060;                 |                 &#10004;               |
-|    Function scope   |            &#10004;                 |                 &#10004;               |
-|    Global scope       |             &#10004;                |                &#10004;                |
-|    Hoisting               |             &#10004;               |                &#10060;                |
-|    Reassigning         |             &#10004;                |               &#10004;                |
+|               | var x = 1 | x = 1 |
+|:---:          | :---:     | :---:|
+|Strict mode    | &#10004;  | &#10060; |
+|Block scope    | &#10060;  | &#10004; |
+|Function scope | &#10004;  | &#10004; |
+|Global scope   | &#10004;  | &#10004; |
+|Hoisting       | &#10004;  | &#10060; |
+|Reassigning    | &#10004;  | &#10004; |
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -831,12 +831,18 @@ A local variable takes precedence over a global variable with the same name.
 
 ```js
 var msg = "Good morning";
+
 function greeting() {
   msg = "Good Evening";
   console.log(msg);
 }
 greeting();
+
+// Output
+Good Evening
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-precedence-n1ve75?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
