@@ -116,33 +116,44 @@ console.log(result);
 **2.3. Spreading elements together with an individual element:**
 
 ```js
-let fruits = ['Apple','Orange','Banana'];
+let fruits = ["Apple", "Orange", "Banana"];
 
-let newFruits = ['Cherry', ...fruits];
+let newFruits = ["Cherry", ...fruits];
 
-console.log(newFruits); // ['Cherry', 'Apple','Orange','Banana']
+console.log(newFruits); 
+
+// Output
+['Cherry', 'Apple','Orange','Banana']
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-16l7oh?file=/src/index.js)**
 
 **2.4. Spreading elements on function calls:**
 
 ```js
-let fruits = ['Apple','Orange','Banana'];
+let fruits = ["Apple", "Orange", "Banana"];
 
 var getFruits = (f1, f2, f3) => {
-console.log(`Fruits: ${f1}, ${f2} and ${f3}`); };
+  console.log(`Fruits: ${f1}, ${f2} and ${f3}`);
+};
 
-getFruits(...fruits); // Fruits: Apple, Orange and Banana
+getFruits(...fruits); 
+
+// Output
+Fruits: Apple, Orange and Banana
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-jdhoe6?file=/src/index.js)**
 
 **2.5. Spread syntax for object literals:**
 
 ```js
-var obj1 = { id: 101, name: 'Jhon Doe' }
-var obj2 = { age: 25, country: 'USA'}
+var obj1 = { id: 101, name: 'Rajiv Sandal' }
+var obj2 = { age: 35, country: 'INDIA'}
 
 const employee = { ...obj1, ...obj2 }
 
-console.log(employee); //{ "id": 101, "name": "Jhon Doe", "age": 25, "country": "USA" }
+console.log(employee); // { "id": 101, "name": "Rajiv Sandal", "age": 35, "country": "INDIA" }
 ```
 
 **3. Sets:**  
