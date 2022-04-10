@@ -167,6 +167,8 @@ console.log(numbers); // Set(5) {10, 20, 30, 40, 50}
 console.log(typeof numbers); // Object
 ```
 
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-sets-chwvp0)**
+
 **4. Default Parametrs:**
 
 ```js
@@ -174,76 +176,100 @@ function add(x = 10, y = 20) {
   console.log(x + y);
 }
 
-add(30, 40); // 70
+add(10, 30); // 40
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-default-parametrs-tjw9uk?file=/src/index.js)**
 
 **5. repeat():**  
 
 The `repeat()` method constructs and returns a new string which contains the specified number of copies of the string on which it was called, concatenated together.
 
 ```js
-var cat = {
-  meow(times){
-    console.log("meow ".repeat(times));
-  }
-};
-cat.meow(2); // meow meow 
+const msg = "Hello World \n";
+
+console.log(`${msg.repeat(3)}`);
+
+// Output: 
+Hello World
+Hello World
+Hello World
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-repeat-d3ko3z?file=/src/index.js)**
 
 **6. Arrow Function (=>):**
 
 ```js
-var add = (x, y) => x + y;
-console.log(add(10, 20)); // 30;
+let add = (x, y) => x + y;
+
+console.log(add(10, 20)); // 30
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-ejlrmf?file=/src/index.js)**
 
 **7. Arrow function with `this`**
 
 ```js
 var person = {
-  first: "Alex",
+  name: "Diksha",
   actions: ["bike", "hike", "ski", "surf"],
   printActions: function() {
     var _this = this;
     this.actions.forEach(function(action) {
-      var str = _this.first + " likes to " + action;
+      var str = _this.name + " likes to " + action;
       console.log(str);
     });
   }
 };
 person.printActions();
 
-//ES-6
-var person = {
-  first: "Alex",
+// Arrow function
+let person = {
+  name: "Diksha",
   actions: ["bike", "hike", "ski", "surf"],
   printActions() {
-    this.actions.forEach(action => {
-      var str = this.first + " likes to " + action;
+    this.actions.forEach((action) => {
+      let str = this.name + " likes to " + action;
       console.log(str);
     });
   }
 };
+
+person.printActions();
+
+// Output:
+Diksha likes to bike 
+Diksha likes to hike 
+Diksha likes to ski 
+Diksha likes to surf
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-kh1v84?file=/src/index.js)**
 
 **8. Destructing Assignment:**
 
 ```js
-var phone = {
+const phone = {
   title: "iPhone",
-  price: 800,
+  price: 999,
   description: "The iPhone is a smartphone developed by Apple"
 };
 console.log(phone.title);
 
-//ES-6
-var { title, price, description } = {
+
+// Destructing Assignment
+const { title, price, description } = {
   title: "iPhone",
-  price: 800,
+  price: 999,
   description: "The iPhone is a smartphone developed by Apple"
 };
 console.log(title); // iPhone
+console.log(price); // 999
+console.log(description); // The iPhone is a smartphone developed by Apple
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-destructing-assignment-0c0fzl?file=/src/index.js)**
 
 **9. Generators:**  
 
@@ -251,46 +277,49 @@ A generator is a function that can stop midway and then continue from where it s
 
 ```js
 function* generator(num) {
-  yield num + 1;
-  yield num + 2;
-  yield num + 3;
-  yield num + 4;
-  yield num + 5;
+  yield num + 10;
+  yield num + 20;
+  yield num + 30;
 }
-var gen = generator(10);
-console.log(gen.next().value); // 11
-console.log(gen.next().value); // 12
-console.log(gen.next().value); // 13
-console.log(gen.next().value); // 14
-console.log(gen.next().value); // 15
+let gen = generator(10);
+
+console.log(gen.next().value); // 20
+console.log(gen.next().value); // 30
+console.log(gen.next().value); // 40
 ```  
 
-**10. Symbols():**  
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-generators-pboss2?file=/src/index.js)**
+
+**10. Symbols:**  
 
 They are tokens that serve as unique IDs. We create symbols via the factory function Symbol(). Symbols primary use case is for making private object properties, which can be only of type String or Symbol (Numbers are automatically converted to Strings).
 
 ```js
 const symbol1 = Symbol();
 const symbol2 = Symbol(42);
-const symbol3 = Symbol('foo');
+const symbol3 = Symbol("Hi");
 
 console.log(typeof symbol1); // symbol
-console.log(symbol3.toString()); // Symbol(foo)
-console.log(Symbol('foo') === Symbol('foo')); // false
+console.log(symbol3.toString()); // Symbol(Hi)
+console.log(Symbol("Hi") === Symbol("Hi")); // false
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-symbols-5oedjv?file=/src/index.js)**
 
 **11. Iterator:**  
   
 The iterable is a interface that specifies that an object can be accessible if it implements a method who is key is `[symbol.iterator]`.
 
 ```js
-var title = 'ES6';
-var iterateIt = title[Symbol.iterator]();
+const title = "ES6";
+const iterateIt = title[Symbol.iterator]();
 
 console.log(iterateIt.next().value); //output: E
 console.log(iterateIt.next().value); //output: S
 console.log(iterateIt.next().value); //output: 6
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-iterator-ceqbrw?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
