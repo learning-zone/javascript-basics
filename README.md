@@ -500,9 +500,26 @@ baz = 'qux';
 
 ## Q. ***What is Hoisting in JavaScript?***
 
-Hoisting is a JavaScript mechanism where variables and function declarations are moved to the top of their scope before code execution.
+JavaScript **Hoisting** refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
 
-**Example 01:** Variable Hoisting  
+Hoisting allows functions to be safely used in code before they are declared.
+
+**Example 01:** Function Hoisting
+
+One of the advantages of hoisting is that it lets you use a function before you declare it in your code.
+
+```js
+getName("Sadhika Sandal");
+
+function getName(name) {
+  console.log("Hello " + name);
+}
+
+// Output
+Hello Sadhika Sandal
+```
+
+**Example 02:** Variable Hoisting  
 
 ```js
 console.log(message); // output : undefined
@@ -517,42 +534,22 @@ console.log(message);
 message = "The variable Has been hoisted";
 ```
 
-**Example 02:** Function Hoisting
-
-```js
-function hoist() {
-  a = 20;
-  var b = 100;
-}
-
-hoist();
-
-console.log(a);
-/* 
-Accessible as a global variable outside hoist() function
-Output: 20
-*/
-
-console.log(b);
-/*
-Since it was declared, it is confined to the hoist() function scope.
-We can't print it out outside the confines of the hoist() function.
-Output: ReferenceError: b is not defined
-*/
-```
+**Example 03:** `let` and `const` hoisting
 
 All declarations (function, var, let, const and class) are hoisted in JavaScript, while the `var` declarations are initialized with `undefined`, but `let` and `const` declarations remain uninitialized.
 
 ```js
-console.log(a);
-let a = 3;
+console.log(x);
+let x = 10;
 
-// Output: ReferenceError: a is not defined
+// Output: ReferenceError: x is not defined
 ```
 
 They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can\'t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call **Temporal Dead Zone**, A time span between variable creation and its initialization where they can\'t be accessed.
 
 *Note: JavaScript only hoists declarations, not initialisation*
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-hoisting-l745nc?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
