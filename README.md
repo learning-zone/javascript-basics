@@ -422,34 +422,42 @@ document.body.innerHTML = `
 Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
 ```js
-function foo() {
-  // All variables are accessible within functions.
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
+/**
+ * All variables are accessible within functions.
+ * 
+**/
+function variableScope() {
 
-  console.log(bar); // bar
-  console.log(baz); // baz
-  console.log(qux); // qux
+  var x = 10;
+  let y = 20;
+  const z = 30;
+
+  console.log(x); // 10
+  console.log(y); // 20
+  console.log(z); // 30
 }
 
-console.log(bar); // ReferenceError: bar is not defined
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
+console.log(x); // ReferenceError: x is not defined
+console.log(y); // ReferenceError: y is not defined
+console.log(z); // ReferenceError: z is not defined
+
+variableScope();
 ```
 
 ```js
+/**
+ * var declared variables are accessible anywhere in the function scope.
+ * 
+ **/
 if (true) {
-  var bar = 'bar';
-  let baz = 'baz';
-  const qux = 'qux';
+  var a = 10;
+  let b = 20;
+  const c = 30;
 }
 
-// var declared variables are accessible anywhere in the function scope.
-console.log(bar); // bar
-// let and const defined variables are not accessible outside of the block they were defined in.
-console.log(baz); // ReferenceError: baz is not defined
-console.log(qux); // ReferenceError: qux is not defined
+console.log(a); // 10
+console.log(b); // ReferenceError: baz is not defined
+console.log(c); // ReferenceError: qux is not defined
 ```
 
 `var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
@@ -487,6 +495,8 @@ foo = 'bar';
 const baz = 'baz';
 baz = 'qux';
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variables-declaration-fmrkjz?file=/src/index.js)**
 
 ## Q. ***What is Hoisting in JavaScript?***
 
