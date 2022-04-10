@@ -64,6 +64,10 @@ console.log(`${msg}`); // Output: "Hello World"
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-template-strings-dwj699?file=/src/index.js)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **2. Spread Operator:**
 
 Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. 
@@ -83,6 +87,10 @@ console.log(sum.apply(null, numbers)); // 60
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-25tmcf?file=/src/index.js)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **2.1. Copying an array:**
 
 ```js
@@ -96,6 +104,10 @@ console.log(newFruitArray);
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-wy1q0l?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 **2.2. Concatenating arrays:**  
 
@@ -113,6 +125,10 @@ console.log(result);
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-m7v6gg?file=/src/index.js)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **2.3. Spreading elements together with an individual element:**
 
 ```js
@@ -127,6 +143,10 @@ console.log(newFruits);
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-16l7oh?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 **2.4. Spreading elements on function calls:**
 
@@ -145,6 +165,10 @@ Fruits: Apple, Orange and Banana
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-jdhoe6?file=/src/index.js)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **2.5. Spread syntax for object literals:**
 
 ```js
@@ -155,6 +179,10 @@ const employee = { ...obj1, ...obj2 }
 
 console.log(employee); // { "id": 101, "name": "Rajiv Sandal", "age": 35, "country": "INDIA" }
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 **3. Sets:**  
 
@@ -169,6 +197,10 @@ console.log(typeof numbers); // Object
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-sets-chwvp0)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **4. Default Parametrs:**
 
 ```js
@@ -180,6 +212,10 @@ add(10, 30); // 40
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-default-parametrs-tjw9uk?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 **5. repeat():**  
 
@@ -198,6 +234,10 @@ Hello World
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-repeat-d3ko3z?file=/src/index.js)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **6. Arrow Function (=>):**
 
 ```js
@@ -207,6 +247,10 @@ console.log(add(10, 20)); // 30
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-ejlrmf?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 **7. Arrow function with `this`**
 
@@ -247,6 +291,10 @@ Diksha likes to surf
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-kh1v84?file=/src/index.js)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **8. Destructing Assignment:**
 
 ```js
@@ -271,6 +319,10 @@ console.log(description); // The iPhone is a smartphone developed by Apple
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-destructing-assignment-0c0fzl?file=/src/index.js)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **9. Generators:**  
 
 A generator is a function that can stop midway and then continue from where it stopped. In short, a generator appears to be a function but it behaves like an `iterator`.
@@ -290,6 +342,10 @@ console.log(gen.next().value); // 40
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-generators-pboss2?file=/src/index.js)**
 
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 **10. Symbols:**  
 
 They are tokens that serve as unique IDs. We create symbols via the factory function Symbol(). Symbols primary use case is for making private object properties, which can be only of type String or Symbol (Numbers are automatically converted to Strings).
@@ -305,6 +361,10 @@ console.log(Symbol("Hi") === Symbol("Hi")); // false
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-symbols-5oedjv?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
 
 **11. Iterator:**  
   
