@@ -1086,6 +1086,18 @@ Below are the list of bit-wise logical operators used in JavaScript
 |Sign-propagating right shift|	a >> b |Shifts a in binary representation b (< 32) bits to the right, discarding bits shifted off.|
 |Zero-fill right shift |	a >>> b	 | Shifts a in binary representation b (< 32) bits to the right, discarding bits shifted off, and shifting in zeroes from the left.|
 
+**Examples:**
+
+|Operation|	Result	  |Same as	    |Result    |
+|---------|-----------|-------------|----------|
+|5 & 1    | 1	        |0101 & 0001	|0001      |
+|`5 | 1`	| 5	        |`0101 | 0001`|0101      |
+|`~ 5`    | 10	      |`~0101`	    |1010      |
+|`5 << 1`	| 10        |`0101 << 1`	|1010      |
+|`5 ^ 1`	| 4         |`0101 ^ 0001`|0100      |
+|`5 >> 1`	| 2	        |0101 >> 1	  |0010      |
+|5 >>> 1	| 2	        |0101 >>> 1	  |0010      |
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
