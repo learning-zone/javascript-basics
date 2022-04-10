@@ -910,6 +910,12 @@ console.log(x); // 20
 console.log(y); // 10
 ```
 
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-destructuring-sv99cd?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## # DATA TYPES
 
 ## Q. ***What are data types in javascript?***
