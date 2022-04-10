@@ -133,7 +133,7 @@ console.log(newFruits);
 ```js
 let fruits = ["Apple", "Orange", "Banana"];
 
-var getFruits = (f1, f2, f3) => {
+const getFruits = (f1, f2, f3) => {
   console.log(`Fruits: ${f1}, ${f2} and ${f3}`);
 };
 
