@@ -879,21 +879,21 @@ Hoist(20);
 `this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping(in C open/close {} curly braces refers to a block). JavaScript has two scopes namely, global and local scope.
 
 ```js
-function Note() {
-  var self = this;
+// this Context
+const context = {
+  prop: 10,
+  getCurrentContext: function () {
+    return this.prop;
+  }
+};
 
-  var note = document.createElement('div');
-  note.className = 'note';
-  note.addEventListener('mousedown', function(e) { return self.onMouseDown(e) }, false);
-  note.addEventListener('click', function() { return self.onNoteClick() }, false);
-  this.note = note;
-  // ...
-}
+console.log(context.getCurrentContext());
+// expected output: 10
 ```
 
 *Note: 'self' should not be used this way anymore, since modern browsers provide a global variable self pointing to the global object of either a normal window or a WebWorker.*
 
-To avoid confusion and potential conflicts, you can write var thiz = this or var that = this instead.
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-self-this-k1w0e8?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
