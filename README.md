@@ -72,13 +72,16 @@ Spread operator allows iterables( arrays / objects / strings ) to be expanded in
 function sum(x, y, z) {
   return x + y + z;
 }
+const numbers = [10, 20, 30];
 
-const numbers = [1, 2, 3];
+// using Spread Operator
+console.log(sum(...numbers)); // 60
 
-console.log(sum(...numbers)); // 6
-
-console.log(sum.apply(null, numbers)); // 6
+// Using Apply (ES5)
+console.log(sum.apply(null, numbers)); // 60
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-25tmcf?file=/src/index.js)**
 
 **2.1. Copying an array:**
 
