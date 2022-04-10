@@ -746,71 +746,6 @@ console.log(x) // 1
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is `undefined` property?***
-
-The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
-
-```js
-var user;    // Value is undefined, type is undefined
-console.log(typeof(user)) //undefined
-```
-
-Any variable can be emptied by setting the value to undefined.
-
-```js
-user = undefined
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is difference between `null` vs `undefined`?***
-
-**Null:**
-
-`Null` means an empty or non-existent value. Null is assigned, and explicitly means nothing.
-
-```js
-var test = null;
-console.log(test); // null
-```
-
-`null` is also an object. Interestingly, this was actually an error in the original JavaScript implementation:
-
-```js
-console.log(typeof test); // object
-```
-
-**Undefined:**
-
-Undefined means a variable has been declared, but the value of that variable has not yet been defined. For example:
-
-```js
-var test2;
-console.log(test2); // undefined
-```
-
-Unlike null, undefined is of the type undefined:
-
-```js
-console.log(typeof test2); // undefined
-```
-
-**Difference:**
-
-| Null | Undefined |
-|---- | -----------|
-| It is an assignment value which indicates that variable points to no object.  | It is not an assignment value where a variable has been declared but has not yet been assigned a value. |
-| Type of null is object | Type of undefined is undefined  |
-| The null value is a primitive value that represents the null, empty, or non-existent reference. | The undefined value is a primitive value used when a variable has not been assigned a value.|
-| Indicates the absence of a value for a variable | Indicates absence of variable itself |
-| Converted to zero (0) while performing primitive operations | Converted to NaN while performing primitive operations |
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you assign default values to variables?***
 
 You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,
@@ -944,10 +879,12 @@ There are eight basic data types in JavaScript.
 Example:
 
 ```js
-//Strings 
-const firstName = 'John';
-const lastName = "K";
-const result = `The names are ${firstName} and ${lastName}`;
+// Strings
+const firstName = "Mukul";
+const lastName = "Mittal";
+const result = `Name: ${firstName} ${lastName}`;
+
+console.log(result); // Name: Mukul Mittal
 ```
 
 **Number:**
@@ -957,17 +894,17 @@ Number represents integer and floating numbers (decimals and exponentials). A nu
 ```js
 const number1 = 3;
 const number2 = 3.433;
-const number3 = 3e5 // 3 * 10^5
+const number3 = 3e5; // 3 * 10^5
 
-const number1 = 3/0;
-console.log(number1); // Infinity
+const number4 = 3 / 0;
+console.log(number4); // Infinity
 
-const number2 = -3/0;
-console.log(number2); // -Infinity
+const number5 = -3 / 0;
+console.log(number5); // -Infinity
 
 // strings can't be divided by numbers
-const number3 = "abc"/3; 
-console.log(number3);  // NaN
+const number6 = "abc" / 3;
+console.log(number6); // NaN
 ```
 
 **BigInt:**
@@ -1048,6 +985,71 @@ const employee = {
     email: 'john.k@gmail.com'
 };
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is `undefined` property?***
+
+The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
+
+```js
+var user;    // Value is undefined, type is undefined
+console.log(typeof(user)) //undefined
+```
+
+Any variable can be emptied by setting the value to undefined.
+
+```js
+user = undefined
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is difference between `null` vs `undefined`?***
+
+**Null:**
+
+`Null` means an empty or non-existent value. Null is assigned, and explicitly means nothing.
+
+```js
+var test = null;
+console.log(test); // null
+```
+
+`null` is also an object. Interestingly, this was actually an error in the original JavaScript implementation:
+
+```js
+console.log(typeof test); // object
+```
+
+**Undefined:**
+
+Undefined means a variable has been declared, but the value of that variable has not yet been defined. For example:
+
+```js
+var test2;
+console.log(test2); // undefined
+```
+
+Unlike null, undefined is of the type undefined:
+
+```js
+console.log(typeof test2); // undefined
+```
+
+**Difference:**
+
+| Null | Undefined |
+|---- | -----------|
+| It is an assignment value which indicates that variable points to no object.  | It is not an assignment value where a variable has been declared but has not yet been assigned a value. |
+| Type of null is object | Type of undefined is undefined  |
+| The null value is a primitive value that represents the null, empty, or non-existent reference. | The undefined value is a primitive value used when a variable has not been assigned a value.|
+| Indicates the absence of a value for a variable | Indicates absence of variable itself |
+| Converted to zero (0) while performing primitive operations | Converted to NaN while performing primitive operations |
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
