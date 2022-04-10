@@ -329,77 +329,52 @@ console.log(iterateIt.next().value); //output: 6
 
 ## Q. ***What are global variables?***
 
-Global variables are declared outside of a function or declared with a window object for accessibility throughout the program (unless shadowed by locals). If you declare a variable without using var, even if it’s inside a function, it will still be seen as global:
+Global variables are declared outside of a function or declared with a window object for accessibility throughout the program (unless shadowed by locals). If you declare a variable without using var, even if it\'s inside a function, it will still be seen as global.
+
+The `var` **statement** declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
+
+**Example:**
 
 ```js
+var x = 10;
 
-var x = 5; // global
-function someThing(y) {
-  var z = x + y;
-  console.log(z);
+if (x === 10) {
+  var x = 20;
+
+  console.log(x);
+  // expected output: 20
 }
-someThing(4); // 9
-console.log(x); // 5
+
+console.log(x);
+// expected output: 20
+```
+
+**Example:** Declaring global variable within function
+
+```js
+window.value = 90;
+
+// Declaring global variable by window object
+function setValue() {
+  window.value = 100;
+}
+
+// Accessing global variable from other function
+function getValue() {
+  setValue();
+  return window.value;
+}
+
+console.log(getValue()); // 100
 ```
 
 **Using Undeclared Variables:**
 
-- In strict mode, if you attempt to use an undeclared variable, you\'ll get a reference error when you run your code. 
-- Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you’ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
-- Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
-But unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
+* In strict mode, if you attempt to use an undeclared variable, you\'ll get a reference error when you run your code. 
+* Outside of strict mode, however, if you assign a value to a name that has not been declared with `let`, `const`, or `var`, you\'ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
+* Global variables created in this accidental way are like global variables declared with `var`: they define properties of the global object. But unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
 
-```js
-var x = 5; // global
-function someThing(y) {
-  x = 1; // still global!
-  var z = x + y;
-  console.log(z);
-}
-someThing(4) // 5
-console.log(x) // 1
-```
-
-```js
-var x = 5; // global
-function someThing(y) {
-  var x = 3; // local
-  var z = x + y;
-  console.log(z);
-}
-someThing(4); // 7
-console.log(x); // 5
-```
-
-A global variable is also an object of the current scope, such as the browser window:
-
-```js
-var dog = “Fluffy”;
-console.log(dog); // Fluffy;
-
-var dog = “Fluffy”;
-console.log(window.dog); // Fluffy
-```
-
-To declare JavaScript global variables inside the function, you need to use a window object. For example:
-
-```js
-window.value = 90;
-```
-  
-Now it can be declared inside any function and can be accessed from any function. For example:
-
-```js
-function m() {  
-  window.value = 100;  //declaring global variable by window object  
-}  
-
-function n() {  
-  console.log(window.value);  //accessing global variable from other function  
-}  
-```
-
-It\'s a best practice to minimize global variables. Since the variable can be accessed anywhere in the program, they can cause strange behavior.
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-global-variables-b4isqk?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
