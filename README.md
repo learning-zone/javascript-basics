@@ -636,7 +636,8 @@ let aLet = 2;
 
 ## Q. ***What is the purpose of double exclamation?***
 
-The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. 0, null, undefined, etc.), it will be false, otherwise, true.
+The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. `0`, `null`, `undefined`, etc.), it will be `false`, otherwise, `true`.
+
 For example, you can test IE version using this expression as below,
 
 ```js
