@@ -858,13 +858,15 @@ If there is a variable in the global scope, and you'd like to create a variable 
 var val = 10;
 
 function Hoist(val) {
-    alert(val);
+  console.log(val);
 }
 Hoist(20);
 
-// Output
+// Output: 
 20
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variable-shadowing-dvibcw?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
