@@ -1092,11 +1092,13 @@ Below are the list of bit-wise logical operators used in JavaScript
 |---------|-----------|-------------|----------|
 |5 & 1    | 1	        |0101 & 0001	|0001      |
 |`5 | 1` 	| 5         |0101 | 0001  |0101      |
-|`~ 5`    | 10	      |~0101	      |1010      |
+|`~ 5`    |-6	        |~0101	      |1010      |
 |`5 << 1`	| 10        |0101 << 1  	|1010      |
 |`5 ^ 1`	| 4         |0101 ^ 0001  |0100      |
 |`5 >> 1`	| 2	        |0101 >> 1	  |0010      |
 |5 >>> 1	| 2	        |0101 >>> 1	  |0010      |
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-bitwise-operators-nnz00d?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
