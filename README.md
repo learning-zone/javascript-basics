@@ -1065,7 +1065,7 @@ An operator is capable of manipulating(mathematical and logical computations) a 
 
 Arithmetic operators are used to perform mathematical operations between numeric operands.
 
-|Operator|Description             | Example ( say `let x = 10, y = 20;`) |
+|Operators|Description             | Example ( say `let x = 10, y = 20;`) |
 |--------|------------------------|-------------|
 | +      |Adds two numeric operands.| x + y     |
 | -      |Subtract right operand from left operand| y - x|
@@ -1093,7 +1093,7 @@ JavaScript provides comparison operators that compare two operands and return a 
 
 The logical operators are used to combine two or more conditions.
 
-|Operator  |Description         |
+|Operators |Description         |
 |----------|--------------------|
 |&&	&&     |is known as AND operator. It checks whether two operands are non-zero or not (0, false, undefined, null or "" are considered as zero). It returns 1 if they are non-zero; otherwise, returns 0.|
 |`||`      | `||` is known as OR operator. It checks whether any one of the two operands is non-zero or not (0, false, undefined, null or "" is considered as zero). It returns 1 if any one of of them is non-zero; otherwise, returns 0.|
@@ -1103,8 +1103,8 @@ The logical operators are used to combine two or more conditions.
 
 The assignment operators to assign values to variables with less key strokes.
 
-|Assignment operators |	Description  |
-|---------------------|---------------------------------|
+|Operators | Description  |
+|----|--------------------|
 |=   |Assigns right operand value to the left operand.|
 |+=  |Sums up left and right operand values and assigns the result to the left operand.|
 |-=  |Subtract right operand value from the left operand value and assigns the result to the left operand.|
