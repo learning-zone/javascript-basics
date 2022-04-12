@@ -1311,7 +1311,9 @@ console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticat
 
 ## Q. ***Can you apply chaining on conditional operator?***
 
-Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain. The syntax is going to be as below,
+Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain.
+
+**Example:**
 
 ```js
 function getValue(someParam) {
