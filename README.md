@@ -1171,7 +1171,15 @@ typeof a; // "undefined"
 
 a = { b: "c" };
 typeof a; // "object"
+
+a = function () {
+  return 10;
+};
+
+console.log(typeof a); // "function"
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-typeof-jesw53?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
