@@ -1067,19 +1067,79 @@ Arithmetic operators are used to perform mathematical operations between numeric
 
 |Operator|Description             | Example ( say `let x = 10, y = 20;`) |
 |--------|------------------------|-------------|
-| +	     |Adds two numeric operands.| x + y     |
-| -	     |Subtract right operand from left operand| y - x|
-| *	     |Multiply two numeric operands.| x * y|
-| /	     |Divide left operand by right operand.| y / x|
-| %	     |Modulus operator. Returns remainder of two operands.| x % 2|
-| ++	   |Increment operator. Increase operand value by one.| x++|
-| --	   |Decrement operator. Decrease value by one.| x--|
+| +      |Adds two numeric operands.| x + y     |
+| -      |Subtract right operand from left operand| y - x|
+| *      |Multiply two numeric operands.| x * y|
+| /      |Divide left operand by right operand.| y / x|
+| %      |Modulus operator. Returns remainder of two operands.| x % 2|
+| ++     |Increment operator. Increase operand value by one.| x++|
+| --     |Decrement operator. Decrease value by one.| x--|
 
-2. **Comparison Operators:** Includes = =(Equal),!= (Not Equal), ===(Equal with type), > (Greater than),> = (Greater than or Equal to),< (Less than),<= (Less than or Equal to)
-3. **Logical Operators:** Includes &&(Logical AND),||(Logical OR),!(Logical NOT)
-4. **Assignment Operators:** Includes = (Assignment Operator), += (Add and Assignment Operator), – = (Subtract and Assignment Operator), *= (Multiply and Assignment), /= (Divide and Assignment), %= (Modules and Assignment)
-5. **Ternary Operators:** It includes conditional(: ?) Operator
-6. **typeof Operator:** It uses to find type of variable. The syntax looks like `typeof variable`
+**Comparison Operators:**
+
+JavaScript provides comparison operators that compare two operands and return a boolean value `true` or `false`.
+
+|Operators|	Description|
+|---------|-------------|
+|==       |Compares the equality of two operands without considering type.|
+|===      |Compares equality of two operands with type.|
+|!=       |Compares inequality of two operands.|
+|>        |Returns a boolean value true if the left-side value is greater than the right-side value; otherwise, returns false.|
+|<        |Returns a boolean value true if the left-side value is less than the right-side value; otherwise, returns false.|
+|>=       |Returns a boolean value true if the left-side value is greater than or equal to the right-side value; otherwise, returns false.|
+|<=       |Returns a boolean value true if the left-side value is less than or equal to the right-side value; otherwise, returns false.|
+
+**Logical Operators:**
+
+The logical operators are used to combine two or more conditions.
+
+|Operator  |Description         |
+|----------|--------------------|
+|&&	&&     |is known as AND operator. It checks whether two operands are non-zero or not (0, false, undefined, null or "" are considered as zero). It returns 1 if they are non-zero; otherwise, returns 0.|
+|`||`      | `||` is known as OR operator. It checks whether any one of the two operands is non-zero or not (0, false, undefined, null or "" is considered as zero). It returns 1 if any one of of them is non-zero; otherwise, returns 0.|
+|!         |	! is known as NOT operator. It reverses the boolean result of the operand (or condition). !false returns true, and !true returns false.|
+
+**Assignment Operators:**
+
+The assignment operators to assign values to variables with less key strokes.
+
+|Assignment operators |	Description  |
+|---------------------|---------------------------------|
+|=   |Assigns right operand value to the left operand.|
+|+=  |Sums up left and right operand values and assigns the result to the left operand.|
+|-=  |Subtract right operand value from the left operand value and assigns the result to the left operand.|
+|*=  |Multiply left and right operand values and assigns the result to the left operand.|
+|/=  |Divide left operand value by right operand value and assign the result to the left operand.|
+|%=  |Get the modulus of left operand divide by right operand and assign resulted modulus to the left operand.|
+
+**Ternary Operators:**
+
+JavaScript provides a special operator called ternary operator `:?` that assigns a value to a variable based on some condition.
+
+**Syntax:**
+
+```js
+<condition> ? <value1> : <value2>;
+
+// Example
+let a = 10, b = 20;
+
+let c = a > b ? a : b; // 20
+let d = a > b ? b : a; // 10
+```
+
+**typeof Operator:** It uses to find type of variable.
+
+**Syntax:**
+
+```js
+typeof variable
+
+// Example
+Let a = 10;
+
+typeof a // number
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
