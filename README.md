@@ -1121,17 +1121,19 @@ JavaScript provides both strict(===, !==) and type-converting(==, !=) equality c
 **Example:**
 
 ```js
-0 == false   // true
-0 === false  // false
-1 == "1"     // true
-1 === "1"    // false
-null == undefined // true
-null === undefined // false
-'0' == false // true
-'0' === false // false
-[]==[] or []===[] //false, refer different objects in memory
-{}=={} or {}==={} //false, refer different objects in memory
+console.log(0 == false); // true
+console.log(0 === false); // false
+console.log(1 == "1"); // true
+console.log(1 === "1"); // false
+console.log(null == undefined); // true
+console.log(null === undefined); // false
+console.log("0" == false); // true
+console.log("0" === false); // false
+console.log([] === []); // false, refer different objects in memory
+console.log({} === {}); // false, refer different objects in memory
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-comparison-0y16ii?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
