@@ -1187,16 +1187,22 @@ console.log(typeof a); // "function"
 
 ## Q. ***What is an Unary operator?***
 
-The unary(+) operator is used to convert a variable to a number.If the variable cannot be converted, it will still become a number but with the value NaN. Let us see this behavior in an action.
+The unary(+) operator is used to convert a variable to a number. If the variable cannot be converted, it will still become a number but with the value NaN.
+
+**Example:**
+
 ```js
 var x = "100";
-var y = + x;
+var y = +x;
 console.log(typeof x, typeof y); // string, number
 
 var a = "Hello";
-var b = + a;
+var b = +a;
 console.log(typeof a, typeof b, b); // string, number, NaN
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-unary-operator-ld2luh?file=/src/index.js)**
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
