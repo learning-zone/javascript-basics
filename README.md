@@ -1285,10 +1285,10 @@ console.log(typeof a, typeof b, b); // string, number, NaN
 The delete keyword is used to delete the property as well as its value.
 
 ```js
-var user= {name: "John", age:20};
+var user = {name: "Sadhika Chaudhuri", age: 24};
 delete user.age;
 
-console.log(user); // {name: "John"}
+console.log(user); // {name: "Sadhika Chaudhuri"}
 ```
 
 <div align="right">
