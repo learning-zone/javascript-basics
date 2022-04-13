@@ -1368,25 +1368,29 @@ console.log(x == undefined); // true
 
 ## Q. ***What is the difference between `typeof` and `instanceof` operator?***
 
-`typeof` is an operator that returns a string with the type of whatever you pass.
+The `typeof` operator checks if a value has type of primitive type which can be one of boolean, function, object, number, string, undefined and symbol (ES6).
 
-The `typeof` operator checks if a value belongs to one of the seven basic types: `number`, `string`, `boolean`, `object`, `function`, `undefined` or `Symbol`.
-
-`typeof(null)` will return `object`.
-
-`instanceof` is much more intelligent: it works on the level of prototypes. In particular, it tests to see if the right operand appears anywhere in the prototype chain of the left. `instanceof` doesn\'t work with primitive types. It `instanceof` operator checks the current object and returns true if the object is of the specified type, for example:
+**Example:**
 
 ```js
-var dog = new Animal();
-dog instanceof Animal; // Output : true
+const x = "Hello World";
+const y = new String("Hello World");
+
+typeof x; // returns 'string'
+typeof y; // returns 'object'
 ```
 
-Here `dog instanceof Animal` is true since `dog` inherits from `Animal.prototype`
+The `instanceof` is a binary operator, accepting an object and a constructor. It returns a boolean indicating whether or not the object has the given constructor in its prototype chain.
 
 ```js
-var name = new String("xyz");
-name instanceof String; // Output : true
+const a = "Hello World";
+const b = new String("Hello World");
+
+a instanceof String; // returns false
+b instanceof String; // returns true
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-typeof-operator-9uejl1?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
