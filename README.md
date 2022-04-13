@@ -1396,55 +1396,6 @@ b instanceof String; // returns true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Best way to detect reference values of any type in JavaScript?***
-
- In Javascript Object are called as reference type, Any value other then primitive is definitely a reference type. There are several built-in reference type such as **Object**, **Array**, **Function**, **Date**, **null** and **Error**.
-
-Detecting object using `typeof` operator
-
-```js
-console.log(typeof {});           // object
-console.log(typeof []);           // object
-console.log(typeof new Array());  // object
-console.log(typeof null);         // object 
-console.log(typeof new RegExp()); // object
-console.log(typeof new Date());   // object
-```
-
-But the downside of using typeof operator to detect an object is that typeof returns `object` for `null` (However this is fact that null is an object in JavaScript).
-
-The best way to detect an object of specific reference type using `instanceof` operator.
-
->Syntax : **value** instanceof **constructor**
-
-```js
-//Detecting an array
-if(value instanceof Array){
-	console.log("value is type of array");
-}
-```
-
-```js
-// Employee constructor function
-function Employee(name){
-	this.name = name; // Public property
-}
-
-var emp1 = new Employee('John');
-
-console.log(emp1 instanceof Employee); // true
-```
-
-`instanceof` not only check the constructor which is used to create an object but also check It is prototype chain see below example.
-
-```js
-console.log(emp1 instanceof Object); // true
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the output of below spread operator array?***
 
 ```js
