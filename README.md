@@ -1414,14 +1414,24 @@ b instanceof String; // returns true
 
 ## Q. ***How do you generate random integers?***
 
-You can use Math.random() with Math.floor() to return random integers. For example, if you want generate random integers between 1 to 10, the multiplication factor should be 10,
+The `Math.random()` function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1). For example, if you want generate random integers between 1 to 100, the multiplication factor should be 100,
 
 ```js
-Math.floor(Math.random() * 10) + 1;     // returns a random integer from 1 to 10
+// Example 01:
+Math.random();
+
+// Example 02:
 Math.floor(Math.random() * 100) + 1;     // returns a random integer from 1 to 100
+
+// Example 03:
+function getRandomNumber(max) {
+  return Math.floor(Math.random() * max);
+}
+
+console.log(getRandomNumber(10)); // returns a random integer from 1 to 10
 ```
 
-*Note: Math.random() returns a random number between 0 (inclusive), and 1 (exclusive)*
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-random-number-slllvd?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
