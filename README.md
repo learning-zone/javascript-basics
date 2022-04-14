@@ -1439,14 +1439,18 @@ console.log(getRandomNumber(10)); // returns a random integer from 1 to 10
 
 ## Q. ***Can you write a random integers function to print integers with in a range?***
 
-Yes, you can create a proper random function to return a random number between min and max (both included)
+**Example:**
 
 ```js
+/**
+ * function to return a random number 
+ * between min and max range
+ * 
+ * */
 function randomInteger(min, max) {
   return Math.floor(Math.random() * (max - min + 1) ) + min;
 }
 randomInteger(1, 100); // returns a random integer from 1 to 100
-randomInteger(1, 1000); // returns a random integer from 1 to 1000
 ```
 
 <div align="right">
