@@ -1453,19 +1453,27 @@ function randomInteger(min, max) {
 randomInteger(1, 100); // returns a random integer from 1 to 100
 ```
 
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-random-integers-yd1cy8?file=/src/index.js)**
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. ***What is isNaN?***
 
-The isNaN() function is used to determine whether a value is an illegal number (Not-a-Number) or not. i.e, This function returns true if the value equates to NaN. Otherwise it returns false.
+The `isNaN()` function determines whether a value is NaN ( Not a Number ) or not. This function returns `true` if the value equates to NaN. The `isNaN()` method converts the value to a number before testing it.
 
 ```js
-isNaN('Hello') //true
-isNaN('100') //false
-typeof(NaN) //Number
+isNaN('Hello') // true
+
+isNaN('100') // false
+
+typeof NaN // Number
+
+Number.isNaN('Hello'); // false
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-isnan-6w1huz?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1473,14 +1481,36 @@ typeof(NaN) //Number
 
 ## Q. ***How to convert Decimal to Binary in JavaScript?***
 
-```js
+**Example 01:** Convert Decimal to Binary
 
-var val = 10;
+```js
+function DecimalToBinary(number) {
+  let bin = 0;
+  let rem,
+    i = 1;
+  while (number !== 0) {
+    rem = number % 2;
+    number = parseInt(number / 2);
+    bin = bin + rem * i;
+    i = i * 10;
+  }
+  console.log(`Binary: ${bin}`);
+}
+
+DecimalToBinary(10);
+```
+
+**Example 02:** Convert Decimal to Binary Using `toString()`
+
+```js
+let val = 10;
 
 console.log(val.toString(2)); // 1010  ==> Binary Conversion
 console.log(val.toString(8)); // 12  ==> Octal Conversion
 console.log(val.toString(16)); // A  ==> Hexadecimal Conversion
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-decimal-to-binary-uhyi8t?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
