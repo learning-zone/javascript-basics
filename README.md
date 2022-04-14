@@ -1459,15 +1459,22 @@ Number.isNaN('Hello'); // false
 
 ## Q. ***What is the purpose of isFinite function?***
 
-The isFinite() function is used to determine whether a number is a finite, legal number. It returns false if the value is +infinity, -infinity, or NaN (Not-a-Number), otherwise it returns true.
+The global `isFinite()` function determines whether the passed value is a finite number. It returns `false` if the value is `+infinity`, `-infinity`, or `NaN` (Not-a-Number), otherwise it returns true.
 
 ```js
 isFinite(Infinity);  // false
 isFinite(NaN);       // false
 isFinite(-Infinity); // false
 
-isFinite(100);         // true
+isFinite(100);  // true
+isFinite(1/0); // false
+
+Number.isFinite(0 / 0); // false
+Number.isFinite(null); // false
+Number.isFinite("123") // false
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-isfinite-5sl988?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
