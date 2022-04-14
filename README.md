@@ -1480,48 +1480,33 @@ Number.isFinite("123") // false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***For which value of `x` the results of the following statements are not the same?***
-
-```js
-//  if( x <= 100 ) {...}
-if( !(x > 100) ) {...}
-```
-
-`NaN <= 100` is `false` and `NaN > 100` is also `false`, so if the
-value of `x` is `NaN`, the statements are not the same.
-
-The same holds true for any value of x that being converted to Number, returns NaN, e.g.: `undefined`, `[1,2,5]`, `{a:22}` , etc.
-
-This is why you need to pay attention when you deal with numeric variables. `NaN` can\'t be equal, less than or more than any other numeric value, so the only reliable way to check if the value is `NaN`, is to use `isNaN()` function.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Explain NEGATIVE_INFINITY in JavaScript?***
 
-```js
-Number.NEGATIVE_INFINITY;
-```
+The `Number.NEGATIVE_INFINITY` property represents the negative Infinity value.
 
-- Negative infinity is a number in javascript, which is derived by 'dividing negative number by zero'.
-- A number object needs not to be created to access this static property.
-- The value of negative infinity is the same as the negative value of the infinity property of the global object.
+**Syntax:**
 
 ```js
-function checkNumber(smallNumber) {
-  if (smallNumber === Number.NEGATIVE_INFINITY) {
-    return 'Process number as -Infinity';
-  }
-  return smallNumber;
-}
-
-console.log(checkNumber(-Number.MAX_VALUE));
-// expected output: -1.7976931348623157e+308
-
-console.log(checkNumber(-Number.MAX_VALUE * 2));
-// expected output: "Process number as -Infinity"
+Number.NEGATIVE_INFINITY
 ```
+
+* Negative infinity is a number in javascript, which is derived by 'dividing negative number by zero'.
+* A number object needs not to be created to access this static property.
+* The value of negative infinity is the same as the negative value of the infinity property of the global object.
+
+```js
+// NEGATIVE_INFINITY
+console.log(Number.NEGATIVE_INFINITY); // -Infinity
+console.log(Number.MAX_VALUE + Number.MAX_VALUE); // Infinity
+console.log(-2 * Number.MAX_VALUE); // -Infinity
+
+console.log("Math.pow(10, 1000): " + Math.pow(10, 1000)); // Infinity 
+console.log("Math.log(0): " + Math.log(0)); // -Infinity
+
+console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-negative-infinity-1gmh0r?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
