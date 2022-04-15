@@ -1610,27 +1610,6 @@ str.includes('Node', 5) //true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to convert string to title case with javascript?***
-
-Title case means that the first letter of each word is capitalized. You can convert a string to title case using the below function,
-
-```js
-function toTitleCase(str) {
-    return str.replace(
-        /\w\S*/g,
-        function(txt) {
-            return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
-        }
-    );
-}
-
-toTitleCase("good morning john"); // Good Morning John
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you trim a string in javascript?***
 
 JavaScript provided a trim method on string types to trim any whitespaces present at the begining or ending of the string.
