@@ -1514,56 +1514,6 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
 
 ## # STRING
 
-## Q. ***How do you make first letter of the string in an uppercase?***
-
-You can create a function which uses chain of string methods such as charAt, toUpperCase and slice methods to generate a string with first letter in uppercase.
-
-```js
-function capitalizeFirstLetter(string) {
-  let arr = string.split(" ");
-  for (var i = 0; i < arr.length; i++) {
-    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
-  }
-  return arr.join(" ");
-}
-
-console.log(capitalizeFirstLetter("hello world")); // Hello World
-```
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-capitalizefirstletter-dpjhky?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Write a function which will test string as a literal and as an object?***
-
-For example: We can create string using string literal and using String constructor function.
-
-```js
- // using string literal
- var ltrlStr = "Hi I am string literal";
- // using String constructor function 
- var objStr = new String("Hi I am string object");
-```
-
-We can use typeof operator to test string literal and instanceof operator to test String object.
-
-```js
-function isString(str) {
-	return typeof(str) == 'string' || str instanceof String;
-}
-
-var ltrlStr = "Hi I am string literal";
-var objStr = new String("Hi I am string object");
-console.log(isString(ltrlStr)); // true
-console.log(isString(objStr)); // true
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the difference between slice and splice?***
 
 Some of the major difference in a tabular form
