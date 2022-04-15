@@ -1565,28 +1565,46 @@ console.log(numbers); // Original array is mutated.
 
 ## Q. ***How do you check whether a string contains a substring?***
 
-There are 3 possible ways to check whether a string contains a substring or not,  
+There are 3 fastest ways to check whether a string contains a substring or not,  
 
-**a.) Using includes:** ES6 provided `String.prototype.includes` method to test a string contains a substring
+**1. Using RegEx:**
 
-```js
-var mainString = "hello", subString = "hell";
-mainString.includes(subString)
-```
-
-**b.) Using indexOf:** In an ES5 or older environments, you can use `String.prototype.indexOf` which returns the index of a substring. If the index value is not equal to -1 then it means the substring exist in the main string.
+The regular expression `test()` method checks if a match exists in a string. This method returns `true` if it finds a match, otherwise, it returns `false`.
 
 ```js
-var mainString = "hello", subString = "hell";
-mainString.indexOf(subString) !== -1
+let str = "JavaScript, Node.js, Express.js, React.js, MongoDB";
+let exp1 = /MongoDB/g;
+let exp2 = /Ajax/;
+
+exp1.test(str); // true
+exp2.test(str); // false
 ```
 
-**c.) Using RegEx:** The advanced solution is using Regular expression test method(`RegExp.test`), which allows for testing for against regular expressions
+**2. Using indexOf:**
+
+The `indexOf()` method is case-sensitive and accepts two parameters. The first parameter is the substring to search for, and the second optional parameter is the index to start the search from (default index is 0).
 
 ```js
-var mainString = "hello", regex = "/hell/";
-regex.test(mainString)
+let str = "JavaScript, Node.js, Express.js, React.js, MongoDB";
+
+str.indexOf('MongoDB') !== -1 // true
+str.indexOf('PHP') !== -1 // false
+str.indexOf('Node', 5) !== -1 // true
 ```
+
+**3. Using includes:**
+
+The `includes()` is also case-sensitive and accepts an optional second parameter, an integer which indicates the position where to start searching for.
+
+```js
+let str = "JavaScript, Node.js, Express.js, React.js, MongoDB";
+
+str.includes('MongoDB') // true
+str.includes('PHP') // false
+str.includes('Node', 5) //true
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-substring-su64zr?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
