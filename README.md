@@ -1549,7 +1549,7 @@ console.log(numbers); // Original array is mutated.
 // returns: [10, 20, 40, 50]
 ```
 
-Some of the major difference in a tabular form
+**Difference:**
 
 | Slice | Splice |
 |---- | ---------|
