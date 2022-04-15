@@ -1516,6 +1516,39 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
 
 ## Q. ***What is the difference between slice and splice?***
 
+**slice():**
+
+The `slice()` method returns a new array with a copied slice from the original array. The first optional argument is the beginning index and the second optional argument is the ending index (non-inclusive).
+
+**Example:**
+
+```js
+let languages = [ "JavaScript", "Python", "Java", "PHP" ];
+
+languages.slice(1,3); // ["Python", "Java"]
+languages.slice(2); // (from index 2 until the end of the array).
+// ["Java", "PHP"]
+
+console.log(languages); // the original array is not mutated.
+// [ "JavaScript", "Python", "Java", "PHP" ]
+```
+
+**splice():**
+
+The `splice()` method changes the content of the array in place and can be used to add or remove items from the array.
+When only one argument is provided, all the items after the provided starting index are removed from the array.
+
+**Example:**
+
+```js
+let numbers = [10, 20, 30];
+
+numbers.splice(2, 1, 40, 50); // returns removed array:[30]
+
+console.log(numbers); // Original array is mutated.
+// returns: [10, 20, 40, 50]
+```
+
 Some of the major difference in a tabular form
 
 | Slice | Splice |
@@ -1523,6 +1556,8 @@ Some of the major difference in a tabular form
 | Doesn't modify the original array(immutable)  | Modifies the original array(mutable) |
 | Returns the subset of original array | Returns the deleted elements as array  |
 | Used to pick the elements from array | Used to insert or delete elements to/from array|
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-slice-vs-splice-xm7c54?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
