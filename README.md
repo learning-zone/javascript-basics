@@ -1520,9 +1520,17 @@ You can create a function which uses chain of string methods such as charAt, toU
 
 ```js
 function capitalizeFirstLetter(string) {
-    return string.charAt(0).toUpperCase() + string.slice(1);
+  let arr = string.split(" ");
+  for (var i = 0; i < arr.length; i++) {
+    arr[i] = arr[i].charAt(0).toUpperCase() + arr[i].slice(1);
+  }
+  return arr.join(" ");
 }
+
+console.log(capitalizeFirstLetter("hello world")); // Hello World
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-capitalizefirstletter-dpjhky?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
