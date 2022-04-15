@@ -1612,25 +1612,45 @@ str.includes('Node', 5) //true
 
 ## Q. ***How do you trim a string in javascript?***
 
-JavaScript provided a trim method on string types to trim any whitespaces present at the begining or ending of the string.
+The `trim()` method removes whitespace from both sides of a string. JavaScript provides 3 simple functions on how to trim strings.
+
+**1. string.trim():**
+
+The `string.trim()` removes sequences of whitespaces and line terminators from both the start and the end of the string.
 
 ```js
-"  Hello World   ".trim(); //Hello World
+const name = "  Karan Talwar  ";
+console.log(name.trim()); // => 'Karan Talwar'
+
+const phoneNumber = "\t  80-555-123\n ";
+console.log(phoneNumber.trim()); // => '555-123'
 ```
 
-If your browser(`< IE9`) doesnot support this method then you can use below polyfill.
+**2. string.trimStart():**
+
+The `string.trimStart()` removes sequences of whitespaces and line terminators only from the start of the string.
 
 ```js
-if (!String.prototype.trim) {
-    (function() {
-        // Make sure we trim BOM and NBSP
-        var rtrim = /^[\s\uFEFF\xA0]+|[\s\uFEFF\xA0]+$/g;
-        String.prototype.trim = function() {
-            return this.replace(rtrim, '');
-        };
-    })();
-}
+const name = "   Karan Talwar  ";
+console.log(name.trimStart()); // => "Talwar "
+
+const phoneNumber = "\t  80-555-123\n ";
+console.log(phoneNumber.trimStart()); // => "80-555-123 "
 ```
+
+**3. string.trimEnd():**
+
+The `string.trimEnd()` removes sequences of whitespaces and line terminators only from the end of the string.
+
+```js
+const name = "  Karan Talwar ";
+console.log(name.trimEnd()); // => " Karan Talwar"
+
+const phoneNumber = "\t  80-555-123\n ";
+console.log(phoneNumber.trimEnd()); // => " 80-555-123"
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-trim-4mo5bi?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
