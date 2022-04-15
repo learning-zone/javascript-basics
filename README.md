@@ -1656,16 +1656,16 @@ console.log(phoneNumber.trimEnd()); // => " 80-555-123"
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is eval?***
+## Q. ***what is eval function in javascript?***
 
 The `eval()` function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
 
 ```js
 console.log(eval('10 + 20')); // 30
 
-var x = 10;
-var y = 20;
-var z = '50';
+let x = 10;
+let y = 20;
+let z = '50';
 eval('x + y + 1'); // returns 31
 eval(z);           // returns 50
 ```
@@ -1678,11 +1678,13 @@ eval('10 + 20');             // returns 30
 
 
 // work around
-var expression = new String('10 + 20');
+let expression = new String('10 + 20');
 eval(expression.toString()); // returns 30
 ```
 
-* *Note: The `eval()` function is not recommended to use because of the security reasons. It is not suggested to use because it is slower and makes code unreadable.*
+***Warning:*** *Executing JavaScript from a string is an enormous security risk. It is far too easy for a bad actor to run arbitrary code when you use eval().*
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-eval-p9fxgs?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
