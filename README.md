@@ -1695,9 +1695,13 @@ eval(expression.toString()); // returns 30
 You can use ECMAScript 6 `String.prototype.startsWith()` method to check a string starts with another string or not. But it is not yet supported in all browsers. Let us see an example to see this usage,
 
 ```js
-"Good morning".startsWith("Good"); // true
-"Good morning".startsWith("morning"); // false
+let str = "Hello World";
+
+console.log(str.startsWith("Hello")); // true
+console.log(str.startsWith("World")); // false
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-startswith-tvq7i5?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
