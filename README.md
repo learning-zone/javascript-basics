@@ -1516,7 +1516,7 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
 
 ## Q. ***What is the difference between slice and splice?***
 
-**slice():**
+**1. slice():**
 
 The `slice()` method returns a new array with a copied slice from the original array. The first optional argument is the beginning index and the second optional argument is the ending index (non-inclusive).
 
@@ -1533,7 +1533,7 @@ console.log(languages); // the original array is not mutated.
 // [ "JavaScript", "Python", "Java", "PHP" ]
 ```
 
-**splice():**
+**2. splice():**
 
 The `splice()` method changes the content of the array in place and can be used to add or remove items from the array.
 When only one argument is provided, all the items after the provided starting index are removed from the array.
