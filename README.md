@@ -2098,7 +2098,7 @@ console.log(sum.apply(null, numbers));
 **Example:** Merge arrays
 
 ```js
-const newBrands = ["Tesla", "BYD"];
+const newBrands = ["Tesla", "Mahindra"];
 const brands = ["Ford", "Honda", ...newBrands, "BMW"];
 
 console.log(brands);
