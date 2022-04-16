@@ -1803,11 +1803,56 @@ email = sakshi.memon@email.com
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between an array and an object in JavaScript?***
+## Q. ***What is the difference between Array and Array of Objects in JavaScript?***
 
-ToDo
+Objects represent a special data type that is mutable and can be used to store a collection of data (rather than just a single value). Arrays are a special type of variable that is also mutable and can also be used to store a list of values.
 
-**&#9885; [Try this example on CodeSandbox]()**
+**Example:** Arrays
+
+```js
+const numbers = [10, 20, 30];
+
+// Iterating through loop
+for (let i = 0; i < numbers.length; i++) {
+  console.log(numbers[i]);
+}
+
+// Pop an element from array
+numbers.pop();
+console.log("after pop(): " + numbers);
+```
+
+**Example:** Array of Objects
+
+```js
+const employees = [
+  { id: 101, name: "Sakshi Memon", email: "sakshi.memon@email.com" },
+  { id: 102, name: "Subhash Shukla", email: "subhash.shukla@email.com" },
+  { id: 103, name: "Mohini Karpe", email: "mohini.karpe@email.com" }
+];
+
+// Using DOT notation
+console.log(employees[0].name);
+
+// Using delete keyword
+delete employees[0];
+
+// Iterating using for..in loop
+for (let key in employees) {
+  console.log(employees[key]);
+}
+```
+
+**Difference:**
+
+|S.No.  | Array   | Array of objects |
+|-------|---------|------------------|
+|1.	|Arrays are best to use when the elements are numbers.|	Objects are best to use when the elements strings |
+|3.	|The elements can be manipulated using []. | The properties can be manipulated using both . ( DOT ) notation and [].|
+|4.	|The elements can be popped out of an array using the pop() function.| The keys or properties can be deleted by using the delete keyword.|
+|5.	|Iterating through an array is possible using For loop, For..in, For..of, and ForEach().| Iterating through an array of objects is possible using For..in, For..of, and ForEach().|
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-array-vs-object-w7wz7i?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
