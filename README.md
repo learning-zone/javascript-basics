@@ -1713,40 +1713,68 @@ console.log(str.startsWith("World")); // false
 
 JavaScript array is an object that represents a collection of similar type of elements. It can holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions.
 
+**Syntax:**
+
 ```js
-// empty array
-const myList = [];
+const array_name = [item-1, item-2, item-3, ........item-n];    
+```
 
+**Example 01:** Creating an array
 
+```js
 // array of numbers
-const numberArray = [ 2, 4, 6, 8];
+const numbers = [10, 20, 30, 40, 50];
 
+// using new keyword
+const numbers = new Array(10, 20, 30, 40, 50);
 
 // array of strings
-let fruits = ["Apple", "Orange", "Plum"];
-
-console.log(fruits[0]); // Apple
-console.log(fruits[1]); // Orange
-console.log(fruits[2]); // Plum
-
-
-// array with mixed data types
-let arr = ["Hello World",	10,	true];
-
-console.log(arr[0]);			// "Hello World"
-console.log(arr[1]);			// 10
-console.log(arr[2]);			// true
-console.log(arr.length);	// 3
-
-typeof arr;	// "object"
-
-// array with mixed data types
-const newData = [
-    {'task1': 'exercise'},
-    [1, 2 ,3],
-    function hello() { console.log('hello')}
-];
+let fruits = ["Apple", "Orange", "Plum", "Mango"];
 ```
+
+**Example 02:** Accessing array elements
+
+```js
+let fruits = ["Apple", "Orange", "Plum", "Mango"];
+
+fruits[0]; // Apple
+fruits[fruits.length - 1] // Mango
+
+// Iterate array elements
+for (let i = 0; i < fruits.length; i++) {
+  console.log(fruits[i]);
+}
+```
+
+**Example 03:** Adding new array elements
+
+```js
+let fruits = ["Apple", "Orange", "Plum", "Mango"];
+
+fruits.push("Grapes");  // Adds a new element (Grapes) to fruits
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-array-y73m66?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***what are associative arrays in javascript?***
+
+ToDo
+
+**&#9885; [Try this example on CodeSandbox]()**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between an array and an object in JavaScript?***
+
+ToDo
+
+**&#9885; [Try this example on CodeSandbox]()**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -1754,7 +1782,9 @@ const newData = [
 
 ## Q. ***Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]***
 
-**a.) array.join()**: The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
+**1. array.join()**:
+
+The `join()` method creates and returns a new string by concatenating all of the elements in an array (or an array-like object), separated by commas or a specified separator string. If the array has only one item, then that item will be returned without using the separator.
 
 ```js
 var elements = ['Fire', 'Air', 'Water'];
@@ -1764,7 +1794,9 @@ console.log(elements.join('')); // Output: "FireAirWater"
 console.log(elements.join('-')); // Output: "Fire-Air-Water"
 ```
 
-**b.) array.pop()**: The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
+**2. array.pop()**:
+
+The pop() method removes the last element from an array and returns that element. This method changes the length of the array.
 
 ```js
 var plants = ['broccoli', 'cauliflower', 'kale'];
@@ -1776,7 +1808,9 @@ console.log(plants.pop()); // Output: "broccoli"
 console.log(plants.pop()); // Output: "undefined"
 ```
 
-**c.) array.push()**: The push() method adds one or more elements to the end of an array and returns the new length of the array.
+**3. array.push()**:
+
+The push() method adds one or more elements to the end of an array and returns the new length of the array.
 
 ```js
 const animals = ['pigs', 'goats', 'sheep'];
@@ -1786,7 +1820,9 @@ console.log(count); // Output: 4
 console.log(animals); // Output: Array ["pigs", "goats", "sheep", "cows"]
 ```
 
-**d.) array.shift()**: The shift() method removes the first element from an array and returns that removed element. This method 
+**4. array.shift()**:
+
+The shift() method removes the first element from an array and returns that removed element. This method 
 changes the length of the array.
 
 ```js
@@ -1795,7 +1831,9 @@ fruits.shift();
 console.log(fruits) // Output: Array ["Orange", "Apple", "Mango"]
 ```
 
-**e.) array.unshift()**: The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
+**5. array.unshift()**:
+
+The unshift() method adds one or more elements to the beginning of an array and returns the new length of the array.
 
 ```js
 var fruits = ["Banana", "Orange", "Apple"];
@@ -1803,7 +1841,9 @@ fruits.unshift("Mango","Pineapple");
 console.log(fruits); // Output: Array ["Mango", "Pineapple", "Banana", "Orange", "Apple"]
 ```
 
-**f.) array.concat()**: The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
+**6. array.concat()**:
+
+The concat() method is used to merge two or more arrays. This method does not change the existing arrays, but instead returns a new array.
 
 ```js
 const array1 = ['a', 'b', 'c'];
@@ -1812,7 +1852,9 @@ const array2 = ['d', 'e', 'f'];
 console.log(array1.concat(array2)); // Output: Array ["a", "b", "c", "d", "e", "f"]
 ```
 
-**g.) array.map()**: The map() method creates a new array with the results of calling a provided function on every element in the calling array.
+**7. array.map()**:
+
+The map() method creates a new array with the results of calling a provided function on every element in the calling array.
 
 ```js
 var array1 = [1, 4, 9, 16];
@@ -1823,7 +1865,9 @@ const map1 = array1.map(x => x * 2);
 console.log(map1); // Output: Array [2, 8, 18, 32]
 ```
 
-**h.) array.filter()**: The filter() method creates a new array with all elements that pass the test implemented by the provided function.
+**8. array.filter()**:
+
+The filter() method creates a new array with all elements that pass the test implemented by the provided function.
 
 ```js
 var words = ['spray', 'limit', 'elite', 'exuberant', 'destruction'];
@@ -1833,7 +1877,9 @@ const result = words.filter(word => word.length > 6);
 console.log(result); // Output: Array ["exuberant", "destruction"]
 ```
 
-**i.) array.reduce()**: The reduce() method executes a reducer function (that you provide) on each element of the array, 
+**9. array.reduce()**:
+
+The reduce() method executes a reducer function (that you provide) on each element of the array, 
 resulting in a single output value.
 
 ```js
@@ -1844,7 +1890,9 @@ console.log(array1.reduce(reducer)); // Output: 10
 console.log(array1.reduce(reducer, 5)); // Output: 15
 ```
 
-**j.) array.reduceRight()**: The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
+**10. array.reduceRight()**:
+
+The reduceRight() method applies a function against an accumulator and each value of the array (from right-to-left) to reduce it to a single value.
 
 ```js
 const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
@@ -1854,7 +1902,9 @@ const array1 = [[0, 1], [2, 3], [4, 5]].reduceRight(
 console.log(array1); // Output: Array [4, 5, 2, 3, 0, 1]
 ```
 
-**k.) array.every()**: The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value. 
+**11. array.every()**:
+
+The every() method tests whether all elements in the array pass the test implemented by the provided function. It returns a Boolean value. 
 
 ```js
 function isBelowThreshold(currentValue) {
@@ -1865,7 +1915,9 @@ var array1 = [1, 30, 39, 29, 10, 13];
 console.log(array1.every(isBelowThreshold)); // Output: true
 ```
 
-**l.) array.some()**: The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value. 
+**12. array.some()**:
+
+The some() method tests whether at least one element in the array passes the test implemented by the provided function. It returns a Boolean value.
 
 ```js
 var array = [1, 2, 3, 4, 5];
@@ -1876,9 +1928,11 @@ var even = function(element) {
 };
 
 console.log(array.some(even)); // Output: true
-``` 
+```
 
-**m.) array.indexOf()**: The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
+**13. array.indexOf()**:
+
+The indexOf() method returns the first index at which a given element can be found in the array, or -1 if it is not present.
 
 ```js
 var beasts = ['ant', 'bison', 'camel'];
@@ -1887,7 +1941,9 @@ console.log(beasts.indexOf('camel')); // Output: 2
 console.log(beasts.indexOf('giraffe')); // Output: -1
 ```
 
-**n.) array.lastIndexOf()**: The lastIndexOf() method returns the index within the calling String object of the last occurrence 
+**14. array.lastIndexOf()**:
+
+The lastIndexOf() method returns the index within the calling String object of the last occurrence 
 of the specified value, searching backwards from fromIndex. Returns -1 if the value is not found.
 
 ```js
@@ -1899,7 +1955,9 @@ console.log('The index of the first "' + searchTerm + '" from the end is ' + par
 // Output: "The index of the first "dog" from the end is 52"
 ```
 
-**o.) array.find()**: The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
+**15. array.find()**:
+
+The find() method returns the value of the first element in the provided array that satisfies the provided testing function.
 
 ```js
 var array1 = [5, 12, 8, 130, 44];
@@ -1911,7 +1969,9 @@ var found = array1.find(function(element) {
 console.log(found); // Output: 130
 ```
 
-**p.) array.findIndex()**: The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
+**16. array.findIndex()**:
+
+The findIndex() method returns the index of the first element in the array that satisfies the provided testing function. Otherwise, it returns -1, indicating that no element passed the test.
 
 ```js
 var array1 = [5, 12, 8, 130, 44];
@@ -1923,7 +1983,9 @@ function isLargeNumber(element) {
 console.log(array1.findIndex(isLargeNumber)); // Output: 3
 ```
 
-**q.) array.includes()**: The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
+**17. array.includes()**:
+
+The includes() method determines whether an array includes a certain value among its entries, returning true or false as appropriate.
 
 ```js
 var array1 = [1, 2, 3];
