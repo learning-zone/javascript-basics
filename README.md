@@ -2085,7 +2085,7 @@ Spread operator or Spread Syntax allow us to expand the arrays and objects into 
 
 ```js
 function sum(x, y, z) {
-    return x + y + z;
+  return x + y + z;
 }
 
 const numbers = [1, 2, 3];
@@ -2098,8 +2098,8 @@ console.log(sum.apply(null, numbers));
 **Example:** Merge arrays
 
 ```js
-const newBrands = ['tesla', 'BYD'];
-const brands = ['ford', 'honda', ...newBrands, 'bmw'];
+const newBrands = ["Tesla", "BYD"];
+const brands = ["Ford", "Honda", ...newBrands, "BMW"];
 
 console.log(brands);
 ```
@@ -2110,12 +2110,12 @@ console.log(brands);
 let obj = { a: 10, b: 20, c: 30 };
 
 // spread the object into a list of parameters
-let objCopy = { ...obj }; 
+let objCopy = { ...obj };
 
 // add new
 obj.d = 40;
 
-console.log(JSON.stringify(obj));  // { "a":10, "b":20, "c":30, "d":40 }
+console.log(JSON.stringify(obj)); // { "a":10, "b":20, "c":30, "d":40 }
 console.log(JSON.stringify(objCopy)); // { "a":10, "b":20, "c":30 }
 ```
 
@@ -2129,6 +2129,8 @@ The main difference between `rest` and `spread` is that the rest operator puts t
 |It expands an Array in form of elements, while in key-value pairs in the case of Objects. | It collects the data in the developer's desired format.|
 |You may or may not use the strict mode inside the function containing the spread operator. | You can not use the strict mode inside function containing the rest operator.|
 |It will overwrite the identical properties inside two objects and replace the former with the latter. | It simply collects all properties and wraps them inside a container.|
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-vs-spread-qvxkkz?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
