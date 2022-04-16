@@ -1716,7 +1716,7 @@ JavaScript array is an object that represents a collection of similar type of el
 **Syntax:**
 
 ```js
-const array_name = [item-1, item-2, item-3, ........item-n];    
+const array_name = [item-1, item-2, item-3, ...];    
 ```
 
 **Example 01:** Creating an array
@@ -1760,11 +1760,44 @@ fruits.push("Grapes");  // Adds a new element (Grapes) to fruits
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***what are associative arrays in javascript?***
+## Q. ***What are associative arrays in javascript?***
 
-ToDo
+Associative arrays are basically objects in JavaScript where indexes are replaced by user-defined keys. They do not have a length property like a normal array and cannot be traversed using a normal for loop.
 
-**&#9885; [Try this example on CodeSandbox]()**
+**Syntax:**
+
+```js
+const array_name = { key1: 'value1', key2: 'value2', key3: 'value3' }   
+```
+
+**Example:**
+
+```js
+const employee = {
+  id: 12345,
+  name: "Sakshi Memon",
+  email: "sakshi.memon@email.com"
+};
+
+// Accesing employee elements
+console.log(employee.id); // 12345
+console.log(employee.name); // Sakshi Memon
+
+// Array Length 
+console.log(Object.keys(employee).length); // 3
+
+// Retrieve the elements
+for (let key in employee) {
+  console.log(key + " = " + employee[key]);
+}
+
+// Output
+id = 12345 
+name = Sakshi Memon 
+email = sakshi.memon@email.com 
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-associative-arrays-vxc4qc?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
