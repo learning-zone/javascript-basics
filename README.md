@@ -2079,47 +2079,56 @@ console.log(pets.includes('at')); // Output: false
 
 ## Q. ***What are the benefits of using spread syntax and how is it different from rest syntax?***
 
-ES6's spread syntax is very useful when coding in a functional paradigm as we can easily create copies of arrays or objects without resorting to `Object.create`, `slice`, or a library function. This language feature is used often in Redux and Rx.js projects.
+Spread operator or Spread Syntax allow us to expand the arrays and objects into elements in the case of an array and key-value pairs in the case of an object.
+
+**Example:**
 
 ```js
-function addCookiesInArray(arr) {
-  return [...arr, 'Cookies'];
+function sum(x, y, z) {
+    return x + y + z;
 }
 
-const result = addCookiesInArray(['I', 'really', "don't", 'like']); 
+const numbers = [1, 2, 3];
+console.log(sum(...numbers));
 
-console.log(result); // ["I", "really", "don't", "like", "Cookies"]
+// ES-5 way
+console.log(sum.apply(null, numbers));
 ```
+
+**Example:** Merge arrays
 
 ```js
-const person = {
-  name: 'Todd',
-  age: 29,
-};
+const newBrands = ['tesla', 'BYD'];
+const brands = ['ford', 'honda', ...newBrands, 'bmw'];
 
-const copyOfPerson = { ...person };
-
-console.log(copyOfPerson); // {name: "Todd", age: 29}
+console.log(brands);
 ```
 
-ES6's rest syntax offers a shorthand for including an arbitrary number of arguments to be passed to a function. It is like an inverse of the spread syntax, taking data and stuffing it into an array rather than unpacking an array of data, and it works in function arguments, as well as in array and object destructuring assignments.
+**Example:** Copy array/object
 
 ```js
-function addFiveToABunchOfNumbers(...numbers) {
-  return numbers.map(x => x + 5);
-}
+let obj = { a: 10, b: 20, c: 30 };
 
-const result = addFiveToABunchOfNumbers(4, 5, 6, 7, 8, 9, 10); // [9, 10, 11, 12, 13, 14, 15]
+// spread the object into a list of parameters
+let objCopy = { ...obj }; 
 
-const [a, b, ...rest] = [1, 2, 3, 4]; // a: 1, b: 2, rest: [3, 4]
+// add new
+obj.d = 40;
 
-const { e, f, ...others } = {
-  e: 1,
-  f: 2,
-  g: 3,
-  h: 4,
-}; // e: 1, f: 2, others: { g: 3, h: 4 }
+console.log(JSON.stringify(obj));  // { "a":10, "b":20, "c":30, "d":40 }
+console.log(JSON.stringify(objCopy)); // { "a":10, "b":20, "c":30 }
 ```
+
+**Difference:**
+
+The main difference between `rest` and `spread` is that the rest operator puts the rest of some specific user-supplied values into a JavaScript array. But the spread syntax expands iterables into individual elements.
+
+|Spread Syntax           |  Rest Syntax                    |
+|------------------------|---------------------------------|
+|Spread operator as its name suggests it spreads or expands the content of the given element.| Rest Syntax is just the opposite of spread syntax it collects the data and stores that data in a variable which we can use further in our code.|
+|It expands an Array in form of elements, while in key-value pairs in the case of Objects. | It collects the data in the developer's desired format.|
+|You may or may not use the strict mode inside the function containing the spread operator. | You can not use the strict mode inside function containing the rest operator.|
+|It will overwrite the identical properties inside two objects and replace the former with the latter. | It simply collects all properties and wraps them inside a container.|
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
