@@ -2165,6 +2165,37 @@ for (let i of list) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***Can you give an example for destructuring an array?***
+
+Destructuring is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables. That is, we can extract data from arrays and objects and assign them to variables.
+
+```js
+// Variable assignment.
+const numbers = [10, 20, 30];
+const [one, two, three] = numbers;
+
+console.log(one); // 10
+console.log(two); // 20
+console.log(three); // 30
+```
+
+```js
+// Swapping variables
+let a = 100;
+let b = 200;
+
+[a, b] = [b, a];
+
+console.log(a); // 20
+console.log(b); // 10
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-array-destructure-bg71je?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What are default values in destructuring assignment?***
 
 A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment.  
@@ -2190,34 +2221,6 @@ console.log("k: " + k); // 6
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/ecstatic-drake-iq971p?file=/src/index.js)**
-
-## Q. ***Can you give an example for destructuring an array?***
-
-Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
-
-```js
-// Variable assignment.
-const foo = ['one', 'two', 'three'];
-const [one, two, three] = foo;
-
-console.log(one); // "one"
-console.log(two); // "two"
-console.log(three); // "three"
-```
-
-```js
-// Swapping variables
-let a = 1;
-let b = 3;
-
-[a, b] = [b, a];
-console.log(a); // 3
-console.log(b); // 1
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
 
 ## Q. ***When to use reduce(), map(), foreach() and filter() in JavaScript?***
 
