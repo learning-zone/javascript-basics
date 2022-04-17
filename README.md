@@ -2384,90 +2384,20 @@ console.log(JSON.parse(user));// {'name': 'Shashi Meda', 'email': 'shashi.meda@e
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of compareFunction while sorting arrays?***
+## Q. ***What is the purpose of compare function while sorting arrays?***
 
-The compareFunction is used to define the sort order. If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value. Let us take an example to see the usage of compareFunction,
+The purpose of the compare function is to define an alternative sort order. When the `sort()` function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
+
+If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value.
 
 ```js
-let numbers = [1, 2, 5, 3, 4];
+const numbers = [1, 2, 5, 3, 4];
+
 numbers.sort((a, b) => b - a);
 console.log(numbers); // [5, 4, 3, 2, 1]
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to empty an array in JavaScript?***
-
-For instance:
-
-```js
-var arrayList =  ['a', 'b', 'c', 'd', 'e', 'f'];
-```
-
-How can we empty the array above?
-
-There are a couple of ways by which we can empty an array, So Let us discuss all the possible way by which we can empty an array.
-
-**Method 1:**
-
-```js
-arrayList = [];
-```
-
-The code above will set the variable `arrayList` to a new empty array. This is recommended if you don\'t have **references to the original array** `arrayList` anywhere else because It will actually create a new empty array. You should be careful with this way of empty the array, because if you have referenced this array from another variable, then the original reference array will remain unchanged, Only use this way if you have only referenced the array by its original variable `arrayList`.
-
-For instance:
-
-```js
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList = []; // Empty the array
-console.log(anotherArrayList); // Output ['a', 'b', 'c', 'd', 'e', 'f']
-```
-
-**Method 2:**
-
-```js
-arrayList.length = 0;
-```
-
-The code above will clear the existing array by setting its length to 0. This way of emptying an array will also update all the reference variables that point to the original array. 
-
-For instance:
-
-```js
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList.length = 0; // Empty the array by setting length to 0
-console.log(anotherArrayList); // Output []
-```
-
-**Method 3:**
-
-```js
-arrayList.splice(0, arrayList.length);
-```
-
-Above implementation will also work perfectly. This way of empty the array will also update all the references of the original array.
-
-```js
-var arrayList = ['a', 'b', 'c', 'd', 'e', 'f']; // Created array
-var anotherArrayList = arrayList;  // Referenced arrayList by another variable
-arrayList.splice(0, arrayList.length); // Empty the array by setting length to 0
-console.log(anotherArrayList); // Output []
-```
-
-**Method 4:**
-
-```js
-while(arrayList.length) {
-  arrayList.pop();
-}
-```
-
-Above implementation can also empty the array. But not recommended to use often.
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-sort-ykfhck?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
