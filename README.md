@@ -2334,22 +2334,23 @@ console.log(employees[0].name) // Kabir Dixit
 
 ## Q. ***How to validate JSON Object in javascript?***
 
+`JSON.parse()` function will use string and converts to JSON object and if it parses invalidate JSON data, it throws an exception ( **Uncaught SyntaxError: Unexpected string in JSON** ).
+
 ```js
 function isValidJson(json) {
-    try {
-        JSON.parse(json);
-        return true;
-    } catch (e) {
-        return false;
-    }
+  try {
+    JSON.parse(json);
+    return true;
+  } catch (e) {
+    return false;
+  }
 }
 
-var validjson = '{"firstName":"James","lastName":"Bond"}'; 
-var invalidjson = '{"firstName""James","lastName":"Bond"}'; 
-
-console.log("With Valid JSON Text: "+isValidJson(validjson)); //true
-console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
+console.log(isValidJson("{}")); // true
+console.log(isValidJson("abc")); // false
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-validate-json-iwzom7?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
