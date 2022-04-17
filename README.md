@@ -2302,7 +2302,9 @@ console.log(sum); // Output: 60
 
 ## Q. ***How do you define JSON arrays?***
 
-JSON is an acronym for JavaScript Object Notation, and is "an open standard data interchange format". JSON array represents ordered list of values. JSON array can store multiple values. It can store string, number, boolean or object in JSON array.
+JSON is an acronym for JavaScript Object Notation, and is "an open standard data interchange format".
+
+JSON array represents ordered list of values. JSON array can store multiple values. It can store string, number, boolean or object in JSON array.
 
 ```js
 // Empty JSON array
