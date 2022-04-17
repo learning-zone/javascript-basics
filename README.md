@@ -2172,23 +2172,24 @@ A variable can be assigned a default value when the value unpacked from the arra
 **Array Destructuring:**
 
 ```js
-var x, y, z;
+const [x = 2, y = 4, z = 6] = [10];
 
-[x=2, y=4, z=6] = [10];
-console.log(x); // 10
-console.log(y); // 4
-console.log(z); // 6
+console.log("x: " + x); // 10
+console.log("y: " + y); // 4
+console.log("z: " + z); // 6
 ```
 
 **Object Destructuring:**
 
 ```js
-var {x=2, y=4, z=6} = {x: 10};
+const { i = 2, j = 4, k = 6 } = { n: 10 };
 
-console.log(x); // 10
-console.log(y); // 4
-console.log(z); // 6
+console.log("i: " + i); // 10
+console.log("j: " + j); // 4
+console.log("k: " + k); // 6
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/ecstatic-drake-iq971p?file=/src/index.js)**
 
 ## Q. ***Can you give an example for destructuring an array?***
 
