@@ -2358,12 +2358,12 @@ console.log(isValidJson("abc")); // false
 
 ## Q. ***What is the purpose JSON stringify?***
 
-When sending data to a web server, the data has to be in a string format. You can achieve this by converting JSON object into a string using stringify() method.
+When sending data to a web server, the data has to be in a string format. The `JSON.stringify()` method converts a JavaScript object or value to a JSON string format.
 
 ```js
-var userJSON = {'name': 'John', age: 31}
-var userString = JSON.stringify(user);
-console.log(userString); //"{"name":"John","age":31}"
+const user = {'name': 'Shashi Meda', 'email': 'shashi.meda@email.com', 'age': 28}
+
+console.log(JSON.stringify(user)); // {"name":"Shashi Meda","email":"shashi.meda@email.com","age":28}
 ```
 
 <div align="right">
@@ -2372,12 +2372,12 @@ console.log(userString); //"{"name":"John","age":31}"
 
 ## Q. ***How do you parse JSON string?***
 
-When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using parse() method.
+When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using `JSON.parse()` method.
 
 ```js
-var userString = '{"name":"John","age":31}';
-var userJSON = JSON.parse(userString);
-console.log(userJSON);// {name: "John", age: 31}
+const user = '{"name": "Shashi Meda", "email": "shashi.meda@email.com", "age": 28}'
+
+console.log(JSON.parse(user));// {'name': 'Shashi Meda', 'email': 'shashi.meda@email.com', 'age': 28}
 ```
 
 <div align="right">
