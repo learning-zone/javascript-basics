@@ -1803,6 +1803,53 @@ email = sakshi.memon@email.com
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***Calculate the length of the associative array?***
+
+**Method 1:** Using `Object.keys().length`
+
+```js
+const employee = {
+  id: 12345,
+  name: "Sakshi Memon",
+  email: "sakshi.memon@email.com"
+};
+
+console.log(Object.keys(employee).length); // Output 3
+```
+
+**Method 2:** Using `Object.hasOwnProperty()`
+
+```js
+function getLength(object) {
+  let count = 0;
+  for (let key in object) {
+    // hasOwnProperty method check own property of object
+    if (object.hasOwnProperty(key)) count++;
+  }
+  return count;
+}
+
+console.log(getLength(employee)); // Output 3
+```
+
+**Method 3:** Using `Object.getOwnPropertyNames()`
+
+```js
+const employee = {
+  id: 12345,
+  name: "Sakshi Memon",
+  email: "sakshi.memon@email.com"
+};
+
+Object.getOwnPropertyNames(employee).length; // Output 3
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-associative-arrays-qye2t1?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is the difference between Array and Array of Objects in JavaScript?***
 
 Objects represent a special data type that is mutable and can be used to store a collection of data (rather than just a single value). Arrays are a special type of variable that is also mutable and can also be used to store a list of values.
@@ -2402,58 +2449,6 @@ console.log(numbers); // [5, 4, 3, 2, 1]
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
-## Q. ***Calculate the length of the associative array?***
-
-```js
-var counterArray = {
-  A : 3,
-  B : 4
-};
-counterArray["C"] = 1;
-```
-
-First of all, in case of JavaScript an associative array is the same as an object. Secondly, even though is no built-in function or property available to calculate the length/size an object, we can write such function ourselves.
-
-**Method 1:**
-
-`Object` has `keys` method which can we used to calculate the length of object.
-
-```js
-Object.keys(counterArray).length; // Output 3
-```
-
-**Method 2:**
-
-We can also calculate the length of object by iterating through the object and by doing a count of own property of object. This way we will ignoge the properties that came from the object's prototype chain:  
-
-```js
-function getLength(object) {
-  var count = 0;
-  for(key in object) {
-    // hasOwnProperty method check own property of object
-    if(object.hasOwnProperty(key)) count++;
-  }
-  return count;
-}
-```
-
-**Method 3:**
-
-All modern browsers (including IE9+) support the [`getOwnPropertyNames`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames) method, so we can calculate the length using the following code: 
-
-```js
-Object.getOwnPropertyNames(counterArray).length; // Output 3
-```
-
-**Method 4:**
-
-[Underscore](https://underscorejs.org/#size) and [lodash](https://lodash.com/docs/4.17.10#size) libraries have the method `size` dedicated to calculate the object length. We don\'t recommend to include one of these libraries just to use the `size` method, but if It is already used in your project - why not? 
-
-```js
-_.size({one: 1, two: 2, three: 3});
-=> 3
-```
 
 ## Q. ***What is `undefined x 1` in JavaScript?***
 
