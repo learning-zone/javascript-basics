@@ -2317,22 +2317,21 @@ const numbers = [12, 34, 56, 43, 95];
 
 // JSON Array of Objects
 {
-	"employees": [{
-			"name": "Kabir Dixit",
-			"email": "kabir.dixit@gmail.com",
-			"age": 23
-		},
-		{
-			"name": "Mukta Bhagat",
-			"email": "mukta.bhagat@gmail.com",
-			"age": 28
-		},
-		{
-			"name": "Sakshi Ramakrishnan",
-			"email": "sakshi.ramakrishnan@gmail.com",
-			"age": 33
-		}
-	]
+ "employees": [{
+		"name": "Kabir Dixit",
+		"email": "kabir.dixit@gmail.com",
+		"age": 23
+	},
+	{
+		"name": "Mukta Bhagat",
+		"email": "mukta.bhagat@gmail.com",
+		"age": 28
+	},
+	{
+		"name": "Sakshi Ramakrishnan",
+		"email": "sakshi.ramakrishnan@gmail.com",
+		"age": 33
+	}]
 }
 
 // access array values
