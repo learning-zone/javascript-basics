@@ -2450,25 +2450,6 @@ console.log(numbers); // [5, 4, 3, 2, 1]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is `undefined x 1` in JavaScript?***
-
-```js
-var trees = ["redwood", "bay", "cedar", "oak", "maple"];
-delete trees[3];
-```
-
- - When you run the code above and do `console.log(trees);` in chrome developer console then you will get `["redwood", "bay", "cedar", undefined × 1, "maple"]`.
- - In the recent versions of Chrome you will see the word `empty` of `undefined x 1`.
- - When you run the same code in Firefox browser console then you will get `["redwood", "bay", "cedar", undefined, "maple"]`
-  
-Clearly we can see that Chrome has its own way of displaying uninitialized index in arrays. However when you check `trees[3] === undefined` in any browser you will get similar output as `true`.
-
-*Note: Please remember that you need not check for the uninitialized index of the array in  `trees[3] === 'undefined × 1'` it will give an error because `'undefined × 1'` this is just way of displaying an uninitialized index of an array in chrome*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?***
 
 To understand the differences between the two, Let us look at what each function does.
@@ -2480,12 +2461,12 @@ To understand the differences between the two, Let us look at what each function
 * Does not return a value.
 
 ```js
-const a = [1, 2, 3];
-const doubled = a.forEach((num, index) => {
-  // Do something with num and/or index.
+const numbers = [10, 20, 30];
+const doubled = numbers.forEach((num, index) => {
+  return num * 2;
 });
 
-// doubled = undefined
+console.log(doubled) // undefined
 ```
 
 **`map`**
@@ -2494,15 +2475,17 @@ const doubled = a.forEach((num, index) => {
 * "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
 
 ```js
-const a = [1, 2, 3];
-const doubled = a.map(num => {
+const numbers = [10, 20, 30];
+const doubled = numbers.map(num => {
   return num * 2;
 });
 
-// doubled = [2, 4, 6]
+console.log(doubled) // [20, 40, 60]
 ```
 
 The main difference between `.forEach` and `.map()` is that `.map()` returns a new array. If you need the result, but do not wish to mutate the original array, `.map()` is the clear choice. If you simply need to iterate over an array, `forEach` is a fine choice.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-foreach-vs-map-kxch52?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
