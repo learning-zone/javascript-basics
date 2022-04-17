@@ -2224,18 +2224,17 @@ console.log("k: " + k); // 6
 
 ## Q. ***When to use reduce(), map(), foreach() and filter() in JavaScript?***
 
-* **forEach():**  
+**1. forEach():**  
 
 It takes a callback function and run that callback function on each element of array one by one.
-
 Basically forEach works as a traditional for loop looping over the array and providing array elements to do operations on them.
 
 ```js
-var arr = [10, 20, 30];
+let numbers = [10, 20, 30];
 
-arr.forEach(function (elem, index){
-   console.log(elem + ' comes at ' + index);
-})
+numbers.forEach(function (number, index) {
+  console.log(number + " comes at " + index);
+});
 
 // Output
 10 comes at 0
@@ -2243,55 +2242,59 @@ arr.forEach(function (elem, index){
 30 comes at 2
 ```
 
-* **filter():**
+**2. filter():**
 
 The main difference between forEach() and filter() is that forEach just loop over the array and executes the callback but filter executes the callback and check its return value. If the value is true element remains in the resulting array but if the return value is false the element will be removed for the resulting array.
 
 *Note: filter does not update the existing array it will return a new filtered array every time*.
 
 ```js
-var arr = [10, 20, 30]; 
+let numbers = [10, 20, 30];
 
-var result = arr.filter(function(elem){
-    return elem !== 20;
-})
+let result = numbers.filter(function (number) {
+  return number !== 20;
+});
 
-console.log(result)
+console.log(result);
 
 // Output
 [10, 30]
 ```
 
-* **map():**
+**3. map():**
 
 map() like filter() & forEach() takes a callback and run it against every element on the array but whats makes it unique is it generate a new array based on your existing array.
 
 Like filter(), map() also returns an array. The provided callback to map modifies the array elements and save them into the new array upon completion that array get returned as the mapped array.
 
 ```js
-var arr = [10, 20, 30];
+let numbers = [10, 20, 30];
 
-var mapped = arr.map(function(elem) {
-    return elem * 10;
+let mapped = numbers.map(function (number) {
+  return number * 10;
 });
-console.log(mapped)
+
+console.log(mapped);
 
 // Output
 [100, 200, 300]
 ```
 
-* **reduce():**
+**4. reduce():**
 
 reduce() method of the array object is used to reduce the array to one single value.
 
 ```js
-var arr = [10, 20, 30];
+let numbers = [10, 20, 30];
 
-var sum = arr.reduce(function(sum, elem) {
-    return sum + elem;
+let sum = numbers.reduce(function (sum, number) {
+  return sum + number;
 });
+
 console.log(sum); // Output: 60
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-loop-m755cw?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
