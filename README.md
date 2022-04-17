@@ -2302,14 +2302,39 @@ console.log(sum); // Output: 60
 
 ## Q. ***How do you define JSON arrays?***
 
-JSON arrays are written inside square brackets and array contain javascript objects. For example, the JSON array of users would be as below,
+JSON is an acronym for JavaScript Object Notation, and is "an open standard data interchange format". JSON array represents ordered list of values. JSON array can store multiple values. It can store string, number, boolean or object in JSON array.
 
 ```js
-"users":[
-  {"firstName":"John", "lastName":"Abrahm"},
-  {"firstName":"Anna", "lastName":"Smith"},
-  {"firstName":"Shane", "lastName":"Warn"}
-]
+// Empty JSON array
+const empty = [ ];
+
+
+// JSON Array of Numbers
+const numbers = [12, 34, 56, 43, 95];
+
+
+// JSON Array of Objects
+{
+	"employees": [{
+			"name": "Kabir Dixit",
+			"email": "kabir.dixit@gmail.com",
+			"age": 23
+		},
+		{
+			"name": "Mukta Bhagat",
+			"email": "mukta.bhagat@gmail.com",
+			"age": 28
+		},
+		{
+			"name": "Sakshi Ramakrishnan",
+			"email": "sakshi.ramakrishnan@gmail.com",
+			"age": 33
+		}
+	]
+}
+
+// access array values
+console.log(employees[0].name) // Kabir Dixit
 ```
 
 <div align="right">
@@ -2333,25 +2358,6 @@ var invalidjson = '{"firstName""James","lastName":"Bond"}';
 
 console.log("With Valid JSON Text: "+isValidJson(validjson)); //true
 console.log("With inValid JSON Text: "+isValidJson(invalidjson)); //false
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is JSON and its common operations?***
-
-**JSON** is a text-based data format following JavaScript object syntax, which was popularized by Douglas Crockford. It is useful when you want to transmit data across a network and it is basically just a text file with an extension of .json, and a MIME type of application/json
-Parsing: **Converting a string to a native object
-
-```js
-JSON.parse(text)
-```
-
-Stringification: converting a native object to a string so it can be transmitted across the network
-
-```js
-JSON.stringify(object)
 ```
 
 <div align="right">
@@ -2386,20 +2392,6 @@ console.log(userJSON);// {name: "John", age: 31}
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you sort elements in an array?***
-
-The sort() method is used to sort the elements of an array in place and returns the sorted array. The example usage would be as below,
-
-```js
-var months = ["Aug", "Sep", "Jan", "June"];
-months.sort();
-console.log(months); //  ["Aug", "Jan", "June", "Sep"]
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the purpose of compareFunction while sorting arrays?***
 
 The compareFunction is used to define the sort order. If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value. Let us take an example to see the usage of compareFunction,
@@ -2408,79 +2400,6 @@ The compareFunction is used to define the sort order. If omitted, the array elem
 let numbers = [1, 2, 5, 3, 4];
 numbers.sort((a, b) => b - a);
 console.log(numbers); // [5, 4, 3, 2, 1]
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you reversing an array?***
-
-You can use reverse() method is used reverse the elements in an array. This method is useful to sort an array in descending order. Let us see the usage of reverse() method in an example,
-
-```js
-let numbers = [1, 2, 5, 3, 4];
-numbers.sort((a, b) => b - a);
-numbers.reverse();
-console.log(numbers); // [1, 2, 3, 4 ,5]
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you find min and max value in an array?***
-
-You can use `Math.min` and `Math.max` methods on array variable to find the minimum and maximum elements with in an array. 
-Let us create two functions to find the min and max value with in an array,
-
-```js
-var marks = [50, 20, 70, 60, 45, 30];
-function findMin(arr) {
-  return Math.min.apply(null, arr);
-}
-function findMax(arr) {
-  return Math.max.apply(null, arr);
-}
-
-console.log(findMin(marks));
-console.log(findMax(marks));
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you find min and max values without Math functions?***
-
-You can write functions which loops through an array comparing each value with the lowest value or highest value to find the min and max values. Let us create those functions to find min an max values,
-
-```js
-var marks = [50, 20, 70, 60, 45, 30];
-function findMin(arr) {
-  var length = arr.length
-  var min = Infinity;
-  while (length--) {
-    if (arr[length] < min) {
-      min = arr[length];
-    }
-  }
-  return min;
-}
-
-function findMax(arr) {
-  var length = arr.length
-  var max = -Infinity;
-  while (length--) {
-    if (arr[length] > max) {
-      max = arr[length];
-    }
-  }
-  return max;
-}
-
-console.log(findMin(marks));
-console.log(findMax(marks));
 ```
 
 <div align="right">
