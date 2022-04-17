@@ -2454,7 +2454,7 @@ console.log(numbers); // [5, 4, 3, 2, 1]
 
 To understand the differences between the two, Let us look at what each function does.
 
-**`forEach`**
+**Array.forEach()**
 
 * Iterates through the elements in an array.
 * Executes a callback for each element.
@@ -2469,7 +2469,7 @@ const doubled = numbers.forEach((num, index) => {
 console.log(doubled) // undefined
 ```
 
-**`map`**
+**Array.map()**
 
 * Iterates through the elements in an array.
 * "Maps" each element to a new element by calling the function on each element, creating a new array as a result.
