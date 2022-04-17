@@ -2140,7 +2140,8 @@ The main difference between `rest` and `spread` is that the rest operator puts t
 
 Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a **list of keys** on the object being iterated, whereas `for..of` returns a **list of values** of the numeric properties of the object being iterated.  
 
-**1. for in**: iterates over all enumerable properties of an object that are **keyed** by strings.
+**1. for in**: iterates over all enumerable properties of an object that are **keyed** by strings.  
+
 **2. for of**: iterates over the **values** of an iterable objects. including: built-in `String`, `Array`, array-like objects (e.g., `arguments` or `NodeList`), `TypedArray`, `Map`, `Set`, and `user-defined` iterables.
 
 **Example:**
