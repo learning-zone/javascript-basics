@@ -2491,28 +2491,18 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Why extending array is bad idea?***
-
-Polyfilling or shimming standard functionality like `Array.prototype.filter` so that it works in older browsers is a good idea in my opinion. Usually the advice for not extending `Array.prototype` or other native prototypes might come down to one of these:
-
-1. `for..in` might not work properly
-1. Someone else might also want to extend Array with the same function name
-1. It might not work properly in every browser, even with the shim.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is unshift() method in JavaScript?***
 
 The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
 ```js
-var arr = [1, 2, 3];
+const numbers = [10, 20, 30];
 
-console.log(arr.unshift(4, 5)); // 5
-console.log(arr); // Array [4, 5, 1, 2, 3]
+console.log(numbers.unshift(40, 50)); // 5
+console.log(numbers); // [40, 50, 10, 20, 30]
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-unshift-khl0dq?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
