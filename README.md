@@ -37,6 +37,8 @@
 
 ## # Introduction
 
+<br/>
+
 ## Q. ***List out important features of JavaScript ES6?***
 
 **1. Template Strings:**
@@ -386,6 +388,8 @@ console.log(iterateIt.next().value); //output: 6
 </div>
 
 ## # VARIABLES
+
+<br/>
 
 ## Q. ***What are global variables?***
 
@@ -853,6 +857,8 @@ console.log(y); // 10
 
 ## # DATA TYPES
 
+<br/>
+
 ## Q. ***What are data types in javascript?***
 
 There are eight basic data types in JavaScript.
@@ -1056,6 +1062,8 @@ console.log(typeof test2); // undefined
 </div>
 
 ## # OPERATORS
+
+<br/>
 
 ## Q. ***What are various operators supported by javascript?***
 
@@ -1412,6 +1420,8 @@ b instanceof String; // returns true
 
 ## # NUMBERS
 
+<br/>
+
 ## Q. ***How do you generate random integers?***
 
 The `Math.random()` function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1). For example, if you want generate random integers between 1 to 100, the multiplication factor should be 100,
@@ -1513,6 +1523,8 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
 </div>
 
 ## # STRING
+
+<br/>
 
 ## Q. ***What is the difference between slice and splice?***
 
@@ -1708,6 +1720,8 @@ console.log(str.startsWith("World")); // false
 </div>
 
 ## # ARRAY
+
+<br/>
 
 ## Q. ***Explain arrays in JavaScript?***
 
@@ -2555,6 +2569,8 @@ function someFunc(a,…b,c) {
 
 ## # Regular Expression
 
+<br/>
+
 ## Q. ***What are the string methods available in Regular expression?***
 
 Regular Expressions has two string methods: search() and replace().
@@ -2723,6 +2739,8 @@ function detectMobile() {
 </div>
 
 ## # FUNCTIONS
+
+<br/>
 
 ## Q. ***What are fat arrow functions? When you should not use arrow functions in ES6?***
 
@@ -4009,6 +4027,8 @@ loadScript('/script1.js', function(script) {
 
 ## # EVENTS
 
+<br/>
+
 ## Q. ***what are events in javascript?***
 
 Events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can `react` on these events. Some of the examples of HTML events are,
@@ -4354,6 +4374,8 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 </div>
 
 ## # OBJECTS
+
+<br/>
 
 ## Q. ***What are the possible ways to create objects in JavaScript?***
 
@@ -5957,6 +5979,8 @@ console.log(person.name); // "john"
 
 ## # ERROR HANDLING
 
+<br/>
+
 ## Q. ***Define the various types of errors which occur in JavaScript programming language?***
 
 When an exception occurs, an object representing the error is created and thrown.  The JavaScript language defines seven types of built-in error objects. 
@@ -6058,6 +6082,8 @@ Below are the list of statements used in an error handling,
 </div>
 
 ## # PROMISES
+
+<br/>
 
 ## Q. ***What is a promise?***
 
@@ -6441,6 +6467,8 @@ add2(10).then(v => {
 
 ## # Collections
 
+<br/>
+
 ## Q. ***What is the difference between ES6 Map and WeakMap?***
 
 **Map:**  
@@ -6691,6 +6719,8 @@ An iterator is an object which defines a sequence and a return value upon its te
 </div>
 
 ## # MODULES
+
+<br/>
 
 ## Q. ***What is modules in ES6?***
 
@@ -8770,6 +8800,8 @@ function myFunction() {
 </div>
 
 ## # MISCELLANEOUS
+
+<br/>
 
 ## Q. ***What is a decorator?***
 
