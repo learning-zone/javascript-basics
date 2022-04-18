@@ -2491,43 +2491,6 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of array slice method?***
-
-The **slice()** method returns the selected elements in an array as a new array object. It selects the elements starting at the given start argument, and ends at the given optional end argument without including the last element. If you omit the second argument then it selects till the end. Some of the examples of this method are,
-
-```js
-let arrayIntegers = [1, 2, 3, 4, 5];
-let arrayIntegers1 = arrayIntegers.slice(0,2); // returns [1,2]
-let arrayIntegers2 = arrayIntegers.slice(2,3); // returns [3]
-let arrayIntegers3 = arrayIntegers.slice(4); //returns [5]
-```
-
-*Note: Slice method wonot mutate the original array but it returns the subset as new array*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of array splice method?***
-
-The **splice()** method is used either adds/removes items to/from an array, and then returns the removed item. The first argument specifies the array position for insertion or deletion whereas the option second argument indicates the number of elements to be deleted. Each additional argument is added to the array. Some of the examples of this method are,
-
-```js
-let arrayIntegersOriginal1 = [1, 2, 3, 4, 5];
-let arrayIntegersOriginal2 = [1, 2, 3, 4, 5];
-let arrayIntegersOriginal3 = [1, 2, 3, 4, 5];
-
-let arrayIntegers1 = arrayIntegersOriginal1.splice(0,2); // returns [1, 2]; original array: [3, 4, 5]
-let arrayIntegers2 = arrayIntegersOriginal2.splice(3); // returns [4, 5]; original array: [1, 2, 3]
-let arrayIntegers3 = arrayIntegersOriginal3.splice(3, 1, "a", "b", "c"); //returns [4]; original array: [1, 2, 3, "a", "b", "c", 5]
-```
-
-*Note: Splice method modifies the original array and returns the deleted array*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Why extending array is bad idea?***
 
 Polyfilling or shimming standard functionality like `Array.prototype.filter` so that it works in older browsers is a good idea in my opinion. Usually the advice for not extending `Array.prototype` or other native prototypes might come down to one of these:
