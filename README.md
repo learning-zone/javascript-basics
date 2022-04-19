@@ -2509,6 +2509,8 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 
 The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
+**Example:**
+
 ```js
 const numbers = [10, 20, 30];
 
@@ -2527,6 +2529,8 @@ console.log(numbers); // [40, 50, 10, 20, 30]
 The rest parameter is used to represent an indefinite number of arguments as an array. The important point here is only the function\'s last parameter can be a "rest parameter".
 
 This feature has been introduced to reduce the boilerplate code that was induced by the arguments.
+
+**Example:**
 
 ```js
 function sum(...args) {
@@ -2548,7 +2552,9 @@ console.log(sum(10, 20, 30)); // 60
 
 ## Q. ***What happens if you do not use rest parameter as a last argument?***
 
-The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it does not make any sense and will throw an error.
+The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array.
+
+**Example:** If you define a function like below it does not make any sense and will throw an `SyntaxError`.
 
 ```js
 function display(a, ...args, b) {
