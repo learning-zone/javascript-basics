@@ -2551,11 +2551,21 @@ console.log(sum(10, 20, 30)); // 60
 The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array. For example, if you define a function like below it does not make any sense and will throw an error.
 
 ```js
-function someFunc(a,…b,c) {
-  //You code goes here
-  return;
+function display(a, ...args, b) {
+  console.log(a);
+  for (let i = 0; i < args.length; i++) {
+    console.log(args[i]);
+  }
+  console.log(b);
 }
+
+display(10, 20, 30, 40, 50);
+
+// Output
+SyntaxError: Rest element must be last element
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-rest-parameter-v8r5yt?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
