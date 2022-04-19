@@ -2524,29 +2524,23 @@ console.log(numbers); // [40, 50, 10, 20, 30]
 
 ## Q. ***What is a rest parameter?***
 
-Rest parameter is an improved way to handle function parameter which allows us to represent an indefinite number of arguments as an array. The syntax would be as below,
+The rest parameter is used to represent an indefinite number of arguments as an array. The important point here is only the function\'s last parameter can be a "rest parameter".
+
+This feature has been introduced to reduce the boilerplate code that was induced by the arguments.
 
 ```js
-function f(a, b, ...theArgs) {
-  // ...
+function sum(...args) {
+  return args.reduce((previous, current) => {
+    return previous + current;
+  });
 }
+
+console.log(sum(10)); // 10
+console.log(sum(10, 20)); // 30
+console.log(sum(10, 20, 30)); // 60
 ```
 
-For example, let us take a sum example to calculate on dynamic number of parameters,
-
-```js
-function total(…args) {
-  let sum = 0;
-  for(let i of args) {
-    sum+=i;
-  }
- return sum;
-}
-console.log(fun(1,2)); //3
-console.log(fun(1,2,3)); //6
-console.log(fun(1,2,3,4)); //13
-console.log(fun(1,2,3,4,5)); //15
-```
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/es6-rest-parameters-w8zy28?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
