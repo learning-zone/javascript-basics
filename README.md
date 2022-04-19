@@ -2581,22 +2581,44 @@ SyntaxError: Rest element must be last element
 
 <br/>
 
-## Q. ***What are the string methods available in Regular expression?***
+## Q. ***What are the string method available in regular expression?***
 
-Regular Expressions has two string methods: search() and replace().
-The search() method uses an expression to search for a match, and returns the position of the match.
+Regular expressions are patterns used to match character combinations in strings. In JavaScript, regular expressions are also objects. These patterns are used with the `exec()` and `test()` methods of `RegExp`, and with the `match()`, `matchAll()`, `replace()`, `replaceAll()`, `search()`, and `split()` methods of String.
 
-```js
-var msg = "Hello John";
-var n = msg.search(/John/i); // 6
-```
+**Example 01:** `test()`
 
-The replace() method is used return a modified string where the pattern is replaced.
+Tests for a match in a string. It returns `true` or `false`
 
 ```js
-var msg = "Hello John";
-var n = msg.search(/John/i, "Buttler"); // Hello Buttler
+let exp = /Hello/;
+let result = exp.test("Hello World");
+
+console.log(result); // true
 ```
+
+**Example 02:** `exec()`
+
+Executes a search for a match in a string. It returns an array of information or `null` on a mismatch.
+
+```js
+let exp = /Hello/;
+let result = exp.test("Hello World");
+
+console.log(result); // true
+```
+
+|Method	      |Description             |
+|-------------|------------------------|
+|exec()	      |Executes a search for a match in a string. It returns an array of information or `null` on a mismatch.|
+|test()	      |Tests for a match in a string. It returns `true` or `false`.|
+|match()	    |Returns an array containing all of the matches, including capturing groups, or `null` if no match is found.|
+|matchAll()	  |Returns an iterator containing all of the matches, including capturing groups.|
+|search()	    |Tests for a match in a string. It returns the index of the match, or `-1` if the search fails.|
+|replace()	  |Executes a search for a match in a string, and replaces the matched substring with a replacement substring.|
+|replaceAll()	|Executes a search for all matches in a string, and replaces the matched substrings with a replacement substring.|
+|split()	    |Uses a regular expression or a fixed string to break a string into an array of substrings.|
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-rest-parameter-v8r5yt?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
