@@ -2637,13 +2637,37 @@ Modifiers can be used to perform case-insensitive and global searches.
 | g | Perform a global match rather than stops at first match  |
 | m | Perform multiline matching|
 
-Example: Global Modifier
+**Example 01:** Global Search
 
 ```js
-  var text = "Learn JS one by one";
-  var pattern = /one/g;
-  var result = text.match(pattern); // one,one
+let text = "Hello World! Hello World!";
+let pattern = /Hello/g;
+
+console.log(text.match(pattern)); // ['Hello', 'Hello']
 ```
+
+**Example 02:** Case-insensitive matching
+
+```js
+let string = "Hello World!";
+let pattern2 = /WORLD/i;
+
+console.log(string.match(pattern2)); // ['World', index: 6, input: 'Hello World!', groups: undefined]
+```
+
+**Example 03:**
+
+The "m" modifier specifies a multiline match. It only affects the behavior of start `^` and end `$`. `^` specifies a match at the start of a string. `$` specifies a match at the end of a string.
+
+```js
+let paragraph = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`;
+
+let pattern3 = /Lorem/m;
+
+console.log(paragraph.match(pattern3)); // ["Lorem"]
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-modifier-sm7ul2)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
