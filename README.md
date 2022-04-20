@@ -2591,9 +2591,11 @@ Tests for a match in a string. It returns `true` or `false`
 
 ```js
 let exp = /Hello/;
-let result = exp.test("Hello World");
+let res1 = exp.test("Hello World");
+let res2 = exp.test("Hi");
 
-console.log(result); // true
+console.log(res1); // true
+console.log(res2); // false
 ```
 
 **Example 02:** `exec()`
@@ -2601,10 +2603,11 @@ console.log(result); // true
 Executes a search for a match in a string. It returns an array of information or `null` on a mismatch.
 
 ```js
-let exp = /Hello/;
-let result = exp.test("Hello World");
+let res1 = exp.exec("Hello World");
+let res2 = exp.exec("Hi");
 
-console.log(result); // true
+console.log(res1); // ['Hello', index: 0, input: 'Hello World', groups: undefined]
+console.log(res2); // null
 ```
 
 |Method	      |Description             |
@@ -2618,7 +2621,7 @@ console.log(result); // true
 |replaceAll()	|Executes a search for all matches in a string, and replaces the matched substrings with a replacement substring.|
 |split()	    |Uses a regular expression or a fixed string to break a string into an array of substrings.|
 
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-rest-parameter-v8r5yt?file=/src/index.js)**
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-fn79dp?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
