@@ -2646,7 +2646,7 @@ let pattern = /Hello/g;
 console.log(text.match(pattern)); // ['Hello', 'Hello']
 ```
 
-**Example 02:** Case-insensitive matching
+**Example 02:** Case-insensitive match
 
 ```js
 let string = "Hello World!";
@@ -2655,7 +2655,7 @@ let pattern2 = /WORLD/i;
 console.log(string.match(pattern2)); // ['World', index: 6, input: 'Hello World!', groups: undefined]
 ```
 
-**Example 03:**
+**Example 03:** Multiline match
 
 The "m" modifier specifies a multiline match. It only affects the behavior of start `^` and end `$`. `^` specifies a match at the start of a string. `$` specifies a match at the end of a string.
 
