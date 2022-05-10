@@ -2677,16 +2677,18 @@ console.log(paragraph.match(pattern3)); // ["Lorem"]
 
 Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,  
 
-**1. Brackets:**
+**Brackets:**
 
 These are used to find a range of characters.
-For example, below are some use cases,
 
-* [abc]: Used to find any of the characters between the brackets(a,b,c)
-* [0-9]: Used to find any of the digits between the brackets
-* (a|b): Used to find any of the alternatives separated with |
+* **[...]**: Any one character between the brackets.
+* **[^...]**: Any one character not between the brackets.
+* **[0-9]**: It matches any decimal digit from **0** through **9**.
+* **[a-z]**: It matches any character from lowercase **a** through lowercase **z**.
+* **[A-Z]**: It matches any character from uppercase **A** through uppercase **Z**.
+* **[a-Z]**: It matches any character from lowercase **a** through uppercase **Z**.
 
-**2. Metacharacters:**
+**Metacharacters:**
 
 These are characters with a special meaning
 For example, below are some use cases,
@@ -2695,7 +2697,7 @@ For example, below are some use cases,
 * \s: Used to find a whitespace character
 * \b: Used to find a match at the beginning or ending of a word
 
-**3. Quantifiers:**
+**Quantifiers:**
 
 These are useful to define quantities
 For example, below are some use cases,
