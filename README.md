@@ -2717,6 +2717,23 @@ These are useful to define quantities
 * **p$**: It matches any string with p at the end of it.
 * **^p**: It matches any string with p at the beginning of it.
 
+**Example:**
+
+```js
+// Brackets
+console.log("Hello World".match(/[a-d]/)); // -> matches 'a'
+console.log("Hello World".match(/[A-D]/)); // -> no match
+console.log("Hello World".match(/[A-D]/i)); // -> matches 'a'
+
+// Metacharacters
+console.log("Hello World".match(/[A-Za-z]\s[A-Za-z]/)); // -> matches
+console.log("Hello World".match(/[0-9]\s[A-Za-z]/)); // -> no match
+
+// Quantifiers
+console.log("Hello".match(/l+/)); // -> matches
+console.log("Hello".match(/A*/)); // -> no match
+```
+
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-patterns-b5ojtl?file=/src/index.js)**
 
 <div align="right">
