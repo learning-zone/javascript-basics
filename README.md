@@ -2581,6 +2581,38 @@ SyntaxError: Rest element must be last element
 
 <br/>
 
+## Q. ***What is a RegExp object?***
+
+A regular expression is an object that describes a pattern of characters.
+
+The JavaScript `RegExp` class represents regular expressions, and both String and `RegExp` define methods that use regular expressions to perform powerful pattern-matching and search-and-replace functions on text.
+
+**Syntax:**
+
+```js
+// Using literal notation 
+let pattern = /pattern/attributes;
+
+// Using RegExp Object
+let pattern = new RegExp(pattern, attributes);
+
+
+// * pattern − A string that specifies the pattern of the regular expression or another regular expression.
+// * attributes − An optional string containing any of the "g", "i", and "m" attributes that specify global, case-insensitive, and multi-line matches, respectively.
+```
+
+**Example:**
+
+```js
+let pattern = /ab+c/i; // literal notation
+
+let pattern = new RegExp(/ab+c/, 'i') // constructor with regular expression literal as first argument
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What are the string method available in regular expression?***
 
 Regular expressions are patterns used to match character combinations in strings. In JavaScript, regular expressions are also objects. These patterns are used with the `exec()` and `test()` methods of `RegExp`, and with the `match()`, `matchAll()`, `replace()`, `replaceAll()`, `search()`, and `split()` methods of String.
@@ -2650,7 +2682,7 @@ console.log(text.match(pattern)); // ['Hello', 'Hello']
 
 ```js
 let string = "Hello World!";
-let pattern2 = /WORLD/i;
+let pattern = /WORLD/i;
 
 console.log(string.match(pattern2)); // ['World', index: 6, input: 'Hello World!', groups: undefined]
 ```
@@ -2660,9 +2692,9 @@ console.log(string.match(pattern2)); // ['World', index: 6, input: 'Hello World!
 The "m" modifier specifies a multiline match. It only affects the behavior of start `^` and end `$`. `^` specifies a match at the start of a string. `$` specifies a match at the end of a string.
 
 ```js
-let paragraph = `Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.`;
+let paragraph = `Lorem Ipsum is simply dummy text of the printing and typesetting industry.`;
 
-let pattern3 = /Lorem/m;
+let pattern = /Lorem/m;
 
 console.log(paragraph.match(pattern3)); // ["Lorem"]
 ```
@@ -2735,20 +2767,6 @@ These are useful to define quantities
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-patterns-b5ojtl?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a RegExp object?***
-
-RegExp object is a regular expression object with predefined properties and methods.
-
-```js
-var regexp = new RegExp('\\w+');
-console.log(regexp);
-// expected output: /\w+/
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
