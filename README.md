@@ -2774,12 +2774,27 @@ These are useful to define quantities
 
 ## Q. ***How do you search a string for a pattern?***
 
-You can use test() method of regular expression in order to search a string for a pattern, and returns true or false depending on the result.
+**1. Using test()** It searches a string for a pattern, and returns `true` or `false`, depending on the result.
 
 ```js
-var pattern = /you/;
-console.log(pattern.test("How are you?")); //true
+let re1 = /Hi/;
+let re2 = /you/;
+
+re1.test("How are you?"); // false
+re2.test("How are you?"); // true
 ```
+
+**2. Using exec()** It searches a string for a specified pattern, and returns the found text as an object. If no match is found, it returns an empty (null) object.
+
+```js
+let re1 = /Hi/;
+let re2 = /you/;
+
+re1.exec("How are you?"); // null
+re2.exec("How are you?"); // ["you"]
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-m10bgo?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
