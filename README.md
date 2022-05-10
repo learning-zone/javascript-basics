@@ -2821,16 +2821,32 @@ console.log(pattern.exec("How are you?")); // ["you", index: 8, input: "How are 
 
 ## Q. ***How do you validate an email in javascript?***
 
-You can validate an email in javascript using regular expressions. It is recommended to do validations on the server side instead client side. Because the javascript can be disabled on the client side.
+The `test()` method returns `true` if there is a match in the string with the regex pattern. The regular expression (regex) describes a sequence of characters used for defining a search pattern
 
 ```js
+// Program to validate the email address
+
 function validateEmail(email) {
-    var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-    return re.test(String(email).toLowerCase());
+  // regex pattern for email
+  const re = /\S+@\S+\.\S+/g;
+
+  // check if the email is valid
+  let result = re.test(email);
+  if (result) {
+    console.log("Valid");
+  } else {
+    console.log("Not valid.");
+  }
 }
+
+let email = "pradeep.kumar@gmail.com";
+let email2 = "pradeep.kumar.com";
+
+validateEmail(email); // Valid
+validateEmail(email2); // Not Valid
 ```
 
-The above regular expression regular accepts unicode characters.
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-rkxjb1?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
