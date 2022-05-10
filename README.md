@@ -2691,20 +2691,33 @@ These are used to find a range of characters.
 **Metacharacters:**
 
 These are characters with a special meaning
-For example, below are some use cases,
 
-* \d: Used to find a digit
-* \s: Used to find a whitespace character
-* \b: Used to find a match at the beginning or ending of a word
+* **.**: a single character
+* **\s**: a whitespace character (space, tab, newline)
+* **\S**: non-whitespace character
+* **\d**: a digit (0-9)
+* **\D**: a non-digit
+* **\w**: a word character (a-z, A-Z, 0-9, _)
+* **\W**: a non-word character
+* **[\b]**: a literal backspace (special case).
+* **[aeiou]**: matches a single character in the given set
+* **[^aeiou]**: matches a single character outside the given set
+* **(foo|bar|baz)**: matches any of the alternatives specified
 
 **Quantifiers:**
 
 These are useful to define quantities
-For example, below are some use cases,
 
-* n+: Used to find matches for any string that contains at least one n
-* n*: Used to find matches for any string that contains zero or more occurrences of n
-* n?: Used to find	matches for any string that contains zero or one occurrences of n
+* **p+**: It matches any string containing one or more p\'s.
+* **p***: It matches any string containing zero or more p\'s.
+* **p?**: It matches any string containing at most one p.
+* **p{N}**: It matches any string containing a sequence of **N** p\'s
+* **p{2,3}**: It matches any string containing a sequence of two or three p\'s.
+* **p{2, }**: It matches any string containing a sequence of at least two p\'s.
+* **p$**: It matches any string with p at the end of it.
+* **^p**: It matches any string with p at the beginning of it.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-patterns-b5ojtl?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7490,7 +7503,7 @@ console.log(foo); // undefined
 
 In the past, I've used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
 
-The module pattern is still great, but these days, I use React/Redux which utilize a single-directional data flow based on Flux architecture. I would represent my app's models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
+The module pattern is still great, but these days, I use React/Redux which utilize a single-directional data flow based on Flux architecture. I would represent my app\'s models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
 
 I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
 
