@@ -2978,8 +2978,6 @@ var sayNameFromWindow2 = john.sayName2;
 sayNameFromWindow2(); // John
 ```
 
-The main takeaway here is that `this` can be changed for a normal function, but the context always stays the same for an arrow function. So even if you are passing around your arrow function to different parts of your application, you wouldn\'t have to worry about the context changing.
-
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
