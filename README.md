@@ -3057,7 +3057,7 @@ const concat = (separator) => {
 
 ## Q. ***What is a first class function?***
 
-In javaScript functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function **first-class function** in JavaScript.
+In javaScript, functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function **first-class function** in JavaScript.
 
 **Example 01:** Assign a function to a variable
 
