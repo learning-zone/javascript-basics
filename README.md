@@ -3057,9 +3057,9 @@ const concat = (separator) => {
 
 ## Q. ***What is a first class function?***
 
-JavaScript functions are first-class functions meaning functions and objects are treated as the same thing. Functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function "first-class citizens in JavaScript"
+In javaScript functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function **first-class function** in JavaScript.
 
-**Example:** Assign a function to a variable
+**Example 01:** Assign a function to a variable
 
 ```js
 const message = function() {
@@ -3069,7 +3069,7 @@ const message = function() {
 message(); // Invoke it using the variable
 ```
 
-**Example:** Pass a function as an Argument
+**Example 02:** Pass a function as an Argument
 
 ```js
 function sayHello() {
@@ -3082,7 +3082,7 @@ function greeting(helloMessage, name) {
 greeting(sayHello, "JavaScript!");
 ```
 
-**Example:** Return a function
+**Example 03:** Return a function
 
 ```js
 function sayHello() {
@@ -3092,7 +3092,7 @@ function sayHello() {
 }
 ```
 
-**Example:** Using a variable
+**Example 04:** Using a variable
 
 ```js
 const sayHello = function() {
@@ -3104,7 +3104,7 @@ const myFunc = sayHello();
 myFunc();
 ```
 
-**Example:** Using double parentheses
+**Example 05:** Using double parentheses
 
 ```js
 function sayHello() {
@@ -3116,6 +3116,8 @@ sayHello()();
 ```
 
 We are using double parentheses `()()` to invoke the returned function as well.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-first-class-function-ckck8k?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
