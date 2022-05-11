@@ -2988,32 +2988,68 @@ An arrow function is a shorter syntax for a function expression and does not hav
 
 **Arrow functions in ES6 has two limitations:**
 
-* Don't work with new
+* Do not work with new
 * Fixed this bound to scope at initialisation
 
-**When should not use Arrow Functions:** 
+**When should not use Arrow Functions:**
 
-**1. Object methods**  
-When you call cat.jumps, the number of lives does not decrease. It is because this is not bound to anything, and will inherit the value of this from its parent scope.
+**1. Object methods:**  
+
+The counter object has two methods: current() and next(). The current() method returns the current counter value and the next() method returns the next counter value.
+
 ```js
-var cat = {
-  lives: 9,
-  jumps: () => {
-    this.lives--;
-  }
-}
+// Usin arrow function
+const counter = {
+  count: 0,
+  next: () => ++this.count,
+  current: () => this.count
+};
+
+console.log(counter.next()); // NaN
 ```
 
-**2. Callback functions with dynamic context:**  
+**2. Event handlers:**  
 
 If we click the button, we would get a TypeError. It is because this is not bound to the button, but instead bound to its parent scope.
 
 ```js
-var button = document.getElementById('press');
+let button = document.getElementById('press');
+
 button.addEventListener('click', () => {
   this.classList.toggle('on');
 });
 ```
+
+**3. Prototype methods:**
+
+The `this` value in these `next()` and `current()` methods reference the global object. Since the `this` value inside the methods to reference the Counter object, it needs to use the regular functions instead
+
+```js
+function Counter() {
+    this.count = 0;
+}
+
+Counter.prototype.next = () => {
+    return this.count;
+};
+
+Counter.prototype.current = () => {
+    return ++this.next;
+}
+```
+
+**4. Functions that use the arguments object:**
+
+Arrow functions don\'t have the arguments object. Therefore, if a function that uses arguments object, you cannot use the arrow function.
+
+```js
+const concat = (separator) => {
+    let args = Array.prototype.slice.call(arguments, 1);
+    return args.join(separator);
+}
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-52ny7c?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
