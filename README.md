@@ -2882,37 +2882,27 @@ function detectMobile() {
 
 <br/>
 
-## Q. ***What are fat arrow functions? When you should not use arrow functions in ES6?***
+## Q. ***What are the benefits of using arrow function over es5 function?***
 
-An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
+Arrows is a new syntax for functions, which brings several benefits:
 
-**Arrow functions in ES6 has two limitations:**
-
-* Don't work with new
-* Fixed this bound to scope at initialisation
-
-**When should not use Arrow Functions:** 
-
-**1. Object methods**  
-When you call cat.jumps, the number of lives does not decrease. It is because this is not bound to anything, and will inherit the value of this from its parent scope.
-```js
-var cat = {
-  lives: 9,
-  jumps: () => {
-    this.lives--;
-  }
-}
-```
-
-**2. Callback functions with dynamic context:**  
-
-If we click the button, we would get a TypeError. It is because this is not bound to the button, but instead bound to its parent scope.
+* Arrow syntax automatically binds `this` to the surrounding code\'s context
+* The syntax allows an implicit return when there is no body block, resulting in shorter and simpler code in some cases
+* Last but not least, `=>` is shorter and simpler than `function`, although stylistic issues are often subjective
 
 ```js
-var button = document.getElementById('press');
-button.addEventListener('click', () => {
-  this.classList.toggle('on');
-});
+//arrow function with no parameters
+var a1 = () => 1;
+ 
+//arrow with one parameter can be defined without parentheses
+var a2 = x => 1;
+var a3 = (x) => 1;
+ 
+//arrow with multiple params requires parentheses
+var a4 = (x, y) => 1;
+ 
+//arrow with body has no implicit return
+var a5 = x => { return 1; };
 ```
 
 <div align="right">
@@ -2959,27 +2949,37 @@ The main takeaway here is that `this` can be changed for a normal function, but 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the benefits of using arrow function over es5 function?***
+## Q. ***When you should not use arrow functions in ES6?***
 
-Arrows is a new syntax for functions, which brings several benefits:
+An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
 
-* Arrow syntax automatically binds `this` to the surrounding code’s context
-* The syntax allows an implicit return when there is no body block, resulting in shorter and simpler code in some cases
-* Last but not least, `=>` is shorter and simpler than `function`, although stylistic issues are often subjective
+**Arrow functions in ES6 has two limitations:**
+
+* Don't work with new
+* Fixed this bound to scope at initialisation
+
+**When should not use Arrow Functions:** 
+
+**1. Object methods**  
+When you call cat.jumps, the number of lives does not decrease. It is because this is not bound to anything, and will inherit the value of this from its parent scope.
+```js
+var cat = {
+  lives: 9,
+  jumps: () => {
+    this.lives--;
+  }
+}
+```
+
+**2. Callback functions with dynamic context:**  
+
+If we click the button, we would get a TypeError. It is because this is not bound to the button, but instead bound to its parent scope.
 
 ```js
-//arrow function with no parameters
-var a1 = () => 1;
- 
-//arrow with one parameter can be defined without parentheses
-var a2 = x => 1;
-var a3 = (x) => 1;
- 
-//arrow with multiple params requires parentheses
-var a4 = (x, y) => 1;
- 
-//arrow with body has no implicit return
-var a5 = x => { return 1; };
+var button = document.getElementById('press');
+button.addEventListener('click', () => {
+  this.classList.toggle('on');
+});
 ```
 
 <div align="right">
@@ -3132,7 +3132,8 @@ A function must pass two tests to be considered “pure”:
 1. Same inputs always return same outputs
 1. No side-effects
 
-**1. Same Input => Same Output**  
+**1. Same Input => Same Output** 
+
 Compare this:
 
 ```js
@@ -3157,7 +3158,7 @@ add(4); // x === 6 (the first time)
 
 The first example returns a value based on the given parameters, regardless of where/when you call it.
 
-If you pass 2 and 4, you’ll always get 6.
+If you pass 2 and 4, you\'ll always get 6.
 
 Nothing else affects the output.
 
@@ -3703,6 +3704,14 @@ btn.addEventListener('click', clickHandler.handleClick.bind(clickHandler));
 ```
 
 `bind` method is available to all the function similar to call and apply method which take argument value of `this`.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***When would you use the bind function?***
+
+*ToDo*
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
