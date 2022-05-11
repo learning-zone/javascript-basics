@@ -2890,20 +2890,55 @@ Arrows is a new syntax for functions, which brings several benefits:
 * The syntax allows an implicit return when there is no body block, resulting in shorter and simpler code in some cases
 * Last but not least, `=>` is shorter and simpler than `function`, although stylistic issues are often subjective
 
+**Example 01:** Arrow Function with No Argument
+
+If a function doesn\'t take any argument, then you should use empty parentheses.
+
 ```js
-//arrow function with no parameters
-var a1 = () => 1;
- 
-//arrow with one parameter can be defined without parentheses
-var a2 = x => 1;
-var a3 = (x) => 1;
- 
-//arrow with multiple params requires parentheses
-var a4 = (x, y) => 1;
- 
-//arrow with body has no implicit return
-var a5 = x => { return 1; };
+let greet = () => console.log('Hello');
+greet(); // Hello
 ```
+
+**Example 02:** Arrow Function with One Argument
+
+If a function has only one argument, you can omit the parentheses.
+
+```js
+let greet = x => console.log(x);
+greet('Hello'); // Hello 
+```
+
+**Example 03:** Arrow Function as an Expression
+
+You can also dynamically create a function and use it as an expression.
+
+```js
+let age = 25;
+
+let welcome = (age < 18) ?
+  () => console.log('Baby') :
+  () => console.log('Adult');
+
+welcome(); // Adult
+```
+
+**Example 04:** Multiline Arrow Functions
+
+If a function body has multiple statements, you need to put them inside curly brackets `{}`.
+
+```js
+let area = (r) => {
+  const pi = 3.14;
+  return pi * r * r;
+}
+
+let result = area(10);
+console.log(result); // 314
+```
+
+*Note: Unlike regular functions, arrow functions do not have their own `this`. The value of `this` inside an arrow function remains the same throughout the lifecycle of the function and is always bound to the value of `this` in the closest non-arrow parent function.*
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/es6-arrow-function-yl7oqo?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
