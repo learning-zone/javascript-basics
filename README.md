@@ -3199,19 +3199,29 @@ console.log(unaryFunction(10)); // 20
 
 Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument.
 
-```js
-function volume(length) {
-  return function(width) {
-    return function(height) {
-      return height * width * length;
-    }
-  }
-}
+In other words, when a function, instead of taking all arguments at one time, takes the first one and return a new function that takes the second one and returns a new function which takes the third one, and so forth, until all arguments have been fulfilled.
 
-volume(2)(3)(4); // 24
+```js
+// Normal function
+const add = (a, b, c) => {
+  return a + b + c;
+};
+console.log(add(10, 10, 10)); // 30
+
+// Currying function
+const addCurry = (a) => {
+  return (b) => {
+    return (c) => {
+      return a + b + c;
+    };
+  };
+};
+console.log(addCurry(20)(20)(20)); // 60
 ```
 
-Curried functions are great to improve code re-usability and functional composition.
+*Note: Curried functions are great to improve code re-usability and functional composition.*
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-currying-function-3kq1db?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
