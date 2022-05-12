@@ -3127,15 +3127,52 @@ We are using double parentheses `()()` to invoke the returned function as well.
 
 A Higher-Order function is a function that receives a function as an argument or returns the function as output.
 
-For example, `Array.prototype.map()`, `Array.prototype.filter()` and `Array.prototype.reduce()` are some of the Higher-Order functions in javascript.
+For example, `Array.prototype.map()`, `Array.prototype.filter()` , `Array.prototype.forEach()` and `Array.prototype.reduce()` are some of the Higher-Order functions in javascript.
+
+**Example 01:** .map()
 
 ```js
-const arr1 = [1, 2, 3];
-const arr2 = arr1.map(function(item) {
+const array = [10, 20, 30];
+
+const result = array.map(function (item) {
   return item * 2;
 });
-console.log(arr2);
+console.log(result); // [20, 40, 60]
 ```
+
+**Example 02:** .filter()
+
+```js
+const randomNumbers = [4, 11, 42, 14, 39];
+
+const filteredArray = randomNumbers.filter((number) => {
+  return number > 15;
+});
+console.log(filteredArray); // [42, 39]
+```
+
+**Example 03:** .forEach()
+
+```js
+const numbers = [28, 77, 45];
+
+numbers.forEach((number) => {
+  console.log(number);
+});
+```
+
+**Example 04:** .reduce()
+
+```js
+const arrayOfNumbers = [10, 20, 30];
+
+const sum = arrayOfNumbers.reduce((accumulator, currentValue) => {
+  return accumulator + currentValue;
+});
+console.log("Sum: " + sum); // 60
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-higher-order-function-yhbo9v?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
