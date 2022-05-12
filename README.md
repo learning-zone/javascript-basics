@@ -3180,11 +3180,16 @@ console.log("Sum: " + sum); // 60
 
 ## Q. ***What is a unary function?***
 
-Unary function (i.e. monadic) is a function that accepts exactly one argument. Let us take an example of unary function. It stands for single argument accepted by a function.
+Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for single argument accepted by a function.
 
 ```js
-const unaryFunction = a => console.log (a + 10); //Add 10 to the given argument and display the value
+// Unary function
+const unaryFunction = (number) => number + 10;
+
+console.log(unaryFunction(10)); // 20
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-unary-function-j0h3gh?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
