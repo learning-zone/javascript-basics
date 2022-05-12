@@ -3231,65 +3231,42 @@ console.log(addCurry(20)(20)(20)); // 60
 
 Pure functions are functions that accept an input and returns a value without modifying any data outside its scope(Side Effects). Its output or return value must depend on the input/arguments and pure functions must return a value.
 
-**Example:**
+**Example:** Pure Function
+
+It is a pure function because you always get a Hello `<name>` as output for the `<name>` pass as an input.
 
 ```js
-function impure(arg) {
-    finalR.s = 90
-    return arg * finalR.s
+// Pure Function
+function sayGreeting(name) {
+  return `Hello ${name}`;
+}
+
+console.log(sayGreeting("World"));
+```
+
+**Example:** Not Pure Function
+
+The function\'s output now depends on an outer state called greeting. What if someone changes the value of the greeting variable to `Hola`? It will change the output of the `sayGreeting()` function even when you pass the same input.
+
+```js
+let greeting = "Hello";
+
+function sayGreeting(name) {
+  return `${greeting} ${name}`;
 }
 ```
 
-The above function is not a pure function because it modified a state `finalR.s` outside its scope.
+A function must pass two tests to be considered **pure**:
 
-```js
-function pure(arg) {
-    return arg * 4
-}
-```
-
-Here is a pure function. It didn\'t side effect any external state and it returns an output based on the input.
-
-A function must pass two tests to be considered “pure”:
-
-1. Same inputs always return same outputs
-1. No side-effects
-
-**1. Same Input => Same Output** 
-
-Compare this:
-
-```js
-const add = (x, y) => x + y;
-
-add(2, 4); // 6
-```
-
-To this
-
-```js
-let x = 2;
-
-const add = (y) => {
-  x += y;
-};
-
-add(4); // x === 6 (the first time)
-```
-
-**2. Pure Functions = Consistent Results:**
-
-The first example returns a value based on the given parameters, regardless of where/when you call it.
-
-If you pass 2 and 4, you\'ll always get 6.
-
-Nothing else affects the output.
+* Same inputs always return same outputs
+* No side-effects
 
 **Benefits:**
 
-* One of the major benefits of using pure functions is they are immediately testable. They will always produce the same result if you pass in the same arguments.
-* The pure functions are easier to parallelize
-* They also makes maintaining and refactoring code much easier.
+* **Predictable**: It produces a predictable output for the same inputs.
+* **Readable**: Anyone reading the function as a standalone unit can understand its purpose completely.
+* **Reusable**: Can reuse the function at multiple places of the source code without altering its and the caller's behavior.
+* **Testable**: We can test it as an independent unit.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
