@@ -3237,6 +3237,7 @@ It is a pure function because you always get a Hello `<name>` as output for the 
 
 ```js
 // Pure Function
+
 function sayGreeting(name) {
   return `Hello ${name}`;
 }
@@ -3274,10 +3275,13 @@ A function must pass two tests to be considered **pure**:
 
 ## Q. ***What is memoization in JavaScript?***
 
-Memoization is a programming technique which attempts to increase a function’s performance by caching its previously computed results.  Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
+Memoization is a programming technique which attempts to increase a function\'s performance by **caching** its previously computed results.  
+
+Each time a memoized function is called, its parameters are used to index the cache. If the data is present, then it can be returned, without executing the entire function. Otherwise the function is executed and then the result is added to the cache.
 
 ```js
-// A simple memoized function to Add Number
+// Memoized function to Add Number
+
 const memoizedAdd = () => {
   let cache = {};
   return (number) => {
@@ -3299,6 +3303,8 @@ const sum = memoizedAdd();
 console.log(sum(10)); // Calculating result: 20
 console.log(sum(10)); // Fetching from cache: 20
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-memoized-function-kykkp7?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
