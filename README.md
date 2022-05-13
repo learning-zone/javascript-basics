@@ -3432,30 +3432,33 @@ sayEmployee2("Hello"); // Hello Aarush Krishna
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between `.call` and `.apply`?***
+## Q. ***What is bind method in javascript?***
 
-Both `.call` and `.apply` are used to invoke functions and the first parameter will be used as the value of `this` within the function. However, `.call` takes in comma-separated arguments as the next arguments while `.apply` takes in an array of arguments as the next argument. An easy way to remember this is C for `call` and comma-separated and A for `apply` and an array of arguments.
+The `bind()` method creates a new function, when invoked, has the `this` sets to a provided value. The `bind()` method allows an object to borrow a method from another object without making a copy of that method. This is known as function **borrowing** in JavaScript.
+
+**Example:**
 
 ```js
-function add(a, b) {
-  return a + b;
-}
+// bind() function
 
-console.log(add.call(null, 1, 2)); // 3
-console.log(add.apply(null, [1, 2])); // 3
+const person = {
+  firstName: "Chhavi",
+  lastName: "Goswami",
+  fullName: function () {
+    return this.firstName + " " + this.lastName;
+  }
+};
+
+const member = {
+  firstName: "Vasuda",
+  lastName: "Sahota"
+};
+
+let fullName = person.fullName.bind(member);
+console.log(fullName()); // Vasuda Sahota
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain `Function.prototype.bind`?***
-
-[MDN](https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_objects/Function/bind):
-
-> The `bind()` method creates a new function that, when called, has its `this` keyword set to the provided value, with a given sequence of arguments preceding any provided when the new function is called.
-
-In my experience, it is most useful for binding the value of `this` in methods of classes that you want to pass into other functions. This is frequently done in React components.
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-bind-gdspfz?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
