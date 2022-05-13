@@ -3055,6 +3055,25 @@ const concat = (separator) => {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***what are the properties of function objects in javascript?***
+
+**JavaScript function objects** are used to define a piece of JavaScript code. This code can be called within a JavaScript code as and when required.
+
+**Javascript Function Objects Property:**
+
+|Name             |Description                       |
+|-----------------|----------------------------------|
+|arguments        |An array corresponding to the arguments passed to a function.|
+|arguments.callee |Refers the currently executing function.|
+|arguments.length |Refers the number of arguments defined for a function.|
+|constructor      |Specifies the function that creates an object.|
+|length           |The number of arguments defined by the function.|
+|prototype        |Allows adding properties to a Function object.|
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is a first class function?***
 
 In javaScript, functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function **first-class function** in JavaScript.
@@ -3336,36 +3355,21 @@ sum(10, 20, 30); // returns 60
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Can we define properties for functions?***
-
-Yes, We can define properties for functions because functions are also objects.
-
-```js
-fn = function(x) {
-  //Function code goes here
-}
-
-fn.name = "John";
-
-fn.profile = function(y) {
-  //Profile code goes here
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the way to find the number of parameters expected by a function?***
 
-You can use `function.length` syntax to find the number of parameters expected by a function. Let us take an example of `sum` function to calculate the sum of numbers,
+The **length** property indicates the number of parameters expected by the function.
 
 ```js
-function sum(num1, num2, num3, num4){
-    return num1 + num2 + num3 + num4;
-}
-sum.length // 4 is the number of parameters expected.
+// function.length
+
+function fun1() {}
+console.log(fun1.length); // 0
+
+function fun2(arg1, arg2) {}
+console.log(fun2.length); // 2
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-function-length-7btkvr?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
