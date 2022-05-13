@@ -3312,19 +3312,25 @@ console.log(sum(10)); // Fetching from cache: 20
 
 ## Q. ***What is an arguments object?***
 
-The arguments object is an Array-like object accessible inside functions that contains the values of the arguments passed to that function. For example, let us see how to use arguments object inside sum function,
+The arguments object is an Array-like object ( `arguments` ) accessible inside functions that contains the values of the arguments passed to that function.
+
+**Example:**
 
 ```js
+// arguments object
+
 function sum() {
-    var total = 0;
-    for (var i = 0, len = arguments.length; i < len; ++i) {
-        total += arguments[i];
-    }
-    return total;
+  let total = 0;
+  for (let i = 0, len = arguments.length; i < len; ++i) {
+    total += arguments[i];
+  }
+  return total;
 }
 
-sum(1, 2, 3) // returns 6
+sum(10, 20, 30); // returns 60
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arguments-object-od6s7l?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
