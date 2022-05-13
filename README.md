@@ -3466,62 +3466,47 @@ console.log(fullName()); // Vasuda Sahota
 
 ## Q. ***What is an anonymous function?***
 
-An anonymous function is a function without a name! Anonymous functions are commonly assigned to a variable name or used as a callback function. The syntax would be as below,
+An anonymous function is a function without a name. Anonymous functions are commonly assigned to a variable name or used as a callback function.
+
+**Example 01:** Anonymous function
 
 ```js
-function (optionalParameters) {
-  //do something
-}
-
-const myFunction = function(){ //Anonymous function assigned to a variable
-  //do something
+let show = function () {
+  console.log("Anonymous function");
 };
-
-[1, 2, 3].map(function(element){ //Anonymous function used as a callback function
-  //do something
-});
+show();
 ```
 
-Example:
+**Example 02:** anonymous functions as arguments
 
 ```js
-var x = function (a, b) {return a * b};
-var z = x(5, 10);
-console.log(z); // 50
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a typical use case for anonymous functions?***
-
-They can be used in IIFEs to encapsulate some code within a local scope so that variables declared in it do not leak to the global scope.
-
-```js
-(function() {
-  // Some code here.
-})();
-```
-
-As a callback that is used once and does not need to be used anywhere else. The code will seem more self-contained and readable when handlers are defined right inside the code calling them, rather than having to search elsewhere to find the function body.
-
-```js
-setTimeout(function() {
-  console.log('Hello world!');
+setTimeout(function () {
+  console.log("Execute later after 1 second");
 }, 1000);
 ```
 
-Arguments to functional programming constructs or Lodash (similar to callbacks).
+**Example 03:** Immediately invoked function execution
 
 ```js
-const arr = [1, 2, 3];
-const double = arr.map(function(el) {
-  return el * 2;
-});
+const person = {
+  firstName: "Ayaan",
+  lastName: "Memon"
+};
 
-console.log(double); // [2, 4, 6]
+(function () {
+  console.log(person.firstName + " " + person.lastName); // Ayaan Memon
+})(person);
 ```
+
+**Example 04:** Arrow functions
+
+```js
+let add = (a, b) => a + b;
+
+add(10, 20); // 30
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-anonymous-function-vilo1d?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
