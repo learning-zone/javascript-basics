@@ -3377,56 +3377,56 @@ console.log(fun2.length); // 2
 
 ## Q. ***What is the difference between Call, Apply and Bind?***
 
-**call():**
+* **Call** invokes the function and allows you to pass in arguments one by one.
+* **Apply** invokes the function and allows you to pass in arguments as an array.
+* **Bind** returns a new function, allowing you to pass in a this array and any number of arguments.
 
-The call() method invokes a function with a given `this` value and arguments provided one by one
-
-```js
-var employee1 = {firstName: 'John', lastName: 'Rodson'};
-var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
-
-function invite(greeting1, greeting2) {
-    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
-}
-
-invite.call(employee1, 'Hello', 'How are you?'); // Hello John Rodson, How are you?
-invite.call(employee2, 'Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
-```
-
-**apply():**
-
-Invokes the function and allows you to pass in arguments as an array
+**Example:** `call()`
 
 ```js
-var employee1 = {firstName: 'John', lastName: 'Rodson'};
-var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
+const employee1 = { firstName: "Sahima", lastName: "Mutti" };
+const employee2 = { firstName: "Aarush", lastName: "Krishna" };
 
-function invite(greeting1, greeting2) {
-    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
+function say(greeting) {
+  console.log(greeting + " " + this.firstName + " " + this.lastName);
 }
 
-invite.apply(employee1, ['Hello', 'How are you?']); // Hello John Rodson, How are you?
-invite.apply(employee2, ['Hello', 'How are you?']); // Hello Jimmy Baily, How are you?
+say.call(employee1, "Hi");    // Hi Sahima Mutti 
+say.call(employee2, "Hello"); // Hello Aarush Krishna 
 ```
 
-**bind():**
-
-returns a new function, allowing you to pass in an array and any number of arguments
+**Example:** `apply()`
 
 ```js
-var employee1 = {firstName: 'John', lastName: 'Rodson'};
-var employee2 = {firstName: 'Jimmy', lastName: 'Baily'};
+const employee1 = { firstName: "Sahima", lastName: "Mutti" };
+const employee2 = { firstName: "Aarush", lastName: "Krishna" };
 
-function invite(greeting1, greeting2) {
-    console.log(greeting1 + ' ' + this.firstName + ' ' + this.lastName+ ', '+ greeting2);
+function say(greeting) {
+  console.log(greeting + " " + this.firstName + " " + this.lastName);
 }
 
-var inviteEmployee1 = invite.bind(employee1);
-var inviteEmployee2 = invite.bind(employee2);
-
-inviteEmployee1('Hello', 'How are you?'); // Hello John Rodson, How are you?
-inviteEmployee2('Hello', 'How are you?'); // Hello Jimmy Baily, How are you?
+say.apply(employee1, ["Hi"]);    // Hi Sahima Mutti 
+say.apply(employee2, ["Hello"]); // Hello Aarush Krishna 
 ```
+
+**Example:** `bind()`
+
+```js
+const employee1 = { firstName: "Sahima", lastName: "Mutti" };
+const employee2 = { firstName: "Aarush", lastName: "Krishna" };
+
+function say(greeting) {
+  console.log(greeting + " " + this.firstName + " " + this.lastName);
+}
+
+var sayEmployee1 = say.bind(employee1);
+var sayEmployee2 = say.bind(employee2);
+
+sayEmployee1("Hi");    // Hi Sahima Mutti 
+sayEmployee2("Hello"); // Hello Aarush Krishna 
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-call-apply-bind-xwenyv?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
