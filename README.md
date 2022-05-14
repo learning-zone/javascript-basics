@@ -3939,7 +3939,7 @@ doSomething(param1, param2, function(err, paramx){
 
 <br/>
 
-## Q. ***what are events in javascript?***
+## Q. ***What are events in javascript?***
 
 Events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can `react` on these events. Some of the examples of HTML events are,
 
