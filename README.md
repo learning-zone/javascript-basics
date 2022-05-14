@@ -3908,7 +3908,7 @@ The above example is a synchronous callback, as it is executed immediately.
 
 **Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.  
 
-Example
+**Example:**
 
 ```js
 doSomething(param1, param2, function(err, paramx){
@@ -3930,102 +3930,6 @@ doSomething(param1, param2, function(err, paramx){
 * Using Async.js
 * Using Promises
 * Using Async-Await
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a callback function?***
-
-A callback function is a function passed into another function as an argument. This function is invoked inside the outer function to complete an action.
-
-```js
-function callbackFunction(name) {
-  console.log('Hello ' + name);
-}
-
-function outerFunction(callback) {
-  let name = prompt('Please enter your name.');
-  callback(name);
-}
-
-outerFunction(callbackFunction);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why do we need callbacks?***
-
-The callbacks are needed because javascript is a event driven language. That means instead of waiting for a response javascript will keep executing while listening for other events.
-
-Let us take an example with first function invoking an API call(simulated by setTimeout) and next function which logs the message.
-
-```js
-function firstFunction() {
-  // Simulate a code delay
-  setTimeout( function() {
-    console.log('First function called');
-  }, 1000 );
-}
-function secondFunction() {
-  console.log('Second function called');
-}
-firstFunction();
-secondFunction();
-
-Output
-// Second function called
-// First function called
-```
-
-As observed from the output, javascript didnot wait for the response of first function and remaining code block get executed. So callbacks used in a way to make sure that certain code does not execute until other code finished execution.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a callback hell?***
-
-Callback Hell is an anti-pattern with multiple nested callbacks which makes code hard to read and debug when dealing with asynchronous logic. The callback hell looks like below,
-
-```js
-async1(function() {
-    async2(function() {
-        async3(function() {
-            async4(function() {
-                ....
-            });
-        });
-    });
-});
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is callback in callback?***
-
-You can nest one callback inside in another callback to execute the actions sequentially one by one. This is known as callbacks in callbacks.
-
-```js
-loadScript('/script1.js', function(script) {
-    console.log('first script is loaded');
-
-  loadScript('/script2.js', function(script) {
-
-    console.log('second script is loaded');
-
-    loadScript('/script3.js', function(script) {
-
-        console.log('third script is loaded');
-      // after all scripts are loaded
-    });
-  })
-});
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
