@@ -3595,51 +3595,30 @@ Here `employee` is an object and `getName` is a method which is associated with 
 
 ## Q. ***What is Function binding?***
 
- Function binding falls in advance JavaScript category and this is very popular technique to use in conjunction with event handler and callback function to preserve code execution context while passing function as a parameter.
+Function binding ( **bind** ) is a method on the prototype of all functions in JavaScript. It allows to create a new function from an existing function, change the new function\'s `this` context, and provide any arguments you want the new function to be called with. The arguments provided to `bind` will precede any arguments that are passed to the new function when it is called.
 
-Example:
-
-```js
-var clickHandler = {
-	message: 'click event handler',
-	handleClick: function(event) {
-		console.log(this.message);
-	}
-};
-
-var btn = document.getElementById('myBtn');
-// Add click event to btn
-btn.addEventListener('click', clickHandler.handleClick);
-```
-
-Here in this example clickHandler object is created which contain message properties and handleClick method.
-
-We have assigned handleClick method to a DOM button, which will be executed in response of click. When the button is clicked, then handleClick method is being called and console message. Here console.log should log the `click event handler` message but it actually log `undefined`.
-
-The problem of displaying `undefined` is because of the execution context of clickHandler.handleClick method is not being saved hence `this` pointing to button `btn` object. We can fix this issue using bind method.
+**Example:**
 
 ```js
-var clickHandler = {
-	message: 'click event handler',
-	handleClick: function(event) {
-		console.log(this.message);
-	}
+// Function Binding
+const person = {
+  firstName: "Nirupama",
+  lastName: "Randhawa",
+  getName: function () {
+    return this.firstName + " " + this.lastName;
+  }
 };
 
-var btn = document.getElementById('myBtn');
-// Add click event to btn and bind the clickHandler object
-btn.addEventListener('click', clickHandler.handleClick.bind(clickHandler));
+const member = {
+  firstName: "Alisha",
+  lastName: "Chhabra"
+};
+
+let getName = person.getName.bind(member);
+console.log(getName()); // Alisha Chhabra
 ```
 
-`bind` method is available to all the function similar to call and apply method which take argument value of `this`.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***When would you use the bind function?***
-
-*ToDo*
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-function-binding-od3zjg?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
