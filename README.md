@@ -3547,89 +3547,47 @@ console.log(typeof foo);     // undefined
 
 ## Q. ***What is the difference between a method and a function in javascript?***
 
-In JS, that difference is quite subtle. A function is a piece of code that is called by name and function itself not associated with any object and not defined inside any object. It can be passed data to operate on (i.e. parameter) and can optionally return data (the return value).
+**1. Function:**
+
+A function is a piece of code that is called by name and function itself not associated with any object and not defined inside any object. It can be passed data to operate on (i.e. parameter) and can optionally return value.
+
+**Example:**
 
 ```js
-// Function statement
-function myFunc() {
-  // Do some stuff;
+// Function 
+function message(msg) {
+  return msg;
 }
 
-// Calling the function
-myFunc();
+// Call the function
+message("Welcome to JavaScript");
 ```
 
-Here myFunc() function call is not associated with object hence not invoked through any object.
+Here, `message()` function call is not associated with `object` hence not invoked through any object.
 
-A function can take a form of immediately invoked function expression (IIFE):
+**2. Method:**
 
-```js
+A JavaScript method is a property of an object that contains a function definition. Methods are functions stored as object properties.
 
-// Anonymous Self-invoking Function
-(function() {
-  // Do some stuff;
-})();
-```
-
-Finally there are also arrow functions:
+**Example:**
 
 ```js
-const myFunc = arg => {
-    console.log("hello", arg)
-} 
-```
-
-A method is a piece of code that is called by its name and that is associated with the object. Methods are functions. When you call a method like this `obj1.myMethod()`, the reference to `obj1` gets assigned (bound) to `this` variable. In other words, the value of `this` will be `obj1` inside `myMethod`.
-
-Here are some examples of methods:
-
-**Example 1:**
-
-```js
-var obj1 = {
-  attribute: "xyz",
-  myMethod: function () {  // Method
-    console.log(this.attribute);
+// Method
+let employee = {
+  firstName: "Ajay",
+  lastName: "Nagi",
+  getName: function () {
+    return "Employe Name: " + this.firstName + " " + this.lastName;
   }
 };
 
 // Call the method
-obj1.myMethod();
+console.log(employee.getName());
 ```
 
-Here `obj1` is an object and `myMethod` is a method which is associated with `obj1`.
+Here `employee` is an object and `getName` is a method which is associated with `employee`.
 
-**Example 2:**
-
-In ES6 we have classes. There the methods will look like this:
-
-```js
-class MyAwesomeClass {
-  myMethod() {
-    console.log("hi there");
-  }
-}
-
-const obj1 = new MyAwesomeClass();
-obj1.myMethod();
-```
-
-Understand: the method is not some kind of special type of a function, and It is not about how you declare a function. It is the way we **call** a function. Look at that: 
-
-```js
-var obj1 = {
-  prop1: "buddy"
-}; 
-var myFunc = function () {
-  console.log("Hi there", this);
-};
-// Let us call myFunc as a function: 
-myFunc(); // will output "Hi there undefined" or "Hi there Window"
- 
-obj1.myMethod = myFunc;
-//now we're calling myFunc as a method of obj1, so this will point to obj1
-obj1.myMethod(); // will print "Hi there" following with obj1. 
-```
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-function-vs-method-rw9dmj?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
