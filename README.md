@@ -3774,6 +3774,8 @@ However, the equality operators `==`, `!=`, `===`, `!==` cannot be used to compa
 * Two distinct objects are never equal for either strict or abstract comparisons.
 * An expression comparing Objects is only true if the operands reference the same Object.
 
+**Example:**
+
 ```js
 // Using getTime()
 let d1 = new Date();
@@ -3799,22 +3801,28 @@ console.log(d3 < d4); // true
 A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function\'s variables. The closure has three scope chains
 
 * Own scope where variables defined between its curly brackets
-* Outer function’s variables
+* Outer function\'s variables
 * Global variables
 
+**Example:**
+
 ```js
-function Welcome(name) {
-  var greetingInfo = function(message) {
-    console.log(message+' '+name);
+// Closures
+
+function init() {
+  let name = "JavaScript closures"; // name is a local variable created by init
+  function displayName() {
+    // displayName() is the inner function, a closure
+    console.log(name); // use variable declared in the parent function
   }
-  return greetingInfo;
+  displayName();
 }
-var myFunction = Welcome('John');
-myFunction('Welcome '); // Output: Welcome John
-myFunction('Hello Mr.'); // output: Hello Mr.John
+init();
 ```
 
-As per the above code, the inner `function greetingInfo()` has access to the variables in the outer `function Welcome()` even after outer function has returned.
+As per the above code, the inner `function displayName()` has access to the variables in the outer `function init()`.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-closures-u4p0pq?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
