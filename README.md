@@ -3055,7 +3055,7 @@ const concat = (separator) => {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***what are the properties of function objects in javascript?***
+## Q. ***What are the properties of function objects in javascript?***
 
 **JavaScript function objects** are used to define a piece of JavaScript code. This code can be called within a JavaScript code as and when required.
 
