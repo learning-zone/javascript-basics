@@ -3639,6 +3639,7 @@ The `this` keyword refers to an `object`. Which object depends on how this is be
 
 ```js
 // this keyword in object method
+
 const person = {
   firstName: "Nirupama",
   lastName: "Randhawa",
@@ -3656,9 +3657,9 @@ const person = {
 
 **Generator-Function:**
 
-A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the `yield` keyword rather than `return`. The `yield` statement suspends function’s execution and sends a value back to caller, but retains enough state to enable function to resume where it is left off. When resumed, the function continues execution immediately after the last `yield` run.
+A generator-function is defined like a normal function, but whenever it needs to generate a value, it does so with the `yield` keyword rather than `return`. The `yield` statement suspends function\'s execution and sends a value back to caller, but retains enough state to enable function to resume where it is left off. When resumed, the function continues execution immediately after the last `yield` run.
 
-Syntax 
+**Syntax:**
 
 ```js
 function* gen() {
@@ -3669,25 +3670,29 @@ function* gen() {
 }
 ```
 
-**Generator-Object:** 
+**Generator-Object:**
 
-Generator functions return a generator object. Generator objects are used either by calling the next method on the generator object or using the generator object in a “for in” loop.
+Generator functions return a generator object. Generator objects are used either by calling the next method on the generator object or using the generator object in a "for in" loop.
+
+**Example:**
 
 ```js
-function * fun() {
-    yield 10;
-    yield 20;
-    yield 30;
-} 
-  
+// Generate Function
+
+function* fun() {
+  yield 10;
+  yield 20;
+  yield 30;
+}
+
 // Calling the Generate Function
 var gen = fun();
-document.write(gen.next().value);
-document.write("<br>");
-document.write(gen.next().value);
-document.write("<br>");
-document.write(gen.next().value);
+gen.next().value; // 10
+gen.next().value; // 20
+gen.next().value; // 30
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-generate-function-si7ieh?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
