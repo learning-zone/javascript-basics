@@ -3512,27 +3512,34 @@ add(10, 20); // 30
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Explain the differences on the usage of `foo` between `function foo() {}` and `var foo = function() {}`?******
+## Q. ***Explain the difference between `function foo() {}` and `var foo = function() {}`?***
 
-The former is a function declaration while the latter is a function expression. The key difference is that function declarations have its body hoisted but the bodies of function expressions are not (they have the same hoisting behavior as variables). For more explanation on hoisting, refer to the question above [on hoisting](#explain-hoisting). If you try to invoke a function expression before it is defined, you will get an `Uncaught TypeError: XXX is not a function` error.
+**1. Function Declaration:**
 
-**Function Declaration:**
+Function declarations are evaluated upon entry into the enclosing scope, before any step-by-step code is executed. The function\'s name (`foo`) is added to the enclosing scope.
 
 ```js
-foo(); // 'FOOOOO'
+foo(); // Function Declaration Example!
+
 function foo() {
-  console.log('FOOOOO');
+  console.log("Function Declaration Example!");
 }
 ```
 
-**Function Expression:**
+**2. Function Expression:**
+
+Function expressions are evaluated as part of the step-by-step code, at the point where they appear. That one creates a function with no name, which it assigns to the foo variable.
 
 ```js
-foo(); // Uncaught TypeError: foo is not a function
+foo(); // TypeError: foo is not a function
+
 var foo = function() {
-  console.log('FOOOOO');
+  console.log(typeof foo); // function
 };
+console.log(typeof foo);     // undefined
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-function-erlj09?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
