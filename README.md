@@ -3830,71 +3830,6 @@ As per the above code, the inner `function displayName()` has access to the vari
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Name the two functions that are used to create an HTML element dynamically?***
-
-**createElement**  
-In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
-Syntax
-
-```js
-var element = document.createElement(tagName[, options]);
-```
-
-HTML
-
-```html
-<!DOCTYPE html>
-<html>
-  <head>
-      <title>||Working with elements||</title>
-  </head>
-<body>
-  <div id="div1">The text above has been created dynamically.</div>
-</body>
-</html>
-```
-
-JavaScript
-
-```js
-document.body.onload = addElement;
-
-function addElement () { 
-  // create a new div element 
-  var newDiv = document.createElement("div"); 
-  // and give it some content 
-  var newContent = document.createTextNode("Hi there and greetings!"); 
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);  
-
-  // add the newly created element and its content into the DOM 
-  var currentDiv = document.getElementById("div1"); 
-  document.body.insertBefore(newDiv, currentDiv); 
-}
-```
-
-**Create Dynamic Button:**
-
-```js
-var btn = document.createElement("BUTTON");
-btn.innerHTML = "CLICK ME";
-document.body.appendChild(btn);
-```
-
-**Removing Elements Dynamically:** 
-
-```js
-function removeElement(elementId) {
-    // Removes an element from the document
-    var element = document.getElementById(elementId);
-    element.parentNode.removeChild(element);
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is callback() function in javascript?***
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
@@ -5595,6 +5530,71 @@ element = document.querySelectorAll(selectors);
 ```
 
 *Note: `querySelector()` is more useful when we want to use more complex selectors*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Name the two functions that are used to create an HTML element dynamically?***
+
+**createElement**  
+In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
+Syntax
+
+```js
+var element = document.createElement(tagName[, options]);
+```
+
+HTML
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>||Working with elements||</title>
+  </head>
+<body>
+  <div id="div1">The text above has been created dynamically.</div>
+</body>
+</html>
+```
+
+JavaScript
+
+```js
+document.body.onload = addElement;
+
+function addElement () { 
+  // create a new div element 
+  var newDiv = document.createElement("div"); 
+  // and give it some content 
+  var newContent = document.createTextNode("Hi there and greetings!"); 
+  // add the text node to the newly created div
+  newDiv.appendChild(newContent);  
+
+  // add the newly created element and its content into the DOM 
+  var currentDiv = document.getElementById("div1"); 
+  document.body.insertBefore(newDiv, currentDiv); 
+}
+```
+
+**Create Dynamic Button:**
+
+```js
+var btn = document.createElement("BUTTON");
+btn.innerHTML = "CLICK ME";
+document.body.appendChild(btn);
+```
+
+**Removing Elements Dynamically:** 
+
+```js
+function removeElement(elementId) {
+    // Removes an element from the document
+    var element = document.getElementById(elementId);
+    element.parentNode.removeChild(element);
+}
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
