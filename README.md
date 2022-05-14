@@ -3842,7 +3842,7 @@ function greeting(name) {
 }
 
 function processUserInput(callback) {
-  var name = prompt('Please enter your name.');
+  var name = prompt('Please enter your name:');
   callback(name);
 }
 
