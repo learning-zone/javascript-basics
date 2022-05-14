@@ -3766,14 +3766,29 @@ asyncFunction();
 
 ## Q. ***How do you compare two date objects?***
 
-You need to use use date.getTime() method to compare date values instead comparision operators (==, !=, ===, and !== operators)
+Two dates can be compared by converting them into numeric values using `date.getTime()` method to correspond to their time. Also,
+the relational operators `<`, `<=`, `>`, `>=` can be used to compare JavaScript dates.
+
+However, the equality operators `==`, `!=`, `===`, `!==` cannot be used to compare (the value of) dates because:
+
+* Two distinct objects are never equal for either strict or abstract comparisons.
+* An expression comparing Objects is only true if the operands reference the same Object.
 
 ```js
-var d1 = new Date();
-var d2 = new Date(d1);
-console.log(d1.getTime() === d2.getTime()); //True
-console.log(d1 === d2); // False
+// Using getTime()
+let d1 = new Date();
+let d2 = new Date(d1);
+
+console.log(d1.getTime() === d2.getTime()); // true
+
+// Using '<' and '>'
+let d3 = new Date(2022, 10, 31);
+let d4 = new Date(2022, 10, 30);
+
+console.log(d3 < d4); // true
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-date-comparison-lu76nj?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
