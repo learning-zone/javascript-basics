@@ -3779,38 +3779,6 @@ console.log(d1 === d2); // False
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between document.getElementById() and document.querySelector()?***
-
-* **document.getElementById()**
-
-Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
-
-```js
-element = document.getElementById(id);
-```
-
-* **document.querySelector()**
-
-Returns the first matching Element node within the node\'s subtree. If no matching node is found, null is returned.
-
-```js
-element = document.querySelector(selectors);
-```
-
-* **document.querySelectorAll()**
-
-Returns a NodeList containing all matching Element nodes within the node\'s subtree, or an empty NodeList if no matches are found.
-
-```js
-element = document.querySelectorAll(selectors);
-```
-
-*Note: `querySelector()` is more useful when we want to use more complex selectors*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What are closures?***
 
 A closure is the combination of a function and the lexical environment within which that function was declared. i.e, It is an inner function that has access to the outer or enclosing function\'s variables. The closure has three scope chains
@@ -5570,6 +5538,38 @@ var list = document.getElementById("myList").firstElementChild.innerHTML; // Cof
 The difference between this property and firstElementChild, is that firstChild returns the first child node as an element node, a text node or a comment node (depending on which one's first), while firstElementChild returns the first child node as an element node (ignores text and comment nodes).
 
 *Note: Whitespace inside elements is considered as text, and text is considered as nodes*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is difference between document.getElementById() and document.querySelector()?***
+
+**1. document.getElementById():**
+
+Returns an element object representing the element whose id property matches the specified string. Since element IDs are required to be unique if specified, they're a useful way to get access to a specific element quickly.
+
+```js
+element = document.getElementById(id);
+```
+
+**2. document.querySelector():**
+
+Returns the first matching Element node within the node\'s subtree. If no matching node is found, null is returned.
+
+```js
+element = document.querySelector(selectors);
+```
+
+**3. document.querySelectorAll():**
+
+Returns a NodeList containing all matching Element nodes within the node\'s subtree, or an empty NodeList if no matches are found.
+
+```js
+element = document.querySelectorAll(selectors);
+```
+
+*Note: `querySelector()` is more useful when we want to use more complex selectors*.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
