@@ -3545,6 +3545,51 @@ console.log(typeof foo);     // undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***When to use function declarations and expressions in JavaScript?***
+
+**Function Declarations:**
+
+A declared function is “saved for later use”, and will be executed later, when it is invoked (called).
+
+```js
+// Function declaration
+function add(num1, num2) {
+	return num1 + num2;
+}
+```
+
+function is only declared here. For using it, it must be invoked using function name. e.g add(10, 20);  
+
+**Function Expression:**
+
+A function expression can be stored in a variable:
+
+```js
+// Function expression
+var add = function (num1, num2) {
+	return num1 + num2;
+};
+```
+
+After a function expression has been stored in a variable, the variable can be used as a function. Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
+
+**Difference:**
+
+* `Function declarations` load before any code is executed while `Function expressions` load only when the interpreter reaches that line of code.
+* Similar to the `var` statement, function declarations are hoisted to the top of other code. Function expressions aren\'t hoisted, which allows them to retain a copy of the local variables from the scope where they were defined.  
+
+**Benefits of Function Expressions:**  
+
+There are several different ways that function expressions become more useful than function declarations.
+
+* As closures
+* As arguments to other functions
+* As Immediately Invoked Function Expressions (IIFE)
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is the difference between a method and a function in javascript?***
 
 **1. Function:**
@@ -3854,51 +3899,6 @@ The above example is a synchronous callback, as it is executed immediately.
 *Note: callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks.*.
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-callback-lz1qhw?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***When to use function declarations and expressions in JavaScript?***
-
-**Function Declarations:**
-
-A declared function is “saved for later use”, and will be executed later, when it is invoked (called).
-
-```js
-// Function declaration
-function add(num1, num2) {
-	return num1 + num2;
-}
-```
-
-function is only declared here. For using it, it must be invoked using function name. e.g add(10, 20);  
-
-**Function Expression:**
-
-A function expression can be stored in a variable:
-
-```js
-// Function expression
-var add = function (num1, num2) {
-	return num1 + num2;
-};
-```
-
-After a function expression has been stored in a variable, the variable can be used as a function. Functions stored in variables do not need function names. They are always invoked (called) using the variable name.
-
-**Difference:**
-
-* `Function declarations` load before any code is executed while `Function expressions` load only when the interpreter reaches that line of code.
-* Similar to the `var` statement, function declarations are hoisted to the top of other code. Function expressions aren\'t hoisted, which allows them to retain a copy of the local variables from the scope where they were defined.  
-
-**Benefits of Function Expressions:**  
-
-There are several different ways that function expressions become more useful than function declarations.
-
-* As closures
-* As arguments to other functions
-* As Immediately Invoked Function Expressions (IIFE)
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
