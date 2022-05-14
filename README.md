@@ -3595,7 +3595,7 @@ Here `employee` is an object and `getName` is a method which is associated with 
 
 ## Q. ***What is Function binding?***
 
-Function binding ( **bind** ) is a method on the prototype of all functions in JavaScript. It allows to create a new function from an existing function, change the new function\'s `this` context, and provide any arguments you want the new function to be called with. The arguments provided to `bind` will precede any arguments that are passed to the new function when it is called.
+Function binding ( `.bind()` ) is a method on the prototype of all functions in JavaScript. It allows to create a new function from an existing function, change the new function\'s `this` context, and provide any arguments you want the new function to be called with. The arguments provided to `bind` will precede any arguments that are passed to the new function when it is called.
 
 **Example:**
 
