@@ -4097,7 +4097,7 @@ As a result, clicking on the div element will:
 
 The `preventDefault()` method is used to prevent the browser from executing the default action of the selected element. It can prevent the user from processing the request by clicking the link.
 
-**Example:** prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
+For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
 
 ```js
 document.getElementById("link").addEventListener("click", function(event) {
@@ -4113,7 +4113,9 @@ document.getElementById("link").addEventListener("click", function(event) {
 
 ## Q. ***What is the use of stopPropagation method?***
 
-The stopPropagation method is used to stop the event from bubbling up the event chain. For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
+The `stopPropagation` method is used to stop the event from bubbling up the event chain.
+
+For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
 
 ```html
 <p>Click DIV1 Element</p>
@@ -4139,7 +4141,8 @@ function secondFunc() {
 
 ## Q. ***What is the purpose of clearTimeout method?***
 
-The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it’s passed into the clearTimeout() function to clear the timer.
+The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it\'s passed into the `clearTimeout()` function to clear the timer.
+
 For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
 
 ```js
