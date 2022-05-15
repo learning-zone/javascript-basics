@@ -4038,20 +4038,28 @@ document.addEventListener(event, function, phase)
 
 ## Q. ***What is an event delegation?***
 
-Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it.
-For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
+Event Delegation is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an event listener to a parent element and call an event on a particular target using the `event.target` property of the event object.
 
-```js
-var form = document.querySelector('#registration-form');
+**Example:**
 
-// Listen for changes to fields inside the form
-form.addEventListener('input', function (event) {
+```html
+<div id="buttons"> 
+  <button class="buttonClass">Click me</button>
+  <button class="buttonClass">Click me</button>
+  <button class="buttonClass">Click me</button>
+</div>
 
-// Log the field that was changed
-console.log(event.target);
-
-}, false);
+<script>
+  document.getElementById('buttons')
+    .addEventListener('click', event => { 
+      if (event.target.className === 'buttonClass') { 
+        console.log('Click!');
+      }
+    });
+</script>
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-event-delegation-7x5idt?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
