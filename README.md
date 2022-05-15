@@ -4095,7 +4095,9 @@ As a result, clicking on the div element will:
 
 ## Q. ***What is the use of preventDefault method?***
 
-The preventDefault() method cancels the event if it is cancelable, meaning that the default action or behaviour that belongs to the event will not occur. For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
+The `preventDefault()` method is used to prevent the browser from executing the default action of the selected element. It can prevent the user from processing the request by clicking the link.
+
+**Example:** prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
 
 ```js
 document.getElementById("link").addEventListener("click", function(event) {
