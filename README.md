@@ -27,7 +27,7 @@
 * [Objects](#-objects)
 * [Window/Document Object](#-windowdocument-object)
 * [Classes](#-classes)
-* [Error handling](#-error-handling)
+* [Error Handling](#-error-handling)
 * [Promises](#-promises)
 * [Collections](#-collections)
 * [Modules](#-modules)
