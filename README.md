@@ -25,7 +25,7 @@
 * [Functions](#-functions)
 * [Events](#-events)
 * [Objects](#-objects)
-* [Window Object](#-window-object)
+* [Window/Document Object](#-window/document-object)
 * [Classes](#-classes)
 * [Error handling](#-error-handling)
 * [Promises](#-promises)
@@ -3939,31 +3939,60 @@ doSomething(param1, param2, function(err, paramx){
 
 <br/>
 
-## Q. ***What are events in javascript?***
+## Q. ***What is event handling in javascript?***
 
-Events are "things" that happen to HTML elements. When JavaScript is used in HTML pages, JavaScript can `react` on these events. Some of the examples of HTML events are,
+The change in the state of an object is known as an **Event**. In html, there are various events which represents that some activity is performed by the user or by the browser. When javascript code is included in HTML, js react over these events and allow the execution. This process of reacting over the events is called **Event Handling**. Thus, js handles the HTML events via **Event Handlers**.
 
-1. Web page has finished loading
-2. Input field was changed
-3. Button was clicked
+Some of the HTML events and their event handlers are:
 
-Example: click event for button element
+**Mouse events:**
+
+|Event Handler   |Description
+|----------------|------------------------------|
+|onclick         |When mouse click on an element|
+|onmouseover     |When the cursor of the mouse comes over the element|
+|onmouseout      |When the cursor of the mouse leaves an element|
+|onmousedown     |When the mouse button is pressed over the element|
+|onmouseup       |When the mouse button is released over the element|
+|onmousemove     |When the mouse movement takes place.|
+
+**Form events:**
+
+|Event Handler |Description           |
+|--------------|----------------------|
+|onfocus       |When the user focuses on an element|
+|onsubmit      |When the user submits the form|
+|onblur        |When the focus is away from a form element|
+|onchange      |When the user modifies or changes the value of a form element|
+
+**Window/Document events:**
+
+|Event Handler  |Description            |
+|---------------|-----------------------|
+|onload         |When the browser finishes the loading of the page|
+|onunload       |When the visitor leaves the current webpage, the browser unloads it|
+|onresize       |When the visitor resizes the window of the browser|
+
+**Example:** Click Event
 
 ```html
-<!doctype html>
+<!DOCTYPE html>
 <html>
-<head>
-  <script>
-    function greeting() {
-      alert('Hello! Good morning');
-    }
-  </script>
-</head>
-<body>
-  <button type="button" onclick="greeting()">Click me</button>
-</body>
+  <head>
+    <script>
+      function greeting() {
+        alert("Hello! Good morning");
+      }
+    </script>
+  </head>
+  <body>
+    <h2>Click Event Example</h2>
+    <button type="button" onclick="greeting()">Click me</button>
+  </body>
 </html>
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-click-event-rcvg65?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5071,7 +5100,7 @@ ToDo
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-# # WINDOW OBJECT
+# # WINDOW/DOCUMENT OBJECT
 
 ## Q. ***What is the difference between window and document?***
 
