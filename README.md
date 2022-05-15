@@ -4038,23 +4038,56 @@ document.addEventListener(event, function, phase)
 
 ## Q. ***What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?***
 
-**a.) event.stopPropagation()**:  Whenever a event is raised, event will propagate or bubble up till the window object level.
+**1. event.preventDefault()**:
 
-**Example**: Parent Div containing a Child Div and both are registered for click events. When Child Div clicked, event handlers for both Child Div and Parent Div will be fired. To avoid the event bubbling  to top level DOM hierarchy, use the `event.stopPropagation()`.
+This method is used to stop the browser\'s default behavior when performing an action.
 
-**b.) event.stopImmediatePropagation()**: The event handlers will be called in the order they have registered. Lets say for a Div element click event is registered from different places. Then when the  Div element is clicked, the click event handler will be fired in all the places.
+**Example:**
 
-Since `event.stopPropagation()` will only stop event propagation to parent level and  not at the same element level, so to avoid the event firing at multiple places  we have to use `event.stopImmediatePropagation()`.
+```html
+<p>Please click on the checkbox control.</p>
 
-**c.) event.preventDefault()**:  Browsers have default behaviors like
+<form>
+  <label for="id-checkbox">Checkbox:</label>
+  <input type="checkbox" id="id-checkbox" />
+</form>
 
-* when a anchor tag is clicked, it will load the url specified in the href attribute,
-* when a text content is double clicked it will selected the text.
-So, to avoid these default browser behavior use `event.preventDefault()`.
+<div id="output-box"></div>
 
-**Example**: A click event handler is registered for anchor tag, Based on some logic in the event handler  want to suppress the default browser behavior i.e loading the url.
+<script>
+  document.querySelector("#id-checkbox").addEventListener("click", function(event) {
+  document.getElementById("output-box").innerHTML += "Sorry! <code>preventDefault()</code> won't let you check this!<br>";
+  event.preventDefault();
+}, false);
+</script>
+```
 
-*Note: Some older versions of IE wont recognize `event.preventDefault()`. So, use `return false`*;
+**2. event.stopPropagation()**:
+
+This method is used to prevent the propagation of an event as defined in the capturing/bubbling phase of the flow of an event in the browser.
+
+**Example:**
+
+```html
+<div class="parent" (onClick)="console.log('parent')">
+    <button class="child" (onClick)="buttonClick(event)"></button>
+</div>
+<script>
+    function buttonClick(event) {
+        event.stopPropagation();
+        console.log('child');
+    }
+</script>
+```
+
+**3. event.stopImmediatePropagation()**:
+
+With `stopImmediatePropagation()`, along with the event propagation, other event handlers will also be prevented from execution.
+
+As a result, clicking on the div element will:
+
+* Prevent event bubbling to the parent elements
+* Prevent the execution of any other event listener attached to the element
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
