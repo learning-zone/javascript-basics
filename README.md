@@ -3941,7 +3941,9 @@ doSomething(param1, param2, function(err, paramx){
 
 ## Q. ***What is event handling in javascript?***
 
-The change in the state of an object is known as an **Event**. In html, there are various events which represents that some activity is performed by the user or by the browser. When javascript code is included in HTML, js react over these events and allow the execution. This process of reacting over the events is called **Event Handling**. Thus, js handles the HTML events via **Event Handlers**.
+The change in the state of an object is known as an **Event**. In html, there are various events which represents that some activity is performed by the user or by the browser.
+
+When javascript code is included in HTML, js react over these events and allow the execution. This process of reacting over the events is called **Event Handling**. Thus, js handles the HTML events via **Event Handlers**.
 
 Some of the HTML event handlers are:
 
