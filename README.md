@@ -4139,51 +4139,6 @@ function secondFunc() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the purpose of clearTimeout method?***
-
-The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it\'s passed into the `clearTimeout()` function to clear the timer.
-
-For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
-
-```js
-var msg;
-function greeting() {
-  alert('Good morning');
-}
-function start() {
-  msg =setTimeout(greeting, 3000);
-}
-function stop() {
-    clearTimeout(msg);
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of clearInterval method?***
-
-The `clearInterval()` function is used in javascript to clear the interval which has been set by `setInterval()` function. i.e, The return value returned by setInterval() function is stored in a variable and it’s passed into the clearInterval() function to clear the interval.
-For example, the below setInterval method is used to display the message for every 3 seconds. This interval can be cleared by clearInterval() method.
-
-```js
-var msg;
-function greeting() {
-  alert('Good morning');
-}
-function start() {
-  msg = setInterval(greeting, 3000);
-}
-function stop() {
-    clearInterval(msg);
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the use of setTimeout?***
 
 The setTimeout() method is used to call a function or evaluates an expression after a specified number of milliseconds. For example, let us log a message after 2 seconds using setTimeout method,
@@ -4203,6 +4158,80 @@ The setInterval() method is used to call a function or evaluates an expression a
 ```js
 setInterval(function() { console.log("Good morning"); }, 2000);
 ```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of clearTimeout method?***
+
+The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it\'s passed into the `clearTimeout()` function to clear the timer.
+
+For example, the below setTimeout method is used to display the message after 3 seconds. This timeout can be cleared by clearTimeout() method.
+
+```js
+// clearTimeout()
+
+var msg;
+function greeting() {
+  console.log("Hello World!");
+  stop();
+}
+function start() {
+  console.log("start");
+  msg = setTimeout(greeting, 3000);
+}
+function stop() {
+  console.log("stop");
+  clearTimeout(msg);
+}
+
+start();
+
+// Output
+Start
+Hello World!
+Stop
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cleartimeout-w6ve8y?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of clearInterval method?***
+
+The `clearInterval()` function is used in javascript to clear the interval which has been set by `setInterval()` function. i.e, The return value returned by setInterval() function is stored in a variable and it\'s passed into the clearInterval() function to clear the interval.
+
+For example, the below setInterval method is used to display the message for every 3 seconds. This interval can be cleared by clearInterval() method.
+
+```js
+// clearInterval()
+
+var msg;
+function greeting() {
+  console.log("Hello World!");
+  stop();
+}
+function start() {
+  console.log("start");
+  msg = setInterval(greeting, 3000);
+}
+function stop() {
+  console.log("stop");
+  clearInterval(msg);
+}
+
+start();
+
+// Output
+Start
+Hello World!
+Stop
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-clearinterval-brugdh?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -4243,14 +4272,6 @@ Main Difference
 
 When you need to invoke a function/expression once after a specified duration use setTimeout() function. 
 But, if you need to invoke a function/expression repeatedly at a specified interval of time, then you should use setInterval() function.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why is JavaScript treated as Single threaded?***
-
-JavaScript is a single-threaded language. Because the language specification does not allow the programmer to write code so that the interpreter can run parts of it in parallel in multiple threads or processes. Whereas languages like java, go, C++ can make multi-threaded and multi-process programs.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
