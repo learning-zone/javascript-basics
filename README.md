@@ -4074,6 +4074,10 @@ There are two ways of event flow
 * Top to Bottom(Event Capturing)
 * Bottom to Top (Event Bubbling)
 
+<p align="center">
+  <img src="assets/event-flow.png" alt="Event Flow" width="400px" />
+</p>
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
