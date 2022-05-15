@@ -4036,6 +4036,101 @@ document.addEventListener(event, function, phase)
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is an event delegation?***
+
+Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it.
+For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
+
+```js
+var form = document.querySelector('#registration-form');
+
+// Listen for changes to fields inside the form
+form.addEventListener('input', function (event) {
+
+// Log the field that was changed
+console.log(event.target);
+
+}, false);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is an event flow?***
+
+Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
+
+There are two ways of event flow
+
+* Top to Bottom(Event Capturing)
+* Bottom to Top (Event Bubbling)
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is event bubbling?***
+
+Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
+
+Example: If you click on EM, the handler on DIV runs.  
+
+```html
+<div onclick="alert('The handler!')">
+  <em>If you click on <code>EM</code>, the handler on <code>DIV</code> runs.</em>
+</div>
+```
+
+**Stopping bubbling:**  
+
+```html
+
+<body onclick="alert(`the bubbling doesn\'t reach here`)">
+  <button onclick="event.stopPropagation()">Click me</button>
+</body>
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is event capturing?***
+
+Event capturing is a type of event propagation where the event is first captured by the outermost element and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you submit a form using JavaScript?***
+
+You can submit a form using JavaScript use document.form[0].submit(). All the form input information is submitted using onsubmit event handler
+
+```js
+function submit() {
+    document.form[0].submit();
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the purpose of void(0)?***
+
+The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML document that uses `href="JavaScript:void(0);"` within an `<a>` element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.  
+
+For example, the below link notify the message without reloading the page
+
+```html
+<a href="JavaScript:void(0);" onclick="alert('Well done!')">Click Me!</a>
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is difference between stoppropagation, stopimmediatepropagation and preventdefault in javascript?***
 
 **1. event.preventDefault()**:
@@ -4272,101 +4367,6 @@ Main Difference
 
 When you need to invoke a function/expression once after a specified duration use setTimeout() function. 
 But, if you need to invoke a function/expression repeatedly at a specified interval of time, then you should use setInterval() function.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is an event delegation?***
-
-Event delegation is a technique for listening to events where you delegate a parent element as the listener for all of the events that happen inside it.
-For example, if you wanted to detect field changes in inside a specific form, you can use event delegation technique,
-
-```js
-var form = document.querySelector('#registration-form');
-
-// Listen for changes to fields inside the form
-form.addEventListener('input', function (event) {
-
-// Log the field that was changed
-console.log(event.target);
-
-}, false);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is an event flow?***
-
-Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
-
-There are two ways of event flow
-
-* Top to Bottom(Event Capturing)
-* Bottom to Top (Event Bubbling)
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is event bubbling?***
-
-Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
-
-Example: If you click on EM, the handler on DIV runs.  
-
-```html
-<div onclick="alert('The handler!')">
-  <em>If you click on <code>EM</code>, the handler on <code>DIV</code> runs.</em>
-</div>
-```
-
-**Stopping bubbling:**  
-
-```html
-
-<body onclick="alert(`the bubbling doesn\'t reach here`)">
-  <button onclick="event.stopPropagation()">Click me</button>
-</body>
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is event capturing?***
-
-Event capturing is a type of event propagation where the event is first captured by the outermost element and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you submit a form using JavaScript?***
-
-You can submit a form using JavaScript use document.form[0].submit(). All the form input information is submitted using onsubmit event handler
-
-```js
-function submit() {
-    document.form[0].submit();
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of void(0)?***
-
-The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML document that uses `href="JavaScript:void(0);"` within an `<a>` element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.  
-
-For example, the below link notify the message without reloading the page
-
-```html
-<a href="JavaScript:void(0);" onclick="alert('Well done!')">Click Me!</a>
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
