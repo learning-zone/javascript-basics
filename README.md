@@ -4036,7 +4036,7 @@ document.addEventListener(event, function, phase)
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between stoppropagation vs stopimmediatepropagation vs preventdefault in javascript?***
+## Q. ***What is difference between stoppropagation, stopimmediatepropagation and preventdefault in javascript?***
 
 **1. event.preventDefault()**:
 
