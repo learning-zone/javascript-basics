@@ -4004,8 +4004,6 @@ Some of the HTML event handlers are:
 
 Events can be handled either through `addEventListener()` method or we can trigger events on individual components by defining specific JavaScript functions.
 
-**document.addEventListener() method:**
-
 **Syntax:**
 
 ```js
