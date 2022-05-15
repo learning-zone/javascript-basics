@@ -4002,17 +4002,37 @@ Some of the HTML event handlers are:
 
 ## Q. ***How to create and trigger events in javascript?***
 
-Events can be created with the Event constructor as follows:
+Events can be handled either through `addEventListener()` method or we can trigger events on individual components by defining specific JavaScript functions.
+
+**document.addEventListener() method:**
+
+**Syntax:**
 
 ```js
-var event = new Event('build');
-
-// Listen for the event.
-elem.addEventListener('build', function (e) { /* ... */ }, false);
-
-// Dispatch the event.
-elem.dispatchEvent(event);
+document.addEventListener(event, function, phase)
 ```
+
+**Example:**
+
+```html
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Click Event</title>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h3>Click on the page to trigger click event</h3>
+    <script type="text/javascript">
+      document.addEventListener("click", function () {
+        console.log("You clicked inside the document");
+      });
+    </script>
+  </body>
+</html>
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-addeventlistener-kxesqw?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
