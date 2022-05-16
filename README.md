@@ -4408,46 +4408,6 @@ Stop
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How setTimeout() and setInterval() are different from each other?***
-
-```js
-//Syntax for setTimeout
-
-function displayMessage() {
-    console.log('This message will be displayed only once after 4s!') ;
-}
-
-setTimeout(displayMessage, 4000);
-```
-
-```js
-//Syntax for setInterval
-
-function displayMessage(){
-    console.log('This message will be displayed after every 4s!') ;
-}
-
-setInterval(displayMessage, 4000) ;
-
-```
-
-Usage : setTimeout( function/expression, timeout, param1, param2, ... ) ;
-
-where expression/function is the JavaScript code to run after the timeout milliseconds have elapsed. The params are optional.
-
-Usage : setInterval ( function/expression, interval, param1, param2, ... );
-
-where expression/function is the  JavaScript code to run  repeatedly at specified interval of time has elpased . 
-
-Main Difference
-
-When you need to invoke a function/expression once after a specified duration use setTimeout() function. 
-But, if you need to invoke a function/expression repeatedly at a specified interval of time, then you should use setInterval() function.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the difference between document load and DOMContentLoaded events?***
 
 The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
