@@ -4071,7 +4071,7 @@ Event flow is the order in which event is received on the web page. When you cli
 
 There are two ways of event flow
 
-* Top to Bottom(Event Capturing)
+* Top to Bottom (Event Capturing)
 * Bottom to Top (Event Bubbling)
 
 <p align="center">
@@ -4086,7 +4086,7 @@ There are two ways of event flow
 
 Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
 
-Example: If you click on EM, the handler on DIV runs.  
+**Example**: If you click on EM, the handler on DIV runs.  
 
 ```html
 <div onclick="alert('The handler!')">
@@ -4102,6 +4102,8 @@ Example: If you click on EM, the handler on DIV runs.
   <button onclick="event.stopPropagation()">Click me</button>
 </body>
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-event-bubbling-y1sjrk?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
