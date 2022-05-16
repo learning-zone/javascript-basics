@@ -4137,7 +4137,7 @@ Event capturing is a type of event propagation where the event is first captured
 </script>
 ```
 
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/interesting-raman-mz6d16?file=/index.html)**
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-event-capturing-mz6d16?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
