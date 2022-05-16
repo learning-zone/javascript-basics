@@ -4505,24 +4505,24 @@ let object = new function() {
 
 It is recommended to avoid creating new objects using `new Object()`. Instead you can initialize values based on it is type to create the objects.
 
-1. Assign {} instead of new Object()
-2. Assign "" instead of new String()
-3. Assign 0 instead of new Number()
-4. Assign false instead of new Boolean()
-5. Assign [] instead of new Array()
-6. Assign /()/ instead of new RegExp()
-7. Assign function (){} instead of new Function()
+* Assign {} instead of new Object()
+* Assign "" instead of new String()
+* Assign 0 instead of new Number()
+* Assign false instead of new Boolean()
+* Assign [] instead of new Array()
+* Assign /()/ instead of new RegExp()
+* Assign function (){} instead of new Function()
 
-You can define them as an example,
+**Example:**
 
 ```js
-var v1 = {};
-var v2 = "";
-var v3 = 0;
-var v4 = false;
-var v5 = [];
-var v6 = /()/;
-var v7 = function(){};
+let obj1 = {};
+let obj2 = "";
+let obj3 = 0;
+let obj4 = false;
+let obj5 = [];
+let obj6 = /()/;
+let obj7 = function(){};
 ```
 
 <div align="right">
