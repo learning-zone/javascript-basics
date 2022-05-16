@@ -4311,11 +4311,24 @@ setTimeout(() => {
 
 ## Q. ***What is the use of setInterval?***
 
-The setInterval() method is used to call a function or evaluates an expression at specified intervals (in milliseconds). For example, let us log a message after 2 seconds using setInterval method,
+The `setInterval()` method is used to call a function or evaluates an expression at specified intervals (in milliseconds). The `setInterval()` method continues calling the function until `clearInterval()` is called, or the window is closed.
 
-```js
-setInterval(function() { console.log("Good morning"); }, 2000);
+**Example:**
+
+```html
+<p id="timer"></p>
+
+<script>
+setInterval(myTimer, 1000);
+
+function myTimer() {
+  const date = new Date();
+  document.getElementById("timer").innerHTML = date.toLocaleTimeString();
+}
+</script>
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-setinterval-6tx5pq?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
