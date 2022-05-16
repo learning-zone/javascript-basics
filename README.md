@@ -4533,6 +4533,8 @@ let obj7 = function(){};
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
 
+**Example:**
+
 ```js
 // Object Destructuring
 
