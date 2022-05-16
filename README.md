@@ -4075,7 +4075,7 @@ There are two ways of event flow
 * Bottom to Top (Event Bubbling)
 
 <p align="center">
-  <img src="assets/event-flow.png" alt="Event Flow" width="400px" />
+  <img src="assets/event-flow.png" alt="Event Flow" width="500px" />
 </p>
 
 <div align="right">
