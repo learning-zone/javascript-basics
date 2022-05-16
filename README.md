@@ -4560,17 +4560,90 @@ console.log(job); // Developer
 Using the object spread operator `...`, the object own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
 
 ```js
-const obj = { a: 1, b: 2 }
+const obj = { a: 10, b: 20 }
 const shallowClone = { ...obj }
 ```
 
-With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original. Deep-cloning is much more complex in order to effectively clone any type of object (Date, RegExp, Function, Set, etc) that may be nested within the object.
+With this technique, prototypes are ignored. In addition, nested objects are not cloned, but rather their references get copied, so nested objects still refer to the same objects as the original.
 
-Other alternatives include:
+**Example 01**: Clone the Object Using Object.assign()
 
-* **JSON.parse(JSON.stringify(obj))** can be used to deep-clone a simple object, but it is CPU-intensive and only accepts valid JSON (therefore it strips functions and does not allow circular references).
-* **Object.assign({}, obj)** is another alternative.
-* **Object.keys(obj).reduce((acc, key) => (acc[key] = obj[key], acc), {})** is another more verbose alternative that shows the concept in greater depth.
+```js
+const person = {
+    name: 'John',
+    age: 21,
+}
+
+// cloning the object
+const clonePerson = Object.assign({}, person);
+
+console.log(clonePerson);
+
+// changing the value of clonePerson
+clonePerson.name = 'Peter';
+
+console.log(clonePerson.name);
+console.log(person.name);
+
+
+// Output
+{name: "John", age: 21}
+Peter
+John
+```
+
+**Example 02**: Clone the Object Using Spread Syntax
+
+```js
+const person = {
+    name: 'John',
+    age: 21,
+}
+
+// cloning the object
+const clonePerson = { ... person}
+
+console.log(clonePerson);
+
+// changing the value of clonePerson
+clonePerson.name = 'Peter';
+
+console.log(clonePerson.name);
+console.log(person.name);
+
+
+// Output
+{name: "John", age: 21}
+Peter
+John
+```
+
+**Example 03**: Clone the Object Using JSON.parse()
+
+```js
+const person = {
+    name: 'John',
+    age: 21,
+}
+
+// cloning the object
+const clonePerson = JSON.parse(JSON.stringify(person));
+
+console.log(clonePerson);
+
+// changing the value of clonePerson
+clonePerson.name = 'Peter';
+
+console.log(clonePerson.name);
+console.log(person.name);
+
+// Output
+{name: "John", age: 21}
+Peter
+John
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-clone-hj5uhr?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
