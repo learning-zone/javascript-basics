@@ -4145,12 +4145,21 @@ Event capturing is a type of event propagation where the event is first captured
 
 ## Q. ***How do you submit a form using JavaScript?***
 
-You can submit a form using JavaScript use document.form[0].submit(). All the form input information is submitted using onsubmit event handler
+Generally, a form is submitted when the user presses a submit button. JavaScript provides the form object that contains the `submit()` method. Use the "id" of the form to get the form object.
 
-```js
-function submit() {
-    document.form[0].submit();
+**Example:**
+
+```html
+<form id="myForm" action="/action_page.php">
+  Search: <input type='text' name='query' />
+  <input type="button" onclick="handleSubmit()" value="Submit form">
+</form>
+
+<script>
+function handleSubmit() {
+  document.getElementById("myForm").submit();
 }
+</script>
 ```
 
 <div align="right">
