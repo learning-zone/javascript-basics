@@ -4097,7 +4097,6 @@ Event bubbling is a type of event propagation where the event first triggers on 
 **Stopping bubbling:**  
 
 ```html
-
 <body onclick="alert(`the bubbling doesn\'t reach here`)">
   <button onclick="event.stopPropagation()">Click me</button>
 </body>
@@ -4112,6 +4111,33 @@ Event bubbling is a type of event propagation where the event first triggers on 
 ## Q. ***What is event capturing?***
 
 Event capturing is a type of event propagation where the event is first captured by the outermost element and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
+
+**Example:**
+
+```html
+<article id="ancestor">
+    Article Element
+    <div id="parent">
+      DIV Element
+      <p id="child">
+        P Element
+      </p>
+    </div>
+</article>
+
+<script>
+  // Script to click event handler to capture on each element
+  for (let elem of document.querySelectorAll("*")) {
+    elem.addEventListener(
+      "click",
+      (e) => console.log("Capturing:", elem.tagName),
+      true
+    );
+  }
+</script>
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/interesting-raman-mz6d16?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
