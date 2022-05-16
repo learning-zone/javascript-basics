@@ -4289,10 +4289,20 @@ As a result, clicking on the div element will:
 
 ## Q. ***What is the use of setTimeout?***
 
-The setTimeout() method is used to call a function or evaluates an expression after a specified number of milliseconds. For example, let us log a message after 2 seconds using setTimeout method,
+The `setTimeout()` method is used to call a function or evaluates an expression after a specified number of milliseconds.
+
+**Syntax:**
 
 ```js
-setTimeout(function() { console.log("Good morning"); }, 2000);
+setTimeout(callback function, delay in milliseconds)
+```
+
+**Example:**
+
+```js
+setTimeout(() => {
+  console.log("Delayed for 1 second.");
+}, "1000")
 ```
 
 <div align="right">
