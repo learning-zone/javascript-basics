@@ -4168,13 +4168,17 @@ function handleSubmit() {
 
 ## Q. ***What is the purpose of void(0)?***
 
-The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the undefined primitive value. It is commonly used for HTML document that uses `href="JavaScript:void(0);"` within an `<a>` element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.  
+The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the `undefined` primitive value.
 
-For example, the below link notify the message without reloading the page
+It is commonly used for HTML document that uses `href="JavaScript:void(0);"` within an `<a>` element. i.e, when you click a link, the browser loads a new page or refreshes the same page. But this behavior will be prevented using this expression.  
+
+**Example:** the below link notify the message without reloading the page
 
 ```html
-<a href="JavaScript:void(0);" onclick="alert('Well done!')">Click Me!</a>
+<a href="JavaScript:void(0);" onclick="alert('Prevent the page from refreshing!')">Click Me!</a>
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-void-onx4n5?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
