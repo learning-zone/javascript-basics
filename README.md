@@ -4422,42 +4422,55 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 ## Q. ***What are the possible ways to create objects in JavaScript?***
 
-**a.) Object constructor**: The simpliest way to create an empty object is using Object constructor. Currently this approach is not recommended.
+**1. Object constructor**:
+
+The simpliest way to create an empty object is using Object constructor. Currently this approach is not recommended.
 
 ```js
- var object = new Object();
+let object = new Object();
 ```
 
-**b.) Object create method**: The create method of Object creates a new object by passing the prototype object as a parameter
+**2. Object create method**:
+
+The create method of Object creates a new object by passing the prototype object as a parameter
 
 ```js
- var object = Object.create(null);
+let object = Object.create(null);
 ```
 
-**c.) Object literal syntax**: The object literal syntax is equivalent to create method when it passes null as parameter
+**3. Object literal**:
+
+The object literal syntax is equivalent to create method when it passes null as parameter
 
 ```js
- var object = {};
+let object = {};
 ```
 
-**d.) Function constructor**: Create any function and apply the new operator to create object instances,
+**4. Function constructor**:
+
+Create any function and apply the new operator to create object instances,
 
 ```js
- function Person(name) {
-  var object = {};
-  object.name = name;
-  object.age = 26;
-  return object;
- }
- var object = new Person("Alex");
+function Person(name) {
+ let object = {};
+ object.name = name;
+ object.age = 26;
+
+ return object;
+}
+
+let person = new Person("Alex");
 ```
 
-**e.) Function constructor with prototype**: This is similar to function constructor but it uses prototype for their properties and methods,
+**5. Function constructor with prototype**:
+
+This is similar to function constructor but it uses prototype for their properties and methods,
 
 ```js
 function Person(){}
+
 Person.prototype.name = "Alex";
-var object = new Person();
+let person = new Person();
 ```
 
 This is equivalent to an instance created with an object create method with a function prototype and then call that function with an instance and parameters as arguments.
@@ -4470,16 +4483,18 @@ new func(x, y, z);
 // **(OR)**
 
 // Create a new instance using function prototype.
-var newInstance = Object.create(func.prototype)
+let newInstance = Object.create(func.prototype)
 
 // Call the function
-var result = func.call(newInstance, x, y, z),
+let result = func.call(newInstance, x, y, z),
 
 // If the result is a non-null object then use it otherwise just use the new instance.
 console.log(result && typeof result === 'object' ? result : newInstance);
 ```
 
-**f.) ES6 Class syntax**: ES6 introduces class feature to create the objects
+**6. ES6 Class syntax**:
+
+ES6 introduces class feature to create the objects
 
 ```js
 class Person {
@@ -4488,13 +4503,15 @@ class Person {
  }
 }
 
-var object = new Person("Alex");
+let person = new Person("Alex");
 ```
 
-**g.) Singleton pattern**: A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don\'t accidentally create multiple instances.
+**7. Singleton pattern**:
+
+A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don\'t accidentally create multiple instances.
 
 ```js
-var object = new function() {
+let object = new function() {
   this.name = "Alex";
 }
 ```
@@ -4778,7 +4795,9 @@ Shallow copy is a bit-wise copy of an object. A new object is created that has a
 
 A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
 
-<img src="assets/deepcopy.png" alt="Shallow Copy and Deep Copy" />
+<p align="center">
+  <img src="assets/deepcopy.png" alt="Shallow Copy and Deep Copy" />
+</p>
 
 A Shallow copy of the object can be done using `object.assign()` method in javascript.
 ```js
