@@ -4422,7 +4422,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 ## Q. ***What are the possible ways to create objects in JavaScript?***
 
-**1. Object constructor**:
+**1. Object Constructor**:
 
 The simpliest way to create an empty object is using Object constructor. Currently this approach is not recommended.
 
@@ -4438,15 +4438,15 @@ The create method of Object creates a new object by passing the prototype object
 let object = Object.create(null);
 ```
 
-**3. Object literal**:
+**3. Object Literal**:
 
-The object literal syntax is equivalent to create method when it passes null as parameter
+The object literal syntax is equivalent to create method when it passes `null` as parameter
 
 ```js
-let object = {};
+let person = {};
 ```
 
-**4. Function constructor**:
+**4. Function Constructor**:
 
 Create any function and apply the new operator to create object instances,
 
@@ -4462,7 +4462,7 @@ function Person(name) {
 let person = new Person("Alex");
 ```
 
-**5. Function constructor with prototype**:
+**5. Function Constructor with prototype**:
 
 This is similar to function constructor but it uses prototype for their properties and methods,
 
@@ -4473,26 +4473,7 @@ Person.prototype.name = "Alex";
 let person = new Person();
 ```
 
-This is equivalent to an instance created with an object create method with a function prototype and then call that function with an instance and parameters as arguments.
-
-```js
-function func {};
-
-new func(x, y, z);
-
-// **(OR)**
-
-// Create a new instance using function prototype.
-let newInstance = Object.create(func.prototype)
-
-// Call the function
-let result = func.call(newInstance, x, y, z),
-
-// If the result is a non-null object then use it otherwise just use the new instance.
-console.log(result && typeof result === 'object' ? result : newInstance);
-```
-
-**6. ES6 Class syntax**:
+**6. ES6 Class**:
 
 ES6 introduces class feature to create the objects
 
@@ -4506,7 +4487,7 @@ class Person {
 let person = new Person("Alex");
 ```
 
-**7. Singleton pattern**:
+**7. Singleton Pattern**:
 
 A Singleton is an object which can only be instantiated one time. Repeated calls to its constructor return the same instance and this way one can ensure that they don\'t accidentally create multiple instances.
 
