@@ -4184,6 +4184,52 @@ It is commonly used for HTML document that uses `href="JavaScript:void(0);"` wit
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is the use of preventDefault method?***
+
+The `preventDefault()` method is used to prevent the browser from executing the default action of the selected element. It can prevent the user from processing the request by clicking the link.
+
+For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
+
+```js
+document.getElementById("link").addEventListener("click", function(event) {
+   event.preventDefault();
+});
+```
+
+*Note: Remember that not all events are cancelable*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the use of stopPropagation method?***
+
+The `stopPropagation` method is used to stop the event from bubbling up the event chain.
+
+For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
+
+```html
+<p>Click DIV1 Element</p>
+<div onclick="secondFunc()">DIV 2
+  <div onclick="firstFunc(event)">DIV 1</div>
+</div>
+
+<script>
+function firstFunc(event) {
+  alert("DIV 1");
+  event.stopPropagation();
+}
+
+function secondFunc() {
+  alert("DIV 2");
+}
+</script>
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is difference between stoppropagation, stopimmediatepropagation and preventdefault in javascript?***
 
 **1. event.preventDefault()**:
@@ -4236,52 +4282,6 @@ As a result, clicking on the div element will:
 
 * Prevent event bubbling to the parent elements
 * Prevent the execution of any other event listener attached to the element
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the use of preventDefault method?***
-
-The `preventDefault()` method is used to prevent the browser from executing the default action of the selected element. It can prevent the user from processing the request by clicking the link.
-
-For example, prevent form submission when clicking on submit button and prevent opening the page URL when clicking on hyper link are some common usecases.
-
-```js
-document.getElementById("link").addEventListener("click", function(event) {
-   event.preventDefault();
-});
-```
-
-*Note: Remember that not all events are cancelable*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the use of stopPropagation method?***
-
-The `stopPropagation` method is used to stop the event from bubbling up the event chain.
-
-For example, the below nested divs with stopPropagation method prevents default event propagation when clicking on nested div(Div1)
-
-```html
-<p>Click DIV1 Element</p>
-<div onclick="secondFunc()">DIV 2
-  <div onclick="firstFunc(event)">DIV 1</div>
-</div>
-
-<script>
-function firstFunc(event) {
-  alert("DIV 1");
-  event.stopPropagation();
-}
-
-function secondFunc() {
-  alert("DIV 2");
-}
-</script>
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
