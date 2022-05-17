@@ -5295,61 +5295,14 @@ Changing non-enumerable property value will return error in `strict mode`. In no
 ## Q. ***How do you check whether an object can be extendable or not?***
 
 The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
+
 ```js
 const newObject = {};
+
 console.log(Object.isExtensible(newObject)); //true
 ```
+
 *Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the different ways to make an object non-extensible?***
-
-* `Object.preventExtensions()`
-* `Object.seal()`
-* `Object.freeze()`
-
-```js
-var newObject = {};
-
-Object.preventExtensions(newObject); // Prevent objects are non-extensible
-Object.isExtensible(newObject); // false
-
-var sealedObject = Object.seal({}); // Sealed objects are non-extensible
-Object.isExtensible(sealedObject); // false
-
-var frozenObject = Object.freeze({}); // Frozen objects are non-extensible
-Object.isExtensible(frozenObject); // false
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the object type?***
-
-The object type refers to a compound value where you can set properties (named locations) that each hold their own values of any type.
-
-```js
-var person = { 
-    firstName: "Kamala", 
-    lastName: "Ramaswamy", 
-    age: 25, 
-    getFullName: function () { 
-      return this.firstName + ' ' + this.lastName 
-    }
-};
-
-person.firstName; // returns Kamala
-person.lastName; // returns Ramaswamy
-
-person["firstName"];// returns Kamala
-person["lastName"];// returns Ramaswamy
-
-person.getFullName(); // returns Kamala Ramaswamy
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
