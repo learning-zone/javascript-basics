@@ -4651,15 +4651,15 @@ John
 
 ## Q. ***What is the difference between native, host and user objects?***
 
-**1. Native Objects** 
+**1. Native Objects**:
 
 Are objects that are part of the JavaScript language defined by the ECMAScript specification. For example, `String`, `Math`, `RegExp`, `Object`, `Function` etc core objects defined in the ECMAScript spec.
 
-**2. Host Objects** 
+**2. Host Objects**:
 
 Are objects provided by the browser or runtime environment (Node). For example, `window`, `XmlHttpRequest`, `DOM nodes` etc considered as host objects.
 
-**3. User Objects** 
+**3. User Objects**:
 
 Are objects defined in the javascript code. For example, User object created for profile information.
 
@@ -4669,13 +4669,147 @@ Are objects defined in the javascript code. For example, User object created for
 
 ## Q. ***What are the properties of Intl object?***
 
+The `Intl` object is the namespace for the ECMAScript Internationalization API that provides language number formatting, string comparison, and date/time formatting. The `Intl` object is available in the global scope and provides access to several constructors and common functionality to the internationalization constructors and other language sensitive functions.
+
 Below are the list of properties available on Intl object,
-1. **Collator:** These are the objects that enable language-sensitive string comparison.
-2. **DateTimeFormat:** These are the objects that enable language-sensitive date and time formatting.
-3. **ListFormat:** These are the objects that enable language-sensitive list formatting.
-4. **NumberFormat:** Objects that enable language-sensitive number formatting.
-5. **PluralRules:** Objects that enable plural-sensitive formatting and language-specific rules for plurals.
-6. **RelativeTimeFormat:** Objects that enable language-sensitive relative time formatting.
+
+**1. Collator:**
+
+Intl.Collator provides a language-aware comparison of Strings for sorting and searching.
+
+**Example:**
+
+```js
+// Intl.Collator()
+
+let collatorEs = new Intl.Collator("es").compare;
+console.log(["a", "z", "ñ", "b"].sort(collatorEs)); // ["a", "b", "ñ", "z"]
+
+
+let collatorEsCaseFirts = new Intl.Collator("es", { caseFirst: "upper" }).compare;  
+console.log(["a", "A", "z", "ñ", "b"].sort(collatorEsCaseFirts)); // ["A", "a", "b", "ñ", "z"]
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-intl-collator-jusk3c?file=/src/index.js)**
+
+**2. DateTimeFormat:**
+
+These are the objects that enable language-sensitive date and time formatting.
+
+**Example:**
+
+```js
+// Intl.DateTimeFormat()
+
+let now = new Date();
+let nowEnUs = new Intl.DateTimeFormat("en-US");
+let noeEs = new Intl.DateTimeFormat("es-ES");
+
+console.log(nowEnUs.format(now)); // 5/17/2022 
+console.log(noeEs.format(now)); // 17/5/2022 
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-intl-datetimeformat-mnvt4u?file=/src/index.js)**
+
+**3. ListFormat:**
+
+These are the objects that enable language-sensitive list formatting.
+
+**Example:**
+
+```js
+// Intl.ListFormat()
+
+let lfEn = new Intl.ListFormat("en", {
+    localeMatcher: "lookup",
+    type: "disjunction",
+    style: "narrow"
+});
+console.log(lfEn.format(['Hannibal smith', 'Murdock' , 'Faceman', 'B.A." Baracus']));
+// Hannibal smith, Murdock, Faceman, or B.A." Baracus
+
+let lfEs = new Intl.ListFormat("es", {
+    localeMatcher: "lookup",
+    type: "disjunction",
+    style: "narrow"
+});
+console.log(lfEs.format(['Hannibal smith', 'Murdock' , 'Faceman', 'B.A." Baracus']));
+// Hannibal smith, Murdock, Faceman o B.A." Baracus
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-intl-listformat-4dq79u?file=/src/index.js)**
+
+**4. NumberFormat:**
+
+Objects that enable language-sensitive number formatting.
+
+```js
+// Intl.NumberFormat()
+
+let myNumber = 1000000.999;
+let nfEs = new Intl.NumberFormat('es-ES');
+let nfEn = new Intl.NumberFormat('en-EU');
+
+console.log(nfEs.format(myNumber)); //1.000.000,999
+
+console.log(nfEn.format(myNumber)); // 1,000,000.999
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-intl-numberformat-whhvc9?file=/src/index.js)**
+
+**5. RelativeTimeFormat:**
+
+Objects that enable language-sensitive relative time formatting.
+
+**Example:**
+
+```js
+// Intl.RelativeTimeFormat()
+
+let rtfEn = new Intl.RelativeTimeFormat('en', { numeric: 'auto'  });
+
+console.log(rtfEn.format(2, 'day')); // in 2 days
+console.log(rtfEn.format(-1, 'day')); // yesterday
+console.log(rtfEn.format(-5, 'month')); //5 months ago
+
+
+let rtfEs = new Intl.RelativeTimeFormat('es', { numeric: 'auto' });
+
+console.log(rtfEs.format(2, 'day')); // pasado mañana
+console.log(rtfEs.format(-1, 'day')); // ayer
+console.log(rtfEs.format(-5, 'month')); // Hace 5 meses
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-intl-relativetimeformat-cxwko6?file=/src/index.js)**
+
+**6. Locale:**
+
+Intl.Locale has a toString method that represents the complete contents of the locale. This method allows Locale instances to be provided as an argument to existing Intl constructors.
+
+**Example:**
+
+```js
+// Example: Intl.Locale()
+
+let newLocale = new Intl.Locale("en-US", { language: "es" });
+console.log(newLocale.toString()); // es-US
+
+let now = new Date();
+let dtfMyNewLocale = new Intl.DateTimeFormat(newLocale);
+
+console.log(dtfMyNewLocale.format(now)); // 17/5/2022 
+
+
+let newLocale2 = new Intl.Locale("en-US", { language: "en" });
+console.log(newLocale2.toString()); //en-US
+
+let now2 = new Date();
+let dtfMyNewLocale2 = new Intl.DateTimeFormat(newLocale2);
+
+console.log(dtfMyNewLocale2.format(now2)); // 5/17/2022 
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-intl-locale-dgel2y?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
