@@ -4916,29 +4916,30 @@ const alienAditya = { ...aditya, race: "alien" }; // {race: "alien", name: "Adit
 One of the drawback of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object. Let us see it on example:
 
 ```js
-var Employee = function (name, company, salary) {
-  this.name = name || "";       
+const Employee = function (name, company, salary) {
+  this.name = name || "";
   this.company = company || "";
   this.salary = salary || 5000;
 
   // We can create a method like this:
   this.formatSalary = function () {
-      return "$ " + this.salary;
+    return "$ " + this.salary;
   };
 };
 
 // we can also create method in Employee's prototype:
-Employee.prototype.formatSalary2 = function() {
-    return "$ " + this.salary;
-}
+Employee.prototype.formatSalary2 = function () {
+  return "$ " + this.salary;
+};
 
-//creating objects
-var emp1 = new Employee('Yuri Garagin', 'Company 1', 1000000);
-var emp2 = new Employee('Dinesh Gupta', 'Company 2', 1039999);
-var emp3 = new Employee('Erich Fromm', 'Company 3', 1299483);
+// Creating Objects
+let emp1 = new Employee("Yuri Garagin", "Company 1", 1000);
+let emp2 = new Employee("Dinesh Gupta", "Company 2", 2000);
 ```
 
-Here each instance variable `emp1`, `emp2`, `emp3` has own copy of `formatSalary` method. However the `formatSalary2` will only be added once to an object `Employee.prototype`.
+Here each instance variable `emp1`, `emp2` has own copy of `formatSalary` method. However the `formatSalary2` will only be added once to an object `Employee.prototype`.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-class-object-96mc2r?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
