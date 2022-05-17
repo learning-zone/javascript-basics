@@ -5019,23 +5019,35 @@ console.log(newObj); // { a: 10, b: { c: 20 } }
 
 ## Q. ***How do you check if a key exists in an object?***
 
-**a.) Using in operator:** You can use the in operator whether a key exists in an object or not
+**1. Using in operator:**
+
+You can use the in operator whether a key exists in an object or not
 
 ```js
-"key" in obj
+const obj = { key: undefined };
+
+console.log("key" in obj); // true, regardless of the actual value
 ```
 
 and If you want to check if a key doesn\'t exist, remember to use parenthesis,
 
 ```js
-!("key" in obj)
+const obj = { not_key: undefined };
+
+console.log(!("key" in obj)); // true if "key" doesn't exist in object
 ```
 
-**b.) Using hasOwnProperty method:** You can use `hasOwnProperty` to particularly test for properties of the object instance (and not inherited properties)
+**2. Using hasOwnProperty method:**
+
+You can use `hasOwnProperty` to particularly test for properties of the object instance (and not inherited properties)
 
 ```js
-obj.hasOwnProperty("key") // true
+const obj = { key: undefined };
+
+console.log(obj.hasOwnProperty("key")); // true
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-in-operator-3fxd3h?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5162,7 +5174,8 @@ In the above code, it uses `get` handler which define the behavior of the proxy 
 
 JavaScript support for the Proxy and Reflect objects allowing you to intercept and define custom behavior for fundamental language operations (e.g. property lookup, assignment, enumeration, function invocation, etc). 
 
-**Proxies**  
+**1. Proxies**
+
 The `Proxy` object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc). For example getting a property on an object:
 ```js
 var handler = {
@@ -5177,7 +5190,8 @@ console.log(p.a, p.b); // 1, 42
 ```
 The Proxy object defines a target (an empty object here) and a handler object in which a get trap is implemented. Here, an object that is proxied will not return undefined when getting undefined properties, but will instead return the number 42.
 
-**Reflection**  
+**2. Reflection**
+
 Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object.
 
 `Reflect` helps with forwarding default operations from the handler to the target.
