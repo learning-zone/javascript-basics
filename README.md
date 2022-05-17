@@ -4817,7 +4817,9 @@ console.log(dtfMyNewLocale2.format(now2)); // 5/17/2022
 
 ## Q. ***Explain the difference between mutable and immutable objects?***
 
-Immutability is a core principle in functional programming, and has lots to offer to object-oriented programs as well. A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
+A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
+
+In JavaScript numbers, strings, null, undefined and Booleans are primitive types which are immutable. Objects, arrays, functions, classes, maps, and sets are mutable.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
