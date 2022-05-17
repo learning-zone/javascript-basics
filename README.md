@@ -4827,9 +4827,7 @@ In JavaScript numbers, strings, null, undefined and Booleans are primitive types
 
 ## Q. ***What is an example of an immutable object in JavaScript?***
 
-In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable.
-
-Some built-in immutable JavaScript objects are `Math`, `Date`.
+In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable. Some built-in immutable JavaScript objects are `Math`, `Date`.
 
 Here are a few ways to add/simulate immutability on plain JavaScript objects.
 
@@ -4839,14 +4837,16 @@ By combining `writable: false` and `configurable: false`, you can essentially cr
 
 ```js
 let myObject = {};
+
 Object.defineProperty(myObject, 'number', {
-  value: 42,
+  value: 10,
   writable: false,
   configurable: false,
 });
-console.log(myObject.number); // 42
-myObject.number = 43;
-console.log(myObject.number); // 42
+
+console.log(myObject.number); // 10  
+myObject.number = 20;          
+console.log(myObject.number); // 10
 ```
 
 **Prevent Extensions:**
@@ -4854,13 +4854,13 @@ console.log(myObject.number); // 42
 If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
 
 ```js
-var myObject = {
-  a: 2
+let myObject = {
+  a: 10
 };
 
 Object.preventExtensions(myObject);
 
-myObject.b = 3;
+myObject.b = 20;
 myObject.b; // undefined
 ```
 
@@ -4890,22 +4890,23 @@ Freezing an object does not allow new properties to be added to an object and pr
 
 ## Q. ***How can you achieve immutability in your own code?***
 
-One way to achieve immutability is to use libraries like [immutable.js](http://facebook.github.io/immutable-js/), [mori](https://github.com/swannodette/mori) or [immer](https://github.com/immerjs/immer).
+For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
 
-The alternative is to use `const` declarations combined with the techniques mentioned above for creation. For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
-
-Examples:
+**Example:**
 
 ```js
 // Array Example
-const arr = [1, 2, 3];
-const newArr = [...arr, 4]; // [1, 2, 3, 4]
+const arr = [10, 20, 30];
+const newArr = [...arr, 40, 50]; // [10, 20, 30, 40, 50]
 
 // Object Example
-const human = Object.freeze({race: 'human'});
-const john = { ...human, name: 'John' }; // {race: "human", name: "John"}
-const alienJohn = { ...john, race: 'alien' }; // {race: "alien", name: "John"}
+const human = Object.freeze({ race: "human" });
+const aditya = { ...human, name: "Aditya" }; // {race: "human", name: "Aditya"}
+const alienAditya = { ...aditya, race: "alien" }; // {race: "alien", name: "Aditya"}
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-immutable-object-jty055?file=/src/index.js)**
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
