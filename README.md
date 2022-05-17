@@ -4669,7 +4669,7 @@ Are objects defined in the javascript code. For example, User object created for
 
 ## Q. ***What are the properties of Intl object?***
 
-The `Intl` object is the namespace for the ECMAScript Internationalization API that provides language number formatting, string comparison, and date/time formatting. The `Intl` object is available in the global scope and provides access to several constructors and common functionality to the internationalization constructors and other language sensitive functions.
+The `Intl` object is the namespace for the ECMAScript Internationalization API that provides language number formatting, string comparison, and date/time formatting.
 
 Below are the list of properties available on Intl object,
 
