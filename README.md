@@ -4960,68 +4960,59 @@ Here each instance variable `emp1`, `emp2` has own copy of `formatSalary` method
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to extend built-in objects?***
-
-All objects in JS contains a prototype property, even the variables we declare. Since we don\'t have access to the JS source code, thus, we cannot insert our custom functionality in String object by fiddling with JS source code, we use the String object’s prototype as another approach to insert our functionality.
-```js
-String.prototype.regexIt = function() {
-  /*
-    Since were attaching our custom function to String object,
-    we don't need an argument instead, we use 'this' to access our argument
-    as it points to the String value attached.
-  */
-  var input = this;
-
-  // do something with input and
-
-  return input;
-}
-```
-Now, we can use our regexIt method as shown below:
-```js
-var result = 'Hello World';
-result.regexIt();
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is shallow copy and deep copy in javascript?***
 
-**Shallow copy**
+**1. Shallow Copy:**
 
 Shallow copy is a bit-wise copy of an object. A new object is created that has an exact copy of the values in the original object. If any of the fields of the object are references to other objects, just the reference addresses are copied i.e., only the memory address is copied.
 
-**Deep copy**
+A Shallow copy of the object can be done using `object.assign()`
+
+**Example:**
+
+```js
+// Shallow Copy
+
+let obj = {
+  a: 10,
+  b: 20,
+};
+
+let objCopy = Object.assign({}, obj);
+console.log(objCopy); // Result - { a: 1, b: 2 }
+```
+
+**2. Deep Copy:**
 
 A deep copy copies all fields, and makes copies of dynamically allocated memory pointed to by the fields. A deep copy occurs when an object is copied along with the objects to which it refers.
+
+A Deep copy of the object can be done using `JSON.parse(JSON.stringify(object))`
+
+**Example:**
+
+```js
+// Deep Copy
+
+let obj2 = {
+  a: 10,
+  b: {
+    c: 20
+  }
+};
+
+let newObj = JSON.parse(JSON.stringify(obj2));
+obj2.b.c = 30;
+
+console.log(obj2); // { a: 10, b: { c: 20 } }
+console.log(newObj); // { a: 10, b: { c: 20 } }
+```
 
 <p align="center">
   <img src="assets/deepcopy.png" alt="Shallow Copy and Deep Copy" />
 </p>
 
-A Shallow copy of the object can be done using `object.assign()` method in javascript.
-```js
-let obj = {
-  a: 1,
-  b: 2,
-};
-let objCopy = Object.assign({}, obj);
-console.log(objCopy); // Result - { a: 1, b: 2 }
-```
-A Deep copy of the object can be done using JSON.parse(JSON.stringify(object));
-```js
-let obj = { 
-  a: 1,
-  b: { 
-    c: 2,
-  },
-}
-let newObj = JSON.parse(JSON.stringify(obj));
-obj.b.c = 20;
-console.log(obj); // { a: 1, b: { c: 20 } }
-console.log(newObj); // { a: 1, b: { c: 2 } } (New Object Intact!)
-```
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-shallow-vs-deep-copy-ik5b7h?file=/src/index.js)**
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
