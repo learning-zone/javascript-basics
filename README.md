@@ -5017,58 +5017,6 @@ console.log(newObj); // { a: 10, b: { c: 20 } }
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Write code for merge two JavaScript Object dynamically?***
-
-Let say you have two objects 
-
-```js
-var person = {
-	name : 'John',
-	age  : 24
-}
-
-var address = {
-	addressLine1 : 'Some Location x',
-	addressLine2 : 'Some Location y',
-	city : 'NewYork'
-} 
-```
-Write merge function which will take two object and add all the own property of second object into first object.
-
-```js
-merge(person , address); 
- 
-/* Now person should have 5 properties 
-name , age , addressLine1 , addressLine2 , city */
-```
-**Method 1: Using ES6, Object.assign method**
-
-```js
-const merge = (toObj, fromObj) => Object.assign(toObj, fromObj);
-```
- 
-**Method 2: Without using built-in function**
-
-```js
-function merge(toObj, fromObj) {
-  // Make sure both of the parameter is an object
-  if (typeof toObj === 'object' && typeof fromObj === 'object') {
-    for (var pro in fromObj) {
-      // Assign only own properties not inherited properties
-      if (fromObj.hasOwnProperty(pro)) {
-        // Assign property and value
-        toObj[pro] = fromObj[pro];
-      }
-    }
-  }else{
-  	throw "Merge function can apply only on object";
-  }
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you check if a key exists in an object?***
 
 **a.) Using in operator:** You can use the in operator whether a key exists in an object or not
