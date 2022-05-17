@@ -4831,7 +4831,7 @@ In JavaScript, some built-in types (numbers, strings) are immutable, but custom 
 
 Here are a few ways to add/simulate immutability on plain JavaScript objects.
 
-**Object Constant Properties:**
+**1. Object Constant Properties:**
 
 By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
 
@@ -4849,7 +4849,7 @@ myObject.number = 20;
 console.log(myObject.number); // 10
 ```
 
-**Prevent Extensions:**
+**2. Prevent Extensions:**
 
 If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
 
@@ -4866,20 +4866,20 @@ myObject.b; // undefined
 
 In non-strict mode, the creation of `b` fails silently. In strict mode, it throws a `TypeError`.
 
-**Seal:**
+**3. Seal:**
 
 `Object.seal()` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions()` on it, but also marks all its existing properties as `configurable: false`.
 
 So, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties (though you can still modify their values).
 
-**Freeze:**
+**4. Freeze:**
 
 `Object.freeze()` creates a frozen object, which means it takes an existing object and essentially calls `Object.seal()` on it, but it also marks all "data accessor" properties as writable:false, so that their values cannot be changed.
 
 This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).
 
 ```js
-var immutable = Object.freeze({});
+const immutable = Object.freeze({});
 ```
 
 Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. `Object.freeze()` preserves the enumerability, configurability, writability and the prototype of the object. It returns the passed object and does not create a frozen copy.
