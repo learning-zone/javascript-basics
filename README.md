@@ -4993,14 +4993,70 @@ Here, each instance variable `emp1`, `emp2` has own copy of `formatSalary` metho
 
 ## Q. ***How do you compare Object and Map?***
 
-**Objects** are similar to **Maps** in that both let you set keys to values, retrieve those values, delete keys, and detect whether something is stored at a key. Due to this reason, Objects have been used as Maps historically. But there are important differences that make using a Map preferable in certain cases.
+**1. Object:**
 
-1. The keys of an Object are Strings and Symbols, whereas they can be any value for a Map, including functions, objects, and any primitive.
-2. The keys in Map are ordered while keys added to object are not. Thus, when iterating over it, a Map object returns keys in order of insertion.
-3. You can get the size of a Map easily with the size property, while the number of properties in an Object must be determined manually.
-4. A Map is an iterable and can thus be directly iterated, whereas iterating over an Object requires obtaining its keys in some fashion and iterating over them.
-5. An Object has a prototype, so there are default keys in the map that could collide with your keys if you're not careful. As of ES5 this can be bypassed by using map = Object.create(null), but this is seldom done.
-6. A Map may perform better in scenarios involving frequent addition and removal of key pairs.
+A data structure in which data is stored as key value pairs. In an object the key has to be a number, string, or symbol. The value can be anything so also other objects, functions, etc. An object is a **nonordered** data structure, i.e. the sequence of insertion of key value pairs is not remembered.
+
+**Example:**
+
+```js
+// Object() 
+
+let obj = {};
+
+// adding properties to a object
+obj.prop = 10;
+obj[2] = 20;
+
+// getting nr of properties of the object
+Object.keys(obj).length; // 2
+
+// deleting a property
+delete obj[2];
+
+obj; // {prop: 10}
+```
+
+**2. ES6 Map:**
+
+A data structure in which data is stored as key value pairs. In which **a unique key maps to a value**. Both the key and the value can be in **any data type**. A map is an iterable data structure. This means that the sequence of insertion is remembered and that we can access the elements in e.g. a `for..of` loop.
+
+**Example:**
+
+```js
+// Map() 
+
+const myMap = new Map();
+
+const keyString = "a string",
+  keyObj = {},
+  keyFunc = function () {};
+
+// setting the values
+myMap.set(keyString, "value associated with 'a string'");
+myMap.set(keyObj, "value associated with keyObj");
+myMap.set(keyFunc, "value associated with keyFunc");
+
+myMap.size; // 3
+
+// getting the values
+myMap.get(keyString); // "value associated with 'a string'"
+myMap.get(keyObj); // "value associated with keyObj"
+myMap.get(keyFunc); // "value associated with keyFunc"
+
+myMap.get("a string"); // "value associated with 'a string'"
+// because keyString === 'a string'
+myMap.get({}); // undefined, because keyObj !== {}
+myMap.get(function () {}); // undefined, because keyFunc !== function () {}
+```
+
+**Key differences:**
+
+* A `Map` is ordered and iterable, whereas a objects is not ordered and not iterable
+* We can put any type of data as a `Map` key, whereas objects can only have a number, string, or symbol as a key.
+* A `Map` inherits from `Map.prototype`. This offers all sorts of utility functions and properties which makes working with `Map` objects a lot easier.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-vs-map-iodiyv?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
