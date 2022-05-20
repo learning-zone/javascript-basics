@@ -5332,6 +5332,8 @@ ToDo
 
 # # WINDOW/DOCUMENT OBJECT
 
+<br/>
+
 ## Q. ***What is the difference between window and document?***
 
 The window is the first thing that gets loaded into the browser. This window object has the majority of the properties like length, innerWidth, innerHeight, name, if it has been closed, its parents, and more.
