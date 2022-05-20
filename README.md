@@ -4956,10 +4956,13 @@ const alienAditya = { ...aditya, race: "alien" }; // {race: "alien", name: "Adit
 
 ## Q. ***What is the drawback of declaring methods directly in JavaScript objects?***
 
-One of the drawback of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object. Let us see it on example:
+One of the drawback of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object.
+
+**Example:**
 
 ```js
-const Employee = function (name, company, salary) {
+const Employee = function (name, company, salary) 
+{
   this.name = name || "";
   this.company = company || "";
   this.salary = salary || 5000;
@@ -4980,7 +4983,7 @@ let emp1 = new Employee("Yuri Garagin", "Company 1", 1000);
 let emp2 = new Employee("Dinesh Gupta", "Company 2", 2000);
 ```
 
-Here each instance variable `emp1`, `emp2` has own copy of `formatSalary` method. However the `formatSalary2` will only be added once to an object `Employee.prototype`.
+Here, each instance variable `emp1`, `emp2` has own copy of `formatSalary` method. However the `formatSalary2` will only be added once to an object `Employee.prototype`.
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-class-object-96mc2r?file=/src/index.js)**
 
