@@ -4825,7 +4825,7 @@ In JavaScript numbers, strings, null, undefined and Booleans are primitive types
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is an example of an immutable object in JavaScript?***
+## Q. ***How to create immutable object in javascript***
 
 In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable. Some built-in immutable JavaScript objects are `Math`, `Date`.
 
@@ -4851,38 +4851,77 @@ console.log(myObject.number); // 10
 
 **2. Prevent Extensions:**
 
-If you want to prevent an object from having new properties added to it, but otherwise leave the rest of the object's properties alone, call `Object.preventExtensions(...)`:
+This method prevents the addition of new properties to our existing object. `preventExtensions()` is a irreversible operation. We can never add extra properties to the object again.
 
 ```js
-let myObject = {
-  a: 10
+const myCar = {
+  maxSpeed: 250,
+  batteryLife: 300,
+  weight: 123
 };
 
-Object.preventExtensions(myObject);
+Object.isExtensible(myCar); // true
+Object.preventExtensions(myCar);
 
-myObject.b = 20;
-myObject.b; // undefined
+Object.isExtensible(myCar); // false
+myCar.color = 'blue';
+console.log(myCar.color) // undefined
 ```
-
-In non-strict mode, the creation of `b` fails silently. In strict mode, it throws a `TypeError`.
 
 **3. Seal:**
 
-`Object.seal()` creates a "sealed" object, which means it takes an existing object and essentially calls `Object.preventExtensions()` on it, but also marks all its existing properties as `configurable: false`.
+It prevents additions or deletion of properties. `seal()` also prevents the modification of property descriptors.
 
-So, not only can you not add any more properties, but you also cannot reconfigure or delete any existing properties (though you can still modify their values).
+**Example:**
+
+```js
+const myCar = {
+  maxSpeed: 250,
+  batteryLife: 300,
+  weight: 123
+};
+
+Object.isSealed(myCar); // false
+Object.seal(myCar);
+Object.isSealed(myCar); // true
+
+myCar.color = 'blue';
+console.log(myCar.color); // undefined
+
+delete myCar.batteryLife; // false
+console.log(myCar.batteryLife); // 300
+
+Object.defineProperty(myCar, 'batteryLife'); // TypeError: Cannot redefine property: batteryLife
+```
 
 **4. Freeze:**
 
-`Object.freeze()` creates a frozen object, which means it takes an existing object and essentially calls `Object.seal()` on it, but it also marks all "data accessor" properties as writable:false, so that their values cannot be changed.
+It does the same that `Object.seal()` plus it makes the properties non-writable.
 
-This approach is the highest level of immutability that you can attain for an object itself, as it prevents any changes to the object or to any of its direct properties (though, as mentioned above, the contents of any referenced other objects are unaffected).
+**Example:**
 
 ```js
-const immutable = Object.freeze({});
-```
+const myCar = {
+  maxSpeed: 250,
+  batteryLife: 300,
+  weight: 123
+};
 
-Freezing an object does not allow new properties to be added to an object and prevents from removing or altering the existing properties. `Object.freeze()` preserves the enumerability, configurability, writability and the prototype of the object. It returns the passed object and does not create a frozen copy.
+Object.isFrozen(myCar); // false
+Object.freeze(myCar);
+Object.isFrozen(myCar); // true
+
+myCar.color = 'blue';
+console.log(myCar.color); // undefined
+
+delete myCar.batteryLife;
+console.log(myCar.batteryLife); // 300
+
+Object.defineProperty(myCar, 'batteryLife'); // TypeError: Cannot redefine property: batteryLife
+
+myCar.batteryLife = 400;
+console.log(myCar.batteryLife); // 300
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
