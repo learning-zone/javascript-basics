@@ -4835,6 +4835,8 @@ Here are a few ways to add/simulate immutability on plain JavaScript objects.
 
 By combining `writable: false` and `configurable: false`, you can essentially create a constant (cannot be changed, redefined or deleted) as an object property, like:
 
+**Example:**
+
 ```js
 let myObject = {};
 
@@ -4852,6 +4854,8 @@ console.log(myObject.number); // 10
 **2. Prevent Extensions:**
 
 This method prevents the addition of new properties to our existing object. `preventExtensions()` is a irreversible operation. We can never add extra properties to the object again.
+
+**Example:**
 
 ```js
 const myCar = {
