@@ -5121,7 +5121,7 @@ console.log(newObj); // { a: 10, b: { c: 20 } }
 
 ## Q. ***How do you check if a key exists in an object?***
 
-**1. Using in operator:**
+**1. Using `in` operator:**
 
 You can use the in operator whether a key exists in an object or not
 
@@ -5139,7 +5139,7 @@ const obj = { not_key: undefined };
 console.log(!("key" in obj)); // true if "key" doesn't exist in object
 ```
 
-**2. Using hasOwnProperty method:**
+**2. Using `hasOwnProperty()` method:**
 
 You can use `hasOwnProperty` to particularly test for properties of the object instance (and not inherited properties)
 
@@ -5195,7 +5195,7 @@ Object.entries(obj).length === 0 && obj.constructor === Object
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is use of Proxies in es6?
+## Q. What is use of Proxies in es6 Class?
 
 The Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc).
 
