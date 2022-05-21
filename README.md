@@ -5195,7 +5195,7 @@ Object.entries(obj).length === 0 && obj.constructor === Object
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is use of Proxies in es6 Class?
+## Q. ***What is a proxy object?***
 
 The `Proxy` object allows to create an object that can be used in place of the original object, but which may redefine fundamental `Object` operations like getting, setting, and defining properties. 
 
@@ -5265,69 +5265,26 @@ There are many real-world applications for Proxies
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a proxy object?***
+## Q. ***What is Reflection in JavaScript?***
 
-The Proxy object is used to define custom behavior for fundamental operations such as property lookup, assignment, enumeration, function invocation, etc. The syntax would be as follows,
+Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object. `Reflect` helps with forwarding default operations from the handler to the target.
+
 ```js
-var p = new Proxy(target, handler);
+// Math.max()
+let number = Reflect.apply(Math.max, Math, [10, 20, 30]);
+console.log(number); // 30
+
+// FromCharCode()
+let string = Reflect.apply(String.fromCharCode, undefined, [ 104, 101, 108, 108, 111]); // "hello"
+console.log(string); // "hello"
+
+// RegExp()
+let index = Reflect.apply(RegExp.prototype.exec, /o/, ["Hello"]).index;
+console.log(index); // 4
 ```
-Let us take an example of proxy object,
-```js
-var handler = {
-    get: function(obj, prop) {
-        return prop in obj ?
-            obj[prop] :
-            100;
-    }
-};
 
-var p = new Proxy({}, handler);
-p.a = 10;
-p.b = null;
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-reflection-nwgjhg?file=/src/index.js)**
 
-console.log(p.a, p.b); // 10, null
-console.log('c' in p, p.c); // false, 100
-```
-In the above code, it uses `get` handler which define the behavior of the proxy when an operation is performed on it
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is Proxies and Reflection in JavaScript?***
-
-JavaScript support for the Proxy and Reflect objects allowing you to intercept and define custom behavior for fundamental language operations (e.g. property lookup, assignment, enumeration, function invocation, etc). 
-
-**1. Proxies**
-
-The `Proxy` object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc). For example getting a property on an object:
-```js
-var handler = {
-  get: function(target, name) {
-    return name in target ? target[name] : 42;
-  }
-};
-
-var p = new Proxy({}, handler);
-p.a = 1;
-console.log(p.a, p.b); // 1, 42
-```
-The Proxy object defines a target (an empty object here) and a handler object in which a get trap is implemented. Here, an object that is proxied will not return undefined when getting undefined properties, but will instead return the number 42.
-
-**2. Reflection**
-
-Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object.
-
-`Reflect` helps with forwarding default operations from the handler to the target.
-```js
-Reflect.apply(Math.floor, undefined, [1.75]); // 1;
-
-Reflect.apply(String.fromCharCode, undefined, [104, 101, 108, 108, 111]); // "hello"
-
-Reflect.apply(RegExp.prototype.exec, /ab/, ['confabulation']).index; // 4
-
-Reflect.apply(''.charAt, 'ponies', [3]); // "i"
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
