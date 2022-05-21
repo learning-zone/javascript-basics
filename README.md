@@ -5269,6 +5269,8 @@ There are many real-world applications for Proxies
 
 Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object. `Reflect` helps with forwarding default operations from the handler to the target.
 
+**Example:**
+
 ```js
 // Math.max()
 let number = Reflect.apply(Math.max, Math, [10, 20, 30]);
