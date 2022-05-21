@@ -5298,10 +5298,10 @@ You can use `new Date()` to generate a new Date object containing the current da
 Example:
 
 ```js
-var today = new Date();
-var dd = String(today.getDate()).padStart(2, '0');
-var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-var yyyy = today.getFullYear();
+let today = new Date();
+let dd = String(today.getDate()).padStart(2, '0');
+let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
+let yyyy = today.getFullYear();
 
 today = mm + '/' + dd + '/' + yyyy;
 document.write(today);
@@ -5316,7 +5316,7 @@ document.write(today);
 There are two possible solutions to add new properties to an object. Let us take a simple object to explain these solutions.
 
 ```js
-var object = {
+const object = {
     key1: value1,
     key2: value2
 };
@@ -5333,57 +5333,6 @@ object.key3 = "value3";
 ```js
 obj["key3"] = "value3";
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is non-enumerable property in JavaScript and how you can create one?***
-
-Object can have properties that don\'t show up when you iterate through object using for...in loop or using Object.keys() to get an array of property names. This properties is know as non-enumerable properties.
-
-Let say we have following object
-
-```js
-var person = {
-	name: 'John'
-};
-person.salary = '10000$';
-person['country'] = 'USA';
-
-console.log(Object.keys(person)); // ['name', 'salary', 'country']
-```
-As we know that person object properties `name`, `salary` ,`country` are enumerable hence It is shown up when we called Object.keys(person).
-
-To create a non-enumerable property we have to use **Object.defineProperty()**. This is a special method for creating non-enumerable property in JavaScript.
-
-```js
-var person = {
-	name: 'John'
-};
-person.salary = '10000$';
-person['country'] = 'USA';
-
-// Create non-enumerable property
-Object.defineProperty(person, 'phoneNo',{
-	value : '8888888888',
-	enumerable: false
-})
-
-Object.keys(person); // ['name', 'salary', 'country']
-```
-In the example above `phoneNo` property didn\'t show up because we made it non-enumerable by setting **enumerable:false**
-
-Now Let us try to change value of `phoneNo`
-
-```js
-person.phoneNo = '7777777777'; 
-```
-Changing non-enumerable property value will return error in `strict mode`. In non-strict mode it won\'t through any error but it won\'t change the value of phoneNo.
-
-**Bonus**
-
-**Object.defineProperty()** is also let you create read-only properties as we saw above, we are not able to modify phoneNo value of a person object.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
