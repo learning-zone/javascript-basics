@@ -5295,7 +5295,7 @@ console.log(index); // 4
 
 You can use `new Date()` to generate a new Date object containing the current date and time. 
 
-Example:
+**Example:**
 
 ```js
 let today = new Date();
@@ -5356,7 +5356,20 @@ console.log(Object.isExtensible(newObject)); //true
 
 ## Q. ***How to compare two objects in javascript?***
 
-ToDo
+Objects are reference types so you can\'t just use `===` or `==` to compare 2 objects. One quick way to compare if 2 objects have the same key value, is using `JSON.stringify()`. Another way is using Lodash `.isEqual()` function.
+
+**Example:**
+
+```js
+const obj1 = { id: 100 };
+const obj2 = { id: 100 };
+
+// Using JavaScript
+JSON.stringify(obj1) === JSON.stringify(obj2); // true
+
+// Using Lodash
+_.isEqual(obj1, obj2); // true
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
