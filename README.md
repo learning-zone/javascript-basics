@@ -257,6 +257,10 @@ console.log(add(10, 20)); // 30
 **7. Arrow function with `this`**
 
 ```js
+/**
+ * Using ES5
+ * 
+ **/
 var person = {
   name: "Diksha",
   actions: ["bike", "hike", "ski", "surf"],
@@ -270,7 +274,10 @@ var person = {
 };
 person.printActions();
 
-// Arrow function
+/**
+ * Using Arrow function
+ * 
+ **/
 let person = {
   name: "Diksha",
   actions: ["bike", "hike", "ski", "surf"],
@@ -882,7 +889,7 @@ There are eight basic data types in JavaScript.
 * Double quotes: "Hello"
 * Backticks: \`Hello\`
 
-Example:
+**Example:**:
 
 ```js
 // Strings
@@ -6841,7 +6848,7 @@ Syntax:
 var mySet = new Set([iterable]);
 ```
 
-Example:
+**Example:**:
 
 ```js
 var mySet= new Set([0,1]);
@@ -6871,7 +6878,7 @@ Syntax:
 var myWeakSet = new WeakSet([iterable with only objects]);
 ```
 
-Example:
+**Example:**:
 
 ```js
 var myWeakSet = new WeakSet([{a:1}]);
@@ -8879,6 +8886,7 @@ self.addEventListener('fetch', function(event) {
 Service worker can\'t access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
 
 **Example:** service-worker.html
+
 ```html
 <!doctype html>
 <html>
@@ -9119,6 +9127,7 @@ function myFunction() {
 ## Q. ***What is a decorator?***
 
 A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. Let us define admin decorator for user class at design time,
+
 ```js
 function admin(isAdmin) {
   return function(target) {
@@ -9136,6 +9145,7 @@ class User() {
 }
 console.log(User.isAdmin); //false
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -9144,10 +9154,13 @@ console.log(User.isAdmin); //false
 
 The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
 Syntax
+
 ```js
 var myHeaders = request.headers;
 ```
-Example
+
+**Example:**
+
 ```js
 var myHeaders = new Headers();
 myHeaders.append('Content-Type', 'image/jpeg');
@@ -9162,6 +9175,7 @@ var myInit = {
 var myRequest = new Request('flowers.jpg', myInit);
 myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -9183,6 +9197,7 @@ The main responsibility of the rendering engine is to display the requested page
 Rendering engines can display HTML and XML documents and images. 
 
 Similar to the JavaScript engines, different browsers use different rendering engines as well. These are some of the popular ones:
+
 * **Gecko** — Firefox
 * **WebKit** — Safari
 * **Blink** — Chrome, Opera (from version 15 onwards)
@@ -9210,6 +9225,7 @@ The first step of the rendering engine is parsing the HTML document and converti
   </body>
 </html>
 ```
+
 The DOM tree for this HTML will look like this:
 
 <img src="assets/html-dom-tree.png" alt="HTML DOM Tree" />
@@ -9218,7 +9234,8 @@ Basically, each element is represented as the parent node to all of the elements
 
 **Constructing the CSSOM tree**
 
-CSSOM refers to the CSS Object Model. While the browser was constructing the DOM of the page, it encountered a link tag in the head section which was referencing the external theme.css CSS style sheet. Anticipating that it might need that resource to render the page, it immediately dispatched a request for it. Let’s imagine that the theme.css file has the following contents:
+CSSOM refers to the CSS Object Model. While the browser was constructing the DOM of the page, it encountered a link tag in the head section which was referencing the external theme.css CSS style sheet. Anticipating that it might need that resource to render the page, it immediately dispatched a request for it. Let\'s imagine that the theme.css file has the following contents:
+
 ```css
 body { 
   font-size: 16px;
@@ -9240,6 +9257,7 @@ img {
   float: right; 
 }
 ```
+
 As with the HTML, the engine needs to convert the CSS into something that the browser can work with — the CSSOM. Here is how the CSSOM tree will look like:
 
 <img src="assets/css-dom-tree.png" alt="CSS DOM Tree" />
@@ -9280,15 +9298,18 @@ Collections are always used when access has to be provided to multiple nodes, e.
 **Attribute Node**
 
 Refers to the attributes of an element node.  
+
 ```js
 // html: <div id=”my-id” /> 
 let element = document.getElementById(“my-id”); 
 let myIdAttribute = element.getAttributeNode(“id”); 
 console.log(myIdAttribute); // output: my-id
 ```
+
 **Text Node**
 
 Refers to the text of an element.
+
 ```js
 // html: <div id=”my-id”></div>
 let element = document.getElementById(“my-id”);
@@ -9296,11 +9317,13 @@ let text = document.createTextNode(“Some Text”);
 element.appendChild(text);
 // updated html: <div id=”my-id”>Some Text</div>
 ```
+
 **Comment Node**
 
 ```js
 <!-- This is what a comment node looks like -->
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -9310,7 +9333,8 @@ element.appendChild(text);
 The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
 
 The problem with regular recursion is that every recursive call adds a stack frame to the call stack, which you can visualize as a **pyramid** of calls. Here is a visualization of calling a factorial function recursively:
-```
+
+```js
 (factorial 3)
 (* 3 (factorial 2))
 (* 3 (* 2 (factorial 1)))
@@ -9320,7 +9344,9 @@ The problem with regular recursion is that every recursive call adds a stack fra
 (* 3 2)
 6
 ```
+
 Here is a visualization of the stack where each vertical dash is a stack frame:
+
 ```
          ---|---
       ---|     |---
@@ -9330,7 +9356,8 @@ Here is a visualization of the stack where each vertical dash is a stack frame:
 The problem is that the stack has limited size, and stacking up these stack frames can overflow the stack. Depending on the stack size, a calculation of a larger factorial would overflow the stack. That is why regular recursion in Javascript could be considered dangerous.
 
 An optimal execution model would be something like a **trampoline** instead of a **pyramid**, where each recursive call is executed in place, and does not stack up on the call stack. That execution in languages supporting tail call optimization could look like:
-```
+
+```js
 (fact 3)
 (fact-tail 3 1)
 (fact-tail 2 3)
@@ -9338,20 +9365,24 @@ An optimal execution model would be something like a **trampoline** instead of a
 (fact-tail 0 6)
 6
 ```
+
 You can visualize the stack like a bouncing trampoline:
-```
+
+```js
    ---|---   ---|---   ---|---
 ---      ---       ---       
 ```
+
 This is clearly better since the stack has always only one frame, and from the visualization you can also see why it is called a trampoline. This prevents the stack from overflowing.
 
-Since we don't have the luxury of `tail call optimization` in Javascript, we need to figure out a way to turn regular recursion into an optimized version that will execute in trampoline-fashion.
+Since we don\'t have the luxury of `tail call optimization` in Javascript, we need to figure out a way to turn regular recursion into an optimized version that will execute in trampoline-fashion.
 
 One obvious way is to **get rid of recursion**, and rewrite the code to be iterative.
 
 When that is not possible we need a bit more complex code where instead of executing directly the recursive steps, we will utilize `higher order functions` to return a wrapper function instead of executing the recursive step directly, and let another function control the execution.
 
 In your example, the **repeat** function wraps the regular recursive call with a function, and it returns that function instead of executing the recursive call:
+
 ```js
 function repeat(operation, num) {
     return function() {
@@ -9361,7 +9392,9 @@ function repeat(operation, num) {
     }
 }
 ```
+
 The returned function is the next step of recursive execution and the trampoline is a mechanism to execute these steps in a controlled and iterative fashion in the while loop:
+
 ```js
 function trampoline(fn) {
     while(fn && typeof fn === 'function') {
@@ -9369,6 +9402,7 @@ function trampoline(fn) {
     }
 }
 ```
+
 So the sole purpose of the trampoline function is to control the execution in an iterative way, and that ensures the stack to have only a single stack frame on the stack at any given time.
 
 Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
@@ -9383,24 +9417,27 @@ Debouncing and throttling techniques are used to limit the number of times a fun
 
 **Throttling** enforces a maximum number of times a function can be called over time. As in "execute this function at most once every 100 milliseconds."
 
-Example:
+**Example:**
+
 ```js
 $("body").on('scroll', _.throttle(function() {
   // Do expensive things
 }, 100));
 ```
+
 **Debouncing** enforces that a function not be called again until a certain amount of time has passed without it being called. As in "execute this function only if 100 milliseconds have passed without it being called."
 
-Example:
+**Example:**
+
 ```js
 $(window).on('resize', _.debounce(function() {
   // Do expensive things
 }, 100));
 ```
 
-**Example: Use Case**  
+**Use Case**  
 
-* Throttling a button click so we can't spam click
+* Throttling a button click so we can\'t spam click
 * Throttling an API call
 * Throttling a mousemove event handler
 * Debouncing a resize event handler
