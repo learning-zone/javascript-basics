@@ -5197,47 +5197,69 @@ Object.entries(obj).length === 0 && obj.constructor === Object
 
 ## Q. What is use of Proxies in es6 Class?
 
-The Proxy object is used to define custom behavior for fundamental operations (e.g. property lookup, assignment, enumeration, function invocation, etc).
+The `Proxy` object allows to create an object that can be used in place of the original object, but which may redefine fundamental `Object` operations like getting, setting, and defining properties. 
 
-There are 3 key terms we need to define before we proceed:
+Proxy objects are commonly used to log property accesses, validate, format, or sanitize inputs, and so on. 
 
-* **handler** — the placeholder object which contains the trap(s)
-* **traps** — the method(s) that provide property access
-* **target** — object which the proxy virtualizes
+**Syntax:**
 
-Syntax
 ```js
-const p = new Proxy(target, handler)
+const proxy = new Proxy(target, handler)
 ```
-Example:
+
+In this syntax:
+
+* **target**: is an object to wrap.
+* **handler**:  is an object that contains methods to control the behaviors of the `target`.
+
+**Example:**
+
 ```js
+// define an object called user
+const user = {
+  firstName: "Aniket",
+  lastName: "Narula",
+  email: "aniket.narula@email.com"
+};
+
+// define a handler object:
 const handler = {
-  get: function(obj, prop) {
-    return prop in obj ?
-      obj[prop] :
-      37;
+  get(target, property) {
+    console.log(`Property ${property} has been read.`);
+    return target[property];
   }
 };
 
-const p = new Proxy({}, handler);
-p.a = 1;
-p.b = undefined;
+// create a proxy object:
+const proxyUser = new Proxy(user, handler);
 
-console.log(p.a, p.b); 
-//  1, undefined
+console.log(proxyUser.firstName);
+console.log(proxyUser.lastName);
 
-console.log('c' in p, p.c); 
-//  false, 37
+// Output
+Property firstName has been read.
+Aniket
+Property lastName has been read.
+Narula
+
+user.firstName = 'Sonam';
+console.log(proxyUser.firstName);
+
+// Output
+Property firstName has been read.
+Sonam
 ```
 
 There are many real-world applications for Proxies
 
-* validation
-* value correction
-* property lookup extensions
-* tracing property accesses
-* revocable references
-* implementing the DOM in javascript
+* Validation
+* Value correction
+* Property lookup extensions
+* Tracing property accesses
+* Revocable references
+* Implementing the DOM in javascript
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-in-operator-3fxd3h?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
