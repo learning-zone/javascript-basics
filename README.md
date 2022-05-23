@@ -5305,6 +5305,8 @@ You can use `new Date()` to generate a new Date object containing the current da
 **Example:**
 
 ```js
+// Current Date
+
 let today = new Date();
 let dd = String(today.getDate()).padStart(2, '0');
 let mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -5313,6 +5315,8 @@ let yyyy = today.getFullYear();
 today = mm + '/' + dd + '/' + yyyy;
 document.write(today);
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-date-nzwk0c?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -5350,12 +5354,22 @@ obj["key3"] = "value3";
 The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
 
 ```js
-const newObject = {};
+// Validate object is extendable or not
 
-console.log(Object.isExtensible(newObject)); //true
+const person = {
+  firstName: "Sima",
+  lastName: "Chander",
+  email: "sima.chander@email.com"
+};
+console.log(Object.isExtensible(person)); //true
+
+Object.preventExtensions(person);
+console.log(Object.isExtensible(person)); // false
 ```
 
 *Note: By default, all the objects are extendable. i.e, The new properties can added or modified.*
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-isextensible-xz0ygi?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
