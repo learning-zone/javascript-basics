@@ -5392,6 +5392,8 @@ JSON.stringify(obj1) === JSON.stringify(obj2); // true
 _.isEqual(obj1, obj2); // true
 ```
 
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-comparison-w3o578?file=/src/index.js)**
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
