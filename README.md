@@ -5404,9 +5404,95 @@ _.isEqual(obj1, obj2); // true
 
 ## Q. ***What is the difference between window and document object?***
 
-The window is the first thing that gets loaded into the browser. This window object has the majority of the properties like length, innerWidth, innerHeight, name, if it has been closed, its parents, and more.
+**1. Window Object**: 
 
-The document object is html, aspx, php, or other document that will be loaded into the browser. The document actually gets loaded inside the window object and has properties available to it like title, URL, cookie, etc.
+The window object is the topmost object of the DOM hierarchy. It represents a browser window or frame that displays the contents of the webpage. Whenever a window appears on the screen to display the contents of the document, the window object is created.
+
+**Syntax:**
+
+```js
+window.property_name;
+```
+
+**Window Object Properties:**
+
+|Property	        |Description                            |
+|-----------------|---------------------------------------|
+|closed	          |Returns a boolean true if a window is closed.|
+|console	        |Returns the Console Object for the window.|
+|document	        |Returns the Document object for the window.|
+|frames	          |Returns all window objects running in the window.|
+|history	        |Returns the History object for the window.|
+|innerHeight	    |Returns the height of the window's content area (viewport) including scrollbars|
+|innerWidth	      |Returns the width of a window's content area (viewport) including scrollbars|
+|localStorage	    |Allows to save key/value pairs in a web browser. Stores the data with no expiration date|
+|location	        |Returns the Location object for the window.|
+|navigator	      |Returns the Navigator object for the window.|
+|opener	          |Returns a reference to the window that created the window|
+|outerHeight	    |Returns the height of the browser window, including toolbars/scrollbars|
+|outerWidth     	|Returns the width of the browser window, including toolbars/scrollbars|
+|pageXOffset	    |Returns the pixels the current document has been scrolled (horizontally) from the upper left corner of the window|
+|pageYOffset	    |Returns the pixels the current document has been scrolled (vertically) from the upper left corner of the window|
+|parent	          |Returns the parent window of the current window|
+|screen	          |Returns the Screen object for the window|
+|screenLeft	      |Returns the horizontal coordinate of the window relative to the screen|
+|screenTop	      |Returns the vertical coordinate of the window relative to the screen|
+|screenX	        |Returns the horizontal coordinate of the window relative to the screen|
+|screenY	        |Returns the vertical coordinate of the window relative to the screen|
+|sessionStorage	  |Allows to save key/value pairs in a web browser. Stores the data for one session|
+|scrollX	        |An alias of pageXOffset|
+|scrollY	        |An alias of pageYOffset|
+|self	            |Returns the current window|
+|top	            |Returns the topmost browser window|
+
+**2. Document Object:** 
+
+The document object represent a web page that is loaded in the browser. By accessing the document object, we can access the element in the HTML page. The document object can be accessed with a `window.document` or just `document`.
+
+**Syntax:**
+
+```js
+document.property_name;
+```
+
+**Document Object Properties:**
+
+|Property       	    |Description                         |
+|---------------------|------------------------------------|
+|addEventListener()	  |Attaches an event handler to the document|
+|baseURI	            |Returns the absolute base URI of a document|
+|body	                |Sets or returns the document's body (the `<body>` element)|
+|characterSet	        |Returns the character encoding for the document|
+|close()	            |Closes the output stream previously opened with document.open()|
+|cookie	              |Returns all name/value pairs of cookies in the document|
+|createAttribute()	  |Creates an attribute node|
+|createElement()	    |Creates an Element node|
+|createEvent()	      |Creates a new event|
+|createTextNode()	    |Creates a Text node|
+|defaultView	        |Returns the window object associated with a document, or null if none is available.|
+|designMode	          |Controls whether the entire document should be editable or not.|
+|doctype            	|Returns the Document Type Declaration associated with the document|
+|documentElement	    |Returns the Document Element of the document (the <html> element)|
+|documentURI	        |Sets or returns the location of the document|
+|forms	              |Returns a collection of all `<form>` elements in the document|
+|getElementById()	    |Returns the element that has the ID attribute with the specified value|
+|getElementsByClassName()|	Returns an HTMLCollection containing all elements with the specified class name|
+|getElementsByName()	|Returns an live NodeList containing all elements with the specified name|
+|getElementsByTagName()|	Returns an HTMLCollection containing all elements with the specified tag name|
+|images	              |Returns a collection of all `<img>` elements in the document|
+|normalize()	        |Removes empty Text nodes, and joins adjacent nodes|
+|open()	              |Opens an HTML output stream to collect output from document.write()|
+|querySelector()	    |Returns the first element that matches a specified CSS selector(s) in the document|
+|querySelectorAll()	  |Returns a static NodeList containing all elements that matches a specified CSS selector(s) in the document|
+|readyState	          |Returns the (loading) status of the document|
+|referrer	            |Returns the URL of the document that loaded the current document|
+|removeEventListener()|Removes an event handler from the document (that has been attached with the addEventListener() method)|
+|title	              |Sets or returns the title of the document|
+|URL	                |Returns the full URL of the HTML document|
+|write()	            |Writes HTML expressions or JavaScript code to a document|
+|writeln()	          |Same as write(), but adds a newline character after each statement|
+
+**Difference:**
 
 | Window | Document |
 |------- | ---------|
