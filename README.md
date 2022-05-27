@@ -5506,18 +5506,45 @@ document.property_name;
 
 ## Q. ***How do you access history in javascript?***
 
-The `window.history` object contains the browsers history. You can load previous and next URLs in the history using `back()` and `next()` methods.
+The `window.history` object allows you to access the history stack of the browser. To navigate to a URL in the history, you use the `back()`, `forward()`, and `go()` methods. The `history.length` returns the number of URLs in the history stack.
+
+**1. Move backward:**
 
 ```js
-function goBack() {
-  window.history.back()
-}
-function goForward() {
-  window.history.forward()
-}
+window.history.back();
+
+// Or
+
+history.back();
 ```
 
-*Note: You can also access history without window prefix*.
+**2. Move forward:**
+
+```js
+history.forward();
+```
+
+**3. Move to a specific URL in the history:**
+
+To move to a specific URL in the history stack, you use the `go()` method. The `go()` method accepts an integer that is the relative position to the current page. The current page\'s position is `0`.
+
+```js
+// to move backward a page
+history.go(-1);
+
+// To move forward a page
+history.go(1)
+
+// To refresh the current page
+history.go(0);
+history.go();
+```
+
+**4. Check history stack:**
+
+```js
+history.length
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
