@@ -5554,9 +5554,25 @@ history.length
 
 The `window.navigator` object contains information about the visitor\'s browser os details. Some of the OS properties are avaialble under platform property,
 
+**Example:**
+
 ```js
-console.log(navigator.platform);
+let OS = "Unknown";
+
+if (navigator.userAgent.indexOf("Win") !== -1) OS = "Windows";
+if (navigator.userAgent.indexOf("Mac") !== -1) OS = "MacOS";
+if (navigator.userAgent.indexOf("X11") !== -1) OS = "UNIX";
+if (navigator.userAgent.indexOf("Linux") !== -1) OS = "Linux";
+
+console.log(OS);
+console.log(navigator.userAgent);
+
+// Output
+Windows
+VM87:8 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/101.0.0.0 Safari/537.36
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-os-details-lzppo0?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
