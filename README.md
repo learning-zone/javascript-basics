@@ -5582,6 +5582,10 @@ VM87:8 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
 
 The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
 
+<p align="center">
+  <img src="assets/browser-object-model.png" alt="Browser Object Model" />
+</p>
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
