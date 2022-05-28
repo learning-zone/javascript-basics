@@ -5592,13 +5592,17 @@ The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It co
 
 ## Q. ***How do you redirect new page in javascript?***
 
-In vanilla javascript, you can redirect to a new page using `location` property of window object. The syntax would be as follows,
+To redirect to a new URL or page, you assign the new URL to the `location.href` property or use the `location.assign()` method. The `location.replace()` method does redirect to a new URL but does not create an entry in the history stack of the browser.
+
+**Example:**
 
 ```js
 function redirect() {
   window.location.href = 'newPage.html';
 }
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-page-redirect-xc7221?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
