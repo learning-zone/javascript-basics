@@ -5638,14 +5638,66 @@ console.log('location.href', window.location.href); // Returns full URL
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do get query string values in javascript?***
+## Q. ***How to get query string values in javascript?***
 
-You can use URLSearchParams to get query string values in javascript. Let us see an example to get the client code value from URL query string,
+The `URLSearchParams()` provides an interface to work with query string parameters. The `has()` method of the `URLSearchParams()` determines if a parameter with a specified name exists.
+
+**Example:**
 
 ```js
 const urlParams = new URLSearchParams(window.location.search);
 const clientCode = urlParams.get('clientCode');
 ```
+
+The URLSearchParams has some useful methods that return iterators of parameter keys, values, and entries:
+
+* **keys()** returns an iterator that iterates over the parameter keys.
+* **values()** returns an iterator that iterates over the parameter values.
+* **entries()** returns an iterator that iterates over the (key, value) pairs of the parameters.
+
+**Example:** keys()
+
+```js
+const urlParams = new URLSearchParams('?type=list&page=20');
+
+for (const key of urlParams.keys()) {
+    console.log(key);
+}
+
+// Output
+type
+page
+```
+
+**Example:** values()
+
+```js
+const urlParams = new URLSearchParams('?type=list&page=20');
+
+for (const value of urlParams.values()) {
+    console.log(value);
+}
+
+// Output
+list
+20
+```
+
+**Example:** entries()
+
+```js
+const urlParams = new URLSearchParams('?type=list&page=20');
+
+for (const entry of urlParams.entries()) {
+    console.log(entry);
+}
+
+// Output
+["type", "list"]
+["page", "20"]
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-urlsearchparams-7mb02x?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
