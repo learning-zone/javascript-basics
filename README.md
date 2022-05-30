@@ -5608,32 +5608,31 @@ function redirect() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you get the current url with javascript?***
+## Q. ***How to get the current url with javascript?***
 
-You can use `window.location.href` expression to get the current url path and you can use the same expression for updating the URL too. You can also use `document.URL` for read-only purpose but this solution has issues in FF.
+The `window.location` object can be used to get the current page address (URL) and to redirect the browser to a new page. You can also use `document.URL` for **read-only** purpose.
+
+**Location Properties:**
+
+| Properties              | Description                              |
+|-------------------------|------------------------------------------|
+|window.location.href     |returns the href (URL) of the current page|
+|window.location.hostname |returns the domain name of the web host|
+|window.location.pathname |returns the path and filename of the current page|
+|window.location.protocol |returns the web protocol used (http: or https:)|
+|window.location.assign() |loads a new document|
+|window.location.host     |The hostname and port of the URL|
+|window.location.port     |The port number in the URL|
+|window.location.search   |The query portion of the URL|
+|window.location.hash     |The anchor portion of the URL|
+
+**Example:**
 
 ```js
 console.log('location.href', window.location.href); // Returns full URL
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the various url properties of location object?***
-
-The below `Location` object properties can be used to access URL components of the page
-
-|Properties|Description|
-|----------|------------|
-|href      |The entire URL|
-|protocol  |The protocol of the URL|
-|host      |The hostname and port of the URL|
-|hostname  |The hostname of the URL|
-|port      |The port number in the URL|
-|pathname  |The path name of the URL|
-|search    |The query portion of the URL|
-|hash      |The anchor portion of the URL|
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-page-redirect-xc7221?file=/index.html)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
