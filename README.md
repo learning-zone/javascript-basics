@@ -5614,17 +5614,17 @@ The `window.location` object can be used to get the current page address (URL) a
 
 **Location Properties:**
 
-| Properties              | Description                              |
-|-------------------------|------------------------------------------|
-|window.location.href     |returns the href (URL) of the current page|
-|window.location.hostname |returns the domain name of the web host|
-|window.location.pathname |returns the path and filename of the current page|
-|window.location.protocol |returns the web protocol used (http: or https:)|
-|window.location.assign() |loads a new document|
-|window.location.host     |The hostname and port of the URL|
-|window.location.port     |The port number in the URL|
-|window.location.search   |The query portion of the URL|
-|window.location.hash     |The anchor portion of the URL|
+| Properties | Description                              |
+|------------|------------------------------------------|
+|href        |returns the href (URL) of the current page|
+|hostname    |returns the domain name of the web host|
+|pathname    |returns the path and filename of the current page|
+|protocol    |returns the web protocol used (http: or https:)|
+|assign()    |loads a new document|
+|host        |The hostname and port of the URL|
+|port        |The port number in the URL|
+|search      |The query portion of the URL|
+|hash        |The anchor portion of the URL|
 
 **Example:**
 
