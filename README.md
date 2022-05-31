@@ -5642,14 +5642,14 @@ console.log('location.href', window.location.href); // Returns full URL
 
 The `URLSearchParams()` provides an interface to work with query string parameters. The `has()` method of the `URLSearchParams()` determines if a parameter with a specified name exists.
 
-**Example:**
+**Example:** URLSearchParams()
 
 ```js
 const urlParams = new URLSearchParams(window.location.search);
 const clientCode = urlParams.get('clientCode');
 ```
 
-The URLSearchParams has some useful methods that return iterators of parameter keys, values, and entries:
+The URLSearchParams() methods:
 
 * **keys()** returns an iterator that iterates over the parameter keys.
 * **values()** returns an iterator that iterates over the parameter values.
