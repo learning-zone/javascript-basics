@@ -5863,12 +5863,15 @@ document.addEventListener("load", function(e) {
 * **screen**: The screen object contains information about the visitor's screen.
 
 **Properties:**  
+
 * screen.width
 * screen.height
 * screen.availWidth
 * screen.availHeight
 * screen.colorDepth
 * screen.pixelDepth
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-screen-object-bxcuo9?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
