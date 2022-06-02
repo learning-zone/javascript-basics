@@ -5862,7 +5862,6 @@ document.addEventListener("load", function(e) {
 * **document**: contains the DOM, initialized by parsing HTML
 * **screen**: The screen object contains information about the visitor's screen.
 
-**Properties:**  
 
 | Property    | Description          |
 |-------------|----------------------|
