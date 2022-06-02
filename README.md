@@ -5826,7 +5826,7 @@ document.onload = function ...
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***what is the difference between document load event and document domcontentloaded event?***
+## Q. ***What is the difference between document load event and document domcontentloaded event?***
 
 **1. DOMContentLoaded:**
 
