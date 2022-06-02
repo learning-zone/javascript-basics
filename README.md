@@ -5826,11 +5826,31 @@ document.onload = function ...
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Difference between document `load` event and document `DOMContentLoaded` event?***
+## Q. ***what is the difference between document load event and document domcontentloaded event?***
 
-The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading.
+**1. DOMContentLoaded:**
 
-`window`'s `load` event is only fired after the DOM and all dependent resources and assets have loaded.
+The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for stylesheets, images, and subframes to finish loading. DOMContentLoaded is a great event to use to hookup UI functionality to complex web pages.
+
+**Example:**
+
+```js
+document.addEventListener("DOMContentLoaded", function(e) {
+  console.log("DOM loaded!");
+});
+```
+
+**2. loadEvent:**
+
+The load event fires when all files have finished loading from all resources, including ads and images.
+
+**Example:**
+
+```js
+document.addEventListener("load", function(e) {
+  console.log("Page loaded!");
+});
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
