@@ -5703,13 +5703,12 @@ for (const entry of urlParams.entries()) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between window.frames window.parent and window.top in JavaScript?***
+## Q. ***What is difference between window.frames, window.parent and window.top in JavaScript?***
 
-```
-window.frames – the collection of “children” windows (for nested frames).
-window.parent – the reference to the “parent” (outer) window.
-window.top – the reference to the topmost parent window.
-```
+* **window.frames** – the collection of “children” windows (for nested frames).
+* **window.parent** – property returns the immediate parent of the current window
+* **window.top** – returns the topmost window in the hierarchy of window objects
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
