@@ -5715,16 +5715,79 @@ for (const entry of urlParams.entries()) {
 
 ## Q. ***What are the properties used to get size of window?***
 
-You can use innerWidth, innerHeight, clientWidth, clientHeight properties of windows, document element and document body objects to find the size of a window. Let us use them combination of these properties to calculate the size of a window or document,
+**1. The screen size:**
+
+The screen size is the width and height of the screen: a monitor or a mobile screen.
+
+<p align="center">
+  <img src="assets/screen-size.png" alt="Screen Size" width="500px" />
+</p>
+
+**Example:**
 
 ```js
-var width = window.innerWidth
-|| document.documentElement.clientWidth
-|| document.body.clientWidth;
+const screenWidth  = window.screen.width;
+const screenHeight = window.screen.height;
+```
 
-var height = window.innerHeight
-|| document.documentElement.clientHeight
-|| document.body.clientHeight;
+**2. The available screen size:**
+
+The available screen size consists of the width and height of the active screen without the Operating System toolbars.
+
+<p align="center">
+  <img src="assets/available-screen-size.png" alt="Available Screen Size" width="500px" />
+</p>
+
+**Example:**
+
+```js
+const availScreenWidth  = window.screen.availWidth;
+const availScreenHeight = window.screen.availHeight;
+```
+
+**3. The window outer size:**
+
+The window outer size consists of the width and height of the entire browser window, including the address bar, tabs bar, and other browser panels.
+
+<p align="center">
+  <img src="assets/window-outer-size.png" alt="Window Outer Size" width="500px" />
+</p>
+
+**Example:**
+
+```js
+const windowOuterWidth  = window.outerWidth;
+const windowOuterHeight = window.outerHeight;
+```
+
+**4. The window inner size:**
+
+The window inner size (aka viewport size) consists of the width and height of the viewport that displays the web page.
+
+<p align="center">
+  <img src="assets/window-inner-size.png" alt="Window Inner Size" width="500px" />
+</p>
+
+**Example:**
+
+```js
+const windowInnerWidth  = window.innerWidth;
+const windowInnerHeight = window.innerHeight;
+```
+
+**5. The web page size:**
+
+The web page size consists of the width and height of the page content rendered.
+
+<p align="center">
+  <img src="assets/web-page-size.png" alt="Web Page Size" width="500px" />
+</p>
+
+**Example:**
+
+```js
+const pageWidth  = document.documentElement.scrollWidth;
+const pageHeight = document.documentElement.scrollHeight;
 ```
 
 <div align="right">
