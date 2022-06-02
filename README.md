@@ -5796,19 +5796,32 @@ const pageHeight = document.documentElement.scrollHeight;
 
 ## Q. ***What are the ways to execute javascript after page load?***
 
-You can execute javascript after page load in many different ways,  
-**a.) window.onload:**
+You can execute javascript after page load in many different ways, 
+
+**1. window.onload:**
+
 ```js
 window.onload = function ...
 ```
-**b.) document.onload:**
+
+**2. document.onload:**
+
 ```js
 document.onload = function ...
 ```
-**c.) body onload:**
+
+**3. body onload:**
+
 ```html
 <body onload="script();">
 ```
+
+**4. Defer the script:**
+
+```html
+<script src="deferMe.js" defer></script>
+```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
