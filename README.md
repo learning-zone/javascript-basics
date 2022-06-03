@@ -6065,8 +6065,6 @@ element = document.querySelectorAll(selectors);
 
 ## Q. ***Name the two functions that are used to create an HTML element dynamically?***
 
-**1. createElement:**
-
 In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
 
 **Syntax:**
@@ -6084,7 +6082,7 @@ HTML
       <title>||Working with elements||</title>
   </head>
 <body>
-  <div id="div1">The text above has been created dynamically.</div>
+  <div id="app">The text above has been created dynamically.</div>
 </body>
 </html>
 ```
@@ -6103,7 +6101,7 @@ function addElement () {
   newDiv.appendChild(newContent);  
 
   // add the newly created element and its content into the DOM 
-  var currentDiv = document.getElementById("div1"); 
+  var currentDiv = document.getElementById("app"); 
   document.body.insertBefore(newDiv, currentDiv); 
 }
 ```
@@ -6111,7 +6109,9 @@ function addElement () {
 **Create Dynamic Button:**
 
 ```js
-var btn = document.createElement("BUTTON");
+// Create a button
+
+let btn = document.createElement("BUTTON");
 btn.innerHTML = "CLICK ME";
 document.body.appendChild(btn);
 ```
@@ -6119,12 +6119,15 @@ document.body.appendChild(btn);
 **Removing Elements Dynamically:** 
 
 ```js
-function removeElement(elementId) {
-    // Removes an element from the document
-    var element = document.getElementById(elementId);
-    element.parentNode.removeChild(element);
+// Removes an element from the document
+
+function removeElement(elementId) {    
+  let element = document.getElementById(elementId);
+  element.parentNode.removeChild(element);
 }
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-html-element-iyq2ck?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
