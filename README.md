@@ -5878,19 +5878,40 @@ document.addEventListener("load", function(e) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How do you change style of a HTML element?***
+## Q. ***How to change style of html element using javascript?***
 
-You can change inline style or classname of a HTML element using javascript
-1. **Using style property:** You can modify inline style using style property
+Below is the syntax for manipulating the style property on an HTML element using JavaScript:
+
+**Syntax:**
 
 ```js
+HTMLElement.style.property = "new style"
+```
+
+**1. Using Style Property:**
+
+```js
+// Example 01:
 document.getElementById("title").style.fontSize = "30px";
+
+// Example 02:
+document.getElementById("message").style = "color:#f00;padding:5px;"
 ```
-2. **Using ClassName property:** It is easy to modify element class using className property
+
+**2. Using ClassName Property:** 
 
 ```js
+// Example 01:
 document.getElementById("title").style.className = "custom-title";
+
+// Example 02:
+const x = document.getElementsByClassName("message");
+       
+for (i = 0; i < x.length; i++) {
+  x[i].style = "padding:20px;border:1px solid #bbb;";
+} 
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
