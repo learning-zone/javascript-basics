@@ -6155,7 +6155,6 @@ In the given example, there are two objects **ParentUser** and **ChildUser**. Th
 
 ```js
 // Parent Object
-
 let ParentUser = {
   talk: true,
   Canfly() {
@@ -6164,7 +6163,6 @@ let ParentUser = {
 };
 
 // Child Object
-
 let ChildUser = {
   CanCode: true,
   CanCook() {
