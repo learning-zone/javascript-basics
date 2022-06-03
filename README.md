@@ -6135,6 +6135,8 @@ function removeElement(elementId) {
 
 # # CLASSES
 
+<br/>
+
 ## Q. ***Explain how prototypal inheritance works?***
 
 The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object.
@@ -6149,7 +6151,7 @@ ChildObject.__proto__ = ParentObject
 
 **Example:**
 
-In the given example, there are two objects **Person** and **Guser**. The object Guser inherits the methods and properties of the object Person and further uses them.
+In the given example, there are two objects **ParentUser** and **ChildUser**. The object ChildUser inherits the methods and properties of the object ParentUser and further uses them.
 
 ```js
 // Parent Object
@@ -6187,6 +6189,76 @@ console.log("Can a User cook?: " + ChildUser.CanCook());
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototypal-inheritance-qxp33h?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between prototype and __proto__ in JavaScript?***
+
+**1. Proto**: 
+
+It is an actual object that provides a way inherit to inherit properties from JavaScript with the help of an object which is created with new. Every object with behavior associated has internal property [[prototype]].
+
+**Syntax:**
+
+```js
+Object.__proto__ = value
+```
+
+**Example:**
+
+```js
+function Employee(id, name) {
+  this.id = id;
+  this.name = name;
+}
+const employee = new Employee(1090, "Sarvesh Ghose");
+
+// Object have proto property
+employee
+
+// Also if apply strict equal to check
+// if both point at the same
+// location then it will return true.
+Employee.prototype === employee._proto_ // true
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-proto-sqkxeb?file=/src/index.js)**
+
+**2. Prototype**: 
+
+It is a special object which means it holds shared attributes and behaviors of instances. It is a way to inherit properties from javascript as it is available in every function declaration.
+
+**Syntax:**
+
+```js
+objectTypeName.prototype.SharedPropertyName = value;
+```
+
+**Example:**
+
+```js
+// Constructor function
+
+function Employee(id, name) {
+  this.id = id;
+  this.name = name;
+}
+
+// Objects
+const employee = new Employee(3325, "Karishma Som");
+
+// Prototype
+Employee.prototype.getName = function () {
+  return this.name;
+};
+
+// Function call using object
+console.log(employee.getName());
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototype-wvh93l?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
