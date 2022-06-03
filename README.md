@@ -6137,154 +6137,56 @@ function removeElement(elementId) {
 
 ## Q. ***Explain how prototypal inheritance works?***
 
-All JavaScript objects have a `prototype` property, that is a reference to another object. When a property is accessed on an object and if the property is not found on that object, the JavaScript engine looks at the object's `prototype`, and the `prototype`'s `prototype` and so on, until it finds the property defined on one of the `prototype`s or until it reaches the end of the prototype chain.
+The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object.
+
+In order to get and set the [[Prototype]] of an object, we use `Object.getPrototypeOf()` and `Object.setPrototypeOf()`. Nowadays, in modern language, it is being set using `__proto__`.
+
+**Syntax:**
+
+```js
+ChildObject.__proto__ = ParentObject
+```
 
 **Example:**
 
-We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
+In the given example, there are two objects **Person** and **Guser**. The object Guser inherits the methods and properties of the object Person and further uses them.
 
 ```js
-if (typeof Object.create !== 'function') {
-  Object.create = function (parent) {
-    function Tmp() {}
-    Tmp.prototype = parent;
-    return new Tmp();
-  };
-}
+// Parent Object
 
-const Parent = function() {
-  this.name = "Parent";
-}
+let ParentUser = {
+  talk: true,
+  Canfly() {
+    return "Sorry, Can't fly";
+  },
+};
 
-Parent.prototype.greet = function() { console.log("hello from Parent"); }
+// Child Object
 
-const child = Object.create(Parent.prototype);
+let ChildUser = {
+  CanCode: true,
+  CanCook() {
+    return "Can't say";
+  },
 
-child.cry = function() {
-  console.log("waaaaaahhhh!");
-}
+  //  Inheriting the properties and methods of Parent Object
+  __proto__: ParentUser,
+};
 
-child.cry();
-// Outputs: waaaaaahhhh!
+// Property of Parent Object
+console.log("Can a User talk?: " + ChildUser.talk);
 
-child.greet();
-// Outputs: hello from Parent
+// Method of ParentUser
+console.log("Can a User fly?: " + ChildUser.Canfly());
+
+// Property of ChildUser
+console.log("Can a User code?: " + ChildUser.CanCode);
+
+// Method of ChildUser
+console.log("Can a User cook?: " + ChildUser.CanCook());
 ```
 
-Things to note are:
-
-* `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
-* We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
-  * Object.create(Parent.prototype);
-  * Object.create(new Parent(null));
-  * Object.create(objLiteral);
-  * Currently, `child.constructor` is pointing to the `Parent`:
-
-```js
-child.constructor
-ƒ () {
-  this.name = "Parent";
-}
-child.constructor.name
-"Parent"
-```
-  * If we'd like to correct this, one option would be to do:
-
-```js
-function Child() {
-  Parent.call(this);
-  this.name = 'child';
-}
-
-Child.prototype = Parent.prototype;
-Child.prototype.constructor = Child;
-
-const c = new Child();
-
-c.cry();
-// Outputs: waaaaaahhhh!
-
-c.greet();
-// Outputs: hello from Parent
-
-c.constructor.name;
-// Outputs: "Child"
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Example of Prototypal Inheritance?***
-
-We already have a build-in `Object.create`, but if you were to provide a polyfill for it, that might look like:
-
-```js
-if (typeof Object.create !== 'function') {
-  Object.create = function (parent) {
-    function Tmp() {}
-    Tmp.prototype = parent;
-    return new Tmp();
-  };
-}
-
-const Parent = function() {
-  this.name = "Parent";
-}
-
-Parent.prototype.greet = function() { console.log("hello from Parent"); }
-
-const child = Object.create(Parent.prototype);
-
-child.cry = function() {
-  console.log("waaaaaahhhh!");
-}
-
-child.cry();
-// Outputs: waaaaaahhhh!
-
-child.greet();
-// Outputs: hello from Parent
-```
-
-Things to note are:
-
-* `.greet` is not defined on the _child_, so the engine goes up the prototype chain and finds `.greet` off the inherited from _Parent_.
-* We need to call `Object.create` in one of following ways for the prototype methods to be inherited:
-  * Object.create(Parent.prototype);
-  * Object.create(new Parent(null));
-  * Object.create(objLiteral);
-  * Currently, `child.constructor` is pointing to the `Parent`:
-
-```js
-child.constructor
-ƒ () {
-  this.name = "Parent";
-}
-child.constructor.name
-"Parent"
-```
-  * If we'd like to correct this, one option would be to do:
-
-```js
-function Child() {
-  Parent.call(this);
-  this.name = 'child';
-}
-
-Child.prototype = Parent.prototype;
-Child.prototype.constructor = Child;
-
-const c = new Child();
-
-c.cry();
-// Outputs: waaaaaahhhh!
-
-c.greet();
-// Outputs: hello from Parent
-
-c.constructor.name;
-// Outputs: "Child"
-```
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototypal-inheritance-qxp33h?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
