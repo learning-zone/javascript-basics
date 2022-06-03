@@ -5919,9 +5919,13 @@ for (i = 0; i < x.length; i++) {
 ## Q. ***How do you print the contents of web page?***
 
 The window object provided print() method which is used to prints the contents of the current window. It opens Print dialog box which lets you choose between various printing options. 
+
+**Example:**
+
 ```html
   <input type="button" value="Print" onclick="window.print()" />
 ```
+
 *Note: In most browsers, it will block while the print dialog is open*.
 
 <div align="right">
@@ -5930,17 +5934,29 @@ The window object provided print() method which is used to prints the contents o
 
 ## Q. ***How do I modify the url without reloading the page?***
 
-The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. Example:
+The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. 
+
+**Example:**
+
 ```js
 window.history.pushState('newPage', 'Title', '/newPage.html');
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
 
 ## Q. ***When would you use `document.write()`?***
 
-`document.write()` writes a string of text to a document stream opened by `document.open()`. When `document.write()` is executed after the page has loaded, it will call `document.open` which clears the whole document (`<head>` and `<body>` removed!) and replaces the contents with the given parameter value. Hence it is usually considered dangerous and prone to misuse.
+The **document.write()** method is used to delete all the content from the HTML document and inserts the new content. It is also used to give the additional text to an output which is open by the `document.open()` method. 
+
+The `document.write()` only works while the page is loading; If you call it after the page is done loading, it will overwrite the whole page. This method is mostly used for testing purpose.
+
+**Example:**
+
+```js
+document.write("Hello World!");
+```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
