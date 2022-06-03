@@ -5989,40 +5989,9 @@ console.log(input.value); // Good evening
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between an "attribute" and a "property"?***
-
-Attributes are defined on the HTML markup but properties are defined on the DOM. To illustrate the difference, imagine we have this text field in our HTML: `<input type="text" value="Hello">`.
-
-```js
-const input = document.querySelector('input');
-console.log(input.getAttribute('value')); // Hello
-console.log(input.value); // Hello
-```
-
-But after you change the value of the text field by adding "World!" to it, this becomes:
-
-```js
-console.log(input.getAttribute('value')); // Hello
-console.log(input.value); // Hello World!
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why would you use something like the `load` event? Does this event have disadvantages? Do you know any alternatives, and why would you use those?***
-
-The `load` event fires at the end of the document loading process. At this point, all of the objects in the document are in the DOM, and all the images, scripts, links and sub-frames have finished loading.
-
-The DOM event `DOMContentLoaded` will fire after the DOM for the page has been constructed, but do not wait for other resources to finish loading. This is preferred in certain cases when you do not need the full page to be loaded before initializing.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the difference between firstChild and firstElementChild?***
 
-**firstChild:**
+**1. firstChild:**
 
 The firstChild property returns the first child node of the specified node, as a Node object.
 
@@ -6034,10 +6003,10 @@ The firstChild property returns the first child node of the specified node, as a
 ```
 
 ```js
-var list = document.getElementById("myList").firstChild.innerHTML; // Coffee
+let list = document.getElementById("myList").firstChild.innerHTML; // Coffee
 ```
 
-**firstElementChild:**  
+**2. firstElementChild:**  
 
 The firstElementChild property returns the first child element of the specified element.
 
@@ -6049,14 +6018,14 @@ The firstElementChild property returns the first child element of the specified 
 ```
 
 ```js
-var list = document.getElementById("myList").firstElementChild.innerHTML; // Coffee
+let list = document.getElementById("myList").firstElementChild.innerHTML; // Coffee
 ```
 
 **Difference:**
 
-The difference between this property and firstElementChild, is that firstChild returns the first child node as an element node, a text node or a comment node (depending on which one's first), while firstElementChild returns the first child node as an element node (ignores text and comment nodes).
+**firstChild** returns the first child **node** (an element node, a text node or a comment node). Whitespace between elements are also text nodes.
 
-*Note: Whitespace inside elements is considered as text, and text is considered as nodes*
+**firstElementChild** returns the first child **element** (not text and comment nodes).
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
