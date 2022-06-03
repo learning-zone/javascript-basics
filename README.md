@@ -6065,12 +6065,14 @@ element = document.querySelectorAll(selectors);
 
 ## Q. ***Name the two functions that are used to create an HTML element dynamically?***
 
-**createElement**  
+**1. createElement:**
+
 In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
-Syntax
+
+**Syntax:**
 
 ```js
-var element = document.createElement(tagName[, options]);
+const element = document.createElement(tagName[, options]);
 ```
 
 HTML
@@ -6095,7 +6097,7 @@ document.body.onload = addElement;
 function addElement () { 
   // create a new div element 
   var newDiv = document.createElement("div"); 
-  // and give it some content 
+
   var newContent = document.createTextNode("Hi there and greetings!"); 
   // add the text node to the newly created div
   newDiv.appendChild(newContent);  
