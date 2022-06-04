@@ -6664,21 +6664,34 @@ errorHandling(); // Error: is not a number.
 
 ## Q. ***What is a promise?***
 
-A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it’s not resolved(for example, network error). It will be in one of the 3 possible states: fulfilled, rejected, or pending.
-Syntax
+A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it\'s not resolved (for example, network error). It will be in one of the 3 possible states: **fulfilled**, **rejected**, or **pending**.
+
+**Syntax:**
 
 ```js
-const promise = new Promise(function(resolve, reject) {
+const promise = new Promise(function (resolve, reject) {
   // promise description
 })
+```
+
+**Example:**
+
+```js
+let promise = new Promise(function(resolve, reject) {
+  // the function is executed automatically when the promise is constructed
+
+  // after 1 second signal that the job is done with the result "done"
+  setTimeout(() => resolve("done"), 1000);
+});
 ```
 
 Promises are used to handle asynchronous operations. They provide an alternative approach for callbacks by reducing the callback hell and writing the cleaner code.
 
 Promises have three states:
-1. **Pending:** This is an initial state of the Promise before an operation begins
-2. **Fulfilled:** This state indicates that specified operation was completed.
-3. **Rejected:** This state indicates that the operation did not complete. In this case an error value will be thrown.
+
+1. **pending:** initial state, neither fulfilled nor rejected.
+2. **fulfilled:** meaning that the operation was completed successfully.
+3. **rejected:** meaning that the operation failed.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7308,7 +7321,7 @@ Making objects, functions, classes or variables available to the outside world i
 * Code can be split into smaller files of self-contained functionality.
 * The same modules can be shared across any number of applications.
 * Ideally, modules need never be examined by another developer, because they’ve has been proven to work.
-* Code referencing a module understands it’s a dependency. If the module file is changed or moved, the problem is immediately obvious.
+* Code referencing a module understands it\'s a dependency. If the module file is changed or moved, the problem is immediately obvious.
 * Module code (usually) helps eradicate naming conflicts. Function `x()` in module1 cannot clash with function x() in module2. Options such as namespacing are employed so calls become `module1.x()` and `module2.x()`.
 
 **Exporting:**
@@ -7549,7 +7562,7 @@ person = animal;
 console.log(person); { species: 'snake' }
 ```
 
-Even using Object.freeze() I could assign animal object to to person. Now, let’s try change some property of the person:
+Even using Object.freeze() I could assign animal object to to person. Now, let\'s try change some property of the person:
 
 ```js
 let person = {
@@ -8397,7 +8410,7 @@ That's it. The rest is details.
 
 Variables and functions that you declare inside an IIFE are not visible to the outside world, so you can:
  - Use the IIFE for isolating parts of the code to hide details of implementation.
- - Specify the input interface of your code by passing commonly used global objects (window, document, jQuery, etc.) IIFE’s parameters, and then reference these global objects within the IIFE via a local scope.
+ - Specify the input interface of your code by passing commonly used global objects (window, document, jQuery, etc.) IIFE\'s parameters, and then reference these global objects within the IIFE via a local scope.
  - Use it in closures, when you use closures in loops.
  - IIFE is the basis of in the module pattern in ES5
 code, it helps to prevent polluting the global scope and provide the module interface to the outside.
@@ -8859,7 +8872,7 @@ Contains information that is pertaining to a specific session (by a particular c
 * Session state value availability is in all pages available in a user session.
 * Information in session state stored in the server.
 * In session state, user data remains in the server.  The availability of the data is guaranteed until either the user closes the session or the browser is closed.
-* Session state is used for the persistence of user-specific data on the server’s end.
+* Session state is used for the persistence of user-specific data on the server\'s end.
 
 **b.) View State**: 
 
@@ -8867,7 +8880,7 @@ On the other hand is information specific to particular web page. It is stored i
 
 * Maintained at page level only.
 * View state can only be visible from a single page and not multiple pages.
-* Information stored on the client’s end only.
+* Information stored on the client\'s end only.
 * View state will retain values in the event of a postback operation occurring.
 * View state is used to allow the persistence of page-instance-specific data.
 
@@ -9523,7 +9536,7 @@ When computing the final set of styles for any object on the page, the browser s
 
 **Painting the render tree** 
 
-In this stage, the renderer tree is traversed and the renderer’s paint() method is called to display the content on the screen.
+In this stage, the renderer tree is traversed and the renderer\'s paint() method is called to display the content on the screen.
 Painting can be global or incremental (similar to layout):
 
 * **Global** — the entire tree gets repainted.
@@ -9537,7 +9550,7 @@ Painting can be global or incremental (similar to layout):
 
 **HTMLCollection**
 
-An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node’s name or id attributes. Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
+An HTMLCollection is a list of nodes. An individual node may be accessed by either ordinal index or the node\'s name or id attributes. Collections in the HTML DOM are assumed to be live meaning that they are automatically updated when the underlying document is changed.
 
 **NodeList**
 
