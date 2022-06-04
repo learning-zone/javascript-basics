@@ -6809,93 +6809,30 @@ Below are the list of pros and cons of promises over callbacks,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the pros and cons of using Promises instead of callbacks?***
-
-**Pros**
-
-* Avoid callback hell which can be unreadable.
-* Makes it easy to write sequential asynchronous code that is readable with `.then()`.
-* Makes it easy to write parallel asynchronous code with `Promise.all()`.
-* With promises, these scenarios which are present in callbacks-only coding, will not happen:
-  * Call the callback too early
-  * Call the callback too late (or never)
-  * Call the callback too few or too many times
-  * Fail to pass along any necessary environment/parameters
-  * Swallow any errors/exceptions that may happen
-
-**Cons**
-
-* Slightly more complex code (debatable).
-* In older browsers where ES2015 is not supported, you need to load a polyfill in order to use it.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How does await and async works in es6?***
 
-* **Promises**
+The **async** and **await** keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
+
+**Async** keyword is used along with the function declaration which specifies that this function is now able to accept all types of asynchronous events on itself. **Await** basically waits for the results which are particularly to be fetched from the source from which that async function is about to fetch the data.
+
+**Example:**
 
 ```js
-const delay = seconds => {
-    return new Promise(resolve => {
-        setTimeout(resolve, seconds * 1000)
-    });
-};
-
-console.log("Zero seconds wait");
-delay(1).then(() => console.log('One seconds wait'));
-delay(5).then(() => console.log('Five seconds wait'));
-```
-
-* **Loading data with fetch()**
-
-```js
-const getPeopleInSpace = () =>
-    fetch('http://api.open-notify.org/astros.json')
-        .then(res => res.json());
-
-getPeopleInSpace()
-    .then(console.log);
-```
-
-* **Async() and await():**
-
-```js
-const delay = seconds => {
-    return new Promise(
-        resolve => setTimeout(resolve, seconds * 1000)
-    )
-};
-
-const countToFive = async() => {
-    console.log('zero seconds wait');
-    await delay(2);
-    console.log('Two seconds wait');
-    await delay(5);
-    console.log('Five seconds wait');
+// async() and await()
+async function fetchMethod() {
+  try {
+    let response = await fetch("https://api.github.com/users/1");
+    let data = await response.json();
+    console.log(data);
+  } catch (error) {
+    console.error(error);
+  }
 }
 
-countToFive();
+fetchMethod();
 ```
 
-* **Async with fetch:**
-
-```js
-const githubRequest = async(loginName) => {
-    try{
-        var response = await fetch(`http://api.github.com/users/${loginName}/followers`);
-        var json = await response.json();
-        var followerList = json.map(user => user.login);
-        console.log(followerList);
-    } catch(e){
-        console.log("Data didn't load", e);
-    }
-};
-
-//githubRequest('eveporcello');
-githubRequest('pradeepkumar2');
-```
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-async-await-4jj835?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
