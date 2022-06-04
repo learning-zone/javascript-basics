@@ -6438,7 +6438,7 @@ const user = {
 };
 
 const admin = Object.create(user);
-admin.name = "Disha Choudhry"; // Remember that "name" is a property set on "admin" but not on "user" object
+admin.name = "Disha Choudhry"; // Here, "name" is a property set on "admin" but not on "user" object
 admin.printInfo(); // My name is Disha Choudhry
 ```
 
