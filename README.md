@@ -6738,11 +6738,11 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
 ```js
 // promise.all()
 const promise1 = new Promise((resolve, reject) => {
-  setTimeout(resolve, 10, "promise1");
+  setTimeout(resolve, 10, "First");
 });
 
 const promise2 = new Promise((resolve, reject) => {
-  setTimeout(resolve, 20, "promise2");
+  setTimeout(resolve, 20, "Second");
 });
 
 Promise.all([promise1, promise2])
@@ -6750,6 +6750,7 @@ Promise.all([promise1, promise2])
     console.log(values);
   })
   .catch((error) => console.log(`Error in promises ${error}`));
+// expected output: Array ["First", "Second"]
 ```
 
 *Note: Remember that the order of the promises (output the result) is maintained as per input order*.
