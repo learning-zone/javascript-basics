@@ -6263,7 +6263,18 @@ console.log(employee.getName());
 
 ## Q. ***What are the differences between ES6 class and ES5 function constructors?***
 
-The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics. 
+
+ES6 Classes formalize the common JavaScript pattern of simulating class-like inheritance hierarchies using functions and prototypes. They are effectively simple sugaring over prototype-based OO, offering a convenient declarative form for class patterns which encourage interoperability.
+
+ES6 Class Properties
+
+* Class keyword
+* getter/setter method
+* constructor function
+* extends keyword
+* super keyword
+* static keyword
 
 **Example:** ES5 Function Constructor
 
