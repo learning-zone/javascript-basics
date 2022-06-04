@@ -6719,7 +6719,7 @@ new Promise(function (resolve, reject) {
 ```
 
 In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,
-* The initial promise resolves in 10 second,
+* The initial promise resolves in one second,
 * After that `.then()` handler is called by logging the result(10) and then return a promise with the value of `result + 20`.
 * After that the value passed to the next `.then()` handler by logging the result(20) and return a promise with `result + 30`.
 
