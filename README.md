@@ -6543,14 +6543,14 @@ const error = new Error("error message");
 ```js
 const pi = 3.14159;
 
-pi.toFixed(100000);  // RangeError
+pi.toFixed(100000);  // RangeError: toFixed() digits argument must be between 0 and 100
 ```
 
 **ReferenceError**: A "ReferenceError" exception is thrown when a non-existent variable is accessed.  These exceptions commonly occur when an existing variable name is misspelled. 
 
 ```js
-function foo() {
-  bar++;  // ReferenceError
+function sum() {
+  val++;  // ReferenceError: val is not defined
 }
 ```
 
