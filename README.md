@@ -6310,7 +6310,7 @@ It\'s much more verbose to use inheritance in ES5 and the ES6 version is easier 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. **What is class expression in es6 class?***
+## Q. ***What is class expression in es6 class?***
 
 A class expression is another way to define a class. Class expressions can be named or unnamed. The name given to a named class expression is local to the class\'s body. However, it can be accessed via the name property.
 
