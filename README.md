@@ -6762,20 +6762,25 @@ Promise.all([promise1, promise2])
 
 ## Q. ***What is the purpose of race method in promise?***
 
-`Promise.race()` method will return the promise instance which is firstly resolved or rejected. Let us take an example of race() method where promise2 is resolved first
+`Promise.race()` method will return the promise instance which is firstly resolved or rejected. 
+Let us take an example of `race()` method where promise2 is resolved first
 
 ```js
-var promise1 = new Promise(function(resolve, reject) {
-    setTimeout(resolve, 500, 'one');
-});
-var promise2 = new Promise(function(resolve, reject) {
-    setTimeout(resolve, 100, 'two');
+const promise1 = new Promise(function (resolve, reject) {
+  setTimeout(resolve, 500, "First");
 });
 
-Promise.race([promise1, promise2]).then(function(value) {
-  console.log(value); // "two" // Both promises will resolve, but promise2 is faster
+const promise2 = new Promise(function (resolve, reject) {
+  setTimeout(resolve, 100, "Second");
+});
+
+Promise.race([promise1, promise2]).then(function (value) {
+  console.log(value); // "Second" // Both promises will resolve, but promise2 is faster
 });
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-race-7k6zh0?file=/src/index.js)**
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
