@@ -6495,9 +6495,9 @@ console.log(employee instanceof Employee); // true
 
 ## Q. ***What is prototype chain?***
 
-Nearly all objects in JavaScript are instances of **Object**. That means all the objects in JavaScript inherit the properties and methods from **Object.prototype**. This is called **Prototype chaining**.
-
 **Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through `Object.getPrototypeOf(object)` or `__proto__` property whereas prototype on constructors function is available through **Object.prototype**.
+
+**Example:**
 
 ```js
 function Person(firstName, lastName, age) {
@@ -6505,18 +6505,20 @@ function Person(firstName, lastName, age) {
   this.lastName = lastName;
   this.age = age;
 }
-//Person class created
-Person.prototype.getFullName = function() {
+// Prototype chaining
+Person.prototype.getFullName = function () {
   return this.firstName + " " + this.lastName;
-}
+};
 
-// we have added getFullName method in Person’s prototype.
-var person = new Person("John", "K", 25);
-// It will create an instance of the Person class
-> person.hasOwnProperty("firstName");  // true
-> person.hasOwnProperty("getFullName");  // false
-> person.getFullName(); // John K
+// create an instance of the Person class
+const person = new Person("Vanya", "Dayal", 25);
+
+person.hasOwnProperty("firstName"); // true
+person.hasOwnProperty("getFullName"); // false
+person.getFullName(); // Vanya Dayal
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototype-chaining-9fvow6?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
