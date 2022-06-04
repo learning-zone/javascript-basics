@@ -6219,7 +6219,7 @@ employee
 // Also if apply strict equal to check
 // if both point at the same
 // location then it will return true.
-Employee.prototype === employee._proto_ // true
+Employee.prototype === employee._proto_ // false
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-proto-sqkxeb?file=/src/index.js)**
@@ -6238,7 +6238,6 @@ objectTypeName.prototype.SharedPropertyName = value;
 
 ```js
 // Constructor function
-
 function Employee(id, name) {
   this.id = id;
   this.name = name;
@@ -6264,23 +6263,9 @@ console.log(employee.getName());
 
 ## Q. ***What are the differences between ES6 class and ES5 function constructors?***
 
-```js
-// ES5 Function Constructor
-function Person(name) {
-  this.name = name;
-}
-
-// ES6 Class
-class Person {
-  constructor(name) {
-    this.name = name;
-  }
-}
-```
-
-For simple constructors, they look pretty similar.
-
 The main difference in the constructor comes when using inheritance. If we want to create a `Student` class that subclasses `Person` and add a `studentId` field, this is what we have to do in addition to the above.
+
+**Example:** ES5 Function Constructor
 
 ```js
 // ES5 Function Constructor
@@ -6294,7 +6279,11 @@ function Student(name, studentId) {
 
 Student.prototype = Object.create(Person.prototype);
 Student.prototype.constructor = Student;
+```
 
+**Example:** ES6 Class
+
+```js
 // ES6 Class
 class Student extends Person {
   constructor(name, studentId) {
@@ -6304,7 +6293,7 @@ class Student extends Person {
 }
 ```
 
-It's much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
+It\'s much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
