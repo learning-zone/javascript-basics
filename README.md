@@ -6734,13 +6734,25 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
 `Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected.
 
 ```js
-Promise.all([Promise1, Promise2, Promise3]) 
-        .then(result) => {   
-            console.log(result) 
-          }) 
-        .catch(error => console.log(`Error in promises ${error}`));
+// promise.all()
+const promise1 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 10, "promise1");
+});
+
+const promise2 = new Promise((resolve, reject) => {
+  setTimeout(resolve, 20, "promise2");
+});
+
+Promise.all([promise1, promise2])
+  .then((values) => {
+    console.log(values);
+  })
+  .catch((error) => console.log(`Error in promises ${error}`));
 ```
-*Note: Remember that the order of the promises(output the result) is maintained as per input order*.
+
+*Note: Remember that the order of the promises (output the result) is maintained as per input order*.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-all-5ieqjp?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
