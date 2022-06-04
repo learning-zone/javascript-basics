@@ -6368,6 +6368,9 @@ MyClass.prototype.publicMethod = function () {
 MyClass.staticProperty = "I am static!";
 
 var myInstance = new MyClass();
+
+console.log(myClass.publicMethod()); // I am private! 
+console.log(MyClass.staticProperty); // I am static! 
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variable-scope-rgjsm4?file=/src/index.js)**
