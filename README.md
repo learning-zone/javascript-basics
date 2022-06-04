@@ -6597,48 +6597,23 @@ decodeURIComponent("%"); // URIError
 
 ## Q. ***What is an error object?***
 
-An error object is a built in error object that provides error information when an error occurs. It has two properties: name and message. For example, the below function logs error details,
+An error object is a built in error object that provides error information when an error occurs. It has two properties: **name** and **message**. 
+
+**Example:**
 
 ```js
 try {
   greeting("Welcome");
 }
 catch(err) {
-  console.log(err.name + "<br>" + err.message);
+  console.log(err.name + ": " + err.message);
 }
+
+// Output
+ReferenceError: greeting is not defined
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***When you get a syntax error?***
-
-A SyntaxError is thrown if you try to evaluate code with a syntax error. For example, the below missing quote for the function parameter throws a syntax error
-```js
-try {
-  eval("greeting('welcome)");   // Missing ' will produce an error
-}
-catch(err) {
-  console.log(err.name);
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the different error names from error object?***
-
-There are 6 different types of error names returned from error object
-
-| Error Name | Description |
-|----------- |-------------|
-| EvalError  | An error has occurred in the eval() function |
-| RangeError | An error has occurred with a number "out of range"  |
-| ReferenceError | An error due to an illegal reference|
-| SyntaxError | An error due to a syntax error|
-| TypeError | An error due to a type error |
-| URIError | An error due to encodeURI() |
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-error-object-uscjst?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
