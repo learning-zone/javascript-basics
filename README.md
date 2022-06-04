@@ -6699,35 +6699,31 @@ Promises have three states:
 
 ## Q. ***What is promise chaining?***
 
-The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining.
+The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. It allows you to chain on another then call which will run when the second promise is fulfilled. The `.catch()` can still be called to handle any errors that might occur along the way.
+
+**Example:**
 
 ```js
-new Promise(function(resolve, reject) {
-
-  setTimeout(() => resolve(1), 1000);
-
-}).then(function(result) {
-
-  console.log(result); // 1
-  return result * 2;
-
-}).then(function(result) {
-
-  console.log(result); // 2
-  return result * 3;
-
-}).then(function(result) {
-
-  console.log(result); // 6
-  return result * 4;
-
-});
+// Promise Chain
+new Promise(function (resolve, reject) {
+  setTimeout(() => resolve(10), 1000);
+})
+  .then(function (result) {
+    console.log(result); // 10
+    return result + 20;
+  })
+  .then(function (result) {
+    console.log(result); // 30
+    return result + 30;
+  });
 ```
+
 In the above handlers, the result is passed to the chain of .then() handlers with the below work flow,
-1. The initial promise resolves in 1 second,
-2. After that `.then` handler is called by logging the result(1) and then return a promise with the value of result * 2.
-3. After that the value passed to the next `.then` handler by logging the result(2) and return a promise with result * 3.
-4. Finally the value passed to the last `.then` handler by logging the result(6) and return a promise with result * 4.
+* The initial promise resolves in 10 second,
+* After that `.then()` handler is called by logging the result(10) and then return a promise with the value of `result + 20`.
+* After that the value passed to the next `.then()` handler by logging the result(20) and return a promise with `result + 30`.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-chain-qjg2u3?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
