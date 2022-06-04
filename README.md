@@ -6840,34 +6840,52 @@ fetchMethod();
 
 ## Q. ***What is difference between fetch() and XMLHttpRequest() in JavaScript?***
 
-**XMLHttpRequest:**  
+**1. XMLHttpRequest:**  
 
 `XMLHttpRequest()` is a built-in browser object that allows to make HTTP requests in JavaScript. XMLHttpRequest has two modes of operation: **synchronous** and **asynchronous**.
-```js
-if (window.XMLHttpRequest) {
-  // code for IE7+, Firefox, Chrome, Opera, Safari
-  xhr = new XMLHttpRequest();
-} else {
-  // code for IE6, IE5
-  xhr = new ActiveXObject('Microsoft.XMLHTTP');
-}
 
-xhr.onreadystatechange = function() {
-  if (this.readyState == 4 && this.status == 200) {
+```js
+const xhr = new XMLHttpRequest();
+
+xhr.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
     console.log(this.responseText);
   }
 };
-xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true); // this makes asynchronous true or false
-xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+
+xhr.open("GET", "https://jsonplaceholder.typicode.com/todos/1", true); // this makes asynchronous true or false
+xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
 xhr.send();
 ```
 
-**Fetch():**  
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-xmlhttprequest-ped1vv?file=/src/index.js)**
+
+**2. Fetch():**  
 
 Fetch allows to make network requests similar to `XMLHttpRequest`. Fetch makes it easier to make asynchronous requests and handle responses better than with the older XMLHttpRequest. It is an improvement over the `XMLHttpRequest` API. The main difference between `Fetch()` and `XMLHttpRequest()` is that the Fetch API uses Promises, hence avoiding **callback hell**.
 
+**Example:**
 
-**Fetch Interfaces**  
+```js
+fetch("https://jsonplaceholder.typicode.com/todos/1")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (err) {
+    console.log("Something went wrong!", err);
+  });
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-fetch-8xb8e9?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Explain fetch() properties in JavaScript?***
 
 * **fetch()**: The fetch() method used to fetch a resource.
 * **Headers**: Represents response/request headers, allows to query them and take different actions depending on the results.
@@ -6877,6 +6895,7 @@ Fetch allows to make network requests similar to `XMLHttpRequest`. Fetch makes i
 **Making a request using fetch()**  
 
 A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful `.then()` function will receive Response object, if request fails then `.catch()` function will receive an error object
+
 ```js
 fetch('https://api.github.com/users/learning-zone')
     .then(function (response) {
@@ -6889,9 +6908,11 @@ fetch('https://api.github.com/users/learning-zone')
         console.log("Something went wrong!", err);
     });
 ```
+
 **Headers Object**  
 
 The Headers interface allows to create own headers object via the `Headers()` constructor. A headers object is a collection of name-value pairs.
+
 ```js
 let reqHeader = new Headers();
 reqHeader.append('Content-Type', 'text/json');
@@ -6910,6 +6931,7 @@ fetch('https://api.github.com/users/learning-zone', initObject)
         console.log("Something went wrong!", err);
     });
 ```
+
 **Request Object**  
 
 The Request Object represents a resource request. Instead of passing an URL of the resource into the fetch() call, you can create a request object using the Request() constructor, and pass that as an argument to fetch(). By passing Request object to the fetch(), you can make customised requests.
