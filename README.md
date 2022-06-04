@@ -6431,16 +6431,18 @@ The `Object.create()` method is used to create a new object with the specified p
 
 ```js
 const user = {
-  name: 'John',
+  name: "Jayesh Sahni",
   printInfo: function () {
     console.log(`My name is ${this.name}.`);
   }
 };
 
 const admin = Object.create(user);
-admin.name = "Nick"; // Remember that "name" is a property set on "admin" but not on "user" object
-admin.printInfo(); // My name is Nick
+admin.name = "Disha Choudhry"; // Remember that "name" is a property set on "admin" but not on "user" object
+admin.printInfo(); // My name is Disha Choudhry
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-create-skyznx?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
