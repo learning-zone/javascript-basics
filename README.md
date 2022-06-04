@@ -6528,6 +6528,30 @@ person.getFullName(); // Vanya Dayal
 
 <br/>
 
+## Q. ***What is an error object?***
+
+An error object is a built in error object that provides error information when an error occurs. It has two properties: **name** and **message**. 
+
+**Example:**
+
+```js
+try {
+  greeting("Welcome");
+}
+catch(err) {
+  console.log(err.name + ": " + err.message);
+}
+
+// Output
+ReferenceError: greeting is not defined
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-error-object-uscjst?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***Define the various types of errors which occur in JavaScript?***
 
 There are three main types of errors that can occur while compiling a JavaScript program: **syntax errors**, **runtime errors** ( also called **exceptions** ), and **logical errors**. When an exception occurs, an object representing the error is created and thrown. The JavaScript language defines seven types of built-in error objects. 
@@ -6595,30 +6619,6 @@ decodeURIComponent("%"); // URIError
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is an error object?***
-
-An error object is a built in error object that provides error information when an error occurs. It has two properties: **name** and **message**. 
-
-**Example:**
-
-```js
-try {
-  greeting("Welcome");
-}
-catch(err) {
-  console.log(err.name + ": " + err.message);
-}
-
-// Output
-ReferenceError: greeting is not defined
-```
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-error-object-uscjst?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What are the various statements in error handling?***
 
 Below are the list of statements used in an error handling,
@@ -6626,6 +6626,33 @@ Below are the list of statements used in an error handling,
 2. **catch:** This statement is used to handle the error
 3. **throw:** This statement is used to create custom errors.
 4. **finally:** This statement is used to execute code after try and catch regardless of the result.
+
+**Example:**
+
+```js
+function errorHandling() {
+
+  const message = document.getElementById("app");
+  message.innerHTML = "";
+  let x = document.getElementById("app").value;
+  
+  try {
+    if (x === "") throw "is empty";
+    if (isNaN(x)) throw "is not a number";
+    x = Number(x);
+    if (x > 10) throw "is too high";
+    if (x < 5) throw "is too low";
+  } catch (err) {
+    message.innerHTML = "Error: " + err + ".";
+  } finally {
+    document.getElementById("app").value = "";
+  }
+}
+
+errorHandling(); // Error: is not a number.
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-error-handling-6uz740?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
