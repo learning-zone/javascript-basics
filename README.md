@@ -6342,7 +6342,7 @@ console.log(Triangle.name); // TriangleClass
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between private variable, public variable and static variable?***
+## Q. ***What is difference between private, public and static variables?***
 
 Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
 Static variables are related to a class. They come into existence as soon as a class come into existence.
