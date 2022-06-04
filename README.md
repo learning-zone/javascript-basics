@@ -6410,19 +6410,6 @@ var circle = new Circle(5);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is the difference between proto and prototype?***
-
-The `__proto__` object is the actual object that is used in the lookup chain to resolve methods, etc. Whereas `prototype` is the object that is used to build `__proto__` when you create an object with new
-
-```js
-( new Employee ).__proto__ === Employee.prototype;
-( new Employee ).prototype === undefined;
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you create an object with prototype?***
 
 The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
