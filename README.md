@@ -6342,34 +6342,35 @@ console.log(Triangle.name); // TriangleClass
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between private variable, public variable and static variable? How we achieve this in JS?***
+## Q. ***What is difference between private variable, public variable and static variable?***
 
-Private and public variables are two ways of information hiding. An object can have private and public variables. Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
+Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
 Static variables are related to a class. They come into existence as soon as a class come into existence.
 
-Now, JavaScript natively doesn\'t support these concepts. But you can use JavaScript's closure techniques to achieve the similar results.
-
 ```js
-function MyClass () { // constructor function
-  var privateVariable = "foo";  // Private variable 
+// Constructor Function
+function MyClass () {
+ 
+  var privateVariable = "I am private!";  // Private variable 
+  this.publicVariable = "I am public!";  // Public variable 
 
-  this.publicVariable = "bar";  // Public variable 
-
-  this.privilegedMethod = function () {  // Public Method
-    alert(privateVariable);
+  this.publicMethod = function () {  // Public Method
+    return privateVariable;
   };
 }
 
 // Instance method will be available to all instances but only load once in memory 
 MyClass.prototype.publicMethod = function () {    
-  alert(this.publicVariable);
+  return this.publicVariable;
 };
 
 // Static variable shared by all instances
-MyClass.staticProperty = "baz";
+MyClass.staticProperty = "I am static!";
 
 var myInstance = new MyClass();
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variable-scope-rgjsm4?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
