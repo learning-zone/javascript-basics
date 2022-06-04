@@ -6733,6 +6733,8 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
 
 `Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected.
 
+**Example:**
+
 ```js
 // promise.all()
 const promise1 = new Promise((resolve, reject) => {
