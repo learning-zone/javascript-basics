@@ -6310,6 +6310,38 @@ It\'s much more verbose to use inheritance in ES5 and the ES6 version is easier 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. **What is class expression in es6 class?***
+
+A class expression is another way to define a class. Class expressions can be named or unnamed. The name given to a named class expression is local to the class\'s body. However, it can be accessed via the name property.
+
+**Example:**
+
+```js
+// Unnamed Class
+let Rectangle = class {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+};
+console.log(Rectangle.name); // Rectangle
+
+// Named Class
+let Triangle = class TriangleClass {
+  constructor(base, height) {
+    this.base = base;
+    this.height = height;
+  }
+};
+console.log(Triangle.name); // TriangleClass
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-class-expression-nqbyr2?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is difference between private variable, public variable and static variable? How we achieve this in JS?***
 
 Private and public variables are two ways of information hiding. An object can have private and public variables. Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
