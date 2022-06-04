@@ -6448,64 +6448,12 @@ admin.printInfo(); // My name is Disha Choudhry
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How does Object.create method works JavaScript?***
-
-The ECMAScript 5 **Object.create()** method is the easiest way for one object to inherit from another, without invoking a constructor function. 
-
-**For instance:** 
-
-```js
-var employee = {
-  name: 'Alex',
-  displayName: function () {
-    console.log(this.name);
-  }
-};
-
-var emp1 = Object.create(employee);
-console.log(emp1.displayName());  // output "Alex"
-```
-
-In the example above, we create a new object `emp1` that inherits from `employee`. In other words `emp1`'s prototype is set to `employee`. After this emp1 is able to access the same properties and method on employee until new properties or method with the same name are defined.
-
-**For instance:** Defining `displayName()` method on `emp1` will not automatically override the employee `displayName`.
-
-```js
-emp1.displayName = function() {
-	console.log('xyz-Anonymous');
-};
-
-employee.displayName(); //Alex
-emp1.displayName();//xyz-Anonymous
-``` 
-
-In addition to this **`Object.create(`)** method also allows to specify a second argument which is an object containing additional properties and methods to add to the new object.
-
-**For example**
-
-```js
-var emp1 = Object.create(employee, {
-	name: {
-		value: "John"
-	}
-});
-
-emp1.displayName(); // "John"
-employee.displayName(); // "Alex"
-```
-In the example above, `emp1` is created with It is own value for name, so calling **displayName()** method will display `"John"` instead of `"Alex"`.
-
-Object created in this manner give you full control over newly created object. You are free to add, remove any properties and method you want.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How to use constructor functions for inheritance in JavaScript?***
 
 Let say we have `Person` class which has name, age, salary properties and **incrementSalary()** method.
 
 ```js
+// Functions Constructor
 function Person(name, age, salary) {
   this.name = name;
   this.age = age;
@@ -6523,42 +6471,23 @@ function Employee(company){
 	this.company = company;
 }
 
-//Prototypal Inheritance 
-Employee.prototype = new Person("Alex", 24,5000);
+// Prototypal Inheritance 
+Employee.prototype = new Person("Sundar Pichai", 24, 5000);
 ```
+
 In the example above, **Employee** type inherits from **Person**. It does so by assigning a new instance of `Person` to `Employee` prototype. After that, every instance of `Employee` inherits its properties and methods from `Person`.
 
 ```js
-//Prototypal Inheritance 
-Employee.prototype = new Person("Alex", 24,5000);
+// Prototypal Inheritance 
+Employee.prototype = new Person("Sundar Pichai", 24, 5000);
 
-var emp1 = new Employee("Google");
+var employee = new Employee("Google");
 
-console.log(emp1 instanceof Person); // true
-console.log(emp1 instanceof Employee); // true
+console.log(employee instanceof Person); // true
+console.log(employee instanceof Employee); // true
 ```
 
-Let us understand Constructor inheritance 
-
-```js
-//Defined Person class
-function Person(name){
-	this.name = name || "Alex";
-}
-
-var obj = {};
-
-// obj inherit Person class properties and method 
-Person.call(obj); // constructor inheritance
-
-console.log(obj); // Object {name: "Alex"}
-```
-Here we saw calling **Person.call(obj)** define the name properties from `Person` to `obj`.
-
-```js
-console.log(name in obj); // true
-```
-Type-based inheritance is best used with developer defined constructor function rather than natively in JavaScript. In addition to this also allows flexibility in how we create similar type of object.
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototypal-inheritance-djtiuh?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
