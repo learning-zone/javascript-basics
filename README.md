@@ -6764,7 +6764,8 @@ Promise.all([promise1, promise2])
 ## Q. ***What is the purpose of race method in promise?***
 
 `Promise.race()` method will return the promise instance which is firstly resolved or rejected. 
-Let us take an example of `race()` method where promise2 is resolved first
+
+**Example:** Let us take an example of `race()` method where promise2 is resolved first
 
 ```js
 const promise1 = new Promise(function (resolve, reject) {
@@ -6792,15 +6793,17 @@ Below are the list of pros and cons of promises over callbacks,
 
 **Pros:**
 
-1. It avoids callback hell which is unreadable
-2. Easy to write sequential asynchronous code with .then()
-3. Easy to write parallel asynchronous code with Promise.all()
-4. Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
+* It avoids callback hell which is unreadable
+* Easy to write sequential asynchronous code with `.then()`
+* Easy to write parallel asynchronous code with `Promise.all()`
+* Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
+* Integrated error handling.
 
 **Cons:**
 
-1. It makes little complex code
-2. You need to load a polyfill if ES6 is not supported
+* It makes little complex code
+* It cannot return multiple arguments.
+* We need to load a polyfill if ES6 is not supported
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
