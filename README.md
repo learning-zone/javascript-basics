@@ -6378,9 +6378,13 @@ var myInstance = new MyClass();
 
 ## Q. ***What is difference between Classic Inheritance and Prototypical Inheritance?***
 
-**Class Inheritance**: instances inherit from classes (like a blueprint — a description of the class), and create sub-class relationships: hierarchical class taxonomies. Instances are typically instantiated via constructor functions with the new keyword. Class inheritance may or may not use the class keyword from ES6.
+**1. Class Inheritance**: 
 
-**Prototypal Inheritance**: instances inherit directly from other objects. Instances are typically instantiated via factory functions or Object.create(). Instances may be composed from many different objects, allowing for easy selective inheritance.
+Instances inherit from classes (like a blueprint — a description of the class), and create sub-class relationships: hierarchical class taxonomies. Instances are typically instantiated via constructor functions with the new keyword. Class inheritance may or may not use the class keyword from ES6.
+
+**2. Prototypal Inheritance**: 
+
+Instances inherit directly from other objects. Instances are typically instantiated via factory functions or Object.create(). Instances may be composed from many different objects, allowing for easy selective inheritance.
 
 **Features**  
 
@@ -6390,22 +6394,29 @@ var myInstance = new MyClass();
 
 The difference between classical inheritance and prototypal inheritance is that classical inheritance is limited to classes inheriting from other classes while prototypal inheritance supports the cloning of any object using an object linking mechanism. A prototype basically acts as a template for other objects, whether they are extending the base object or not.
 
+**Example:**
+
 ```js
 function Circle(radius) {
   this.radius = radius;
 }
 
 Circle.prototype.area = function () {
-  var radius = this.radius;
+  let radius = this.radius;
   return Math.PI * radius * radius;
 };
 
-Circle.prototype.circumference: function () {
+Circle.prototype.circumference = function () {
   return 2 * Math.PI * this.radius;
 };
 
-var circle = new Circle(5);
+const circle = new Circle(5);
+
+console.log(circle.area()); // 78.53981633974483
+console.log(circle.circumference()); // 31.41592653589793
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototypical-inheritance-iyxh6u?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
