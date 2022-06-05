@@ -7025,15 +7025,26 @@ Like an asynchronously loaded script, the file can be downloaded while the HTML 
 It is used to associate a key to a value irrespective of the datatype such as strings, numbers, objects etc. To assign values to a map you need to use the set method:
 
 ```js
-// Map()
+const map = new Map();
 
-window.obj = {}
-var map = new Map()
-map.set(window.obj, 10)
+map.set("a", 10);
+map.set("b", 20);
+map.set(3, 30);
 
-// To retrieve the object call get:
-map.get(window.obj) // => 10
+console.log(map.get("a")); // 10
+
+map.set("a", 50);
+
+console.log(map.get("a")); // 50
+console.log(map.size); // 3
+
+map.delete("b");
+
+console.log(map.size); // 2
+console.log(map); // {'a' => 50, 3 => 30}
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-map-p4wm4c?file=/src/index.js)**
 
 **WeakMap:**
 
@@ -7042,25 +7053,30 @@ WeakMap accepts only objects but not any primitive values (strings, numbers)
 ```js
 // WeakMap()
 
-function Obj(){
-    this.val = new Array(10000000).join("---")
+function Obj() {
+  this.val = new Array(10).join("---");
 }
 
 window.obj = new Obj();
-var map = new WeakMap()
-map.set(window.obj, 20)
-delete window.obj
+var map = new WeakMap();
+console.log(window.obj); // {val: "-----------------", constructor: Object}
+map.set(window.obj, 20); // WeakMap {Obj => 20}
+console.log(map);
 ```
 
-**Differences between Map and WeakMap:**  
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-weakmap-7e1sez?file=/src/index.js)**
 
-1. A WeakMap accepts only objects as keys whereas a Map, in addition to objects, accepts primitive datatype such as strings, numbers etc.
+**Difference between Map and WeakMap:**  
+
+1. A WeakMap accepts only **objects** as keys whereas a Map, in addition to **objects**, accepts primitive datatype such as **strings**, **numbers** etc.
 2. WeakMap objects doesn\'t avert garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as `Map.prototype.keys()` to get the keys.
 3. There is no size property exists in WeakMap.
 
 **Browser support for Map and WeakMap:**
 
 The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. It\'s supported only in IE11 but not IE10 and below. On mobile, newer browsers also have support, but IE Mobile doesn\'t.
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-request-object-ro4xt9?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
