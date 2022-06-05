@@ -7152,7 +7152,7 @@ weakSet.add(2); // ERROR, no primitive value
 |Set	                          |WeakSet                        |
 |-------------------------------|-------------------------------|
 |Can contain any type of values |	Can only contain objects      |
-|To find number of elements use .size	|To find elements count use .length|
+|To find number of elements use `.size()`	|To find elements count use `.length()`|
 |.forEach() is available to iterate|	No .forEach() to iterate  |
 |Nothing is auto destroyed	     |If an element object has no other reference left, it will be auto released to garbage collector|
 
