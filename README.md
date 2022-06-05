@@ -4536,6 +4536,36 @@ let obj7 = function(){};
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How to check if an object is an array or not?***
+
+The `Array.isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
+
+```js
+ // Creating some variables
+  var v1 = {name: "John", age: 22};   
+  var v2 = ["red", "green", "blue", "yellow"];
+  var v3 = [10, 20, 30, 40, 50];
+  var v4 = null;
+  
+  // Testing the variables data type
+  typeof(v1); // Returns: "object"
+  typeof(v2); // Returns: "object"
+  typeof(v3); // Returns: "object"
+  typeof(v3); // Returns: "object"
+  
+  // Testing if the variable is an array
+  Array.isArray(v1);  // Returns: false
+  Array.isArray(v2);  // Returns: true
+  Array.isArray(v3);  // Returns: true
+  Array.isArray(v4);  // Returns: false
+```
+
+*Note: The `Array.isArray()` method is supported in all major browsers, such as Chrome, Firefox, IE (9 and above)*
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***Can you give an example for destructuring an object?***
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
@@ -7456,80 +7486,10 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are the applications of assign method?***
-
-Below are the some of main applications of `Object.assign()` method,
-1. It is used for cloning an object.
-2. It is used to merge object with same properties.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of seal method?***
-
-The `Object.seal()` method is used seal an object, by preventing new properties from being added to it and marking all existing properties as non-configurable. But values of present properties can still be changed as long as they are writable. 
-
-```js
-const object = {
-    property: 'Welcome JS world'
-};
-
-Object.freeze(object);
-
-object.property = 'Welcome to object world';
-console.log(Object.isFrozen(object)); // true
-
-delete object.property; // You cannot delete when sealed
-console.log(object.property); // Welcome JS world
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the applications of seal method?***
-
-Below are the main applications of `Object.seal()` method,
-1. It is used for sealing objects and arrays.
-2. It is used to make an object immutable.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the differences between freeze and seal methods?***
-
-If an object is frozen using the `Object.freeze()` method then its properties become immutable and no changes can be made in them whereas if an object is sealed using the `Object.seal()` method then the changes can be made in the existing properties of the object.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you determine if an object is sealed or not?***
-
-The `Object.isSealed()` method is used to determine if an object is sealed or not. An object is sealed if all of the below conditions hold true
-1. If it is not extensible.
-2. If all of its properties are non-configurable.
-3. If it is not removable (but not necessarily non-writable).
-
-
-```js
-const object = {
-  property: 'Hello, Good morning'
-};
-
-Object.seal(object); // Using seal() method to seal the object
-console.log(Object.isSealed(object));      // checking whether the object is sealed or not
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you get enumerable key and value pairs?***
 
 The `Object.entries()` method is used to return an array of a given object own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let us see the functionality of object.entries() method in an example,
+
 ```js
 const object = {
   a: 'Good morning',
@@ -7541,6 +7501,7 @@ for (let [key, value] of Object.entries(object)) {
                                   // b: 100
 }
 ```
+
 *Note: The order is not guaranteed as object defined*.
 
 <div align="right">
@@ -7724,27 +7685,6 @@ objectName[expression]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is an Intl object?***
-
-The Intl object is the namespace for the ECMAScript Internationalization API, which provides language sensitive string comparison, number formatting, and date and time formatting. It provides an access to several constructors and language sensitive functions.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you perform language specific date and time formatting?***
-
-You can use `Intl.DateTimeFormat` object which is constructor for objects that enable language-sensitive date and time formatting. Let us see this behavior with an example,
-```js
-var date = new Date(Date.UTC(2019, 07, 07, 3, 0, 0));
-console.log(new Intl.DateTimeFormat('en-GB').format(date)); // 07/08/2019
-console.log(new Intl.DateTimeFormat('en-AU').format(date)); // 07/08/2019
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***How do you get meta data of a module?***
 
 You can use `import.meta` object which is a meta-property exposing context-specific meta data to a JavaScript module. It contains information about the current module, such as module's URL. In browser, you might get different meta data than NodeJS.
@@ -7758,40 +7698,9 @@ console.log(import.meta); // { url: "file:///home/user/welcome-module.js" }
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Explain why the following does not work as an IIFE: `function foo(){ }();`. What needs to be changed to properly make it an IIFE?***
-
-IIFE stands for Immediately Invoked Function Expressions. The JavaScript parser reads `function foo(){ }();` as `function foo(){ }` and `();`, where the former is a *function declaration* and the latter (a pair of parentheses) is an attempt at calling a function but there is no name specified, hence it throws `Uncaught SyntaxError: Unexpected token )`.
-
-Here are two ways to fix it that involves adding more parentheses: `(function foo(){ })()` and `(function foo(){ }())`. Statements that begin with `function` are considered to be *function declarations*; by wrapping this function within `()`, it becomes a *function expression* which can then be executed with the subsequent `()`. These functions are not exposed in the global scope and you can even omit its name if you do not need to reference itself within the body.
-
-You might also use `void` operator: `void function foo(){ }();`. Unfortunately, there is one issue with such approach. The evaluation of given expression is always `undefined`, so if your IIFE function returns anything, you can not use it. An example:
-
-```js
-// Do not add JS syntax to this code block to prevent Prettier from formatting it.
-const foo = void function bar() { return 'foo'; }();
-
-console.log(foo); // undefined
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you organize your code? (module pattern, classical inheritance?)***
-
-In the past, I've used Backbone for my models which encourages a more OOP approach, creating Backbone models and attaching methods to them.
-
-The module pattern is still great, but these days, I use React/Redux which utilize a single-directional data flow based on Flux architecture. I would represent my app\'s models using plain objects and write utility pure functions to manipulate these objects. State is manipulated using actions and reducers like in any other Redux application.
-
-I avoid using classical inheritance where possible. When and if I do, I stick to [these rules](https://medium.com/@dan_abramov/how-to-use-classes-and-sleep-at-night-9af8de78ccb4).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is the difference between feature detection, feature inference, and using the UA string?***
 
-**Feature Detection**
+**1. Feature Detection**
 
 Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn\'t), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
 
@@ -7805,7 +7714,7 @@ if ('geolocation' in navigator) {
 
 [Modernizr](https://modernizr.com/) is a great library to handle feature detection.
 
-**Feature Inference**
+**2. Feature Inference**
 
 Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
 
@@ -7817,28 +7726,9 @@ if (document.getElementsByTagName) {
 
 This is not really recommended. Feature detection is more foolproof.
 
-**UA String**
+**3. UA String**
 
 This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain Ajax in detail?***
-
-Ajax (asynchronous JavaScript and XML) is a set of web development techniques using many web technologies on the client side to create asynchronous web applications. With Ajax, web applications can send data to and retrieve from a server asynchronously (in the background) without interfering with the display and behavior of the existing page. 
-
-By decoupling the data interchange layer from the presentation layer, Ajax allows for web pages, and by extension web applications, to change content dynamically without the need to reload the entire page. In practice, modern implementations commonly substitute use JSON instead of XML, due to the advantages of JSON being native to JavaScript.
-
-The `XMLHttpRequest` API is frequently used for the asynchronous communication or these days, the `fetch` API.
-
-**Advantages:**
-
-* Better interactivity. New content from the server can be changed dynamically without the need to reload the entire page.
-* Reduce connections to the server since scripts and stylesheets only have to be requested once.
-* State can be maintained on a page. JavaScript variables and DOM state will persist because the main container page was not reloaded.
-* Basically most of the advantages of an SPA.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -7867,101 +7757,6 @@ The Strict Mode is allows you to place a program, or a function, in a `strict` o
 * `this` is undefined in the global context.
 * It catches some common coding bloopers, throwing exceptions.
 * It disables features that are confusing or poorly thought out.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain the difference between synchronous and asynchronous functions?***
-
-Synchronous functions are blocking while asynchronous functions are not. In synchronous functions, statements complete before the next statement is run. In this case, the program is evaluated exactly in order of the statements and execution of the program is paused if one of the statements take a very long time.
-
-Asynchronous functions usually accept a callback as a parameter and execution continue on the next line immediately after the asynchronous function is invoked. The callback is only invoked when the asynchronous operation is complete and the call stack is empty. Heavy duty operations such as loading data from a web server or querying a database should be done asynchronously so that the main thread can continue executing other operations instead of blocking until that long operation to complete (in the case of browsers, the UI will freeze).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Why you might want to create static class members?***
-
-Static class members (properties/methods) are not tied to a specific instance of a class and have the same value regardless of which instance is referring to it. Static properties are typically configuration variables and static methods are usually pure utility functions which do not depend on the state of the instance.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is "closure" in javascript? Can you provide an example?***
-
-A closure is a function defined inside another function (called parent function) and has access to the variable which is declared and defined in parent function scope.
-
-The closure has access to the variable in three scopes:
-- Variable declared in his own scope
-- Variable declared in parent function scope
-- Variable declared in the global namespace
-
-```js
-var globalVar = "abc";
-
-// Parent self invoking function
-(function outerFunction (outerArg) { // begin of scope outerFunction
-  // Variable declared in outerFunction function scope
-  var outerFuncVar = 'x';    
-  // Closure self-invoking function
-  (function innerFunction (innerArg) { // begin of scope innerFunction
-    // variable declared in innerFunction function scope
-    var innerFuncVar = "y";
-    console.log(         
-      "outerArg = " + outerArg + "\n" +
-      "outerFuncVar = " + outerFuncVar + "\n" +
-      "innerArg = " + innerArg + "\n" +
-      "innerFuncVar = " + innerFuncVar + "\n" +
-      "globalVar = " + globalVar);
-  // end of scope innerFunction
-  })(5); // Pass 5 as parameter
-// end of scope outerFunction
-})(7); // Pass 7 as parameter
-```
-
-`innerFunction` is closure which is defined inside `outerFunction` and has access to all variable which is declared and defined in outerFunction scope. In addition to this function defined inside the function as closure has access to the variable which is declared in `global namespace`.
-
-Output of above code would be:
-
-```js
-outerArg = 7
-outerFuncVar = x
-innerArg = 5
-innerFuncVar = y
-globalVar = abc
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to check if an object is an array or not?***
-
-The `Array.isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
-
-```js
- // Creating some variables
-  var v1 = {name: "John", age: 22};   
-  var v2 = ["red", "green", "blue", "yellow"];
-  var v3 = [10, 20, 30, 40, 50];
-  var v4 = null;
-  
-  // Testing the variables data type
-  typeof(v1); // Returns: "object"
-  typeof(v2); // Returns: "object"
-  typeof(v3); // Returns: "object"
-  typeof(v3); // Returns: "object"
-  
-  // Testing if the variable is an array
-  Array.isArray(v1);  // Returns: false
-  Array.isArray(v2);  // Returns: true
-  Array.isArray(v3);  // Returns: true
-  Array.isArray(v4);  // Returns: false
-```
-
-*Note: The `Array.isArray()` method is supported in all major browsers, such as Chrome, Firefox, IE (9 and above)*
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
