@@ -7625,6 +7625,36 @@ Like an asynchronously loaded script, the file can be downloaded while the HTML 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is request header in javascript?***
+
+The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
+Syntax
+
+```js
+const myHeaders = request.headers;
+```
+
+**Example:**
+
+```js
+const myHeaders = new Headers();
+myHeaders.append('Content-Type', 'image/jpeg');
+
+var myInit = { 
+  method: 'GET',
+  headers: myHeaders,
+  mode: 'cors',
+  cache: 'default' 
+};
+
+const myRequest = new Request('flowers.jpg', myInit);
+myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## # Collections
 
 <br/>
@@ -8523,36 +8553,6 @@ console.log(User.isAdmin); //true
 class User() {
 }
 console.log(User.isAdmin); //false
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is request header in javascript?***
-
-The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
-Syntax
-
-```js
-var myHeaders = request.headers;
-```
-
-**Example:**
-
-```js
-var myHeaders = new Headers();
-myHeaders.append('Content-Type', 'image/jpeg');
-
-var myInit = { 
-  method: 'GET',
-  headers: myHeaders,
-  mode: 'cors',
-  cache: 'default' 
-};
-
-var myRequest = new Request('flowers.jpg', myInit);
-myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 ```
 
 <div align="right">
