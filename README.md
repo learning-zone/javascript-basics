@@ -6844,6 +6844,8 @@ fetchMethod();
 
 `XMLHttpRequest()` is a built-in browser object that allows to make HTTP requests in JavaScript. XMLHttpRequest has two modes of operation: **synchronous** and **asynchronous**.
 
+**Example:**
+
 ```js
 const xhr = new XMLHttpRequest();
 
@@ -6889,6 +6891,8 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
 
 A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful `.then()` function will receive Response object, if request fails then `.catch()` function will receive an error object
 
+**Example:**
+
 ```js
 fetch("https://api.github.com/users/learning-zone")
   .then(function (response) {
@@ -6907,6 +6911,8 @@ fetch("https://api.github.com/users/learning-zone")
 **Headers Object**  
 
 The Headers interface allows to create own headers object via the `Headers()` constructor. A headers object is a collection of name-value pairs.
+
+**Example:**
 
 ```js
 let reqHeader = new Headers();
@@ -6933,6 +6939,8 @@ fetch("https://api.github.com/users/learning-zone", initObject)
 **Request Object**  
 
 The Request Object represents a resource request. Instead of passing an URL of the resource into the `fetch()` call, you can create a request object using the `Request()` constructor, and pass that as an argument to `fetch()`. By passing Request object to the `fetch()`, you can make customised requests.
+
+**Example:**
 
 ```js
 let reqHeader = new Headers();
