@@ -7163,24 +7163,28 @@ weakSet.add(2); // ERROR, no primitive value
 ## Q. ***List down the collection of methods available on WeakSet?***
 
 Below are the list of methods available on WeakSet,
-1. add(value): A new object is appended with the given value to the weakset
-2. delete(value): Deletes the value from the WeakSet collection.
-3. has(value): It returns true if the value is present in the WeakSet Collection, otherwise it returns false.
-4. length(): It returns the length of weakSetObject
+
+* **add(value)**: A new object is appended with the given value to the weakset
+* **delete(value)**: Deletes the value from the WeakSet collection.
+* **has(value)**: It returns true if the value is present in the WeakSet Collection, otherwise it returns false.
+* **length()**: It returns the length of weakSetObject
 
 Let us see the functionality of all the above methods in an example,
 
 ```js
-var weakSetObject = new WeakSet();
-var firstObject = {};
-var secondObject = {};
+const weakSetObject = new WeakSet();
+const firstObject = {};
+const secondObject = {};
+
 // add(value)
 weakSetObject.add(firstObject);
 weakSetObject.add(secondObject);
-console.log(weakSetObject.has(firstObject)); //true
-console.log(weakSetObject.length()); //2
+
+console.log(weakSetObject.has(firstObject)); // true
 weakSetObject.delete(secondObject);
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-weakset-39nhvv?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
