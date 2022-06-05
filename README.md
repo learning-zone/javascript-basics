@@ -8127,7 +8127,9 @@ The **singleton pattern** is a type of creational pattern that restricts the ins
 **Example:**
 
 ```js
-// Singleton Pattern
+/**
+ * Singleton Pattern
+ **/
 
 let instance = null;
 
