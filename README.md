@@ -7222,7 +7222,34 @@ weakMapObject.delete(secondObject);
 
 ## Q. ***What is an Iterator?***
 
-An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `next()` method which returns an object with two properties: value (the next value in the sequence) and done (which is true if the last value in the sequence has been consumed).
+An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `next()` method which returns an object with two properties: 
+
+* **value**: The next value in the iteration sequence.
+* **done**: This is true if the last value in the sequence has already been consumed.
+
+**Example:**
+
+```js
+// custom Iterator
+function numbers() {
+  let n = 0;
+  return {
+    next: function () {
+      n += 10;
+      return { value: n, done: false };
+    }
+  };
+}
+
+// Create an Iterator
+const number = numbers();
+
+console.log(number.next()); // {value: 10, done: false}
+console.log(number.next()); // {value: 20, done: false}
+console.log(number.next()); // {value: 30, done: false}
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-iterator-sh0tvo?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
