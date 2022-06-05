@@ -1109,6 +1109,35 @@ console.log(typeof test2); // undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is Coercion in JavaScript?***
+
+Type coercion is the automatic or implicit conversion of values from one data type to another (such as strings to numbers). Type conversion is similar to type coercion because they both convert values from one data type to another with one key difference — type coercion is implicit whereas type conversion can be either implicit or explicit.
+
+```js
+const value1 = '10';
+const value2 = 20;
+
+let sum = value1 + value2;
+
+console.log(sum);
+```
+
+In the above example, JavaScript has coerced the 10 from a number into a string and then concatenated the two values together, resulting in a string of 1020. JavaScript had a choice between a string or a number and decided to use a string.
+
+```js
+// Example of explicit coercion
+const value1 = '10';
+const value2 = 20;
+
+let sum = Number(value1) + value2;
+
+console.log(sum);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## # OPERATORS
 
 <br/>
@@ -8015,18 +8044,6 @@ The Strict Mode is allows you to place a program, or a function, in a `strict` o
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What are Service Workers and when can you use them?***
-
-It is a technology that allows your web application to use cached resources first, and provide default experience offline, before getting more data from the network later. This principle is commonly known as Offline First.
-
-Service Workers actively use promises. A Service Worker has to be installed,activated and then it can react on fetch, push and sync events.
-
-As of 2017, Service Workers are not supported in IE and Safari.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Describe Singleton Pattern In JavaScript?***
 
 The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
@@ -8077,61 +8094,6 @@ var findUserName = $('#user_list');
 /* You are trying to call and you make this time workable */
 console.log(MyNameSpace.findUserName());
 ```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Singleton Design Pattern Implementation?***
-
-```js
-/* Lazy Instantiation skeleton for a singleton pattern */
-
-var MyNameSpace = {};
-MyNameSpace.Singleton = (function() {
-
-  // Private attribute that holds the single instance
-  var singletonInstance;  
-
-  // All of the normal code goes here
-  function constructor() {
-    // Private members
-    var privateVar1 = "Alex";
-    var privateVar2 = [1,2,3,4,5];
-
-    function privateMethod1() {
-      // code stuff
-    }
-
-    function privateMethod1() {
-      // code stuff
-    }
-
-    return {
-      attribute1 : "Alex",
-      publicMethod: function() {
-        alert("Alex");// some code logic
-      }
-    }
-  }
-
-  return {
-    // public method (Global access point to Singleton object)
-    getInstance: function() {
-      //instance already exist then return  
-      if(!singletonInstance) {
-        singletonInstance = constructor();
-      }
-      return singletonInstance;
-    }
-  }
-
-})();
-
-// getting access of publicMethod
-console.log(MyNamespace.Singleton.getInstance().publicMethod());
-```
-
-The singleton implemented above is easy to understand. The singleton class maintains a static reference to the lone singleton instance and return that reference from the static getInstance() method.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
@@ -8139,7 +8101,7 @@ The singleton implemented above is easy to understand. The singleton class maint
 
 ## Q. ***What do you understand by ViewState and SessionState?***
 
-**a.) Session State**: 
+**1. Session State**: 
 
 Contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It is a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
 
@@ -8149,7 +8111,7 @@ Contains information that is pertaining to a specific session (by a particular c
 * In session state, user data remains in the server.  The availability of the data is guaranteed until either the user closes the session or the browser is closed.
 * Session state is used for the persistence of user-specific data on the server\'s end.
 
-**b.) View State**: 
+**2. View State**: 
 
 On the other hand is information specific to particular web page. It is stored in a hidden field so that it is not visible to the user.
 
@@ -8167,7 +8129,8 @@ On the other hand is information specific to particular web page. It is stored i
 
 The `Console` method **log()** outputs a message to the web console. The message may be a single string or it may be any one or more JavaScript objects.
 
-**a.) console.table()**
+**1. console.table()**
+
 ```js
 const artists = [
   {
@@ -8189,15 +8152,15 @@ Output
 
 <img src="assets/console_table.png" alt="Console Table"/>
 
-**b.) console.log()**
+**2. console.log()**
 
 <img src="assets/console.log.png" alt="Console Log"/>
 
-**c.) console.warn()**
+**3. console.warn()**
 
 <img src="assets/console.warn.png" alt="Console Warning"/>
 
-**d.) console.error()**
+**4. console.error()**
 
 <img src="assets/console.error.png" alt="Console Error"/>
 
@@ -8230,6 +8193,7 @@ Output
 <!-- The button used to copy the text -->
 <button onclick="copy()">Copy text</button>
 ```
+
 ```js
 function copy() {
   /* Get the text field */
@@ -8246,6 +8210,7 @@ function copy() {
   alert("Copied the text: " + copyText.value);
 }
 ```
+
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -8253,34 +8218,6 @@ function copy() {
 ## Q. ***Explain types of Memory Leaks in JavaScript?***
 
 *[Reference](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is Coercion in JavaScript?***
-
-Type coercion is the automatic or implicit conversion of values from one data type to another (such as strings to numbers). Type conversion is similar to type coercion because they both convert values from one data type to another with one key difference — type coercion is implicit whereas type conversion can be either implicit or explicit.
-
-```js
-const value1 = '10';
-const value2 = 20;
-
-let sum = value1 + value2;
-
-console.log(sum);
-```
-In the above example, JavaScript has coerced the 10 from a number into a string and then concatenated the two values together, resulting in a string of 1020. JavaScript had a choice between a string or a number and decided to use a string.
-
-```js
-// Example of explicit coercion
-const value1 = '10';
-const value2 = 20;
-
-let sum = Number(value1) + value2;
-
-console.log(sum);
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
