@@ -7025,15 +7025,14 @@ Like an asynchronously loaded script, the file can be downloaded while the HTML 
 It is used to associate a key to a value irrespective of the datatype such as strings, numbers, objects etc. To assign values to a map you need to use the set method:
 
 ```js
+// Map()
+
 window.obj = {}
 var map = new Map()
-map.set(window.obj, 123)
-```
+map.set(window.obj, 10)
 
-Then, to retrieve the object call get:
-
-```js
-map.get(window.obj) // => 123
+// To retrieve the object call get:
+map.get(window.obj) // => 10
 ```
 
 **WeakMap:**
@@ -7041,25 +7040,27 @@ map.get(window.obj) // => 123
 WeakMap accepts only objects but not any primitive values (strings, numbers)
 
 ```js
+// WeakMap()
+
 function Obj(){
     this.val = new Array(10000000).join("---")
 }
 
 window.obj = new Obj();
 var map = new WeakMap()
-map.set(window.obj, 123)
+map.set(window.obj, 20)
 delete window.obj
 ```
 
 **Differences between Map and WeakMap:**  
 
-1. A WeakMap accepts only objects as keys whereas a Map,in addition to objects, accepts primitive datatype such as strings, numbers etc.
-2. WeakMap objects doesn't avert garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as Map.prototype.keys() to get the keys.
+1. A WeakMap accepts only objects as keys whereas a Map, in addition to objects, accepts primitive datatype such as strings, numbers etc.
+2. WeakMap objects doesn\'t avert garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as `Map.prototype.keys()` to get the keys.
 3. There is no size property exists in WeakMap.
 
 **Browser support for Map and WeakMap:**
 
-The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. It's supported only in IE11 but not IE10 and below. On mobile, newer browsers also have support, but IE Mobile doesn\'t.
+The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. It\'s supported only in IE11 but not IE10 and below. On mobile, newer browsers also have support, but IE Mobile doesn\'t.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
