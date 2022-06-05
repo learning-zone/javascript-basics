@@ -5489,6 +5489,66 @@ _.isEqual(obj1, obj2); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How do you get enumerable key and value pairs?***
+
+The `Object.entries()` method is used to return an array of a given object own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let us see the functionality of object.entries() method in an example,
+
+```js
+const object = {
+  a: 'Good morning',
+  b: 100
+};
+
+for (let [key, value] of Object.entries(object)) {
+  console.log(`${key}: ${value}`); // a: 'Good morning'
+                                  // b: 100
+}
+```
+
+*Note: The order is not guaranteed as object defined*.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the main difference between Object.values and Object.entries method?***
+
+The `Object.values()` method\'s behavior is similar to `Object.entries()` method but it returns an array of values instead [key,value] pairs.
+
+```js
+const object = {
+  a: 'Good morning',
+  b: 100
+};
+
+for (let value of Object.values(object)) {
+  console.log(`${value}`); // 'Good morning'
+                                100
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How can you get the list of keys of any object?***
+
+You can use `Object.keys()` method which is used return an array of a given object\'s own property names, in the same order as we get with a normal loop. For example, you can get the keys of a user object,
+
+```js
+const user = {
+  name: 'John',
+  gender: 'male',
+  age: 40
+};
+
+console.log(Object.keys(user)); //['name', 'gender', 'age']
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 # # WINDOW/DOCUMENT OBJECT
 
 <br/>
@@ -7482,62 +7542,6 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
 </noscript>
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you get enumerable key and value pairs?***
-
-The `Object.entries()` method is used to return an array of a given object own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let us see the functionality of object.entries() method in an example,
-
-```js
-const object = {
-  a: 'Good morning',
-  b: 100
-};
-
-for (let [key, value] of Object.entries(object)) {
-  console.log(`${key}: ${value}`); // a: 'Good morning'
-                                  // b: 100
-}
-```
-
-*Note: The order is not guaranteed as object defined*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the main difference between Object.values and Object.entries method?***
-
-The `Object.values()` method's behavior is similar to `Object.entries()` method but it returns an array of values instead [key,value] pairs.
-```js
-const object = {
-  a: 'Good morning',
-  b: 100
-};
-
-for (let value of Object.values(object)) {
-  console.log(`${value}`); // 'Good morning'
-                                100
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How can you get the list of keys of any object?***
-
-You can use `Object.keys()` method which is used return an array of a given object's own property names, in the same order as we get with a normal loop. For example, you can get the keys of a user object,
-```js
-const user = {
-  name: 'John',
-  gender: 'male',
-  age: 40
-};
-
-console.log(Object.keys(user)); //['name', 'gender', 'age']
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
