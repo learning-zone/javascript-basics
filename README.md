@@ -6695,6 +6695,108 @@ person.getFullName(); // Vanya Dayal
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What are javascript accessors?***
+
+ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses `get` keyword whereas Setters uses `set` keyword.
+
+```js
+var user = {
+  firstName: "John",
+  lastName : "Abraham",
+  language : "en",
+  get lang() {
+    return this.language;
+  }
+  set lang(lang) {
+  this.language = lang;
+  }
+};
+
+console.log(user.lang); // getter access lang as en
+user.lang = 'fr';
+console.log(user.lang); // setter used to set lang as fr
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you define property on Object constructor?***
+
+The Object.defineProperty() static method is used to define a new property directly on an object, or modifies an existing property on an object, and returns the object. 
+
+```js
+const newObject = {};
+
+Object.defineProperty(newObject, 'newProperty', {
+  value: 100,
+  writable: false
+});
+
+console.log(newObject.newProperty); // 100
+
+newObject.newProperty = 200; // It throws an error in strict mode due to writable setting
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What is the difference between get and defineProperty?***
+
+Both has similar results until unless you use classes. If you use `get` the property will be defined on the prototype of the object whereas using `Object.defineProperty()` the property will be defined on the instance it is applied to.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***What are the advantages of Getters and Setters?***
+
+Below are the list of benefits of Getters and Setters,
+
+* They provide simpler syntax
+* They are used for defining computed properties, or accessors in JS.
+* Useful to provide equivalence relation between properties and methods
+* They can provide better data quality
+* Useful for doing things behind the scenes with the encapsulated logic.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Can I add getters and setters using defineProperty method?***
+
+Yes, You can use `Object.defineProperty()` method to add Getters and Setters. For example, the below counter object uses increment, decrement, add and substract properties,
+
+```js
+var counterObj = {counter : 0};
+
+// Define getters
+Object.defineProperty(obj, "increment", {
+  get : function () {this.counter++;}
+});
+Object.defineProperty(obj, "decrement", {
+  get : function () {this.counter--;}
+});
+
+// Define setters
+Object.defineProperty(obj, "add", {
+  set : function (value) {this.counter += value;}
+});
+Object.defineProperty(obj, "subtract", {
+  set : function (value) {this.counter -= value;}
+});
+
+obj.add = 10;
+obj.subtract = 5;
+console.log(obj.increment); //6
+console.log(obj.decrement); //5
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## # ERROR HANDLING
 
 <br/>
@@ -7570,101 +7672,6 @@ try {
 } catch(e) { // catches a malformed URI
   console.error(e);
 }
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are javascript accessors?***
-
-ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses `get` keyword whereas Setters uses `set` keyword.
-
-```js
-var user = {
-  firstName: "John",
-  lastName : "Abraham",
-  language : "en",
-  get lang() {
-    return this.language;
-  }
-  set lang(lang) {
-  this.language = lang;
-  }
-};
-console.log(user.lang); // getter access lang as en
-user.lang = 'fr';
-console.log(user.lang); // setter used to set lang as fr
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you define property on Object constructor?***
-
-The Object.defineProperty() static method is used to define a new property directly on an object, or modifies an existing property on an object, and returns the object. 
-```js
-const newObject = {};
-
-Object.defineProperty(newObject, 'newProperty', {
-  value: 100,
-  writable: false
-});
-
-console.log(newObject.newProperty); // 100
-
-newObject.newProperty = 200; // It throws an error in strict mode due to writable setting
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between get and defineProperty?***
-
-Both has similar results until unless you use classes. If you use `get` the property will be defined on the prototype of the object whereas using `Object.defineProperty()` the property will be defined on the instance it is applied to.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the advantages of Getters and Setters?***
-
-Below are the list of benefits of Getters and Setters,
-1. They provide simpler syntax
-2. They are used for defining computed properties, or accessors in JS.
-3. Useful to provide equivalence relation between properties and methods
-4. They can provide better data quality
-5. Useful for doing things behind the scenes with the encapsulated logic.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Can I add getters and setters using defineProperty method?***
-
-Yes, You can use `Object.defineProperty()` method to add Getters and Setters. For example, the below counter object uses increment, decrement, add and substract properties,
-```js
-var counterObj = {counter : 0};
-
-// Define getters
-Object.defineProperty(obj, "increment", {
-  get : function () {this.counter++;}
-});
-Object.defineProperty(obj, "decrement", {
-  get : function () {this.counter--;}
-});
-
-// Define setters
-Object.defineProperty(obj, "add", {
-  set : function (value) {this.counter += value;}
-});
-Object.defineProperty(obj, "subtract", {
-  set : function (value) {this.counter -= value;}
-});
-
-obj.add = 10;
-obj.subtract = 5;
-console.log(obj.increment); //6
-console.log(obj.decrement); //5
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
