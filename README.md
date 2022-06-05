@@ -6990,7 +6990,7 @@ An Ajax call is a specific asynchronous operation that can be used with with a t
 
 ## Q. ***What is difference between async or defer keyword in JavaScript?***
 
-**1. async() Attribute**  
+**1. async Attribute**  
 
 The async attribute is used to indicate to the browser that the script file can be executed asynchronously. The HTML parser does not need to pause at the point it reaches the script tag to fetch and execute, the execution can happen whenever the script becomes ready after being fetched in parallel with the document parsing.
 
@@ -7000,7 +7000,7 @@ The async attribute is used to indicate to the browser that the script file can 
 
 This attribute is only available for externally located script files. When an external script has this attribute, the file can be downloaded while the HTML document is still parsing. Once it has been downloaded, the parsing is paused for the script to be executed.
 
-**2. defer() Attribute**  
+**2. defer Attribute**  
 
 The defer attribute tells the browser to only execute the script file once the HTML document has been fully parsed.
 
