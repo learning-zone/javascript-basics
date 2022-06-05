@@ -6887,27 +6887,22 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
 
 ## Q. ***Explain fetch() properties in JavaScript?***
 
-* **fetch()**: The fetch() method used to fetch a resource.
-* **Headers**: Represents response/request headers, allows to query them and take different actions depending on the results.
-* **Request**: Represents a resource request.
-* **Response**: Represents the response to a request.
-
-**Making a request using fetch()**  
-
 A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful `.then()` function will receive Response object, if request fails then `.catch()` function will receive an error object
 
 ```js
-fetch('https://api.github.com/users/learning-zone')
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-    .catch(function (err) {
-        console.log("Something went wrong!", err);
-    });
+fetch("https://api.github.com/users/learning-zone")
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (err) {
+    console.log("Something went wrong!", err);
+  });
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-fetch-v6gpnk?file=/src/index.js)**
 
 **Headers Object**  
 
@@ -6915,47 +6910,57 @@ The Headers interface allows to create own headers object via the `Headers()` co
 
 ```js
 let reqHeader = new Headers();
-reqHeader.append('Content-Type', 'text/json');
+reqHeader.append("Content-Type", "text/json");
 let initObject = {
-    method: 'GET', headers: reqHeader,
+  method: "GET",
+  headers: reqHeader
 };
 
-fetch('https://api.github.com/users/learning-zone', initObject)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-    .catch(function (err) {
-        console.log("Something went wrong!", err);
-    });
+fetch("https://api.github.com/users/learning-zone", initObject)
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (err) {
+    console.log("Something went wrong!", err);
+  });
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-headers-object-6xe335?file=/src/index.js)**
 
 **Request Object**  
 
-The Request Object represents a resource request. Instead of passing an URL of the resource into the fetch() call, you can create a request object using the Request() constructor, and pass that as an argument to fetch(). By passing Request object to the fetch(), you can make customised requests.
+The Request Object represents a resource request. Instead of passing an URL of the resource into the `fetch()` call, you can create a request object using the `Request()` constructor, and pass that as an argument to `fetch()`. By passing Request object to the `fetch()`, you can make customised requests.
+
 ```js
 let reqHeader = new Headers();
-reqHeader.append('Content-Type', 'text/json');
+reqHeader.append("Content-Type", "text/json");
 
 let initObject = {
-    method: 'GET', headers: reqHeader,
+  method: "GET",
+  headers: reqHeader
 };
 
-var userRequest = new Request('https://api.github.com/users/learning-zone', initObject);
+const userRequest = new Request(
+  "https://api.github.com/users/learning-zone",
+  initObject
+);
 
 fetch(userRequest)
-    .then(function (response) {
-        return response.json();
-    })
-    .then(function (data) {
-        console.log(data);
-    })
-    .catch(function (err) {
-        console.log("Something went wrong!", err);
-    });
+  .then(function (response) {
+    return response.json();
+  })
+  .then(function (data) {
+    console.log(data);
+  })
+  .catch(function (err) {
+    console.log("Something went wrong!", err);
+  });
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-request-object-ro4xt9?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
