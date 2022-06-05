@@ -5378,6 +5378,75 @@ console.log(newObj); // { a: 10, b: { c: 20 } }
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***Write a function called deepClone which takes an object and creates a object copy of it?***
+
+``` javascript
+var newObject = deepClone(obj);
+```
+
+Solution:
+
+```js
+function deepClone(object) {
+  var newObject = {};
+  for (var key in object) {
+    if (typeof object[key] === "object" && object[key] !== null) {
+      newObject[key] = deepClone(object[key]);
+    } else {
+      newObject[key] = object[key];
+    }
+  }
+  return newObject;
+}
+```
+
+**Explanation:** We have been asked to do deep copy of object so What is basically It is mean ?. Let us understand in this way you have been given an object `personalDetail` this object contains some property which again a type of object here as you can see `address` is an object and `phoneNumber` in side an `address` is also an object. In simple term `personalDetail` is nested object(object inside object). So Here deep copy means we have to copy all the property of `personalDetail` object including nested object.
+
+```js
+var personalDetail = {
+	name : 'Alex',
+	address : {
+	  location: 'xyz',
+	  zip : '123456',
+	  phoneNumber : {
+	    homePhone: 8797912345,
+	    workPhone : 1234509876
+	  }
+	}
+}
+```
+
+So when we do deep clone then we should copy every property (including the nested object).
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object?***
+
+```js
+  var objectLit = {foo : 'Bar'};
+	var cloneObj = Clone(obj); // Clone is the function which you have to write 
+	console.log(cloneObj === Clone(objectLit)); // this should return false
+	console.log(cloneObj == Clone(objectLit)); // this should return true
+```
+
+**solution:**
+
+```js
+function Clone(object){
+  var newObject = {};
+  for(var key in object){
+  	newObject[key] = object[key];
+  }
+  return newObject;
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How do you check if a key exists in an object?***
 
 **1. Using `in` operator:**
@@ -7920,73 +7989,6 @@ As of 2017, Service Workers are not supported in IE and Safari.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-
-## Q. ***What is IIFE (Immediately Invoked Function Expression) and how it can be useful?***
-
-IIFE a function that runs as soon as It is defined. Usually It is anonymous (doesn\'t have a function name), but it also can be named. Here's an example of IIFE:
-
-```js
-(function() {
-  console.log("Hi, I'm IIFE!");
-})();
-// outputs "Hi, I'm IIFE!"
-```
-
-So, here's how it works. Remember the difference between function statements (`function a () {}`) and function expressions (`var a = function() {}`)? So, IIFE is a function expression. To make it an expression we surround our function declaration into the parens. We do it to explicitly tell the parser that It is an expression, not a statement (JS doesn\'t allow statements in parens).
-
-After the function you can see the two `()` braces, this is how we run the function we just declared. 
-
-That's it. The rest is details.  
-- The function inside IIFE doesn\'t have to be anonymous. This one will work perfectly fine and will help to detect your function in a stacktrace during debugging: 
-  ```js
-  (function myIIFEFunc() {
-    console.log("Hi, I'm IIFE!");
-  })();
-  // outputs "Hi, I'm IIFE!"
-  ```
-- It can take some parameters:
-  ```js
-  (function myIIFEFunc(param1) {
-    console.log("Hi, I'm IIFE, " + param1);
-  })("Yuri");
-  // outputs "Hi, I'm IIFE, Yuri!"
-  ```
-  Here there value `"Yuri"` is passed to the `param1` of the function.
-- It can return a value: 
-  ```js
-  var result = (function myIIFEFunc(param1) {
-    console.log("Hi, I'm IIFE, " + param1);
-    return 1;
-  })("Yuri");
-  // outputs "Hi, I'm IIFE, Yuri!"
-  // result variable will contain 1
-  ```
-- You do not have to surround the function declaration into parens, although It is the most common way to define IIFE. Instead you can use any of the following forms: 
-  - `~function(){console.log("hi I'm IIFE")}()`
-  - `!function(){console.log("hi I'm IIFE")}()`
-  - `+function(){console.log("hi I'm IIFE")}()`
-  - `-function(){console.log("hi I'm IIFE")}()`
-  - `(function(){console.log("hi I'm IIFE")}());`
-  - `var i = function(){console.log("hi I'm IIFE")}();`
-  - `true && function(){ console.log("hi I'm IIFE") }();`
-  - `0, function(){ console.log("hi I'm IIFE") }();`
-  - `new function(){ console.log("hi I'm IIFE") }`
-  - `new function(){ console.log("hi I'm IIFE") }()`
-
-
-**Applications and usefulness**  
-
-Variables and functions that you declare inside an IIFE are not visible to the outside world, so you can:
- - Use the IIFE for isolating parts of the code to hide details of implementation.
- - Specify the input interface of your code by passing commonly used global objects (window, document, jQuery, etc.) IIFE\'s parameters, and then reference these global objects within the IIFE via a local scope.
- - Use it in closures, when you use closures in loops.
- - IIFE is the basis of in the module pattern in ES5
-code, it helps to prevent polluting the global scope and provide the module interface to the outside.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***Describe Singleton Pattern In JavaScript?***
 
 The singleton pattern is an often used JavaScript design pattern. It provides a way to wrap the code into a logical unit that can be accessed through a single variable. The Singleton design pattern is used when only one instance of an object is needed throughout the lifetime of an application. In JavaScript, Singleton pattern have many uses, they can be used for NameSpacing, which reduce the number of global variables in your page (prevent from polluting global space), organizing the code in a consistent manner, which increase the readability and maintainability of your pages.
@@ -8093,72 +8095,6 @@ console.log(MyNamespace.Singleton.getInstance().publicMethod());
 
 The singleton implemented above is easy to understand. The singleton class maintains a static reference to the lone singleton instance and return that reference from the static getInstance() method.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Write a function called deepClone which takes an object and creates a object copy of it?***
-
-``` javascript
-var newObject = deepClone(obj);
-```
-Solution:
-
-```js
-function deepClone(object) {
-  var newObject = {};
-  for (var key in object) {
-    if (typeof object[key] === "object" && object[key] !== null) {
-      newObject[key] = deepClone(object[key]);
-    } else {
-      newObject[key] = object[key];
-    }
-  }
-  return newObject;
-}
-```
-
-**Explanation:** We have been asked to do deep copy of object so What is basically It is mean ?. Let us understand in this way you have been given an object `personalDetail` this object contains some property which again a type of object here as you can see `address` is an object and `phoneNumber` in side an `address` is also an object. In simple term `personalDetail` is nested object(object inside object). So Here deep copy means we have to copy all the property of `personalDetail` object including nested object.
-
-```js
-var personalDetail = {
-	name : 'Alex',
-	address : {
-	  location: 'xyz',
-	  zip : '123456',
-	  phoneNumber : {
-	    homePhone: 8797912345,
-	    workPhone : 1234509876
-	  }
-	}
-}
-```
-
-So when we do deep clone then we should copy every property (including the nested object).
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object?***
-
-```js
-  var objectLit = {foo : 'Bar'};
-	var cloneObj = Clone(obj); // Clone is the function which you have to write 
-	console.log(cloneObj === Clone(objectLit)); // this should return false
-	console.log(cloneObj == Clone(objectLit)); // this should return true
-```
-**solution:**
-
-```js
-function Clone(object){
-  var newObject = {};
-  for(var key in object){
-  	newObject[key] = object[key];
-  }
-  return newObject;
-}
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
