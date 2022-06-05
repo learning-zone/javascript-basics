@@ -5779,6 +5779,33 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is difference between array[] vs object()?***
+
+* `[]` is declaring an array.
+* `{}` is declaring an object.
+
+An array has all the features of an object with additional features (you can think of an array like a sub-class of an object) where additional methods and capabilities are added in the Array sub-class. In fact, typeof [] === "object" to further show you that an array is an object.
+
+The additional features consist of a magic `.length` property that keeps track of the number of items in the array and a whole slew of methods for operating on the array such as `.push()`, `.pop()`, `.slice()`, `.splice()`, etc... You can see a list of array methods here.
+
+An object gives you the ability to associate a property name with a value as in:
+
+```js
+var x = {};
+x.foo = 3;
+x["whatever"] = 10;
+console.log(x.foo);      // shows 3
+console.log(x.whatever); // shows 10
+```
+
+Object properties can be accessed either via the `x.foo` syntax or via the array-like syntax `x["foo"]`. The advantage of the latter syntax is that you can use a variable as the property name like `x[myvar]` and using the latter syntax, you can use property names that contain characters that Javascript won\'t allow in the `x.foo` syntax.
+
+An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 # # WINDOW/DOCUMENT OBJECT
 
 <br/>
@@ -8099,273 +8126,6 @@ The singleton implemented above is easy to understand. The singleton class maint
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***How to check whether a key exist in a JavaScript object or not?***
-
-Let say we have `person` object with property **name** and **age**
-
-```js
-var person = {
-	name: 'Alex',
-	age: 24
-}
-```
-Now we want to check whether `name` property exist in `person` object or not ?
-
-In JavaScript object can have own property, in above example name and age is own property of person object. Object also have some of inherited property of base object like toString is inherited property of person object.
-
-So how we will check whether property is own property or inherited property. 
-
-Method 1: We can use `in` operator on objet to check own property or inherited property. 
-
-```js
-console.log('name' in person); // checking own property print true 
-console.log('salary' in person); // checking undefined property print false
-```
-`in` operator also look into inherited property if it doesn\'t find property defined as own property. For instance If I check existence of toString property as we know that we haven\'t declared this property on person object so `in` operator look into there base property.
-
-Here 
-
-```js
-console.log('toString' in person); // Will print true
-```
-If we want to test property of object instance not inherited properties then we will use `hasOwnProperty` method of object instance.
-
-```js
-console.log(person.hasOwnProperty('toString')); // print false
-console.log(person.hasOwnProperty('name')); // print true
-console.log(person.hasOwnProperty('salary')); // print false
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How we can prevent modification of object in JavaScript?***
-
-ECMAScript 5 introduce several methods to prevent modification of object which lock down object to ensure that no one, accidentally or otherwise, change functionality of Object.
-
-There are three levels of preventing modification: 
-
-**1: Prevent extensions :** 
-
-No new properties or methods can be added to the object, but one can change the existing properties and method.
-
-For example: 
-
-```js
-var employee = {
-	name: "Alex"
-};
-
-// lock the object 
-Object.preventExtensions(employee);
-
-// Now try to change the employee object property name
-employee.name = "John"; // work fine 
-
-//Now try to add some new property to the object
-employee.age = 24; // fails silently unless It is inside the strict mode
-```
-**2: Seal :**
-
-It is same as prevent extension, in addition to this also prevent existing properties and methods from being deleted.
-
-To seal an object, we use **Object.seal()** method. you can check whether an object is sealed or not using **Object.isSealed();**
-
-```js
-var employee = {
-	name: "Alex"
-};
-
-// Seal the object 
-Object.seal(employee);
-
-console.log(Object.isExtensible(employee)); // false
-console.log(Object.isSealed(employee)); // true
-
-delete employee.name // fails silently unless It is in strict mode
-
-// Trying to add new property will give an error
-employee.age = 30; // fails silently unless in strict mode
-``` 
-
-when an object is sealed, its existing properties and methods can't be removed. Sealed object are also non-extensible.
-
-**3: Freeze :**
-
-Same as seal, In addition to this prevent existing properties methods from being modified (All properties and methods are read only).
-
-To freeze an object, use Object.freeze() method. We can also determine whether an object is frozen using Object.isFrozen();
-
-```js
-var employee = {
-	name: "Alex"
-};
-
-//Freeze the object
-Object.freeze(employee); 
-
-// Seal the object 
-Object.seal(employee);
-
-console.log(Object.isExtensible(employee)); // false
-console.log(Object.isSealed(employee));     // true
-console.log(Object.isFrozen(employee));     // true
-
-
-employee.name = "xyz"; // fails silently unless in strict mode
-employee.age = 30;     // fails silently unless in strict mode
-delete employee.name   // fails silently unless It is in strict mode
-``` 
-
-Frozen objects are considered both non-extensible and sealed.
-
-**Recommended:**
-
-If you are decided to prevent modification, sealed, freeze the object then use in strict mode so that you can catch the error.
-
-**Example:** 
-
-```js
-"use strict";
-
-var employee = {
-	name: "Alex"
-};
-
-//Freeze the object
-Object.freeze(employee); 
-
-// Seal the object 
-Object.seal(employee);
-
-console.log(Object.isExtensible(employee)); // false
-console.log(Object.isSealed(employee));     // true
-console.log(Object.isFrozen(employee));     // true
-
-
-employee.name = "xyz"; // fails silently unless in strict mode
-employee.age = 30;     // fails silently unless in strict mode
-delete employee.name;  // fails silently unless It is in strict mode
-``` 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to add and remove properties to object in runtime?***
-
-**Creating an Object:**
-
-There are two ways to construct an object in JavaScript:
-* The object literal, which uses curly brackets: {}
-* The object constructor, which uses the new keyword
-```js
-// Initialize object literal with curly brackets
-const objectLiteral = {};
-
-// Initialize object constructor with new Object
-const objectConstructor = new Object();
-```
-We can create an example object, contained in the variable employee, to describe a character.
-```js
-// Initialize gimli object
-const employee = {
-    name: "Gimli",
-    race: "dwarf",
-    weapon: "axe",
-    greet: function() {
-        return `Hi, my name is ${this.name}!`;
-    },
-};
-```
-
-**Accessing Object Properties:**
-
-There are two ways to access an object\'s properties.
-
-* Dot notation: .
-* Bracket notation: []
-```js
-// Retrieve the value of the weapon property
-gimli.weapon;
-
-// Retrieve the value of the weapon property
-gimli["weapon"];
-```
-Output
-```
-"axe"
-```
-In order to retrieve an object method, you would call it much in the same way you would call a regular function, just attached to the object variable.
-```js
-employee.greet();
-```
-Output
-```
-"Hi, my name is Gimli!"
-```
-
-**Adding and Modifying Object Properties:**  
-
-```js
-// Add new age property to gimli
-employee.age = 22;
-
-// Add new age property to gimli
-employee["age"] = 22;
-
-employee.age;
-```
-Output
-```
-22
-```
-
-**Removing Object Properties:**  
-
-In order to remove a property from an object, you will utilize the delete keyword. delete is an operator that removes a property from an object.
-```js
-// Remove weapon from gimli
-delete employee.weapon;
-
-// Output
-true
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is difference between browser detection and feature detection?***
-
-Feature detection is just a way of determining if a feature exists in certain browsers. A good example is a modern HTML5 feature ‘Location’.
-
-```js
-if (navigator.geolocation) {
-  // detect users location here B-) and do something 
-}
-```
-
-Browser detection is generally done by reading a property known as `navigator.userAgent` that contains a string with a lot of information about the browser that is currently being used to visit the page.
-
-Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
-
-```js
-if (document.getElementsByTagName) {
-    element = document.getElementById(id);
-}
-```
-Checking the UA string is an old practice and should not be used anymore. You keep changing the UA checks and never benefit from newly implemented features, e.g.:
-
-```js
-if (navigator.userAgent.indexOf("MSIE 7") > -1){
-    //do something
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What do you understand by ViewState and SessionState?***
 
 **a.) Session State**: 
@@ -8387,31 +8147,6 @@ On the other hand is information specific to particular web page. It is stored i
 * Information stored on the client\'s end only.
 * View state will retain values in the event of a postback operation occurring.
 * View state is used to allow the persistence of page-instance-specific data.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is difference between array[] vs object()?***
-
-`[]` is declaring an array.
-`{}` is declaring an object.
-
-An array has all the features of an object with additional features (you can think of an array like a sub-class of an object) where additional methods and capabilities are added in the Array sub-class. In fact, typeof [] === "object" to further show you that an array is an object.
-
-The additional features consist of a magic `.length` property that keeps track of the number of items in the array and a whole slew of methods for operating on the array such as `.push()`, `.pop()`, `.slice()`, `.splice()`, etc... You can see a list of array methods here.
-
-An object gives you the ability to associate a property name with a value as in:
-```js
-var x = {};
-x.foo = 3;
-x["whatever"] = 10;
-console.log(x.foo);      // shows 3
-console.log(x.whatever); // shows 10
-```
-Object properties can be accessed either via the `x.foo` syntax or via the array-like syntax `x["foo"]`. The advantage of the latter syntax is that you can use a variable as the property name like `x[myvar]` and using the latter syntax, you can use property names that contain characters that Javascript won\'t allow in the `x.foo` syntax.
-
-An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
