@@ -6575,6 +6575,17 @@ document.getElementById("yourId").appendChild(p);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How to check if page is fully loaded using javascript?***
+
+```js
+if (document.readyState === 'complete') {
+  // The page is fully loaded
+}
+```
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 # # CLASSES
 
 <br/>
@@ -8148,17 +8159,6 @@ On the other hand is information specific to particular web page. It is stored i
 * View state will retain values in the event of a postback operation occurring.
 * View state is used to allow the persistence of page-instance-specific data.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How to check if page is fully loaded using javascript?***
-
-```js
-if (document.readyState === 'complete') {
-  // The page is fully loaded
-}
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
