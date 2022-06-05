@@ -3983,6 +3983,41 @@ doSomething(param1, param2, function(err, paramx){
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How do you encode an URL?***
+
+The encodeURI() function is used to encode complete URI which has special characters except (`,`, `/`, `?`, `:`, `@`, `&`, `=`, `+`, `$`, `#`) characters.
+
+```js
+var uri = 'https://mozilla.org/?x=шеллы';
+var encoded = encodeURI(uri);
+
+console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
+## Q. ***How do you decode an URL?***
+
+The decodeURI() function is used to decode a Uniform Resource Identifier (URI) previously created by encodeURI().
+
+```js
+var uri = 'https://mozilla.org/?x=шеллы';
+var encoded = encodeURI(uri);
+
+console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
+try {
+  console.log(decodeURI(encoded)); // "https://mozilla.org/?x=шеллы"
+} catch(e) { // catches a malformed URI
+  console.error(e);
+}
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## # EVENTS
 
 <br/>
@@ -7733,35 +7768,6 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
 </noscript>
 ```
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you encode an URL?***
-
-The encodeURI() function is used to encode complete URI which has special characters except (, / ? : @ & = + $ #) characters.
-```js
-var uri = 'https://mozilla.org/?x=шеллы';
-var encoded = encodeURI(uri);
-console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you decode an URL?***
-
-The decodeURI() function is used to decode a Uniform Resource Identifier (URI) previously created by encodeURI().
-```js
-var uri = 'https://mozilla.org/?x=шеллы';
-var encoded = encodeURI(uri);
-console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
-try {
-  console.log(decodeURI(encoded)); // "https://mozilla.org/?x=шеллы"
-} catch(e) { // catches a malformed URI
-  console.error(e);
-}
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
