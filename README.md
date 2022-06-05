@@ -7160,41 +7160,6 @@ weakSet.add(2); // ERROR, no primitive value
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is a WeakSet?***
-
-WeakSet is used to store a collection of weakly(weak references) held objects. The syntax would be as follows,
-
-```js
-new WeakSet([iterable]);
-```
-Let us see the below example to explain It is behavior,
-
-```js
-var ws = new WeakSet();
-var user = {};
-ws.add(user);
-ws.has(user);    // true
-ws.delete(user); // removes user from the set
-ws.has(user);    // false, user has been removed
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the differences between WeakSet and Set?***
-
-The main difference is that references to objects in Set are strong while references to objects in WeakSet are weak. i.e, An object in WeakSet can be garbage collected if there is no other reference to it.
-Other differences are,
-1. Sets can store any value Whereas WeakSets can store only collections of objects
-2. WeakSet does not have size property unlike Set
-3. WeakSet does not have methods such as clear, keys, values, entries, forEach.
-4. WeakSet is not iterable.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***List down the collection of methods available on WeakSet?***
 
 Below are the list of methods available on WeakSet,
