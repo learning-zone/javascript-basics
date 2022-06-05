@@ -6326,6 +6326,24 @@ function removeElement(elementId) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is difference between append() vs appendChild()?*** 
+
+* ParentNode.append() allows you to also append DOMString object, whereas Node.appendChild() only accepts Node objects.
+* ParentNode.append() has no return value, whereas Node.appendChild() returns the appended Node object.
+* ParentNode.append() can append several nodes and strings, whereas Node.appendChild() can only append one node.
+
+The main difference is that `appendChild()` is a DOM function meanwhile `append()` is a JavaScript function.
+```js
+document.getElementById("yourId").append("Hello");
+
+var p = document.createElement("p");
+document.getElementById("yourId").appendChild(p);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 # # CLASSES
 
 <br/>
@@ -8458,24 +8476,6 @@ On the other hand is information specific to particular web page. It is stored i
 * Information stored on the client\'s end only.
 * View state will retain values in the event of a postback operation occurring.
 * View state is used to allow the persistence of page-instance-specific data.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is difference between append() vs appendChild()?*** 
-
-* ParentNode.append() allows you to also append DOMString object, whereas Node.appendChild() only accepts Node objects.
-* ParentNode.append() has no return value, whereas Node.appendChild() returns the appended Node object.
-* ParentNode.append() can append several nodes and strings, whereas Node.appendChild() can only append one node.
-
-The main difference is that `appendChild()` is a DOM function meanwhile `append()` is a JavaScript function.
-```js
-document.getElementById("yourId").append("Hello");
-
-var p = document.createElement("p");
-document.getElementById("yourId").appendChild(p);
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
