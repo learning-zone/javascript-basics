@@ -7091,56 +7091,63 @@ Using the `Set()` class we can create an array like heterogeneous iterable objec
 Syntax:  
 
 ```js
-var mySet = new Set([iterable]);
+const mySet = new Set([iterable]);
 ```
 
 **Example:**:
 
 ```js
-var mySet= new Set([0,1]);
+const set = new Set([10, 20]);
 
-mySet.add(2); // 0, 1, 2
-mySet.add(2); // 0, 1, 2
-mySet.add("Hello"); // 0, 1, 2, 'Hello'
-mySet.add({a:1, b:2}); // 0, 1, 2, 'Hello', {a:1, b:2}
- 
-mySet.add(function(){}); // 0, 1, 2, 'Hello', {a:1, b:2}, [Function]
- 
-mySet.has("Hello"); // ture
-mySet.delete("Hello"); // 'Hello' deleted
-mySet.has("Hello"); // false
- 
-mySet.size; // 5
-mySet.clear(); // Set Cleared
+set.add(30); // 10, 20, 30
+set.add(30); // 10, 20, 30
+set.add("Hello"); // 10, 20, 30, 'Hello'
+set.add({ a: 10, b: 20 }); // 10, 20, 30, 'Hello', {a:10, b:20}
+
+set.add(function () {}); // 10, 20, 30, 'Hello', {a:10, b:20}, [Function]
+
+// Iterating Sets
+for (let item of set) console.log(item);
+
+console.log(set.has("Hello")); // ture
+set.delete("Hello"); // 'Hello' deleted
+console.log(set.has("Hello")); // false
+
+console.log(set.size); // 5
+set.clear(); // Set Cleared
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-set-0imn2s?file=/src/index.js)**
 
 **WeakSet:**
 
 A `WeakSet()` is a collection similar to Set, which holds unique values; but it only holds Objects and nothing else. If an object which is there in your WeakSet object has no other reference variable left, it will automatically be deleted.
 
-Syntax:
+**Syntax:**
 
 ```js
-var myWeakSet = new WeakSet([iterable with only objects]);
+const myWeakSet = new WeakSet([iterable with only objects]);
 ```
 
 **Example:**:
 
 ```js
-var myWeakSet = new WeakSet([{a:1}]);
-var obj1 = {o:1};
-var obj2 = {o:2};
+const weakSet = new WeakSet([{ a: 10 }]);
+const obj1 = { o: 10 };
+const obj2 = { o: 20 };
 
-myWeakSet.add(obj1); 
-myWeakSet.has(obj1); // true
-myWeakSet.has(obj2); // false
-myWeakSet.add(obj2); 
-myWeakSet.has(obj2); // true
+weakSet.add(obj1);
+weakSet.add(obj2);
+
+weakSet.has(obj2); // true
 delete obj2; // Don't take it literally - you can't delete objects like that. Use scope to execute this.
-myWeakSet.has(obj2); // false, because you deleted obj2, so WeakSet releases it automatically
-myWeakSet.delete(obj1); // obj1 deleted from the set
-myWeakSet.add(2); // ERROR, no primitive value
+
+weakSet.has(obj2); // false, because you deleted obj2, so WeakSet releases it automatically
+weakSet.delete(obj1); // obj1 deleted from the set
+weakSet.add(2); // ERROR, no primitive value
 ```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-weakset-i1dxbx?file=/src/index.js)**
 
 |Set	                          |WeakSet                        |
 |-------------------------------|-------------------------------|
