@@ -4822,6 +4822,20 @@ console.log(dtfMyNewLocale2.format(now2)); // 5/17/2022
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How do you convert date to another timezone in javascript?***
+
+The `.toLocaleString()` method to convert date in one timezone to another. 
+
+For example, let us convert current date to British English timezone as below,
+
+```js
+console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 09:56:00
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***Explain the difference between mutable and immutable objects?***
 
 A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
@@ -7358,56 +7372,6 @@ myModule._privateMethod(); // TypeError: protected by the module closure
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-iterator-sh0tvo?file=/src/index.js)**
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you make synchronous HTTP request?***
-
-Browsers provide an XMLHttpRequest object which can be used to make synchronous HTTP requests from JavaScript
-
-```js
-function httpGet(theUrl)
-{
-    var xmlHttpReq = new XMLHttpRequest();
-    xmlHttpReQ.open( "GET", theUrl, false ); // false for synchronous request
-    xmlHttpReQ.send( null );
-    return xmlHttpReQ.responseText;
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you make asynchronous HTTP request?***
-
-Browsers provide an XMLHttpRequest object which can be used to make asynchronous HTTP requests from JavaScript by passing 3rd parameter as true.
-
-```js
-function httpGetAsync(theUrl, callback)
-{
-    var xmlHttpReq = new XMLHttpRequest();
-    xmlHttpReQ.onreadystatechange = function() {
-        if (xmlHttpReQ.readyState == 4 && xmlHttpReQ.status == 200)
-            callback(xmlHttpReQ.responseText);
-    }
-    xmlHttp.open("GET", theUrl, true); // true for asynchronous
-    xmlHttp.send(null);
-}
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you convert date to another timezone in javascript?***
-
-You can use toLocaleString() method to convert date in one timezone to another. For example, let us convert current date to British English timezone as below,
-
-```js
-console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 09:56:00
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
