@@ -4656,6 +4656,32 @@ John
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How do you copy properties from one object to other?***
+
+You can use `Object.assign()` method which is used to copy the values and properties from one or more source objects to a target object.  It returns the target object which has properties and values copied from the target object. The syntax would be as below,
+
+```js
+Object.assign(target, ...sources)
+```
+
+Let us take example with one source and one target object,
+
+```js
+const target = { a: 1, b: 2 };
+const source = { b: 3, c: 4 };
+
+const returnedTarget = Object.assign(target, source);
+
+console.log(target); // { a: 1, b: 3, c: 5 }
+console.log(returnedTarget); // { a: 1, b: 3, c: 5 }
+```
+
+As observed in the above code, there is a common property(`b`) from source to target so it is value is been overwritten.
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is the difference between native, host and user objects?***
 
 **1. Native Objects**:
@@ -7425,66 +7451,6 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
     <a href="next_page.html?noJS=true">JavaScript is disabled in the apge. Please click Next Page</a>
 </noscript>
 ```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you determine two values same or not using object?***
-
-The `Object.is()` method determines whether two values are the same value. For example, the usage with different types of values would be,
-
-```js
-Object.is('hello', 'hello'); // true
-Object.is(window, window); // true
-Object.is([], []) // false
-```
-
-Two values are the same if one of the following holds:
-
-1. both undefined
-2. both null
-3. both true or both false
-4. both strings of the same length with the same characters in the same order
-5. both the same object (means both object have same reference)
-6. both numbers and
-  both +0
-  both -0
-  both NaN
-  both non-zero and both not NaN and both have the same value
-
-**Purpose:**
-
-1. It is used for comparison of two strings.
-2. It is used for comparison of two numbers.
-3. It is used for comparing the polarity of two numbers.
-4. It is used for comparison of two objects.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you copy properties from one object to other?***
-
-You can use `Object.assign()` method which is used to copy the values and properties from one or more source objects to a target object.  It returns the target object which has properties and values copied from the target object. The syntax would be as below,
-
-```js
-Object.assign(target, ...sources)
-```
-
-Let us take example with one source and one target object,
-
-```js
-const target = { a: 1, b: 2 };
-const source = { b: 3, c: 4 };
-
-const returnedTarget = Object.assign(target, source);
-
-console.log(target); // { a: 1, b: 3, c: 5 }
-console.log(returnedTarget); // { a: 1, b: 3, c: 5 }
-```
-
-As observed in the above code, there is a common property(`b`) from source to target so it is value is been overwritten.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
