@@ -630,6 +630,47 @@ They will only get initialized when their lexical binding (assignment) is evalua
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***In which case the function definition is not hoisted in JavaScript?***
+
+Let us take the following **function expression**
+
+```js
+ var foo = function foo() {
+     return 12;
+ }
+```
+
+In JavaScript `var`-declared variables and functions are `hoisted`. Let us take function `hoisting` first. Basically, the JavaScript interpreter looks ahead to find all the variable declaration and hoists them to the top of the function where It is declared. For example:
+
+```js
+foo(); // Here foo is still undefined
+var foo = function foo() {
+  return 12;
+};
+```
+
+The code above behind the scene look something like this:
+
+```js
+var foo = undefined;
+foo(); // Here foo is undefined
+foo = function foo() {
+  // Some code stuff
+}
+```
+
+```js
+var foo = undefined;
+foo = function foo() {
+  // Some code stuff
+}
+foo(); // Now foo is defined here
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is the Temporal Dead Zone in ES6?***
 
 In ES6, let bindings are not subject to Variable Hoisting, which means that let declarations do not move to the top of the current execution context. Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the undefined value). The variable is in a "temporal dead zone" from the start of the block until the initialization is processed.
@@ -7628,6 +7669,10 @@ export class Alligator {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## # MISCELLANEOUS
+
+<br/>
+
 ## Q. ***Describe the Revealing Module Pattern in javascript?***
 
 Revealing module pattern is a design pattern, which let you organise your javascript code in modules, and gives better code structure. It gives you power to create public/private variables/methods (using closure), and avoids polluting global scope
@@ -7794,82 +7839,6 @@ The Strict Mode is allows you to place a program, or a function, in a `strict` o
 * It catches some common coding bloopers, throwing exceptions.
 * It disables features that are confusing or poorly thought out.
 
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the difference between declaring a function in the formats listed below?***
-
-```js
-var foo = function() {
-  // Some code
-}
-```
-
-```js
-function bar () {
-  // Some code
-}
-```
-
-
-The main difference is that function `foo` is defined at `run-time` and is called a function expression, whereas function `bar` is defined at `parse time` and is called a function statement. To understand it better, Let us take a look at the code below :
-
-```js
-// Run-Time function declaration
-  foo(); // Call foo function here, It will give an error
-  var foo = function() {
-    console.log("Hi I am inside Foo");
-  };
-```
-
-```js
-// Parse-Time function declaration
-bar(); // Call bar function here, It will not give an Error
-function bar() {
-  console.log("Hi I am inside Foo");
-}
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***In which case the function definition is not hoisted in JavaScript?***
-
-Let us take the following **function expression**
-
-```js
- var foo = function foo() {
-     return 12;
- }
-```
-
-In JavaScript `var`-declared variables and functions are `hoisted`. Let us take function `hoisting` first. Basically, the JavaScript interpreter looks ahead to find all the variable declaration and hoists them to the top of the function where It is declared. For example:
-
-```js
-foo(); // Here foo is still undefined
-var foo = function foo() {
-  return 12;
-};
-```
-
-The code above behind the scene look something like this:
-
-```js
-var foo = undefined;
-foo(); // Here foo is undefined
-foo = function foo() {
-  // Some code stuff
-}
-```
-
-```js
-var foo = undefined;
-foo = function foo() {
-  // Some code stuff
-}
-foo(); // Now foo is defined here
-```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
@@ -8935,10 +8904,6 @@ WebWorkers do not have access to below javascript objects since they are defined
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
 </div>
-
-## # MISCELLANEOUS
-
-<br/>
 
 ## Q. ***What is a decorator?***
 
