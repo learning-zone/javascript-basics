@@ -4536,6 +4536,32 @@ let obj7 = function(){};
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What are the different ways to access object properties?***
+
+There are 3 possible ways for accessing the property of an object.
+
+**1. Dot notation:** It uses dot for accessing the properties
+
+```js
+objectName.property
+```
+
+**2. Square brackets notation:** It uses square brackets for property access
+
+```js
+objectName["property"]
+```
+
+**3. Expression notation:** It uses expression in the square brackets
+
+```js
+objectName[expression]
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How to check if an object is an array or not?***
 
 The `Array.isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
@@ -7672,25 +7698,6 @@ try {
 } catch(e) { // catches a malformed URI
   console.error(e);
 }
-```
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What are the different ways to access object properties?***
-
-There are 3 possible ways for accessing the property of an object.
-1. **Dot notation:** It uses dot for accessing the properties
-```js
-objectName.property
-```
-2. **Square brackets notation:** It uses square brackets for property access
-```js
-objectName["property"]
-```
-3. **Expression notation:** It uses expression in the square brackets
-```js
-objectName[expression]
 ```
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
