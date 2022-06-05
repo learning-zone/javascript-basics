@@ -6347,6 +6347,8 @@ console.log(Triangle.name); // TriangleClass
 Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
 Static variables are related to a class. They come into existence as soon as a class come into existence.
 
+**Example:**
+
 ```js
 // Constructor Function
 function MyClass () {
@@ -6428,6 +6430,8 @@ console.log(circle.circumference()); // 31.41592653589793
 ## Q. ***How do you create an object with prototype?***
 
 The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
+
+**Example:**
 
 ```js
 const user = {
