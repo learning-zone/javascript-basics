@@ -7139,6 +7139,34 @@ console.log(obj.decrement); //5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***What is a decorator?***
+
+A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. 
+
+Let us define admin decorator for user class at design time,
+
+```js
+function admin(isAdmin) {
+  return function(target) {
+      target.isAdmin = isAdmin;
+  }
+}
+
+@admin(true)
+class User() {
+}
+console.log(User.isAdmin); // true
+
+@admin(false)
+class User() {
+}
+console.log(User.isAdmin); // false
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## # ERROR HANDLING
 
 <br/>
@@ -8528,32 +8556,6 @@ WebWorkers do not have access to below javascript objects since they are defined
 1. Window object
 2. Document object
 3. Parent object
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a decorator?***
-
-A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. Let us define admin decorator for user class at design time,
-
-```js
-function admin(isAdmin) {
-  return function(target) {
-      target.isAdmin = isAdmin;
-  }
-}
-
-@admin(true)
-class User() {
-}
-console.log(User.isAdmin); //true
-
-@admin(false)
-class User() {
-}
-console.log(User.isAdmin); //false
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
