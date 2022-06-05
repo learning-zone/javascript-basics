@@ -7002,7 +7002,7 @@ This attribute is only available for externally located script files. When an ex
 
 **2. defer Attribute**  
 
-The defer attribute tells the browser to only execute the script file once the HTML document has been fully parsed.
+The defer attribute tells the browser not to wait for the script. Instead, the browser will continue to process the HTML, build DOM. The script loads "in the background", and then runs when the DOM is fully built.
 
 ```html
 <script src="script.js" defer></script>
