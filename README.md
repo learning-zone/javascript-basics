@@ -4952,6 +4952,27 @@ console.log(myCar.batteryLife); // 300
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How do you determine whether object is frozen or not?***
+
+`Object.isFrozen()` method is used to determine if an object is frozen or not. An object is frozen if all of the below conditions hold true,
+
+1. If it is not extensible.
+2. If all of its properties are non-configurable.
+3. If all its data properties are non-writable.
+The usage is going to be as follows,
+
+```js
+const object = {
+  property: 'Welcome JS world'
+};
+Object.freeze(object);
+console.log(Object.isFrozen(object));
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***How can you achieve immutability in your own code?***
 
 For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
@@ -7403,27 +7424,6 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
 <noscript>
     <a href="next_page.html?noJS=true">JavaScript is disabled in the apge. Please click Next Page</a>
 </noscript>
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you determine whether object is frozen or not?***
-
-`Object.isFrozen()` method is used to determine if an object is frozen or not. An object is frozen if all of the below conditions hold true,
-
-1. If it is not extensible.
-2. If all of its properties are non-configurable.
-3. If all its data properties are non-writable.
-The usage is going to be as follows,
-
-```js
-const object = {
-  property: 'Welcome JS world'
-};
-Object.freeze(object);
-console.log(Object.isFrozen(object));
 ```
 
 <div align="right">
