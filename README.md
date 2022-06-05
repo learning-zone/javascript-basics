@@ -6988,24 +6988,27 @@ An Ajax call is a specific asynchronous operation that can be used with with a t
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***What is difference between async() or defer() keyword in JavaScript?***
+## Q. ***What is difference between async or defer keyword in JavaScript?***
 
-**The async() Attribute**  
+**1. async() Attribute**  
+
 The async attribute is used to indicate to the browser that the script file can be executed asynchronously. The HTML parser does not need to pause at the point it reaches the script tag to fetch and execute, the execution can happen whenever the script becomes ready after being fetched in parallel with the document parsing.
+
 ```html
-<script async src="script.js">
+<script src="script.js" async></script>
 ```
+
 This attribute is only available for externally located script files. When an external script has this attribute, the file can be downloaded while the HTML document is still parsing. Once it has been downloaded, the parsing is paused for the script to be executed.
 
-**The defer() Attribute**  
+**2. defer() Attribute**  
+
 The defer attribute tells the browser to only execute the script file once the HTML document has been fully parsed.
+
 ```html
-<script defer src="script.js">
+<script src="script.js" defer></script>
 ```
+
 Like an asynchronously loaded script, the file can be downloaded while the HTML document is still parsing. However, even if the file is fully downloaded long before the document is finished parsing, the script is not executed until the parsing is complete.
-
-
-Asynchronous and deferred execution of scripts are more important when the <script> element is not located at the very end of the document. HTML documents are parsed in order, from the first opening <html> element to it is close. If an externally sourced JavaScript file is placed right before the closing </body> element, it becomes much less pertinent to use an async or defer attribute. Since the parser will have finished the vast majority of the document by that point, JavaScript files don not have much parsing left to block.
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
