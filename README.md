@@ -5592,6 +5592,22 @@ VM87:8 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q. ***How do you detect a browser language preference?***
+
+You can use navigator object to detect a browser language preference as below,
+
+```js
+var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
+              navigator.language ||   // All browsers
+              navigator.userLanguage; // IE <= 10
+
+console.log(language);
+```
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## Q. ***What is BOM?***
 
 The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
@@ -7371,137 +7387,6 @@ myModule._privateMethod(); // TypeError: protected by the module closure
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-iterator-sh0tvo?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is a freeze method?***
-
-The freeze() method is used to freeze an object. Freezing an object does'nt allow adding new properties to an object,prevents from removing and prevents changing the enumerability, configurability, or writability of existing properties. i.e, It returns the passed object and does not create a frozen copy.
-
-```js
-const obj = {
-  prop: 100
-};
-
-Object.freeze(obj);
-obj.prop = 200; // Throws an error in strict mode
-
-console.log(obj.prop); //100
-```
-
-*Note: It causes a TypeError if the argument passed is not an object*.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***What is the purpose of freeze method?***
-
-Below are the main benefits of using freeze method,
-
-1. It is used for freezing objects and arrays.
-2. It is used to make an object immutable.
-
-## Q. ***Why do I need to use freeze method?***
-
-In Object-oriented paradigm, an existing API contains certain elements that are not intended to be extended, modified, or re-used outside of their current context. Hence it works as `final` keyword which is used in various languages.
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***Explain the difference between Object.freeze() vs const?***
-
-`const` applies to bindings ("variables"). It creates an immutable binding, i.e. you cannot assign a new value to the binding. `const` behaves like let. The only difference is, it defines a variable that cannot be reassigned. Variables declared by const are block scoped and not function scoped like variables declared with var.
-
-The const keyword applies to bindings and creates an immutable binding.
-
-```js
-let person = {
-   name: "Leonardo"
-};
-let animal = {
-   species: "snake"
-};
-person = animal;
-console.log(person); //output { species: 'snake' }
-```
-
-If you change the person object declaration to be a constant the code above won’t work anymore:
-
-```js
-const person = {
-   name: "Leonardo"
-};
-let animal = {
-   species: "snake"
-};
-person = animal; // ERROR "person" is read-only
-console.log(person);
-```
-
-But you can change its values:
-
-```js
-const person = {
-   name: "Leonardo"
-};
-let animal = { 
-   species: "snake"
-};
-person.name = "Lima";
-console.log(person); //output { name: 'Lima' }
-```
-
-**Object.freeze**: 
-
-Works on values, and more specifically, object values. It makes an object immutable, i.e. you cannot change its properties. `Object.freeze()` takes an object as an argument and returns the same object as an immutable object. This implies that no properties of the object can be added, removed, or changed.
-
-It works on values and it makes an object immutable, i.e. you cannot change, add or delete its properties, but you can assign another instance.
-
-```js
-let person = {
-   name: "Leonardo"
-};
-let animal = {
-   species: "snake"
-};
-Object.freeze(person);
-person = animal;
-console.log(person); { species: 'snake' }
-```
-
-Even using Object.freeze() I could assign animal object to to person. Now, let\'s try change some property of the person:
-
-```js
-let person = {
-   name: "Leonardo"
-};
-let animal = {
-   species: "snake"
-};
-Object.freeze(person);
-person.name = "Lima"; //TypeError: Cannot assign to read only property 'name' of object
-console.log(person);
-```
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
-## Q. ***How do you detect a browser language preference?***
-
-You can use navigator object to detect a browser language preference as below,
-
-```js
-var language = navigator.languages && navigator.languages[0] || // Chrome / Firefox
-              navigator.language ||   // All browsers
-              navigator.userLanguage; // IE <= 10
-
-console.log(language);
-```
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
