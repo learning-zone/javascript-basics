@@ -39,7 +39,7 @@
 
 <br/>
 
-## 1.1 ***List out important features of JavaScript ES6?***
+## # 1.1 List out important features of JavaScript ES6?
 
 **1. Template Strings:**
 
