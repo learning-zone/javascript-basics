@@ -4110,7 +4110,7 @@ try {
 
 <br/>
 
-## Q. What is event handling in javascript?
+## Q 10.1. What is event handling in javascript?
 
 The change in the state of an object is known as an **Event**. In html, there are various events which represents that some activity is performed by the user or by the browser.
 
@@ -4171,7 +4171,7 @@ Some of the HTML event handlers are:
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to create and trigger events in javascript?
+## Q 10.2. How to create and trigger events in javascript?
 
 Events can be handled either through `addEventListener()` method or we can trigger events on individual components by defining specific JavaScript functions.
 
@@ -4207,7 +4207,7 @@ document.addEventListener(event, function, phase)
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is an event delegation?
+## Q 10.3. What is an event delegation?
 
 Event Delegation is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an event listener to a parent element and call an event on a particular target using the `event.target` property of the event object.
 
@@ -4236,7 +4236,7 @@ Event Delegation is basically a pattern to handle events efficiently. Instead of
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is an event flow?
+## Q 10.4. What is an event flow?
 
 Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
 
@@ -4253,7 +4253,7 @@ There are two ways of event flow
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is event bubbling?
+## Q 10.5. What is event bubbling?
 
 Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
 
@@ -4279,7 +4279,7 @@ Event bubbling is a type of event propagation where the event first triggers on 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is event capturing?
+## Q 10.6. What is event capturing?
 
 Event capturing is a type of event propagation where the event is first captured by the outermost element and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
 
@@ -4314,7 +4314,7 @@ Event capturing is a type of event propagation where the event is first captured
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you submit a form using JavaScript?
+## Q 10.7. How do you submit a form using JavaScript?
 
 Generally, a form is submitted when the user presses a submit button. JavaScript provides the form object that contains the `submit()` method. Use the "id" of the form to get the form object.
 
@@ -4337,7 +4337,7 @@ function handleSubmit() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the purpose of void(0)?
+## Q 10.8. What is the purpose of void(0)?
 
 The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the `undefined` primitive value.
 
@@ -4355,7 +4355,7 @@ It is commonly used for HTML document that uses `href="JavaScript:void(0);"` wit
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the use of preventDefault method?
+## Q 10.9. What is the use of preventDefault method?
 
 The `preventDefault()` method is used to prevent the browser from executing the default action of the selected element. It can prevent the user from processing the request by clicking the link.
 
@@ -4373,7 +4373,7 @@ document.getElementById("link").addEventListener("click", function(event) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the use of stopPropagation method?
+## Q 10.10. What is the use of stopPropagation method?
 
 The `stopPropagation` method is used to stop the event from bubbling up the event chain.
 
@@ -4401,7 +4401,7 @@ function secondFunc() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between stoppropagation, stopimmediatepropagation and preventdefault in javascript?
+## Q 10.11. What is difference between stoppropagation, stopimmediatepropagation and preventdefault in javascript?
 
 **1. event.preventDefault()**:
 
@@ -4458,7 +4458,7 @@ As a result, clicking on the div element will:
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the use of setTimeout?
+## Q 10.12. What is the use of setTimeout?
 
 The `setTimeout()` method is used to call a function or evaluates an expression after a specified number of milliseconds.
 
@@ -4480,7 +4480,7 @@ setTimeout(() => {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the use of setInterval?
+## Q 10.13. What is the use of setInterval?
 
 The `setInterval()` method is used to call a function or evaluates an expression at specified intervals (in milliseconds). The `setInterval()` method continues calling the function until `clearInterval()` is called, or the window is closed.
 
@@ -4505,7 +4505,7 @@ function myTimer() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the purpose of clearTimeout method?
+## Q 10.14. What is the purpose of clearTimeout method?
 
 The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it\'s passed into the `clearTimeout()` function to clear the timer.
 
@@ -4542,7 +4542,7 @@ Stop
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the purpose of clearInterval method?
+## Q 10.15. What is the purpose of clearInterval method?
 
 The `clearInterval()` function is used in javascript to clear the interval which has been set by `setInterval()` function. i.e, The return value returned by setInterval() function is stored in a variable and it\'s passed into the clearInterval() function to clear the interval.
 
@@ -4579,7 +4579,7 @@ Stop
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between document load and DOMContentLoaded events?
+## Q 10.16. What is the difference between document load and DOMContentLoaded events?
 
 The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
 
@@ -4591,7 +4591,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 <br/>
 
-## Q. What are the possible ways to create objects in JavaScript?
+## Q 11.1. What are the possible ways to create objects in JavaScript?
 
 **1. Object Constructor**:
 
@@ -4672,7 +4672,7 @@ let object = new function() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the recommendations to create new object?
+## Q 11.2. What are the recommendations to create new object?
 
 It is recommended to avoid creating new objects using `new Object()`. Instead you can initialize values based on it is type to create the objects.
 
@@ -4700,7 +4700,7 @@ let obj7 = function(){};
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the different ways to access object properties?
+## Q 11.3. What are the different ways to access object properties?
 
 There are 3 possible ways for accessing the property of an object.
 
@@ -4726,7 +4726,7 @@ objectName[expression]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to check if an object is an array or not?
+## Q 11.4. How to check if an object is an array or not?
 
 The `Array.isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
 
@@ -4756,7 +4756,7 @@ The `Array.isArray()` method determines whether an object is an array. This func
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Can you give an example for destructuring an object?
+## Q 11.5. Can you give an example for destructuring an object?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
 
@@ -4782,7 +4782,7 @@ console.log(job); // Developer
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you clone an object in JavaScript?
+## Q 11.6. How do you clone an object in JavaScript?
 
 Using the object spread operator `...`, the object own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
 
@@ -4876,7 +4876,7 @@ John
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you copy properties from one object to other?
+## Q 11.7. How do you copy properties from one object to other?
 
 You can use `Object.assign()` method which is used to copy the values and properties from one or more source objects to a target object.  It returns the target object which has properties and values copied from the target object. The syntax would be as below,
 
@@ -4902,7 +4902,7 @@ As observed in the above code, there is a common property(`b`) from source to ta
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between native, host and user objects?
+## Q 11.8. What is the difference between native, host and user objects?
 
 **1. Native Objects**:
 
@@ -4920,7 +4920,7 @@ Are objects defined in the javascript code. For example, User object created for
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the properties of Intl object?
+## Q 11.9. What are the properties of Intl object?
 
 The `Intl` object is the namespace for the ECMAScript Internationalization API that provides language number formatting, string comparison, and date/time formatting.
 
@@ -5068,7 +5068,7 @@ console.log(dtfMyNewLocale2.format(now2)); // 5/17/2022
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you convert date to another timezone in javascript?
+## Q 11.10. How do you convert date to another timezone in javascript?
 
 The `.toLocaleString()` method to convert date in one timezone to another. 
 
@@ -5082,7 +5082,7 @@ console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 0
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Explain the difference between mutable and immutable objects?
+## Q 11.11. Explain the difference between mutable and immutable objects?
 
 A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
 
@@ -5092,7 +5092,7 @@ In JavaScript numbers, strings, null, undefined and Booleans are primitive types
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to create immutable object in javascript
+## Q 11.12. How to create immutable object in javascript
 
 In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable. Some built-in immutable JavaScript objects are `Math`, `Date`.
 
@@ -5198,7 +5198,7 @@ console.log(myCar.batteryLife); // 300
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you determine whether object is frozen or not?
+## Q 11.13. How do you determine whether object is frozen or not?
 
 `Object.isFrozen()` method is used to determine if an object is frozen or not. An object is frozen if all of the below conditions hold true,
 
@@ -5219,7 +5219,7 @@ console.log(Object.isFrozen(object));
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How can you achieve immutability in your own code?
+## Q 11.14. How can you achieve immutability in your own code?
 
 For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
 
@@ -5242,7 +5242,7 @@ const alienAditya = { ...aditya, race: "alien" }; // {race: "alien", name: "Adit
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the drawback of declaring methods directly in JavaScript objects?
+## Q 11.15. What is the drawback of declaring methods directly in JavaScript objects?
 
 One of the drawback of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object.
 
@@ -5279,7 +5279,7 @@ Here, each instance variable `emp1`, `emp2` has own copy of `formatSalary` metho
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you compare Object and Map?
+## Q 11.16. How do you compare Object and Map?
 
 **1. Object:**
 
@@ -5350,7 +5350,7 @@ myMap.get(function () {}); // undefined, because keyFunc !== function () {}
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is shallow copy and deep copy in javascript?
+## Q 11.17. What is shallow copy and deep copy in javascript?
 
 **1. Shallow Copy:**
 
@@ -5407,7 +5407,7 @@ console.log(newObj); // { a: 10, b: { c: 20 } }
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Write a function called deepClone which takes an object and creates a object copy of it?
+## Q 11.18. Write a function called deepClone which takes an object and creates a object copy of it?
 
 ``` javascript
 var newObject = deepClone(obj);
@@ -5451,7 +5451,7 @@ So when we do deep clone then we should copy every property (including the neste
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object?
+## Q 11.19. Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object?
 
 ```js
   var objectLit = {foo : 'Bar'};
@@ -5476,7 +5476,7 @@ function Clone(object){
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you check if a key exists in an object?
+## Q 11.20. How do you check if a key exists in an object?
 
 **1. Using `in` operator:**
 
@@ -5512,7 +5512,7 @@ console.log(obj.hasOwnProperty("key")); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you loop through or enumerate javascript object?
+## Q 11.21. How do you loop through or enumerate javascript object?
 
 You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn\'t come from the prototype using `hasOwnProperty` method.
 
@@ -5534,7 +5534,7 @@ for (var key in object) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you test for an empty object?
+## Q 11.22. How do you test for an empty object?
 
 **a.) Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
 
@@ -5552,7 +5552,7 @@ Object.entries(obj).length === 0 && obj.constructor === Object
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a proxy object?
+## Q 11.23. What is a proxy object?
 
 The `Proxy` object allows to create an object that can be used in place of the original object, but which may redefine fundamental `Object` operations like getting, setting, and defining properties. 
 
@@ -5622,7 +5622,7 @@ There are many real-world applications for Proxies
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is Reflection in JavaScript?
+## Q 11.24. What is Reflection in JavaScript?
 
 Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object. `Reflect` helps with forwarding default operations from the handler to the target.
 
@@ -5648,7 +5648,7 @@ console.log(index); // 4
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you display the current date in javascript?
+## Q 11.25. How do you display the current date in javascript?
 
 You can use `new Date()` to generate a new Date object containing the current date and time. 
 
@@ -5672,7 +5672,7 @@ document.write(today);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you add a key value pair in javascript?
+## Q 11.26. How do you add a key value pair in javascript?
 
 There are two possible solutions to add new properties to an object. Let us take a simple object to explain these solutions.
 
@@ -5699,7 +5699,7 @@ obj["key3"] = "value3";
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you check whether an object can be extendable or not?
+## Q 11.27. How do you check whether an object can be extendable or not?
 
 The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
 
@@ -5725,7 +5725,7 @@ console.log(Object.isExtensible(person)); // false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to compare two objects in javascript?
+## Q 11.28. How to compare two objects in javascript?
 
 Objects are reference types so you can\'t just use `===` or `==` to compare 2 objects. One quick way to compare if 2 objects have the same key value, is using `JSON.stringify()`. Another way is using Lodash `.isEqual()` function.
 
@@ -5748,7 +5748,7 @@ _.isEqual(obj1, obj2); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you get enumerable key and value pairs?
+## Q 11.29. How do you get enumerable key and value pairs?
 
 The `Object.entries()` method is used to return an array of a given object own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let us see the functionality of object.entries() method in an example,
 
@@ -5770,7 +5770,7 @@ for (let [key, value] of Object.entries(object)) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the main difference between Object.values and Object.entries method?
+## Q 11.30. What is the main difference between Object.values and Object.entries method?
 
 The `Object.values()` method\'s behavior is similar to `Object.entries()` method but it returns an array of values instead [key,value] pairs.
 
@@ -5790,7 +5790,7 @@ for (let value of Object.values(object)) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How can you get the list of keys of any object?
+## Q 11.31. How can you get the list of keys of any object?
 
 You can use `Object.keys()` method which is used return an array of a given object\'s own property names, in the same order as we get with a normal loop. For example, you can get the keys of a user object,
 
@@ -5808,7 +5808,7 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between array[] vs object()?
+## Q 11.32. What is difference between array[] vs object()?
 
 * `[]` is declaring an array.
 * `{}` is declaring an object.
@@ -5839,7 +5839,7 @@ An array is an object so it has all the same capabilities of an object plus a bu
 
 <br/>
 
-## Q. What is the difference between window and document object?
+## Q 12.1. What is the difference between window and document object?
 
 **1. Window Object**: 
 
@@ -5941,7 +5941,7 @@ document.property_name;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you access history in javascript?
+## Q 12.2. How do you access history in javascript?
 
 The `window.history` object allows you to access the history stack of the browser. To navigate to a URL in the history, you use the `back()`, `forward()`, and `go()` methods. The `history.length` returns the number of URLs in the history stack.
 
@@ -5987,7 +5987,7 @@ history.length
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you find operating system details?
+## Q 12.3. How do you find operating system details?
 
 The `window.navigator` object contains information about the visitor\'s browser os details. Some of the OS properties are avaialble under platform property,
 
@@ -6015,7 +6015,7 @@ VM87:8 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you detect a browser language preference?
+## Q 12.4. How do you detect a browser language preference?
 
 You can use navigator object to detect a browser language preference as below,
 
@@ -6031,7 +6031,7 @@ console.log(language);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is BOM?
+## Q 12.5. What is BOM?
 
 The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
 
@@ -6043,7 +6043,7 @@ The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It co
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you redirect new page in javascript?
+## Q 12.6. How do you redirect new page in javascript?
 
 To redirect to a new URL or page, you assign the new URL to the `location.href` property or use the `location.assign()` method. The `location.replace()` method does redirect to a new URL but does not create an entry in the history stack of the browser.
 
@@ -6061,7 +6061,7 @@ function redirect() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to get the current url with javascript?
+## Q 12.7. How to get the current url with javascript?
 
 The `window.location` object can be used to get the current page address (URL) and to redirect the browser to a new page. You can also use `document.URL` for **read-only** purpose.
 
@@ -6091,7 +6091,7 @@ console.log('location.href', window.location.href); // Returns full URL
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to get query string values in javascript?
+## Q 12.8. How to get query string values in javascript?
 
 The `URLSearchParams()` provides an interface to work with query string parameters. The `has()` method of the `URLSearchParams()` determines if a parameter with a specified name exists.
 
@@ -6156,7 +6156,7 @@ for (const entry of urlParams.entries()) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between window.frames, window.parent and window.top in JavaScript?
+## Q 12.9. What is difference between window.frames, window.parent and window.top in JavaScript?
 
 * **window.frames** – the collection of "children" windows (for nested frames).
 * **window.parent** – property returns the immediate parent of the current window
@@ -6166,7 +6166,7 @@ for (const entry of urlParams.entries()) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the properties used to get size of window?
+## Q 12.10. What are the properties used to get size of window?
 
 **1. The screen size:**
 
@@ -6247,7 +6247,7 @@ const pageHeight = document.documentElement.scrollHeight;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the ways to execute javascript after page load?
+## Q 12.11 What are the ways to execute javascript after page load?
 
 You can execute javascript after page load in many different ways, 
 
@@ -6279,7 +6279,7 @@ document.onload = function ...
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between document load event and document domcontentloaded event?
+## Q 12.12. What is the difference between document load event and document domcontentloaded event?
 
 **1. DOMContentLoaded:**
 
@@ -6309,7 +6309,7 @@ document.addEventListener("load", function(e) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What do you understand by Screen objects?
+## Q 12.13. What do you understand by Screen objects?
 
 * **window**: is the execution context and global object for that context's JavaScript
 * **document**: contains the DOM, initialized by parsing HTML
@@ -6331,7 +6331,7 @@ document.addEventListener("load", function(e) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to change style of html element using javascript?
+## Q 12.14. How to change style of html element using javascript?
 
 Below is the syntax for manipulating the style property on an HTML element using JavaScript:
 
@@ -6369,7 +6369,7 @@ for (i = 0; i < x.length; i++) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you print the contents of web page?
+## Q 12.15. How do you print the contents of web page?
 
 The window object provided print() method which is used to prints the contents of the current window. It opens Print dialog box which lets you choose between various printing options. 
 
@@ -6385,7 +6385,7 @@ The window object provided print() method which is used to prints the contents o
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do I modify the url without reloading the page?
+## Q 12.16. How do I modify the url without reloading the page?
 
 The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. 
 
@@ -6399,7 +6399,7 @@ window.history.pushState('newPage', 'Title', '/newPage.html');
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. When would you use `document.write()`?
+## Q 12.17. When would you use `document.write()`?
 
 The **document.write()** method is used to delete all the content from the HTML document and inserts the new content. It is also used to give the additional text to an output which is open by the `document.open()` method. 
 
@@ -6415,7 +6415,7 @@ document.write("Hello World!");
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between an attribute and a property?
+## Q 12.18. What is the difference between an attribute and a property?
 
 Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
 
@@ -6442,7 +6442,7 @@ console.log(input.value); // Good evening
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between firstChild and firstElementChild?
+## Q 12.19. What is the difference between firstChild and firstElementChild?
 
 **1. firstChild:**
 
@@ -6484,7 +6484,7 @@ let list = document.getElementById("myList").firstElementChild.innerHTML; // Cof
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between document.getElementById() and document.querySelector()?
+## Q 12.20. What is difference between document.getElementById() and document.querySelector()?
 
 **1. document.getElementById():**
 
@@ -6516,7 +6516,7 @@ element = document.querySelectorAll(selectors);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Name the two functions that are used to create an HTML element dynamically?
+## Q 12.21. Name the two functions that are used to create an HTML element dynamically?
 
 In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
 
@@ -6586,7 +6586,7 @@ function removeElement(elementId) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between append() vs appendChild()? 
+## Q 12.22. What is difference between append() vs appendChild()? 
 
 * ParentNode.append() allows you to also append DOMString object, whereas Node.appendChild() only accepts Node objects.
 * ParentNode.append() has no return value, whereas Node.appendChild() returns the appended Node object.
@@ -6604,7 +6604,7 @@ document.getElementById("yourId").appendChild(p);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to check if page is fully loaded using javascript?
+## Q 12.23. How to check if page is fully loaded using javascript?
 
 ```js
 if (document.readyState === 'complete') {
@@ -6615,7 +6615,7 @@ if (document.readyState === 'complete') {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a web-storage event and its event handler?
+## Q 12.24. What is a web-storage event and its event handler?
 
 The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
 The syntax would be as below
@@ -6646,7 +6646,7 @@ if (typeof(Storage) !== "undefined") {
 
 <br/>
 
-## Q. Explain how prototypal inheritance works?
+## Q 13.1. Explain how prototypal inheritance works?
 
 The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object.
 
@@ -6701,7 +6701,7 @@ console.log("Can a User cook?: " + ChildUser.CanCook());
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between prototype and __proto__ in JavaScript?
+## Q 13.2. What is the difference between prototype and __proto__ in JavaScript?
 
 **1. Proto**: 
 
@@ -6770,7 +6770,7 @@ console.log(employee.getName());
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the differences between ES6 class and ES5 function constructors?
+## Q 13.3. What are the differences between ES6 class and ES5 function constructors?
 
 Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics. 
 
@@ -6819,7 +6819,7 @@ It\'s much more verbose to use inheritance in ES5 and the ES6 version is easier 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is class expression in es6 class?
+## Q 13.4. What is class expression in es6 class?
 
 A class expression is another way to define a class. Class expressions can be named or unnamed. The name given to a named class expression is local to the class\'s body. However, it can be accessed via the name property.
 
@@ -6851,7 +6851,7 @@ console.log(Triangle.name); // TriangleClass
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between private, public and static variables?
+## Q 13.5. What is difference between private, public and static variables?
 
 Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
 Static variables are related to a class. They come into existence as soon as a class come into existence.
@@ -6890,7 +6890,7 @@ console.log(MyClass.staticProperty); // I am static!
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between Classic Inheritance and Prototypical Inheritance?
+## Q 13.6. What is difference between Classic Inheritance and Prototypical Inheritance?
 
 **1. Class Inheritance**: 
 
@@ -6936,7 +6936,7 @@ console.log(circle.circumference()); // 31.41592653589793
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you create an object with prototype?
+## Q 13.7. How do you create an object with prototype?
 
 The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
 
@@ -6961,7 +6961,7 @@ admin.printInfo(); // My name is Disha Choudhry
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to use constructor functions for inheritance in JavaScript?
+## Q 13.8. How to use constructor functions for inheritance in JavaScript?
 
 Let say we have `Person` class which has name, age, salary properties and **incrementSalary()** method.
 
@@ -7006,7 +7006,7 @@ console.log(employee instanceof Employee); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is prototype chain?
+## Q 13.9. What is prototype chain?
 
 **Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through `Object.getPrototypeOf(object)` or `__proto__` property whereas prototype on constructors function is available through **Object.prototype**.
 
@@ -7037,7 +7037,7 @@ person.getFullName(); // Vanya Dayal
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are javascript accessors?
+## Q 13.10. What are javascript accessors?
 
 ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses `get` keyword whereas Setters uses `set` keyword.
 
@@ -7063,7 +7063,7 @@ console.log(user.lang); // setter used to set lang as fr
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you define property on Object constructor?
+## Q 13.11. How do you define property on Object constructor?
 
 The Object.defineProperty() static method is used to define a new property directly on an object, or modifies an existing property on an object, and returns the object. 
 
@@ -7084,7 +7084,7 @@ newObject.newProperty = 200; // It throws an error in strict mode due to writabl
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between get and defineProperty?
+## Q 13.12. What is the difference between get and defineProperty?
 
 Both has similar results until unless you use classes. If you use `get` the property will be defined on the prototype of the object whereas using `Object.defineProperty()` the property will be defined on the instance it is applied to.
 
@@ -7092,7 +7092,7 @@ Both has similar results until unless you use classes. If you use `get` the prop
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the advantages of Getters and Setters?
+## Q 13.13. What are the advantages of Getters and Setters?
 
 Below are the list of benefits of Getters and Setters,
 
@@ -7106,7 +7106,7 @@ Below are the list of benefits of Getters and Setters,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Can I add getters and setters using defineProperty method?
+## Q 13.14. Can I add getters and setters using defineProperty method?
 
 Yes, You can use `Object.defineProperty()` method to add Getters and Setters. For example, the below counter object uses increment, decrement, add and substract properties,
 
@@ -7139,7 +7139,7 @@ console.log(obj.decrement); //5
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a decorator?
+## Q 13.15. What is a decorator?
 
 A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. 
 
@@ -7171,7 +7171,7 @@ console.log(User.isAdmin); // false
 
 <br/>
 
-## Q. What is an error object?
+## Q 14.1. What is an error object?
 
 An error object is a built in error object that provides error information when an error occurs. It has two properties: **name** and **message**. 
 
@@ -7195,7 +7195,7 @@ ReferenceError: greeting is not defined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Define the various types of errors which occur in JavaScript?
+## Q 14.2. Define the various types of errors which occur in JavaScript?
 
 There are three main types of errors that can occur while compiling a JavaScript program: **syntax errors**, **runtime errors** ( also called **exceptions** ), and **logical errors**. When an exception occurs, an object representing the error is created and thrown. The JavaScript language defines seven types of built-in error objects. 
 
@@ -7262,7 +7262,7 @@ decodeURIComponent("%"); // URIError
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the various statements in error handling?
+## Q 14.3. What are the various statements in error handling?
 
 Below are the list of statements used in an error handling,
 1. **try:** This statement is used to test a block of code for errors
@@ -7305,7 +7305,7 @@ errorHandling(); // Error: is not a number.
 
 <br/>
 
-## Q. What is a promise?
+## Q 15.1. What is a promise?
 
 A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it\'s not resolved (for example, network error). It will be in one of the 3 possible states: **fulfilled**, **rejected**, or **pending**.
 
@@ -7340,7 +7340,7 @@ Promises have three states:
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is promise chaining?
+## Q 15.2. What is promise chaining?
 
 The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. It allows you to chain on another then call which will run when the second promise is fulfilled. The `.catch()` can still be called to handle any errors that might occur along the way.
 
@@ -7372,7 +7372,7 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is promise.all()?
+## Q 15.3. What is promise.all()?
 
 `Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected.
 
@@ -7404,7 +7404,7 @@ Promise.all([promise1, promise2])
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the purpose of race method in promise?
+## Q 15.4. What is the purpose of race method in promise?
 
 `Promise.race()` method will return the promise instance which is firstly resolved or rejected. 
 
@@ -7430,7 +7430,7 @@ Promise.race([promise1, promise2]).then(function (value) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the pros and cons of promises over callbacks?
+## Q 15.5. What are the pros and cons of promises over callbacks?
 
 Below are the list of pros and cons of promises over callbacks,  
 
@@ -7452,7 +7452,7 @@ Below are the list of pros and cons of promises over callbacks,
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How does await and async works in es6?
+## Q 15.6. How does await and async works in es6?
 
 The **async** and **await** keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
 
@@ -7481,7 +7481,7 @@ fetchMethod();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
+## Q 15.7. What is difference between fetch() and XMLHttpRequest() in JavaScript?
 
 **1. XMLHttpRequest:**  
 
@@ -7530,7 +7530,7 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Explain fetch() properties in JavaScript?
+## Q 15.8. Explain fetch() properties in JavaScript?
 
 A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful `.then()` function will receive Response object, if request fails then `.catch()` function will receive an error object
 
@@ -7617,7 +7617,7 @@ fetch(userRequest)
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between Promise and AJAX?
+## Q 15.9. What is the difference between Promise and AJAX?
 
 A Promise is **an interface** for asynchronous operations. They keep track of when asynchronous operations complete and what their results are and let you coordinate that completion and those results (including error conditions) with other code or other asynchronous operations. They aren\'t actually asynchronous operations in themselves. 
 
@@ -7627,7 +7627,7 @@ An Ajax call is a specific asynchronous operation that can be used with with a t
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between async or defer keyword in JavaScript?
+## Q 15.10. What is difference between async or defer keyword in JavaScript?
 
 **1. async Attribute**  
 
@@ -7653,7 +7653,7 @@ Like an asynchronously loaded script, the file can be downloaded while the HTML 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is request header in javascript?
+## Q 15.11. What is request header in javascript?
 
 The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
 Syntax
