@@ -8284,14 +8284,6 @@ function copy() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. ***Explain types of Memory Leaks in JavaScript?***
-
-*[Reference](https://auth0.com/blog/four-types-of-leaks-in-your-javascript-code-and-how-to-get-rid-of-them/)*
-
-<div align="right">
-    <b><a href="#">↥ back to top</a></b>
-</div>
-
 ## Q. ***What is a service worker?***
 
 A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don\'t need a web page or user interaction. 
