@@ -2658,7 +2658,7 @@ SyntaxError: Rest element must be last element
 
 <br/>
 
-## Q. What is a RegExp object?
+## Q 8.1. What is a RegExp object?
 
 A regular expression is an object that describes a pattern of characters.
 
@@ -2690,7 +2690,7 @@ let pattern = new RegExp(/ab+c/, 'i') // constructor with regular expression lit
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the string method available in regular expression?
+## Q 8.2. What are the string method available in regular expression?
 
 Regular expressions are patterns used to match character combinations in strings. In JavaScript, regular expressions are also objects. These patterns are used with the `exec()` and `test()` methods of `RegExp`, and with the `match()`, `matchAll()`, `replace()`, `replaceAll()`, `search()`, and `split()` methods of String.
 
@@ -2736,7 +2736,7 @@ console.log(res2); // null
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are modifiers in regular expression?
+## Q 8.3. What are modifiers in regular expression?
 
 Modifiers can be used to perform case-insensitive and global searches.
 
@@ -2782,7 +2782,7 @@ console.log(paragraph.match(pattern3)); // ["Lorem"]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are regular expression patterns?
+## Q 8.4. What are regular expression patterns?
 
 Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,  
 
@@ -2849,7 +2849,7 @@ These are useful to define quantities
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you search a string for a pattern?
+## Q 8.5. How do you search a string for a pattern?
 
 **1. Using test()** It searches a string for a pattern, and returns `true` or `false`, depending on the result.
 
@@ -2877,7 +2877,7 @@ re2.exec("How are you?"); // ["you"]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the purpose of exec method?
+## Q 8.6. What is the purpose of exec method?
 
 The purpose of exec method is similar to test method but it returns a founded text as an object instead of returning true/false.
 
@@ -2896,7 +2896,7 @@ console.log(pattern.exec("How are you?")); // ["you", index: 8, input: "How are 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you validate an email in javascript?
+## Q 8.7. How do you validate an email in javascript?
 
 The `test()` method returns `true` if there is a match in the string with the regex pattern. The regular expression (regex) describes a sequence of characters used for defining a search pattern
 
@@ -2929,7 +2929,7 @@ validateEmail(email2); // Not Valid
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you detect a mobile browser using regexp?
+## Q 8.8. How do you detect a mobile browser using regexp?
 
 You can detect mobile browser by simply running through a list of devices and checking if the useragent matches anything. This is an alternative solution for RegExp usage,
 
@@ -2959,7 +2959,7 @@ function detectMobile() {
 
 <br/>
 
-## Q. What are the benefits of using arrow function over es5 function?
+## Q 9.1. What are the benefits of using arrow function over es5 function?
 
 Arrows is a new syntax for functions, which brings several benefits:
 
@@ -3021,7 +3021,7 @@ console.log(result); // 314
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the benefit of using the arrow syntax for a method in a constructor?
+## Q 9.2. What is the benefit of using the arrow syntax for a method in a constructor?
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can\'t change after that. So, when the constructor is used to create a new object, `this` will always refer to that object.
 
@@ -3059,7 +3059,7 @@ sayNameFromWindow2(); // John
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Difference between `Function`, `Method` and `Constructor` calls in JavaScript?
+## Q 9.3. Difference between `Function`, `Method` and `Constructor` calls in JavaScript?
 
 If your are familiar with Object-oriented programming, More likely familiar to thinking of functions, methods, and class constructors as three separate things. But In JavaScript, these are just three different usage patterns of one single construct.
 
@@ -3118,7 +3118,7 @@ The primary role of the constructor function is to initialize the object.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. When you should not use arrow functions in ES6?
+## Q 9.4. When you should not use arrow functions in ES6?
 
 An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
 
@@ -3191,7 +3191,7 @@ const concat = (separator) => {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the properties of function objects in javascript?
+## Q 9.5. What are the properties of function objects in javascript?
 
 **JavaScript function objects** are used to define a piece of JavaScript code. This code can be called within a JavaScript code as and when required.
 
@@ -3210,7 +3210,7 @@ const concat = (separator) => {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a first class function?
+## Q 9.6. What is a first class function?
 
 In javaScript, functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function **first-class function** in JavaScript.
 
@@ -3278,7 +3278,7 @@ We are using double parentheses `()()` to invoke the returned function as well.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a higher order function?
+## Q 9.7. What is a higher order function?
 
 A Higher-Order function is a function that receives a function as an argument or returns the function as output.
 
@@ -3333,7 +3333,7 @@ console.log("Sum: " + sum); // 60
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a unary function?
+## Q 9.8. What is a unary function?
 
 Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for single argument accepted by a function.
 
@@ -3350,7 +3350,7 @@ console.log(unaryFunction(10)); // 20
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is currying function?
+## Q 9.9. What is currying function?
 
 Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument.
 
@@ -3382,7 +3382,7 @@ console.log(addCurry(20)(20)(20)); // 60
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a pure function?
+## Q 9.10. What is a pure function?
 
 Pure functions are functions that accept an input and returns a value without modifying any data outside its scope(Side Effects). Its output or return value must depend on the input/arguments and pure functions must return a value.
 
@@ -3428,7 +3428,7 @@ A function must pass two tests to be considered **pure**:
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is memoization in JavaScript?
+## Q 9.11. What is memoization in JavaScript?
 
 Memoization is a programming technique which attempts to increase a function\'s performance by **caching** its previously computed results.  
 
@@ -3465,7 +3465,7 @@ console.log(sum(10)); // Fetching from cache: 20
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is an arguments object?
+## Q 9.12. What is an arguments object?
 
 The arguments object is an Array-like object ( `arguments` ) accessible inside functions that contains the values of the arguments passed to that function.
 
@@ -3491,7 +3491,7 @@ sum(10, 20, 30); // returns 60
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the way to find the number of parameters expected by a function?
+## Q 9.13. What is the way to find the number of parameters expected by a function?
 
 The **length** property indicates the number of parameters expected by the function.
 
@@ -3511,7 +3511,7 @@ console.log(fun2.length); // 2
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between Call, Apply and Bind?
+## Q 9.14. What is the difference between Call, Apply and Bind?
 
 * **Call** invokes the function and allows you to pass in arguments one by one.
 * **Apply** invokes the function and allows you to pass in arguments as an array.
@@ -3568,7 +3568,7 @@ sayEmployee2("Hello"); // Hello Aarush Krishna
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is bind method in javascript?
+## Q 9.15. What is bind method in javascript?
 
 The `bind()` method creates a new function, when invoked, has the `this` sets to a provided value. The `bind()` method allows an object to borrow a method from another object without making a copy of that method. This is known as function **borrowing** in JavaScript.
 
@@ -3600,7 +3600,7 @@ console.log(fullName()); // Vasuda Sahota
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is an anonymous function?
+## Q 9.16. What is an anonymous function?
 
 An anonymous function is a function without a name. Anonymous functions are commonly assigned to a variable name or used as a callback function.
 
@@ -3648,7 +3648,7 @@ add(10, 20); // 30
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Explain the difference between `function foo() {}` and `var foo = function() {}`?
+## Q 9.17. Explain the difference between `function foo() {}` and `var foo = function() {}`?
 
 **1. Function Declaration:**
 
@@ -3681,7 +3681,7 @@ console.log(typeof foo);     // undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. When to use function declarations and expressions in JavaScript?
+## Q 9.18. When to use function declarations and expressions in JavaScript?
 
 **Function Declarations:**
 
@@ -3726,7 +3726,7 @@ There are several different ways that function expressions become more useful th
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between a method and a function in javascript?
+## Q 9.19. What is the difference between a method and a function in javascript?
 
 **1. Function:**
 
@@ -3774,7 +3774,7 @@ Here `employee` is an object and `getName` is a method which is associated with 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is Function binding?
+## Q 9.20. What is Function binding?
 
 Function binding ( `.bind()` ) is a method on the prototype of all functions in JavaScript. It allows to create a new function from an existing function, change the new function\'s `this` context, and provide any arguments you want the new function to be called with. The arguments provided to `bind` will precede any arguments that are passed to the new function when it is called.
 
@@ -3805,7 +3805,7 @@ console.log(getName()); // Alisha Chhabra
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Explain how `this` works in JavaScript?
+## Q 9.21. Explain how `this` works in JavaScript?
 
 The `this` keyword refers to an `object`. Which object depends on how this is being invoked (used or called). The `this` keyword refers to different objects depending on how it is used.
 
@@ -3834,7 +3834,7 @@ const person = {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is generator in JS?
+## Q 9.22. What is generator in JS?
 
 **Generator-Function:**
 
@@ -3879,7 +3879,7 @@ gen.next().value; // 30
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Compare Async-Await and Generators usage to achive same functionality?
+## Q 9.23. Compare Async-Await and Generators usage to achive same functionality?
 
 **1. Generators/Yield:**
 
@@ -3945,7 +3945,7 @@ asyncFunction();
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you compare two date objects?
+## Q 9.24. How do you compare two date objects?
 
 Two dates can be compared by converting them into numeric values using `date.getTime()` method to correspond to their time. Also,
 the relational operators `<`, `<=`, `>`, `>=` can be used to compare JavaScript dates.
@@ -3977,7 +3977,7 @@ console.log(d3 < d4); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are closures?
+## Q 9.25. What are closures?
 
 A closure is the combination of a function and the lexical environment within which that function was declared. i.e, it is an inner function that has access to the outer or enclosing function\'s variables.
 
@@ -4011,7 +4011,7 @@ As per the above code, the inner `function displayName()` has access to the vari
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is callback() function in javascript?
+## Q 9.26. What is callback() function in javascript?
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 
@@ -4040,7 +4040,7 @@ The above example is a synchronous callback, as it is executed immediately.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to avoid callback hell in javascript?
+## Q 9.27. How to avoid callback hell in javascript?
 
 **Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.  
 
@@ -4071,7 +4071,7 @@ doSomething(param1, param2, function(err, paramx){
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you encode an URL?
+## Q 9.28. How do you encode an URL?
 
 The encodeURI() function is used to encode complete URI which has special characters except (`,`, `/`, `?`, `:`, `@`, `&`, `=`, `+`, `$`, `#`) characters.
 
@@ -4086,7 +4086,7 @@ console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you decode an URL?
+## Q 9.29. How do you decode an URL?
 
 The decodeURI() function is used to decode a Uniform Resource Identifier (URI) previously created by encodeURI().
 
