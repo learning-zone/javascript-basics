@@ -14,28 +14,28 @@
 
 ## Table of Contents
 
-* [Introduction](#-introduction)
-* [Variables](#-variables)
-* [Data types](#-data-types)
-* [Operators](#-operators)
-* [Numbers](#-numbers)
-* [String](#-string)
-* [Array](#-array)
-* [Regular Expression](#-regular-expression)
-* [Functions](#-functions)
-* [Events](#-events)
-* [Objects](#-objects)
-* [Window/Document Object](#-windowdocument-object)
-* [Classes](#-classes)
-* [Error Handling](#-error-handling)
-* [Promises](#-promises)
-* [Collections](#-collections)
-* [Modules](#-modules)
-* [Miscellaneous](#-miscellaneous)
+* [Introduction](#-1-introduction)
+* [Variables](#-2-variables)
+* [Data types](#-3-data-types)
+* [Operators](#-4-operators)
+* [Numbers](#-5-numbers)
+* [String](#-6-string)
+* [Array](#-7-array)
+* [Regular Expression](#-8-regular-expression)
+* [Functions](#-9-functions)
+* [Events](#-10-events)
+* [Objects](#-11-objects)
+* [Window/Document Object](#-12-windowdocument-object)
+* [Classes](#-13-classes)
+* [Error Handling](#-14-error-handling)
+* [Promises](#-15-promises)
+* [Collections](#-16-collections)
+* [Modules](#-17-modules)
+* [Miscellaneous](#-18-miscellaneous)
 
 <br/>
 
-## # Introduction
+## # 1. Introduction
 
 <br/>
 
@@ -394,7 +394,7 @@ console.log(iterateIt.next().value); //output: 6
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # VARIABLES
+## # 2. VARIABLES
 
 <br/>
 
@@ -903,7 +903,7 @@ console.log(y); // 10
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # DATA TYPES
+## # 3. DATA TYPES
 
 <br/>
 
@@ -1138,7 +1138,7 @@ console.log(sum);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # OPERATORS
+## # 4. OPERATORS
 
 <br/>
 
@@ -1495,7 +1495,7 @@ b instanceof String; // returns true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # NUMBERS
+## # 5. NUMBERS
 
 <br/>
 
@@ -1599,7 +1599,7 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # STRING
+## # 6. STRING
 
 <br/>
 
@@ -1796,7 +1796,7 @@ console.log(str.startsWith("World")); // false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # ARRAY
+## # 7. ARRAY
 
 <br/>
 
@@ -2654,7 +2654,7 @@ SyntaxError: Rest element must be last element
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # Regular Expression
+## # 8. Regular Expression
 
 <br/>
 
@@ -2955,7 +2955,7 @@ function detectMobile() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # FUNCTIONS
+## # 9. FUNCTIONS
 
 <br/>
 
@@ -4106,7 +4106,7 @@ try {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # EVENTS
+## # 10.EVENTS
 
 <br/>
 
@@ -4587,7 +4587,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # OBJECTS
+## # 11. OBJECTS
 
 <br/>
 
@@ -5835,7 +5835,7 @@ An array is an object so it has all the same capabilities of an object plus a bu
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-# # WINDOW/DOCUMENT OBJECT
+# # 12. WINDOW/DOCUMENT OBJECT
 
 <br/>
 
@@ -6642,7 +6642,7 @@ if (typeof(Storage) !== "undefined") {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-# # CLASSES
+# # 13. CLASSES
 
 <br/>
 
@@ -7167,7 +7167,7 @@ console.log(User.isAdmin); // false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # ERROR HANDLING
+## # 14. ERROR HANDLING
 
 <br/>
 
@@ -7301,7 +7301,7 @@ errorHandling(); // Error: is not a number.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # PROMISES
+## # 15. PROMISES
 
 <br/>
 
@@ -7683,7 +7683,7 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # Collections
+## # 16. Collections
 
 <br/>
 
@@ -7924,7 +7924,7 @@ console.log(number.next()); // {value: 30, done: false}
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # MODULES
+## # 17. MODULES
 
 <br/>
 
@@ -7984,7 +7984,7 @@ export class Alligator {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## # MISCELLANEOUS
+## # 18. MISCELLANEOUS
 
 <br/>
 
