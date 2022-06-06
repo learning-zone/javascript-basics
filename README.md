@@ -1499,7 +1499,7 @@ b instanceof String; // returns true
 
 <br/>
 
-## Q. How do you generate random integers?
+## Q 5.1. How do you generate random integers?
 
 The `Math.random()` function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1). For example, if you want generate random integers between 1 to 100, the multiplication factor should be 100,
 
@@ -1524,7 +1524,7 @@ console.log(getRandomNumber(10)); // returns a random integer from 1 to 10
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is isNaN?
+## Q 5.2. What is isNaN?
 
 The `isNaN()` function determines whether a value is NaN ( Not a Number ) or not. This function returns `true` if the value equates to NaN. The `isNaN()` method converts the value to a number before testing it.
 
@@ -1544,7 +1544,7 @@ Number.isNaN('Hello'); // false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the purpose of isFinite function?
+## Q 5.3. What is the purpose of isFinite function?
 
 The global `isFinite()` function determines whether the passed value is a finite number. It returns `false` if the value is `+infinity`, `-infinity`, or `NaN` (Not-a-Number), otherwise it returns true.
 
@@ -1567,7 +1567,7 @@ Number.isFinite("123") // false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Explain NEGATIVE_INFINITY in JavaScript?
+## Q 5.4. Explain NEGATIVE_INFINITY in JavaScript?
 
 The `Number.NEGATIVE_INFINITY` property represents the negative Infinity value.
 
@@ -1603,7 +1603,7 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
 
 <br/>
 
-## Q. What is the difference between slice and splice?
+## Q 6.1. What is the difference between slice and splice?
 
 **1. slice():**
 
@@ -1652,7 +1652,7 @@ console.log(numbers); // Original array is mutated.
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you check whether a string contains a substring?
+## Q 6.2. How do you check whether a string contains a substring?
 
 There are 3 fastest ways to check whether a string contains a substring or not,  
 
@@ -1699,7 +1699,7 @@ str.includes('Node', 5) //true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you trim a string in javascript?
+## Q 6.3. How do you trim a string in javascript?
 
 The `trim()` method removes whitespace from both sides of a string. JavaScript provides 3 simple functions on how to trim strings.
 
@@ -1745,7 +1745,7 @@ console.log(phoneNumber.trimEnd()); // => " 80-555-123"
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is eval function in javascript?
+## Q 6.4. What is eval function in javascript?
 
 The `eval()` function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
 
@@ -1779,7 +1779,7 @@ Warning: *Executing JavaScript from a string is an enormous security risk. It is
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you check if a string starts with another string?
+## Q 6.5. How do you check if a string starts with another string?
 
 You can use ECMAScript 6 `String.prototype.startsWith()` method to check a string starts with another string or not. But it is not yet supported in all browsers. Let us see an example to see this usage,
 
@@ -1800,7 +1800,7 @@ console.log(str.startsWith("World")); // false
 
 <br/>
 
-## Q. Explain arrays in JavaScript?
+## Q 7.1. Explain arrays in JavaScript?
 
 JavaScript array is an object that represents a collection of similar type of elements. It can holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions.
 
@@ -1851,7 +1851,7 @@ fruits.push("Grapes");  // Adds a new element (Grapes) to fruits
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are associative arrays in javascript?
+## Q 7.2. What are associative arrays in javascript?
 
 Associative arrays are basically objects in JavaScript where indexes are replaced by user-defined keys. They do not have a length property like a normal array and cannot be traversed using a normal for loop.
 
@@ -1894,7 +1894,7 @@ email = sakshi.memon@email.com
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Calculate the length of the associative array?
+## Q 7.3. Calculate the length of the associative array?
 
 **Method 1:** Using `Object.keys().length`
 
@@ -1941,7 +1941,7 @@ Object.getOwnPropertyNames(employee).length; // Output 3
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between Array and Array of Objects in JavaScript?
+## Q 7.4. What is the difference between Array and Array of Objects in JavaScript?
 
 Objects represent a special data type that is mutable and can be used to store a collection of data (rather than just a single value). Arrays are a special type of variable that is also mutable and can also be used to store a list of values.
 
@@ -1996,7 +1996,7 @@ for (let key in employees) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]
+## Q 7.5. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]
 
 **1. array.join()**:
 
@@ -2215,7 +2215,7 @@ console.log(pets.includes('at')); // Output: false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the benefits of using spread syntax and how is it different from rest syntax?
+## Q 7.6. What are the benefits of using spread syntax and how is it different from rest syntax?
 
 Spread operator or Spread Syntax allow us to expand the arrays and objects into elements in the case of an array and key-value pairs in the case of an object.
 
@@ -2274,7 +2274,7 @@ The main difference between `rest` and `spread` is that the rest operator puts t
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between for..in and for..of?
+## Q 7.7. What is the difference between for..in and for..of?
 
 Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a **list of keys** on the object being iterated, whereas `for..of` returns a **list of values** of the numeric properties of the object being iterated.  
 
@@ -2303,7 +2303,7 @@ for (let i of list) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Can you give an example for destructuring an array?
+## Q 7.8. Can you give an example for destructuring an array?
 
 Destructuring is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables. That is, we can extract data from arrays and objects and assign them to variables.
 
@@ -2334,7 +2334,7 @@ console.log(b); // 10
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are default values in destructuring assignment?
+## Q 7.9. What are default values in destructuring assignment?
 
 A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment.  
 
@@ -2360,7 +2360,7 @@ console.log("k: " + k); // 6
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/ecstatic-drake-iq971p?file=/src/index.js)**
 
-## Q. When to use reduce(), map(), foreach() and filter() in JavaScript?
+## Q 7.10. When to use reduce(), map(), foreach() and filter() in JavaScript?
 
 **1. forEach():**  
 
@@ -2438,7 +2438,7 @@ console.log(sum); // Output: 60
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you define JSON arrays?
+## Q 7.11. How do you define JSON arrays?
 
 JSON is an acronym for JavaScript Object Notation, and is "an open standard data interchange format".
 
@@ -2470,7 +2470,7 @@ console.log(employees[0].name) // Kabir Dixit
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to validate JSON Object in javascript?
+## Q 7.12. How to validate JSON Object in javascript?
 
 `JSON.parse()` function will use string and converts to JSON object and if it parses invalidate JSON data, it throws an exception ( **Uncaught SyntaxError: Unexpected string in JSON** ).
 
@@ -2494,7 +2494,7 @@ console.log(isValidJson("abc")); // false
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the purpose JSON stringify?
+## Q 7.13. What is the purpose JSON stringify?
 
 When sending data to a web server, the data has to be in a string format. The `JSON.stringify()` method converts a JavaScript object or value to a JSON string format.
 
@@ -2508,7 +2508,7 @@ console.log(JSON.stringify(user)); // {"name":"Shashi Meda","email":"shashi.meda
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you parse JSON string?
+## Q 7.14. How do you parse JSON string?
 
 When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using `JSON.parse()` method.
 
@@ -2522,7 +2522,7 @@ console.log(JSON.parse(user));// {'name': 'Shashi Meda', 'email': 'shashi.meda@e
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the purpose of compare function while sorting arrays?
+## Q 7.15. What is the purpose of compare function while sorting arrays?
 
 The purpose of the compare function is to define an alternative sort order. When the `sort()` function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
 
@@ -2541,7 +2541,7 @@ console.log(numbers); // [5, 4, 3, 2, 1]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
+## Q 7.16. Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
 
 To understand the differences between the two, Let us look at what each function does.
 
@@ -2582,7 +2582,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is unshift() method in JavaScript?
+## Q 7.17. What is unshift() method in JavaScript?
 
 The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
@@ -2601,7 +2601,7 @@ console.log(numbers); // [40, 50, 10, 20, 30]
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a rest parameter?
+## Q 7.18. What is a rest parameter?
 
 The rest parameter is used to represent an indefinite number of arguments as an array. The important point here is only the function\'s last parameter can be a "rest parameter".
 
@@ -2627,7 +2627,7 @@ console.log(sum(10, 20, 30)); // 60
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What happens if you do not use rest parameter as a last argument?
+## Q 7.19. What happens if you do not use rest parameter as a last argument?
 
 The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array.
 
