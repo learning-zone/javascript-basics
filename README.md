@@ -907,7 +907,7 @@ console.log(y); // 10
 
 <br/>
 
-## Q. What are data types in javascript?
+## Q 3.1. What are data types in javascript?
 
 There are eight basic data types in JavaScript.
 
@@ -1044,7 +1044,7 @@ const employee = {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is `undefined` property?
+## Q 3.2. What is `undefined` property?
 
 The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
 
@@ -1063,7 +1063,7 @@ user = undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is difference between `null` vs `undefined`?
+## Q 3.3. What is difference between `null` vs `undefined`?
 
 **Null:**
 
@@ -1109,7 +1109,7 @@ console.log(typeof test2); // undefined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is Coercion in JavaScript?
+## Q 3.4. What is Coercion in JavaScript?
 
 Type coercion is the automatic or implicit conversion of values from one data type to another (such as strings to numbers). Type conversion is similar to type coercion because they both convert values from one data type to another with one key difference — type coercion is implicit whereas type conversion can be either implicit or explicit.
 
