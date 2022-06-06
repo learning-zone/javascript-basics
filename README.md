@@ -7687,7 +7687,7 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 
 <br/>
 
-## Q. What is the difference between ES6 Map and WeakMap?
+## Q 16.1. What is the difference between ES6 Map and WeakMap?
 
 **Map:**  
 
@@ -7751,7 +7751,7 @@ The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. 
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between Set and WeakSet in ES6?
+## Q 16.2 What is the difference between Set and WeakSet in ES6?
 
 **Set:**
 
@@ -7829,7 +7829,7 @@ weakSet.add(2); // ERROR, no primitive value
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. List down the collection of methods available on WeakSet?
+## Q 16.3. List down the collection of methods available on WeakSet?
 
 Below are the list of methods available on WeakSet,
 
@@ -7859,7 +7859,7 @@ weakSetObject.delete(secondObject);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. List down the collection of methods available on WeakMap?
+## Q 16.4. List down the collection of methods available on WeakMap?
 
 Below are the list of methods available on WeakMap,
 
@@ -7889,7 +7889,7 @@ weakMapObject.delete(secondObject);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is an Iterator?
+## Q 16.5. What is an Iterator?
 
 An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `.next()` method which returns an object with two properties: 
 
@@ -7928,7 +7928,7 @@ console.log(number.next()); // {value: 30, done: false}
 
 <br/>
 
-## Q. What is modules in ES6?
+## Q 17.1. What is modules in ES6?
 
 Making objects, functions, classes or variables available to the outside world is as simple as exporting them, and then importing them where needed in other files.
 
@@ -7988,7 +7988,7 @@ export class Alligator {
 
 <br/>
 
-## Q. Describe the Revealing Module Pattern in javascript?
+## Q 18.1. Describe the Revealing Module Pattern in javascript?
 
 Revealing module pattern is a design pattern, which let you organise your javascript code in modules, and gives better code structure. It gives you power to create public/private variables/methods (using closure), and avoids polluting global scope
 
@@ -8035,7 +8035,7 @@ myModule._privateMethod(); // TypeError: protected by the module closure
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you detect javascript disabled in the page?
+## Q 18.2. How do you detect javascript disabled in the page?
 
 You can use `<noscript>` tag to detect javascript disabled or not. The code block inside `<noscript>` get executed when JavaScript is disabled, and are typically used to display alternative content when the page generated in JavaScript.
 
@@ -8052,7 +8052,7 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between feature detection, feature inference, and using the UA string?
+## Q 18.3. What is the difference between feature detection, feature inference, and using the UA string?
 
 **1. Feature Detection**
 
@@ -8088,7 +8088,7 @@ This is a browser-reported string that allows the network protocol peers to iden
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is strict mode?
+## Q 18.4. What is strict mode?
 
 The Strict Mode is allows you to place a program, or a function, in a `strict` operating context. This strict context prevents certain actions from being taken and throws more exceptions.
 
@@ -8116,7 +8116,7 @@ The Strict Mode is allows you to place a program, or a function, in a `strict` o
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Describe Singleton Pattern In JavaScript?
+## Q 18.5. Describe Singleton Pattern In JavaScript?
 
 The **singleton pattern** is a type of creational pattern that restricts the instantiation of a class to a **single** object. This allows the class to create an instance of the class the first time it is instantiated; however, on the next try, the existing instance of the class is returned. No new instance is created.
 
@@ -8168,7 +8168,7 @@ console.log(obj2 === obj1); // true
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What do you understand by ViewState and SessionState?
+## Q 18.6. What do you understand by ViewState and SessionState?
 
 **1. Session State**: 
 
@@ -8194,7 +8194,7 @@ On the other hand is information specific to particular web page. It is stored i
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. Explain browser console logs features?
+## Q 18.7. Explain browser console logs features?
 
 The `Console` method **log()** outputs a message to the web console. The message may be a single string or it may be any one or more JavaScript objects.
 
@@ -8237,7 +8237,7 @@ Output
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the difference between console.log() and console.dir()?
+## Q 18.8. What are the difference between console.log() and console.dir()?
 
 * `console.log()` prints the element in an HTML-like tree
 Output
@@ -8253,7 +8253,7 @@ Output
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to Copy Text to Clipboard?
+## Q 18.9. How to Copy Text to Clipboard?
 
 ```html
 <!-- The text field -->
@@ -8284,7 +8284,7 @@ function copy() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a service worker?
+## Q 18.10. What is a service worker?
 
 A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don\'t need a web page or user interaction. 
 
@@ -8370,7 +8370,7 @@ self.addEventListener('fetch', function(event) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you manipulate DOM using service worker?
+## Q 18.11. How do you manipulate DOM using service worker?
 
 Service worker can\'t access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
 
@@ -8439,7 +8439,7 @@ self.addEventListener("message", function(event) {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How to use Web Workers in javascript?
+## Q 18.12. How to use Web Workers in javascript?
 
 **Step 01: Create a Web Workers file**: Write a script to increment the count value.
 
@@ -8525,7 +8525,7 @@ w = undefined;
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What are the restrictions of web workers on DOM?
+## Q 18.13. What are the restrictions of web workers on DOM?
 
 WebWorkers do not have access to below javascript objects since they are defined in an external files
 
@@ -8537,7 +8537,7 @@ WebWorkers do not have access to below javascript objects since they are defined
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is rendering in JavaScript?
+## Q 18.14. What is rendering in JavaScript?
 
 JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
 These are the different steps involved in the JavaScript rendering process:
@@ -8633,7 +8633,7 @@ Painting can be global or incremental (similar to layout):
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between HTMLCollection and NodeList?
+## Q 18.15. What is the difference between HTMLCollection and NodeList?
 
 **HTMLCollection**
 
@@ -8685,7 +8685,7 @@ element.appendChild(text);
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is a trampoline function? What is it used for? 
+## Q 18.16. What is a trampoline function? What is it used for? 
 
 The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
 
@@ -8768,7 +8768,7 @@ Using a trampoline is obviously less performant than simple recursion, since you
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is throttling and debouncing in javascript?
+## Q 18.17. What is throttling and debouncing in javascript?
 
 Debouncing and throttling techniques are used to limit the number of times a function can execute. These are two widely-used techniques to improve the performance of code that gets executed repeatedly within a period of time.
 
@@ -8805,7 +8805,7 @@ $(window).on('resize', _.debounce(function() {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is same-origin policy?
+## Q 18.18. What is same-origin policy?
 
 The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
 
@@ -8813,7 +8813,7 @@ The same-origin policy is a policy that prevents JavaScript from making requests
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. What is server-sent events?
+## Q 18.19. What is server-sent events?
 
 Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
 
@@ -8840,7 +8840,7 @@ Below are the list of events available for server sent events
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-## Q. How do you get the image width and height using JS?
+## Q 18.20. How do you get the image width and height using JS?
 
 You can programmatically get the image and check the dimensions(width and height) using Javascript.
 
@@ -8856,8 +8856,8 @@ img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q. What is optional chaining in javascript?
-#### Q. How could you make sure a const value is garbage collected?
+#### Q 18.21. What is optional chaining in javascript?
+#### Q 18.22. How could you make sure a const value is garbage collected?
 
 *ToDo*
 
