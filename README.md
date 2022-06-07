@@ -7683,6 +7683,49 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q 15.12. Explain ajax request in javascript?
+
+Ajax stands for Asynchronous Javascript And Xml. It load data from the server and selectively updating parts of a web page without reloading the whole page.
+
+Basically, Ajax uses browser\'s built-in `XMLHttpRequest()` object to send and receive information to and from a web server asynchronously, in the background, without blocking the page or interfering with the user\'s experience.
+
+<p align="center">
+  <img src="assets/ajax.jpg" alt="Ajax" width="500px" />
+</p>
+
+**Example:**
+
+```js
+(function() {
+      var xhr;
+      document.getElementById('ajaxButton').addEventListener('click', makeRequest);
+
+      function makeRequest() {
+        if (window.XMLHttpRequest) {
+          // code for IE7+, Firefox, Chrome, Opera, Safari
+          xhr = new XMLHttpRequest();
+        } else {
+          // code for IE6, IE5
+          xhr = new ActiveXObject('Microsoft.XMLHTTP');
+        }
+        xhr.onreadystatechange = function() {
+          if (this.readyState == 4 && this.status == 200) {
+            document.getElementById("result").innerHTML = '<pre>' + this.responseText + '</pre>';
+          }
+        };
+        xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true); //this makes asynchronous true or false
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.send();
+      }
+    })();
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-ajax-ntgmov?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## # 16. Collections
 
 <br/>
