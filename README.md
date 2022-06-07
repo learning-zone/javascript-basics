@@ -6642,6 +6642,35 @@ if (typeof(Storage) !== "undefined") {
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q 12.25. How to detect browser type in javascript?
+
+To detect user browser information use the `navigator.userAgent()` property. 
+
+```js
+let browser;
+const agt = navigator.userAgent.toLowerCase();
+
+if (agt.indexOf("chrome") > -1) {
+  browser = "Google Chrome";
+} else if (agt.indexOf("safari") > -1) {
+  browser = "Apple Safari";
+} else if (agt.indexOf("opera") > -1) {
+  browser = "Opera";
+} else if (agt.indexOf("firefox") > -1) {
+  browser = "Mozilla Firefox";
+} else if (agt.indexOf("mise") > -1 || agt.indexOf("trident") > -1) {
+  browser = "Microsoft Internet Explorer";
+}
+
+alert("You are using: " + browser + " \n\nNavigator: " + agt);
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-detect-browser-type-7xufzy?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 # # 13. CLASSES
 
 <br/>
@@ -8932,8 +8961,32 @@ img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
     <b><a href="#">↥ back to top</a></b>
 </div>
 
-#### Q 18.21. What is optional chaining in javascript?
-#### Q 18.22. How could you make sure a const value is garbage collected?
+## Q 18.21. What is a browser engine?
+
+The browser engine is to take the HTML, CSS and other code of a web page - the text you can see in the page source or open in a text editor, setting out layouts, page content, and styling - and convert it into what you actually see on screen.
+
+The browser engine, rendering engine, and JavaScript engine are all essentially working together to get raw web code into a viewable and usable-form inside your browser.
+
+**Browser Engines:**
+
+**1. Gecko:**
+
+It\'s a Mozilla\'s browser engine. It is used in the Firefox web browser, the Thunderbird email client, and the SeaMonkey internet suite. Goanna also is a fork of Gecko used in the Pale Moon browser.
+
+**2. WebKit:**
+
+This engine created by Apple for its Safari browser, by forking the KHTML engine of the KDE project. Google also used WebKit for its Chrome browser, but eventually forked it to create the Blink engine.
+
+**3. Blink:**
+
+All Chromium-based browsers use Blink, as do applications built with CEF, Electron, or any other framework that embeds Chromium.
+
+**4. Trident and EdgeHTML:**
+
+Microsoft formerly developed its own proprietary browser engines - Trident and EdgeHTML, though now uses Blink for its Edge browser.
+
+#### Q 18.22. What is optional chaining in javascript?
+#### Q 18.23. How could you make sure a const value is garbage collected?
 
 *ToDo*
 
