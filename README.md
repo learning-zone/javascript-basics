@@ -7726,6 +7726,39 @@ Basically, Ajax uses browser\'s built-in `XMLHttpRequest()` object to send and r
     <b><a href="#">↥ back to top</a></b>
 </div>
 
+## Q 15.13. What is XMLHTTPRequest Object?
+
+The `XMLHTTPRequest()` object is an API which is used for fetching data from the server. An object of XMLHTTPRequest is used for asynchronous communication between client and server. It retrieve any type of data such as json, xml, text etc.
+
+**XMLHttpRequest Object Methods:**
+
+|Method	                |Description                        |
+|-----------------------|-----------------------------------|
+|new XMLHttpRequest()	  |Creates a new XMLHttpRequest object|
+|abort()	              |Cancels the current request|
+|getAllResponseHeaders()|Returns header information|
+|getResponseHeader()	  |Returns specific header information|
+|open(method,url,async,user,psw)|	Specifies the request <br/> method: the request type GET or POST <br/> url: the file location <br/> async: true (asynchronous) or false (synchronous) <br/> user: optional user name <br/>                psw: optional password|
+|send()	                |Sends the request to the server <br/> Used for GET requests|
+|send(string)           |Sends the request to the server. <br/> Used for POST requests|
+|setRequestHeader()	    |Adds a label/value pair to the header to be sent|
+
+**XMLHttpRequest Object Properties:**
+
+|Property	           |Description                          |
+|--------------------|-------------------------------------|
+|onreadystatechange  |Defines a function to be called when the readyState property changes
+|readyState	         |Holds the status of the XMLHttpRequest. <br/> 0: request not initialized <br/> 1: server connection established <br/> 2: request received <br/> 3: processing request <br/> 4: request finished and response is ready|
+|responseText	       |Returns the response data as a string
+|responseXML	       |Returns the response data as XML data
+|status	             |Returns the status-number of a request <br/> 200: "OK" <br/> 403: "Forbidden" <br/> 404: "Not Found"|
+|statusText	         |Returns the status-text (e.g. "OK" or "Not Found")|
+
+
+<div align="right">
+    <b><a href="#">↥ back to top</a></b>
+</div>
+
 ## # 16. Collections
 
 <br/>
