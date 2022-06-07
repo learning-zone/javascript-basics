@@ -3981,16 +3981,18 @@ console.log(d3 < d4); // true
 
 A closure is the combination of a function and the lexical environment within which that function was declared. i.e, it is an inner function that has access to the outer or enclosing function\'s variables.
 
-Closure is useful in hiding implementation detail in JavaScript. In other words, it can be useful to create private variables or functions. The closure has three scope chains
+Closure is useful in hiding implementation detail in JavaScript. In other words, it can be useful to create private variables or functions.
 
-* Own scope where variables defined between its curly brackets
-* Outer function\'s variables
-* Global variables
+**1. Lexical Scope**:
+
+In lexical scoping free variables must belong to a parent scope.
 
 **Example:**
 
 ```js
-// Closures
+/**
+ * Lexical Scope
+ **/
 
 function init() {
   let name = "JavaScript closures"; // name is a local variable created by init
@@ -3998,14 +4000,46 @@ function init() {
     // displayName() is the inner function, a closure
     console.log(name); // use variable declared in the parent function
   }
-  displayName();
+  return displayName;
 }
 init();
+
+var closure = init();
+closure();
 ```
 
 As per the above code, the inner `function displayName()` has access to the variables in the outer `function init()`.
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-closures-u4p0pq?file=/src/index.js)**
+
+**2. Dynamic Scope**:
+
+In dynamic scoping free variables must belong to the calling scope
+
+**Example:**
+
+```js
+/**
+ * Dynamic Scope
+ **/
+
+function fun1() {
+  console.log(a); // 10
+}
+
+function fun2() {
+  var a = 20;
+  fun1();
+}
+
+var a = 10;
+fun2();
+
+// Output
+10
+```
+
+**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-dynamic-scope-fzbitn?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#">↥ back to top</a></b>
