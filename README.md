@@ -25,7 +25,7 @@
 * [Functions](#-9-functions)
 * [Events](#-10-events)
 * [Objects](#-11-objects)
-* [Window/Document Object](#-12-windowdocument-object)
+* [Window and Document Object](#-12-window-and-document-object)
 * [Classes](#-13-classes)
 * [Error Handling](#-14-error-handling)
 * [Promises](#-15-promises)
@@ -67,7 +67,7 @@ console.log(`${msg}`); // Output: "Hello World"
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-template-strings-dwj699?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **2. Spread Operator:**
@@ -90,7 +90,7 @@ console.log(sum.apply(null, numbers)); // 60
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-25tmcf?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **2.1. Copying an array:**
@@ -108,7 +108,7 @@ console.log(newFruitArray);
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-wy1q0l?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **2.2. Concatenating arrays:**  
@@ -128,7 +128,7 @@ console.log(result);
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-m7v6gg?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **2.3. Spreading elements together with an individual element:**
@@ -147,7 +147,7 @@ console.log(newFruits);
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-16l7oh?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **2.4. Spreading elements on function calls:**
@@ -168,7 +168,7 @@ Fruits: Apple, Orange and Banana
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-jdhoe6?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **2.5. Spread syntax for object literals:**
@@ -183,7 +183,7 @@ console.log(employee); // { "id": 101, "name": "Rajiv Sandal", "age": 35, "count
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **3. Sets:**  
@@ -200,7 +200,7 @@ console.log(typeof numbers); // Object
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-sets-chwvp0)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **4. Default Parametrs:**
@@ -216,7 +216,7 @@ add(10, 30); // 40
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-default-parametrs-tjw9uk?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **5. repeat():**  
@@ -237,7 +237,7 @@ Hello World
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-repeat-d3ko3z?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **6. Arrow Function (=>):**
@@ -251,7 +251,7 @@ console.log(add(10, 20)); // 30
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-ejlrmf?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **7. Arrow function with `this`**
@@ -301,7 +301,7 @@ Diksha likes to surf
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-kh1v84?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **8. Destructing Assignment:**
@@ -329,7 +329,7 @@ console.log(description); // The iPhone is a smartphone developed by Apple
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-destructing-assignment-0c0fzl?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **9. Generators:**  
@@ -352,7 +352,7 @@ console.log(gen.next().value); // 40
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-generators-pboss2?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **10. Symbols:**  
@@ -372,7 +372,7 @@ console.log(Symbol("Hi") === Symbol("Hi")); // false
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-symbols-5oedjv?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 **11. Iterator:**  
@@ -391,7 +391,7 @@ console.log(iterateIt.next().value); //output: 6
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-iterator-ceqbrw?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 2. VARIABLES
@@ -448,7 +448,7 @@ console.log(getValue()); // 100
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-global-variables-b4isqk?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.2. What are template literals in es6?
@@ -485,7 +485,7 @@ document.body.innerHTML = `
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.3. What are the differences between variables created using `let`, `var` or `const`?
@@ -570,7 +570,7 @@ baz = 'qux';
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variables-declaration-fmrkjz?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.4. What is Hoisting in JavaScript?
@@ -627,7 +627,7 @@ They will only get initialized when their lexical binding (assignment) is evalua
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-hoisting-l745nc?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.5. In which case the function definition is not hoisted in JavaScript?
@@ -668,7 +668,7 @@ foo(); // Now foo is defined here
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.6. What is the Temporal Dead Zone in ES6?
@@ -683,7 +683,7 @@ let aLet = 2;
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.7. What is the purpose of double exclamation?
@@ -707,7 +707,7 @@ console.log(navigator.userAgent.match(/Trident.*rv[ :]*11\./));  // returns eith
 *Note: The expression !! is not an operator, but it is just twice of ! operator*.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.8. In JavaScript, what is the difference between `var x = 1` and `x = 1`?
@@ -795,7 +795,7 @@ console.log(x) // 1
 |Reassigning    | &#10004;  | &#10004; |
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.9. How do you assign default values to variables?
@@ -809,7 +809,7 @@ var a = b || c;
 As per the above expression, variable 'a 'will get the value of 'c' only if 'b' is falsy (if is null, false, undefined, 0, empty string, or NaN), otherwise 'a' will get the value of 'b'.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.10. What is the precedence order between local and global variables?
@@ -832,7 +832,7 @@ Good Evening
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-precedence-n1ve75?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.11. What is variable shadowing in javascript?
@@ -856,7 +856,7 @@ Hoist(20);
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variable-shadowing-dvibcw?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.12. Explain `var self = this` in JavaScript?
@@ -883,7 +883,7 @@ console.log(context.getCurrentContext());
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-self-this-k1w0e8?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 2.13. How do you swap variables using Destructuring Assignment?
@@ -900,7 +900,7 @@ console.log(y); // 10
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-destructuring-sv99cd?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 3. DATA TYPES
@@ -1041,7 +1041,7 @@ const employee = {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 3.2. What is `undefined` property?
@@ -1060,7 +1060,7 @@ user = undefined
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 3.3. What is difference between `null` vs `undefined`?
@@ -1106,7 +1106,7 @@ console.log(typeof test2); // undefined
 | Converted to zero (0) while performing primitive operations | Converted to NaN while performing primitive operations |
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 3.4. What is Coercion in JavaScript?
@@ -1135,7 +1135,7 @@ console.log(sum);
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 4. OPERATORS
@@ -1227,7 +1227,7 @@ typeof a // number
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.2. What are the bitwise operators available in javascript?
@@ -1259,7 +1259,7 @@ Below are the list of bit-wise logical operators used in JavaScript
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-bitwise-operators-nnz00d?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.3. What is the difference between == and === operators?
@@ -1294,7 +1294,7 @@ null === undefined // false
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-comparison-0y16ii?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.4. What is typeof operator?
@@ -1340,7 +1340,7 @@ console.log(typeof a); // "function"
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-typeof-jesw53?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.5. What is an Unary operator?
@@ -1362,7 +1362,7 @@ console.log(typeof a, typeof b, b); // string, number, NaN
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-unary-operator-ld2luh?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.6. What is the purpose of delete operator?
@@ -1377,7 +1377,7 @@ console.log(user); // {name: "Sadhika Chaudhuri"}
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.7. What is a conditional operator in javascript?
@@ -1391,7 +1391,7 @@ console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticat
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.8. Can you apply chaining on conditional operator?
@@ -1423,7 +1423,7 @@ function getValue(someParam) {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.9. What is the difference between `==` and `===`?
@@ -1448,7 +1448,7 @@ console.log(x == undefined); // true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-equality-operator-lt2ngc?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.10. What is the difference between `typeof` and `instanceof` operator?
@@ -1478,7 +1478,7 @@ b instanceof String; // returns true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-typeof-operator-9uejl1?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 4.11. What is the output of below spread operator array?
@@ -1492,7 +1492,7 @@ b instanceof String; // returns true
 **Explanation**: The string is an iterable type and the spread operator with in an array maps every character of an iterable to one element. Hence, each character of a string becomes an element within an Array.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 5. NUMBERS
@@ -1521,7 +1521,7 @@ console.log(getRandomNumber(10)); // returns a random integer from 1 to 10
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-random-number-slllvd?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 5.2. What is isNaN?
@@ -1541,7 +1541,7 @@ Number.isNaN('Hello'); // false
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-isnan-6w1huz?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 5.3. What is the purpose of isFinite function?
@@ -1564,7 +1564,7 @@ Number.isFinite("123") // false
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-isfinite-5sl988?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 5.4. Explain NEGATIVE_INFINITY in JavaScript?
@@ -1596,7 +1596,7 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-negative-infinity-1gmh0r?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 6. STRING
@@ -1649,7 +1649,7 @@ console.log(numbers); // Original array is mutated.
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-slice-vs-splice-xm7c54?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 6.2. How do you check whether a string contains a substring?
@@ -1696,7 +1696,7 @@ str.includes('Node', 5) //true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-substring-su64zr?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 6.3. How do you trim a string in javascript?
@@ -1742,7 +1742,7 @@ console.log(phoneNumber.trimEnd()); // => " 80-555-123"
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-trim-4mo5bi?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 6.4. What is eval function in javascript?
@@ -1776,7 +1776,7 @@ Warning: *Executing JavaScript from a string is an enormous security risk. It is
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-eval-p9fxgs?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 6.5. How do you check if a string starts with another string?
@@ -1793,7 +1793,7 @@ console.log(str.startsWith("World")); // false
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-startswith-tvq7i5?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 7. ARRAY
@@ -1848,7 +1848,7 @@ fruits.push("Grapes");  // Adds a new element (Grapes) to fruits
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-array-y73m66?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.2. What are associative arrays in javascript?
@@ -1891,7 +1891,7 @@ email = sakshi.memon@email.com
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-associative-arrays-vxc4qc?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.3. Calculate the length of the associative array?
@@ -1938,7 +1938,7 @@ Object.getOwnPropertyNames(employee).length; // Output 3
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-associative-arrays-qye2t1?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.4. What is the difference between Array and Array of Objects in JavaScript?
@@ -1993,7 +1993,7 @@ for (let key in employees) {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-array-vs-object-w7wz7i?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.5. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]
@@ -2212,7 +2212,7 @@ console.log(pets.includes('at')); // Output: false
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.6. What are the benefits of using spread syntax and how is it different from rest syntax?
@@ -2271,7 +2271,7 @@ The main difference between `rest` and `spread` is that the rest operator puts t
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-vs-spread-qvxkkz?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.7. What is the difference between for..in and for..of?
@@ -2300,7 +2300,7 @@ for (let i of list) {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-for-in-for-of-b0vn3v?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.8. Can you give an example for destructuring an array?
@@ -2331,7 +2331,7 @@ console.log(b); // 10
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-array-destructure-bg71je?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.9. What are default values in destructuring assignment?
@@ -2435,7 +2435,7 @@ console.log(sum); // Output: 60
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-loop-m755cw?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.11. How do you define JSON arrays?
@@ -2467,7 +2467,7 @@ console.log(employees[0].name) // Kabir Dixit
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.12. How to validate JSON Object in javascript?
@@ -2491,7 +2491,7 @@ console.log(isValidJson("abc")); // false
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-validate-json-iwzom7?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.13. What is the purpose JSON stringify?
@@ -2505,7 +2505,7 @@ console.log(JSON.stringify(user)); // {"name":"Shashi Meda","email":"shashi.meda
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.14. How do you parse JSON string?
@@ -2519,7 +2519,7 @@ console.log(JSON.parse(user));// {'name': 'Shashi Meda', 'email': 'shashi.meda@e
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.15. What is the purpose of compare function while sorting arrays?
@@ -2538,7 +2538,7 @@ console.log(numbers); // [5, 4, 3, 2, 1]
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-sort-ykfhck?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.16. Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
@@ -2579,7 +2579,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-foreach-vs-map-kxch52?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.17. What is unshift() method in JavaScript?
@@ -2598,7 +2598,7 @@ console.log(numbers); // [40, 50, 10, 20, 30]
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-unshift-khl0dq?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.18. What is a rest parameter?
@@ -2624,7 +2624,7 @@ console.log(sum(10, 20, 30)); // 60
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/es6-rest-parameters-w8zy28?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 7.19. What happens if you do not use rest parameter as a last argument?
@@ -2651,7 +2651,7 @@ SyntaxError: Rest element must be last element
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-rest-parameter-v8r5yt?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 8. Regular Expression
@@ -2687,7 +2687,7 @@ let pattern = new RegExp(/ab+c/, 'i') // constructor with regular expression lit
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 8.2. What are the string method available in regular expression?
@@ -2733,7 +2733,7 @@ console.log(res2); // null
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-fn79dp?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 8.3. What are modifiers in regular expression?
@@ -2779,7 +2779,7 @@ console.log(paragraph.match(pattern3)); // ["Lorem"]
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-modifier-sm7ul2)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 8.4. What are regular expression patterns?
@@ -2846,7 +2846,7 @@ These are useful to define quantities
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-patterns-b5ojtl?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 8.5. How do you search a string for a pattern?
@@ -2874,7 +2874,7 @@ re2.exec("How are you?"); // ["you"]
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-m10bgo?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 8.6. What is the purpose of exec method?
@@ -2893,7 +2893,7 @@ console.log(pattern.exec("How are you?")); // ["you", index: 8, input: "How are 
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 8.7. How do you validate an email in javascript?
@@ -2926,7 +2926,7 @@ validateEmail(email2); // Not Valid
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-regular-expression-rkxjb1?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 8.8. How do you detect a mobile browser using regexp?
@@ -2952,7 +2952,7 @@ function detectMobile() {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 9. FUNCTIONS
@@ -3018,7 +3018,7 @@ console.log(result); // 314
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/es6-arrow-function-yl7oqo?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.2. What is the benefit of using the arrow syntax for a method in a constructor?
@@ -3056,7 +3056,7 @@ sayNameFromWindow2(); // John
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.3. Difference between `Function`, `Method` and `Constructor` calls in JavaScript?
@@ -3115,7 +3115,7 @@ Unlike function calls and method calls, a constructor call `new Employee('John D
 The primary role of the constructor function is to initialize the object.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.4. When you should not use arrow functions in ES6?
@@ -3188,7 +3188,7 @@ const concat = (separator) => {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-52ny7c?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.5. What are the properties of function objects in javascript?
@@ -3207,7 +3207,7 @@ const concat = (separator) => {
 |prototype        |Allows adding properties to a Function object.|
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.6. What is a first class function?
@@ -3275,7 +3275,7 @@ We are using double parentheses `()()` to invoke the returned function as well.
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-first-class-function-ckck8k?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.7. What is a higher order function?
@@ -3330,7 +3330,7 @@ console.log("Sum: " + sum); // 60
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-higher-order-function-yhbo9v?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.8. What is a unary function?
@@ -3347,7 +3347,7 @@ console.log(unaryFunction(10)); // 20
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-unary-function-j0h3gh?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.9. What is currying function?
@@ -3379,7 +3379,7 @@ console.log(addCurry(20)(20)(20)); // 60
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-currying-function-3kq1db?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.10. What is a pure function?
@@ -3425,7 +3425,7 @@ A function must pass two tests to be considered **pure**:
 * **Testable**: We can test it as an independent unit.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.11. What is memoization in JavaScript?
@@ -3462,7 +3462,7 @@ console.log(sum(10)); // Fetching from cache: 20
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-memoized-function-kykkp7?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.12. What is an arguments object?
@@ -3488,7 +3488,7 @@ sum(10, 20, 30); // returns 60
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arguments-object-od6s7l?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.13. What is the way to find the number of parameters expected by a function?
@@ -3508,7 +3508,7 @@ console.log(fun2.length); // 2
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-function-length-7btkvr?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.14. What is the difference between Call, Apply and Bind?
@@ -3565,7 +3565,7 @@ sayEmployee2("Hello"); // Hello Aarush Krishna
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-call-apply-bind-xwenyv?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.15. What is bind method in javascript?
@@ -3597,7 +3597,7 @@ console.log(fullName()); // Vasuda Sahota
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-bind-gdspfz?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.16. What is an anonymous function?
@@ -3645,7 +3645,7 @@ add(10, 20); // 30
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-anonymous-function-vilo1d?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.17. Explain the difference between `function foo() {}` and `var foo = function() {}`?
@@ -3678,7 +3678,7 @@ console.log(typeof foo);     // undefined
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-function-erlj09?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.18. When to use function declarations and expressions in JavaScript?
@@ -3723,7 +3723,7 @@ There are several different ways that function expressions become more useful th
 * As Immediately Invoked Function Expressions (IIFE)
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.19. What is the difference between a method and a function in javascript?
@@ -3771,7 +3771,7 @@ Here `employee` is an object and `getName` is a method which is associated with 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-function-vs-method-rw9dmj?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.20. What is Function binding?
@@ -3802,7 +3802,7 @@ console.log(getName()); // Alisha Chhabra
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-function-binding-od3zjg?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.21. Explain how `this` works in JavaScript?
@@ -3831,7 +3831,7 @@ const person = {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.22. What is generator in JS?
@@ -3876,7 +3876,7 @@ gen.next().value; // 30
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-generate-function-si7ieh?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.23. Compare Async-Await and Generators usage to achive same functionality?
@@ -3942,7 +3942,7 @@ asyncFunction();
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-generator-async-lhs021?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.24. How do you compare two date objects?
@@ -3974,7 +3974,7 @@ console.log(d3 < d4); // true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-date-comparison-lu76nj?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.25. What are closures?
@@ -4042,7 +4042,7 @@ fun2();
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-dynamic-scope-fzbitn?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.26. What is callback() function in javascript?
@@ -4071,7 +4071,7 @@ The above example is a synchronous callback, as it is executed immediately.
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-callback-lz1qhw?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.27. How to avoid callback hell in javascript?
@@ -4102,7 +4102,7 @@ doSomething(param1, param2, function(err, paramx){
 * Using Async-Await
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.28. How do you encode an URL?
@@ -4117,7 +4117,7 @@ console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 9.29. How do you decode an URL?
@@ -4137,7 +4137,7 @@ try {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 10.EVENTS
@@ -4202,7 +4202,7 @@ Some of the HTML event handlers are:
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-click-event-rcvg65?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.2. How to create and trigger events in javascript?
@@ -4238,7 +4238,7 @@ document.addEventListener(event, function, phase)
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-addeventlistener-kxesqw?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.3. What is an event delegation?
@@ -4267,7 +4267,7 @@ Event Delegation is basically a pattern to handle events efficiently. Instead of
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-event-delegation-7x5idt?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.4. What is an event flow?
@@ -4284,7 +4284,7 @@ There are two ways of event flow
 </p>
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.5. What is event bubbling?
@@ -4310,7 +4310,7 @@ Event bubbling is a type of event propagation where the event first triggers on 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-event-bubbling-y1sjrk?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.6. What is event capturing?
@@ -4345,7 +4345,7 @@ Event capturing is a type of event propagation where the event is first captured
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-event-capturing-mz6d16?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.7. How do you submit a form using JavaScript?
@@ -4368,7 +4368,7 @@ function handleSubmit() {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.8. What is the purpose of void(0)?
@@ -4386,7 +4386,7 @@ It is commonly used for HTML document that uses `href="JavaScript:void(0);"` wit
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-void-onx4n5?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.9. What is the use of preventDefault method?
@@ -4404,7 +4404,7 @@ document.getElementById("link").addEventListener("click", function(event) {
 *Note: Remember that not all events are cancelable*.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.10. What is the use of stopPropagation method?
@@ -4432,7 +4432,7 @@ function secondFunc() {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.11. What is difference between stoppropagation, stopimmediatepropagation and preventdefault in javascript?
@@ -4489,7 +4489,7 @@ As a result, clicking on the div element will:
 * Prevent the execution of any other event listener attached to the element
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.12. What is the use of setTimeout?
@@ -4511,7 +4511,7 @@ setTimeout(() => {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.13. What is the use of setInterval?
@@ -4536,7 +4536,7 @@ function myTimer() {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-setinterval-6tx5pq?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.14. What is the purpose of clearTimeout method?
@@ -4573,7 +4573,7 @@ Stop
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-cleartimeout-w6ve8y?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.15. What is the purpose of clearInterval method?
@@ -4610,7 +4610,7 @@ Stop
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-clearinterval-brugdh?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 10.16. What is the difference between document load and DOMContentLoaded events?
@@ -4618,7 +4618,7 @@ Stop
 The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 11. OBJECTS
@@ -4703,7 +4703,7 @@ let object = new function() {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.2. What are the recommendations to create new object?
@@ -4731,7 +4731,7 @@ let obj7 = function(){};
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.3. What are the different ways to access object properties?
@@ -4757,7 +4757,7 @@ objectName[expression]
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.4. How to check if an object is an array or not?
@@ -4787,7 +4787,7 @@ The `Array.isArray()` method determines whether an object is an array. This func
 *Note: The `Array.isArray()` method is supported in all major browsers, such as Chrome, Firefox, IE (9 and above)*
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.5. Can you give an example for destructuring an object?
@@ -4813,7 +4813,7 @@ console.log(job); // Developer
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-destructuring-xg7q51?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.6. How do you clone an object in JavaScript?
@@ -4907,7 +4907,7 @@ John
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-clone-hj5uhr?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.7. How do you copy properties from one object to other?
@@ -4933,7 +4933,7 @@ console.log(returnedTarget); // { a: 1, b: 3, c: 5 }
 As observed in the above code, there is a common property(`b`) from source to target so it is value is been overwritten.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.8. What is the difference between native, host and user objects?
@@ -4951,7 +4951,7 @@ Are objects provided by the browser or runtime environment (Node). For example, 
 Are objects defined in the javascript code. For example, User object created for profile information.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.9. What are the properties of Intl object?
@@ -5099,7 +5099,7 @@ console.log(dtfMyNewLocale2.format(now2)); // 5/17/2022
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-intl-locale-dgel2y?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.10. How do you convert date to another timezone in javascript?
@@ -5113,7 +5113,7 @@ console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 0
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.11. Explain the difference between mutable and immutable objects?
@@ -5123,7 +5123,7 @@ A mutable object is an object whose state can be modified after it is created. A
 In JavaScript numbers, strings, null, undefined and Booleans are primitive types which are immutable. Objects, arrays, functions, classes, maps, and sets are mutable.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.12. How to create immutable object in javascript
@@ -5229,7 +5229,7 @@ console.log(myCar.batteryLife); // 300
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.13. How do you determine whether object is frozen or not?
@@ -5250,7 +5250,7 @@ console.log(Object.isFrozen(object));
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.14. How can you achieve immutability in your own code?
@@ -5273,7 +5273,7 @@ const alienAditya = { ...aditya, race: "alien" }; // {race: "alien", name: "Adit
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-immutable-object-jty055?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.15. What is the drawback of declaring methods directly in JavaScript objects?
@@ -5310,7 +5310,7 @@ Here, each instance variable `emp1`, `emp2` has own copy of `formatSalary` metho
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-class-object-96mc2r?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.16. How do you compare Object and Map?
@@ -5381,7 +5381,7 @@ myMap.get(function () {}); // undefined, because keyFunc !== function () {}
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-vs-map-iodiyv?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.17. What is shallow copy and deep copy in javascript?
@@ -5438,7 +5438,7 @@ console.log(newObj); // { a: 10, b: { c: 20 } }
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-shallow-vs-deep-copy-ik5b7h?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.18. Write a function called deepClone which takes an object and creates a object copy of it?
@@ -5482,7 +5482,7 @@ var personalDetail = {
 So when we do deep clone then we should copy every property (including the nested object).
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.19. Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object?
@@ -5507,7 +5507,7 @@ function Clone(object){
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.20. How do you check if a key exists in an object?
@@ -5543,7 +5543,7 @@ console.log(obj.hasOwnProperty("key")); // true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-in-operator-3fxd3h?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.21. How do you loop through or enumerate javascript object?
@@ -5565,7 +5565,7 @@ for (var key in object) {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.22. How do you test for an empty object?
@@ -5583,7 +5583,7 @@ Object.entries(obj).length === 0 && obj.constructor === Object
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.23. What is a proxy object?
@@ -5653,7 +5653,7 @@ There are many real-world applications for Proxies
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-in-operator-3fxd3h?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.24. What is Reflection in JavaScript?
@@ -5679,7 +5679,7 @@ console.log(index); // 4
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-reflection-nwgjhg?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.25. How do you display the current date in javascript?
@@ -5703,7 +5703,7 @@ document.write(today);
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-date-nzwk0c?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.26. How do you add a key value pair in javascript?
@@ -5730,7 +5730,7 @@ obj["key3"] = "value3";
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.27. How do you check whether an object can be extendable or not?
@@ -5756,7 +5756,7 @@ console.log(Object.isExtensible(person)); // false
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-isextensible-xz0ygi?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.28. How to compare two objects in javascript?
@@ -5779,7 +5779,7 @@ _.isEqual(obj1, obj2); // true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-comparison-w3o578?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.29. How do you get enumerable key and value pairs?
@@ -5801,7 +5801,7 @@ for (let [key, value] of Object.entries(object)) {
 *Note: The order is not guaranteed as object defined*.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.30. What is the main difference between Object.values and Object.entries method?
@@ -5821,7 +5821,7 @@ for (let value of Object.values(object)) {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.31. How can you get the list of keys of any object?
@@ -5839,7 +5839,7 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 11.32. What is difference between array[] vs object()?
@@ -5866,10 +5866,10 @@ Object properties can be accessed either via the `x.foo` syntax or via the array
 An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-# # 12. WINDOW/DOCUMENT OBJECT
+# # 12. WINDOW AND DOCUMENT OBJECT
 
 <br/>
 
@@ -5972,7 +5972,7 @@ document.property_name;
 | It has methods like alert(), confirm() and properties like document, location | It provides methods like getElementById(), getElementByTagName(), createElement() etc  |
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.2. How do you access history in javascript?
@@ -6018,7 +6018,7 @@ history.length
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.3. How do you find operating system details?
@@ -6046,7 +6046,7 @@ VM87:8 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-os-details-lzppo0?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.4. How do you detect a browser language preference?
@@ -6062,7 +6062,7 @@ console.log(language);
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.5. What is BOM?
@@ -6074,7 +6074,7 @@ The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It co
 </p>
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.6. How do you redirect new page in javascript?
@@ -6092,7 +6092,7 @@ function redirect() {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-page-redirect-xc7221?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.7. How to get the current url with javascript?
@@ -6122,7 +6122,7 @@ console.log('location.href', window.location.href); // Returns full URL
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-page-redirect-xc7221?file=/index.html)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.8. How to get query string values in javascript?
@@ -6187,7 +6187,7 @@ for (const entry of urlParams.entries()) {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-urlsearchparams-7mb02x?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.9. What is difference between window.frames, window.parent and window.top in JavaScript?
@@ -6197,7 +6197,7 @@ for (const entry of urlParams.entries()) {
 * **window.top** – returns the topmost window in the hierarchy of window objects
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.10. What are the properties used to get size of window?
@@ -6278,7 +6278,7 @@ const pageHeight = document.documentElement.scrollHeight;
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.11 What are the ways to execute javascript after page load?
@@ -6310,7 +6310,7 @@ document.onload = function ...
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.12. What is the difference between document load event and document domcontentloaded event?
@@ -6340,7 +6340,7 @@ document.addEventListener("load", function(e) {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.13. What do you understand by Screen objects?
@@ -6362,7 +6362,7 @@ document.addEventListener("load", function(e) {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-screen-object-bxcuo9?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.14. How to change style of html element using javascript?
@@ -6400,7 +6400,7 @@ for (i = 0; i < x.length; i++) {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.15. How do you print the contents of web page?
@@ -6416,7 +6416,7 @@ The window object provided print() method which is used to prints the contents o
 *Note: In most browsers, it will block while the print dialog is open*.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.16. How do I modify the url without reloading the page?
@@ -6430,7 +6430,7 @@ window.history.pushState('newPage', 'Title', '/newPage.html');
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.17. When would you use `document.write()`?
@@ -6446,7 +6446,7 @@ document.write("Hello World!");
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.18. What is the difference between an attribute and a property?
@@ -6473,7 +6473,7 @@ console.log(input.value); // Good evening
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.19. What is the difference between firstChild and firstElementChild?
@@ -6515,7 +6515,7 @@ let list = document.getElementById("myList").firstElementChild.innerHTML; // Cof
 **firstElementChild** returns the first child **element** (not text and comment nodes).
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.20. What is difference between document.getElementById() and document.querySelector()?
@@ -6547,7 +6547,7 @@ element = document.querySelectorAll(selectors);
 *Note: `querySelector()` is more useful when we want to use more complex selectors*.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.21. Name the two functions that are used to create an HTML element dynamically?
@@ -6617,7 +6617,7 @@ function removeElement(elementId) {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-html-element-iyq2ck?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.22. What is difference between append() vs appendChild()? 
@@ -6635,7 +6635,7 @@ document.getElementById("yourId").appendChild(p);
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.23. How to check if page is fully loaded using javascript?
@@ -6646,7 +6646,7 @@ if (document.readyState === 'complete') {
 }
 ```
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.24. What is a web-storage event and its event handler?
@@ -6673,7 +6673,7 @@ if (typeof(Storage) !== "undefined") {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 12.25. How to detect browser type in javascript?
@@ -6702,7 +6702,7 @@ alert("You are using: " + browser + " \n\nNavigator: " + agt);
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-detect-browser-type-7xufzy?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 # # 13. CLASSES
@@ -6761,7 +6761,7 @@ console.log("Can a User cook?: " + ChildUser.CanCook());
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototypal-inheritance-qxp33h?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.2. What is the difference between prototype and __proto__ in JavaScript?
@@ -6830,7 +6830,7 @@ console.log(employee.getName());
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototype-wvh93l?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.3. What are the differences between ES6 class and ES5 function constructors?
@@ -6879,7 +6879,7 @@ class Student extends Person {
 It\'s much more verbose to use inheritance in ES5 and the ES6 version is easier to understand and remember.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.4. What is class expression in es6 class?
@@ -6911,7 +6911,7 @@ console.log(Triangle.name); // TriangleClass
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-class-expression-nqbyr2?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.5. What is difference between private, public and static variables?
@@ -6950,7 +6950,7 @@ console.log(MyClass.staticProperty); // I am static!
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variable-scope-rgjsm4?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.6. What is difference between Classic Inheritance and Prototypical Inheritance?
@@ -6996,7 +6996,7 @@ console.log(circle.circumference()); // 31.41592653589793
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototypical-inheritance-iyxh6u?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.7. How do you create an object with prototype?
@@ -7021,7 +7021,7 @@ admin.printInfo(); // My name is Disha Choudhry
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-object-create-skyznx?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.8. How to use constructor functions for inheritance in JavaScript?
@@ -7066,7 +7066,7 @@ console.log(employee instanceof Employee); // true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototypal-inheritance-djtiuh?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.9. What is prototype chain?
@@ -7097,7 +7097,7 @@ person.getFullName(); // Vanya Dayal
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-prototype-chaining-9fvow6?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.10. What are javascript accessors?
@@ -7123,7 +7123,7 @@ console.log(user.lang); // setter used to set lang as fr
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.11. How do you define property on Object constructor?
@@ -7144,7 +7144,7 @@ newObject.newProperty = 200; // It throws an error in strict mode due to writabl
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.12. What is the difference between get and defineProperty?
@@ -7152,7 +7152,7 @@ newObject.newProperty = 200; // It throws an error in strict mode due to writabl
 Both has similar results until unless you use classes. If you use `get` the property will be defined on the prototype of the object whereas using `Object.defineProperty()` the property will be defined on the instance it is applied to.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.13. What are the advantages of Getters and Setters?
@@ -7166,7 +7166,7 @@ Below are the list of benefits of Getters and Setters,
 * Useful for doing things behind the scenes with the encapsulated logic.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.14. Can I add getters and setters using defineProperty method?
@@ -7199,7 +7199,7 @@ console.log(obj.decrement); //5
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 13.15. What is a decorator?
@@ -7227,7 +7227,7 @@ console.log(User.isAdmin); // false
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 14. ERROR HANDLING
@@ -7255,7 +7255,7 @@ ReferenceError: greeting is not defined
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-error-object-uscjst?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 14.2. Define the various types of errors which occur in JavaScript?
@@ -7322,7 +7322,7 @@ decodeURIComponent("%"); // URIError
 "EvalError" exceptions are thrown when the eval() function is used improperly. These exceptions are not used in the most recent version of the EcmaScript standard. However, they are still supported in order to maintain backwards compatibility with older versions of the standard.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 14.3. What are the various statements in error handling?
@@ -7361,7 +7361,7 @@ errorHandling(); // Error: is not a number.
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-error-handling-6uz740?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 15. PROMISES
@@ -7400,7 +7400,7 @@ Promises have three states:
 3. **rejected:** meaning that the operation failed.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.2. What is promise chaining?
@@ -7432,7 +7432,7 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-chain-qjg2u3?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.3. What is promise.all()?
@@ -7464,7 +7464,7 @@ Promise.all([promise1, promise2])
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-all-5ieqjp?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.4. What is the purpose of race method in promise?
@@ -7490,7 +7490,7 @@ Promise.race([promise1, promise2]).then(function (value) {
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-race-7k6zh0?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.5. What are the pros and cons of promises over callbacks?
@@ -7512,7 +7512,7 @@ Below are the list of pros and cons of promises over callbacks,
 * We need to load a polyfill if ES6 is not supported
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.6. How does await and async works in es6?
@@ -7541,7 +7541,7 @@ fetchMethod();
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-async-await-4jj835?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.7. What is difference between fetch() and XMLHttpRequest() in JavaScript?
@@ -7590,7 +7590,7 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-fetch-8xb8e9?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.8. Explain fetch() properties in JavaScript?
@@ -7677,7 +7677,7 @@ fetch(userRequest)
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-request-object-ro4xt9?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.9. What is the difference between Promise and AJAX?
@@ -7687,7 +7687,7 @@ A Promise is **an interface** for asynchronous operations. They keep track of wh
 An Ajax call is a specific asynchronous operation that can be used with with a traditional callback interface or wrapped in a promise interface. We can make an Ajax call either with a traditional callback using the `XMLHttpRequest()` interface or we can make an Ajax call (in modern browsers), using a promise with the `fetch()` interface.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.10. What is difference between async or defer keyword in JavaScript?
@@ -7713,7 +7713,7 @@ The defer attribute tells the browser not to wait for the script. Instead, the b
 Like an asynchronously loaded script, the file can be downloaded while the HTML document is still parsing. However, even if the file is fully downloaded long before the document is finished parsing, the script is not executed until the parsing is complete.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.11. What is request header in javascript?
@@ -7743,7 +7743,7 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.12. Explain ajax request in javascript?
@@ -7786,7 +7786,7 @@ Basically, Ajax uses browser\'s built-in `XMLHttpRequest()` object to send and r
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-ajax-ntgmov?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 15.13. What is XMLHTTPRequest Object?
@@ -7819,7 +7819,7 @@ The `XMLHTTPRequest()` object is an API which is used for fetching data from the
 
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 16. Collections
@@ -7887,7 +7887,7 @@ The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-request-object-ro4xt9?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 16.2 What is the difference between Set and WeakSet in ES6?
@@ -7965,7 +7965,7 @@ weakSet.add(2); // ERROR, no primitive value
 |Nothing is auto destroyed	     |If an element object has no other reference left, it will be auto released to garbage collector|
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 16.3. List down the collection of methods available on WeakSet?
@@ -7995,7 +7995,7 @@ weakSetObject.delete(secondObject);
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-weakset-39nhvv?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 16.4. List down the collection of methods available on WeakMap?
@@ -8025,7 +8025,7 @@ weakMapObject.delete(secondObject);
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 16.5. What is an Iterator?
@@ -8060,7 +8060,7 @@ console.log(number.next()); // {value: 30, done: false}
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-iterator-sh0tvo?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 17. MODULES
@@ -8120,7 +8120,7 @@ export class Alligator {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 18. MISCELLANEOUS
@@ -8171,7 +8171,7 @@ myModule._privateMethod(); // TypeError: protected by the module closure
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-iterator-sh0tvo?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.2. How do you detect javascript disabled in the page?
@@ -8188,7 +8188,7 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.3. What is the difference between feature detection, feature inference, and using the UA string?
@@ -8224,7 +8224,7 @@ This is not really recommended. Feature detection is more foolproof.
 This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.4. What is strict mode?
@@ -8252,7 +8252,7 @@ The Strict Mode is allows you to place a program, or a function, in a `strict` o
 * It disables features that are confusing or poorly thought out.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.5. Describe Singleton Pattern In JavaScript?
@@ -8304,7 +8304,7 @@ console.log(obj2 === obj1); // true
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-singleton-pattern-3cvgkr?file=/src/index.js)**
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.6. What do you understand by ViewState and SessionState?
@@ -8330,7 +8330,7 @@ On the other hand is information specific to particular web page. It is stored i
 * View state is used to allow the persistence of page-instance-specific data.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.7. Explain browser console logs features?
@@ -8373,7 +8373,7 @@ Output
 <img src="assets/console.error.png" alt="Console Error"/>
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.8. What are the difference between console.log() and console.dir()?
@@ -8389,7 +8389,7 @@ Output
 <img src="assets/console_dir.png" alt="Console Dir"/>
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.9. How to Copy Text to Clipboard?
@@ -8420,7 +8420,7 @@ function copy() {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.10. What is a service worker?
@@ -8506,7 +8506,7 @@ self.addEventListener('fetch', function(event) {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.11. How do you manipulate DOM using service worker?
@@ -8575,7 +8575,7 @@ self.addEventListener("message", function(event) {
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.12. How to use Web Workers in javascript?
@@ -8661,7 +8661,7 @@ w = undefined;
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.13. What are the restrictions of web workers on DOM?
@@ -8673,7 +8673,7 @@ WebWorkers do not have access to below javascript objects since they are defined
 3. Parent object
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.14. What is rendering in JavaScript?
@@ -8769,7 +8769,7 @@ Painting can be global or incremental (similar to layout):
 * **Incremental** — only some of the renderers change in a way that does not affect the entire tree. The renderer invalidates its rectangle on the screen. This causes the OS to see it as a region that needs repainting and to generate a paint event. The OS does it in a smart way by merging several regions into one.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.15. What is the difference between HTMLCollection and NodeList?
@@ -8821,7 +8821,7 @@ element.appendChild(text);
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.16. What is a trampoline function? What is it used for? 
@@ -8904,7 +8904,7 @@ So the sole purpose of the trampoline function is to control the execution in an
 Using a trampoline is obviously less performant than simple recursion, since you are "blocking" the normal recursive flow, but it is much safer.
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.17. What is throttling and debouncing in javascript?
@@ -8941,7 +8941,7 @@ $(window).on('resize', _.debounce(function() {
 * Debouncing a save function in an autosave feature
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.18. What is same-origin policy?
@@ -8949,7 +8949,7 @@ $(window).on('resize', _.debounce(function() {
 The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.19. What is server-sent events?
@@ -8976,7 +8976,7 @@ Below are the list of events available for server sent events
 | onerror | It happens when an error occurs|
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.20. How do you get the image width and height using JS?
@@ -8992,7 +8992,7 @@ img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
 ```
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## Q 18.21. What is a browser engine?
@@ -9025,5 +9025,5 @@ Microsoft formerly developed its own proprietary browser engines - Trident and E
 *ToDo*
 
 <div align="right">
-    <b><a href="#">↥ back to top</a></b>
+    <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
