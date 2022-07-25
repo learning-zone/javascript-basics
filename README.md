@@ -1721,7 +1721,7 @@ The `string.trimStart()` removes sequences of whitespaces and line terminators o
 
 ```js
 const name = "   Karan Talwar  ";
-console.log(name.trimStart()); // => "Talwar "
+console.log(name.trimStart()); // => "Karan Talwar  "
 
 const phoneNumber = "\t  80-555-123\n ";
 console.log(phoneNumber.trimStart()); // => "80-555-123 "
