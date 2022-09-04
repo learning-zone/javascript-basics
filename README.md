@@ -1712,7 +1712,7 @@ const name = "  Karan Talwar  ";
 console.log(name.trim()); // => 'Karan Talwar'
 
 const phoneNumber = "\t  80-555-123\n ";
-console.log(phoneNumber.trim()); // => '555-123'
+console.log(phoneNumber.trim()); // => '80-555-123'
 ```
 
 **2. string.trimStart():**
