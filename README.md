@@ -6,6 +6,8 @@
 
 ## Related Interview Questions
 
+* [HTML5 Interview Questions](https://github.com/learning-zone/html-interview-questions)
+* [CSS Interview Questions](https://github.com/learning-zone/css-interview-questions)
 * [JavaScript ES6 Basics](https://github.com/learning-zone/JavaScript-ES6-Basics/blob/main/README.md)
 * [JavaScript Design Patterns](https://github.com/learning-zone/JavaScript-Design-Patterns/blob/main/README.md)
 * [JavaScript Coding Practice](https://github.com/learning-zone/JavaScript-Coding-Practice/blob/main/README.md)
