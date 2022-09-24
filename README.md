@@ -3499,11 +3499,9 @@ console.log(fun2.length); // 2
 
 ## Q 9.14. What is the difference between Call, Apply and Bind?
 
-* **Call** invokes the function and allows you to pass in arguments one by one.
-* **Apply** invokes the function and allows you to pass in arguments as an array.
-* **Bind** returns a new function, allowing you to pass in a this array and any number of arguments.
+**1. Call:** invokes the function and allows you to pass in arguments one by one.
 
-**Example:** `call()`
+**Example:**
 
 ```js
 const employee1 = { firstName: "Sahima", lastName: "Mutti" };
@@ -3517,7 +3515,9 @@ say.call(employee1, "Hi");    // Hi Sahima Mutti
 say.call(employee2, "Hello"); // Hello Aarush Krishna 
 ```
 
-**Example:** `apply()`
+**2. Apply:** invokes the function and allows you to pass in arguments as an array.
+
+**Example:**
 
 ```js
 const employee1 = { firstName: "Sahima", lastName: "Mutti" };
@@ -3531,7 +3531,9 @@ say.apply(employee1, ["Hi"]);    // Hi Sahima Mutti
 say.apply(employee2, ["Hello"]); // Hello Aarush Krishna 
 ```
 
-**Example:** `bind()`
+**3. Bind:** returns a new function, allowing you to pass in a this array and any number of arguments.
+
+**Example:**
 
 ```js
 const employee1 = { firstName: "Sahima", lastName: "Mutti" };
