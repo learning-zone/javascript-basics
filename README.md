@@ -3563,8 +3563,9 @@ The `bind()` method creates a new function, when invoked, has the `this` sets to
 **Example:**
 
 ```js
-// bind() function
-
+/**
+ * bind() function
+ */
 const person = {
   firstName: "Chhavi",
   lastName: "Goswami",
