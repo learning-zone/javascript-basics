@@ -4130,7 +4130,7 @@ try {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## # 10.EVENTS
+## # 10. EVENTS
 
 <br/>
 
