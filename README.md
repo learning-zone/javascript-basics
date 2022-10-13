@@ -59,7 +59,7 @@ Template literals are string literals allowing embedded expressions.
 ```js
 // String Substitution
 let name = `Abhinav Sharma`;
-console.log(`Hi, ${name}!`); // Output: "Abhinav Sharma"
+console.log(`Hi, ${name}`); // Output: "Abhinav Sharma"
 
 // Multiline String
 let msg = `Hello \
@@ -83,11 +83,11 @@ function sum(x, y, z) {
 }
 const numbers = [10, 20, 30];
 
-// Using Spread Operator
-console.log(sum(...numbers)); // 60
-
 // Using Apply (ES5)
 console.log(sum.apply(null, numbers)); // 60
+
+// Using Spread Operator
+console.log(sum(...numbers)); // 60
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-25tmcf?file=/src/index.js)**
@@ -105,7 +105,7 @@ let newFruitArray = [...fruits];
 console.log(newFruitArray); 
 
 //Output 
-['Apple','Orange','Banana']
+['Apple', 'Orange', 'Banana']
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-wy1q0l?file=/src/index.js)**
@@ -144,7 +144,7 @@ let newFruits = ["Cherry", ...fruits];
 console.log(newFruits); 
 
 // Output
-['Cherry', 'Apple','Orange','Banana']
+['Cherry', 'Apple', 'Orange', 'Banana']
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-spread-operator-16l7oh?file=/src/index.js)**
