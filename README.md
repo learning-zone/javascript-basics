@@ -3468,7 +3468,9 @@ The arguments object is an Array-like object ( `arguments` ) accessible inside f
 **Example:**
 
 ```js
-// arguments object
+/**
+ * Arguments Object
+ */
 
 function sum() {
   let total = 0;
