@@ -866,12 +866,16 @@ Hoist(20); // 20
 
 ## Q 2.12. Explain `var self = this` in JavaScript?
 
-`self` is being used to maintain a reference to the original this even as the context is changing. It is a technique often used in event handlers (especially in closures).
+The **self** is being used to maintain a reference to the original this even as the context is changing. It is a technique often used in event handlers ( especially in closures ).
 
-`this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping(in C open/close {} curly braces refers to a block). JavaScript has two scopes namely, global and local scope.
+`this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping ( in C open/close {} curly braces refers to a block ). JavaScript has two scopes namely, global and local scope.
+
+**Example:**
 
 ```js
-// this Context
+/**
+ * this Context
+ */
 const context = {
   prop: 10,
   getCurrentContext: function () {
@@ -879,8 +883,7 @@ const context = {
   }
 };
 
-console.log(context.getCurrentContext());
-// expected output: 10
+console.log(context.getCurrentContext()); // 10
 ```
 
 *Note: 'self' should not be used this way anymore, since modern browsers provide a global variable self pointing to the global object of either a normal window or a WebWorker.*
@@ -1587,7 +1590,11 @@ Number.NEGATIVE_INFINITY
 * The value of negative infinity is the same as the negative value of the infinity property of the global object.
 
 ```js
-// NEGATIVE_INFINITY
+/**
+ * NEGATIVE_INFINITY
+ */
+
+console.log(-10/0); // -Infinity
 console.log(Number.NEGATIVE_INFINITY); // -Infinity
 console.log(Number.MAX_VALUE + Number.MAX_VALUE); // Infinity
 console.log(-2 * Number.MAX_VALUE); // -Infinity
