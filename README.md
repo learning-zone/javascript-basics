@@ -844,6 +844,8 @@ Variable shadowing occurs when a variable declared within a certain scope (decis
 
 If there is a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
 
+**Example:**
+
 ```js
 /**
  * Variable Shadowing
