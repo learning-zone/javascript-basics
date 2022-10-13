@@ -668,7 +668,7 @@ foo(); // Now foo is defined here
 
 ## Q 2.6. What is the Temporal Dead Zone in ES6?
 
-In ES6, **let** bindings are not subject to Variable Hoisting, which means that **let** declarations do not move to the top of the current execution context.
+In ES6, **let** bindings are not subject to "variable hoisting", which means that **let** declarations do not move to the top of the current execution context.
 
 Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the **undefined** value). The variable is in a "temporal dead zone" from the start of the block until the initialization is processed.
 
@@ -845,15 +845,15 @@ Variable shadowing occurs when a variable declared within a certain scope (decis
 If there is a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
 
 ```js
+/**
+ * Variable Shadowing
+ */
 var val = 10;
 
 function Hoist(val) {
   console.log(val);
 }
-Hoist(20);
-
-// Output: 
-20
+Hoist(20); // 20
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variable-shadowing-dvibcw?file=/src/index.js)**
