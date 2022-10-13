@@ -103,8 +103,11 @@ let fruits = ["Apple", "Orange", "Banana"];
 let newFruitArray = [...fruits];
 
 console.log(newFruitArray); 
+```
 
-//Output 
+Output:
+
+```js
 ['Apple', 'Orange', 'Banana']
 ```
 
@@ -123,8 +126,11 @@ let arr2 = ["X", "Y", "Z"];
 let result = [...arr1, ...arr2];
 
 console.log(result); 
+```
 
-// Output
+Output:
+
+```js
 ['A', 'B', 'C', 'X', 'Y', 'Z']
 ```
 
@@ -138,12 +144,14 @@ console.log(result);
 
 ```js
 let fruits = ["Apple", "Orange", "Banana"];
-
 let newFruits = ["Cherry", ...fruits];
 
 console.log(newFruits); 
+```
 
-// Output
+Output:
+
+```js
 ['Cherry', 'Apple', 'Orange', 'Banana']
 ```
 
@@ -163,8 +171,11 @@ const getFruits = (f1, f2, f3) => {
 };
 
 getFruits(...fruits); 
+```
 
-// Output
+Output:
+
+```js
 Fruits: Apple, Orange and Banana
 ```
 
@@ -178,7 +189,7 @@ Fruits: Apple, Orange and Banana
 
 ```js
 var obj1 = { id: 101, name: 'Rajiv Sandal' }
-var obj2 = { age: 35, country: 'INDIA'}
+var obj2 = { age: 35, country: 'INDIA' }
 
 const employee = { ...obj1, ...obj2 }
 
@@ -230,8 +241,11 @@ The `repeat()` method constructs and returns a new string which contains the spe
 const msg = "Hello World \n";
 
 console.log(`${msg.repeat(3)}`);
+```
 
-// Output: 
+Output:
+
+```js
 Hello World
 Hello World
 Hello World
@@ -261,29 +275,11 @@ console.log(add(10, 20)); // 30
 
 ```js
 /**
- * Using ES5
- * 
- **/
-var person = {
-  name: "Diksha",
-  actions: ["bike", "hike", "ski", "surf"],
-  printActions: function() {
-    var _this = this;
-    this.actions.forEach(function(action) {
-      var str = _this.name + " likes to " + action;
-      console.log(str);
-    });
-  }
-};
-person.printActions();
-
-/**
  * Using Arrow function
- * 
- **/
+ */
 let person = {
   name: "Diksha",
-  actions: ["bike", "hike", "ski", "surf"],
+  actions: ["bike", "hike", "ski"],
   printActions() {
     this.actions.forEach((action) => {
       let str = this.name + " likes to " + action;
@@ -293,12 +289,14 @@ let person = {
 };
 
 person.printActions();
+```
 
-// Output:
+Output:
+
+```js
 Diksha likes to bike 
 Diksha likes to hike 
-Diksha likes to ski 
-Diksha likes to surf
+Diksha likes to ski
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-arrow-function-kh1v84?file=/src/index.js)**
@@ -498,8 +496,7 @@ Variables declared using the `var` keyword are scoped to the function in which t
 ```js
 /**
  * All variables are accessible within functions.
- * 
-**/
+ */
 function variableScope() {
 
   var x = 10;
@@ -521,8 +518,7 @@ variableScope();
 ```js
 /**
  * var declared variables are accessible anywhere in the function scope.
- * 
- **/
+ */
 if (true) {
   var a = 10;
   let b = 20;
@@ -592,8 +588,11 @@ getName("Sadhika Sandal");
 function getName(name) {
   console.log("Hello " + name);
 }
+```
 
-// Output
+Output:
+
+```js
 Hello Sadhika Sandal
 ```
 
@@ -638,9 +637,9 @@ They will only get initialized when their lexical binding (assignment) is evalua
 Let us take the following **function expression**
 
 ```js
- var foo = function foo() {
-     return 12;
- }
+var foo = function foo() {
+  return 12;
+}
 ```
 
 In JavaScript `var`-declared variables and functions are `hoisted`. Let us take function `hoisting` first. Basically, the JavaScript interpreter looks ahead to find all the variable declaration and hoists them to the top of the function where It is declared. For example:
@@ -676,11 +675,14 @@ foo(); // Now foo is defined here
 
 ## Q 2.6. What is the Temporal Dead Zone in ES6?
 
-In ES6, let bindings are not subject to Variable Hoisting, which means that let declarations do not move to the top of the current execution context. Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the undefined value). The variable is in a "temporal dead zone" from the start of the block until the initialization is processed.
+In ES6, **let** bindings are not subject to Variable Hoisting, which means that **let** declarations do not move to the top of the current execution context.
 
-```javascript
+Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the **undefined** value). The variable is in a "temporal dead zone" from the start of the block until the initialization is processed.
+
+```js
 console.log(aVar); // undefined
 console.log(aLet); // causes ReferenceError: aLet is not defined
+
 var aVar = 1;
 let aLet = 2;
 ```
@@ -803,7 +805,9 @@ console.log(x) // 1
 
 ## Q 2.9. How do you assign default values to variables?
 
-You can use the logical or operator `||` in an assignment expression to provide a default value. The syntax looks like as below,
+You can use the logical or operator `||` in an assignment expression to provide a default value.
+
+**Syntax:**
 
 ```js
 var a = b || c;
@@ -817,7 +821,7 @@ As per the above expression, variable 'a 'will get the value of 'c' only if 'b' 
 
 ## Q 2.10. What is the precedence order between local and global variables?
 
-A local variable takes precedence over a global variable with the same name. 
+A local variable takes precedence over a global variable with the same name.
 
 ```js
 var msg = "Good morning";
@@ -827,8 +831,11 @@ function greeting() {
   console.log(msg);
 }
 greeting();
+```
 
-// Output
+Output:
+
+```js
 Good Evening
 ```
 
