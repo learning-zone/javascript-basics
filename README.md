@@ -5853,7 +5853,7 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.32. What is difference between array[] vs object()?
+## Q 11.32. What is difference between array[] vs Object()?
 
 * `[]` is declaring an array.
 * `{}` is declaring an object.
@@ -5875,6 +5875,14 @@ console.log(x.whatever); // shows 10
 Object properties can be accessed either via the `x.foo` syntax or via the array-like syntax `x["foo"]`. The advantage of the latter syntax is that you can use a variable as the property name like `x[myvar]` and using the latter syntax, you can use property names that contain characters that Javascript won\'t allow in the `x.foo` syntax.
 
 An array is an object so it has all the same capabilities of an object plus a bunch of additional features for managing an **ordered**, **sequential** list of numbered indexes starting from `0` and going up to some length. Arrays are typically used for an ordered list of items that are accessed by numerical index. And, because the array is ordered, there are lots of useful features to manage the order of the list `.sort()` or to add or remove things from the list.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q 11.33. What is difference between `{}` vs `new Object()`?
+
+*ToDo*
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
