@@ -2668,6 +2668,14 @@ SyntaxError: Rest element must be last element
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q 7.20. What is difference between [] and new Array()?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 8. Regular Expression
 
 <br/>
