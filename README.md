@@ -519,44 +519,46 @@ if (true) {
 }
 
 console.log(a); // 10
-console.log(b); // ReferenceError: baz is not defined
-console.log(c); // ReferenceError: qux is not defined
+console.log(b); // ReferenceError: b is not defined
+console.log(c); // ReferenceError: c is not defined
 ```
 
 `var` allows variables to be hoisted, meaning they can be referenced in code before they are declared. `let` and `const` will not allow this, instead throwing an error.
 
 ```js
-console.log(foo); // undefined
-var foo = 'foo';
+console.log(a); // undefined
+var a = 'foo';
 
-console.log(baz); // ReferenceError: can't access lexical declaration 'baz' before initialization
-let baz = 'baz';
+console.log(b); // ReferenceError: can't access lexical declaration 'b' before initialization
+let b = 'baz';
 
-console.log(bar); // ReferenceError: can't access lexical declaration 'bar' before initialization
-const bar = 'bar';
+console.log(c); // ReferenceError: can't access lexical declaration 'c' before initialization
+const c = 'bar';
 ```
 
 Redeclaring a variable with `var` will not throw an error, but 'let' and 'const' will.
 
 ```js
-var foo = 'foo';
-var foo = 'bar';
-console.log(foo); // "bar"
+var a = 'foo';
+var a = 'bar';
+console.log(a); // "bar"
 
-let baz = 'baz';
-let baz = 'qux'; // Uncaught SyntaxError: Identifier 'baz' has already been declared
+let b = 'baz';
+let b = 'qux'; // Uncaught SyntaxError: Identifier 'b' has already been declared
 ```
 
 `let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
 
 ```js
-// This is fine.
-let foo = 'foo';
-foo = 'bar';
+// This is ok.
+let a = 'foo';
+a = 'bar';
+console.log(a); // bar
 
 // This causes an exception.
-const baz = 'baz';
-baz = 'qux';
+const b = 'baz';
+b = 'qux';
+console.log(b) // TypeError: Assignment to constant variable.
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variables-declaration-fmrkjz?file=/src/index.js)**
