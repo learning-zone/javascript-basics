@@ -7849,6 +7849,14 @@ The `XMLHTTPRequest()` object is an API which is used for fetching data from the
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q. 15.15. Explain the use of Promise.any()?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 16. Collections
 
 <br/>
