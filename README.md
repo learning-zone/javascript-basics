@@ -7841,6 +7841,14 @@ The `XMLHTTPRequest()` object is an API which is used for fetching data from the
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q. 15.14. How to get responses of multiple api calls, when some API fails?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 16. Collections
 
 <br/>
