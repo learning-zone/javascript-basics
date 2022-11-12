@@ -11,7 +11,7 @@
 * [JavaScript ES6 Basics](https://github.com/learning-zone/javascript-es6-basics)
 * [JavaScript Design Patterns](https://github.com/learning-zone/javascript-design-patterns)
 * [JavaScript Coding Practice](https://github.com/learning-zone/javascript-coding-practice)
-* [JavaScript Unit Testing](https://github.com/learning-zone/javascript-unit-testing-basics)
+* [JavaScript Unit Testing](https://github.com/learning-zone/javascript-unit-testing)
 
 <br/>
 
