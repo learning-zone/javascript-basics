@@ -6,7 +6,7 @@
 
 ## Related Topics
 
-* [HTML5 Basics](https://github.com/learning-zone/html-basics)
+* [HTML Basics](https://github.com/learning-zone/html-basics)
 * [CSS Basics](https://github.com/learning-zone/css-basics)
 * [JavaScript ES6 Basics](https://github.com/learning-zone/javascript-es6-basics)
 * [JavaScript Design Patterns](https://github.com/learning-zone/javascript-design-patterns)
