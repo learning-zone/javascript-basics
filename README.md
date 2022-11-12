@@ -6,12 +6,12 @@
 
 ## Related Topics
 
-* [HTML5 Interview Questions](https://github.com/learning-zone/html-interview-questions)
-* [CSS Interview Questions](https://github.com/learning-zone/css-interview-questions)
-* [JavaScript ES6 Basics](https://github.com/learning-zone/JavaScript-ES6-Basics)
-* [JavaScript Design Patterns](https://github.com/learning-zone/JavaScript-Design-Patterns)
-* [JavaScript Coding Practice](https://github.com/learning-zone/JavaScript-Coding-Practice)
-* [JavaScript Unit Testing](https://github.com/learning-zone/js-unit-testing-interview-questions)
+* [HTML5 Basics](https://github.com/learning-zone/html-basics)
+* [CSS Basics](https://github.com/learning-zone/css-basics)
+* [JavaScript ES6 Basics](https://github.com/learning-zone/javascript-es6-basics)
+* [JavaScript Design Patterns](https://github.com/learning-zone/javascript-design-patterns)
+* [JavaScript Coding Practice](https://github.com/learning-zone/javascript-coding-practice)
+* [JavaScript Unit Testing](https://github.com/learning-zone/javascript-unit-testing-basics)
 
 <br/>
 
