@@ -9,9 +9,9 @@
 * [HTML Basics](https://github.com/learning-zone/html-basics)
 * [CSS Basics](https://github.com/learning-zone/css-basics)
 * [JavaScript ES6 Basics](https://github.com/learning-zone/javascript-es6-basics)
+* [JavaScript Unit Testing](https://github.com/learning-zone/javascript-unit-testing)
 * [JavaScript Design Patterns](https://github.com/learning-zone/javascript-design-patterns)
 * [JavaScript Coding Practice](https://github.com/learning-zone/javascript-coding-practice)
-* [JavaScript Unit Testing](https://github.com/learning-zone/javascript-unit-testing)
 
 <br/>
 
