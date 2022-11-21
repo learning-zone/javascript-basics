@@ -1437,32 +1437,7 @@ function getValue(someParam) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.9. What is the difference between `==` and `===`?
-
-The `==` is the abstract equality operator while `===` is the strict equality operator. The `==` operator will compare for equality after doing any necessary type conversions.
-
-The `===` operator will not do type conversion, so if two values are not the same type `===` will simply return `false`. When using `==`, funky things can happen, such as:
-
-```js
-1 == '1'; // true
-1 == [1]; // true
-1 == true; // true
-0 == ''; // true
-0 == '0'; // true
-0 == false; // true
-
-let x = null;
-console.log(x == null); // true
-console.log(x == undefined); // true
-```
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-equality-operator-lt2ngc?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q 4.10. What is the difference between `typeof` and `instanceof` operator?
+## Q 4.9. What is the difference between `typeof` and `instanceof` operator?
 
 The `typeof` operator checks if a value has type of primitive type which can be one of boolean, function, object, number, string, undefined and symbol (ES6).
 
@@ -1492,7 +1467,7 @@ b instanceof String; // returns true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.11. What is the output of below spread operator array?
+## Q 4.10. What is the output of below spread operator array?
 
 ```js
 [...'Hello']
