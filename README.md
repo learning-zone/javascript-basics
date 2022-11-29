@@ -9030,8 +9030,13 @@ All Chromium-based browsers use Blink, as do applications built with CEF, Electr
 
 Microsoft formerly developed its own proprietary browser engines - Trident and EdgeHTML, though now uses Blink for its Edge browser.
 
-#### Q 18.22. What is optional chaining in javascript?
-#### Q 18.23. How could you make sure a const value is garbage collected?
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+#### Q 18.22. What is a Polyfill?
+#### Q 18.23. What is optional chaining in javascript?
+#### Q 18.24. How could you make sure a const value is garbage collected?
 
 *ToDo*
 
