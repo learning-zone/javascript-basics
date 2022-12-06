@@ -914,6 +914,14 @@ console.log(y); // 10
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q 2.14. What is scope chain in javascript?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 3. DATA TYPES
 
 <br/>
