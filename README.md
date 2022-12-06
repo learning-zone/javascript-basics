@@ -897,7 +897,7 @@ console.log(context.getCurrentContext()); // 10
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.13. How do you swap variables using Destructuring Assignment?
+## Q 2.13. How do you swap variables using destructuring assignment?
 
 ```js
 var x = 10, y = 20;
