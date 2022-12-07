@@ -16,7 +16,7 @@
 
 <br/>
 
-## Contents
+## Table of Contents
 
 * [Introduction](#-1-introduction)
 * [Variables](#-2-variables)
