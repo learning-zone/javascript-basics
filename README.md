@@ -2351,7 +2351,7 @@ console.log("z: " + z); // 6
 ```js
 const { i = 2, j = 4, k = 6 } = { n: 10 };
 
-console.log("i: " + i); // 10
+console.log("i: " + i); // 2
 console.log("j: " + j); // 4
 console.log("k: " + k); // 6
 ```
