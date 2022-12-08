@@ -1228,12 +1228,16 @@ JavaScript provides a special operator called ternary operator `:?` that assigns
 
 ```js
 <condition> ? <value1> : <value2>;
+```
 
-// Example
-let a = 10, b = 20;
+**Example:**
 
-let c = a > b ? a : b; // 20
-let d = a > b ? b : a; // 10
+```js
+const a = 10;
+const b = 20;
+
+console.log(a > b ? a : b); // 20
+console.log(a > b ? b : a); // 10
 ```
 
 **typeof Operator:** It uses to find type of variable.
@@ -1242,11 +1246,20 @@ let d = a > b ? b : a; // 10
 
 ```js
 typeof variable
+```
 
-// Example
-Let a = 10;
+**Example:**
+
+```js
+const a = 10;
+const obj = {};
+const str = "Hello World";
+const num = [10, 20, 30];
 
 typeof a // number
+typeof obj // object
+typeof str // string
+typeof num // object
 ```
 
 <div align="right">
