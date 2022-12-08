@@ -219,7 +219,7 @@ Sets are a new object type with ES6 (ES2015) that allow to create collections of
 ```js
 let numbers = new Set([10, 20, 20, 30, 40, 50]);
 
-console.log(numbers); // Set(5) {10, 20, 30, 40, 50}
+console.log(numbers); Set(5) { 10, 20, 30, 40, 50 }
 console.log(typeof numbers); // Object
 ```
 
