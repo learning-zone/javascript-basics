@@ -1220,48 +1220,6 @@ The assignment operators to assign values to variables with less key strokes.
 |/=  |Divide left operand value by right operand value and assign the result to the left operand.|
 |%=  |Get the modulus of left operand divide by right operand and assign resulted modulus to the left operand.|
 
-**Ternary Operators:**
-
-JavaScript provides a special operator called ternary operator `:?` that assigns a value to a variable based on some condition.
-
-**Syntax:**
-
-```js
-<condition> ? <value1> : <value2>;
-```
-
-**Example:**
-
-```js
-const a = 10;
-const b = 20;
-
-console.log(a > b ? a : b); // 20
-console.log(a > b ? b : a); // 10
-```
-
-**typeof Operator:** It uses to find type of variable.
-
-**Syntax:**
-
-```js
-typeof variable
-```
-
-**Example:**
-
-```js
-const a = 10;
-const obj = {};
-const str = "Hello World";
-const num = [10, 20, 30];
-
-typeof a // number
-typeof obj // object
-typeof str // string
-typeof num // object
-```
-
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
@@ -1420,8 +1378,16 @@ console.log(user); // {name: "Sadhika Chaudhuri"}
 
 The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
 
+**Syntax:**
+
 ```js
-var isAuthenticated = false;
+<condition> ? <value1> : <value2>;
+```
+
+**Example:**
+
+```js
+const isAuthenticated = false;
 
 console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticated');
 ```
