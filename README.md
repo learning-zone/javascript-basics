@@ -63,7 +63,7 @@ let name = `Abhinav Sharma`;
 console.log(`Hi, ${name}`); // Output: "Abhinav Sharma"
 
 // Multiline String
-let msg = `Hello \
+let msg = `Hello \n
 World`;
 console.log(`${msg}`); // Output: "Hello World"
 ```
