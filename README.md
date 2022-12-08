@@ -1298,37 +1298,37 @@ In JavaScript, the typeof operator returns the data type of its operand in the f
 **Example:**
 
 ```js
-typeof undeclaredVariable; // "undefined"
+console.log(typeof undeclaredVariable); // "undefined"
 
-var a;
-typeof a; // "undefined"
+let a;
+console.log(typeof a); // "undefined"
 
-a = "Hello World";
-typeof a; // "string"
+const b = "Hello World";
+console.log(typeof b); // "string"
 
-a = 42;
-typeof a; // "number"
+const c = 42;
+console.log(typeof c); // "number"
 
-a = 3.1415
-typeof a; // "number"
+const d = 3.1415;
+console.log(typeof d); // "number"
 
-a = true;
-typeof a; // "boolean"
+const e = true;
+console.log(typeof e); // "boolean"
 
-a = null;
-typeof a; // "object"
+const f = null;
+console.log(typeof f); // "object"
 
-a = undefined;
-typeof a; // "undefined"
+const g = undefined;
+console.log(typeof g); // "undefined"
 
-a = { b: "c" };
-typeof a; // "object"
+const h = { b: "c" };
+console.log(typeof h); // "object"
 
-a = function () {
+const i = function () {
   return 10;
 };
 
-console.log(typeof a); // "function"
+console.log(typeof i); // "function"
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-typeof-jesw53?file=/src/index.js)**
