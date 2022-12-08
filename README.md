@@ -189,12 +189,23 @@ Fruits: Apple, Orange and Banana
 **2.5. Spread syntax for object literals:**
 
 ```js
-var obj1 = { id: 101, name: 'Rajiv Sandal' }
-var obj2 = { age: 35, country: 'INDIA' }
+const obj1 = { id: 101, name: 'Rajiv Sandal' }
+const obj2 = { age: 35, country: 'INDIA' }
 
 const employee = { ...obj1, ...obj2 }
 
-console.log(employee); // { "id": 101, "name": "Rajiv Sandal", "age": 35, "country": "INDIA" }
+console.log(employee);
+```
+
+Output:
+
+```js
+{
+  "id": 101,
+  "name": "Rajiv Sandal",
+  "age": 35,
+  "country": "INDIA"
+}
 ```
 
 <div align="right">
