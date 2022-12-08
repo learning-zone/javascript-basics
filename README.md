@@ -417,12 +417,10 @@ var x = 10;
 if (x === 10) {
   var x = 20;
 
-  console.log(x);
-  // expected output: 20
+  console.log(x); // expected output: 20
 }
 
-console.log(x);
-// expected output: 20
+console.log(x); // expected output: 20
 ```
 
 **Example:** Declaring global variable within function
