@@ -603,7 +603,7 @@ Hello Sadhika Sandal
 **Example 02:** Variable Hoisting  
 
 ```js
-console.log(message); // output : undefined
+console.log(message); // output: undefined
 var message = "The variable Has been hoisted";
 ```
 
@@ -735,12 +735,10 @@ var x = 1;
 if (x === 1) {
   var x = 2;
 
-  console.log(x);
-  // expected output: 2
+  console.log(x); // expected output: 2
 }
 
-console.log(x);
-// expected output: 2
+console.log(x); // expected output: 2
 ```
 
 ```js
@@ -996,19 +994,17 @@ A BigInt number is created by appending `n` to the end of an integer.
 
 ```js
 // BigInt value
-const num1 = 900719925124740998n;
-const num2 = 900719925124740998n;
+const num1 = 100000000000000000n;
+const num2 = 1000000000000000000n;
 const num3 = 10;
-
 
 // Adding two big integers
 const result1 = num1 + num2;
-console.log(result1); // "1801439850249481996n"
-
+console.log(result1); // "1100000000000000000n"
 
 // Error! BitInt and number cannot be added
-const result2 = num1 + num2 + num3; 
-console.log(result2);  // Uncaught TypeError: Cannot mix BigInt and other types
+const result2 = num1 + num2 + num3;
+console.log(result2); // Uncaught TypeError: Cannot mix BigInt and other types
 ```
 
 **Boolean:**
