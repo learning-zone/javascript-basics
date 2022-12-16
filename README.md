@@ -4118,7 +4118,15 @@ try {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## # 10.EVENTS
+## Q 9.30. How function overloading works in JavaScript?
+
+*ToDo*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## # 10. EVENTS
 
 <br/>
 
@@ -9026,8 +9034,9 @@ Microsoft formerly developed its own proprietary browser engines - Trident and E
 </div>
 
 #### Q 18.22. What is a Polyfill?
-#### Q 18.23. What is optional chaining in javascript?
+#### Q 18.23. What is optional chaining in JavaScript?
 #### Q 18.24. How could you make sure a const value is garbage collected?
+#### Q 18.25. How Garbage Collection works in JavaScript?
 
 *ToDo*
 
