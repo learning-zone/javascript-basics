@@ -922,7 +922,28 @@ console.log(y); // 10
 
 ## Q 2.14. What is scope chain in javascript?
 
-*ToDo*
+The scope chain in JavaScript refers to the chain of nested scopes that a JavaScript program uses to look up variable and function references. When a variable or function is referenced in JavaScript code, the interpreter first looks for it in the current scope. If it's not found there, it moves up the scope chain to the next outer scope and looks for it there. It continues doing this until the variable or function is found or until it reaches the global scope.
+
+**Example:**:
+
+```js
+let globalVar = "I'm a global variable";
+
+function outer() {
+  let outerVar = "I'm an outer variable";
+
+  function inner() {
+    let innerVar = "I'm an inner variable";
+    console.log(innerVar); // "I'm an inner variable"
+    console.log(outerVar); // "I'm an outer variable"
+    console.log(globalVar); // "I'm a global variable"
+  }
+
+  inner();
+}
+
+outer();
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -2637,7 +2658,27 @@ SyntaxError: Rest element must be last element
 
 ## Q 7.20. What is difference between [] and new Array()?
 
-*ToDo*
+`[]` and `new Array()` are two different ways of creating an array, but they are functionally equivalent.
+
+The primary difference between them is in how they are created and in their behavior when used with certain methods.
+
+`[]` is a shorthand for creating a new array. It is the preferred way to create an array in most cases, because it's more concise and easier to read. For example:
+
+```js
+const myArray = []; // create a new empty array
+```
+
+On the other hand, `new Array()` is a constructor function that creates a new array object. It can be used to create an array of a specific length or with specific elements. For example:
+
+```js
+const myArray = new Array(); // create a new empty array
+const myOtherArray = new Array(3); // create a new array with a length of 3
+const myThirdArray = new Array("a", "b", "c"); // create a new array with three elements
+```
+
+One potential pitfall of using `new Array()` is that it can be ambiguous when you pass a single argument to the constructor. For example, `new Array(3)` creates an array with a length of 3, but `new Array("3")` creates an array with a single element, the string "3". This is because the argument is treated as the value of the first element when it's a non-negative integer, but as the length of the array when it's a string or a negative integer.
+
+In summary, `[]` is the preferred way to create a new array in JavaScript, while `new Array()` is an alternative way that can be used when you need more control over the array's length or contents.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -4120,7 +4161,27 @@ try {
 
 ## Q 9.30. How function overloading works in JavaScript?
 
-*ToDo*
+Function overloading refers to the ability to define multiple functions with the same name but with different parameters. In many programming languages, the function to be executed is determined at compile time based on the parameters provided. However, in JavaScript, function overloading does not work in the same way because JavaScript functions can be called with any number and type of arguments.
+
+One way to achieve function overloading in JavaScript is by using conditional statements to determine the appropriate behavior based on the arguments passed to the function.
+
+**Example**
+
+```js
+function myFunction() {
+  if (arguments.length === 1) {
+    console.log("Hello " + arguments[0]);
+  } else if (arguments.length === 2) {
+    console.log("Hello " + arguments[0] + " and " + arguments[1]);
+  } else {
+    console.log("Hello world");
+  }
+}
+
+myFunction(); // output: "Hello world"
+myFunction("Alice"); // output: "Hello Alice"
+myFunction("Bob", "Charlie"); // output: "Hello Bob and Charlie"
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5857,7 +5918,56 @@ An array is an object so it has all the same capabilities of an object plus a bu
 
 ## Q 11.33. What is difference between `{}` vs `new Object()`?
 
-*ToDo*
+**1. Object Literal Syntax (`{}`):**
+
+Object literal syntax is a shorthand way of creating an object. We can create an object by placing a comma-separated list of key-value pairs inside curly braces `{ }`. The key represents a property name of the object and the value represents the value of that property.
+
+**Syntax:**
+
+```js
+let myObj = {
+  prop1: value1,
+  prop2: value2,
+  prop3: value3
+};
+```
+
+**Example:**
+
+```js
+let person = {
+  name: "John", 
+  age: 30,
+  city: "New York"
+};
+```
+
+**2. Object Constructor Syntax (`new Object()`):**
+
+The object constructor syntax is a way of creating an object using the `new` operator and the `Object` constructor function. We can create an empty object by calling the `Object` constructor without any arguments. We can also create an object by passing an object literal as an argument to the `Object` constructor.
+
+**Syntax:**
+
+```js
+let myObj = new Object();
+```
+
+**Example:**
+
+```js
+let person = new Object();
+person.name = "John";
+person.age = 30;
+person.city = "New York";
+```
+
+**Difference:**
+
+The primary difference between using `{}` and `new Object()` to create an object is that the former uses object literal syntax while the latter uses object constructor syntax.
+
+Object literals are more concise and easier to read and write, especially when creating objects with a small number of properties. On the other hand, object constructors are more flexible and can be used to create objects with properties that are not known at the time of object creation.
+
+In general, it is recommended to use object literal syntax (`{}`) for creating objects unless there is a specific reason to use the object constructor syntax (`new Object()`).
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -7818,7 +7928,35 @@ The `XMLHTTPRequest()` object is an API which is used for fetching data from the
 
 ## Q. 15.14. How to get responses of multiple api calls, when some API fails?
 
-*ToDo*
+**Promise.allSettled():**
+
+To handle failures in multiple API calls, `Promise.allSettled()` method can be used. The method returns a Promise that resolves after all of the given promises have either resolved or rejected. It returns an array of objects with two properties: status and value.
+
+The status property is either "fulfilled" or "rejected", depending on whether the promise was resolved or rejected. The value property is the value of the promise if it was resolved or the reason for rejection if it was rejected.
+
+**Example:**
+
+```js
+const promises = [fetch('api1'), fetch('api2'), fetch('api3')];
+
+Promise.allSettled(promises)
+  .then(results => {
+    const successfulResults = [];
+    const failedResults = [];
+
+    results.forEach(result => {
+      if (result.status === 'fulfilled') {
+        successfulResults.push(result.value);
+      } else {
+        failedResults.push(result.reason);
+      }
+    });
+    
+    console.log('Successful API calls:', successfulResults);
+    console.log('Failed API calls:', failedResults);
+  })
+  .catch(error => console.log('Error:', error));
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -7826,7 +7964,20 @@ The `XMLHTTPRequest()` object is an API which is used for fetching data from the
 
 ## Q. 15.15. Explain the use of Promise.any()?
 
-*ToDo*
+The `Promise.any()` method is used to handle multiple promises simultaneously, and it resolves with the value of the first fulfilled promise.regardless of whether any of the other promises reject. If all of the promises reject, then `Promise.any()` rejects with an `AggregateError` object that contains an array of rejection reasons.
+
+The `Promise.any()` method takes an iterable of Promises as an input, and returns a new Promise. Here's an example:
+
+```javascript
+const promise1 = new Promise((resolve, reject) => setTimeout(reject, 1000, 'Promise 1 rejected'));
+const promise2 = new Promise((resolve, reject) => setTimeout(resolve, 500, 'Promise 2 resolved'));
+const promise3 = new Promise((resolve, reject) => setTimeout(resolve, 1500, 'Promise 3 resolved'));
+
+Promise.any([promise1, promise2, promise3])
+  .then((value) => console.log(value)) // 'Promise 2 resolved'
+  .catch((error) => console.error(error)); // AggregateError: All promises were rejected
+```
+*Note: `Promise.any()` is not yet widely supported by all browsers, so you may need to use a polyfill or a different approach to achieve similar functionality in older browsers.*
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -9034,11 +9185,125 @@ Microsoft formerly developed its own proprietary browser engines - Trident and E
 </div>
 
 #### Q 18.22. What is a Polyfill?
+
+**Polyfill**
+
+A polyfill is a piece of code (usually a JavaScript library) that provides modern functionality on older browsers that do not support it. It is a way to bring new features to old browsers by mimicking the behavior of modern JavaScript APIs.
+
+For example, `Object.values()` was introduced in ES2017 and is not supported in some older browsers such as Internet Explorer and Safari 9. However, you can use a polyfill to add support for it in older browsers.
+
+**Example**
+
+```js
+// polyfill for the Object.values()
+if (!Object.values) {
+  Object.values = function(obj) {
+    var values = [];
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+        values.push(obj[key]);
+      }
+    }
+    return values;
+  };
+}
+
+// Now you can use Object.values() even in older browsers that don't support it natively
+const obj = { a: 1, b: 2, c: 3 };
+const values = Object.values(obj);
+
+console.log(values); // Output: [1, 2, 3]
+```
+
+This code checks if the `Array.prototype.includes()` method is available in the current environment, and if not, it provides an implementation of the method that emulates the behavior of the modern API. This allows you to use the `Array.prototype.includes()` method in older browsers, even though it is not natively supported.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+
 #### Q 18.23. What is optional chaining in JavaScript?
+
+**Optional chaining**
+
+Optional chaining is a feature in JavaScript that allows you to safely access nested object properties or functions without worrying about whether the intermediate properties exist or not. It uses the `?.` operator to check for nullish (`null` or `undefined`) values and short-circuits the expression if it encounters one.
+
+Optional chaining was introduced in ECMAScript 2020 (ES11) and is supported in most modern browsers, but not in older ones. To use it in older browsers, you can use a transpiler like Babel, or write your code with alternative techniques like conditional statements or the `&&` operator.
+
+**Example**
+
+```js
+const obj = {
+  a: {
+    b: {
+      c: 123
+    }
+  }
+};
+
+// Without optional chaining
+if (obj && obj.a && obj.a.b && obj.a.b.c) {
+  console.log(obj.a.b.c); // output: 123
+}
+
+// With optional chaining
+console.log(obj?.a?.b?.c); // output: 123
+
+// Optional chaining with method
+console.log(obj?.a?.b?.c.toString()); // output: "123"
+```
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 #### Q 18.24. How could you make sure a const value is garbage collected?
+
+In JavaScript, garbage collection is automatically performed by the browser or the JavaScript engine. When a value is no longer being used or referenced, it becomes eligible for garbage collection.
+
+In the case of a const value, the same rules apply as with any other value. As long as the const value is not referenced by any other variables or objects in the program, it will become eligible for garbage collection when the variable goes out of scope.
+
+
+Here are some best practices to follow when working with const variables:
+
+1. Only use `const` when you know that the value should not be reassigned.
+
+2. If you ever want to change the contents of the variable for any reason in the future, then don't declare it as const.
+
+3. Use `let` or `var` instead of `const` if you need to reassign the value.
+
+4. To ensure that a const value is garbage collected, remove all references to it.
+
+**Example**
+
+```
+const myObj = {name: 'John', age: 30};
+
+// Use myObj...
+
+// Remove all references to myObj
+myObj = null;
+```
+
+In this example, setting `myObj` to `null` removes the only reference to the object, allowing it to be garbage collected.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 #### Q 18.25. How Garbage Collection works in JavaScript?
 
-*ToDo*
+JavaScript has an automatic garbage collector that periodically frees up memory that is no longer being used by the program. The garbage collector works by identifying "garbage" values that are no longer accessible or needed by the program and freeing up the memory they occupy.
+
+**Example**
+
+```js
+let a = { b: { c: { d: "Hello" } } };
+let e = a.b.c;
+a = null;
+```
+In this code, the object `{ b: { c: { d: "Hello" } } }` is created and assigned to the variable a. The variable e is then assigned a reference to the nested object `{ c: { d: "Hello" } }`. Finally, the variable a is set to null, which means that the original object `{ b: { c: { d: "Hello" } } }` is no longer accessible by the program.
+
+At this point, the garbage collector will identify the object `{ b: { c: { d: "Hello" } } }` as "garbage" because it is no longer accessible by the program. The garbage collector will then free up the memory occupied by this object.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
