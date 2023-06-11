@@ -60,7 +60,7 @@ Template literals are string literals allowing embedded expressions.
 ```js
 // String Substitution
 let name = `Abhinav Sharma`;
-console.log(`Hi, ${name}`); // Output: "Abhinav Sharma"
+console.log(`Hi, ${name}`); // Output: "Hi, Abhinav Sharma"
 
 // Multiline String
 let msg = `Hello \n
