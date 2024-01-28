@@ -1,47 +1,78 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Closures, Lexical Scope and Dynamic Scope</title>
-  </head>
-  <script>
-    /***
-     * A closure is the combination of a function bundled together (enclosed) with references
-     * to its surrounding state (the lexical environment). In other words, a closure gives
-     * you access to an outer function’s scope from an inner function.
-     *
-     * Lexical Scope:- In lexical scoping free variables must belong to a parent scope.
-     *
-     * Dynamic Scope:- In dynamic scoping free variables must belong to the calling scope
-     *
-     * ***/
 
-    var Person = function(name) {
-      var text = 'Hello ' + name; // Local variable
-      var say = function() {
-        // Closure makes this function private to this class
-        console.log("Using Closure: "+text);
-      };
-      return say;
+<head>
+  <title>Closures, Lexical Scope and Dynamic Scope</title>
+</head>
+<script>
+  /***
+   * A closure is the combination of a function bundled together (enclosed) with references
+   * to its surrounding state (the lexical environment). In other words, a closure gives
+   * you access to an outer function’s scope from an inner function.
+   *
+   * Lexical Scope:- In lexical scoping free variables must belong to a parent scope.
+   *
+   * Dynamic Scope:- In dynamic scoping free variables must belong to the calling scope
+   *
+   * ***/
+
+  var Person = function (name) {
+    var text = 'Hello ' + name; // Local variable
+    var say = function () {
+      // Closure makes this function private to this class
+      console.log("Using Closure: " + text);
     };
+    return say;
+  };
 
-    var obj = new Person('Pradeep');
-     obj();
+  var obj = new Person('Pradeep');
+  obj();
 
 
-    // ---------------
-    // Lexical Scope
-    // ---------------
-     function add(x) {         // template of a new scope, x is bound in this scope
-          return function (y) { // template of a new scope, x is free, y is bound
-              return x + y;     // x resolves to the parent scope
-          };
+  // ---------------
+  // Lexical Scope
+  // ---------------
+  function add(x) {         // template of a new scope, x is bound in this scope
+    return function (y) { // template of a new scope, x is free, y is bound
+      return x + y;     // x resolves to the parent scope
+    };
+  }
+
+  var sum = add(10);      // create a new scope for x and return a function
+  console.log("Using Lexical Scope: " + sum(20));         // create a new scope for y and return x + y
+
+  //Here some extra example of closure with some corner cases 
+  // Basic Example of closure
+  function x() {
+    var a = 9;
+    function y() {
+      console.log(a);
+    }
+    // y();
+    return y;//In javascript you can return the functions
+  }
+  var z = x();
+  console.log(z);//It will return what is present in the function y.
+  z();//It will still return the value of a.
+
+  //Corner Cases
+  function b() {
+    var e = 99;
+    function w() {
+      var c = 9;
+      function d() {
+        console.log(c, e);
       }
+      d();
+    }
+    w();
+  }
+  b();
 
-      var sum = add(10);      // create a new scope for x and return a function
-      console.log("Using Lexical Scope: "+sum(20));         // create a new scope for y and return x + y
+</script>
 
-  </script>
-  <body>
-    Closures
-  </body>
+<body>
+  Closures
+</body>
+
 </html>
