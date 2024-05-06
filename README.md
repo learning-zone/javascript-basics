@@ -238,7 +238,7 @@ function add(x = 10, y = 20) {
 
 add(10, 30); // Output: 10 + 30 = 40
 add(15); // Output: 15 + 20 = 35
-add(); // Output: 20 + 10 = 30
+add(); // Output: 10 + 20 = 30
 
 ```
 
