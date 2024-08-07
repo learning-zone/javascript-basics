@@ -100,8 +100,8 @@ console.log(sum(...numbers)); // 60
 **2.1. Copying an array:**
 
 ```js
-let fruits = ["Apple", "Orange", "Banana"];
-let newFruitArray = [...fruits];
+const fruits = ["Apple", "Orange", "Banana"];
+const newFruitArray = [...fruits];
 
 console.log(newFruitArray); 
 ```
@@ -121,10 +121,10 @@ Output:
 **2.2. Concatenating arrays:**  
 
 ```js
-let arr1 = ["A", "B", "C"];
-let arr2 = ["X", "Y", "Z"];
+const arr1 = ["A", "B", "C"];
+const arr2 = ["X", "Y", "Z"];
 
-let result = [...arr1, ...arr2];
+const result = [...arr1, ...arr2];
 
 console.log(result); 
 ```
@@ -144,8 +144,8 @@ Output:
 **2.3. Spreading elements together with an individual element:**
 
 ```js
-let fruits = ["Apple", "Orange", "Banana"];
-let newFruits = ["Cherry", ...fruits];
+const fruits = ["Apple", "Orange", "Banana"];
+const newFruits = ["Cherry", ...fruits];
 
 console.log(newFruits); 
 ```
@@ -165,7 +165,7 @@ Output:
 **2.4. Spreading elements on function calls:**
 
 ```js
-let fruits = ["Apple", "Orange", "Banana"];
+const fruits = ["Apple", "Orange", "Banana"];
 
 const getFruits = (f1, f2, f3) => {
   console.log(`Fruits: ${f1}, ${f2} and ${f3}`);
@@ -217,7 +217,7 @@ Output:
 Sets are a new object type with ES6 (ES2015) that allow to create collections of unique values. The values in a set can be either simple primitives like strings or integers, but more complex object types like object literals or arrays can also be part of a set.
 
 ```js
-let numbers = new Set([10, 20, 20, 30, 40, 50]);
+const numbers = new Set([10, 20, 20, 30, 40, 50]);
 
 console.log(numbers); Set(5) { 10, 20, 30, 40, 50 }
 console.log(typeof numbers); // Object
@@ -236,7 +236,10 @@ function add(x = 10, y = 20) {
   console.log(x + y);
 }
 
-add(10, 30); // 40
+add(10, 30); // Output: 10 + 30 = 40
+add(15); // Output: 15 + 20 = 35
+add(); // Output: 10 + 20 = 30
+
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-default-parametrs-tjw9uk?file=/src/index.js)**
@@ -272,7 +275,7 @@ Hello World
 **6. Arrow Function (=>):**
 
 ```js
-let add = (x, y) => x + y;
+const add = (x, y) => x + y;
 
 console.log(add(10, 20)); // 30
 ```
@@ -347,7 +350,7 @@ function* generator(num) {
   yield num + 20;
   yield num + 30;
 }
-let gen = generator(10);
+const gen = generator(10);
 
 console.log(gen.next().value); // 20
 console.log(gen.next().value); // 30
