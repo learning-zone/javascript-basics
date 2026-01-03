@@ -57,7 +57,7 @@ Template literals are string literals allowing embedded expressions.
 * String formatting
 * String tagging for safe HTML escaping, localization and more
 
-```js
+```JavaScript
 // String Substitution
 let name = `Abhinav Sharma`;
 console.log(`Hi, ${name}`); // Output: "Hi, Abhinav Sharma"
@@ -76,9 +76,9 @@ console.log(`${msg}`); // Output: "Hello World"
 
 **2. Spread Operator:**
 
-Spread operator allows iterables( arrays / objects / strings ) to be expanded into single arguments/elements. 
+Spread operator allows iterables ( arrays / objects / strings ) to be expanded into single arguments/elements. 
 
-```js
+```JavaScript
 function sum(x, y, z) {
   return x + y + z;
 }
@@ -99,7 +99,7 @@ console.log(sum(...numbers)); // 60
 
 **2.1. Copying an array:**
 
-```js
+```JavaScript
 const fruits = ["Apple", "Orange", "Banana"];
 const newFruitArray = [...fruits];
 
@@ -108,7 +108,7 @@ console.log(newFruitArray);
 
 Output:
 
-```js
+```JavaScript
 ['Apple', 'Orange', 'Banana']
 ```
 
