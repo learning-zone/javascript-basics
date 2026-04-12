@@ -702,18 +702,13 @@ let aLet = 2;
 
 The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. `0`, `null`, `undefined`, etc.), it will be `false`, otherwise, `true`.
 
-For example, you can test IE version using this expression as below,
-
 ```js
-let isIE11 = false;
-isIE11 = !!navigator.userAgent.match(/Trident.*rv[ :]*11\./);
-console.log(isIE11); // returns true or false
-```
-
-If you do not use this expression then it returns the original value.
-
-```js
-console.log(navigator.userAgent.match(/Trident.*rv[ :]*11\./));  // returns either an Array or null
+console.log(!!null);      // false
+console.log(!!undefined); // false
+console.log(!!0);         // false
+console.log(!!"");        // false
+console.log(!!1);         // true
+console.log(!!"text");    // true
 ```
 
 *Note: The expression !! is not an operator, but it is just twice of ! operator*.
@@ -871,36 +866,6 @@ Hoist(20); // 20
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variable-shadowing-dvibcw?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q 2.12. Explain `var self = this` in JavaScript?
-
-The **self** is being used to maintain a reference to the original this even as the context is changing. It is a technique often used in event handlers ( especially in closures ).
-
-`this` is a JavaScript keyword which refers to the current context. Unlike other programming languages, JavaScript does not have block scoping ( in C open/close {} curly braces refers to a block ). JavaScript has two scopes namely, global and local scope.
-
-**Example:**
-
-```js
-/**
- * this Context
- */
-const context = {
-  prop: 10,
-  getCurrentContext: function () {
-    return this.prop;
-  }
-};
-
-console.log(context.getCurrentContext()); // 10
-```
-
-*Note: 'self' should not be used this way anymore, since modern browsers provide a global variable self pointing to the global object of either a normal window or a WebWorker.*
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-self-this-k1w0e8?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -1454,7 +1419,7 @@ function getValue(someParam) {
 
 ## Q 4.9. What is the difference between `typeof` and `instanceof` operator?
 
-The `typeof` operator checks if a value has type of primitive type which can be one of boolean, function, object, number, string, undefined and symbol (ES6).
+The `typeof` operator checks if a value has type of primitive type which can be one of `boolean`, `function`, `object`, `number`, `string`, `undefined`, `symbol`, or `bigint`.
 
 **Example:**
 
@@ -1491,6 +1456,88 @@ b instanceof String; // returns true
 **Output**:  ['H', 'e', 'l', 'l', 'o']  
 
 **Explanation**: The string is an iterable type and the spread operator with in an array maps every character of an iterable to one element. Hence, each character of a string becomes an element within an Array.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q 4.11. What is the nullish coalescing operator (`??`) in JavaScript?
+
+The **nullish coalescing operator** (`??`) returns the right-hand side operand when the left-hand side operand is `null` or `undefined`. Otherwise, it returns the left-hand side operand. Unlike `||`, it does **not** treat `0`, `false`, or `""` as falsy.
+
+**Syntax:**
+
+```js
+leftExpr ?? rightExpr
+```
+
+**Example:**
+
+```js
+console.log(null ?? 'default');      // 'default'
+console.log(undefined ?? 'default'); // 'default'
+console.log(0 ?? 'default');         // 0  (0 is NOT null/undefined)
+console.log('' ?? 'default');        // '' (empty string is NOT null/undefined)
+console.log(false ?? 'default');     // false
+
+// Practical use: provide a fallback for a missing config value
+const config = { timeout: 0 };
+const timeout = config.timeout ?? 3000;
+console.log(timeout); // 0 (not 3000, because 0 is a valid value)
+```
+
+**Nullish coalescing assignment (`??=`):**
+
+```js
+let user = { name: null };
+user.name ??= 'Anonymous';
+console.log(user.name); // 'Anonymous'
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q 4.12. What are logical assignment operators in JavaScript?
+
+Logical assignment operators (ES2021) combine a logical operator with assignment. There are three:
+
+| Operator | Equivalent to         | Description |
+|----------|-----------------------|-------------|
+| `&&=`    | `a && (a = b)`        | Assigns `b` to `a` only if `a` is **truthy** |
+| `\|\|=`  | `a \|\| (a = b)`      | Assigns `b` to `a` only if `a` is **falsy** |
+| `??=`    | `a ?? (a = b)`        | Assigns `b` to `a` only if `a` is **null or undefined** |
+
+**Example:**
+
+```js
+// &&= (AND assignment)
+let a = 1;
+a &&= 2;
+console.log(a); // 2 (a was truthy, so assigned)
+
+let b = 0;
+b &&= 2;
+console.log(b); // 0 (b was falsy, not assigned)
+
+// ||= (OR assignment)
+let c = null;
+c ||= 'default';
+console.log(c); // 'default' (c was falsy)
+
+let d = 'existing';
+d ||= 'default';
+console.log(d); // 'existing' (d was truthy, not reassigned)
+
+// ??= (Nullish assignment)
+let e = null;
+e ??= 'fallback';
+console.log(e); // 'fallback'
+
+let f = 0;
+f ??= 'fallback';
+console.log(f); // 0 (0 is not null/undefined)
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -1786,7 +1833,7 @@ Warning: *Executing JavaScript from a string is an enormous security risk. It is
 
 ## Q 6.5. How do you check if a string starts with another string?
 
-You can use ECMAScript 6 `String.prototype.startsWith()` method to check a string starts with another string or not. But it is not yet supported in all browsers. Let us see an example to see this usage,
+You can use `String.prototype.startsWith()` method to check if a string starts with another string or not. It is fully supported in all modern browsers.
 
 ```js
 let str = "Hello World";
@@ -1796,6 +1843,42 @@ console.log(str.startsWith("World")); // false
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-startswith-tvq7i5?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q 6.6. What are `replaceAll()`, `padStart()` and `padEnd()` string methods?
+
+**1. String.prototype.replaceAll():**
+
+The `replaceAll()` method returns a new string with all matches of a pattern replaced by a replacement. Unlike `replace()`, it replaces every occurrence without needing a global regex flag.
+
+```js
+const text = 'I like cats. Cats are cute cats.';
+console.log(text.replace('cats', 'dogs'));    // 'I like dogs. Cats are cute cats.' (only first)
+console.log(text.replaceAll('cats', 'dogs')); // 'I like dogs. Cats are cute dogs.'
+```
+
+**2. String.prototype.padStart():**
+
+The `padStart()` method pads the current string with another string from the **start** until it reaches the given length.
+
+```js
+console.log('5'.padStart(3, '0'));    // '005'
+console.log('hello'.padStart(8));     // '   hello' (default pad is space)
+console.log('42'.padStart(5, '*'));   // '***42'
+```
+
+**3. String.prototype.padEnd():**
+
+The `padEnd()` method pads the current string with another string from the **end** until it reaches the given length.
+
+```js
+console.log('5'.padEnd(3, '0'));    // '500'
+console.log('hello'.padEnd(8));     // 'hello   '
+console.log('42'.padEnd(5, '-'));   // '42---'
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -2214,6 +2297,55 @@ console.log(array1.includes(2)); // Output: true
 
 var pets = ['cat', 'dog', 'bat'];
 console.log(pets.includes('at')); // Output: false
+```
+
+**18. array.at()**:
+
+The `at()` method (ES2022) takes an integer and returns the item at that index. Negative integers count back from the last item.
+
+```js
+const fruits = ['Apple', 'Orange', 'Banana', 'Mango'];
+console.log(fruits.at(0));  // Output: Apple
+console.log(fruits.at(-1)); // Output: Mango (last element)
+console.log(fruits.at(-2)); // Output: Banana
+```
+
+**19. array.flat()**:
+
+The `flat()` method creates a new array with all sub-array elements concatenated into it recursively up to the specified depth.
+
+```js
+const nested = [1, [2, 3], [4, [5, 6]]];
+console.log(nested.flat());    // Output: [1, 2, 3, 4, [5, 6]]
+console.log(nested.flat(2));   // Output: [1, 2, 3, 4, 5, 6]
+console.log(nested.flat(Infinity)); // Output: [1, 2, 3, 4, 5, 6]
+```
+
+**20. array.flatMap()**:
+
+The `flatMap()` method maps each element using a mapping function, then flattens the result into a new array (one level deep).
+
+```js
+const sentences = ['Hello World', 'Foo Bar'];
+console.log(sentences.flatMap(s => s.split(' '))); // Output: ['Hello', 'World', 'Foo', 'Bar']
+```
+
+**21. array.findLast()**:
+
+The `findLast()` method (ES2023) iterates the array in reverse and returns the value of the first element that satisfies the provided testing function.
+
+```js
+const numbers = [5, 12, 8, 130, 44];
+console.log(numbers.findLast(n => n > 10)); // Output: 44
+```
+
+**22. array.findLastIndex()**:
+
+The `findLastIndex()` method (ES2023) iterates the array in reverse and returns the index of the first element that satisfies the provided testing function.
+
+```js
+const numbers = [5, 12, 8, 130, 44];
+console.log(numbers.findLastIndex(n => n > 10)); // Output: 4
 ```
 
 <div align="right">
@@ -2682,6 +2814,53 @@ const myThirdArray = new Array("a", "b", "c"); // create a new array with three 
 One potential pitfall of using `new Array()` is that it can be ambiguous when you pass a single argument to the constructor. For example, `new Array(3)` creates an array with a length of 3, but `new Array("3")` creates an array with a single element, the string "3". This is because the argument is treated as the value of the first element when it's a non-negative integer, but as the length of the array when it's a string or a negative integer.
 
 In summary, `[]` is the preferred way to create a new array in JavaScript, while `new Array()` is an alternative way that can be used when you need more control over the array's length or contents.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q 7.21. What are `Array.from()`, `Array.of()` and `Array.isArray()` methods?
+
+**1. Array.from():**
+
+`Array.from()` creates a new, shallow-copied array from an array-like or iterable object such as a `Set`, `Map`, `NodeList`, or string.
+
+```js
+// From a string
+console.log(Array.from('hello')); // ['h', 'e', 'l', 'l', 'o']
+
+// From a Set
+const set = new Set([1, 2, 3, 2, 1]);
+console.log(Array.from(set)); // [1, 2, 3]
+
+// With a map function
+console.log(Array.from([1, 2, 3], x => x * 2)); // [2, 4, 6]
+
+// From array-like object
+console.log(Array.from({ length: 3 }, (_, i) => i + 1)); // [1, 2, 3]
+```
+
+**2. Array.of():**
+
+`Array.of()` creates a new array from a variable number of arguments, regardless of number or type. It fixes the ambiguity of `new Array()` with a single numeric argument.
+
+```js
+console.log(Array.of(7));       // [7]         (one element)
+console.log(new Array(7));      // [ , , , , , , ] (empty array of length 7!)
+
+console.log(Array.of(1, 2, 3)); // [1, 2, 3]
+```
+
+**3. Array.isArray():**
+
+`Array.isArray()` returns `true` if the passed value is an array, `false` otherwise. It is more reliable than `instanceof` when working across different frames or windows.
+
+```js
+console.log(Array.isArray([1, 2, 3]));  // true
+console.log(Array.isArray('hello'));     // false
+console.log(Array.isArray({ length: 3 })); // false
+console.log(Array.isArray(new Array())); // true
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -4190,6 +4369,62 @@ myFunction("Bob", "Charlie"); // output: "Hello Bob and Charlie"
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q 9.31. What is an IIFE (Immediately Invoked Function Expression)?
+
+An **IIFE** (Immediately Invoked Function Expression) is a JavaScript function that is defined and executed immediately after its creation. It creates a private scope so that variables inside it do not pollute the global scope.
+
+**Syntax:**
+
+```js
+(function () {
+  // code here
+})();
+
+// Arrow function variant
+(() => {
+  // code here
+})();
+```
+
+**Example:**
+
+```js
+const result = (function () {
+  const message = 'Hello from IIFE';
+  return message;
+})();
+
+console.log(result); // 'Hello from IIFE'
+console.log(typeof message); // 'undefined' — private to the IIFE
+```
+
+**Use cases:**
+
+* **Avoid global namespace pollution** — keeps variables local
+* **Module pattern** — expose only what's needed through the return value
+* **Initialization code** — logic that runs once and doesn't need to be callable later
+
+```js
+// Counter using IIFE
+const counter = (function () {
+  let count = 0;
+  return {
+    increment() { return ++count; },
+    decrement() { return --count; },
+    value()     { return count; }
+  };
+})();
+
+console.log(counter.increment()); // 1
+console.log(counter.increment()); // 2
+console.log(counter.decrement()); // 1
+console.log(counter.value());     // 1
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 10. EVENTS
 
 <br/>
@@ -5493,11 +5728,31 @@ console.log(newObj); // { a: 10, b: { c: 20 } }
 
 ## Q 11.18. Write a function called deepClone which takes an object and creates a object copy of it?
 
-``` javascript
-var newObject = deepClone(obj);
+**Modern approach — using `structuredClone()` (ES2022):**
+
+`structuredClone()` is a built-in global function that performs a deep clone of any serializable value. It supports objects, arrays, `Date`, `RegExp`, `Map`, `Set`, and more.
+
+```js
+const personalDetail = {
+  name: 'Alex',
+  address: {
+    location: 'xyz',
+    zip: '123456',
+    phoneNumber: {
+      homePhone: 8797912345,
+      workPhone: 1234509876
+    }
+  }
+};
+
+const newObject = structuredClone(personalDetail);
+newObject.address.zip = '999999';
+
+console.log(personalDetail.address.zip); // '123456' (original unchanged)
+console.log(newObject.address.zip);      // '999999'
 ```
 
-Solution:
+**Manual recursive approach (for environments without `structuredClone`):**
 
 ```js
 function deepClone(object) {
@@ -5512,24 +5767,6 @@ function deepClone(object) {
   return newObject;
 }
 ```
-
-**Explanation:** We have been asked to do deep copy of object so What is basically It is mean ?. Let us understand in this way you have been given an object `personalDetail` this object contains some property which again a type of object here as you can see `address` is an object and `phoneNumber` in side an `address` is also an object. In simple term `personalDetail` is nested object(object inside object). So Here deep copy means we have to copy all the property of `personalDetail` object including nested object.
-
-```js
-var personalDetail = {
-	name : 'Alex',
-	address : {
-	  location: 'xyz',
-	  zip : '123456',
-	  phoneNumber : {
-	    homePhone: 8797912345,
-	    workPhone : 1234509876
-	  }
-	}
-}
-```
-
-So when we do deep clone then we should copy every property (including the nested object).
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5590,6 +5827,17 @@ const obj = { key: undefined };
 console.log(obj.hasOwnProperty("key")); // true
 ```
 
+**3. Using `Object.hasOwn()` (ES2022 — preferred):**
+
+`Object.hasOwn()` is the modern replacement for `hasOwnProperty()`. It is safer because it works correctly even on objects created with `Object.create(null)` (which have no prototype).
+
+```js
+const obj = { key: undefined };
+
+console.log(Object.hasOwn(obj, "key"));     // true
+console.log(Object.hasOwn(obj, "missing"));  // false
+```
+
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-in-operator-3fxd3h?file=/src/index.js)**
 
 <div align="right">
@@ -5598,17 +5846,17 @@ console.log(obj.hasOwnProperty("key")); // true
 
 ## Q 11.21. How do you loop through or enumerate javascript object?
 
-You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn\'t come from the prototype using `hasOwnProperty` method.
+You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn\'t come from the prototype using `Object.hasOwn()` (ES2022) or the older `hasOwnProperty()` method.
 
 ```js
-var object = {
+const object = {
     "k1": "value1",
     "k2": "value2",
     "k3": "value3"
 };
 
-for (var key in object) {
-    if (object.hasOwnProperty(key)) {
+for (const key in object) {
+    if (Object.hasOwn(object, key)) {
         console.log(key + " -> " + object[key]); // k1 -> value1 ...
     }
 }
@@ -5620,13 +5868,13 @@ for (var key in object) {
 
 ## Q 11.22. How do you test for an empty object?
 
-**a.) Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
+**a. Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
 
 ```js
 Object.keys(obj).length === 0 && obj.constructor === Object 
 ```
 
-**b.) Using Object entries(ECMA 7+):** You can use object entries length along with constructor type.
+**b. Using Object entries(ECMA 7+):** You can use object entries length along with constructor type.
 
 ```js
 Object.entries(obj).length === 0 && obj.constructor === Object 
@@ -5971,6 +6219,48 @@ The primary difference between using `{}` and `new Object()` to create an object
 Object literals are more concise and easier to read and write, especially when creating objects with a small number of properties. On the other hand, object constructors are more flexible and can be used to create objects with properties that are not known at the time of object creation.
 
 In general, it is recommended to use object literal syntax (`{}`) for creating objects unless there is a specific reason to use the object constructor syntax (`new Object()`).
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q 11.34. What is the `Object.fromEntries()` method?
+
+`Object.fromEntries()` transforms a list of key-value pairs (such as an array of `[key, value]` pairs or a `Map`) into a plain object. It is the inverse of `Object.entries()`.
+
+**Syntax:**
+
+```js
+Object.fromEntries(iterable)
+```
+
+**Example 1: From an array of entries**
+
+```js
+const entries = [['name', 'Alice'], ['age', 30], ['city', 'Paris']];
+const obj = Object.fromEntries(entries);
+console.log(obj); // { name: 'Alice', age: 30, city: 'Paris' }
+```
+
+**Example 2: From a Map**
+
+```js
+const map = new Map([['a', 1], ['b', 2], ['c', 3]]);
+const obj = Object.fromEntries(map);
+console.log(obj); // { a: 1, b: 2, c: 3 }
+```
+
+**Example 3: Transforming an object (entries → transform → fromEntries)**
+
+```js
+const prices = { apple: 1.5, banana: 0.75, cherry: 3.0 };
+
+// Double all prices
+const doubled = Object.fromEntries(
+  Object.entries(prices).map(([key, val]) => [key, val * 2])
+);
+console.log(doubled); // { apple: 3, banana: 1.5, cherry: 6 }
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -6540,22 +6830,6 @@ window.history.pushState('newPage', 'Title', '/newPage.html');
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.17. When would you use `document.write()`?
-
-The **document.write()** method is used to delete all the content from the HTML document and inserts the new content. It is also used to give the additional text to an output which is open by the `document.open()` method. 
-
-The `document.write()` only works while the page is loading; If you call it after the page is done loading, it will overwrite the whole page. This method is mostly used for testing purpose.
-
-**Example:**
-
-```js
-document.write("Hello World!");
-```
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
 ## Q 12.18. What is the difference between an attribute and a property?
 
 Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
@@ -6778,35 +7052,6 @@ if (typeof(Storage) !== "undefined") {
   // Browser doesnot support web-storage 
 }
 ```
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q 12.25. How to detect browser type in javascript?
-
-To detect user browser information use the `navigator.userAgent()` property. 
-
-```js
-let browser;
-const agt = navigator.userAgent.toLowerCase();
-
-if (agt.indexOf("chrome") > -1) {
-  browser = "Google Chrome";
-} else if (agt.indexOf("safari") > -1) {
-  browser = "Apple Safari";
-} else if (agt.indexOf("opera") > -1) {
-  browser = "Opera";
-} else if (agt.indexOf("firefox") > -1) {
-  browser = "Mozilla Firefox";
-} else if (agt.indexOf("mise") > -1 || agt.indexOf("trident") > -1) {
-  browser = "Microsoft Internet Explorer";
-}
-
-alert("You are using: " + browser + " \n\nNavigator: " + agt);
-```
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-detect-browser-type-7xufzy?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -7337,6 +7582,77 @@ console.log(User.isAdmin); // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q 13.16. What are private class fields in JavaScript?
+
+Private class fields (ES2022) use the `#` prefix to declare fields that are only accessible from inside the class body. They are a true hard private — not accessible via `obj['#field']` or any workaround.
+
+**Syntax:**
+
+```js
+class ClassName {
+  #privateField = defaultValue;
+  #privateMethod() { ... }
+}
+```
+
+**Example:**
+
+```js
+class BankAccount {
+  #balance;
+  #owner;
+
+  constructor(owner, initialBalance) {
+    this.#owner = owner;
+    this.#balance = initialBalance;
+  }
+
+  deposit(amount) {
+    if (amount > 0) this.#balance += amount;
+  }
+
+  withdraw(amount) {
+    if (amount <= this.#balance) this.#balance -= amount;
+    else throw new Error('Insufficient funds');
+  }
+
+  get info() {
+    return `${this.#owner}: \$${this.#balance}`;
+  }
+}
+
+const acc = new BankAccount('Alice', 1000);
+acc.deposit(500);
+console.log(acc.info); // 'Alice: $1500'
+
+// Private fields are inaccessible outside the class:
+console.log(acc.#balance); // SyntaxError
+```
+
+**Private static fields and methods** are also supported:
+
+```js
+class Counter {
+  static #count = 0;
+
+  constructor() {
+    Counter.#count++;
+  }
+
+  static getCount() {
+    return Counter.#count;
+  }
+}
+
+new Counter();
+new Counter();
+console.log(Counter.getCount()); // 2
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 14. ERROR HANDLING
 
 <br/>
@@ -7466,6 +7782,55 @@ errorHandling(); // Error: is not a number.
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-error-handling-6uz740?file=/src/index.js)**
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q 14.4. How do you create a custom error class in JavaScript?
+
+You can create a custom error class by extending the built-in `Error` class. This lets you define domain-specific errors with custom names and additional properties.
+
+**Example:**
+
+```js
+class ValidationError extends Error {
+  constructor(message, field) {
+    super(message);
+    this.name = 'ValidationError';
+    this.field = field;
+  }
+}
+
+class NetworkError extends Error {
+  constructor(message, statusCode) {
+    super(message);
+    this.name = 'NetworkError';
+    this.statusCode = statusCode;
+  }
+}
+
+// Usage
+function validateAge(age) {
+  if (typeof age !== 'number') {
+    throw new ValidationError('Age must be a number', 'age');
+  }
+  if (age < 0 || age > 150) {
+    throw new ValidationError('Age must be between 0 and 150', 'age');
+  }
+}
+
+try {
+  validateAge('twenty');
+} catch (err) {
+  if (err instanceof ValidationError) {
+    console.log(`Validation failed on field "${err.field}": ${err.message}`);
+    // Validation failed on field "age": Age must be a number
+  } else {
+    throw err; // rethrow unexpected errors
+  }
+}
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -7611,12 +7976,12 @@ Below are the list of pros and cons of promises over callbacks,
 * Easy to write parallel asynchronous code with `Promise.all()`
 * Solves some of the common problems of callbacks(call the callback too late, too early, many times and swallow errors/exceptions)
 * Integrated error handling.
+* Additional static methods: `Promise.allSettled()`, `Promise.any()`, `Promise.race()`
 
 **Cons:**
 
 * It makes little complex code
 * It cannot return multiple arguments.
-* We need to load a polyfill if ES6 is not supported
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -7853,82 +8218,6 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.12. Explain ajax request in javascript?
-
-Ajax stands for Asynchronous Javascript And Xml. It load data from the server and selectively updating parts of a web page without reloading the whole page.
-
-Basically, Ajax uses browser\'s built-in `XMLHttpRequest()` object to send and receive information to and from a web server asynchronously, in the background, without blocking the page or interfering with the user\'s experience.
-
-<p align="center">
-  <img src="assets/ajax.jpg" alt="Ajax" width="500px" />
-</p>
-
-**Example:**
-
-```js
-(function() {
-      var xhr;
-      document.getElementById('ajaxButton').addEventListener('click', makeRequest);
-
-      function makeRequest() {
-        if (window.XMLHttpRequest) {
-          // code for IE7+, Firefox, Chrome, Opera, Safari
-          xhr = new XMLHttpRequest();
-        } else {
-          // code for IE6, IE5
-          xhr = new ActiveXObject('Microsoft.XMLHTTP');
-        }
-        xhr.onreadystatechange = function() {
-          if (this.readyState == 4 && this.status == 200) {
-            document.getElementById("result").innerHTML = '<pre>' + this.responseText + '</pre>';
-          }
-        };
-        xhr.open('GET', 'https://jsonplaceholder.typicode.com/posts', true); //this makes asynchronous true or false
-        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
-        xhr.send();
-      }
-    })();
-```
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-ajax-ntgmov?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q 15.13. What is XMLHTTPRequest Object?
-
-The `XMLHTTPRequest()` object is an API which is used for fetching data from the server. An object of XMLHTTPRequest is used for asynchronous communication between client and server. It retrieve any type of data such as json, xml, text etc.
-
-**XMLHttpRequest Object Methods:**
-
-|Method	                |Description                        |
-|-----------------------|-----------------------------------|
-|new XMLHttpRequest()	  |Creates a new XMLHttpRequest object|
-|abort()	              |Cancels the current request|
-|getAllResponseHeaders()|Returns header information|
-|getResponseHeader()	  |Returns specific header information|
-|open(method,url,async,user,psw)|	Specifies the request <br/> method: the request type GET or POST <br/> url: the file location <br/> async: true (asynchronous) or false (synchronous) <br/> user: optional user name <br/>                psw: optional password|
-|send()	                |Sends the request to the server <br/> Used for GET requests|
-|send(string)           |Sends the request to the server. <br/> Used for POST requests|
-|setRequestHeader()	    |Adds a label/value pair to the header to be sent|
-
-**XMLHttpRequest Object Properties:**
-
-|Property	           |Description                          |
-|--------------------|-------------------------------------|
-|onreadystatechange  |Defines a function to be called when the readyState property changes
-|readyState	         |Holds the status of the XMLHttpRequest. <br/> 0: request not initialized <br/> 1: server connection established <br/> 2: request received <br/> 3: processing request <br/> 4: request finished and response is ready|
-|responseText	       |Returns the response data as a string
-|responseXML	       |Returns the response data as XML data
-|status	             |Returns the status-number of a request <br/> 200: "OK" <br/> 403: "Forbidden" <br/> 404: "Not Found"|
-|statusText	         |Returns the status-text (e.g. "OK" or "Not Found")|
-
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
 ## Q. 15.14. How to get responses of multiple api calls, when some API fails?
 
 **Promise.allSettled():**
@@ -7980,7 +8269,7 @@ Promise.any([promise1, promise2, promise3])
   .then((value) => console.log(value)) // 'Promise 2 resolved'
   .catch((error) => console.error(error)); // AggregateError: All promises were rejected
 ```
-*Note: `Promise.any()` is not yet widely supported by all browsers, so you may need to use a polyfill or a different approach to achieve similar functionality in older browsers.*
+*Note: `Promise.any()` is supported in all modern browsers since 2021.*
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8043,10 +8332,6 @@ console.log(map);
 1. A WeakMap accepts only **objects** as keys whereas a Map, in addition to **objects**, accepts primitive datatype such as **strings**, **numbers** etc.
 2. WeakMap objects doesn\'t avert garbage collection if there are no references to the object which is acting like a key. Therefore there is no method to retrieve keys in WeakMap, whereas in Map there are methods such as `Map.prototype.keys()` to get the keys.
 3. There is no size property exists in WeakMap.
-
-**Browser support for Map and WeakMap:**
-
-The latest Chrome, Firefox, Edge and Safari support Map and WeakMap on desktop. It\'s supported only in IE11 but not IE10 and below. On mobile, newer browsers also have support, but IE Mobile doesn\'t.
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-request-object-ro4xt9?file=/src/index.js)**
 
@@ -8287,6 +8572,57 @@ export class Alligator {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q 17.2. What is dynamic import in JavaScript?
+
+Dynamic `import()` (ES2020) allows you to import a module **on demand** at runtime rather than statically at the top of a file. It returns a **Promise** that resolves to the module object, enabling lazy loading and code splitting.
+
+**Syntax:**
+
+```js
+import(moduleSpecifier).then(module => { ... });
+
+// or with async/await
+const module = await import(moduleSpecifier);
+```
+
+**Example: Lazy-loading a module**
+
+```js
+// math.js
+export function add(a, b) { return a + b; }
+export function multiply(a, b) { return a * b; }
+```
+
+```js
+// main.js — only loads math.js when the button is clicked
+document.getElementById('btn').addEventListener('click', async () => {
+  const math = await import('./math.js');
+  console.log(math.add(2, 3));      // 5
+  console.log(math.multiply(4, 5)); // 20
+});
+```
+
+**Example: Conditional import**
+
+```js
+const lang = navigator.language.startsWith('fr') ? 'fr' : 'en';
+const messages = await import(`./locales/${lang}.js`);
+console.log(messages.default.greeting);
+```
+
+**Key differences from static imports:**
+
+| Feature         | Static `import` | Dynamic `import()` |
+|-----------------|-----------------|---------------------|
+| Location        | Top of file only | Anywhere in code    |
+| Timing          | Compile time     | Runtime             |
+| Returns         | Binding          | Promise             |
+| Tree-shaking    | Yes              | Limited             |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 18. MISCELLANEOUS
 
 <br/>
@@ -8350,42 +8686,6 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
     <a href="next_page.html?noJS=true">JavaScript is disabled in the apge. Please click Next Page</a>
 </noscript>
 ```
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q 18.3. What is the difference between feature detection, feature inference, and using the UA string?
-
-**1. Feature Detection**
-
-Feature detection involves working out whether a browser supports a certain block of code, and running different code depending on whether it does (or doesn\'t), so that the browser can always provide a working experience rather crashing/erroring in some browsers. For example:
-
-```js
-if ('geolocation' in navigator) {
-  // Can use navigator.geolocation
-} else {
-  // Handle lack of feature
-}
-```
-
-[Modernizr](https://modernizr.com/) is a great library to handle feature detection.
-
-**2. Feature Inference**
-
-Feature inference checks for a feature just like feature detection, but uses another function because it assumes it will also exist, e.g.:
-
-```js
-if (document.getElementsByTagName) {
-  element = document.getElementById(id);
-}
-```
-
-This is not really recommended. Feature detection is more foolproof.
-
-**3. UA String**
-
-This is a browser-reported string that allows the network protocol peers to identify the application type, operating system, software vendor or software version of the requesting software user agent. It can be accessed via `navigator.userAgent`. However, the string is tricky to parse and can be spoofed. For example, Chrome reports both as Chrome and Safari. So to detect Safari you have to check for the Safari string and the absence of the Chrome string. Avoid this method.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8466,32 +8766,6 @@ console.log(obj2 === obj1); // true
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-singleton-pattern-3cvgkr?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q 18.6. What do you understand by ViewState and SessionState?
-
-**1. Session State**: 
-
-Contains information that is pertaining to a specific session (by a particular client/browser/machine) with the server. It is a way to track what the user is doing on the site.. across multiple pages...amid the statelessness of the Web. e.g. the contents of a particular user's shopping cart is session data. Cookies can be used for session state.
-
-* Maintained at session level.
-* Session state value availability is in all pages available in a user session.
-* Information in session state stored in the server.
-* In session state, user data remains in the server.  The availability of the data is guaranteed until either the user closes the session or the browser is closed.
-* Session state is used for the persistence of user-specific data on the server\'s end.
-
-**2. View State**: 
-
-On the other hand is information specific to particular web page. It is stored in a hidden field so that it is not visible to the user.
-
-* Maintained at page level only.
-* View state can only be visible from a single page and not multiple pages.
-* Information stored on the client\'s end only.
-* View state will retain values in the event of a postback operation occurring.
-* View state is used to allow the persistence of page-instance-specific data.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -9307,6 +9581,87 @@ a = null;
 In this code, the object `{ b: { c: { d: "Hello" } } }` is created and assigned to the variable a. The variable e is then assigned a reference to the nested object `{ c: { d: "Hello" } }`. Finally, the variable a is set to null, which means that the original object `{ b: { c: { d: "Hello" } } }` is no longer accessible by the program.
 
 At this point, the garbage collector will identify the object `{ b: { c: { d: "Hello" } } }` as "garbage" because it is no longer accessible by the program. The garbage collector will then free up the memory occupied by this object.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+#### Q 18.26. What is the JavaScript Event Loop?
+
+The **Event Loop** is the mechanism that allows JavaScript — a single-threaded language — to perform non-blocking asynchronous operations. It continuously monitors the **call stack** and the **task queues** and moves tasks from the queues to the stack when the stack is empty.
+
+**Components:**
+
+* **Call Stack** — executes synchronous code one frame at a time (LIFO).
+* **Web APIs** (or Node.js APIs) — handle async operations like `setTimeout`, `fetch`, DOM events.
+* **Macrotask queue** (Task Queue) — holds callbacks from `setTimeout`, `setInterval`, I/O, UI events.
+* **Microtask queue** — holds Promise callbacks (`.then`, `.catch`, `.finally`) and `queueMicrotask()`.
+
+**Execution order:**
+
+1. Execute all synchronous code on the call stack.
+2. Drain the **entire** microtask queue (including any microtasks added during this step).
+3. Pick **one** macrotask from the macrotask queue.
+4. Repeat from step 2.
+
+**Example:**
+
+```js
+console.log('1 - sync');
+
+setTimeout(() => console.log('2 - setTimeout (macrotask)'), 0);
+
+Promise.resolve()
+  .then(() => console.log('3 - Promise.then (microtask)'))
+  .then(() => console.log('4 - Promise.then (microtask)'));
+
+console.log('5 - sync');
+
+// Output:
+// 1 - sync
+// 5 - sync
+// 3 - Promise.then (microtask)
+// 4 - Promise.then (microtask)
+// 2 - setTimeout (macrotask)
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+#### Q 18.27. What is the difference between microtask queue and macrotask queue?
+
+| Feature          | Microtask Queue                          | Macrotask Queue                        |
+|------------------|------------------------------------------|----------------------------------------|
+| Also called      | Job queue                                | Task queue / callback queue            |
+| Sources          | `Promise.then/catch/finally`, `queueMicrotask()`, `MutationObserver` | `setTimeout`, `setInterval`, `setImmediate` (Node), I/O, UI events |
+| Priority         | **Higher** — runs before next macrotask  | Lower — runs one at a time             |
+| When processed   | After every task, until queue is empty   | One per event loop iteration           |
+
+**Example showing microtasks before macrotasks:**
+
+```js
+setTimeout(() => console.log('macrotask 1'), 0);
+setTimeout(() => console.log('macrotask 2'), 0);
+
+Promise.resolve()
+  .then(() => {
+    console.log('microtask 1');
+    return Promise.resolve();
+  })
+  .then(() => console.log('microtask 2'));
+
+queueMicrotask(() => console.log('microtask 3'));
+
+// Output:
+// microtask 1
+// microtask 3
+// microtask 2
+// macrotask 1
+// macrotask 2
+```
+
+*Note: All microtasks are fully drained before the event loop picks the next macrotask.*
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
