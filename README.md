@@ -36,6 +36,8 @@
 * [Collections](#-16-collections)
 * [Modules](#-17-modules)
 * [Miscellaneous](#-18-miscellaneous)
+* [Tooling & Build Process](#-19-tooling--build-process)
+* [Progressive Web Apps](#-20-progressive-web-apps-pwa)
 
 <br/>
 
@@ -43,7 +45,7 @@
 
 <br/>
 
-## Q 1.1. List out important features of JavaScript ES6?
+## Q. List out important features of JavaScript ES6?
 
 **1. Template Strings:**
 
@@ -406,7 +408,7 @@ console.log(iterateIt.next().value); //output: 6
 
 <br/>
 
-## Q 2.1. What are global variables?
+## Q. What are global variables?
 
 Global variables are declared outside of a function or declared with a window object for accessibility throughout the program (unless shadowed by locals). If you declare a variable without using var, even if it\'s inside a function, it will still be seen as global.
 
@@ -457,7 +459,7 @@ console.log(getValue()); // 100
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.2. What are template literals in es6?
+## Q. What are template literals in es6?
 
 Template literals help make it simple to do string interpolation, or to include variables in a string.
 
@@ -494,7 +496,7 @@ document.body.innerHTML = `
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.3. What are the differences between variables created using `let`, `var` or `const`?
+## Q. What are the differences between variables created using `let`, `var` or `const`?
 
 Variables declared using the `var` keyword are scoped to the function in which they are created, or if created outside of any function, to the global object. `let` and `const` are _block scoped_, meaning they are only accessible within the nearest set of curly braces (function, if-else block, or for-loop).
 
@@ -541,10 +543,10 @@ console.log(c); // ReferenceError: c is not defined
 console.log(a); // undefined
 var a = 'foo';
 
-console.log(b); // ReferenceError: can't access lexical declaration 'b' before initialization
+console.log(b); // ReferenceError: can\'t access lexical declaration 'b' before initialization
 let b = 'baz';
 
-console.log(c); // ReferenceError: can't access lexical declaration 'c' before initialization
+console.log(c); // ReferenceError: can\'t access lexical declaration 'c' before initialization
 const c = 'bar';
 ```
 
@@ -559,7 +561,7 @@ let b = 'baz';
 let b = 'qux'; // Uncaught SyntaxError: Identifier 'b' has already been declared
 ```
 
-`let` and `const` differ in that `let` allows reassigning the variable's value while `const` does not.
+`let` and `const` differ in that `let` allows reassigning the variable\'s value while `const` does not.
 
 ```js
 // This is ok.
@@ -579,7 +581,7 @@ console.log(b) // TypeError: Assignment to constant variable.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.4. What is Hoisting in JavaScript?
+## Q. What is Hoisting in JavaScript?
 
 JavaScript **Hoisting** refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
 
@@ -639,7 +641,7 @@ They will only get initialized when their lexical binding (assignment) is evalua
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.5. In which case the function definition is not hoisted in JavaScript?
+## Q. In which case the function definition is not hoisted in JavaScript?
 
 Let us take the following **function expression**
 
@@ -680,7 +682,7 @@ foo(); // Now foo is defined here
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.6. What is the Temporal Dead Zone in ES6?
+## Q. What is the Temporal Dead Zone in ES6?
 
 In ES6, **let** bindings are not subject to "variable hoisting", which means that **let** declarations do not move to the top of the current execution context.
 
@@ -698,7 +700,7 @@ let aLet = 2;
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.7. What is the purpose of double exclamation?
+## Q. What is the purpose of double exclamation?
 
 The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. `0`, `null`, `undefined`, etc.), it will be `false`, otherwise, `true`.
 
@@ -717,7 +719,7 @@ console.log(!!"text");    // true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.8. In JavaScript, what is the difference between `var x = 1` and `x = 1`?
+## Q. In JavaScript, what is the difference between `var x = 1` and `x = 1`?
 
 `var x = 1`:
 
@@ -803,7 +805,7 @@ console.log(x) // 1
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.9. How do you assign default values to variables?
+## Q. How do you assign default values to variables?
 
 You can use the logical or operator `||` in an assignment expression to provide a default value.
 
@@ -819,7 +821,7 @@ As per the above expression, variable 'a 'will get the value of 'c' only if 'b' 
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.10. What is the precedence order between local and global variables?
+## Q. What is the precedence order between local and global variables?
 
 A local variable takes precedence over a global variable with the same name.
 
@@ -845,7 +847,7 @@ Good Evening
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.11. What is variable shadowing in javascript?
+## Q. What is variable shadowing in javascript?
 
 Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
 
@@ -871,7 +873,7 @@ Hoist(20); // 20
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.13. How do you swap variables using destructuring assignment?
+## Q. How do you swap variables using destructuring assignment?
 
 ```js
 var x = 10, y = 20;
@@ -888,9 +890,9 @@ console.log(y); // 10
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 2.14. What is scope chain in javascript?
+## Q. What is scope chain in javascript?
 
-The scope chain in JavaScript refers to the chain of nested scopes that a JavaScript program uses to look up variable and function references. When a variable or function is referenced in JavaScript code, the interpreter first looks for it in the current scope. If it's not found there, it moves up the scope chain to the next outer scope and looks for it there. It continues doing this until the variable or function is found or until it reaches the global scope.
+The scope chain in JavaScript refers to the chain of nested scopes that a JavaScript program uses to look up variable and function references. When a variable or function is referenced in JavaScript code, the interpreter first looks for it in the current scope. If it\'s not found there, it moves up the scope chain to the next outer scope and looks for it there. It continues doing this until the variable or function is found or until it reaches the global scope.
 
 **Example:**:
 
@@ -921,7 +923,7 @@ outer();
 
 <br/>
 
-## Q 3.1. What are data types in javascript?
+## Q. What are data types in javascript?
 
 There are eight basic data types in JavaScript.
 
@@ -970,7 +972,7 @@ console.log(number4); // Infinity
 const number5 = -3 / 0;
 console.log(number5); // -Infinity
 
-// strings can't be divided by numbers
+// strings can\'t be divided by numbers
 const number6 = "abc" / 3;
 console.log(number6); // NaN
 ```
@@ -1056,7 +1058,7 @@ const employee = {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 3.2. What is `undefined` property?
+## Q. What is `undefined` property?
 
 The undefined property indicates that a variable has not been assigned a value, or not declared at all. The type of undefined value is undefined too.
 
@@ -1075,7 +1077,7 @@ user = undefined
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 3.3. What is difference between `null` vs `undefined`?
+## Q. What is difference between `null` vs `undefined`?
 
 **Null:**
 
@@ -1121,7 +1123,7 @@ console.log(typeof test2); // undefined
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 3.4. What is Coercion in JavaScript?
+## Q. What is Coercion in JavaScript?
 
 Type coercion is the automatic or implicit conversion of values from one data type to another (such as strings to numbers). Type conversion is similar to type coercion because they both convert values from one data type to another with one key difference — type coercion is implicit whereas type conversion can be either implicit or explicit.
 
@@ -1154,7 +1156,7 @@ console.log(sum);
 
 <br/>
 
-## Q 4.1. What are various operators supported by javascript?
+## Q. What are various operators supported by javascript?
 
 An operator is capable of manipulating(mathematical and logical computations) a certain value or operand. There are various operators supported by JavaScript as below,
 
@@ -1213,7 +1215,7 @@ The assignment operators to assign values to variables with less key strokes.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.2. What are the bitwise operators available in javascript?
+## Q. What are the bitwise operators available in javascript?
 
 Below are the list of bit-wise logical operators used in JavaScript
 
@@ -1245,7 +1247,7 @@ Below are the list of bit-wise logical operators used in JavaScript
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.3. What is the difference between == and === operators?
+## Q. What is the difference between == and === operators?
 
 JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators takes type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
 
@@ -1280,7 +1282,7 @@ null === undefined // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.4. What is typeof operator?
+## Q. What is typeof operator?
 
 In JavaScript, the typeof operator returns the data type of its operand in the form of a string. The operand can be any object, function, or variable.
 
@@ -1326,7 +1328,7 @@ console.log(typeof i); // "function"
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.5. What is an Unary operator?
+## Q. What is an Unary operator?
 
 The unary(+) operator is used to convert a variable to a number. If the variable cannot be converted, it will still become a number but with the value NaN.
 
@@ -1348,7 +1350,7 @@ console.log(typeof a, typeof b, b); // string, number, NaN
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.6. What is the purpose of delete operator?
+## Q. What is the purpose of delete operator?
 
 The delete keyword is used to delete the property as well as its value.
 
@@ -1363,7 +1365,7 @@ console.log(user); // {name: "Sadhika Chaudhuri"}
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.7. What is a conditional operator in javascript?
+## Q. What is a conditional operator in javascript?
 
 The conditional (ternary) operator is the only JavaScript operator that takes three operands which acts as a shortcut for if statement.
 
@@ -1385,7 +1387,7 @@ console.log(isAuthenticated ? 'Hello, welcome' : 'Sorry, you are not authenticat
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.8. Can you apply chaining on conditional operator?
+## Q. Can you apply chaining on conditional operator?
 
 Yes, you can apply chaining on conditional operator similar to if … else if … else if … else chain.
 
@@ -1417,7 +1419,7 @@ function getValue(someParam) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.9. What is the difference between `typeof` and `instanceof` operator?
+## Q. What is the difference between `typeof` and `instanceof` operator?
 
 The `typeof` operator checks if a value has type of primitive type which can be one of `boolean`, `function`, `object`, `number`, `string`, `undefined`, `symbol`, or `bigint`.
 
@@ -1447,7 +1449,7 @@ b instanceof String; // returns true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.10. What is the output of below spread operator array?
+## Q. What is the output of below spread operator array?
 
 ```js
 [...'Hello']
@@ -1461,7 +1463,7 @@ b instanceof String; // returns true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.11. What is the nullish coalescing operator (`??`) in JavaScript?
+## Q. What is the nullish coalescing operator (`??`) in JavaScript?
 
 The **nullish coalescing operator** (`??`) returns the right-hand side operand when the left-hand side operand is `null` or `undefined`. Otherwise, it returns the left-hand side operand. Unlike `||`, it does **not** treat `0`, `false`, or `""` as falsy.
 
@@ -1498,7 +1500,7 @@ console.log(user.name); // 'Anonymous'
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 4.12. What are logical assignment operators in JavaScript?
+## Q. What are logical assignment operators in JavaScript?
 
 Logical assignment operators (ES2021) combine a logical operator with assignment. There are three:
 
@@ -1547,7 +1549,7 @@ console.log(f); // 0 (0 is not null/undefined)
 
 <br/>
 
-## Q 5.1. How do you generate random integers?
+## Q. How do you generate random integers?
 
 The `Math.random()` function returns a floating-point, pseudo-random number in the range 0 to less than 1 (inclusive of 0, but not 1). For example, if you want generate random integers between 1 to 100, the multiplication factor should be 100,
 
@@ -1572,7 +1574,7 @@ console.log(getRandomNumber(10)); // returns a random integer from 1 to 10
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 5.2. What is isNaN?
+## Q. What is isNaN?
 
 The `isNaN()` function determines whether a value is NaN ( Not a Number ) or not. This function returns `true` if the value equates to NaN. The `isNaN()` method converts the value to a number before testing it.
 
@@ -1592,7 +1594,7 @@ Number.isNaN('Hello'); // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 5.3. What is the purpose of isFinite function?
+## Q. What is the purpose of isFinite function?
 
 The global `isFinite()` function determines whether the passed value is a finite number. It returns `false` if the value is `+infinity`, `-infinity`, or `NaN` (Not-a-Number), otherwise it returns true.
 
@@ -1615,7 +1617,7 @@ Number.isFinite("123") // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 5.4. Explain NEGATIVE_INFINITY in JavaScript?
+## Q. Explain NEGATIVE_INFINITY in JavaScript?
 
 The `Number.NEGATIVE_INFINITY` property represents the negative Infinity value.
 
@@ -1655,7 +1657,7 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
 
 <br/>
 
-## Q 6.1. What is the difference between slice and splice?
+## Q. What is the difference between slice and splice?
 
 **1. slice():**
 
@@ -1694,7 +1696,7 @@ console.log(numbers); // Original array is mutated.
 
 | Slice | Splice |
 |---- | ---------|
-| Doesn't modify the original array(immutable)  | Modifies the original array(mutable) |
+| Doesn\'t modify the original array(immutable)  | Modifies the original array(mutable) |
 | Returns the subset of original array | Returns the deleted elements as array  |
 | Used to pick the elements from array | Used to insert or delete elements to/from array|
 
@@ -1704,7 +1706,7 @@ console.log(numbers); // Original array is mutated.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 6.2. How do you check whether a string contains a substring?
+## Q. How do you check whether a string contains a substring?
 
 There are 3 fastest ways to check whether a string contains a substring or not,  
 
@@ -1751,7 +1753,7 @@ str.includes('Node', 5) //true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 6.3. How do you trim a string in javascript?
+## Q. How do you trim a string in javascript?
 
 The `trim()` method removes whitespace from both sides of a string. JavaScript provides 3 simple functions on how to trim strings.
 
@@ -1797,7 +1799,7 @@ console.log(phoneNumber.trimEnd()); // => " 80-555-123"
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 6.4. What is eval function in javascript?
+## Q. What is eval function in javascript?
 
 The `eval()` function evaluates JavaScript code represented as a string. The string can be a JavaScript expression, variable, statement, or sequence of statements.
 
@@ -1831,7 +1833,7 @@ Warning: *Executing JavaScript from a string is an enormous security risk. It is
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 6.5. How do you check if a string starts with another string?
+## Q. How do you check if a string starts with another string?
 
 You can use `String.prototype.startsWith()` method to check if a string starts with another string or not. It is fully supported in all modern browsers.
 
@@ -1848,7 +1850,7 @@ console.log(str.startsWith("World")); // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 6.6. What are `replaceAll()`, `padStart()` and `padEnd()` string methods?
+## Q. What are `replaceAll()`, `padStart()` and `padEnd()` string methods?
 
 **1. String.prototype.replaceAll():**
 
@@ -1888,7 +1890,7 @@ console.log('42'.padEnd(5, '-'));   // '42---'
 
 <br/>
 
-## Q 7.1. Explain arrays in JavaScript?
+## Q. Explain arrays in JavaScript?
 
 JavaScript array is an object that represents a collection of similar type of elements. It can holds values (of any type) not particularly in named properties/keys, but rather in numerically indexed positions.
 
@@ -1939,7 +1941,7 @@ fruits.push("Grapes");  // Adds a new element (Grapes) to fruits
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.2. What are associative arrays in javascript?
+## Q. What are associative arrays in javascript?
 
 Associative arrays are basically objects in JavaScript where indexes are replaced by user-defined keys. They do not have a length property like a normal array and cannot be traversed using a normal for loop.
 
@@ -1982,7 +1984,7 @@ email = sakshi.memon@email.com
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.3. Calculate the length of the associative array?
+## Q. Calculate the length of the associative array?
 
 **Method 1:** Using `Object.keys().length`
 
@@ -2029,7 +2031,7 @@ Object.getOwnPropertyNames(employee).length; // Output 3
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.4. What is the difference between Array and Array of Objects in JavaScript?
+## Q. What is the difference between Array and Array of Objects in JavaScript?
 
 Objects represent a special data type that is mutable and can be used to store a collection of data (rather than just a single value). Arrays are a special type of variable that is also mutable and can also be used to store a list of values.
 
@@ -2084,7 +2086,7 @@ for (let key in employees) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.5. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]
+## Q. Explain array methods [ join(), pop(), push(), shift(), unshift(), concat(), map(), filter(), reduce(), reduceRight(), every(), some(), indexOf(), lastIndexOf(), find(), findIndex(), includes() ]
 
 **1. array.join()**:
 
@@ -2352,7 +2354,7 @@ console.log(numbers.findLastIndex(n => n > 10)); // Output: 4
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.6. What are the benefits of using spread syntax and how is it different from rest syntax?
+## Q. What are the benefits of using spread syntax and how is it different from rest syntax?
 
 Spread operator or Spread Syntax allow us to expand the arrays and objects into elements in the case of an array and key-value pairs in the case of an object.
 
@@ -2401,7 +2403,7 @@ The main difference between `rest` and `spread` is that the rest operator puts t
 |Spread Syntax           |  Rest Syntax                    |
 |------------------------|---------------------------------|
 |Spread operator as its name suggests it spreads or expands the content of the given element.| Rest Syntax is just the opposite of spread syntax it collects the data and stores that data in a variable which we can use further in our code.|
-|It expands an Array in form of elements, while in key-value pairs in the case of Objects. | It collects the data in the developer's desired format.|
+|It expands an Array in form of elements, while in key-value pairs in the case of Objects. | It collects the data in the developer\'s desired format.|
 |You may or may not use the strict mode inside the function containing the spread operator. | You can not use the strict mode inside function containing the rest operator.|
 |It will overwrite the identical properties inside two objects and replace the former with the latter. | It simply collects all properties and wraps them inside a container.|
 
@@ -2411,7 +2413,7 @@ The main difference between `rest` and `spread` is that the rest operator puts t
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.7. What is the difference between for..in and for..of?
+## Q. What is the difference between for..in and for..of?
 
 Both `for..of` and `for..in` statements iterate over lists; the values iterated on are different though, `for..in` returns a **list of keys** on the object being iterated, whereas `for..of` returns a **list of values** of the numeric properties of the object being iterated.  
 
@@ -2440,7 +2442,7 @@ for (let i of list) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.8. Can you give an example for destructuring an array?
+## Q. Can you give an example for destructuring an array?
 
 Destructuring is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables. That is, we can extract data from arrays and objects and assign them to variables.
 
@@ -2471,7 +2473,7 @@ console.log(b); // 10
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.9. What are default values in destructuring assignment?
+## Q. What are default values in destructuring assignment?
 
 A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment.  
 
@@ -2497,7 +2499,7 @@ console.log("k: " + k); // 6
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/ecstatic-drake-iq971p?file=/src/index.js)**
 
-## Q 7.10. When to use reduce(), map(), foreach() and filter() in JavaScript?
+## Q. When to use reduce(), map(), foreach() and filter() in JavaScript?
 
 **1. forEach():**  
 
@@ -2575,7 +2577,7 @@ console.log(sum); // Output: 60
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.11. How do you define JSON arrays?
+## Q. How do you define JSON arrays?
 
 JSON is an acronym for JavaScript Object Notation, and is "an open standard data interchange format".
 
@@ -2607,7 +2609,7 @@ console.log(employees[0].name) // Kabir Dixit
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.12. How to validate JSON Object in javascript?
+## Q. How to validate JSON Object in javascript?
 
 `JSON.parse()` function will use string and converts to JSON object and if it parses invalidate JSON data, it throws an exception ( **Uncaught SyntaxError: Unexpected string in JSON** ).
 
@@ -2631,7 +2633,7 @@ console.log(isValidJson("abc")); // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.13. What is the purpose JSON stringify?
+## Q. What is the purpose JSON stringify?
 
 When sending data to a web server, the data has to be in a string format. The `JSON.stringify()` method converts a JavaScript object or value to a JSON string format.
 
@@ -2645,7 +2647,7 @@ console.log(JSON.stringify(user)); // {"name":"Shashi Meda","email":"shashi.meda
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.14. How do you parse JSON string?
+## Q. How do you parse JSON string?
 
 When receiving the data from a web server, the data is always in a string format. But you can convert this string value to javascript object using `JSON.parse()` method.
 
@@ -2659,11 +2661,11 @@ console.log(JSON.parse(user));// {'name': 'Shashi Meda', 'email': 'shashi.meda@e
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.15. What is the purpose of compare function while sorting arrays?
+## Q. What is the purpose of compare function while sorting arrays?
 
 The purpose of the compare function is to define an alternative sort order. When the `sort()` function compares two values, it sends the values to the compare function, and sorts the values according to the returned (negative, zero, positive) value.
 
-If omitted, the array elements are converted to strings, then sorted according to each character's Unicode code point value.
+If omitted, the array elements are converted to strings, then sorted according to each character\'s Unicode code point value.
 
 ```js
 const numbers = [1, 2, 5, 3, 4];
@@ -2678,7 +2680,7 @@ console.log(numbers); // [5, 4, 3, 2, 1]
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.16. Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
+## Q. Can you describe the main difference between a `.forEach` loop and a `.map()` loop and why you would pick one versus the other?
 
 To understand the differences between the two, Let us look at what each function does.
 
@@ -2719,7 +2721,7 @@ The main difference between `.forEach` and `.map()` is that `.map()` returns a n
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.17. What is unshift() method in JavaScript?
+## Q. What is unshift() method in JavaScript?
 
 The `unshift()` method adds one or more elements to the beginning of an array and returns the new length of the array.
 
@@ -2738,7 +2740,7 @@ console.log(numbers); // [40, 50, 10, 20, 30]
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.18. What is a rest parameter?
+## Q. What is a rest parameter?
 
 The rest parameter is used to represent an indefinite number of arguments as an array. The important point here is only the function\'s last parameter can be a "rest parameter".
 
@@ -2764,7 +2766,7 @@ console.log(sum(10, 20, 30)); // 60
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.19. What happens if you do not use rest parameter as a last argument?
+## Q. What happens if you do not use rest parameter as a last argument?
 
 The rest parameter should be the last argument, as its job is to collect all the remaining arguments into an array.
 
@@ -2791,13 +2793,13 @@ SyntaxError: Rest element must be last element
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.20. What is difference between [] and new Array()?
+## Q. What is difference between [] and new Array()?
 
 `[]` and `new Array()` are two different ways of creating an array, but they are functionally equivalent.
 
 The primary difference between them is in how they are created and in their behavior when used with certain methods.
 
-`[]` is a shorthand for creating a new array. It is the preferred way to create an array in most cases, because it's more concise and easier to read. For example:
+`[]` is a shorthand for creating a new array. It is the preferred way to create an array in most cases, because it\'s more concise and easier to read. For example:
 
 ```js
 const myArray = []; // create a new empty array
@@ -2811,15 +2813,15 @@ const myOtherArray = new Array(3); // create a new array with a length of 3
 const myThirdArray = new Array("a", "b", "c"); // create a new array with three elements
 ```
 
-One potential pitfall of using `new Array()` is that it can be ambiguous when you pass a single argument to the constructor. For example, `new Array(3)` creates an array with a length of 3, but `new Array("3")` creates an array with a single element, the string "3". This is because the argument is treated as the value of the first element when it's a non-negative integer, but as the length of the array when it's a string or a negative integer.
+One potential pitfall of using `new Array()` is that it can be ambiguous when you pass a single argument to the constructor. For example, `new Array(3)` creates an array with a length of 3, but `new Array("3")` creates an array with a single element, the string "3". This is because the argument is treated as the value of the first element when it\'s a non-negative integer, but as the length of the array when it\'s a string or a negative integer.
 
-In summary, `[]` is the preferred way to create a new array in JavaScript, while `new Array()` is an alternative way that can be used when you need more control over the array's length or contents.
+In summary, `[]` is the preferred way to create a new array in JavaScript, while `new Array()` is an alternative way that can be used when you need more control over the array\'s length or contents.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 7.21. What are `Array.from()`, `Array.of()` and `Array.isArray()` methods?
+## Q. What are `Array.from()`, `Array.of()` and `Array.isArray()` methods?
 
 **1. Array.from():**
 
@@ -2870,7 +2872,7 @@ console.log(Array.isArray(new Array())); // true
 
 <br/>
 
-## Q 8.1. What is a RegExp object?
+## Q. What is a RegExp object?
 
 A regular expression is an object that describes a pattern of characters.
 
@@ -2902,7 +2904,7 @@ let pattern = new RegExp(/ab+c/, 'i') // constructor with regular expression lit
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 8.2. What are the string method available in regular expression?
+## Q. What are the string method available in regular expression?
 
 Regular expressions are patterns used to match character combinations in strings. In JavaScript, regular expressions are also objects. These patterns are used with the `exec()` and `test()` methods of `RegExp`, and with the `match()`, `matchAll()`, `replace()`, `replaceAll()`, `search()`, and `split()` methods of String.
 
@@ -2948,7 +2950,7 @@ console.log(res2); // null
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 8.3. What are modifiers in regular expression?
+## Q. What are modifiers in regular expression?
 
 Modifiers can be used to perform case-insensitive and global searches.
 
@@ -2994,7 +2996,7 @@ console.log(paragraph.match(pattern3)); // ["Lorem"]
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 8.4. What are regular expression patterns?
+## Q. What are regular expression patterns?
 
 Regular Expressions provided group of patterns in order to match characters. Basically they are categorized into 3 types,  
 
@@ -3061,7 +3063,7 @@ These are useful to define quantities
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 8.5. How do you search a string for a pattern?
+## Q. How do you search a string for a pattern?
 
 **1. Using test()** It searches a string for a pattern, and returns `true` or `false`, depending on the result.
 
@@ -3089,7 +3091,7 @@ re2.exec("How are you?"); // ["you"]
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 8.6. What is the purpose of exec method?
+## Q. What is the purpose of exec method?
 
 The purpose of exec method is similar to test method but it returns a founded text as an object instead of returning true/false.
 
@@ -3108,7 +3110,7 @@ console.log(pattern.exec("How are you?")); // ["you", index: 8, input: "How are 
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 8.7. How do you validate an email in javascript?
+## Q. How do you validate an email in javascript?
 
 The `test()` method returns `true` if there is a match in the string with the regex pattern. The regular expression (regex) describes a sequence of characters used for defining a search pattern
 
@@ -3141,7 +3143,7 @@ validateEmail(email2); // Not Valid
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 8.8. How do you detect a mobile browser using regexp?
+## Q. How do you detect a mobile browser using regexp?
 
 You can detect mobile browser by simply running through a list of devices and checking if the useragent matches anything. This is an alternative solution for RegExp usage,
 
@@ -3171,7 +3173,7 @@ function detectMobile() {
 
 <br/>
 
-## Q 9.1. What are the benefits of using arrow function over es5 function?
+## Q. What are the benefits of using arrow function over es5 function?
 
 Arrows is a new syntax for functions, which brings several benefits:
 
@@ -3233,7 +3235,7 @@ console.log(result); // 314
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.2. What is the benefit of using the arrow syntax for a method in a constructor?
+## Q. What is the benefit of using the arrow syntax for a method in a constructor?
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can\'t change after that. So, when the constructor is used to create a new object, `this` will always refer to that object.
 
@@ -3271,7 +3273,7 @@ sayNameFromWindow2(); // John
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.3. Difference between `Function`, `Method` and `Constructor` calls in JavaScript?
+## Q. Difference between `Function`, `Method` and `Constructor` calls in JavaScript?
 
 **1. Functions:** The simplest usages of function call:
 
@@ -3314,7 +3316,7 @@ Unlike function calls and method calls, a constructor call `new Employee('Drishy
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.4. When you should not use arrow functions in ES6?
+## Q. When you should not use arrow functions in ES6?
 
 An arrow function is a shorter syntax for a function expression and does not have its own **this, arguments, super, or new.target**. These function are best suited for non-method functions, and they cannot be used as constructors.
 
@@ -3387,7 +3389,7 @@ const concat = (separator) => {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.5. What are the properties of function objects in javascript?
+## Q. What are the properties of function objects in javascript?
 
 **JavaScript function objects** are used to define a piece of JavaScript code. This code can be called within a JavaScript code as and when required.
 
@@ -3406,7 +3408,7 @@ const concat = (separator) => {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.6. What is a first class function?
+## Q. What is a first class function?
 
 In javaScript, functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function **first-class function** in JavaScript.
 
@@ -3474,7 +3476,7 @@ We are using double parentheses `()()` to invoke the returned function as well.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.7. What is a higher order function?
+## Q. What is a higher order function?
 
 A Higher-Order function is a function that receives a function as an argument or returns the function as output.
 
@@ -3529,7 +3531,7 @@ console.log("Sum: " + sum); // 60
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.8. What is a unary function?
+## Q. What is a unary function?
 
 Unary function (i.e. monadic) is a function that accepts exactly one argument. It stands for single argument accepted by a function.
 
@@ -3546,7 +3548,7 @@ console.log(unaryFunction(10)); // 20
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.9. What is currying function?
+## Q. What is currying function?
 
 Currying is the process of taking a function with multiple arguments and turning it into a sequence of functions each with only a single argument.
 
@@ -3578,7 +3580,7 @@ console.log(addCurry(20)(20)(20)); // 60
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.10. What is a pure function?
+## Q. What is a pure function?
 
 Pure functions are functions that accept an input and returns a value without modifying any data outside its scope(Side Effects). Its output or return value must depend on the input/arguments and pure functions must return a value.
 
@@ -3617,14 +3619,14 @@ A function must pass two tests to be considered **pure**:
 
 * **Predictable**: It produces a predictable output for the same inputs.
 * **Readable**: Anyone reading the function as a standalone unit can understand its purpose completely.
-* **Reusable**: Can reuse the function at multiple places of the source code without altering its and the caller's behavior.
+* **Reusable**: Can reuse the function at multiple places of the source code without altering its and the caller\'s behavior.
 * **Testable**: We can test it as an independent unit.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.11. What is memoization in JavaScript?
+## Q. What is memoization in JavaScript?
 
 Memoization is a programming technique which attempts to increase a function\'s performance by **caching** its previously computed results.  
 
@@ -3661,7 +3663,7 @@ console.log(sum(10)); // Fetching from cache: 20
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.12. What is an arguments object?
+## Q. What is an arguments object?
 
 The arguments object is an Array-like object ( `arguments` ) accessible inside functions that contains the values of the arguments passed to that function.
 
@@ -3689,7 +3691,7 @@ sum(10, 20, 30); // returns 60
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.13. What is the way to find the number of parameters expected by a function?
+## Q. What is the way to find the number of parameters expected by a function?
 
 The **length** property indicates the number of parameters expected by the function.
 
@@ -3709,7 +3711,7 @@ console.log(fun2.length); // 2
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.14. What is the difference between Call, Apply and Bind?
+## Q. What is the difference between Call, Apply and Bind?
 
 **1. Call:** invokes the function and allows you to pass in arguments one by one.
 
@@ -3768,7 +3770,7 @@ sayEmployee2("Hello"); // Hello Aarush Krishna
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.15. What is bind method in javascript?
+## Q. What is bind method in javascript?
 
 The `bind()` method creates a new function, when invoked, has the `this` sets to a provided value. The `bind()` method allows an object to borrow a method from another object without making a copy of that method. This is known as function **borrowing** in JavaScript.
 
@@ -3801,7 +3803,7 @@ console.log(fullName()); // Vasuda Sahota
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.16. What is an anonymous function?
+## Q. What is an anonymous function?
 
 An anonymous function is a function without a name. Anonymous functions are commonly assigned to a variable name or used as a callback function.
 
@@ -3849,7 +3851,7 @@ add(10, 20); // 30
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.17. Explain the difference between `function foo() {}` and `var foo = function() {}`?
+## Q. Explain the difference between `function foo() {}` and `var foo = function() {}`?
 
 **1. Function Declaration:**
 
@@ -3882,7 +3884,7 @@ console.log(typeof foo);     // undefined
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.18. When to use function declarations and expressions in JavaScript?
+## Q. When to use function declarations and expressions in JavaScript?
 
 **Function Declarations:**
 
@@ -3927,7 +3929,7 @@ There are several different ways that function expressions become more useful th
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.19. What is the difference between a method and a function in javascript?
+## Q. What is the difference between a method and a function in javascript?
 
 **1. Function:**
 
@@ -3975,7 +3977,7 @@ Here `employee` is an object and `getName` is a method which is associated with 
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.20. What is Function binding?
+## Q. What is Function binding?
 
 Function binding ( `.bind()` ) is a method on the prototype of all functions in JavaScript. It allows to create a new function from an existing function, change the new function\'s `this` context, and provide any arguments you want the new function to be called with. The arguments provided to `bind` will precede any arguments that are passed to the new function when it is called.
 
@@ -4006,7 +4008,7 @@ console.log(getName()); // Alisha Chhabra
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.21. Explain how `this` works in JavaScript?
+## Q. Explain how `this` works in JavaScript?
 
 The `this` keyword refers to an `object`. Which object depends on how this is being invoked (used or called). The `this` keyword refers to different objects depending on how it is used.
 
@@ -4035,7 +4037,7 @@ const person = {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.22. What is generator in JS?
+## Q. What is generator in JS?
 
 **Generator-Function:**
 
@@ -4080,11 +4082,11 @@ gen.next().value; // 30
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.23. Compare Async-Await and Generators usage to achive same functionality?
+## Q. Compare Async-Await and Generators usage to achive same functionality?
 
 **1. Generators/Yield:**
 
-Generators are objects created by generator functions — functions with an * (asterisk) next to their name. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator's caller. It can be thought of as a generator-based version of the return keyword.
+Generators are objects created by generator functions — functions with an * (asterisk) next to their name. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator\'s caller. It can be thought of as a generator-based version of the return keyword.
 
 ```js
 // Generator function
@@ -4146,7 +4148,7 @@ asyncFunction();
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.24. How do you compare two date objects?
+## Q. How do you compare two date objects?
 
 Two dates can be compared by converting them into numeric values using `date.getTime()` method to correspond to their time. Also,
 the relational operators `<`, `<=`, `>`, `>=` can be used to compare JavaScript dates.
@@ -4178,7 +4180,7 @@ console.log(d3 < d4); // true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.25. What are closures?
+## Q. What are closures?
 
 A closure is the combination of a function and the lexical environment within which that function was declared. i.e, it is an inner function that has access to the outer or enclosing function\'s variables.
 
@@ -4246,7 +4248,7 @@ fun2();
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.26. What is callback() function in javascript?
+## Q. What is callback() function in javascript?
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 
@@ -4275,7 +4277,7 @@ The above example is a synchronous callback, as it is executed immediately.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.27. How to avoid callback hell in javascript?
+## Q. How to avoid callback hell in javascript?
 
 **Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.  
 
@@ -4306,7 +4308,7 @@ doSomething(param1, param2, function(err, paramx){
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.28. How do you encode an URL?
+## Q. How do you encode an URL?
 
 The encodeURI() function is used to encode complete URI which has special characters except (`,`, `/`, `?`, `:`, `@`, `&`, `=`, `+`, `$`, `#`) characters.
 
@@ -4321,7 +4323,7 @@ console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.29. How do you decode an URL?
+## Q. How do you decode an URL?
 
 The decodeURI() function is used to decode a Uniform Resource Identifier (URI) previously created by encodeURI().
 
@@ -4341,7 +4343,7 @@ try {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.30. How function overloading works in JavaScript?
+## Q. How function overloading works in JavaScript?
 
 Function overloading refers to the ability to define multiple functions with the same name but with different parameters. In many programming languages, the function to be executed is determined at compile time based on the parameters provided. However, in JavaScript, function overloading does not work in the same way because JavaScript functions can be called with any number and type of arguments.
 
@@ -4369,7 +4371,7 @@ myFunction("Bob", "Charlie"); // output: "Hello Bob and Charlie"
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 9.31. What is an IIFE (Immediately Invoked Function Expression)?
+## Q. What is an IIFE (Immediately Invoked Function Expression)?
 
 An **IIFE** (Immediately Invoked Function Expression) is a JavaScript function that is defined and executed immediately after its creation. It creates a private scope so that variables inside it do not pollute the global scope.
 
@@ -4401,8 +4403,8 @@ console.log(typeof message); // 'undefined' — private to the IIFE
 **Use cases:**
 
 * **Avoid global namespace pollution** — keeps variables local
-* **Module pattern** — expose only what's needed through the return value
-* **Initialization code** — logic that runs once and doesn't need to be callable later
+* **Module pattern** — expose only what\'s needed through the return value
+* **Initialization code** — logic that runs once and doesn\'t need to be callable later
 
 ```js
 // Counter using IIFE
@@ -4425,11 +4427,233 @@ console.log(counter.value());     // 1
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q. What is recursion in JavaScript?
+
+**Recursion** is a technique in which a function calls itself until it reaches a base case (a condition that stops further calls). Every recursive function must have a base case to avoid infinite loops and stack overflow errors.
+
+**Example 01:** Factorial
+
+```js
+function factorial(n) {
+  if (n <= 1) return 1;        // base case
+  return n * factorial(n - 1); // recursive call
+}
+
+console.log(factorial(5)); // 120
+console.log(factorial(0)); // 1
+```
+
+**Example 02:** Fibonacci
+
+```js
+function fibonacci(n) {
+  if (n <= 1) return n;
+  return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+console.log(fibonacci(7)); // 13
+```
+
+**Example 03:** Flatten a nested array
+
+```js
+function flattenArray(arr) {
+  return arr.reduce((acc, val) =>
+    Array.isArray(val) ? acc.concat(flattenArray(val)) : acc.concat(val),
+  []);
+}
+
+console.log(flattenArray([1, [2, [3, [4]], 5]])); // [1, 2, 3, 4, 5]
+```
+
+*Note: For deeply nested structures, iterative solutions with an explicit stack are preferred over recursion to avoid stack-overflow errors.*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are nested functions in JavaScript?
+
+A **nested function** is a function defined inside another function. The inner function has access to the outer function\'s variables and parameters through **closure**, but the outer function cannot access the inner function\'s variables.
+
+**Example:**
+
+```js
+function outerFunction(outerValue) {
+  const outerVar = 'I am outer';
+
+  function innerFunction(innerValue) {
+    // inner can access outer\'s scope
+    console.log(outerVar);       // 'I am outer'
+    console.log(outerValue);     // passed argument
+    console.log(innerValue);     // inner argument
+  }
+
+  innerFunction('I am inner');
+}
+
+outerFunction('hello');
+```
+
+**Use case — private helper functions:**
+
+```js
+function processOrder(order) {
+  function validate(o) {
+    return o.quantity > 0 && o.price > 0;
+  }
+
+  function calculateTotal(o) {
+    return o.quantity * o.price;
+  }
+
+  if (!validate(order)) throw new Error('Invalid order');
+  return calculateTotal(order);
+}
+
+console.log(processOrder({ quantity: 3, price: 15 })); // 45
+```
+
+The inner helpers `validate` and `calculateTotal` are private to `processOrder` and not accessible from outside.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are side effects in JavaScript functions?
+
+A **side effect** is any observable change that a function makes to the state outside its own scope — such as modifying a global variable, mutating an argument, writing to the DOM, or making a network request.
+
+**Functions with side effects:**
+
+```js
+let count = 0;
+
+function increment() {
+  count++; // modifies external state — side effect
+}
+
+increment();
+console.log(count); // 1
+```
+
+**Pure function (no side effects):**
+
+```js
+function add(a, b) {
+  return a + b; // no external mutation, same input always gives same output
+}
+```
+
+**Common sources of side effects:**
+
+| Source | Example |
+|--------|---------|
+| Mutating arguments | `arr.push(item)` inside a function |
+| Global state change | Modifying `window` or module-level variables |
+| I/O operations | `console.log`, network calls, file writes |
+| DOM manipulation | `document.getElementById('x').textContent = '...'` |
+
+**Why it matters:** Functions with side effects are harder to test, reason about, and reuse. Functional programming favors isolating side effects to the edges of a system while keeping the core logic pure.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is point-free style in JavaScript?
+
+**Point-free style** (also called *tacit programming*) is a way of defining functions without explicitly mentioning the arguments they operate on. Instead, functions are composed of other functions using combinators like `map`, `filter`, `reduce`, or a `compose`/`pipe` utility.
+
+**Without point-free:**
+
+```js
+const numbers = [1, 2, 3, 4, 5];
+
+// explicitly names the argument n
+const doubled = numbers.map(n => n * 2);
+```
+
+**With point-free:**
+
+```js
+const double = x => x * 2;
+
+// double is passed directly — no explicit argument mentioned
+const doubled = numbers.map(double);
+```
+
+**More complex example:**
+
+```js
+const trim = str => str.trim();
+const toUpperCase = str => str.toUpperCase();
+const words = str => str.split(' ');
+
+// Point-free pipeline using a pipe utility
+const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x);
+
+const process = pipe(trim, toUpperCase, words);
+
+console.log(process('  hello world  ')); // ['HELLO', 'WORLD']
+```
+
+Point-free style leads to cleaner, more declarative code but can reduce readability when overused.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is function composition in JavaScript?
+
+**Function composition** is the process of combining two or more functions where the output of one function becomes the input of the next. It is a core concept in functional programming.
+
+**compose** applies functions right-to-left; **pipe** applies them left-to-right.
+
+**compose:**
+
+```js
+const compose = (...fns) => x => fns.reduceRight((v, f) => f(v), x);
+
+const add10  = x => x + 10;
+const double = x => x * 2;
+const square = x => x * x;
+
+// square( double( add10(5) ) ) => square(double(15)) => square(30) => 900
+const transform = compose(square, double, add10);
+console.log(transform(5)); // 900
+```
+
+**pipe (left-to-right):**
+
+```js
+const pipe = (...fns) => x => fns.reduce((v, f) => f(v), x);
+
+// add10(5) => double(15) => square(30) => 900
+const transform = pipe(add10, double, square);
+console.log(transform(5)); // 900
+```
+
+**Real-world example:**
+
+```js
+const trim       = str => str.trim();
+const toLower    = str => str.toLowerCase();
+const removeSpaces = str => str.replace(/\s+/g, '-');
+
+const slugify = pipe(trim, toLower, removeSpaces);
+
+console.log(slugify('  Hello World  ')); // 'hello-world'
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 10. EVENTS
 
 <br/>
 
-## Q 10.1. What is event handling in javascript?
+## Q. What is event handling in javascript?
 
 The change in the state of an object is known as an **Event**. In html, there are various events which represents that some activity is performed by the user or by the browser.
 
@@ -4490,7 +4714,7 @@ Some of the HTML event handlers are:
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.2. How to create and trigger events in javascript?
+## Q. How to create and trigger events in javascript?
 
 Events can be handled either through `addEventListener()` method or we can trigger events on individual components by defining specific JavaScript functions.
 
@@ -4526,7 +4750,7 @@ document.addEventListener(event, function, phase)
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.3. What is an event delegation?
+## Q. What is an event delegation?
 
 Event Delegation is basically a pattern to handle events efficiently. Instead of adding an event listener to each and every similar element, we can add an event listener to a parent element and call an event on a particular target using the `event.target` property of the event object.
 
@@ -4555,7 +4779,7 @@ Event Delegation is basically a pattern to handle events efficiently. Instead of
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.4. What is an event flow?
+## Q. What is an event flow?
 
 Event flow is the order in which event is received on the web page. When you click an element that is nested in various other elements, before your click actually reaches its destination, or target element, it must trigger the click event each of its parent elements first, starting at the top with the global window object.
 
@@ -4572,7 +4796,7 @@ There are two ways of event flow
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.5. What is event bubbling?
+## Q. What is event bubbling?
 
 Event bubbling is a type of event propagation where the event first triggers on the innermost target element, and then successively triggers on the ancestors (parents) of the target element in the same nesting hierarchy till it reaches the outermost DOM element.
 
@@ -4598,7 +4822,7 @@ Event bubbling is a type of event propagation where the event first triggers on 
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.6. What is event capturing?
+## Q. What is event capturing?
 
 Event capturing is a type of event propagation where the event is first captured by the outermost element and then successively triggers on the descendants (children) of the target element in the same nesting hierarchy till it reaches the inner DOM element.
 
@@ -4633,7 +4857,7 @@ Event capturing is a type of event propagation where the event is first captured
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.7. How do you submit a form using JavaScript?
+## Q. How do you submit a form using JavaScript?
 
 Generally, a form is submitted when the user presses a submit button. JavaScript provides the form object that contains the `submit()` method. Use the "id" of the form to get the form object.
 
@@ -4656,7 +4880,7 @@ function handleSubmit() {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.8. What is the purpose of void(0)?
+## Q. What is the purpose of void(0)?
 
 The `void(0)` is used to prevent the page from refreshing. This will be helpful to eliminate the unwanted side-effect, because it will return the `undefined` primitive value.
 
@@ -4674,7 +4898,7 @@ It is commonly used for HTML document that uses `href="JavaScript:void(0);"` wit
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.9. What is the use of preventDefault method?
+## Q. What is the use of preventDefault method?
 
 The `preventDefault()` method is used to prevent the browser from executing the default action of the selected element. It can prevent the user from processing the request by clicking the link.
 
@@ -4692,7 +4916,7 @@ document.getElementById("link").addEventListener("click", function(event) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.10. What is the use of stopPropagation method?
+## Q. What is the use of stopPropagation method?
 
 The `stopPropagation` method is used to stop the event from bubbling up the event chain.
 
@@ -4720,7 +4944,7 @@ function secondFunc() {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.11. What is difference between stoppropagation, stopimmediatepropagation and preventdefault in javascript?
+## Q. What is difference between stoppropagation, stopimmediatepropagation and preventdefault in javascript?
 
 **1. event.preventDefault()**:
 
@@ -4740,7 +4964,7 @@ This method is used to stop the browser\'s default behavior when performing an a
 
 <script>
   document.querySelector("#id-checkbox").addEventListener("click", function(event) {
-  document.getElementById("output-box").innerHTML += "Sorry! <code>preventDefault()</code> won't let you check this!<br>";
+  document.getElementById("output-box").innerHTML += "Sorry! <code>preventDefault()</code> won\'t let you check this!<br>";
   event.preventDefault();
 }, false);
 </script>
@@ -4777,7 +5001,7 @@ As a result, clicking on the div element will:
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.12. What is the use of setTimeout?
+## Q. What is the use of setTimeout?
 
 The `setTimeout()` method is used to call a function or evaluates an expression after a specified number of milliseconds.
 
@@ -4799,7 +5023,7 @@ setTimeout(() => {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.13. What is the use of setInterval?
+## Q. What is the use of setInterval?
 
 The `setInterval()` method is used to call a function or evaluates an expression at specified intervals (in milliseconds). The `setInterval()` method continues calling the function until `clearInterval()` is called, or the window is closed.
 
@@ -4824,7 +5048,7 @@ function myTimer() {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.14. What is the purpose of clearTimeout method?
+## Q. What is the purpose of clearTimeout method?
 
 The `clearTimeout()` function is used in javascript to clear the timeout which has been set by `setTimeout()` function before that. i.e, The return value of setTimeout() function is stored in a variable and it\'s passed into the `clearTimeout()` function to clear the timer.
 
@@ -4861,7 +5085,7 @@ Stop
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.15. What is the purpose of clearInterval method?
+## Q. What is the purpose of clearInterval method?
 
 The `clearInterval()` function is used in javascript to clear the interval which has been set by `setInterval()` function. i.e, The return value returned by setInterval() function is stored in a variable and it\'s passed into the clearInterval() function to clear the interval.
 
@@ -4898,9 +5122,62 @@ Stop
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 10.16. What is the difference between document load and DOMContentLoaded events?
+## Q. What is the difference between document load and DOMContentLoaded events?
 
 The `DOMContentLoaded` event is fired when the initial HTML document has been completely loaded and parsed, without waiting for assets(stylesheets, images, and subframes) to finish loading. Whereas The load event is fired when the whole page has loaded, including all dependent resources(stylesheets, images).
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is `requestAnimationFrame()` in JavaScript?
+
+`requestAnimationFrame()` is a browser API that tells the browser to call a specified function before the next repaint. It is the recommended way to create smooth animations and visual updates because it synchronizes with the browser\'s refresh rate (typically 60 fps), avoids unnecessary renders when the tab is hidden, and does not block the main thread.
+
+**Syntax:**
+
+```js
+const id = requestAnimationFrame(callback);
+cancelAnimationFrame(id); // cancel if needed
+```
+
+**Example — Smooth animation loop:**
+
+```js
+let start = null;
+const box = document.getElementById('box');
+
+function animate(timestamp) {
+  if (!start) start = timestamp;
+
+  const elapsed = timestamp - start;
+  const position = Math.min(elapsed / 10, 500); // move up to 500px over time
+
+  box.style.transform = `translateX(${position}px)`;
+
+  if (position < 500) {
+    requestAnimationFrame(animate); // schedule next frame
+  }
+}
+
+requestAnimationFrame(animate);
+```
+
+**Comparison — `requestAnimationFrame` vs `setTimeout`:**
+
+| | `requestAnimationFrame` | `setTimeout` |
+|--|------------------------|-------------|
+| Tied to display refresh rate | ✅ Yes (usually 60 fps) | ❌ No |
+| Paused in background tabs | ✅ Yes (saves battery) | ❌ No |
+| Ideal for animations | ✅ | ⚠️ Can cause jank |
+| Precision | High | Lower (can drift) |
+
+**Use cases:**
+
+* Smooth CSS/canvas animations
+* Game loops
+* Scroll-driven effects
+* Any DOM update that should stay in sync with the browser\'s paint cycle
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -4910,7 +5187,7 @@ The `DOMContentLoaded` event is fired when the initial HTML document has been co
 
 <br/>
 
-## Q 11.1. What are the possible ways to create objects in JavaScript?
+## Q. What are the possible ways to create objects in JavaScript?
 
 **1. Object Constructor**:
 
@@ -4991,7 +5268,7 @@ let object = new function() {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.2. What are the recommendations to create new object?
+## Q. What are the recommendations to create new object?
 
 It is recommended to avoid creating new objects using `new Object()`. Instead you can initialize values based on it is type to create the objects.
 
@@ -5019,7 +5296,7 @@ let obj7 = function(){};
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.3. What are the different ways to access object properties?
+## Q. What are the different ways to access object properties?
 
 There are 3 possible ways for accessing the property of an object.
 
@@ -5045,7 +5322,7 @@ objectName[expression]
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.4. How to check if an object is an array or not?
+## Q. How to check if an object is an array or not?
 
 The `Array.isArray()` method determines whether an object is an array. This function returns `true` if the object is an array, and `false` if not.
 
@@ -5075,7 +5352,7 @@ The `Array.isArray()` method determines whether an object is an array. This func
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.5. Can you give an example for destructuring an object?
+## Q. Can you give an example for destructuring an object?
 
 Destructuring is an expression available in ES6 which enables a succinct and convenient way to extract values of Objects or Arrays and place them into distinct variables.
 
@@ -5101,7 +5378,7 @@ console.log(job); // Developer
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.6. How do you clone an object in JavaScript?
+## Q. How do you clone an object in JavaScript?
 
 Using the object spread operator `...`, the object own enumerable properties can be copied into the new object. This creates a shallow clone of the object.
 
@@ -5195,7 +5472,7 @@ John
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.7. How do you copy properties from one object to other?
+## Q. How do you copy properties from one object to other?
 
 You can use `Object.assign()` method which is used to copy the values and properties from one or more source objects to a target object.  It returns the target object which has properties and values copied from the target object. The syntax would be as below,
 
@@ -5221,7 +5498,7 @@ As observed in the above code, there is a common property(`b`) from source to ta
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.8. What is the difference between native, host and user objects?
+## Q. What is the difference between native, host and user objects?
 
 **1. Native Objects**:
 
@@ -5239,7 +5516,7 @@ Are objects defined in the javascript code. For example, User object created for
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.9. What are the properties of Intl object?
+## Q. What are the properties of Intl object?
 
 The `Intl` object is the namespace for the ECMAScript Internationalization API that provides language number formatting, string comparison, and date/time formatting.
 
@@ -5387,7 +5664,7 @@ console.log(dtfMyNewLocale2.format(now2)); // 5/17/2022
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.10. How do you convert date to another timezone in javascript?
+## Q. How do you convert date to another timezone in javascript?
 
 The `.toLocaleString()` method to convert date in one timezone to another. 
 
@@ -5401,7 +5678,7 @@ console.log(event.toLocaleString('en-GB', { timeZone: 'UTC' })); //29/06/2019, 0
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.11. Explain the difference between mutable and immutable objects?
+## Q. Explain the difference between mutable and immutable objects?
 
 A mutable object is an object whose state can be modified after it is created. An immutable object is an object whose state cannot be modified after it is created.
 
@@ -5411,7 +5688,7 @@ In JavaScript numbers, strings, null, undefined and Booleans are primitive types
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.12. How to create immutable object in javascript
+## Q. How to create immutable object in javascript
 
 In JavaScript, some built-in types (numbers, strings) are immutable, but custom objects are generally mutable. Some built-in immutable JavaScript objects are `Math`, `Date`.
 
@@ -5517,7 +5794,7 @@ console.log(myCar.batteryLife); // 300
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.13. How do you determine whether object is frozen or not?
+## Q. How do you determine whether object is frozen or not?
 
 `Object.isFrozen()` method is used to determine if an object is frozen or not. An object is frozen if all of the below conditions hold true,
 
@@ -5538,7 +5815,7 @@ console.log(Object.isFrozen(object));
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.14. How can you achieve immutability in your own code?
+## Q. How can you achieve immutability in your own code?
 
 For "mutating" objects, use the spread operator, `Object.assign`, `Array.concat()`, etc., to create new objects instead of mutate the original object.
 
@@ -5561,7 +5838,7 @@ const alienAditya = { ...aditya, race: "alien" }; // {race: "alien", name: "Adit
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.15. What is the drawback of declaring methods directly in JavaScript objects?
+## Q. What is the drawback of declaring methods directly in JavaScript objects?
 
 One of the drawback of declaring methods directly in JavaScript objects is that they are very memory inefficient.  When you do that, a new copy of the method is created for each instance of an object.
 
@@ -5580,7 +5857,7 @@ const Employee = function (name, company, salary)
   };
 };
 
-// we can also create method in Employee's prototype:
+// we can also create method in Employee\'s prototype:
 Employee.prototype.formatSalary2 = function () {
   return "$ " + this.salary;
 };
@@ -5598,7 +5875,7 @@ Here, each instance variable `emp1`, `emp2` has own copy of `formatSalary` metho
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.16. How do you compare Object and Map?
+## Q. How do you compare Object and Map?
 
 **1. Object:**
 
@@ -5669,7 +5946,7 @@ myMap.get(function () {}); // undefined, because keyFunc !== function () {}
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.17. What is shallow copy and deep copy in javascript?
+## Q. What is shallow copy and deep copy in javascript?
 
 **1. Shallow Copy:**
 
@@ -5726,7 +6003,7 @@ console.log(newObj); // { a: 10, b: { c: 20 } }
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.18. Write a function called deepClone which takes an object and creates a object copy of it?
+## Q. Write a function called deepClone which takes an object and creates a object copy of it?
 
 **Modern approach — using `structuredClone()` (ES2022):**
 
@@ -5772,7 +6049,7 @@ function deepClone(object) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.19. Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object?
+## Q. Write a function called `Clone` which takes an object and creates a object copy of it but not copy deep property of object?
 
 ```js
   var objectLit = {foo : 'Bar'};
@@ -5797,7 +6074,7 @@ function Clone(object){
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.20. How do you check if a key exists in an object?
+## Q. How do you check if a key exists in an object?
 
 **1. Using `in` operator:**
 
@@ -5814,7 +6091,7 @@ and If you want to check if a key doesn\'t exist, remember to use parenthesis,
 ```js
 const obj = { not_key: undefined };
 
-console.log(!("key" in obj)); // true if "key" doesn't exist in object
+console.log(!("key" in obj)); // true if "key" doesn\'t exist in object
 ```
 
 **2. Using `hasOwnProperty()` method:**
@@ -5844,7 +6121,7 @@ console.log(Object.hasOwn(obj, "missing"));  // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.21. How do you loop through or enumerate javascript object?
+## Q. How do you loop through or enumerate javascript object?
 
 You can use the `for-in` loop to loop through javascript object. You can also make sure that the key you get is an actual property of an object, and doesn\'t come from the prototype using `Object.hasOwn()` (ES2022) or the older `hasOwnProperty()` method.
 
@@ -5866,7 +6143,7 @@ for (const key in object) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.22. How do you test for an empty object?
+## Q. How do you test for an empty object?
 
 **a. Using Object keys(ECMA 5+):** You can use object keys length along with constructor type.
 
@@ -5884,7 +6161,82 @@ Object.entries(obj).length === 0 && obj.constructor === Object
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.23. What is a proxy object?
+## Q. What is prototype pollution in JavaScript?
+
+**Prototype pollution** is a security vulnerability where an attacker is able to inject properties into a JavaScript object\'s prototype (`Object.prototype`), causing those properties to appear on **every** object in the application. This can lead to denial-of-service, property injection, or remote code execution.
+
+**How it happens:**
+
+Many utility functions (deep merge, clone, set-by-path) use bracket-notation assignment with user-controlled keys. If the key is `__proto__`, `constructor`, or `prototype`, the attacker can modify `Object.prototype`.
+
+```js
+// Vulnerable deep merge
+function merge(target, source) {
+  for (const key in source) {
+    if (typeof source[key] === 'object') {
+      target[key] = {};
+      merge(target[key], source[key]);
+    } else {
+      target[key] = source[key];
+    }
+  }
+}
+
+const malicious = JSON.parse('{"__proto__": {"isAdmin": true}}');
+merge({}, malicious);
+
+// Now EVERY object has isAdmin: true
+const user = {};
+console.log(user.isAdmin); // true  ← prototype polluted!
+```
+
+**How to prevent it:**
+
+```js
+// 1. Use Object.create(null) for config/merge targets — no prototype to pollute
+const safe = Object.create(null);
+
+// 2. Check for dangerous keys before assignment
+function safeMerge(target, source) {
+  for (const key of Object.keys(source)) {
+    if (key === '__proto__' || key === 'constructor' || key === 'prototype') {
+      continue; // skip dangerous keys
+    }
+    if (typeof source[key] === 'object' && source[key] !== null) {
+      target[key] = target[key] || {};
+      safeMerge(target[key], source[key]);
+    } else {
+      target[key] = source[key];
+    }
+  }
+}
+
+// 3. Use Object.freeze(Object.prototype) in security-critical code
+Object.freeze(Object.prototype);
+
+// 4. Use structuredClone() or JSON.parse(JSON.stringify()) for deep cloning
+// instead of custom recursive merges
+
+// 5. Use well-maintained libraries (lodash >= 4.17.21 patches this)
+```
+
+**Detection:**
+
+Use `Object.hasOwn(obj, key)` instead of `key in obj` to avoid reading polluted prototype properties:
+
+```js
+// Vulnerable
+if ('isAdmin' in user) { ... }     // reads prototype chain
+
+// Safe
+if (Object.hasOwn(user, 'isAdmin')) { ... }  // own property only
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is a proxy object?
 
 The `Proxy` object allows to create an object that can be used in place of the original object, but which may redefine fundamental `Object` operations like getting, setting, and defining properties. 
 
@@ -5954,7 +6306,7 @@ There are many real-world applications for Proxies
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.24. What is Reflection in JavaScript?
+## Q. What is Reflection in JavaScript?
 
 Reflection is defined as the ability of a program to inspect and modify its structure and behavior at runtime. `Reflect` is not a function object. `Reflect` helps with forwarding default operations from the handler to the target.
 
@@ -5980,7 +6332,7 @@ console.log(index); // 4
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.25. How do you display the current date in javascript?
+## Q. How do you display the current date in javascript?
 
 You can use `new Date()` to generate a new Date object containing the current date and time. 
 
@@ -6004,7 +6356,7 @@ document.write(today);
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.26. How do you add a key value pair in javascript?
+## Q. How do you add a key value pair in javascript?
 
 There are two possible solutions to add new properties to an object. Let us take a simple object to explain these solutions.
 
@@ -6031,7 +6383,7 @@ obj["key3"] = "value3";
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.27. How do you check whether an object can be extendable or not?
+## Q. How do you check whether an object can be extendable or not?
 
 The `Object.isExtensible()` method is used to determine if an object is extensible or not. i.e, Whether it can have new properties added to it or not.
 
@@ -6057,7 +6409,7 @@ console.log(Object.isExtensible(person)); // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.28. How to compare two objects in javascript?
+## Q. How to compare two objects in javascript?
 
 Objects are reference types so you can\'t just use `===` or `==` to compare 2 objects. One quick way to compare if 2 objects have the same key value, is using `JSON.stringify()`. Another way is using Lodash `.isEqual()` function.
 
@@ -6080,7 +6432,7 @@ _.isEqual(obj1, obj2); // true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.29. How do you get enumerable key and value pairs?
+## Q. How do you get enumerable key and value pairs?
 
 The `Object.entries()` method is used to return an array of a given object own enumerable string-keyed property [key, value] pairs, in the same order as that provided by a `for...in` loop. Let us see the functionality of object.entries() method in an example,
 
@@ -6102,7 +6454,7 @@ for (let [key, value] of Object.entries(object)) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.30. What is the main difference between Object.values and Object.entries method?
+## Q. What is the main difference between Object.values and Object.entries method?
 
 The `Object.values()` method\'s behavior is similar to `Object.entries()` method but it returns an array of values instead [key,value] pairs.
 
@@ -6122,7 +6474,7 @@ for (let value of Object.values(object)) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.31. How can you get the list of keys of any object?
+## Q. How can you get the list of keys of any object?
 
 You can use `Object.keys()` method which is used return an array of a given object\'s own property names, in the same order as we get with a normal loop. For example, you can get the keys of a user object,
 
@@ -6140,7 +6492,7 @@ console.log(Object.keys(user)); //['name', 'gender', 'age']
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.32. What is difference between array[] vs Object()?
+## Q. What is difference between array[] vs Object()?
 
 * `[]` is declaring an array.
 * `{}` is declaring an object.
@@ -6167,7 +6519,7 @@ An array is an object so it has all the same capabilities of an object plus a bu
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.33. What is difference between `{}` vs `new Object()`?
+## Q. What is difference between `{}` vs `new Object()`?
 
 **1. Object Literal Syntax (`{}`):**
 
@@ -6224,7 +6576,7 @@ In general, it is recommended to use object literal syntax (`{}`) for creating o
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 11.34. What is the `Object.fromEntries()` method?
+## Q. What is the `Object.fromEntries()` method?
 
 `Object.fromEntries()` transforms a list of key-value pairs (such as an array of `[key, value]` pairs or a `Map`) into a plain object. It is the inverse of `Object.entries()`.
 
@@ -6270,7 +6622,7 @@ console.log(doubled); // { apple: 3, banana: 1.5, cherry: 6 }
 
 <br/>
 
-## Q 12.1. What is the difference between window and document object?
+## Q. What is the difference between window and document object?
 
 **1. Window Object**: 
 
@@ -6291,8 +6643,8 @@ window.property_name;
 |document	        |Returns the Document object for the window.|
 |frames	          |Returns all window objects running in the window.|
 |history	        |Returns the History object for the window.|
-|innerHeight	    |Returns the height of the window's content area (viewport) including scrollbars|
-|innerWidth	      |Returns the width of a window's content area (viewport) including scrollbars|
+|innerHeight	    |Returns the height of the window\'s content area (viewport) including scrollbars|
+|innerWidth	      |Returns the width of a window\'s content area (viewport) including scrollbars|
 |localStorage	    |Allows to save key/value pairs in a web browser. Stores the data with no expiration date|
 |location	        |Returns the Location object for the window.|
 |navigator	      |Returns the Navigator object for the window.|
@@ -6329,7 +6681,7 @@ document.property_name;
 |---------------------|------------------------------------|
 |addEventListener()	  |Attaches an event handler to the document|
 |baseURI	            |Returns the absolute base URI of a document|
-|body	                |Sets or returns the document's body (the `<body>` element)|
+|body	                |Sets or returns the document\'s body (the `<body>` element)|
 |characterSet	        |Returns the character encoding for the document|
 |close()	            |Closes the output stream previously opened with document.open()|
 |cookie	              |Returns all name/value pairs of cookies in the document|
@@ -6372,7 +6724,7 @@ document.property_name;
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.2. How do you access history in javascript?
+## Q. How do you access history in javascript?
 
 The `window.history` object allows you to access the history stack of the browser. To navigate to a URL in the history, you use the `back()`, `forward()`, and `go()` methods. The `history.length` returns the number of URLs in the history stack.
 
@@ -6418,7 +6770,7 @@ history.length
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.3. How do you find operating system details?
+## Q. How do you find operating system details?
 
 The `window.navigator` object contains information about the visitor\'s browser os details. Some of the OS properties are avaialble under platform property,
 
@@ -6446,7 +6798,7 @@ VM87:8 Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.4. How do you detect a browser language preference?
+## Q. How do you detect a browser language preference?
 
 You can use navigator object to detect a browser language preference as below,
 
@@ -6462,7 +6814,7 @@ console.log(language);
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.5. What is BOM?
+## Q. What is BOM?
 
 The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It consists of the objects navigator, history, screen, location and document which are children of window. The Browser Object Model is not standardized and can change based on different browsers.
 
@@ -6474,7 +6826,7 @@ The Browser Object Model (BOM) allows JavaScript to "talk to" the browser. It co
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.6. How do you redirect new page in javascript?
+## Q. How do you redirect new page in javascript?
 
 To redirect to a new URL or page, you assign the new URL to the `location.href` property or use the `location.assign()` method. The `location.replace()` method does redirect to a new URL but does not create an entry in the history stack of the browser.
 
@@ -6492,7 +6844,7 @@ function redirect() {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.7. How to get the current url with javascript?
+## Q. How to get the current url with javascript?
 
 The `window.location` object can be used to get the current page address (URL) and to redirect the browser to a new page. You can also use `document.URL` for **read-only** purpose.
 
@@ -6522,7 +6874,7 @@ console.log('location.href', window.location.href); // Returns full URL
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.8. How to get query string values in javascript?
+## Q. How to get query string values in javascript?
 
 The `URLSearchParams()` provides an interface to work with query string parameters. The `has()` method of the `URLSearchParams()` determines if a parameter with a specified name exists.
 
@@ -6587,7 +6939,7 @@ for (const entry of urlParams.entries()) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.9. What is difference between window.frames, window.parent and window.top in JavaScript?
+## Q. What is difference between window.frames, window.parent and window.top in JavaScript?
 
 * **window.frames** – the collection of "children" windows (for nested frames).
 * **window.parent** – property returns the immediate parent of the current window
@@ -6597,7 +6949,7 @@ for (const entry of urlParams.entries()) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.10. What are the properties used to get size of window?
+## Q. What are the properties used to get size of window?
 
 **1. The screen size:**
 
@@ -6710,7 +7062,7 @@ document.onload = function ...
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.12. What is the difference between document load event and document domcontentloaded event?
+## Q. What is the difference between document load event and document domcontentloaded event?
 
 **1. DOMContentLoaded:**
 
@@ -6740,11 +7092,11 @@ document.addEventListener("load", function(e) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.13. What do you understand by Screen objects?
+## Q. What do you understand by Screen objects?
 
-* **window**: is the execution context and global object for that context's JavaScript
+* **window**: is the execution context and global object for that context\'s JavaScript
 * **document**: contains the DOM, initialized by parsing HTML
-* **screen**: The screen object contains information about the visitor's screen.
+* **screen**: The screen object contains information about the visitor\'s screen.
 
 
 | Property    | Description          |
@@ -6762,7 +7114,7 @@ document.addEventListener("load", function(e) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.14. How to change style of html element using javascript?
+## Q. How to change style of html element using javascript?
 
 Below is the syntax for manipulating the style property on an HTML element using JavaScript:
 
@@ -6800,7 +7152,7 @@ for (i = 0; i < x.length; i++) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.15. How do you print the contents of web page?
+## Q. How do you print the contents of web page?
 
 The window object provided print() method which is used to prints the contents of the current window. It opens Print dialog box which lets you choose between various printing options. 
 
@@ -6816,7 +7168,7 @@ The window object provided print() method which is used to prints the contents o
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.16. How do I modify the url without reloading the page?
+## Q. How do I modify the url without reloading the page?
 
 The `window.localtion.url` property will be helpful to modify the url but it reloads the page. HTML5 introduced the `history.pushState()` and `history.replaceState()` methods, which allow you to add and modify history entries, respectively. 
 
@@ -6830,7 +7182,7 @@ window.history.pushState('newPage', 'Title', '/newPage.html');
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.18. What is the difference between an attribute and a property?
+## Q. What is the difference between an attribute and a property?
 
 Attributes are defined on the HTML markup whereas properties are defined on the DOM. For example, the below HTML element has 2 attributes type and value,
 
@@ -6857,7 +7209,7 @@ console.log(input.value); // Good evening
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.19. What is the difference between firstChild and firstElementChild?
+## Q. What is the difference between firstChild and firstElementChild?
 
 **1. firstChild:**
 
@@ -6899,7 +7251,7 @@ let list = document.getElementById("myList").firstElementChild.innerHTML; // Cof
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.20. What is difference between document.getElementById() and document.querySelector()?
+## Q. What is difference between document.getElementById() and document.querySelector()?
 
 **1. document.getElementById():**
 
@@ -6931,7 +7283,7 @@ element = document.querySelectorAll(selectors);
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.21. Name the two functions that are used to create an HTML element dynamically?
+## Q. Name the two functions that are used to create an HTML element dynamically?
 
 In an HTML document, the `document.createElement()` method creates the HTML element specified by tagName.
 
@@ -7001,7 +7353,7 @@ function removeElement(elementId) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.22. What is difference between append() vs appendChild()? 
+## Q. What is difference between append() vs appendChild()? 
 
 * ParentNode.append() allows you to also append DOMString object, whereas Node.appendChild() only accepts Node objects.
 * ParentNode.append() has no return value, whereas Node.appendChild() returns the appended Node object.
@@ -7019,7 +7371,7 @@ document.getElementById("yourId").appendChild(p);
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.23. How to check if page is fully loaded using javascript?
+## Q. How to check if page is fully loaded using javascript?
 
 ```js
 if (document.readyState === 'complete') {
@@ -7030,7 +7382,7 @@ if (document.readyState === 'complete') {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 12.24. What is a web-storage event and its event handler?
+## Q. What is a web-storage event and its event handler?
 
 The StorageEvent is an event that fires when a storage area has been changed in the context of another document. Whereas onstorage property is an EventHandler for processing storage events.
 The syntax would be as below
@@ -7057,11 +7409,122 @@ if (typeof(Storage) !== "undefined") {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q. What is the difference between localStorage, sessionStorage, cookies, and IndexedDB?
+
+All four are browser-side storage mechanisms, but they differ in lifetime, scope, capacity, and use case.
+
+| Feature | `localStorage` | `sessionStorage` | Cookies | IndexedDB |
+|---------|--------------|----------------|---------|-----------|
+| **Lifetime** | Until explicitly cleared | Until tab/window closes | Configurable (session or expiry date) | Until explicitly deleted |
+| **Scope** | Origin (protocol + domain + port) | Origin + tab | Domain + path | Origin |
+| **Sent to server** | Never | Never | With every HTTP request | Never |
+| **Storage limit** | ~5–10 MB | ~5 MB | ~4 KB per cookie | Hundreds of MB |
+| **API type** | Synchronous | Synchronous | Synchronous | Asynchronous (event-based) |
+| **Data type** | Strings only | Strings only | Strings only | Structured data, blobs |
+| **Accessible in Service Worker** | No | No | No | Yes |
+
+**localStorage example:**
+
+```js
+// Persist across sessions
+localStorage.setItem('theme', 'dark');
+const theme = localStorage.getItem('theme'); // 'dark'
+localStorage.removeItem('theme');
+localStorage.clear();
+```
+
+**sessionStorage example:**
+
+```js
+// Data lives only for the tab\'s lifetime
+sessionStorage.setItem('formData', JSON.stringify({ step: 2 }));
+const formData = JSON.parse(sessionStorage.getItem('formData'));
+```
+
+**Cookie example:**
+
+```js
+// Set a cookie that expires in 7 days
+document.cookie = 'user=Alice; max-age=604800; path=/; Secure; SameSite=Strict';
+
+// Read all cookies
+console.log(document.cookie); // 'user=Alice'
+```
+
+**When to use which:**
+
+* `localStorage` — user preferences, theme, language (persistent, no server needed).
+* `sessionStorage` — multi-step form state, temporary auth tokens per tab.
+* `Cookies` — authentication tokens sent with every request, CSRF tokens, tracking (can be made `HttpOnly` for security).
+* `IndexedDB` — large structured datasets, offline apps, file/blob storage.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is the Intersection Observer API?
+
+The **Intersection Observer API** provides a way to asynchronously observe changes in the intersection of a target element with an ancestor element or the viewport. It is commonly used for lazy loading images, infinite scrolling, and triggering animations when elements come into view — all without scroll event listeners that can hurt performance.
+
+**Syntax:**
+
+```js
+const observer = new IntersectionObserver(callback, options);
+observer.observe(targetElement);
+```
+
+**Options:**
+
+| Option | Description | Default |
+|--------|-------------|---------|
+| `root` | Ancestor to use as viewport (`null` = browser viewport) | `null` |
+| `rootMargin` | Margin around root (like CSS margin) | `'0px'` |
+| `threshold` | Ratio of target visibility to trigger callback (0–1 or array) | `0` |
+
+**Example — Lazy loading images:**
+
+```js
+const images = document.querySelectorAll('img[data-src]');
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      const img = entry.target;
+      img.src = img.dataset.src;     // load the real image
+      img.removeAttribute('data-src');
+      observer.unobserve(img);       // stop observing once loaded
+    }
+  });
+}, { rootMargin: '200px' });        // start loading 200px before visible
+
+images.forEach(img => observer.observe(img));
+```
+
+**Example — Infinite scroll:**
+
+```js
+const sentinel = document.querySelector('#load-more-sentinel');
+
+const observer = new IntersectionObserver((entries) => {
+  if (entries[0].isIntersecting) {
+    loadMoreItems();
+  }
+}, { threshold: 1.0 });
+
+observer.observe(sentinel);
+```
+
+*Note: Intersection Observer is far more performant than listening to `scroll` events because it does not run on the main thread.*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 # # 13. CLASSES
 
 <br/>
 
-## Q 13.1. Explain how prototypal inheritance works?
+## Q. Explain how prototypal inheritance works?
 
 The Prototypal Inheritance is a feature in javascript used to add methods and properties in objects. It is a method by which an object can inherit the properties and methods of another object.
 
@@ -7082,7 +7545,7 @@ In the given example, there are two objects **ParentUser** and **ChildUser**. Th
 let ParentUser = {
   talk: true,
   Canfly() {
-    return "Sorry, Can't fly";
+    return "Sorry, Can\'t fly";
   },
 };
 
@@ -7090,7 +7553,7 @@ let ParentUser = {
 let ChildUser = {
   CanCode: true,
   CanCook() {
-    return "Can't say";
+    return "Can\'t say";
   },
 
   //  Inheriting the properties and methods of Parent Object
@@ -7116,7 +7579,7 @@ console.log("Can a User cook?: " + ChildUser.CanCook());
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.2. What is the difference between prototype and __proto__ in JavaScript?
+## Q. What is the difference between prototype and __proto__ in JavaScript?
 
 **1. Proto**: 
 
@@ -7185,7 +7648,7 @@ console.log(employee.getName());
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.3. What are the differences between ES6 class and ES5 function constructors?
+## Q. What are the differences between ES6 class and ES5 function constructors?
 
 Classes are a template for creating objects. They encapsulate data with code to work on that data. Classes in JS are built on prototypes but also have some syntax and semantics that are not shared with ES5 class-like semantics. 
 
@@ -7208,7 +7671,7 @@ function Student(name, studentId) {
   // Call constructor of superclass to initialize superclass-derived members.
   Person.call(this, name);
 
-  // Initialize subclass's own members.
+  // Initialize subclass\'s own members.
   this.studentId = studentId;
 }
 
@@ -7234,7 +7697,7 @@ It\'s much more verbose to use inheritance in ES5 and the ES6 version is easier 
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.4. What is class expression in es6 class?
+## Q. What is class expression in es6 class?
 
 A class expression is another way to define a class. Class expressions can be named or unnamed. The name given to a named class expression is local to the class\'s body. However, it can be accessed via the name property.
 
@@ -7266,7 +7729,7 @@ console.log(Triangle.name); // TriangleClass
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.5. What is difference between private, public and static variables?
+## Q. What is difference between private, public and static variables?
 
 Private variables can be accessed by all the members (functions and variables) of the owner object but not by any other object. Public variables can be accessed by all the members of the owner as well as other objects that can access the owner.
 Static variables are related to a class. They come into existence as soon as a class come into existence.
@@ -7305,7 +7768,7 @@ console.log(MyClass.staticProperty); // I am static!
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.6. What is difference between Classic Inheritance and Prototypical Inheritance?
+## Q. What is difference between Classic Inheritance and Prototypical Inheritance?
 
 **1. Class Inheritance**: 
 
@@ -7351,7 +7814,7 @@ console.log(circle.circumference()); // 31.41592653589793
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.7. How do you create an object with prototype?
+## Q. How do you create an object with prototype?
 
 The `Object.create()` method is used to create a new object with the specified prototype object and properties. i.e, It uses existing object as the prototype of the newly created object. It returns a new object with the specified prototype object and properties.
 
@@ -7376,7 +7839,7 @@ admin.printInfo(); // My name is Disha Choudhry
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.8. How to use constructor functions for inheritance in JavaScript?
+## Q. How to use constructor functions for inheritance in JavaScript?
 
 Let say we have `Person` class which has name, age, salary properties and **incrementSalary()** method.
 
@@ -7421,7 +7884,7 @@ console.log(employee instanceof Employee); // true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.9. What is prototype chain?
+## Q. What is prototype chain?
 
 **Prototype chaining** is used to build new types of objects based on existing ones. It is similar to inheritance in a class based language. The prototype on object instance is available through `Object.getPrototypeOf(object)` or `__proto__` property whereas prototype on constructors function is available through **Object.prototype**.
 
@@ -7452,7 +7915,7 @@ person.getFullName(); // Vanya Dayal
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.10. What are javascript accessors?
+## Q. What are javascript accessors?
 
 ECMAScript 5 introduced javascript object accessors or computed properties through getters and setters. Getters uses `get` keyword whereas Setters uses `set` keyword.
 
@@ -7478,7 +7941,7 @@ console.log(user.lang); // setter used to set lang as fr
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.11. How do you define property on Object constructor?
+## Q. How do you define property on Object constructor?
 
 The Object.defineProperty() static method is used to define a new property directly on an object, or modifies an existing property on an object, and returns the object. 
 
@@ -7499,7 +7962,7 @@ newObject.newProperty = 200; // It throws an error in strict mode due to writabl
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.12. What is the difference between get and defineProperty?
+## Q. What is the difference between get and defineProperty?
 
 Both has similar results until unless you use classes. If you use `get` the property will be defined on the prototype of the object whereas using `Object.defineProperty()` the property will be defined on the instance it is applied to.
 
@@ -7507,7 +7970,7 @@ Both has similar results until unless you use classes. If you use `get` the prop
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.13. What are the advantages of Getters and Setters?
+## Q. What are the advantages of Getters and Setters?
 
 Below are the list of benefits of Getters and Setters,
 
@@ -7521,7 +7984,7 @@ Below are the list of benefits of Getters and Setters,
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.14. Can I add getters and setters using defineProperty method?
+## Q. Can I add getters and setters using defineProperty method?
 
 Yes, You can use `Object.defineProperty()` method to add Getters and Setters. For example, the below counter object uses increment, decrement, add and substract properties,
 
@@ -7554,7 +8017,7 @@ console.log(obj.decrement); //5
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.15. What is a decorator?
+## Q. What is a decorator?
 
 A decorator is an expression that evaluates to a function and that takes the target, name, and decorator descriptor as arguments. Also, it optionally returns a decorator descriptor to install on the target object. 
 
@@ -7582,7 +8045,7 @@ console.log(User.isAdmin); // false
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 13.16. What are private class fields in JavaScript?
+## Q. What are private class fields in JavaScript?
 
 Private class fields (ES2022) use the `#` prefix to declare fields that are only accessible from inside the class body. They are a true hard private — not accessible via `obj['#field']` or any workaround.
 
@@ -7657,7 +8120,7 @@ console.log(Counter.getCount()); // 2
 
 <br/>
 
-## Q 14.1. What is an error object?
+## Q. What is an error object?
 
 An error object is a built in error object that provides error information when an error occurs. It has two properties: **name** and **message**. 
 
@@ -7681,7 +8144,7 @@ ReferenceError: greeting is not defined
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 14.2. Define the various types of errors which occur in JavaScript?
+## Q. Define the various types of errors which occur in JavaScript?
 
 There are three main types of errors that can occur while compiling a JavaScript program: **syntax errors**, **runtime errors** ( also called **exceptions** ), and **logical errors**. When an exception occurs, an object representing the error is created and thrown. The JavaScript language defines seven types of built-in error objects. 
 
@@ -7748,7 +8211,7 @@ decodeURIComponent("%"); // URIError
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 14.3. What are the various statements in error handling?
+## Q. What are the various statements in error handling?
 
 Below are the list of statements used in an error handling,
 1. **try:** This statement is used to test a block of code for errors
@@ -7787,7 +8250,7 @@ errorHandling(); // Error: is not a number.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 14.4. How do you create a custom error class in JavaScript?
+## Q. How do you create a custom error class in JavaScript?
 
 You can create a custom error class by extending the built-in `Error` class. This lets you define domain-specific errors with custom names and additional properties.
 
@@ -7836,11 +8299,102 @@ try {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q. What are general error handling strategies in JavaScript?
+
+Robust JavaScript applications use several strategies to handle errors gracefully:
+
+**1. try / catch / finally**
+
+The most fundamental mechanism. `finally` always runs, making it useful for cleanup.
+
+```js
+function fetchData(url) {
+  try {
+    // risky operation
+    const data = JSON.parse(url);
+    return data;
+  } catch (err) {
+    console.error('Parsing error:', err.message);
+    return null;
+  } finally {
+    console.log('fetchData completed');
+  }
+}
+```
+
+**2. Fail fast — validate inputs early**
+
+Throw errors as soon as invalid state is detected rather than propagating bad data deep into the system.
+
+```js
+function divide(a, b) {
+  if (b === 0) throw new RangeError('Cannot divide by zero');
+  return a / b;
+}
+```
+
+**3. Typed / custom errors for precise catching**
+
+Use `instanceof` to handle different error types differently instead of a single generic catch.
+
+```js
+try {
+  processRequest(data);
+} catch (err) {
+  if (err instanceof ValidationError) {
+    respond(400, err.message);
+  } else if (err instanceof NetworkError) {
+    respond(503, 'Service unavailable');
+  } else {
+    respond(500, 'Internal error');
+    throw err; // rethrow unknown errors
+  }
+}
+```
+
+**4. Global error handlers**
+
+Catch unhandled errors and promise rejections at the top level.
+
+```js
+// Unhandled synchronous errors
+window.onerror = function(message, source, line, col, error) {
+  logToServer({ message, source, line, col, stack: error?.stack });
+};
+
+// Unhandled promise rejections
+window.addEventListener('unhandledrejection', (event) => {
+  logToServer({ reason: event.reason });
+  event.preventDefault();
+});
+```
+
+**5. Async error handling with async/await**
+
+Always wrap `await` calls in `try/catch` or use a helper that converts rejections to `[error, result]` tuples.
+
+```js
+async function loadUser(id) {
+  try {
+    const res = await fetch(`/api/users/${id}`);
+    if (!res.ok) throw new NetworkError(`HTTP ${res.status}`, res.status);
+    return await res.json();
+  } catch (err) {
+    console.error('loadUser failed:', err);
+    throw err;
+  }
+}
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 15. PROMISES
 
 <br/>
 
-## Q 15.1. What is a promise?
+## Q. What is a promise?
 
 A promise is an object that may produce a single value some time in the future with either a resolved value or a reason that it\'s not resolved (for example, network error). It will be in one of the 3 possible states: **fulfilled**, **rejected**, or **pending**.
 
@@ -7875,7 +8429,7 @@ Promises have three states:
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.2. What is promise chaining?
+## Q. What is promise chaining?
 
 The process of executing a sequence of asynchronous tasks one after another using promises is known as Promise chaining. It allows you to chain on another then call which will run when the second promise is fulfilled. The `.catch()` can still be called to handle any errors that might occur along the way.
 
@@ -7907,7 +8461,7 @@ In the above handlers, the result is passed to the chain of .then() handlers wit
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.3. What is promise.all()?
+## Q. What is promise.all()?
 
 `Promise.all` is a promise that takes an array of promises as an input (an iterable), and it gets resolved when all the promises get resolved or any one of them gets rejected.
 
@@ -7939,7 +8493,7 @@ Promise.all([promise1, promise2])
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.4. What is the purpose of race method in promise?
+## Q. What is the purpose of race method in promise?
 
 `Promise.race()` method will return the promise instance which is firstly resolved or rejected. 
 
@@ -7961,11 +8515,30 @@ Promise.race([promise1, promise2]).then(function (value) {
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-promise-race-7k6zh0?file=/src/index.js)**
 
+**Practical use — implementing a request timeout:**
+
+A common interview pattern (asked at Amazon/Google) is to add a timeout to any async operation using `Promise.race()`:
+
+```js
+function withTimeout(promise, ms) {
+  const timeout = new Promise((_, reject) =>
+    setTimeout(() => reject(new Error(`Timed out after ${ms}ms`)), ms)
+  );
+  return Promise.race([promise, timeout]);
+}
+
+// Usage
+withTimeout(fetch('/api/data'), 5000)
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err.message)); // "Timed out after 5000ms" if slow
+```
+
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.5. What are the pros and cons of promises over callbacks?
+## Q. What are the pros and cons of promises over callbacks?
 
 Below are the list of pros and cons of promises over callbacks,  
 
@@ -7987,7 +8560,7 @@ Below are the list of pros and cons of promises over callbacks,
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.6. How does await and async works in es6?
+## Q. How does await and async works in es6?
 
 The **async** and **await** keywords enable asynchronous, promise-based behavior to be written in a cleaner style, avoiding the need to explicitly configure promise chains.
 
@@ -8016,7 +8589,7 @@ fetchMethod();
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.7. What is difference between fetch() and XMLHttpRequest() in JavaScript?
+## Q. What is difference between fetch() and XMLHttpRequest() in JavaScript?
 
 **1. XMLHttpRequest:**  
 
@@ -8065,7 +8638,7 @@ fetch("https://jsonplaceholder.typicode.com/todos/1")
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.8. Explain fetch() properties in JavaScript?
+## Q. Explain fetch() properties in JavaScript?
 
 A `fetch()` function is available in the global window object. The fetch() function takes one mandatory argument, the path to the resource you want to fetch. It returns a Promise, whether it is successful or not. If request is successful `.then()` function will receive Response object, if request fails then `.catch()` function will receive an error object
 
@@ -8152,7 +8725,7 @@ fetch(userRequest)
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.9. What is the difference between Promise and AJAX?
+## Q. What is the difference between Promise and AJAX?
 
 A Promise is **an interface** for asynchronous operations. They keep track of when asynchronous operations complete and what their results are and let you coordinate that completion and those results (including error conditions) with other code or other asynchronous operations. They aren\'t actually asynchronous operations in themselves. 
 
@@ -8162,7 +8735,67 @@ An Ajax call is a specific asynchronous operation that can be used with with a t
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.10. What is difference between async or defer keyword in JavaScript?
+## Q. What is `AbortController` and how do you cancel a fetch request?
+
+`AbortController` is a browser API that allows you to cancel one or more `fetch` requests (or any operation that accepts a signal).
+
+**Basic usage:**
+
+```js
+const controller = new AbortController();
+const signal = controller.signal;
+
+// Start the request, pass the signal
+fetch('/api/data', { signal })
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => {
+    if (err.name === 'AbortError') {
+      console.log('Fetch was cancelled');
+    } else {
+      throw err;
+    }
+  });
+
+// Cancel the request after 3 seconds
+setTimeout(() => controller.abort(), 3000);
+```
+
+**Cancel on component unmount (React pattern):**
+
+```js
+useEffect(() => {
+  const controller = new AbortController();
+
+  fetch('/api/user', { signal: controller.signal })
+    .then(res => res.json())
+    .then(setUser)
+    .catch(err => {
+      if (err.name !== 'AbortError') console.error(err);
+    });
+
+  return () => controller.abort(); // cleanup on unmount
+}, []);
+```
+
+**Using `signal.aborted` and `signal.reason` (modern API):**
+
+```js
+const controller = new AbortController();
+
+controller.abort('User navigated away'); // pass a reason
+
+console.log(controller.signal.aborted); // true
+console.log(controller.signal.reason);  // 'User navigated away'
+```
+
+*Note: `AbortController` also works with `addEventListener`, streams, and any custom async operation that accepts `AbortSignal`.*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is difference between async or defer keyword in JavaScript?
 
 **1. async Attribute**  
 
@@ -8188,7 +8821,74 @@ Like an asynchronously loaded script, the file can be downloaded while the HTML 
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 15.11. What is request header in javascript?
+## Q. What is CORS (Cross-Origin Resource Sharing) in JavaScript?
+
+**CORS** is a browser security mechanism that controls how web pages can request resources from a different origin (domain, protocol, or port) than the one that served the page. It uses HTTP headers to tell browsers whether a given web page is allowed to access resources from a different origin.
+
+**Why CORS exists:**
+
+The browser enforces the **Same-Origin Policy** by default, which blocks JavaScript from making cross-origin requests. CORS provides a controlled way to relax this restriction.
+
+**How CORS works:**
+
+1. **Simple requests** (GET, POST with plain-text content types) — the browser automatically sends an `Origin` header; the server responds with `Access-Control-Allow-Origin`.
+2. **Preflight requests** — for complex methods (PUT, DELETE) or custom headers, the browser first sends an `OPTIONS` request to check permissions.
+
+**Server-side response headers:**
+
+| Header | Purpose |
+|--------|---------|
+| `Access-Control-Allow-Origin` | Specifies which origins are permitted (`*` or specific origin) |
+| `Access-Control-Allow-Methods` | Permitted HTTP methods |
+| `Access-Control-Allow-Headers` | Permitted request headers |
+| `Access-Control-Allow-Credentials` | Whether cookies/auth can be included |
+| `Access-Control-Max-Age` | How long preflight results can be cached |
+
+**Example — Fetch with CORS:**
+
+```js
+// Client-side request to a different origin
+fetch('https://api.example.com/data', {
+  method: 'GET',
+  headers: {
+    'Content-Type': 'application/json',
+  },
+  credentials: 'include', // send cookies cross-origin (requires server to set Allow-Credentials: true)
+})
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error('CORS error:', err));
+```
+
+**Example — Preflight request flow:**
+
+```
+// Browser sends preflight:
+OPTIONS /api/data HTTP/1.1
+Origin: https://myapp.com
+Access-Control-Request-Method: DELETE
+Access-Control-Request-Headers: Authorization
+
+// Server responds:
+HTTP/1.1 204 No Content
+Access-Control-Allow-Origin: https://myapp.com
+Access-Control-Allow-Methods: GET, POST, DELETE
+Access-Control-Allow-Headers: Authorization
+Access-Control-Max-Age: 86400
+```
+
+**Common CORS errors:**
+
+* `No 'Access-Control-Allow-Origin' header is present` — server does not permit the request origin.
+* `CORS policy: credential flag is 'true' but the 'Access-Control-Allow-Origin' is '*'` — wildcard origin cannot be used with `credentials: 'include'`.
+
+*Note: CORS is enforced by the browser. Server-to-server calls (Node.js, curl) are not subject to CORS.*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is request header in javascript?
 
 The `headers` read-only property of the `Request` interface contains the `Headers` object associated with the request.  
 Syntax
@@ -8218,7 +8918,112 @@ myContentType = myRequest.headers.get('Content-Type'); // returns 'image/jpeg'
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. 15.14. How to get responses of multiple api calls, when some API fails?
+## Q. What is the event loop in JavaScript?
+
+JavaScript is **single-threaded** — it can execute only one task at a time. The **event loop** is the mechanism that allows JavaScript to perform non-blocking I/O operations (like network requests and timers) despite this single-thread constraint.
+
+**How it works:**
+
+```
+Call Stack       Web APIs / Node APIs       Callback Queue / Microtask Queue
+   │                      │                           │
+   ▼                      ▼                           ▼
+Executes sync     setTimeout, fetch,         Queued callbacks waiting
+code (LIFO)       DOM events, etc.           to enter the call stack
+```
+
+1. Synchronous code runs on the **call stack** first.
+2. Async operations (e.g. `setTimeout`, `fetch`) are handed off to Web APIs.
+3. When complete, their callbacks are pushed to a **queue**.
+4. The event loop continuously checks: *"Is the call stack empty?"* — if yes, it dequeues the next callback and pushes it onto the stack.
+
+**Microtask queue vs. macro-task queue:**
+
+* **Microtasks** (Promises `.then`/`.catch`, `queueMicrotask`, `MutationObserver`) are processed **before** the next macro-task.
+* **Macro-tasks** (setTimeout, setInterval, I/O) are processed one per event-loop tick.
+
+**Example:**
+
+```js
+console.log('1');
+
+setTimeout(() => console.log('2'), 0); // macro-task
+
+Promise.resolve().then(() => console.log('3')); // microtask
+
+console.log('4');
+
+// Output order: 1, 4, 3, 2
+```
+
+*Explanation:* `1` and `4` run synchronously. Then the microtask queue drains (`3`). Then the macro-task fires (`2`).
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is garbage collection in JavaScript?
+
+**Garbage collection (GC)** is the automatic process by which JavaScript frees up memory occupied by objects that are no longer reachable (i.e., no references point to them).
+
+**1. Reference Counting algorithm (legacy)**
+
+Tracks how many references point to an object. When the count drops to zero, the memory is freed.
+
+```js
+let a = { name: 'Alice' }; // ref count: 1
+let b = a;                  // ref count: 2
+a = null;                   // ref count: 1
+b = null;                   // ref count: 0 → eligible for GC
+```
+
+**Problem — circular references:**
+
+```js
+function createCycle() {
+  let obj1 = {};
+  let obj2 = {};
+  obj1.ref = obj2; // obj1 → obj2
+  obj2.ref = obj1; // obj2 → obj1 (cycle)
+  // ref count never reaches 0 — memory leak with pure reference counting
+}
+```
+
+**2. Mark-and-Sweep algorithm (modern)**
+
+The modern approach used by all major engines (V8, SpiderMonkey):
+
+1. **Mark phase** — starting from GC roots (`window`, global scope, call-stack variables), traverse all reachable objects and mark them.
+2. **Sweep phase** — free all unmarked (unreachable) objects.
+
+Circular references are handled correctly because the cycle is unreachable from the root after both `obj1` and `obj2` go out of scope.
+
+**Common causes of memory leaks in JavaScript:**
+
+| Cause | Example |
+|-------|---------|
+| Global variables | Accidentally using `x = 1` without `let/const/var` |
+| Forgotten timers | `setInterval` never cleared |
+| Detached DOM nodes | DOM element removed but reference kept in a closure |
+| Closures retaining large objects | A closure captures a large array it no longer needs |
+| Unreleased event listeners | `addEventListener` without a matching `removeEventListener` |
+
+```js
+// Memory leak — timer retains reference to element
+const btn = document.getElementById('myBtn');
+const timer = setInterval(() => {
+  btn.textContent = new Date().toLocaleTimeString();
+}, 1000);
+
+// Fix — clear the timer when done
+clearInterval(timer);
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. How to get responses of multiple api calls, when some API fails?
 
 **Promise.allSettled():**
 
@@ -8254,11 +9059,11 @@ Promise.allSettled(promises)
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. 15.15. Explain the use of Promise.any()?
+## Q. Explain the use of Promise.any()?
 
 The `Promise.any()` method is used to handle multiple promises simultaneously, and it resolves with the value of the first fulfilled promise.regardless of whether any of the other promises reject. If all of the promises reject, then `Promise.any()` rejects with an `AggregateError` object that contains an array of rejection reasons.
 
-The `Promise.any()` method takes an iterable of Promises as an input, and returns a new Promise. Here's an example:
+The `Promise.any()` method takes an iterable of Promises as an input, and returns a new Promise. Here\'s an example:
 
 ```javascript
 const promise1 = new Promise((resolve, reject) => setTimeout(reject, 1000, 'Promise 1 rejected'));
@@ -8279,7 +9084,7 @@ Promise.any([promise1, promise2, promise3])
 
 <br/>
 
-## Q 16.1. What is the difference between ES6 Map and WeakMap?
+## Q. What is the difference between ES6 Map and WeakMap?
 
 **Map:**  
 
@@ -8397,7 +9202,7 @@ weakSet.add(obj1);
 weakSet.add(obj2);
 
 weakSet.has(obj2); // true
-delete obj2; // Don't take it literally - you can't delete objects like that. Use scope to execute this.
+delete obj2; // Don\'t take it literally - you can\'t delete objects like that. Use scope to execute this.
 
 weakSet.has(obj2); // false, because you deleted obj2, so WeakSet releases it automatically
 weakSet.delete(obj1); // obj1 deleted from the set
@@ -8417,7 +9222,7 @@ weakSet.add(2); // ERROR, no primitive value
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 16.3. List down the collection of methods available on WeakSet?
+## Q. List down the collection of methods available on WeakSet?
 
 Below are the list of methods available on WeakSet,
 
@@ -8447,7 +9252,7 @@ weakSetObject.delete(secondObject);
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 16.4. List down the collection of methods available on WeakMap?
+## Q. List down the collection of methods available on WeakMap?
 
 Below are the list of methods available on WeakMap,
 
@@ -8477,7 +9282,7 @@ weakMapObject.delete(secondObject);
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 16.5. What is an Iterator?
+## Q. What is an Iterator?
 
 An iterator is an object which defines a sequence and a return value upon its termination. It implements the Iterator protocol with a `.next()` method which returns an object with two properties: 
 
@@ -8512,11 +9317,142 @@ console.log(number.next()); // {value: 30, done: false}
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
+## Q. What are async iterators and the `for await...of` loop?
+
+An **async iterator** is an object that implements the async iteration protocol: its `Symbol.asyncIterator` method returns an object with a `next()` method that returns a **Promise** resolving to `{ value, done }`. The `for await...of` loop consumes async iterables, making it easy to process streams, paginated APIs, or any async sequence.
+
+**Custom async iterator:**
+
+```js
+function asyncRange(start, end, delay = 500) {
+  return {
+    [Symbol.asyncIterator]() {
+      let current = start;
+      return {
+        next() {
+          return new Promise(resolve => {
+            setTimeout(() => {
+              if (current <= end) {
+                resolve({ value: current++, done: false });
+              } else {
+                resolve({ value: undefined, done: true });
+              }
+            }, delay);
+          });
+        }
+      };
+    }
+  };
+}
+
+// for await...of consumption
+async function main() {
+  for await (const num of asyncRange(1, 5)) {
+    console.log(num); // 1, 2, 3, 4, 5 (each after 500 ms)
+  }
+}
+main();
+```
+
+**Practical use — paginated API:**
+
+```js
+async function* fetchPages(url) {
+  let page = 1;
+  while (true) {
+    const res = await fetch(`${url}?page=${page++}`);
+    const data = await res.json();
+    if (!data.items.length) return;
+    yield data.items;
+  }
+}
+
+async function processAll() {
+  for await (const items of fetchPages('/api/products')) {
+    items.forEach(item => console.log(item.name));
+  }
+}
+```
+
+**Key differences from regular iterators:**
+
+| | Synchronous Iterator | Async Iterator |
+|--|----------------------|----------------|
+| Protocol | `Symbol.iterator` | `Symbol.asyncIterator` |
+| `next()` returns | `{ value, done }` | `Promise<{ value, done }>` |
+| Loop | `for...of` | `for await...of` |
+| Use case | Arrays, strings, Maps | Streams, paginated APIs |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are `WeakRef` and `FinalizationRegistry` in JavaScript?
+
+Introduced in **ES2021**, `WeakRef` and `FinalizationRegistry` provide low-level access to the garbage collector — primarily for caches and resource management.
+
+**WeakRef:**
+
+A `WeakRef` holds a *weak reference* to an object, meaning it does not prevent the object from being garbage-collected. Use `.deref()` to access the object; it returns `undefined` if already collected.
+
+```js
+let obj = { name: 'Cache entry' };
+const ref = new WeakRef(obj);
+
+console.log(ref.deref()?.name); // 'Cache entry'
+
+obj = null; // remove strong reference — obj may now be GC'd
+
+// Later (after GC runs):
+console.log(ref.deref()); // undefined (if already collected)
+```
+
+**FinalizationRegistry:**
+
+Lets you register a callback to be called when a registered object is garbage-collected.
+
+```js
+const registry = new FinalizationRegistry((heldValue) => {
+  console.log(`${heldValue} was garbage collected`);
+});
+
+let target = { data: '...' };
+registry.register(target, 'myObject');
+
+target = null; // allows GC to collect it
+// When collected: logs "myObject was garbage collected"
+```
+
+**Practical use — weak cache:**
+
+```js
+const cache = new Map();
+
+function getExpensiveData(key) {
+  const ref = cache.get(key);
+  const cached = ref?.deref();
+  if (cached) return cached;
+
+  const result = computeExpensiveResult(key);
+  cache.set(key, new WeakRef(result));
+  return result;
+}
+```
+
+**Important caveats:**
+
+* GC timing is non-deterministic — never rely on `FinalizationRegistry` for critical cleanup.
+* `WeakRef` should be a last resort; prefer `WeakMap`/`WeakSet` for most weak-reference patterns.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
 ## # 17. MODULES
 
 <br/>
 
-## Q 17.1. What is modules in ES6?
+## Q. What is modules in ES6?
 
 Making objects, functions, classes or variables available to the outside world is as simple as exporting them, and then importing them where needed in other files.
 
@@ -8572,7 +9508,7 @@ export class Alligator {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 17.2. What is dynamic import in JavaScript?
+## Q. What is dynamic import in JavaScript?
 
 Dynamic `import()` (ES2020) allows you to import a module **on demand** at runtime rather than statically at the top of a file. It returns a **Promise** that resolves to the module object, enabling lazy loading and code splitting.
 
@@ -8627,7 +9563,7 @@ console.log(messages.default.greeting);
 
 <br/>
 
-## Q 18.1. Describe the Revealing Module Pattern in javascript?
+## Q. Describe the Revealing Module Pattern in javascript?
 
 Revealing module pattern is a design pattern, which let you organise your javascript code in modules, and gives better code structure. It gives you power to create public/private variables/methods (using closure), and avoids polluting global scope
 
@@ -8674,7 +9610,99 @@ myModule._privateMethod(); // TypeError: protected by the module closure
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.2. How do you detect javascript disabled in the page?
+## Q. What are XSS and CSRF attacks, and how do you prevent them in JavaScript?
+
+**XSS (Cross-Site Scripting):**
+
+XSS is an injection attack where an attacker injects malicious scripts into content that is served to other users. The injected script executes in the victim\'s browser with the same privileges as the trusted site.
+
+**Types of XSS:**
+
+| Type | Description |
+|------|-------------|
+| Stored XSS | Malicious script is persisted in the database and served to every user |
+| Reflected XSS | Script is included in the request and immediately reflected back in the response |
+| DOM-based XSS | Vulnerability exists entirely in the client-side code |
+
+**Prevention:**
+
+```js
+// ❌ Dangerous — directly inserting user input into DOM
+element.innerHTML = userInput;
+document.write(userInput);
+
+// ✅ Safe — use textContent which does NOT parse HTML
+element.textContent = userInput;
+
+// ✅ Sanitize with a trusted library (DOMPurify)
+import DOMPurify from 'dompurify';
+element.innerHTML = DOMPurify.sanitize(userInput);
+
+// ✅ Set Content-Security-Policy header (server-side)
+// Content-Security-Policy: default-src 'self'; script-src 'self'
+
+// ✅ Use HttpOnly cookies — prevents JS from reading sensitive cookies
+// Set-Cookie: session=abc123; HttpOnly; Secure; SameSite=Strict
+
+// ✅ Encode user data before rendering in HTML contexts
+function escapeHtml(str) {
+  return str
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#039;');
+}
+```
+
+**CSRF (Cross-Site Request Forgery):**
+
+CSRF tricks an authenticated user\'s browser into making an unwanted request to a server (e.g., transferring money, changing email) using the user\'s existing session cookies.
+
+**Example attack:**
+
+```html
+<!-- Attacker\'s page -->
+<img src="https://bank.com/transfer?to=attacker&amount=1000" />
+<!-- Browser automatically sends the victim\'s cookies with this request -->
+```
+
+**Prevention:**
+
+```js
+// ✅ 1. CSRF Token — include a secret token in every state-changing request
+// Server generates a unique token per session and validates it on each request
+
+fetch('/api/transfer', {
+  method: 'POST',
+  headers: {
+    'Content-Type': 'application/json',
+    'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').content
+  },
+  body: JSON.stringify({ to: 'friend', amount: 100 })
+});
+
+// ✅ 2. SameSite Cookie attribute — prevents cookies from being sent cross-origin
+// Set-Cookie: session=abc; SameSite=Strict; Secure
+
+// ✅ 3. Check the Origin/Referer header on the server
+
+// ✅ 4. Use custom request headers — simple AJAX requests don\'t send custom headers
+//    so requiring a custom header (X-Requested-With) blocks simple cross-site forms
+```
+
+**Summary:**
+
+| Attack | Exploits | Key Defense |
+|--------|---------|-------------|
+| XSS | Trusting user input in DOM | Sanitize output, CSP, `textContent` |
+| CSRF | Trusting browser cookies automatically | CSRF tokens, `SameSite=Strict` cookies |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. How do you detect javascript disabled in the page?
 
 You can use `<noscript>` tag to detect javascript disabled or not. The code block inside `<noscript>` get executed when JavaScript is disabled, and are typically used to display alternative content when the page generated in JavaScript.
 
@@ -8691,7 +9719,7 @@ You can use `<noscript>` tag to detect javascript disabled or not. The code bloc
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.4. What is strict mode?
+## Q. What is strict mode?
 
 The Strict Mode is allows you to place a program, or a function, in a `strict` operating context. This strict context prevents certain actions from being taken and throws more exceptions.
 
@@ -8719,7 +9747,226 @@ The Strict Mode is allows you to place a program, or a function, in a `strict` o
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.5. Describe Singleton Pattern In JavaScript?
+## Q. How do you implement an LRU Cache in JavaScript?
+
+An **LRU (Least Recently Used) Cache** evicts the least recently accessed item when the cache reaches its capacity. The optimal implementation uses a `Map` (which maintains insertion order) to achieve O(1) get and put operations.
+
+**Implementation using `Map`:**
+
+```js
+class LRUCache {
+  constructor(capacity) {
+    this.capacity = capacity;
+    this.cache = new Map(); // Map preserves insertion order
+  }
+
+  get(key) {
+    if (!this.cache.has(key)) return -1;
+
+    // Move to end to mark as recently used
+    const value = this.cache.get(key);
+    this.cache.delete(key);
+    this.cache.set(key, value);
+    return value;
+  }
+
+  put(key, value) {
+    if (this.cache.has(key)) {
+      this.cache.delete(key); // remove old entry
+    } else if (this.cache.size >= this.capacity) {
+      // Evict the least recently used (first item in Map)
+      const lruKey = this.cache.keys().next().value;
+      this.cache.delete(lruKey);
+    }
+    this.cache.set(key, value);
+  }
+}
+
+// Usage
+const cache = new LRUCache(3);
+cache.put(1, 'A'); // {1:'A'}
+cache.put(2, 'B'); // {1:'A', 2:'B'}
+cache.put(3, 'C'); // {1:'A', 2:'B', 3:'C'}
+cache.get(1);      // 'A' — 1 is now most recent: {2:'B', 3:'C', 1:'A'}
+cache.put(4, 'D'); // capacity exceeded, evict 2: {3:'C', 1:'A', 4:'D'}
+console.log(cache.get(2)); // -1 (evicted)
+console.log(cache.get(3)); // 'C'
+```
+
+**Why `Map` works:**
+
+* `Map` remembers insertion order, so the first key returned by `map.keys()` is always the **oldest** (LRU) entry.
+* All operations — `has`, `get`, `set`, `delete` — are O(1) on average.
+
+**Time & Space Complexity:**
+
+| Operation | Complexity |
+|-----------|-----------|
+| `get` | O(1) |
+| `put` | O(1) |
+| Space | O(capacity) |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is dependency injection in JavaScript?
+
+**Dependency Injection (DI)** is a design pattern where an object\'s dependencies are provided externally rather than created inside the object. This promotes loose coupling, testability, and adherence to the Single Responsibility Principle.
+
+**Without dependency injection (tightly coupled):**
+
+```js
+// Bad — UserService creates its own logger
+class UserService {
+  constructor() {
+    this.logger = new ConsoleLogger(); // hard dependency
+  }
+  createUser(name) {
+    this.logger.log(`Creating user: ${name}`);
+  }
+}
+```
+
+**With dependency injection:**
+
+```js
+// Good — logger is injected, making it easy to swap in tests
+class UserService {
+  constructor(logger, userRepository) {
+    this.logger = logger;
+    this.userRepository = userRepository;
+  }
+
+  async createUser(name) {
+    this.logger.log(`Creating user: ${name}`);
+    return this.userRepository.save({ name });
+  }
+}
+
+// Production
+const service = new UserService(new ConsoleLogger(), new DatabaseRepository());
+
+// Tests — inject mocks
+const mockLogger = { log: jest.fn() };
+const mockRepo   = { save: jest.fn().mockResolvedValue({ id: 1 }) };
+const testService = new UserService(mockLogger, mockRepo);
+```
+
+**DI via function arguments (functional style):**
+
+```js
+function createOrderProcessor(paymentGateway, inventoryService, notifier) {
+  return async function processOrder(order) {
+    await inventoryService.reserve(order.items);
+    await paymentGateway.charge(order.total);
+    await notifier.send(order.userId, 'Order confirmed!');
+  };
+}
+
+const processOrder = createOrderProcessor(
+  new StripeGateway(),
+  new InventoryService(),
+  new EmailNotifier()
+);
+```
+
+**Benefits:**
+
+* Easier unit testing — inject mocks/stubs
+* Loose coupling — swap implementations without changing consuming code
+* Explicit dependencies — easier to understand what a class needs
+* Single Responsibility — classes focus on logic, not construction
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are MVC and MVVM patterns in JavaScript?
+
+**MVC (Model-View-Controller):**
+
+MVC separates an application into three components:
+
+* **Model** — manages data and business logic
+* **View** — renders the UI based on model data
+* **Controller** — handles user input, updates model and view
+
+```js
+// Model
+class UserModel {
+  constructor(name, email) {
+    this.name = name;
+    this.email = email;
+  }
+  validate() {
+    return this.email.includes('@');
+  }
+}
+
+// View
+class UserView {
+  render(user) {
+    document.getElementById('name').textContent = user.name;
+    document.getElementById('email').textContent = user.email;
+  }
+  getFormData() {
+    return {
+      name: document.getElementById('nameInput').value,
+      email: document.getElementById('emailInput').value
+    };
+  }
+}
+
+// Controller
+class UserController {
+  constructor(model, view) {
+    this.model = model;
+    this.view = view;
+    document.getElementById('submit').addEventListener('click', () => this.handleSubmit());
+  }
+  handleSubmit() {
+    const data = this.view.getFormData();
+    const model = new UserModel(data.name, data.email);
+    if (model.validate()) {
+      this.view.render(model);
+    }
+  }
+}
+
+const controller = new UserController(null, new UserView());
+```
+
+**MVVM (Model-View-ViewModel):**
+
+MVVM replaces the controller with a **ViewModel** that exposes data bindings, enabling **two-way data binding** between View and ViewModel. Used in frameworks like Angular (two-way binding), Vue.js, and Knockout.
+
+```js
+// Vue.js demonstrates MVVM — ViewModel is the Vue instance
+const vm = new Vue({
+  el: '#app',
+  data: {           // Model
+    message: 'Hello'
+  }
+  // The template (View) binds to `message` automatically
+  // Any change to vm.message immediately updates the DOM
+});
+```
+
+**Comparison:**
+
+| | MVC | MVVM |
+|--|-----|------|
+| Data flow | Controller mediates | Two-way data binding |
+| View knowledge | View knows controller | View knows ViewModel (via binding) |
+| Testability | Controller is testable | ViewModel is testable without UI |
+| Used by | Express, Angular 1 | Vue.js, Angular, React (+hooks) |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. Describe Singleton Pattern In JavaScript?
 
 The **singleton pattern** is a type of creational pattern that restricts the instantiation of a class to a **single** object. This allows the class to create an instance of the class the first time it is instantiated; however, on the next try, the existing instance of the class is returned. No new instance is created.
 
@@ -8771,7 +10018,7 @@ console.log(obj2 === obj1); // true
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.7. Explain browser console logs features?
+## Q. Explain browser console logs features?
 
 The `Console` method **log()** outputs a message to the web console. The message may be a single string or it may be any one or more JavaScript objects.
 
@@ -8814,7 +10061,7 @@ Output
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.8. What are the difference between console.log() and console.dir()?
+## Q. What are the difference between console.log() and console.dir()?
 
 * `console.log()` prints the element in an HTML-like tree
 Output
@@ -8830,7 +10077,7 @@ Output
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.9. How to Copy Text to Clipboard?
+## Q. How to Copy Text to Clipboard?
 
 ```html
 <!-- The text field -->
@@ -8861,7 +10108,7 @@ function copy() {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.10. What is a service worker?
+## Q. What is a service worker?
 
 A Service worker is basically a JavaScript file that runs in background, separate from a web page and provide features that don\'t need a web page or user interaction. 
 
@@ -8947,7 +10194,7 @@ self.addEventListener('fetch', function(event) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.11. How do you manipulate DOM using service worker?
+## Q. How do you manipulate DOM using service worker?
 
 Service worker can\'t access the DOM directly. But it can communicate with the pages it controls by responding to messages sent via the `postMessage` interface, and those pages can manipulate the DOM.
 
@@ -8967,7 +10214,7 @@ Service worker can\'t access the DOM directly. But it can communicate with the p
     "use strict";
 
     if (!navigator.serviceWorker || !navigator.serviceWorker.register) {
-        console.log("This browser doesn't support service workers");
+        console.log("This browser doesn\'t support service workers");
         return;
     }
 
@@ -8983,7 +10230,7 @@ Service worker can\'t access the DOM directly. But it can communicate with the p
         navigator.serviceWorker.controller.postMessage("hi");
     } else {
         // No, register a service worker to control pages like us.
-        // Note that it won't control this instance of this page, it only takes effect
+        // Note that it won\'t control this instance of this page, it only takes effect
         // for pages in its scope loaded *after* It is installed.
         navigator.serviceWorker.register("service-worker.js")
             .then(function(registration) {
@@ -9016,7 +10263,7 @@ self.addEventListener("message", function(event) {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.12. How to use Web Workers in javascript?
+## Q. How to use Web Workers in javascript?
 
 **Step 01: Create a Web Workers file**: Write a script to increment the count value.
 
@@ -9102,7 +10349,7 @@ w = undefined;
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.13. What are the restrictions of web workers on DOM?
+## Q. What are the restrictions of web workers on DOM?
 
 WebWorkers do not have access to below javascript objects since they are defined in an external files
 
@@ -9114,7 +10361,7 @@ WebWorkers do not have access to below javascript objects since they are defined
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.14. What is rendering in JavaScript?
+## Q. What is rendering in JavaScript?
 
 JavaScript-powered content needs to be rendered before it can output meaningful code and be displayed for the client.
 These are the different steps involved in the JavaScript rendering process:
@@ -9210,7 +10457,52 @@ Painting can be global or incremental (similar to layout):
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.15. What is the difference between HTMLCollection and NodeList?
+## Q. What is the difference between Virtual DOM and Real DOM?
+
+The **Virtual DOM** is an in-memory, lightweight JavaScript representation of the actual browser DOM. Frameworks like React use it to minimize expensive real DOM manipulations by computing the minimal set of changes needed.
+
+**Real DOM:**
+
+* Directly represents the browser\'s document structure.
+* Updating it triggers layout reflow and repaint — expensive operations.
+* Updates are synchronous and can cause performance bottlenecks on large trees.
+
+**Virtual DOM:**
+
+* A plain JavaScript object tree that mirrors the DOM.
+* Updates are made to the virtual tree first (cheap in-memory operation).
+* A **diffing algorithm** (reconciliation) compares old and new virtual trees.
+* Only the changed nodes are patched into the real DOM (batch updates).
+
+**How React uses Virtual DOM:**
+
+```js
+// 1. Developer describes UI as a virtual tree (JSX → React.createElement)
+const vdom = React.createElement('div', { id: 'app' },
+  React.createElement('h1', null, 'Hello'),
+  React.createElement('p', null, 'World')
+);
+
+// 2. React diffs the new VDOM against the previous one (reconciliation)
+// 3. Only changed nodes are applied to the real DOM in a single batch
+```
+
+**Comparison:**
+
+| | Real DOM | Virtual DOM |
+|--|----------|-------------|
+| Location | Browser | JavaScript memory |
+| Update cost | Expensive (reflow/repaint) | Cheap (plain JS object) |
+| Update strategy | Direct mutation | Diff + patch |
+| Used by | Native JS, jQuery | React, Vue (internally) |
+
+**Note:** React 18 introduced the **Fiber architecture** which further optimises rendering by breaking work into chunks and prioritising updates. Vue 3 uses a compiled template approach that avoids full tree diffing.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is the difference between HTMLCollection and NodeList?
 
 **HTMLCollection**
 
@@ -9262,9 +10554,9 @@ element.appendChild(text);
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.16. What is a trampoline function? What is it used for? 
+## Q. What is a trampoline function? What is it used for? 
 
-The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don't support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
+The trampoline is just a technique to optimize **recursion** and prevent `stack-overflow` exceptions in languages that don\'t support tail call optimization like Javascript ES5 implementation. However, ES6 will probably have support for tail call optimization.
 
 The problem with regular recursion is that every recursive call adds a stack frame to the call stack, which you can visualize as a **pyramid** of calls. Here is a visualization of calling a factorial function recursively:
 
@@ -9345,7 +10637,7 @@ Using a trampoline is obviously less performant than simple recursion, since you
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.17. What is throttling and debouncing in javascript?
+## Q. What is throttling and debouncing in javascript?
 
 Debouncing and throttling techniques are used to limit the number of times a function can execute. These are two widely-used techniques to improve the performance of code that gets executed repeatedly within a period of time.
 
@@ -9382,7 +10674,7 @@ $(window).on('resize', _.debounce(function() {
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.18. What is same-origin policy?
+## Q. What is same-origin policy?
 
 The same-origin policy is a policy that prevents JavaScript from making requests across domain boundaries. An origin is defined as a combination of URI scheme, hostname, and port number. If you enable this policy then it prevents a malicious script on one page from obtaining access to sensitive data on another web page using Document Object Model(DOM).
 
@@ -9390,7 +10682,67 @@ The same-origin policy is a policy that prevents JavaScript from making requests
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.19. What is server-sent events?
+## Q. What is Content Security Policy (CSP) in JavaScript?
+
+**Content Security Policy (CSP)** is an HTTP response header that lets servers declare which dynamic resources (scripts, styles, fonts, images, etc.) are allowed to load. It is the primary defense against **XSS** and **data injection attacks**.
+
+**How to enable CSP:**
+
+```http
+# Server response header
+Content-Security-Policy: default-src 'self'; script-src 'self' https://cdn.example.com; style-src 'self' 'unsafe-inline'; img-src *; report-uri /csp-violation-report
+```
+
+**Key directives:**
+
+| Directive | Purpose |
+|-----------|---------|
+| `default-src` | Fallback for all resource types |
+| `script-src` | Allowed JavaScript sources |
+| `style-src` | Allowed CSS sources |
+| `img-src` | Allowed image sources |
+| `connect-src` | Allowed `fetch`, `XHR`, `WebSocket` endpoints |
+| `frame-ancestors` | Controls iframe embedding (replaces `X-Frame-Options`) |
+| `report-uri` / `report-to` | URL for violation reports |
+
+**Common values:**
+
+| Value | Meaning |
+|-------|---------|
+| `'self'` | Same origin only |
+| `'none'` | Block all |
+| `'unsafe-inline'` | Allow inline scripts/styles (weakens protection) |
+| `'nonce-abc123'` | Allow specific inline script with matching nonce |
+| `https://cdn.com` | Allow specific external domain |
+
+**Nonce-based CSP (recommended for inline scripts):**
+
+```html
+<!-- Server generates a unique nonce per request -->
+<meta http-equiv="Content-Security-Policy" content="script-src 'nonce-2726c7f26c'">
+
+<!-- Only this inline script will execute -->
+<script nonce="2726c7f26c">
+  console.log('This is allowed');
+</script>
+
+<!-- This will be blocked -->
+<script>console.log('This will be blocked');</script>
+```
+
+**Report-only mode (for testing):**
+
+```http
+Content-Security-Policy-Report-Only: default-src 'self'; report-uri /csp-report
+```
+
+This reports violations without blocking resources — useful for testing CSP before enforcement.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is server-sent events?
 
 Server-sent events (SSE) is a server push technology enabling a browser to receive automatic updates from a server via HTTP connection without resorting to polling. These are a one way communications channel - events flow from server to client only. This is been used in Facebook/Twitter updates, stock price updates, news feeds etc.
 
@@ -9417,7 +10769,7 @@ Below are the list of events available for server sent events
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.20. How do you get the image width and height using JS?
+## Q. How do you get the image width and height using JS?
 
 You can programmatically get the image and check the dimensions(width and height) using Javascript.
 
@@ -9433,7 +10785,7 @@ img.src = 'http://www.google.com/intl/en_ALL/images/logo.gif';
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q 18.21. What is a browser engine?
+## Q. What is a browser engine?
 
 The browser engine is to take the HTML, CSS and other code of a web page - the text you can see in the page source or open in a text editor, setting out layouts, page content, and styling - and convert it into what you actually see on screen.
 
@@ -9461,7 +10813,7 @@ Microsoft formerly developed its own proprietary browser engines - Trident and E
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-#### Q 18.22. What is a Polyfill?
+#### Q. What is a Polyfill?
 
 **Polyfill**
 
@@ -9485,7 +10837,7 @@ if (!Object.values) {
   };
 }
 
-// Now you can use Object.values() even in older browsers that don't support it natively
+// Now you can use Object.values() even in older browsers that don\'t support it natively
 const obj = { a: 1, b: 2, c: 3 };
 const values = Object.values(obj);
 
@@ -9499,7 +10851,7 @@ This code checks if the `Array.prototype.includes()` method is available in the 
 </div>
 
 
-#### Q 18.23. What is optional chaining in JavaScript?
+#### Q. What is optional chaining in JavaScript?
 
 **Optional chaining**
 
@@ -9533,7 +10885,7 @@ console.log(obj?.a?.b?.c.toString()); // output: "123"
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-#### Q 18.24. How could you make sure a const value is garbage collected?
+#### Q. How could you make sure a const value is garbage collected?
 
 In JavaScript, garbage collection is automatically performed by the browser or the JavaScript engine. When a value is no longer being used or referenced, it becomes eligible for garbage collection.
 
@@ -9544,7 +10896,7 @@ Here are some best practices to follow when working with const variables:
 
 1. Only use `const` when you know that the value should not be reassigned.
 
-2. If you ever want to change the contents of the variable for any reason in the future, then don't declare it as const.
+2. If you ever want to change the contents of the variable for any reason in the future, then don\'t declare it as const.
 
 3. Use `let` or `var` instead of `const` if you need to reassign the value.
 
@@ -9567,7 +10919,7 @@ In this example, setting `myObj` to `null` removes the only reference to the obj
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-#### Q 18.25. How Garbage Collection works in JavaScript?
+#### Q. How Garbage Collection works in JavaScript?
 
 JavaScript has an automatic garbage collector that periodically frees up memory that is no longer being used by the program. The garbage collector works by identifying "garbage" values that are no longer accessible or needed by the program and freeing up the memory they occupy.
 
@@ -9586,7 +10938,7 @@ At this point, the garbage collector will identify the object `{ b: { c: { d: "H
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-#### Q 18.26. What is the JavaScript Event Loop?
+#### Q. What is the JavaScript Event Loop?
 
 The **Event Loop** is the mechanism that allows JavaScript — a single-threaded language — to perform non-blocking asynchronous operations. It continuously monitors the **call stack** and the **task queues** and moves tasks from the queues to the stack when the stack is empty.
 
@@ -9629,7 +10981,7 @@ console.log('5 - sync');
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-#### Q 18.27. What is the difference between microtask queue and macrotask queue?
+#### Q. What is the difference between microtask queue and macrotask queue?
 
 | Feature          | Microtask Queue                          | Macrotask Queue                        |
 |------------------|------------------------------------------|----------------------------------------|
@@ -9662,6 +11014,849 @@ queueMicrotask(() => console.log('microtask 3'));
 ```
 
 *Note: All microtasks are fully drained before the event loop picks the next macrotask.*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are the SOLID principles in JavaScript?
+
+**SOLID** is an acronym for five object-oriented design principles that make software more maintainable and extensible.
+
+**S — Single Responsibility Principle (SRP)**
+
+A class/function should have only one reason to change.
+
+```js
+// ❌ Violates SRP — handles both business logic and persistence
+class UserService {
+  createUser(data) { /* validate + save to DB */ }
+  sendWelcomeEmail(user) { /* send email */ }
+}
+
+// ✅ Each class has one responsibility
+class UserRepository { save(user) { /* DB logic */ } }
+class EmailService    { sendWelcome(user) { /* email logic */ } }
+class UserService {
+  constructor(repo, email) { this.repo = repo; this.email = email; }
+  createUser(data) {
+    const user = this.repo.save(data);
+    this.email.sendWelcome(user);
+    return user;
+  }
+}
+```
+
+**O — Open/Closed Principle (OCP)**
+
+Open for extension, closed for modification.
+
+```js
+// ✅ Add new discount types without modifying existing code
+class DiscountStrategy { apply(price) { return price; } }
+class StudentDiscount  extends DiscountStrategy { apply(p) { return p * 0.8; } }
+class SeniorDiscount   extends DiscountStrategy { apply(p) { return p * 0.7; } }
+
+function checkout(price, strategy) { return strategy.apply(price); }
+```
+
+**L — Liskov Substitution Principle (LSP)**
+
+Subtypes must be substitutable for their base type.
+
+**I — Interface Segregation Principle (ISP)**
+
+No code should be forced to depend on methods it does not use. In JavaScript this means keeping interfaces (objects/mixins) small and focused.
+
+**D — Dependency Inversion Principle (DIP)**
+
+High-level modules should not depend on low-level modules. Both should depend on abstractions.
+
+```js
+// ✅ OrderService depends on an abstraction (any object with .save())
+class OrderService {
+  constructor(repository) { this.repository = repository; }
+  placeOrder(order) { return this.repository.save(order); }
+}
+
+const sqlRepo   = { save: order => console.log('SQL save', order) };
+const noSqlRepo = { save: order => console.log('NoSQL save', order) };
+
+new OrderService(sqlRepo).placeOrder({ id: 1 });
+new OrderService(noSqlRepo).placeOrder({ id: 2 });
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is the DRY principle in JavaScript?
+
+**DRY** stands for **Don\'t Repeat Yourself**. It states that every piece of knowledge must have a single, unambiguous, authoritative representation within a system. Duplicated logic makes code harder to maintain because changes must be applied in multiple places.
+
+**Violation:**
+
+```js
+function getFullNameAdmin(user) {
+  return user.firstName + ' ' + user.lastName + ' (admin)';
+}
+
+function getFullNameGuest(user) {
+  return user.firstName + ' ' + user.lastName + ' (guest)';
+}
+```
+
+**Applying DRY:**
+
+```js
+function getFullName(user) {
+  return `${user.firstName} ${user.lastName}`;
+}
+
+function getDisplayName(user) {
+  return `${getFullName(user)} (${user.role})`;
+}
+```
+
+**DRY vs. WET (Write Everything Twice):**
+
+DRY does not mean *never write similar-looking code*. Premature abstractions can introduce unnecessary coupling. A practical rule: abstract duplication only when the same logic appears **three or more times** and the abstraction does not make the code harder to understand.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is the 12-Factor App methodology?
+
+The **12-Factor App** is a methodology for building modern, scalable, maintainable software-as-a-service applications. It was created by Heroku engineers and applies equally to Node.js/JavaScript back-end services.
+
+| Factor | Description |
+|--------|-------------|
+| **1. Codebase** | One codebase tracked in VCS, many deploys |
+| **2. Dependencies** | Explicitly declare and isolate dependencies (`package.json`, `npm install`) |
+| **3. Config** | Store config (API keys, ports, DB URLs) in environment variables, never in code |
+| **4. Backing services** | Treat databases, queues, caches as attached resources |
+| **5. Build, release, run** | Strictly separate build (`npm run build`), release, and run stages |
+| **6. Processes** | Execute the app as one or more stateless processes |
+| **7. Port binding** | Export services via port binding (e.g. `app.listen(process.env.PORT)`) |
+| **8. Concurrency** | Scale out via the process model |
+| **9. Disposability** | Fast startup and graceful shutdown |
+| **10. Dev/prod parity** | Keep development, staging, and production as similar as possible |
+| **11. Logs** | Treat logs as event streams; write to stdout |
+| **12. Admin processes** | Run admin/management tasks as one-off processes |
+
+**JavaScript example — Factor 3 (Config):**
+
+```js
+// ✅ Config from environment variables
+const config = {
+  port:       process.env.PORT       || 3000,
+  dbUrl:      process.env.DATABASE_URL,
+  jwtSecret:  process.env.JWT_SECRET
+};
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are CommonJS, AMD, and UMD module systems?
+
+Before native ES Modules (ESM) were standardised, several module formats existed to solve the lack of a built-in module system in JavaScript.
+
+**1. CommonJS (CJS)**
+
+Used by Node.js. Synchronous `require()` and `module.exports`.
+
+```js
+// math.js (exporting)
+function add(a, b) { return a + b; }
+module.exports = { add };
+
+// app.js (importing)
+const { add } = require('./math');
+console.log(add(2, 3)); // 5
+```
+
+**2. AMD (Asynchronous Module Definition)**
+
+Designed for browsers; uses `define()` for async loading. Implemented by RequireJS.
+
+```js
+// Define a module
+define(['dependency'], function (dep) {
+  return {
+    greet: function () { return 'Hello from AMD'; }
+  };
+});
+
+// Require a module
+require(['myModule'], function (myModule) {
+  console.log(myModule.greet());
+});
+```
+
+**3. UMD (Universal Module Definition)**
+
+A pattern that works in all environments — AMD, CommonJS, and browser globals.
+
+```js
+(function (root, factory) {
+  if (typeof define === 'function' && define.amd) {
+    define(['dep'], factory);           // AMD
+  } else if (typeof module === 'object' && module.exports) {
+    module.exports = factory(require('dep')); // CJS
+  } else {
+    root.myLib = factory(root.dep);     // Global variable
+  }
+}(this, function (dep) {
+  return { /* library code */ };
+}));
+```
+
+**4. ES Modules (ESM) — modern standard**
+
+```js
+// Named export
+export function add(a, b) { return a + b; }
+
+// Default export
+export default class Calculator { /* ... */ }
+
+// Import
+import Calculator, { add } from './math.js';
+```
+
+| | CJS | AMD | UMD | ESM |
+|-|-----|-----|-----|-----|
+| Environment | Node.js | Browser | Both | Both (modern) |
+| Loading | Sync | Async | Both | Static/Dynamic |
+| Tree-shakeable | ❌ | ❌ | ❌ | ✅ |
+| Native browser support | ❌ | ❌ | ❌ | ✅ |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is Component-based Architecture in JavaScript?
+
+**Component-based architecture** is a design approach where the UI (and sometimes back-end logic) is broken into independent, reusable, self-contained **components**. Each component manages its own structure (HTML), style (CSS), and behaviour (JavaScript).
+
+**Key characteristics:**
+
+| Principle | Description |
+|-----------|-------------|
+| **Encapsulation** | A component owns its template, styles, and logic |
+| **Reusability** | Components can be used in multiple places without modification |
+| **Composability** | Complex UIs are built by composing simpler components |
+| **Single responsibility** | Each component has one clear purpose |
+| **Unidirectional data flow** | Data flows down via props; events bubble up |
+
+**Example — React-style component:**
+
+```jsx
+// Atomic component
+function Button({ label, onClick, variant = 'primary' }) {
+  return (
+    <button className={`btn btn-${variant}`} onClick={onClick}>
+      {label}
+    </button>
+  );
+}
+
+// Composed component
+function LoginForm({ onSubmit }) {
+  return (
+    <form onSubmit={onSubmit}>
+      <input type="email" placeholder="Email" />
+      <input type="password" placeholder="Password" />
+      <Button label="Sign In" onClick={onSubmit} />
+    </form>
+  );
+}
+```
+
+**Benefits over monolithic architecture:**
+
+* Easier testing — components can be tested in isolation
+* Parallel development — teams can work on different components simultaneously
+* Incremental updates — a single component can be changed without affecting the whole app
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## # 19. TOOLING & BUILD PROCESS
+
+<br/>
+
+## Q. What is Webpack and how does it work?
+
+**Webpack** is a static module bundler for JavaScript applications. It takes modules (JS, CSS, images, etc.) as input and produces optimised bundles as output — resolving all inter-module dependencies into a **dependency graph**.
+
+**Core concepts:**
+
+| Concept | Description |
+|---------|-------------|
+| **Entry** | The starting point(s) for the dependency graph |
+| **Output** | Where and how to emit the resulting bundles |
+| **Loaders** | Transform non-JS files (e.g. TypeScript, CSS, images) into modules |
+| **Plugins** | Perform broader build tasks (minification, HTML generation, env injection) |
+| **Mode** | `development` (readable output) or `production` (optimised/minified) |
+
+**Minimal `webpack.config.js`:**
+
+```js
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
+module.exports = {
+  entry: './src/index.js',
+  output: {
+    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname, 'dist'),
+    clean: true
+  },
+  mode: 'production',
+  module: {
+    rules: [
+      {
+        test: /\.tsx?$/,
+        use: 'ts-loader',
+        exclude: /node_modules/
+      },
+      {
+        test: /\.css$/,
+        use: ['style-loader', 'css-loader']
+      }
+    ]
+  },
+  plugins: [
+    new HtmlWebpackPlugin({ template: './src/index.html' })
+  ]
+};
+```
+
+**Code Splitting:**
+
+Split bundles to load only what is needed:
+
+```js
+// Dynamic import — webpack creates a separate chunk automatically
+const { add } = await import('./math.js');
+```
+
+**Tree Shaking:**
+
+Webpack (in production mode) removes dead code — exported functions that are never imported.
+
+```js
+// math.js
+export function add(a, b) { return a + b; }
+export function subtract(a, b) { return a - b; } // unused → removed in bundle
+
+// app.js
+import { add } from './math.js'; // only `add` is bundled
+```
+
+**Module Federation (Webpack 5):**
+
+Allows multiple independently deployed builds to share modules at runtime — the foundation of micro-frontends.
+
+```js
+// Remote app (exposes a component)
+new ModuleFederationPlugin({
+  name: 'remoteApp',
+  filename: 'remoteEntry.js',
+  exposes: { './Button': './src/Button' }
+});
+
+// Host app (consumes the remote component)
+new ModuleFederationPlugin({
+  remotes: { remoteApp: 'remoteApp@http://localhost:3001/remoteEntry.js' }
+});
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are Parcel and Rollup bundlers?
+
+**Parcel:**
+
+Parcel is a zero-configuration bundler. It automatically detects and configures loaders, supports hot module replacement (HMR), and handles CSS, images, and TypeScript out of the box.
+
+```bash
+# Install
+npm install --save-dev parcel
+
+# Bundle (no config file needed)
+npx parcel src/index.html
+```
+
+**Rollup:**
+
+Rollup is a module bundler optimised for building **libraries**. It produces extremely clean output and pioneered tree-shaking for ES modules.
+
+```js
+// rollup.config.js
+import resolve  from '@rollup/plugin-node-resolve';
+import commonjs from '@rollup/plugin-commonjs';
+import terser   from '@rollup/plugin-terser';
+
+export default {
+  input: 'src/index.js',
+  output: [
+    { file: 'dist/bundle.esm.js', format: 'esm' },
+    { file: 'dist/bundle.cjs.js', format: 'cjs' }
+  ],
+  plugins: [resolve(), commonjs(), terser()]
+};
+```
+
+| Feature | Webpack | Parcel | Rollup |
+|---------|---------|--------|--------|
+| Config | Required | Zero-config | Simple |
+| Best for | Apps | Apps (rapid setup) | Libraries |
+| Tree shaking | ✅ | ✅ | ✅ (best) |
+| Code splitting | ✅ | ✅ | ✅ |
+| HMR | ✅ | ✅ built-in | ❌ (via plugin) |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is Babel and how does transpilation work?
+
+**Babel** is a JavaScript transpiler (source-to-source compiler) that converts modern JavaScript (ES6+) into a backwards-compatible version for older browsers or environments that don\'t support the latest syntax.
+
+**How it works:**
+
+1. **Parse** — Source code is parsed into an AST (Abstract Syntax Tree).
+2. **Transform** — Plugins traverse and modify the AST (e.g. convert arrow functions to regular functions).
+3. **Generate** — The modified AST is printed back to JavaScript source code.
+
+**Installation:**
+
+```bash
+npm install --save-dev @babel/core @babel/cli @babel/preset-env
+```
+
+**`babel.config.json`:**
+
+```json
+{
+  "presets": [
+    ["@babel/preset-env", {
+      "targets": "> 0.25%, not dead",
+      "useBuiltIns": "usage",
+      "corejs": 3
+    }]
+  ],
+  "plugins": ["@babel/plugin-transform-class-properties"]
+}
+```
+
+**Example transformation:**
+
+```js
+// Input (ES6+)
+const greet = name => `Hello, ${name}!`;
+const [a, b, ...rest] = [1, 2, 3, 4];
+
+// Output (ES5)
+"use strict";
+var greet = function greet(name) {
+  return "Hello, " + name + "!";
+};
+var _ref = [1, 2, 3, 4], a = _ref[0], b = _ref[1], rest = _ref.slice(2);
+```
+
+**Polyfills vs. transpilation:**
+
+* **Transpilation** handles *syntax* (arrow functions, destructuring, classes).
+* **Polyfills** (`core-js`, `regenerator-runtime`) handle missing *runtime APIs* (`Promise`, `Array.from`, generators).
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are ESLint, Husky, and Git Hooks?
+
+**ESLint:**
+
+ESLint is a static analysis tool that identifies and reports patterns in JavaScript code, catching bugs and enforcing coding standards before runtime.
+
+```bash
+npm install --save-dev eslint
+npx eslint --init
+```
+
+**`.eslintrc.json`:**
+
+```json
+{
+  "env": { "browser": true, "es2021": true },
+  "extends": ["eslint:recommended"],
+  "rules": {
+    "no-console": "warn",
+    "eqeqeq": "error",
+    "no-unused-vars": "error",
+    "prefer-const": "error"
+  }
+}
+```
+
+```bash
+npx eslint src/          # lint files
+npx eslint src/ --fix    # auto-fix fixable issues
+```
+
+**Git Hooks:**
+
+Git hooks are scripts that run automatically at specific points in the Git workflow (e.g. before a commit, before a push). They live in `.git/hooks/` but can be managed by tools.
+
+**Husky:**
+
+Husky is a tool that makes Git hooks easy to configure via `package.json`.
+
+```bash
+npm install --save-dev husky lint-staged
+npx husky install
+```
+
+**`package.json`:**
+
+```json
+{
+  "scripts": {
+    "prepare": "husky install"
+  },
+  "lint-staged": {
+    "*.{js,ts}": ["eslint --fix", "prettier --write"]
+  }
+}
+```
+
+**`.husky/pre-commit`:**
+
+```bash
+#!/bin/sh
+npx lint-staged
+```
+
+**Common hooks:**
+
+| Hook | When it runs | Typical use |
+|------|-------------|-------------|
+| `pre-commit` | Before a commit is created | Lint, format, run unit tests |
+| `commit-msg` | After commit message is entered | Validate commit message format |
+| `pre-push` | Before code is pushed | Run full test suite |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## # 20. PROGRESSIVE WEB APPS (PWA)
+
+<br/>
+
+## Q. What is a Progressive Web App (PWA)?
+
+A **Progressive Web App (PWA)** is a web application that uses modern web APIs and progressive enhancement strategies to deliver an app-like experience — including offline support, push notifications, and home-screen installation — directly through a browser, without an app store.
+
+**Core characteristics:**
+
+| Pillar | Description |
+|--------|-------------|
+| **Reliable** | Loads instantly and works offline via service workers and caching |
+| **Fast** | Responds quickly to user interactions |
+| **Engaging** | Feels like a native app (full-screen, push notifications, home-screen icon) |
+
+**PWA checklist:**
+
+* Served over HTTPS
+* Has a valid Web App Manifest
+* Registers a service worker with a fetch handler
+* Responds with a 200 when offline
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is a Web App Manifest?
+
+The **Web App Manifest** (`manifest.json`) is a JSON file that tells the browser how to install the app on a device\'s home screen and how it should appear when launched.
+
+**`manifest.json`:**
+
+```json
+{
+  "name": "My Awesome App",
+  "short_name": "MyApp",
+  "description": "A sample PWA",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#317EFB",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "/icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}
+```
+
+**Link it in `index.html`:**
+
+```html
+<link rel="manifest" href="/manifest.json">
+<meta name="theme-color" content="#317EFB">
+```
+
+**Key `display` modes:**
+
+| Mode | Description |
+|------|-------------|
+| `standalone` | Looks like a native app (no browser UI) |
+| `fullscreen` | Hides all browser and system UI |
+| `minimal-ui` | Minimal browser controls |
+| `browser` | Regular browser tab |
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are service workers and caching strategies in PWA?
+
+A **service worker** is a JavaScript file that runs in a separate worker thread, acting as a network proxy between the web app and the network. It enables offline support, background processing, and push notifications.
+
+**Registering a service worker:**
+
+```js
+// index.js
+if ('serviceWorker' in navigator) {
+  navigator.serviceWorker.register('/sw.js')
+    .then(reg  => console.log('SW registered:', reg.scope))
+    .catch(err => console.error('SW registration failed:', err));
+}
+```
+
+**Common caching strategies (`sw.js`):**
+
+**1. Cache First (offline-first for static assets):**
+
+```js
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    caches.match(event.request).then(cached => {
+      return cached || fetch(event.request);
+    })
+  );
+});
+```
+
+**2. Network First (always fresh data, fallback to cache):**
+
+```js
+self.addEventListener('fetch', event => {
+  event.respondWith(
+    fetch(event.request)
+      .then(res => {
+        const clone = res.clone();
+        caches.open('dynamic-v1').then(cache => cache.put(event.request, clone));
+        return res;
+      })
+      .catch(() => caches.match(event.request))
+  );
+});
+```
+
+**3. Stale-While-Revalidate (serve cache immediately, update in background):**
+
+Return cached response immediately for speed while fetching a fresh version in the background for the next request.
+
+**Lifecycle events:**
+
+```js
+self.addEventListener('install',  e => { /* cache static assets */ });
+self.addEventListener('activate', e => { /* clean old caches */ });
+self.addEventListener('fetch',    e => { /* intercept requests */ });
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is Background Sync in PWA?
+
+**Background Sync** allows a PWA to defer actions until the user has a stable network connection. For example, if a user submits a form while offline, the sync can be retried automatically when connectivity is restored — even if the app is no longer open.
+
+**How to use Background Sync:**
+
+```js
+// 1. Register a sync tag when the action is queued
+async function saveData(data) {
+  await storeInIndexedDB(data); // persist locally first
+
+  if ('serviceWorker' in navigator && 'SyncManager' in window) {
+    const reg = await navigator.serviceWorker.ready;
+    await reg.sync.register('sync-data');
+  }
+}
+
+// 2. Handle the sync event in the service worker (sw.js)
+self.addEventListener('sync', event => {
+  if (event.tag === 'sync-data') {
+    event.waitUntil(
+      getFromIndexedDB().then(data => fetch('/api/save', {
+        method: 'POST',
+        body: JSON.stringify(data)
+      }))
+    );
+  }
+});
+```
+
+*Note: Background Sync is currently supported in Chrome and Edge; Firefox and Safari have limited support.*
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What are push notifications in PWA?
+
+**Push Notifications** allow a server to send messages to a user\'s device even when the PWA is not open in the browser, using the **Push API** and **Notifications API** together.
+
+**Flow:**
+
+1. App requests notification permission from the user.
+2. App subscribes to the browser\'s push service (generates a unique subscription endpoint).
+3. Subscription is sent to the app\'s server.
+4. Server sends a push message to the endpoint via the Web Push Protocol.
+5. Service worker receives the push event and shows a notification.
+
+**Step 1 — Request permission:**
+
+```js
+const permission = await Notification.requestPermission();
+if (permission !== 'granted') return;
+```
+
+**Step 2 — Subscribe:**
+
+```js
+const reg = await navigator.serviceWorker.ready;
+const subscription = await reg.pushManager.subscribe({
+  userVisibleOnly: true,
+  applicationServerKey: urlBase64ToUint8Array(PUBLIC_VAPID_KEY)
+});
+await fetch('/api/subscribe', {
+  method: 'POST',
+  body: JSON.stringify(subscription)
+});
+```
+
+**Step 3 — Handle push in service worker (`sw.js`):**
+
+```js
+self.addEventListener('push', event => {
+  const data = event.data.json();
+  event.waitUntil(
+    self.registration.showNotification(data.title, {
+      body:  data.body,
+      icon:  '/icons/icon-192.png',
+      badge: '/icons/badge.png',
+      data:  { url: data.url }
+    })
+  );
+});
+
+self.addEventListener('notificationclick', event => {
+  event.notification.close();
+  event.waitUntil(clients.openWindow(event.notification.data.url));
+});
+```
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. What is Workbox?
+
+**Workbox** is a set of libraries from Google that simplifies service worker development. It provides production-ready caching strategies, routing, background sync, and precaching with minimal boilerplate.
+
+**Installation:**
+
+```bash
+npm install workbox-webpack-plugin --save-dev   # Webpack integration
+npm install workbox-window                       # Runtime helper for page
+```
+
+**Webpack plugin (`webpack.config.js`):**
+
+```js
+const { GenerateSW } = require('workbox-webpack-plugin');
+
+module.exports = {
+  plugins: [
+    new GenerateSW({
+      clientsClaim: true,
+      skipWaiting: true
+    })
+  ]
+};
+```
+
+**Manual service worker with Workbox strategies (`sw.js`):**
+
+```js
+import { registerRoute }          from 'workbox-routing';
+import { CacheFirst, NetworkFirst, StaleWhileRevalidate } from 'workbox-strategies';
+import { precacheAndRoute }        from 'workbox-precaching';
+
+// Precache build artifacts
+precacheAndRoute(self.__WB_MANIFEST);
+
+// Cache-first for images
+registerRoute(
+  ({ request }) => request.destination === 'image',
+  new CacheFirst({ cacheName: 'images', plugins: [/* expiry plugin */] })
+);
+
+// Network-first for API calls
+registerRoute(
+  ({ url }) => url.pathname.startsWith('/api/'),
+  new NetworkFirst({ cacheName: 'api-cache' })
+);
+
+// Stale-while-revalidate for fonts
+registerRoute(
+  ({ url }) => url.origin === 'https://fonts.googleapis.com',
+  new StaleWhileRevalidate({ cacheName: 'google-fonts' })
+);
+```
+
+**Workbox modules:**
+
+| Module | Purpose |
+|--------|---------|
+| `workbox-routing` | Route network requests to strategies |
+| `workbox-strategies` | CacheFirst, NetworkFirst, StaleWhileRevalidate, etc. |
+| `workbox-precaching` | Precache and serve build artifacts |
+| `workbox-background-sync` | Queue and replay failed requests |
+| `workbox-expiration` | Expire cached items by age or count |
+| `workbox-push-notifications` | Handle push notification routing |
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
