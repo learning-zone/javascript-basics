@@ -1,0 +1,9 @@
+# Cruft
+.DS_Store
+npm-debug.log
+.idea
+*.idea/
+.idea/workspace.xml
+
+# Dependency directories
+node_modules/

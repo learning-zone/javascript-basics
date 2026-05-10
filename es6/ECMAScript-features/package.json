@@ -1,0 +1,13 @@
+{
+  "name": "ECMAScript-cheatsheet",
+  "version": "1.0.0",
+  "description": "ECMAScript features with list of examples.",
+  "main": "index.js",
+  "author": "Sudheer Jonna <sudheer.jonna@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/node": "^7.8.7",
+    "@babel/preset-env": "^7.9.5"
+  }
+}
