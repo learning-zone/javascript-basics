@@ -1849,3 +1849,980 @@ console.log(grouped["Marketing"][0].name);
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
+
+## Q. A developer writes the following function and runs it. What does `console.log(foo(), typeof x, typeof y)` output?
+
+```javascript
+function foo() {
+  let x = (y = 0);
+  x++;
+  y++;
+  return x;
+}
+
+console.log(foo(), typeof x, typeof y);
+```
+
+- A) `1`, `"undefined"`, `"undefined"`
+- B) `1`, `"number"`, `"number"`
+- C) `1`, `"undefined"`, `"number"`
+- D) `ReferenceError: y is not defined`
+
+**Answer: C) `1`, `"undefined"`, `"number"`**
+
+**Explanation:** The expression `let x = (y = 0)` is evaluated right-to-left. `y` is never declared with `let`/`var`/`const`, so it becomes an implicit global variable. `x` is block-scoped to `foo`. After the call, `typeof x` is `"undefined"` (no such variable in outer scope) and `typeof y` is `"number"` (global `y` holds `1` after `y++`).
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer chains `filter`, `map`, and `reduce` on an array. What is the final result?
+
+```javascript
+const numbers = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+
+const result = numbers
+  .filter(num => num % 2 === 0)
+  .map(num => num * 2)
+  .reduce((sum, num) => sum + num, 0);
+
+console.log(result);
+```
+
+- A) `30`
+- B) `55`
+- C) `60`
+- D) `110`
+
+**Answer: C) `60`**
+
+**Explanation:** `filter` keeps only even numbers `[2, 4, 6, 8, 10]`. `map` doubles each → `[4, 8, 12, 16, 20]`. `reduce` sums all values starting from `0` → `4 + 8 + 12 + 16 + 20 = 60`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. An async function throws an error. What is logged to the console in order?
+
+```javascript
+async function fetchData() {
+  throw new Error('Network error');
+}
+
+async function getData() {
+  try {
+    const data = await fetchData();
+    console.log(data);
+    return data;
+  } catch (error) {
+    console.log('Caught:', error.message);
+    return null;
+  }
+}
+
+getData().then(result => {
+  console.log('Result:', result);
+});
+```
+
+- A) `Result: null`, then `Caught: Network error`
+- B) `Caught: Network error`, then `Result: null`
+- C) `Caught: Network error` only — `.then()` never runs
+- D) Unhandled promise rejection — no output
+
+**Answer: B) `Caught: Network error`, then `Result: null`**
+
+**Explanation:** `fetchData()` rejects immediately. The `catch` block in `getData()` handles the error, logs `'Caught: Network error'`, and returns `null`. The `.then()` on the resolved `getData()` promise then logs `'Result: null'`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer defines a class with two `constructor` methods. What happens when the code runs?
+
+```javascript
+class Rectangle {
+  constructor(height, width) {
+    this.height = height;
+    this.width = width;
+  }
+  constructor(width) {
+    this.width = width;
+  }
+}
+
+const square = new Rectangle(20, 30);
+console.log(square.area);
+```
+
+- A) Logs `undefined` — `area` is not defined
+- B) Logs `600` — the first constructor wins
+- C) `SyntaxError: A class may only have one constructor`
+- D) `TypeError: Cannot create instance`
+
+**Answer: C) `SyntaxError: A class may only have one constructor`**
+
+**Explanation:** JavaScript classes do not support constructor overloading. Defining more than one `constructor` in a class body is a syntax error and throws `SyntaxError` before any code executes. Use default parameters or factory patterns to simulate overloading.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer creates two independent counters using closures. What is the output?
+
+```javascript
+function createCounter() {
+  let count = 0;
+  return function () {
+    count++;
+    return count;
+  };
+}
+
+const counter1 = createCounter();
+const counter2 = createCounter();
+
+console.log(counter1()); // ?
+console.log(counter1()); // ?
+console.log(counter2()); // ?
+console.log(counter1()); // ?
+```
+
+- A) `1`, `2`, `3`, `4`
+- B) `1`, `2`, `1`, `3`
+- C) `1`, `1`, `1`, `1`
+- D) `1`, `2`, `2`, `3`
+
+**Answer: B) `1`, `2`, `1`, `3`**
+
+**Explanation:** Each call to `createCounter()` creates a new closure with its own independent `count` variable. `counter1` and `counter2` do not share state. `counter1` increments to 1, 2, then 3. `counter2` starts its own sequence from 1.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A function uses object destructuring with default values. What does the third call log?
+
+```javascript
+function displayUser({ name = 'Guest', age = 18, country } = {}) {
+  console.log(`Name: ${name}, Age: ${age}, Country: ${country}`);
+}
+
+displayUser();
+```
+
+- A) `TypeError: Cannot destructure property 'name' of undefined`
+- B) `Name: undefined, Age: undefined, Country: undefined`
+- C) `Name: Guest, Age: 18, Country: undefined`
+- D) `Name: Guest, Age: 18, Country: null`
+
+**Answer: C) `Name: Guest, Age: 18, Country: undefined`**
+
+**Explanation:** The `= {}` at the end of the parameter list provides a default empty object when no argument is passed, preventing a `TypeError`. `name` and `age` use their defaults (`'Guest'` and `18`). `country` has no default, so it is `undefined`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer uses `setTimeout` with `0` ms delay inside a function. What is the output order?
+
+```javascript
+function main() {
+  console.log('A');
+  setTimeout(function print() {
+    console.log('B');
+  }, 0);
+  console.log('C');
+}
+main();
+```
+
+- A) `A`, `B`, `C`
+- B) `A`, `C`, `B`
+- C) `B`, `A`, `C`
+- D) `A`, `C` — `B` is never logged
+
+**Answer: B) `A`, `C`, `B`**
+
+**Explanation:** Even with a delay of `0`, `setTimeout` places its callback in the macrotask queue. The call stack must be empty before the event loop picks it up. So `'A'` and `'C'` are logged synchronously first, then `'B'` is logged after `main()` returns.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer compares floating-point arithmetic. What does this code output?
+
+```javascript
+console.log(0.1 + 0.2 === 0.3);
+```
+
+- A) `true`
+- B) `false`
+- C) `undefined`
+- D) `RangeError: floating-point overflow`
+
+**Answer: B) `false`**
+
+**Explanation:** Due to IEEE 754 binary floating-point representation, `0.1 + 0.2` evaluates to `0.30000000000000004`, not exactly `0.3`. To safely compare floating-point numbers, use `Math.abs(0.1 + 0.2 - 0.3) < Number.EPSILON`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer creates a `User` constructor and calls `getProfile()`. What does `profile()` log?
+
+```javascript
+function User(name, age) {
+  this.name = name;
+  this.age = age;
+  this.getProfile = function () {
+    return () => {
+      console.log("I'm " + this.name + ", " + this.age + " yrs old");
+    };
+  };
+}
+
+let user = new User('John', 25);
+let profile = user.getProfile();
+profile();
+```
+
+- A) `I'm undefined, undefined yrs old`
+- B) `I'm , undefined yrs old`
+- C) `I'm John, 25 yrs old`
+- D) `TypeError: Cannot read property 'name' of undefined`
+
+**Answer: C) `I'm John, 25 yrs old`**
+
+**Explanation:** The arrow function inside `getProfile()` does not have its own `this`. It lexically inherits `this` from the enclosing `getProfile` method, which was called on `user`. Therefore `this.name` is `'John'` and `this.age` is `25`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A `User` constructor returns a regular (non-arrow) inner function. What does `profile()` log in a browser?
+
+```javascript
+function User(name, age) {
+  this.name = name;
+  this.age = age;
+  this.getProfile = function () {
+    return function () {
+      console.log("I'm " + this.name + ", " + this.age + " yrs old");
+    };
+  };
+}
+
+var user = new User('John', 25);
+var profile = user.getProfile();
+profile();
+```
+
+- A) `I'm John, 25 yrs old`
+- B) `I'm undefined, undefined yrs old`
+- C) `TypeError: Cannot read property 'name' of undefined`
+- D) `I'm , undefined yrs old`
+
+**Answer: D) `I'm , undefined yrs old`**
+
+**Explanation:** When `profile()` is called as a plain function (not as a method), `this` refers to the global object (`window` in browsers). `window.name` defaults to `''` (empty string) and `window.age` is `undefined`. Arrow functions solve this; alternatively, use `.bind(this)` or store `const self = this`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A named function expression is used inside an `if` condition. What does this code log?
+
+```javascript
+var y = 1;
+if (function f() {}) {
+  y += typeof f;
+}
+console.log(y);
+```
+
+- A) `2`
+- B) `"1function"`
+- C) `"1undefined"`
+- D) `ReferenceError: f is not defined`
+
+**Answer: C) `"1undefined"`**
+
+**Explanation:** The named function expression `function f(){}` is truthy, so the `if` block runs. However, the name `f` is only accessible inside the function expression\'s own body — it is not in scope inside the `if` block. `typeof f` returns `"undefined"` (not a `ReferenceError`, since `typeof` is safe for undeclared names). `1 + "undefined"` coerces to `"1undefined"`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer calls `new Vehicle(...)` before the function declaration. What is the output?
+
+```javascript
+var car = new Vehicle("Honda", "white", "2010", "UK");
+console.log(car);
+
+function Vehicle(model, color, year, country) {
+  this.model = model;
+  this.color = color;
+  this.year = year;
+  this.country = country;
+}
+```
+
+- A) `ReferenceError: Vehicle is not defined`
+- B) `undefined`
+- C) `Vehicle { model: 'Honda', color: 'white', year: '2010', country: 'UK' }`
+- D) `TypeError: Vehicle is not a constructor`
+
+**Answer: C) `Vehicle { model: 'Honda', color: 'white', year: '2010', country: 'UK' }`**
+
+**Explanation:** Function declarations are fully hoisted, meaning both the name and the implementation are available throughout the entire scope before execution. `new Vehicle(...)` works even before the declaration line because the engine hoists the entire `Vehicle` function to the top.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A constructor function is called without the `new` keyword. What does `console.log(car)` output?
+
+```javascript
+function Vehicle(model, color, year, country) {
+  this.model = model;
+  this.color = color;
+  this.year = year;
+  this.country = country;
+}
+
+var car = Vehicle("Honda", "white", "2010", "UK");
+console.log(car);
+```
+
+- A) `Vehicle { model: 'Honda', color: 'white', year: '2010', country: 'UK' }`
+- B) `{}`
+- C) `undefined`
+- D) `TypeError: Vehicle is not a constructor`
+
+**Answer: C) `undefined`**
+
+**Explanation:** Without `new`, `Vehicle` is called as a plain function. `this` refers to the global object, so the properties are set on `window`/`global`. The function has no explicit `return` statement, so it returns `undefined`, which is assigned to `car`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer uses ES6 object property shorthand. Which statement about the output is correct?
+
+```javascript
+const name = 'Alice';
+const age = 30;
+
+const user1 = { name: name, age: age };
+const user2 = { name, age };
+
+console.log(user1.name === user2.name);
+```
+
+- A) `false` — `user2` creates new values
+- B) `true` — both syntaxes produce equivalent objects
+- C) `SyntaxError` — shorthand is not valid inside objects
+- D) `undefined` — shorthand only works in destructuring
+
+**Answer: B) `true` — both syntaxes produce equivalent objects**
+
+**Explanation:** ES6 property shorthand `{ name, age }` is syntactic sugar for `{ name: name, age: age }`. Both objects have identical property values, so `user1.name === user2.name` is `true`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer uses `Promise.all()` with a mix of resolving and rejecting promises. What is logged?
+
+```javascript
+const p1 = Promise.resolve(3);
+const p2 = new Promise(resolve => setTimeout(() => resolve('foo'), 100));
+const p3 = Promise.reject('Error occurred');
+const p4 = Promise.resolve(42);
+
+Promise.all([p1, p2, p3, p4])
+  .then(values => console.log(values))
+  .catch(error => console.log('Caught:', error));
+```
+
+- A) `[3, 'foo', 'Error occurred', 42]`
+- B) `[3, 'foo', null, 42]`
+- C) `Caught: Error occurred`
+- D) The `.then()` runs and logs `[3, undefined, undefined, 42]`
+
+**Answer: C) `Caught: Error occurred`**
+
+**Explanation:** `Promise.all()` short-circuits on the first rejection. As soon as `p3` rejects with `'Error occurred'`, the whole `Promise.all()` rejects immediately, regardless of the other pending promises. The `.catch()` handler receives the rejection reason.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer sets up prototypal inheritance between `Animal` and `Dog`. What does the code log?
+
+```javascript
+function Animal(name) {
+  this.name = name;
+}
+Animal.prototype.speak = function () {
+  console.log(this.name + ' makes a sound.');
+};
+
+function Dog(name) {
+  Animal.call(this, name);
+}
+Dog.prototype = Object.create(Animal.prototype);
+Dog.prototype.constructor = Dog;
+Dog.prototype.speak = function () {
+  console.log(this.name + ' barks.');
+};
+
+const dog = new Dog('Rex');
+dog.speak();
+console.log(dog instanceof Dog);
+console.log(dog instanceof Animal);
+```
+
+- A) `Rex makes a sound.`, `true`, `false`
+- B) `Rex barks.`, `true`, `true`
+- C) `Rex barks.`, `false`, `true`
+- D) `TypeError: dog.speak is not a function`
+
+**Answer: B) `Rex barks.`, `true`, `true`**
+
+**Explanation:** `Dog.prototype` overrides `speak`, so `dog.speak()` logs `'Rex barks.'`. `Object.create(Animal.prototype)` links the prototype chain, making `dog instanceof Animal` return `true`. `Dog.prototype.constructor = Dog` correctly restores the constructor reference.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A function has a `return` statement on its own line followed by an object literal. What does it return?
+
+```javascript
+function foo() {
+  return
+  {
+    message: "Hello World"
+  };
+}
+console.log(foo());
+```
+
+- A) `{ message: "Hello World" }`
+- B) `null`
+- C) `undefined`
+- D) `SyntaxError: Unexpected token`
+
+**Answer: C) `undefined`**
+
+**Explanation:** JavaScript\'s Automatic Semicolon Insertion (ASI) inserts a semicolon after the `return` keyword because a line break follows. The function effectively returns `undefined`, and the object literal becomes unreachable dead code. To fix this, place the opening brace on the same line as `return`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer uses the spread operator to merge two objects with overlapping keys. What does `obj3` contain?
+
+```javascript
+const obj1 = { a: 1, b: 2 };
+const obj2 = { b: 3, c: 4 };
+const obj3 = { ...obj1, ...obj2 };
+
+console.log(obj3);
+```
+
+- A) `{ a: 1, b: 2, c: 4 }`
+- B) `{ a: 1, b: 3, c: 4 }`
+- C) `{ a: 1, b: [2, 3], c: 4 }`
+- D) `TypeError: cannot spread object with duplicate keys`
+
+**Answer: B) `{ a: 1, b: 3, c: 4 }`**
+
+**Explanation:** When spreading multiple objects, later properties overwrite earlier ones with the same key. `obj2.b` (value `3`) overwrites `obj1.b` (value `2`). Spread creates a shallow merge — properties from `obj2` take precedence.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer spreads an object containing a nested object. What does `original.y.z` log after modifying the copy?
+
+```javascript
+const original = { x: 1, y: { z: 2 } };
+const copy = { ...original };
+
+copy.x = 10;
+copy.y.z = 20;
+
+console.log(original.x);
+console.log(original.y.z);
+```
+
+- A) `1`, `2`
+- B) `10`, `20`
+- C) `1`, `20`
+- D) `10`, `2`
+
+**Answer: C) `1`, `20`**
+
+**Explanation:** The spread operator creates a **shallow copy**. Primitive values (`x`) are copied by value, so `copy.x = 10` does not affect `original.x`. Nested objects (`y`) are copied by reference, so `copy.y` and `original.y` point to the same object — mutating `copy.y.z` also changes `original.y.z`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer accesses a `let` variable before its declaration. What happens?
+
+```javascript
+console.log(varVariable);
+console.log(letVariable);
+
+var varVariable = 'I am var';
+let letVariable = 'I am let';
+```
+
+- A) Both log `undefined`
+- B) `undefined`, then `ReferenceError: Cannot access 'letVariable' before initialization`
+- C) Both throw `ReferenceError`
+- D) `undefined`, then `null`
+
+**Answer: B) `undefined`, then `ReferenceError: Cannot access 'letVariable' before initialization`**
+
+**Explanation:** `var` is hoisted and initialized to `undefined`, so the first log succeeds. `let` is hoisted but not initialized — it sits in the **Temporal Dead Zone (TDZ)** from the start of the block until the declaration line. Accessing it before declaration throws a `ReferenceError`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer compares values using `==` and `===`. Which pair of statements is correct?
+
+```javascript
+console.log([] == false);   // ?
+console.log([] === false);  // ?
+console.log(null == undefined);  // ?
+console.log(null === undefined); // ?
+```
+
+- A) `true`, `false`, `true`, `false`
+- B) `false`, `false`, `true`, `true`
+- C) `true`, `true`, `false`, `false`
+- D) `false`, `true`, `false`, `true`
+
+**Answer: A) `true`, `false`, `true`, `false`**
+
+**Explanation:** `[] == false`: `[]` coerces to `''`, `false` coerces to `0`, `''` coerces to `0` — `0 == 0` is `true`. `[] === false`: different types, so `false`. `null == undefined` is a special case defined as `true` in the spec. `null === undefined`: different types, so `false`. Always prefer `===` to avoid unexpected coercion.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer uses `reduce` to generate all subsets of a given set. What does this function return for input `[1, 2, 3]`?
+
+```javascript
+const getAllSubset = arr =>
+  arr.reduce(
+    (subsets, value) => subsets.concat(subsets.map(set => [value, ...set])),
+    [[]]
+  );
+
+console.log(getAllSubset([1, 2, 3]));
+```
+
+- A) `[[1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]]`
+- B) `[[], [1], [2], [2,1], [3], [3,1], [3,2], [3,2,1]]`
+- C) `[[1,2,3], [1,2], [1,3], [2,3], [1], [2], [3], []]`
+- D) `[[], [1], [2], [3], [1,2], [1,3], [2,3], [1,2,3]]`
+
+**Answer: B) `[[], [1], [2], [2,1], [3], [3,1], [3,2], [3,2,1]]`**
+
+**Explanation:** The accumulator starts as `[[]]`. For each `value`, the existing subsets are mapped to prepend `value`, and the results are concatenated onto the current subsets. After `1`: `[[], [1]]`. After `2`: `[[], [1], [2], [2,1]]`. After `3`: `[[], [1], [2], [2,1], [3], [3,1], [3,2], [3,2,1]]` — 2³ = 8 subsets total.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer filters an array of items using a list of exclusion rules. Which items remain in `newItems`?
+
+```javascript
+let items = [
+  { color: 'red',    type: 'tv',    age: 18 },
+  { color: 'silver', type: 'phone', age: 20 },
+  { color: 'blue',   type: 'phone', age: 20 },
+  { color: 'green',  type: 'phone', age: 20 }
+];
+
+let excludes = [
+  { k: 'color', v: 'silver' },
+  { k: 'type',  v: 'tv' },
+];
+
+let newItems = items.reduce((acc, item) => {
+  let result = excludes.some(exclude => item[exclude['k']] === exclude['v']);
+  if (!result) acc.push(item);
+  return acc;
+}, []);
+```
+
+- A) `red/tv` and `silver/phone` are removed; `blue/phone` and `green/phone` remain
+- B) Only `silver/phone` is removed; the rest remain
+- C) Only `red/tv` is removed; the rest remain
+- D) All items are removed because every item matches at least one rule
+
+**Answer: A) `red/tv` and `silver/phone` are removed; `blue/phone` and `green/phone` remain**
+
+**Explanation:** `excludes.some()` checks if any rule matches the item. `red/tv` matches `{k:'type', v:'tv'}` and `silver/phone` matches `{k:'color', v:'silver'}` — both are excluded. `blue/phone` and `green/phone` match no rules and are kept.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer flattens a nested object using recursive `reduce`. What are the keys in the output?
+
+```javascript
+let obj = {
+  "a": {
+    "b": {
+      "c": 12,
+      "d": "Hello World",
+      "e": null
+    },
+    "f": [1, 2, 3]
+  }
+};
+console.log(flatten(obj));
+```
+
+- A) `{ a: {...}, b: {...} }` — only top-level keys
+- B) `{ "b/c": 12, "b/d": "Hello World", "b/e": null, "f": [1,2,3] }`
+- C) `{ "a/b/c": 12, "a/b/d": "Hello World", "a/b/e": null, "a/f": [1,2,3] }`
+- D) `{ "a.b.c": 12, "a.b.d": "Hello World", "a.b.e": null, "a.f": [1,2,3] }`
+
+**Answer: C) `{ "a/b/c": 12, "a/b/d": "Hello World", "a/b/e": null, "a/f": [1,2,3] }`**
+
+**Explanation:** The `flatten` function recurses into nested plain objects, building up path keys with `/` separators. Arrays are not recursed (they are treated as leaf values), so `"a/f"` holds the entire `[1,2,3]` array. `null` is also treated as a leaf because `val != null` catches it.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer implements an undirected graph. After the operations below, what does `g.relations()` return?
+
+```javascript
+const g = new Graph();
+g.addVertex(1); g.addVertex(2); g.addVertex(3);
+g.addEdge(1, 2);
+g.addEdge(1, 3);
+g.addEdge(2, 3);
+g.removeEdge(1, 3);
+console.log(g.relations());
+```
+
+- A) `3`
+- B) `2`
+- C) `1`
+- D) `0`
+
+**Answer: B) `2`**
+
+**Explanation:** Three `addEdge` calls set `numberOfEdges` to `3`. `removeEdge(1, 3)` finds and splices both directions from the adjacency list and decrements `numberOfEdges` once (only when `~index1` is true). Result: `3 - 1 = 2`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer uses a sliding-window approach to find the longest substring without repeating characters. What does this function return for `"abcabcbb"`?
+
+```javascript
+const lengthOfLongestSubstring = function(s) {
+  let map = {}, start = 0, maxLen = 0;
+  let arr = s.split('');
+  for (let i = 0; i < s.length; i++) {
+    let current = map[arr[i]];
+    if (current != null && start <= current) {
+      start = current + 1;
+    } else {
+      maxLen = Math.max(maxLen, i - start + 1);
+    }
+    map[arr[i]] = i;
+  }
+  return maxLen;
+};
+
+console.log(lengthOfLongestSubstring("abcabcbb"));
+```
+
+- A) `2`
+- B) `7`
+- C) `3`
+- D) `4`
+
+**Answer: C) `3`**
+
+**Explanation:** The longest substring without repeating characters in `"abcabcbb"` is `"abc"` (length 3). The algorithm uses a hash map to store the last-seen index of each character and moves the `start` pointer forward whenever a duplicate is found within the current window.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer runs Kadane\'s algorithm using `reduce` to find the maximum subarray sum. What does this return?
+
+```javascript
+const maxSubArray = (nums) => {
+  let currentSum = 0;
+  return nums.reduce((acc, item) => {
+    currentSum = Math.max(currentSum + item, 0);
+    return Math.max(acc, currentSum);
+  }, 0);
+};
+
+console.log(maxSubArray([-2, 1, -3, 4, -1, 2, 1, -5, 4]));
+```
+
+- A) `4`
+- B) `7`
+- C) `6`
+- D) `10`
+
+**Answer: C) `6`**
+
+**Explanation:** The algorithm tracks `currentSum` — if adding the next element would make it negative, it resets to `0`. The subarray `[4, -1, 2, 1]` gives the maximum sum of `6`. `acc` always holds the best sum seen so far. Note: this variant returns `0` for all-negative arrays (it never goes below `0`).
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer computes the median of an array. The `mid` index is calculated as `Math.floor((0, sortedArr.length - 1) / 2)`. What does the comma operator `(0, sortedArr.length - 1)` evaluate to?
+
+```javascript
+let mid = Math.floor((0, sortedArr.length - 1) / 2);
+```
+
+For `sortedArr = [1, 3, 5, 7, 8, 9, 9, 21]` (length 8), what is `mid`?
+
+- A) `0` — the comma operator always returns the leftmost value
+- B) `3` — evaluates to `(sortedArr.length - 1) / 2 = 7 / 2 = 3`
+- C) `4` — evaluates to `sortedArr.length / 2 = 8 / 2 = 4`
+- D) `SyntaxError` — comma inside `Math.floor()` is invalid
+
+**Answer: B) `3` — evaluates to `(sortedArr.length - 1) / 2 = 7 / 2 = 3`**
+
+**Explanation:** The comma operator evaluates each operand left-to-right and returns the **rightmost** value. `(0, sortedArr.length - 1)` returns `sortedArr.length - 1 = 7`. So `mid = Math.floor(7 / 2) = 3`. This is likely an unintentional use of the comma operator — the developer probably meant `Math.floor((sortedArr.length - 1) / 2)`, which coincidentally produces the same result here.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer merges overlapping intervals. What does this function return for `[[1,3],[2,6],[8,10],[15,18]]`?
+
+```javascript
+console.log(mergeIntervals([[1,3],[2,6],[8,10],[15,18]]));
+```
+
+- A) `[[1,3],[2,6],[8,10],[15,18]]` — no changes
+- B) `[[1,6],[8,10],[15,18]]`
+- C) `[[1,6],[8,18]]`
+- D) `[[1,10],[15,18]]`
+
+**Answer: B) `[[1,6],[8,10],[15,18]]`**
+
+**Explanation:** After sorting by start, the reduce processes each interval. `[1,3]` and `[2,6]` overlap (`3 > 2`), so they merge to `[1,6]`. `[8,10]` does not overlap with `[1,6]`, so it is kept separately. `[15,18]` does not overlap with `[8,10]`, so it is kept. Result: `[[1,6],[8,10],[15,18]]`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. Two rectangles are created and tested for overlap. What do the two `console.log` calls output?
+
+```javascript
+const rect1 = new Rectangle(250, 250, 150, 100); // x,y,width,height
+const rect2 = new Rectangle(100, 100, 300, 200);
+const rect3 = new Rectangle(450, 450, 150, 100);
+
+console.log(rect1.isOverlapping(rect2)); // ?
+console.log(rect2.isOverlapping(rect3)); // ?
+```
+
+- A) `true`, `true`
+- B) `false`, `false`
+- C) `true`, `false`
+- D) `false`, `true`
+
+**Answer: C) `true`, `false`**
+
+**Explanation:** `rect1` spans x:[250,400], y:[250,350]. `rect2` spans x:[100,400], y:[100,300]. They share y overlap (250 < 300) and x overlap, so `true`. `rect3` spans x:[450,600], y:[450,550]. `rect2`\'s right edge is `x=400`, which is less than `rect3.x=450` — the condition `rect2.x + rect2.width > rect3.x` → `400 > 450` is `false`, so no overlap.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer finds the second largest number in an array using a single pass. What does this return?
+
+```javascript
+const secondLargest = (arr) => {
+  let largest = -1, secondLargest = -1;
+  arr.forEach(el => {
+    if (el > largest) {
+      let temp = largest;
+      largest = el;
+      secondLargest = temp;
+    } else if (el > secondLargest) {
+      secondLargest = el;
+    }
+  });
+  return secondLargest;
+};
+
+console.log(secondLargest([1, 10, 2, 9]));
+```
+
+- A) `10`
+- B) `2`
+- C) `9`
+- D) `-1`
+
+**Answer: C) `9`**
+
+**Explanation:** Iterating: `el=1` → largest=1, second=-1. `el=10` → largest=10, second=1. `el=2` → 2 > second(1), so second=2. `el=9` → 9 > second(2), so second=9. Final: `9`. Note: this implementation has a limitation — it initialises both sentinels to `-1`, so it fails for all-negative arrays.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer spots a syntax error in this sequential promise execution snippet. What is wrong?
+
+```javascript
+return tasks.reduce((promiseChain, currentTask) => {
+  return promiseChain.then(chain =>
+    currentTask.then(result => [...chain, result]);
+  );
+}, Promise.resolve([]));
+```
+
+- A) `Promise.resolve([])` should be `Promise.resolve()`
+- B) A stray semicolon (`;`) after `[...chain, result])` prematurely terminates the arrow function expression before the outer `)` closes
+- C) `[...chain, result]` is invalid — you cannot spread inside an array literal inside `.then()`
+- D) `reduce` cannot be used with promises — use `Promise.all()` instead
+
+**Answer: B) A stray semicolon (`;`) after `[...chain, result])` prematurely terminates the arrow function expression before the outer `)` closes**
+
+**Explanation:** The inner `.then(result => [...chain, result])` is correct, but the `;` immediately after it ends the `promiseChain.then(chain => ...)` callback before its closing `)` — making it a syntax error. The fix is to remove that semicolon so the return value of `currentTask.then(...)` properly flows back as the resolved value.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer converts a sorted array to a height-balanced BST. What is the root node\'s value for input `[1,2,3,4,5,6,7]`?
+
+```javascript
+const sortedArrayToBST = (nums) => {
+  let rec = (nums, start, end) => {
+    if (start > end) return null;
+    let mid = Math.floor((start + end) / 2);
+    let root = new Node(nums[mid]);
+    root.left  = rec(nums, start, mid - 1);
+    root.right = rec(nums, mid + 1, end);
+    return root;
+  };
+  return rec(nums, 0, nums.length - 1);
+};
+
+console.log(sortedArrayToBST([1, 2, 3, 4, 5, 6, 7]));
+```
+
+- A) `1`
+- B) `3`
+- C) `4`
+- D) `7`
+
+**Answer: C) `4`**
+
+**Explanation:** The first call has `start=0`, `end=6`. `mid = Math.floor(6/2) = 3`. `nums[3] = 4` becomes the root. This mid-point selection ensures the tree is height-balanced: left subtree holds `[1,2,3]` and right subtree holds `[5,6,7]`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer generates all permutations of the string `"abcd"` using recursion. How many permutations does the function return?
+
+```javascript
+const strPermutations = str => {
+  if (str.length < 2) return str;
+  let permutations = [];
+  for (let i = 0; i < str.length; i++) {
+    let char = str[i];
+    let remaining = str.slice(0, i) + str.slice(i + 1);
+    for (let sub of strPermutations(remaining)) {
+      permutations.push(char + sub);
+    }
+  }
+  return permutations;
+};
+
+console.log(strPermutations("abcd").length);
+```
+
+- A) `8`
+- B) `16`
+- C) `24`
+- D) `32`
+
+**Answer: C) `24`**
+
+**Explanation:** The number of permutations of `n` distinct characters is `n!`. For `"abcd"` (4 characters), that is `4! = 4 × 3 × 2 × 1 = 24`. The algorithm picks each character as the first element, then recursively permutes the remaining string, and concatenates all results.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer validates a word square by checking symmetry across the diagonal. What does `validWordSquare(arr1)` return?
+
+```javascript
+let arr1 = [
+  ["a","b","c","d"],
+  ["b","n","r","t"],
+  ["c","r","m","y"],
+  ["d","t","y","e"]
+];
+
+console.log(validWordSquare(arr1));
+```
+
+- A) `false` — the grid has no repeated letters
+- B) `true` — `words[i][j] === words[j][i]` holds for all positions
+- C) `false` — the grid dimensions do not match
+- D) `RangeError` — index out of bounds
+
+**Answer: B) `true` — `words[i][j] === words[j][i]` holds for all positions**
+
+**Explanation:** A valid word square requires that the grid is symmetric across its main diagonal (i.e., it reads the same horizontally and vertically). Checking every `(i,j)` pair: `words[0][1]='b'=words[1][0]`, `words[0][2]='c'=words[2][0]`, `words[1][2]='r'=words[2][1]`, `words[2][3]='y'=words[3][2]`, etc. — all pairs match, so the function returns `true`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. A developer uses `setInterval` to animate a DOM element, updating its `left` position each frame. When does the animation stop?
+
+```javascript
+var left = 0, lastFrame = +new Date, timer;
+timer = setInterval(function() {
+  var now = +new Date, deltaT = now - lastFrame;
+  elem.style.left = (left += 10 * deltaT / 16) + "px";
+  lastFrame = now;
+  if (left > 400) {
+    clearInterval(timer);
+  }
+}, 16);
+```
+
+- A) After exactly 400 frames
+- B) When `left` exceeds `400` pixels
+- C) After 400 milliseconds regardless of `left`
+- D) Never — `clearInterval` inside `setInterval` has no effect
+
+**Answer: B) When `left` exceeds `400` pixels**
+
+**Explanation:** Each tick calculates the time elapsed since the last frame (`deltaT`) and advances `left` proportionally (`10 * deltaT / 16` pixels). When `left` exceeds `400`, `clearInterval(timer)` stops the interval. This delta-time technique makes the animation speed independent of frame timing jitter — unlike simply incrementing by a fixed number each tick.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
