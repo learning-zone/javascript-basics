@@ -3239,3 +3239,826 @@ console.log(findDuplicateWords(str));
 <div align="right">
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
+
+## Q. Write a FizzBuzz program?
+
+**Example:**
+
+```js
+Input: 15
+Output:
+1, 2, Fizz, 4, Buzz, Fizz, 7, 8, Fizz, Buzz, 11, Fizz, 13, 14, FizzBuzz
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function fizzBuzz(n) {
+  for (let i = 1; i <= n; i++) {
+    if (i % 15 === 0) {
+      console.log("FizzBuzz");
+    } else if (i % 3 === 0) {
+      console.log("Fizz");
+    } else if (i % 5 === 0) {
+      console.log("Buzz");
+    } else {
+      console.log(i);
+    }
+  }
+}
+
+fizzBuzz(15);
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to check whether a number is prime or not?
+
+**Examples:**
+
+```js
+Input: 7
+Output: 7 is a Prime Number
+
+Input: 10
+Output: 10 is not a Prime Number
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function isPrime(num) {
+  if (num < 2) return false;
+  for (let i = 2; i <= Math.sqrt(num); i++) {
+    if (num % i === 0) return false;
+  }
+  return true;
+}
+
+console.log(isPrime(7));  // true
+console.log(isPrime(10)); // false
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to find the second largest number in an array?
+
+**Examples:**
+
+```js
+Input: [10, 5, 8, 20, 15]
+Output: 15
+
+Input: [1, 1, 1]
+Output: No second largest element
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function secondLargest(arr) {
+  let unique = [...new Set(arr)].sort((a, b) => b - a);
+  if (unique.length < 2) {
+    return "No second largest element";
+  }
+  return unique[1];
+}
+
+console.log(secondLargest([10, 5, 8, 20, 15])); // 15
+console.log(secondLargest([1, 1, 1]));           // No second largest element
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to rotate an array by k positions?
+
+**Examples:**
+
+```js
+Input: [1, 2, 3, 4, 5], k = 2
+Output: [3, 4, 5, 1, 2]
+
+Input: [10, 20, 30], k = 1
+Output: [20, 30, 10]
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function rotateArray(arr, k) {
+  const n = arr.length;
+  k = k % n; // handle k > array length
+  return [...arr.slice(k), ...arr.slice(0, k)];
+}
+
+console.log(rotateArray([1, 2, 3, 4, 5], 2)); // [3, 4, 5, 1, 2]
+console.log(rotateArray([10, 20, 30], 1));     // [20, 30, 10]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to count vowels in a string?
+
+**Examples:**
+
+```js
+Input: 'Hello World'
+Output: 3
+
+Input: 'JavaScript'
+Output: 3
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function countVowels(str) {
+  return str.match(/[aeiou]/gi)?.length || 0;
+}
+
+console.log(countVowels("Hello World")); // 3
+console.log(countVowels("JavaScript"));  // 3
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to check if two strings are anagrams of each other?
+
+**Examples:**
+
+```js
+Input: 'listen', 'silent'
+Output: true
+
+Input: 'hello', 'world'
+Output: false
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function isAnagram(str1, str2) {
+  const normalize = (str) =>
+    str.toLowerCase().replace(/\s/g, "").split("").sort().join("");
+  return normalize(str1) === normalize(str2);
+}
+
+console.log(isAnagram("listen", "silent")); // true
+console.log(isAnagram("hello", "world"));   // false
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to compress a string using run-length encoding?
+
+**Examples:**
+
+```js
+Input: 'aabbbcccc'
+Output: 'a2b3c4'
+
+Input: 'abcd'
+Output: 'abcd'
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function compress(str) {
+  let result = "";
+  let count = 1;
+
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      count++;
+    } else {
+      result += count > 1 ? str[i] + count : str[i];
+      count = 1;
+    }
+  }
+  return result;
+}
+
+console.log(compress("aabbbcccc")); // a2b3c4
+console.log(compress("abcd"));      // abcd
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to find the GCD (Greatest Common Divisor) of two numbers?
+
+**Examples:**
+
+```js
+Input: 12, 18
+Output: 6
+
+Input: 56, 98
+Output: 14
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function gcd(a, b) {
+  while (b !== 0) {
+    let temp = b;
+    b = a % b;
+    a = temp;
+  }
+  return a;
+}
+
+console.log(gcd(12, 18)); // 6
+console.log(gcd(56, 98)); // 14
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to find the intersection and union of two arrays?
+
+**Examples:**
+
+```js
+Input: [1, 2, 3, 4], [3, 4, 5, 6]
+
+Intersection Output: [3, 4]
+Union Output: [1, 2, 3, 4, 5, 6]
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function intersection(arr1, arr2) {
+  return arr1.filter((x) => arr2.includes(x));
+}
+
+function union(arr1, arr2) {
+  return [...new Set([...arr1, ...arr2])];
+}
+
+const a = [1, 2, 3, 4];
+const b = [3, 4, 5, 6];
+
+console.log(intersection(a, b)); // [3, 4]
+console.log(union(a, b));        // [1, 2, 3, 4, 5, 6]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to implement a debounce?
+
+**Example:**
+
+```js
+// The function should only execute after the user stops calling it for `delay` ms
+const debouncedFn = debounce(() => console.log("called"), 300);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function debounce(fn, delay) {
+  let timer;
+  return function (...args) {
+    clearTimeout(timer);
+    timer = setTimeout(() => fn.apply(this, args), delay);
+  };
+}
+
+const debouncedLog = debounce((msg) => console.log(msg), 300);
+
+debouncedLog("first");
+debouncedLog("second");
+debouncedLog("third"); // Only "third" is logged after 300ms
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to implement a throttle?
+
+**Example:**
+
+```js
+// The function should execute at most once every `limit` ms
+const throttledFn = throttle(() => console.log("called"), 1000);
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function throttle(fn, limit) {
+  let lastCall = 0;
+  return function (...args) {
+    const now = Date.now();
+    if (now - lastCall >= limit) {
+      lastCall = now;
+      fn.apply(this, args);
+    }
+  };
+}
+
+const throttledLog = throttle((msg) => console.log(msg), 1000);
+
+throttledLog("first");  // logged
+throttledLog("second"); // ignored (called too soon)
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to implement currying?
+
+**Examples:**
+
+```js
+Input: curry(add)(1)(2)(3)
+Output: 6
+
+Input: curry(multiply)(2)(3)(4)
+Output: 24
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function curry(fn) {
+  return function curried(...args) {
+    if (args.length >= fn.length) {
+      return fn.apply(this, args);
+    }
+    return function (...nextArgs) {
+      return curried.apply(this, args.concat(nextArgs));
+    };
+  };
+}
+
+const add = (a, b, c) => a + b + c;
+const curriedAdd = curry(add);
+
+console.log(curriedAdd(1)(2)(3)); // 6
+console.log(curriedAdd(1, 2)(3)); // 6
+console.log(curriedAdd(1)(2, 3)); // 6
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to implement memoization?
+
+**Example:**
+
+```js
+Input: memoize(fibonacci)(10)
+Output: 89 (computed only once per unique input)
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function memoize(fn) {
+  const cache = new Map();
+  return function (...args) {
+    const key = JSON.stringify(args);
+    if (cache.has(key)) {
+      return cache.get(key);
+    }
+    const result = fn.apply(this, args);
+    cache.set(key, result);
+    return result;
+  };
+}
+
+const slowSquare = (n) => {
+  console.log(`Computing square of ${n}`);
+  return n * n;
+};
+
+const memoizedSquare = memoize(slowSquare);
+
+console.log(memoizedSquare(5)); // Computing square of 5 → 25
+console.log(memoizedSquare(5)); // Cache hit → 25 (no log)
+console.log(memoizedSquare(6)); // Computing square of 6 → 36
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to deep clone an object?
+
+**Example:**
+
+```js
+Input:
+{ name: "Alice", address: { city: "NYC" } }
+
+Output:
+// Cloned object — modifying clone does not affect original
+```
+
+<details><summary><b>Answer</b></summary>
+
+**Solution 01:** Using JSON methods (no functions/undefined/circular refs)
+
+```js
+function deepClone(obj) {
+  return JSON.parse(JSON.stringify(obj));
+}
+
+const original = { name: "Alice", address: { city: "NYC" } };
+const clone = deepClone(original);
+clone.address.city = "LA";
+
+console.log(original.address.city); // NYC (unchanged)
+console.log(clone.address.city);    // LA
+```
+
+**Solution 02:** Recursive deep clone
+
+```js
+function deepClone(obj) {
+  if (obj === null || typeof obj !== "object") return obj;
+  if (Array.isArray(obj)) return obj.map(deepClone);
+
+  return Object.fromEntries(
+    Object.entries(obj).map(([key, value]) => [key, deepClone(value)])
+  );
+}
+
+const original = { a: 1, b: { c: [1, 2, 3] } };
+const clone = deepClone(original);
+clone.b.c.push(4);
+
+console.log(original.b.c); // [1, 2, 3]
+console.log(clone.b.c);    // [1, 2, 3, 4]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to deep compare two objects?
+
+**Examples:**
+
+```js
+Input: { a: 1, b: { c: 2 } }, { a: 1, b: { c: 2 } }
+Output: true
+
+Input: { a: 1 }, { a: 2 }
+Output: false
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function deepEqual(obj1, obj2) {
+  if (obj1 === obj2) return true;
+
+  if (
+    typeof obj1 !== "object" ||
+    typeof obj2 !== "object" ||
+    obj1 === null ||
+    obj2 === null
+  ) {
+    return false;
+  }
+
+  const keys1 = Object.keys(obj1);
+  const keys2 = Object.keys(obj2);
+
+  if (keys1.length !== keys2.length) return false;
+
+  return keys1.every((key) => deepEqual(obj1[key], obj2[key]));
+}
+
+console.log(deepEqual({ a: 1, b: { c: 2 } }, { a: 1, b: { c: 2 } })); // true
+console.log(deepEqual({ a: 1 }, { a: 2 }));                             // false
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to flatten a nested object?
+
+**Example:**
+
+```js
+Input:
+{ a: 1, b: { c: 2, d: { e: 3 } } }
+
+Output:
+{ a: 1, 'b.c': 2, 'b.d.e': 3 }
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function flattenObject(obj, prefix = "") {
+  return Object.keys(obj).reduce((acc, key) => {
+    const fullKey = prefix ? `${prefix}.${key}` : key;
+    if (typeof obj[key] === "object" && obj[key] !== null && !Array.isArray(obj[key])) {
+      Object.assign(acc, flattenObject(obj[key], fullKey));
+    } else {
+      acc[fullKey] = obj[key];
+    }
+    return acc;
+  }, {});
+}
+
+console.log(flattenObject({ a: 1, b: { c: 2, d: { e: 3 } } }));
+// { a: 1, 'b.c': 2, 'b.d.e': 3 }
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to generate all permutations of a string?
+
+**Examples:**
+
+```js
+Input: 'abc'
+Output: [ 'abc', 'acb', 'bac', 'bca', 'cab', 'cba' ]
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function permutations(str) {
+  if (str.length <= 1) return [str];
+  const result = [];
+  for (let i = 0; i < str.length; i++) {
+    const char = str[i];
+    const remaining = str.slice(0, i) + str.slice(i + 1);
+    for (const perm of permutations(remaining)) {
+      result.push(char + perm);
+    }
+  }
+  return result;
+}
+
+console.log(permutations("abc"));
+// ['abc', 'acb', 'bac', 'bca', 'cab', 'cba']
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to find the longest common prefix among an array of strings?
+
+**Examples:**
+
+```js
+Input: ['flower', 'flow', 'flight']
+Output: 'fl'
+
+Input: ['dog', 'racecar', 'car']
+Output: ''
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function longestCommonPrefix(strs) {
+  if (!strs.length) return "";
+  let prefix = strs[0];
+  for (let i = 1; i < strs.length; i++) {
+    while (!strs[i].startsWith(prefix)) {
+      prefix = prefix.slice(0, -1);
+      if (!prefix) return "";
+    }
+  }
+  return prefix;
+}
+
+console.log(longestCommonPrefix(["flower", "flow", "flight"])); // 'fl'
+console.log(longestCommonPrefix(["dog", "racecar", "car"]));    // ''
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to find all prime numbers up to n using Sieve of Eratosthenes?
+
+**Examples:**
+
+```js
+Input: 20
+Output: [2, 3, 5, 7, 11, 13, 17, 19]
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function sieveOfEratosthenes(n) {
+  const isPrime = new Array(n + 1).fill(true);
+  isPrime[0] = isPrime[1] = false;
+
+  for (let i = 2; i <= Math.sqrt(n); i++) {
+    if (isPrime[i]) {
+      for (let j = i * i; j <= n; j += i) {
+        isPrime[j] = false;
+      }
+    }
+  }
+  return isPrime.reduce((primes, flag, num) => {
+    if (flag) primes.push(num);
+    return primes;
+  }, []);
+}
+
+console.log(sieveOfEratosthenes(20)); // [2, 3, 5, 7, 11, 13, 17, 19]
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Implement a stack and a queue using JavaScript?
+
+**Example:**
+
+```js
+// Stack: LIFO
+stack.push(1); stack.push(2); stack.pop(); // 2
+
+// Queue: FIFO
+queue.enqueue(1); queue.enqueue(2); queue.dequeue(); // 1
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+// Stack (LIFO)
+class Stack {
+  constructor() {
+    this.items = [];
+  }
+  push(element) { this.items.push(element); }
+  pop() { return this.items.pop(); }
+  peek() { return this.items[this.items.length - 1]; }
+  isEmpty() { return this.items.length === 0; }
+  size() { return this.items.length; }
+}
+
+const stack = new Stack();
+stack.push(1);
+stack.push(2);
+console.log(stack.pop());  // 2
+console.log(stack.peek()); // 1
+
+// Queue (FIFO)
+class Queue {
+  constructor() {
+    this.items = [];
+  }
+  enqueue(element) { this.items.push(element); }
+  dequeue() { return this.items.shift(); }
+  front() { return this.items[0]; }
+  isEmpty() { return this.items.length === 0; }
+  size() { return this.items.length; }
+}
+
+const queue = new Queue();
+queue.enqueue(1);
+queue.enqueue(2);
+console.log(queue.dequeue()); // 1
+console.log(queue.front());   // 2
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to check if a number is an Armstrong number?
+
+**Examples:**
+
+```js
+Input: 153
+Output: true  (1³ + 5³ + 3³ = 153)
+
+Input: 123
+Output: false
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function isArmstrong(num) {
+  const digits = String(num).split("");
+  const n = digits.length;
+  const sum = digits.reduce((acc, d) => acc + Math.pow(Number(d), n), 0);
+  return sum === num;
+}
+
+console.log(isArmstrong(153)); // true
+console.log(isArmstrong(370)); // true
+console.log(isArmstrong(123)); // false
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. Write a function to find the sum of digits of a number?
+
+**Examples:**
+
+```js
+Input: 12345
+Output: 15
+
+Input: 9999
+Output: 36
+```
+
+<details><summary><b>Answer</b></summary>
+
+```js
+function sumOfDigits(num) {
+  return Math.abs(num)
+    .toString()
+    .split("")
+    .reduce((sum, digit) => sum + Number(digit), 0);
+}
+
+console.log(sumOfDigits(12345)); // 15
+console.log(sumOfDigits(9999));  // 36
+```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
