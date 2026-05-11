@@ -375,6 +375,72 @@ ReferenceError: Num is not defined
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. What is the output?
+
+```js
+const user = null;
+console.log(user?.name);
+console.log(user?.address?.city);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`undefined` `undefined`
+
+The optional chaining operator (`?.`) returns `undefined` if the value before it is `null` or `undefined`, instead of throwing a TypeError.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const value = null ?? 'default';
+const value2 = undefined ?? 'fallback';
+const value3 = 0 ?? 'not this';
+
+console.log(value);
+console.log(value2);
+console.log(value3);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'default'` `'fallback'` `0`
+
+The nullish coalescing operator (`??`) returns the right-hand side only when the left-hand side is `null` or `undefined`. Unlike `||`, it does NOT treat `0`, `''`, or `false` as nullish.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+function test() {
+  console.log(x);
+  let x = 10;
+}
+test();
+```
+
+<details><summary><b>Answer</b></summary>
+
+`ReferenceError: Cannot access 'x' before initialization`
+
+`let` and `const` variables exist in a "temporal dead zone" from the start of the block until the declaration is reached. Accessing them before declaration throws a `ReferenceError`, unlike `var` which would return `undefined`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## # Operators
 
 <br/>
@@ -688,7 +754,7 @@ With the `||` operator, we can return the first truthy operand. If all values ar
 
 ```js
 const output = `${[] && "Im"}possible!
-You should${"" && `n't`} see a therapist after so much JavaScript lol`;
+You should${"" && `n\'t`} see a therapist after so much JavaScript lol`;
 ```
 
 <details><summary><b>Answer</b></summary>
@@ -765,6 +831,73 @@ console.log(numbers);
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. What is the output?
+
+```js
+let a = 1;
+let b = 2;
+let c = 3;
+
+a ||= 10;
+b &&= 20;
+c ??= 30;
+
+console.log(a, b, c);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`1 20 3`
+
+- `||=` assigns the right value only if the left is falsy. `a` is `1` (truthy), so it stays `1`.
+- `&&=` assigns the right value only if the left is truthy. `b` is `2` (truthy), so it becomes `20`.
+- `??=` assigns only if the left is `null` or `undefined`. `c` is `3`, so it stays `3`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+console.log(1 < 2 < 3);
+console.log(3 > 2 > 1);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`true` `false`
+
+Operators are left-associative. `1 < 2` evaluates to `true`, then `true < 3` coerces `true` to `1`, so `1 < 3` is `true`. For the second: `3 > 2` is `true`, then `true > 1` coerces `true` to `1`, so `1 > 1` is `false`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+console.log(typeof NaN);
+console.log(NaN === NaN);
+console.log(NaN == NaN);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'number'` `false` `false`
+
+`NaN` (Not a Number) has type `'number'`. It is the only JavaScript value that is not equal to itself — `NaN === NaN` and `NaN == NaN` both return `false`. Use `Number.isNaN()` to reliably check for `NaN`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## # Numbers
 
 <br/>
@@ -798,6 +931,45 @@ console.log(Symbol("foo") === Symbol("foo"));
 <details><summary><b>Answer</b></summary>
 
 Every Symbol is entirely unique. The purpose of the argument passed to the Symbol is to give the Symbol a description. The value of the Symbol is not dependent on the passed argument. As we test equality, we are creating two entirely new symbols: the first `Symbol('foo')`, and the second `Symbol('foo')`. These two values are unique and not equal to each other, `Symbol('foo') === Symbol('foo')` returns `false`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+console.log(0.1 + 0.2 === 0.3);
+console.log(0.1 + 0.2);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`false` `0.30000000000000004`
+
+Floating-point arithmetic in JavaScript (IEEE 754) cannot represent `0.1` and `0.2` exactly in binary, causing rounding errors. To compare floats, use `Math.abs(a - b) < Number.EPSILON` instead of `===`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+console.log(isNaN('hello'));
+console.log(Number.isNaN('hello'));
+console.log(Number.isNaN(NaN));
+```
+
+<details><summary><b>Answer</b></summary>
+
+`true` `false` `true`
+
+The global `isNaN()` coerces its argument to a Number first — `'hello'` becomes `NaN`, so it returns `true`. `Number.isNaN()` does NOT coerce: it returns `true` only if the value is exactly `NaN`. Therefore `Number.isNaN('hello')` is `false`.
 
 </details>
 
@@ -1009,6 +1181,66 @@ console.log(a, b);
 732 
 102
 ```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const name = 'World';
+const greeting = `Hello, ${name}!`;
+console.log(greeting);
+console.log(typeof greeting);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'Hello, World!'` `'string'`
+
+Template literals (backtick strings) allow embedded expressions with `${}`. The result is always a plain `string`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+console.log(String.raw`Hello\nWorld`);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`Hello\nWorld`
+
+`String.raw` is a tagged template that returns the raw string content without processing escape sequences. The `\n` is not converted to a newline — it appears as the literal characters `\` and `n`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const str = 'hello';
+console.log(str.padStart(8));
+console.log(str.padEnd(8, '*'));
+console.log(str.padStart(8, '123'));
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'   hello'` `'hello***'` `'123hello'`
+
+`padStart(targetLength, padString)` pads from the left; `padEnd` from the right. The default pad character is a space. The total length after padding equals `targetLength`. If the pad string is shorter than needed it repeats; if longer it is truncated.
 
 </details>
 
@@ -1975,6 +2207,66 @@ console.log("I want pizza"[0]);
 In order to get an character on a specific index in a string, you can use bracket notation. The first character in the string has index 0, and so on. In this case we want to get the element which index is 0, the character `"I'`, which gets logged.
 
 Note that this method is not supported in IE7 and below. In that case, use `.charAt()`
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const arr = [1, [2, [3, [4]]]]; 
+console.log(arr.flat());
+console.log(arr.flat(2));
+console.log(arr.flat(Infinity));
+```
+
+<details><summary><b>Answer</b></summary>
+
+`[1, 2, [3, [4]]]` `[1, 2, 3, [4]]` `[1, 2, 3, 4]`
+
+`Array.flat(depth)` flattens nested arrays up to the given `depth`. The default depth is `1`. Passing `Infinity` flattens all levels.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const arr = [1, 2, 3, 4, 5];
+console.log(arr.at(0));
+console.log(arr.at(-1));
+console.log(arr.at(-2));
+```
+
+<details><summary><b>Answer</b></summary>
+
+`1` `5` `4`
+
+`Array.prototype.at()` accepts negative indices, which count from the end of the array. `at(-1)` returns the last element, `at(-2)` the second-to-last, etc.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+console.log([1, 2, 3].flatMap(x => [x, x * 2]));
+```
+
+<details><summary><b>Answer</b></summary>
+
+`[1, 2, 2, 4, 3, 6]`
+
+`flatMap` is equivalent to calling `map` followed by `flat(1)`. It maps each element to an array, then flattens one level deep.
 
 </details>
 
@@ -4162,6 +4454,82 @@ console.log(find_max(nums));
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. What is the output?
+
+```js
+function* counter() {
+  yield 1;
+  yield 2;
+  yield 3;
+}
+
+const gen = counter();
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().value);
+console.log(gen.next().done);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`1` `2` `3` `true`
+
+A generator function returns an iterator. Each call to `.next()` runs the function until the next `yield`, returning `{ value, done }`. Once all yields are exhausted, `.done` becomes `true`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+function sum(...nums) {
+  return nums.reduce((a, b) => a + b, 0);
+}
+
+console.log(sum(1, 2, 3));
+console.log(sum(...[4, 5, 6]));
+```
+
+<details><summary><b>Answer</b></summary>
+
+`6` `15`
+
+Rest parameters (`...nums`) collect all arguments into an array. The spread operator (`...`) expands an iterable into individual arguments. Both use `...` syntax but in opposite roles.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const obj = { a: 1 };
+
+const double = ({ a }) => a * 2;
+const { a: renamed, b = 10 } = obj;
+
+console.log(double(obj));
+console.log(renamed);
+console.log(b);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`2` `1` `10`
+
+Destructuring in parameters pulls `a` from the argument. `{ a: renamed }` destructures `a` and renames it to `renamed`. `{ b = 10 }` provides a default value for `b` when it is `undefined`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## # Objects
 
 <br/>
@@ -5092,6 +5460,82 @@ SyntaxError: Unexpected number
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. What is the output?
+
+```js
+const obj = Object.freeze({ name: 'Alice', scores: [1, 2, 3] });
+obj.name = 'Bob';
+obj.scores.push(4);
+
+console.log(obj.name);
+console.log(obj.scores);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'Alice'` `[1, 2, 3, 4]`
+
+`Object.freeze()` prevents adding, removing or modifying top-level properties of the object. However, it is **shallow** — nested objects and arrays are not frozen, so `obj.scores.push(4)` succeeds.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const obj = {
+  _count: 0,
+  get count() { return this._count; },
+  set count(val) { this._count = val > 0 ? val : 0; }
+};
+
+obj.count = 5;
+console.log(obj.count);
+
+obj.count = -1;
+console.log(obj.count);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`5` `0`
+
+Getters and setters intercept property access. The `set count` validates the value and falls back to `0` for negative numbers. The `get count` reads the underlying `_count`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const key = 'hello';
+const obj = {
+  [key]: 'world',
+  [`${key}2`]: '!'
+};
+
+console.log(obj.hello);
+console.log(obj.hello2);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'world'` `'!'`
+
+Computed property names allow any expression inside `[]` to be used as an object key at object creation time.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## # Classes
 
 <br/>
@@ -5264,6 +5708,100 @@ Calling a function constructor with `new` results in the creation of an instance
     <b><a href="#javascript-coding-practice">↥ back to top</a></b>
 </div>
 
+## Q. What is the output?
+
+```js
+class BankAccount {
+  #balance = 0;
+
+  deposit(amount) { this.#balance += amount; }
+  get balance() { return this.#balance; }
+}
+
+const account = new BankAccount();
+account.deposit(100);
+console.log(account.balance);
+console.log(account.#balance);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`100` then `SyntaxError: Private field '#balance' must be declared in an enclosing class`
+
+Private class fields (prefixed with `#`) are accessible only within the class body. Any attempt to access them from outside the class throws a `SyntaxError` at parse time.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+class MathHelper {
+  static PI = 3.14159;
+
+  static circleArea(r) {
+    return MathHelper.PI * r * r;
+  }
+}
+
+console.log(MathHelper.PI);
+console.log(MathHelper.circleArea(5).toFixed(2));
+
+const m = new MathHelper();
+console.log(m.PI);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`3.14159` `'78.54'` `undefined`
+
+Static properties and methods belong to the class itself, not to instances. `m.PI` is `undefined` because static members are not accessible via instances.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+class Animal {
+  constructor(name) {
+    this.name = name;
+  }
+  speak() {
+    return `${this.name} makes a noise.`;
+  }
+}
+
+class Dog extends Animal {
+  speak() {
+    return `${this.name} barks. ` + super.speak();
+  }
+}
+
+const d = new Dog('Rex');
+console.log(d.speak());
+console.log(d instanceof Dog);
+console.log(d instanceof Animal);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'Rex barks. Rex makes a noise.'` `true` `true`
+
+`super.speak()` calls the parent class method. `instanceof` returns `true` for the direct class and all parent classes in the prototype chain.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
 ## # Error Handling
 
 <br/>
@@ -5413,6 +5951,64 @@ var employeeId = "aq123";
 ```js
 foo123 aq123
 ```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+function riskyOp() {
+  try {
+    throw new Error('oops');
+  } finally {
+    return 'finally wins';
+  }
+}
+
+console.log(riskyOp());
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'finally wins'`
+
+A `return` statement inside a `finally` block overrides any value returned or thrown in the `try` or `catch` block. `finally` always executes and its `return` suppresses the thrown error.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+class ValidationError extends Error {
+  constructor(message) {
+    super(message);
+    this.name = 'ValidationError';
+  }
+}
+
+try {
+  throw new ValidationError('Invalid input');
+} catch (e) {
+  console.log(e.name);
+  console.log(e.message);
+  console.log(e instanceof ValidationError);
+  console.log(e instanceof Error);
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'ValidationError'` `'Invalid input'` `true` `true`
+
+Custom error classes extend `Error`. Calling `super(message)` sets the `message` property. Setting `this.name` overrides the default `'Error'` name. `instanceof` checks work through the prototype chain.
 
 </details>
 
@@ -5676,6 +6272,88 @@ abc();
 3
 boo
 ```
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const p1 = Promise.resolve('one');
+const p2 = Promise.reject('two');
+const p3 = Promise.resolve('three');
+
+Promise.allSettled([p1, p2, p3]).then(results => {
+  results.forEach(r => console.log(r.status, r.value ?? r.reason));
+});
+```
+
+<details><summary><b>Answer</b></summary>
+
+```
+fulfilled one
+rejected two
+fulfilled three
+```
+
+`Promise.allSettled` waits for **all** promises to settle (either fulfill or reject) and returns an array of result objects with `status` (`'fulfilled'` or `'rejected'`) and either `value` or `reason`. Unlike `Promise.all`, it does not short-circuit on rejection.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+async function fetchData() {
+  try {
+    const result = await Promise.reject(new Error('Network error'));
+    console.log(result);
+  } catch (e) {
+    console.log('Caught:', e.message);
+  } finally {
+    console.log('Done');
+  }
+}
+
+fetchData();
+```
+
+<details><summary><b>Answer</b></summary>
+
+```
+Caught: Network error
+Done
+```
+
+When `await` receives a rejected promise it throws, which is caught by the `catch` block. The `finally` block always runs regardless of success or failure.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const p1 = new Promise((_, reject) => setTimeout(() => reject('error'), 200));
+const p2 = Promise.resolve('fast');
+const p3 = new Promise((resolve) => setTimeout(() => resolve('slow'), 400));
+
+Promise.any([p1, p2, p3]).then(v => console.log(v));
+```
+
+<details><summary><b>Answer</b></summary>
+
+`'fast'`
+
+`Promise.any` returns the value of the **first** promise that fulfills, ignoring rejections. Since `p2` resolves immediately, `'fast'` is logged. It only rejects if **all** promises reject (throwing an `AggregateError`).
 
 </details>
 
@@ -6593,6 +7271,168 @@ The deepest nested element that caused the event is the target of the event. You
 <details><summary><b>Answer</b></summary>
 
 If we click `p`, we see two logs: `p` and `div`. During event propagation, there are 3 phases: capturing, target, and bubbling. By default, event handlers are executed in the bubbling phase (unless you set `useCapture` to `true`). It goes from the deepest nested element outwards.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const sym1 = Symbol('id');
+const sym2 = Symbol('id');
+
+console.log(sym1 === sym2);
+console.log(typeof sym1);
+
+const obj = { [sym1]: 'secret' };
+console.log(obj[sym1]);
+console.log(obj[sym2]);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`false` `'symbol'` `'secret'` `undefined`
+
+Every `Symbol()` call produces a unique value, so `sym1 !== sym2`. `typeof` a Symbol is `'symbol'`. Symbols can be used as unique object keys — `obj[sym2]` is `undefined` because it is a different Symbol from `sym1`.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const map = new Map();
+map.set('a', 1);
+map.set('b', 2);
+map.set('a', 3);
+
+console.log(map.size);
+console.log(map.get('a'));
+
+for (const [key, value] of map) {
+  console.log(key, value);
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+`2` `3` then `a 3` `b 2`
+
+`Map` preserves insertion order and allows any value as a key. Duplicate keys overwrite the existing entry, so `map.size` is `2` (not 3). `for...of` on a `Map` iterates `[key, value]` pairs in insertion order.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const obj = { a: 1, b: 2, c: 3 };
+
+for (const key in obj) {
+  console.log(key);
+}
+
+for (const key of Object.keys(obj)) {
+  console.log(key);
+}
+```
+
+<details><summary><b>Answer</b></summary>
+
+Both log `a`, `b`, `c`.
+
+`for...in` iterates over all **enumerable** string-keyed properties, including inherited ones. `for...of` requires an iterable — plain objects are not iterable, so you use `Object.keys()` (or `Object.values()`, `Object.entries()`) to get an iterable array. For own properties only, `Object.keys` is preferred.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+function makeCounter() {
+  let count = 0;
+  return {
+    increment() { count++; },
+    decrement() { count--; },
+    getCount() { return count; }
+  };
+}
+
+const counter = makeCounter();
+counter.increment();
+counter.increment();
+counter.increment();
+counter.decrement();
+console.log(counter.getCount());
+console.log(counter.count);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`2` `undefined`
+
+The `count` variable is enclosed in the function\'s scope (closure) and not directly accessible from outside. `counter.count` is `undefined` because `count` is not a property of the returned object. The only way to access or modify it is through the returned methods.
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+const arr = [1, 2, 3];
+const [first, , third, fourth = 10] = arr;
+
+console.log(first);
+console.log(third);
+console.log(fourth);
+```
+
+<details><summary><b>Answer</b></summary>
+
+`1` `3` `10`
+
+Array destructuring can skip elements using empty commas. Default values (e.g., `fourth = 10`) are used when the corresponding element is `undefined` (here, the array has no 4th element).
+
+</details>
+
+<div align="right">
+    <b><a href="#javascript-coding-practice">↥ back to top</a></b>
+</div>
+
+## Q. What is the output?
+
+```js
+console.log([] + []);
+console.log([] + {});
+console.log({} + []);
+console.log(+[]);
+console.log(+{});
+```
+
+<details><summary><b>Answer</b></summary>
+
+`''` `'[object Object]'` `'[object Object]'` `0` `NaN`
+
+- `[] + []`: both arrays coerce to `''`, result is `''`.
+- `[] + {}`: `[]` → `''`, `{}` → `'[object Object]'`, result is `'[object Object]'`.
+- `{} + []`: when `{}` starts a statement it is a block, `+[]` coerces `[]` to `0` — but in an expression context it\'s `'[object Object]'`.
+- `+[]`: unary `+` converts `[]` → `''` → `0`.
+- `+{}`: unary `+` converts `{}` → `'[object Object]'` → `NaN`.
 
 </details>
 
