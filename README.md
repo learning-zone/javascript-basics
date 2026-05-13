@@ -3221,7 +3221,7 @@ A `do...while` loop is ideal for a CLI tool (e.g., a Node.js interactive script 
 ## Q. What is the purpose of `break` and `continue` statements, and how do they interact with nested loops?
 
 - **`break`**: Immediately terminates the **innermost** loop or `switch` statement and transfers control to the statement following it.
-- **`continue`**: Skips the **current iteration** of the innermost loop and jumps to the next iteration's condition check.
+- **`continue`**: Skips the **current iteration** of the innermost loop and jumps to the next iteration\'s condition check.
 
 **Example:**
 
@@ -3277,7 +3277,7 @@ In a search autocomplete engine, `break` short-circuits a loop over a large data
 
 ## Q. What is the ternary operator and how does it compare to `if...else` for conditional expressions?
 
-The ternary operator (`condition ? expressionIfTrue : expressionIfFalse`) is JavaScript's only **three-operand operator**. It evaluates a condition and returns one of two expressions. Unlike `if...else` (a **statement**), the ternary is an **expression** — it produces a value and can be used inline.
+The ternary operator (`condition ? expressionIfTrue : expressionIfFalse`) is JavaScript\'s only **three-operand operator**. It evaluates a condition and returns one of two expressions. Unlike `if...else` (a **statement**), the ternary is an **expression** — it produces a value and can be used inline.
 
 **Example:**
 
@@ -3452,7 +3452,7 @@ In a pathfinding algorithm (e.g., BFS/DFS on a 2D game map) or a seat-selection 
 
 ## Q. What is short-circuit evaluation in JavaScript and how does it control execution flow?
 
-JavaScript's logical operators (`&&`, `||`, `??`) use **short-circuit evaluation**: the right-hand operand is only evaluated if necessary. This is not just a performance optimization — it is a widely used **control flow** mechanism.
+JavaScript\'s logical operators (`&&`, `||`, `??`) use **short-circuit evaluation**: the right-hand operand is only evaluated if necessary. This is not just a performance optimization — it is a widely used **control flow** mechanism.
 
 | Operator | Short-circuits when left side is | Returns |
 |---|---|---|
@@ -5024,7 +5024,7 @@ function outer() {
   }
 
   inner(); // 'Hello, Alice!'
-  // console.log(punctuation); // ReferenceError — outer cannot see inner's variables
+  // console.log(punctuation); // ReferenceError — outer cannot see inner\'s variables
 }
 
 outer();
@@ -5032,7 +5032,7 @@ outer();
 
 **Real-World Use Case:**
 
-React's hook system relies on lexical scope. When you write a custom hook like `useCounter`, the state variables declared inside it are lexically scoped to that hook invocation — they cannot bleed into unrelated components, making stateful logic safely composable and predictable in a large codebase.
+React\'s hook system relies on lexical scope. When you write a custom hook like `useCounter`, the state variables declared inside it are lexically scoped to that hook invocation — they cannot bleed into unrelated components, making stateful logic safely composable and predictable in a large codebase.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5076,7 +5076,7 @@ for (let j = 0; j < 3; j++) {
 
 **Real-World Use Case:**
 
-In large React/Node.js codebases, `var` inside `for` loops iterating over async operations (e.g., firing multiple API calls) was a notorious source of race-condition bugs because all callbacks shared the same `i`. Migrating to `let` (or closure-capturing patterns) eliminated entire categories of production bugs. ESLint's `no-var` rule enforces this at scale.
+In large React/Node.js codebases, `var` inside `for` loops iterating over async operations (e.g., firing multiple API calls) was a notorious source of race-condition bugs because all callbacks shared the same `i`. Migrating to `let` (or closure-capturing patterns) eliminated entire categories of production bugs. ESLint\'s `no-var` rule enforces this at scale.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5114,7 +5114,7 @@ TDZ prevents a subtle bug in module initialisation cycles. If module A imports f
 
 ## Q. What is a closure and how does JavaScript implement it internally?
 
-A **closure** is a function that retains a reference to its **lexical environment** (the scope in which it was defined) even after that outer scope has finished executing. In V8, when a function is created, the engine attaches a hidden `[[Environment]]` slot pointing to the current scope's **environment record**. As long as the inner function is reachable, the garbage collector keeps the outer environment record alive.
+A **closure** is a function that retains a reference to its **lexical environment** (the scope in which it was defined) even after that outer scope has finished executing. In V8, when a function is created, the engine attaches a hidden `[[Environment]]` slot pointing to the current scope\'s **environment record**. As long as the inner function is reachable, the garbage collector keeps the outer environment record alive.
 
 Practically: closures "close over" variables — not values. They hold a live reference to the variable binding, so mutations to that variable are visible inside the closure.
 
@@ -5248,7 +5248,7 @@ useEffect(() => {
 
 **Real-World Use Case:**
 
-In Single Page Applications (SPAs), route navigation causes component unmounting. Event listeners or WebSocket message handlers registered on `mount` but not removed on `unmount` keep the entire component closure alive for the application's lifetime, causing memory growth that crashes long-running sessions (e.g., trading dashboards, kiosk apps). React's `useEffect` cleanup function pattern was designed specifically to address this.
+In Single Page Applications (SPAs), route navigation causes component unmounting. Event listeners or WebSocket message handlers registered on `mount` but not removed on `unmount` keep the entire component closure alive for the application\'s lifetime, causing memory growth that crashes long-running sessions (e.g., trading dashboards, kiosk apps). React\'s `useEffect` cleanup function pattern was designed specifically to address this.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5296,12 +5296,12 @@ Webpack wraps each module in an IIFE in its legacy output mode to simulate modul
 
 ## Q. How does the scope chain work during variable lookup, and what is the performance implication?
 
-When a variable is referenced, the JavaScript engine performs a **scope chain lookup**: it starts at the current scope's **environment record** and walks up through enclosing records until the variable is found or the global scope is exhausted.
+When a variable is referenced, the JavaScript engine performs a **scope chain lookup**: it starts at the current scope\'s **environment record** and walks up through enclosing records until the variable is found or the global scope is exhausted.
 
 V8 optimises this through:
 1. **Hidden classes / shapes** — objects have stable layouts; property access is compiled to a direct memory offset.
 2. **Inline caching (IC)** — after the first lookup, V8 caches the resolved location. Repeated access to the same variable from the same call site is O(1).
-3. **Closure context allocation** — V8's Turbofan compiler performs **context allocation analysis**. Variables that are only used locally stay on the stack (fast). Variables that are closed over are promoted to a **heap-allocated context object** — slightly slower due to heap allocation and GC pressure.
+3. **Closure context allocation** — V8\'s Turbofan compiler performs **context allocation analysis**. Variables that are only used locally stay on the stack (fast). Variables that are closed over are promoted to a **heap-allocated context object** — slightly slower due to heap allocation and GC pressure.
 
 **Performance implication:** deeply nested closures that close over many large variables create long-lived heap contexts. Flattening the closure chain or copying only the needed values can improve GC throughput.
 
@@ -5366,7 +5366,7 @@ const timer = {
     }, 1000);
   },
 
-  // ✅ Arrow function: `this` inherited lexically from startFixed's scope
+  // ✅ Arrow function: `this` inherited lexically from startFixed\'s scope
   startFixed() {
     setTimeout(() => {
       console.log(this.label); // 'Countdown' ✅
@@ -5398,7 +5398,7 @@ React class components historically required `.bind(this)` in the constructor fo
 
 ## Q. What is hoisting in JavaScript, and what gets hoisted?
 
-**Hoisting** is the JavaScript engine's behaviour of moving declarations to the top of their containing scope before code execution. It is not a physical movement of code — it is an artifact of the two-phase compilation model that V8 and other engines use:
+**Hoisting** is the JavaScript engine\'s behaviour of moving declarations to the top of their containing scope before code execution. It is not a physical movement of code — it is an artifact of the two-phase compilation model that V8 and other engines use:
 
 1. **Parse / compilation phase** — the engine scans the scope, registers all declarations (variable names, function bodies), and allocates memory.
 2. **Execution phase** — code runs line by line; assignments and expressions execute in order.
@@ -5547,7 +5547,7 @@ When splitting large Node.js services into files with circular `require()` refer
 
 ## Q. What is the hoisting behaviour inside `let`/`const` blocks, and how does it affect switch statements?
 
-`let` and `const` are block-scoped and hoisted within their block to the TDZ. A `switch` statement's `{}` is a **single block** — all `case` clauses share the same block scope. This causes a subtle bug: a `let` declared in one `case` is technically in scope (hoisted) for all other cases in the same switch block, causing a `SyntaxError` if another `case` attempts to declare the same name.
+`let` and `const` are block-scoped and hoisted within their block to the TDZ. A `switch` statement\'s `{}` is a **single block** — all `case` clauses share the same block scope. This causes a subtle bug: a `let` declared in one `case` is technically in scope (hoisted) for all other cases in the same switch block, causing a `SyntaxError` if another `case` attempts to declare the same name.
 
 ```js
 // ❌ SyntaxError: Identifier 'result' has already been declared
@@ -5588,7 +5588,7 @@ const getLabel2 = (status) => STATUS_LABELS[status] ?? 'Unknown';
 
 **Real-World Use Case:**
 
-This exact bug has appeared in production Redux reducers where developers switched from `var` to `let` during a linting migration. All `case` branches in a reducer's `switch` share one block, so re-declaring `let draft` in multiple cases causes a `SyntaxError` caught only at parse time — blocking the entire app from loading. The standard Redux Toolkit solution is to use Immer-based `createSlice` instead, which replaces the `switch` reducer pattern entirely.
+This exact bug has appeared in production Redux reducers where developers switched from `var` to `let` during a linting migration. All `case` branches in a reducer\'s `switch` share one block, so re-declaring `let draft` in multiple cases causes a `SyntaxError` caught only at parse time — blocking the entire app from loading. The standard Redux Toolkit solution is to use Immer-based `createSlice` instead, which replaces the `switch` reducer pattern entirely.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5599,7 +5599,7 @@ This exact bug has appeared in production Redux reducers where developers switch
 When multiple `var` declarations or function declarations share the same identifier in the same scope, the engine applies specific precedence rules during the compilation phase:
 
 1. **`var` declarations** are merged into one — only one `undefined` slot is allocated; whichever assignment executes last wins at runtime.
-2. **Function declarations** override `var` declarations of the same name during hoisting — the function body wins over `var`'s `undefined`.
+2. **Function declarations** override `var` declarations of the same name during hoisting — the function body wins over `var`\'s `undefined`.
 3. **Multiple function declarations** with the same name: the **last** one in source order wins (it overwrites the earlier one during hoisting).
 
 ```js
@@ -5657,7 +5657,7 @@ Arrow functions (`=>`) introduced in ES2015 are a concise syntax for writing fun
 | Method shorthand | Usable (with caution) | Avoid for object methods needing `this` |
 
 **When NOT to use arrow functions:**
-1. **Object methods** that need dynamic `this` (`obj.method()` — arrow's `this` is the enclosing scope, not `obj`).
+1. **Object methods** that need dynamic `this` (`obj.method()` — arrow\'s `this` is the enclosing scope, not `obj`).
 2. **Constructor functions** — arrow functions cannot be called with `new`.
 3. **Event handlers** that need `this` to refer to the DOM element (`element.addEventListener('click', () => {})` — `this` is the outer context, not the element).
 4. **Generator functions** — arrow syntax does not support `function*`.
@@ -5709,7 +5709,7 @@ const fn2 = (...args) => args; // ✅ Use rest params instead
 
 **Real-World Use Case:**
 
-React's functional components and hooks use arrow functions almost exclusively for event handlers passed as JSX props (`onClick={() => dispatch(action)}`). Because these arrow functions inherit `this` from the component scope (which in a functional component is irrelevant — there is no `this`), the lexical binding is harmless and the concise syntax reduces boilerplate. Conversely, in Express.js route handlers or Mongoose middleware that rely on `this` referring to the document/request, using arrow functions is a common production bug — the official Mongoose docs explicitly warn against it.
+React\'s functional components and hooks use arrow functions almost exclusively for event handlers passed as JSX props (`onClick={() => dispatch(action)}`). Because these arrow functions inherit `this` from the component scope (which in a functional component is irrelevant — there is no `this`), the lexical binding is harmless and the concise syntax reduces boilerplate. Conversely, in Express.js route handlers or Mongoose middleware that rely on `this` referring to the document/request, using arrow functions is a common production bug — the official Mongoose docs explicitly warn against it.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5769,7 +5769,7 @@ const query = sql`SELECT * FROM users WHERE id = '${userId}'`;
 
 **Real-World Use Case:**
 
-The `styled-components` and `emotion` CSS-in-JS libraries are built entirely on tagged template literals. When you write `` styled.div`color: ${props => props.primary ? 'blue' : 'grey'};` ``, the library's tag function receives the static CSS parts and the dynamic value functions, generates a unique class name, injects a `<style>` rule, and tracks theme changes — all without any custom parser. This demonstrates that tagged templates can implement fully featured DSLs (CSS, GraphQL, SQL, i18n) natively in JavaScript with zero dependencies.
+The `styled-components` and `emotion` CSS-in-JS libraries are built entirely on tagged template literals. When you write `` styled.div`color: ${props => props.primary ? 'blue' : 'grey'};` ``, the library\'s tag function receives the static CSS parts and the dynamic value functions, generates a unique class name, injects a `<style>` rule, and tracks theme changes — all without any custom parser. This demonstrates that tagged templates can implement fully featured DSLs (CSS, GraphQL, SQL, i18n) natively in JavaScript with zero dependencies.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5847,7 +5847,7 @@ console.log(firstId, firstAvatar); // 1, 'alice.png'
 
 **Real-World Use Case:**
 
-React's `useState` hook returns a two-element array precisely to enable array destructuring with custom naming: `const [count, setCount] = useState(0)`. This pattern lets each call site choose its own variable names without the library needing to know them. Similarly, React component props are universally destructured in the function signature (`function Button({ label, onClick, disabled = false }) {}`), reducing prop-drilling verbosity and making prop contracts immediately visible — a pattern enforced by most team style guides and ESLint configs.
+React\'s `useState` hook returns a two-element array precisely to enable array destructuring with custom naming: `const [count, setCount] = useState(0)`. This pattern lets each call site choose its own variable names without the library needing to know them. Similarly, React component props are universally destructured in the function signature (`function Button({ label, onClick, disabled = false }) {}`), reducing prop-drilling verbosity and making prop contracts immediately visible — a pattern enforced by most team style guides and ESLint configs.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5901,7 +5901,7 @@ const unique = [...new Set([1, 1, 2, 3, 3])]; // [1, 2, 3]
 
 **Real-World Use Case:**
 
-Redux reducers use object spread to produce new state immutably without mutating the existing state object — a requirement of Redux's change-detection mechanism: `return { ...state, isLoading: false, data: action.payload }`. This replaces `Object.assign({}, state, { isLoading: false })` with far more readable syntax. The V8 engine optimises spread-based object cloning with the same hidden-class mechanisms as `Object.assign`, so there is no meaningful performance difference in most application code.
+Redux reducers use object spread to produce new state immutably without mutating the existing state object — a requirement of Redux\'s change-detection mechanism: `return { ...state, isLoading: false, data: action.payload }`. This replaces `Object.assign({}, state, { isLoading: false })` with far more readable syntax. The V8 engine optimises spread-based object cloning with the same hidden-class mechanisms as `Object.assign`, so there is no meaningful performance difference in most application code.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -5969,7 +5969,7 @@ const objFromMap = Object.fromEntries(mapFromObj);
 
 **Real-World Use Case:**
 
-**`WeakMap`** (a variant of `Map` with weak references and object-only keys) is used by React's Concurrent Mode internals to associate component fiber metadata with DOM nodes without preventing garbage collection of unmounted components. **`Set`** is used in many state management libraries (Zustand, Jotai) to track subscriber callbacks: O(1) `add`/`delete`/`has` operations make subscription management significantly faster than array-based alternatives at scale (thousands of subscribers in large dashboards).
+**`WeakMap`** (a variant of `Map` with weak references and object-only keys) is used by React\'s Concurrent Mode internals to associate component fiber metadata with DOM nodes without preventing garbage collection of unmounted components. **`Set`** is used in many state management libraries (Zustand, Jotai) to track subscriber callbacks: O(1) `add`/`delete`/`has` operations make subscription management significantly faster than array-based alternatives at scale (thousands of subscribers in large dashboards).
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -6028,7 +6028,7 @@ Express.js middleware factories and database client factory functions (e.g., `cr
 
 `Symbol` is a primitive type introduced in ES6 that produces a **guaranteed-unique** value each time it is called, even with the same description string. Symbols are primarily used as:
 1. **Unique property keys** — prevent accidental property name collisions, especially in library/framework code that augments user objects.
-2. **Well-known Symbols** — `Symbol.iterator`, `Symbol.toPrimitive`, `Symbol.hasInstance`, etc. — hooks into JavaScript's built-in protocols.
+2. **Well-known Symbols** — `Symbol.iterator`, `Symbol.toPrimitive`, `Symbol.hasInstance`, etc. — hooks into JavaScript\'s built-in protocols.
 
 `Symbol.iterator` is the well-known Symbol that makes any object **iterable** — compatible with `for...of`, spread (`...`), destructuring, `Array.from()`, and other iteration consumers.
 
@@ -6096,7 +6096,7 @@ console.log(money + 50);      // 150
 
 **Real-World Use Case:**
 
-Node.js `stream.Readable` implements `Symbol.asyncIterator`, making streams consumable with `for await...of`. This is how modern file processing pipelines are built: `for await (const chunk of fs.createReadStream('data.csv'))` — no event listeners, no manual `pipe` management. Similarly, MongoDB's cursor implements `Symbol.asyncIterator`, enabling `for await (const doc of collection.find(query))` — clean, memory-efficient document streaming without loading the entire result set into memory.
+Node.js `stream.Readable` implements `Symbol.asyncIterator`, making streams consumable with `for await...of`. This is how modern file processing pipelines are built: `for await (const chunk of fs.createReadStream('data.csv'))` — no event listeners, no manual `pipe` management. Similarly, MongoDB\'s cursor implements `Symbol.asyncIterator`, enabling `for await (const doc of collection.find(query))` — clean, memory-efficient document streaming without loading the entire result set into memory.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -7384,7 +7384,7 @@ function usePersistedTheme() {
 
 **Real-World Use Case:**
 
-Banking and enterprise SaaS applications implement **global logout** using the `storage` event: when a user logs out in one tab, a flag is written to `localStorage`, all other open tabs detect the `storage` event and immediately redirect to the login page. This prevents the security risk of stale authenticated sessions remaining active in background tabs. The same pattern is used by Google's suite — logging out of Gmail in one tab logs you out of Google Docs in another.
+Banking and enterprise SaaS applications implement **global logout** using the `storage` event: when a user logs out in one tab, a flag is written to `localStorage`, all other open tabs detect the `storage` event and immediately redirect to the login page. This prevents the security risk of stale authenticated sessions remaining active in background tabs. The same pattern is used by Google\'s suite — logging out of Gmail in one tab logs you out of Google Docs in another.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -7392,7 +7392,7 @@ Banking and enterprise SaaS applications implement **global logout** using the `
 
 ## Q. What are the security risks of Web Storage, and how do you mitigate them?
 
-Web Storage's biggest security limitation is that it is **fully accessible to any JavaScript running on the same origin** — including injected scripts from **Cross-Site Scripting (XSS)** attacks. Unlike `HttpOnly` cookies (which the browser never exposes to JavaScript), a single XSS vulnerability gives an attacker complete read/write access to everything in `localStorage`.
+Web Storage\'s biggest security limitation is that it is **fully accessible to any JavaScript running on the same origin** — including injected scripts from **Cross-Site Scripting (XSS)** attacks. Unlike `HttpOnly` cookies (which the browser never exposes to JavaScript), a single XSS vulnerability gives an attacker complete read/write access to everything in `localStorage`.
 
 **Key risks:**
 
@@ -7464,7 +7464,7 @@ The OWASP Web Security Testing Guide explicitly recommends against storing JWTs 
 
 ## Q. How does `localStorage` perform under load, and what are the architectural alternatives for large-scale client-side storage?
 
-`localStorage` is **synchronous** — every `getItem`, `setItem`, and `removeItem` call **blocks the main thread**. In V8, these are cross-process IPC calls to the browser's storage process, and while they are typically fast (sub-millisecond for small payloads), they become a measurable bottleneck when:
+`localStorage` is **synchronous** — every `getItem`, `setItem`, and `removeItem` call **blocks the main thread**. In V8, these are cross-process IPC calls to the browser\'s storage process, and while they are typically fast (sub-millisecond for small payloads), they become a measurable bottleneck when:
 - Storing large JSON blobs (>100 KB per entry)
 - Iterating all keys to find entries
 - Calling storage APIs inside animation loops or scroll handlers
@@ -7521,7 +7521,7 @@ function debounce(fn, ms) {
 
 **Real-World Use Case:**
 
-Progressive Web Apps (PWAs) like Starbucks' ordering PWA and Twitter Lite use **IndexedDB** (via the `idb` library or Workbox) to store thousands of cached API responses, product catalogues, and offline-readable article bodies — data far exceeding `localStorage`'s capacity. The **Cache API** handles network response caching in Service Workers. `localStorage` is reserved only for lightweight user preferences (theme, language). This tiered storage architecture is why Twitter Lite loads in under 5 seconds on 2G networks — IndexedDB serves stale-while-revalidate content instantly while the network catches up.
+Progressive Web Apps (PWAs) like Starbucks' ordering PWA and Twitter Lite use **IndexedDB** (via the `idb` library or Workbox) to store thousands of cached API responses, product catalogues, and offline-readable article bodies — data far exceeding `localStorage`\'s capacity. The **Cache API** handles network response caching in Service Workers. `localStorage` is reserved only for lightweight user preferences (theme, language). This tiered storage architecture is why Twitter Lite loads in under 5 seconds on 2G networks — IndexedDB serves stale-while-revalidate content instantly while the network catches up.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8235,7 +8235,7 @@ Promise.any([promise1, promise2, promise3])
 3. Returns control to the caller immediately (non-blocking).
 4. When the awaited Promise settles, the microtask queue schedules resumption of the suspended function.
 
-This means `async`/`await` does **not** block the JavaScript thread — it is purely a more readable way to write `.then()` chains, implemented via generator-like coroutines by V8's Ignition interpreter.
+This means `async`/`await` does **not** block the JavaScript thread — it is purely a more readable way to write `.then()` chains, implemented via generator-like coroutines by V8\'s Ignition interpreter.
 
 ```js
 // ── Promise chain vs async/await — equivalent behaviour ──────────────────────
@@ -8348,7 +8348,7 @@ process.on('unhandledRejection', (reason, promise) => {
 
 **Real-World Use Case:**
 
-Express.js does not natively catch errors thrown from `async` route handlers — the error must be passed to `next(err)` explicitly. A common production pattern is a wrapper utility that bridges `async`/`await` errors into Express's error middleware:
+Express.js does not natively catch errors thrown from `async` route handlers — the error must be passed to `next(err)` explicitly. A common production pattern is a wrapper utility that bridges `async`/`await` errors into Express\'s error middleware:
 
 ```js
 // asyncHandler utility — used in every route in production Express apps
@@ -8432,7 +8432,7 @@ const fastest = await Promise.any([
 
 **Real-World Use Case:**
 
-GraphQL resolvers in Apollo Server resolve each requested field independently. When a query requests `user`, `posts`, and `notifications` simultaneously, the resolver layer runs all three `await fetch(...)` calls in parallel via `Promise.all`. A naive sequential implementation would triple page load time. At scale (Shopify, GitHub's GraphQL API), this concurrency control — combined with DataLoader for batching and deduplication — is what makes GraphQL APIs performant under high query complexity.
+GraphQL resolvers in Apollo Server resolve each requested field independently. When a query requests `user`, `posts`, and `notifications` simultaneously, the resolver layer runs all three `await fetch(...)` calls in parallel via `Promise.all`. A naive sequential implementation would triple page load time. At scale (Shopify, GitHub\'s GraphQL API), this concurrency control — combined with DataLoader for batching and deduplication — is what makes GraphQL APIs performant under high query complexity.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8454,7 +8454,7 @@ async function* fetchAllPages(baseUrl) {
     const res  = await fetch(`${baseUrl}?page=${page}&limit=100`);
     const { data, meta } = await res.json();
 
-    yield data; // yield this page's array to the consumer
+    yield data; // yield this page\'s array to the consumer
 
     hasMore = meta.page < meta.totalPages;
     page++;
@@ -8525,7 +8525,7 @@ for await (const admin of adminPipeline) {
 
 **Real-World Use Case:**
 
-Node.js 18+ natively supports async iteration over `fetch` response bodies: `for await (const chunk of response.body)`. AWS S3 SDK v3 returns async iterables for `ListObjectsV2Command` pagination. OpenAI's streaming chat completions API returns a `ReadableStream` consumed with `for await...of` — each chunk contains a token as it is generated, enabling real-time streaming UIs (like ChatGPT's typing effect). Without async generators, this would require complex recursive `.then()` chains or event emitter plumbing.
+Node.js 18+ natively supports async iteration over `fetch` response bodies: `for await (const chunk of response.body)`. AWS S3 SDK v3 returns async iterables for `ListObjectsV2Command` pagination. OpenAI\'s streaming chat completions API returns a `ReadableStream` consumed with `for await...of` — each chunk contains a token as it is generated, enabling real-time streaming UIs (like ChatGPT\'s typing effect). Without async generators, this would require complex recursive `.then()` chains or event emitter plumbing.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8582,7 +8582,7 @@ console.log('6 — sync');
 
 **Real-World Use Case:**
 
-React's `setState` batching relies on the microtask queue. In React 18+, `flushSync` and automatic batching use `queueMicrotask` to defer DOM updates until after all synchronous state changes are processed. This avoids intermediate renders for each individual `setState` call in an event handler — reducing layout thrashing and improving frame rates in complex UI updates.
+React\'s `setState` batching relies on the microtask queue. In React 18+, `flushSync` and automatic batching use `queueMicrotask` to defer DOM updates until after all synchronous state changes are processed. This avoids intermediate renders for each individual `setState` call in an event handler — reducing layout thrashing and improving frame rates in complex UI updates.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8650,7 +8650,7 @@ Promise.resolve().then(() => console.log('Promise.then'));
 
 **Real-World Use Case:**
 
-Vue.js's `nextTick()` API was historically implemented as a microtask (using `Promise.then` internally). This guarantees that DOM mutations triggered by reactive data changes are fully flushed and the DOM updated before the `nextTick` callback fires — but before any `setTimeout` callbacks, ensuring predictable ordering. When building animation libraries or test utilities that assert on DOM state after state updates, understanding the microtask/macrotask boundary is essential for avoiding flaky assertions.
+Vue.js\'s `nextTick()` API was historically implemented as a microtask (using `Promise.then` internally). This guarantees that DOM mutations triggered by reactive data changes are fully flushed and the DOM updated before the `nextTick` callback fires — but before any `setTimeout` callbacks, ensuring predictable ordering. When building animation libraries or test utilities that assert on DOM state after state updates, understanding the microtask/macrotask boundary is essential for avoiding flaky assertions.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8663,7 +8663,7 @@ Vue.js's `nextTick()` API was historically implemented as a microtask (using `Pr
 2. The entire microtask queue is drained.
 3. The event loop picks the next macrotask.
 
-Additionally, browsers enforce a **minimum timer delay** of **4ms** after 5 nested `setTimeout` calls (the "clamping" rule, per the HTML spec). In background tabs, browsers further throttle timers to 1000ms (1 second) to save CPU. Node.js has a minimum delay of 1ms but also subject to the event loop's libuv timer phase overhead.
+Additionally, browsers enforce a **minimum timer delay** of **4ms** after 5 nested `setTimeout` calls (the "clamping" rule, per the HTML spec). In background tabs, browsers further throttle timers to 1000ms (1 second) to save CPU. Node.js has a minimum delay of 1ms but also subject to the event loop\'s libuv timer phase overhead.
 
 ```js
 // ── Minimum delay clamping after 5 nesting levels ─────────────────────────────
@@ -8730,15 +8730,15 @@ function preciseInterval(fn, ms) {
 
 **Real-World Use Case:**
 
-Data-grid libraries like AG Grid use `setTimeout(fn, 0)` to **chunk large render operations** — rendering 100 rows at a time and yielding between chunks — preventing the browser from becoming unresponsive while loading thousands of rows. `requestAnimationFrame` is used for smooth column resize animations. Understanding timer clamping explains why some polling-based libraries (e.g., older versions of Socket.IO's long-polling transport) had unexpected 4ms minimum latency on nested timer re-schedules.
+Data-grid libraries like AG Grid use `setTimeout(fn, 0)` to **chunk large render operations** — rendering 100 rows at a time and yielding between chunks — preventing the browser from becoming unresponsive while loading thousands of rows. `requestAnimationFrame` is used for smooth column resize animations. Understanding timer clamping explains why some polling-based libraries (e.g., older versions of Socket.IO\'s long-polling transport) had unexpected 4ms minimum latency on nested timer re-schedules.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. How does Node.js's event loop differ from the browser's, and what are `process.nextTick` and `setImmediate`?
+## Q. How does Node.js\'s event loop differ from the browser\'s, and what are `process.nextTick` and `setImmediate`?
 
-Node.js uses **libuv** for its event loop, which has a more complex, **multi-phase** structure than the browser's event loop. Each phase has its own FIFO queue of callbacks:
+Node.js uses **libuv** for its event loop, which has a more complex, **multi-phase** structure than the browser\'s event loop. Each phase has its own FIFO queue of callbacks:
 
 ```
    ┌─────────────────────────────────┐
@@ -8905,7 +8905,7 @@ decrement();               // ✅ still works — arrow field preserves this
 
 **Real-World Use Case:**
 
-React's move from class components to functional components was partly motivated by the `this` confusion. In class components, event handlers required `.bind(this)` in the constructor or arrow class fields because a method passed to `onClick` loses its implicit binding — `this` becomes `undefined` in strict mode. Functional components eliminate `this` entirely; hooks close over state values lexically, removing an entire category of binding bugs from large React codebases.
+React\'s move from class components to functional components was partly motivated by the `this` confusion. In class components, event handlers required `.bind(this)` in the constructor or arrow class fields because a method passed to `onClick` loses its implicit binding — `this` becomes `undefined` in strict mode. Functional components eliminate `this` entirely; hooks close over state values lexically, removing an entire category of binding bugs from large React codebases.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8917,8 +8917,8 @@ All three are `Function.prototype` methods that **explicitly set `this`** for a 
 
 | Method | Invokes immediately? | Arguments | Returns |
 |---|---|---|---|
-| `.call(ctx, arg1, arg2, ...)` | ✅ Yes | Spread as individual args | Function's return value |
-| `.apply(ctx, [arg1, arg2])` | ✅ Yes | Single array of args | Function's return value |
+| `.call(ctx, arg1, arg2, ...)` | ✅ Yes | Spread as individual args | Function\'s return value |
+| `.apply(ctx, [arg1, arg2])` | ✅ Yes | Single array of args | Function\'s return value |
 | `.bind(ctx, arg1, ...)` | ❌ No | Pre-bound (partial application) | New bound function |
 
 `.bind()` also creates a **permanent** binding — calling `.call()` or `.apply()` on a bound function cannot override the bound `this`.
@@ -9031,19 +9031,19 @@ class Child extends Base {
   // This overrides the prototype method ✅
   protoMethod() { return this.value * 3; }
 
-  // This does NOT override the arrow field — Base's arrow is already on the instance
-  // from `super()` call; Child's re-declaration creates a NEW instance field
-  arrowMethod = () => this.value * 3; // ✅ works, but it's a new field, not polymorphism
+  // This does NOT override the arrow field — Base\'s arrow is already on the instance
+  // from `super()` call; Child\'s re-declaration creates a NEW instance field
+  arrowMethod = () => this.value * 3; // ✅ works, but it\'s a new field, not polymorphism
 }
 
 const child = new Child();
-console.log(child.protoMethod()); // 60 — Child's override ✅
-console.log(child.arrowMethod()); // 60 — Child's field ✅ (same result here, different mechanism)
+console.log(child.protoMethod()); // 60 — Child\'s override ✅
+console.log(child.arrowMethod()); // 60 — Child\'s field ✅ (same result here, different mechanism)
 ```
 
 **Real-World Use Case:**
 
-React class components defined event handlers as arrow class fields (`handleClick = () => this.setState(...)`) for `this` safety — but this caused a performance regression in large component trees where hundreds or thousands of list item components were rendered, each carrying its own separate function object for each handler. The React team documented this as a known overhead and it became one of the motivating factors for the hooks API (functional components), which stores handler functions on the hook's closure — created once per render, not per instance. Libraries like `react-window` (virtualised lists) are especially sensitive to this, carefully memoising callbacks with `useCallback` to avoid per-row function allocation.
+React class components defined event handlers as arrow class fields (`handleClick = () => this.setState(...)`) for `this` safety — but this caused a performance regression in large component trees where hundreds or thousands of list item components were rendered, each carrying its own separate function object for each handler. The React team documented this as a known overhead and it became one of the motivating factors for the hooks API (functional components), which stores handler functions on the hook\'s closure — created once per render, not per instance. Libraries like `react-window` (virtualised lists) are especially sensitive to this, carefully memoising callbacks with `useCallback` to avoid per-row function allocation.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -10550,7 +10550,7 @@ const topShippedProducts = orders
 
 **Real-World Use Case:**
 
-React's rendering model is built on `map` — every list component is `items.map(item => <Row key={item.id} {...item} />)`. Data dashboards use `.filter().reduce()` chains to compute KPIs (total revenue, conversion rates) directly from raw event arrays on the client, avoiding round-trips to the server for simple aggregations. Lodash's `_.chain()` API formalises this pipeline pattern for complex transformations across large datasets.
+React\'s rendering model is built on `map` — every list component is `items.map(item => <Row key={item.id} {...item} />)`. Data dashboards use `.filter().reduce()` chains to compute KPIs (total revenue, conversion rates) directly from raw event arrays on the client, avoiding round-trips to the server for simple aggregations. Lodash\'s `_.chain()` API formalises this pipeline pattern for complex transformations across large datasets.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -10618,7 +10618,7 @@ console.log(expensiveCalc(1000)); // cached — instant
 
 **Real-World Use Case:**
 
-Redux reducers are **required to be pure functions** — `(state, action) => newState`. This constraint is what makes Redux DevTools' time-travel debugging possible: since reducers are pure, replaying a sequence of actions from any snapshot always produces the identical state, making bugs reproducible across environments. React's `useMemo` and `useCallback` hooks are essentially memoisation — they only work correctly when the computation or callback is pure (or referentially stable).
+Redux reducers are **required to be pure functions** — `(state, action) => newState`. This constraint is what makes Redux DevTools' time-travel debugging possible: since reducers are pure, replaying a sequence of actions from any snapshot always produces the identical state, making bugs reproducible across environments. React\'s `useMemo` and `useCallback` hooks are essentially memoisation — they only work correctly when the computation or callback is pure (or referentially stable).
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -10756,7 +10756,7 @@ const apiPost = api('POST');
 
 **Real-World Use Case:**
 
-RxJS operators are curried/partially applied functions — `map(x => x * 2)` returns an operator function that, when applied inside a `pipe()`, transforms an Observable. This design means operators are configuration-first, data-last — identical to curried functions. Ramda's entire library follows this convention: every function is auto-curried and data is always the last argument, enabling seamless point-free composition used in production at companies like SoundCloud and Typeform.
+RxJS operators are curried/partially applied functions — `map(x => x * 2)` returns an operator function that, when applied inside a `pipe()`, transforms an Observable. This design means operators are configuration-first, data-last — identical to curried functions. Ramda\'s entire library follows this convention: every function is auto-curried and data is always the last argument, enabling seamless point-free composition used in production at companies like SoundCloud and Typeform.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -10837,7 +10837,7 @@ const withInserted = [...items.slice(0, 2), 99, ...items.slice(2)]; // insert at
 
 **Real-World Use Case:**
 
-Redux's change-detection mechanism is based on **reference equality** (`===`). React-Redux's `useSelector` re-renders a component only when the selected state slice returns a different object reference. This is only reliable if reducers produce new objects on every state change — i.e., immutable updates. Immer (built into Redux Toolkit) uses ES6 `Proxy` to intercept mutations on a `draft` object, compute the minimum set of changed nodes via structural sharing, and return a new immutable tree — achieving both developer ergonomics (write mutations naturally) and performance (only changed subtrees allocate new objects). This is how RTK's `createSlice` achieves 60% less boilerplate than hand-written spread reducers.
+Redux\'s change-detection mechanism is based on **reference equality** (`===`). React-Redux\'s `useSelector` re-renders a component only when the selected state slice returns a different object reference. This is only reliable if reducers produce new objects on every state change — i.e., immutable updates. Immer (built into Redux Toolkit) uses ES6 `Proxy` to intercept mutations on a `draft` object, compute the minimum set of changed nodes via structural sharing, and return a new immutable tree — achieving both developer ergonomics (write mutations naturally) and performance (only changed subtrees allocate new objects). This is how RTK\'s `createSlice` achieves 60% less boilerplate than hand-written spread reducers.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -10849,7 +10849,7 @@ Redux's change-detection mechanism is based on **reference equality** (`===`). R
 
 ## Q. What is the JavaScript `class` syntax, and how does it map to prototype-based inheritance?
 
-ES6 `class` syntax is **syntactic sugar** over JavaScript's existing prototype-based inheritance — it does not introduce a new object model. Under the hood, a class declaration creates a constructor function and assigns methods to its `.prototype`. Understanding this mapping is critical for debugging, performance profiling, and interoperating with pre-ES6 code.
+ES6 `class` syntax is **syntactic sugar** over JavaScript\'s existing prototype-based inheritance — it does not introduce a new object model. Under the hood, a class declaration creates a constructor function and assigns methods to its `.prototype`. Understanding this mapping is critical for debugging, performance profiling, and interoperating with pre-ES6 code.
 
 ```js
 // ES6 class
@@ -10897,7 +10897,7 @@ class StrictDemo {
 
 **Real-World Use Case:**
 
-Node.js's built-in `EventEmitter` class (and the HTTP `IncomingMessage`, `ServerResponse` classes) are implemented as prototype chains. When application code extends `EventEmitter` to create a custom event bus (`class OrderService extends EventEmitter {}`), the prototype chain is: `orderService → OrderService.prototype → EventEmitter.prototype → Object.prototype`. Understanding this chain is essential when debugging why a custom `emit` override does not fire — it may have shadowed the inherited method rather than overriding it correctly.
+Node.js\'s built-in `EventEmitter` class (and the HTTP `IncomingMessage`, `ServerResponse` classes) are implemented as prototype chains. When application code extends `EventEmitter` to create a custom event bus (`class OrderService extends EventEmitter {}`), the prototype chain is: `orderService → OrderService.prototype → EventEmitter.prototype → Object.prototype`. Understanding this chain is essential when debugging why a custom `emit` override does not fire — it may have shadowed the inherited method rather than overriding it correctly.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -10911,7 +10911,7 @@ Node.js's built-in `EventEmitter` class (and the HTTP `IncomingMessage`, `Server
 
 `super` is used in two contexts:
 - **In a constructor**: `super(...args)` calls the parent constructor. In a derived class, `super()` **must** be called before any access to `this`. The engine throws `ReferenceError` if you access `this` before `super()` — this is because the parent constructor is responsible for allocating the `this` object for derived classes.
-- **In a method**: `super.methodName()` calls the parent's prototype method, enabling cooperative method overriding.
+- **In a method**: `super.methodName()` calls the parent\'s prototype method, enabling cooperative method overriding.
 
 ```js
 class Shape {
@@ -11158,13 +11158,13 @@ console.log(BankAccount.isBankAccount({}));   // false
 
 // ── V8 performance: private fields are struct-like ────────────────────────────
 // V8 treats classes with consistent field shapes as 'hidden classes' (shapes).
-// Private fields declared in the constructor are part of the object's shape —
+// Private fields declared in the constructor are part of the object\'s shape —
 // accessed via fixed offsets like C struct fields, much faster than Map lookups.
 ```
 
 **Real-World Use Case:**
 
-The Web Cryptography API's `CryptoKey` objects use engine-level privacy to prevent key material from being extractable in JavaScript. Libraries like `jose` (JSON Object Signing and Encryption) use private class fields to store decoded key bytes — ensuring that even if a bug in application code accidentally logs an instance, the private material is not serialised by `JSON.stringify` (private fields are not enumerable and not accessible externally). This is a security-critical pattern for key management in OAuth 2.0 token signing services.
+The Web Cryptography API\'s `CryptoKey` objects use engine-level privacy to prevent key material from being extractable in JavaScript. Libraries like `jose` (JSON Object Signing and Encryption) use private class fields to store decoded key bytes — ensuring that even if a bug in application code accidentally logs an instance, the private material is not serialised by `JSON.stringify` (private fields are not enumerable and not accessible externally). This is a security-critical pattern for key management in OAuth 2.0 token signing services.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -13245,7 +13245,7 @@ const [u1, u2] = await Promise.all([fetchUser(42), fetchUser(42)]);
 
 **Real-World Use Case:**
 
-React's `useMemo` and `useCallback` are single-entry memoization (cache size = 1, keyed by the dependency array). For expensive selector computations in Redux stores, `reselect`'s `createSelector` uses memoization with structural equality checks — preventing re-computation of derived state (e.g., filtering 10,000 product records) on every render when the input state has not changed. At scale (Shopify Admin, GitHub's repo page), this reduces CPU time from O(n) on every render to O(1) on cache hits.
+React\'s `useMemo` and `useCallback` are single-entry memoization (cache size = 1, keyed by the dependency array). For expensive selector computations in Redux stores, `reselect`\'s `createSelector` uses memoization with structural equality checks — preventing re-computation of derived state (e.g., filtering 10,000 product records) on every render when the input state has not changed. At scale (Shopify Admin, GitHub\'s repo page), this reduces CPU time from O(n) on every render to O(1) on cache hits.
 
 ---
 
@@ -13341,7 +13341,7 @@ const trackEvent = throttle((eventName, data) => {
 
 **Real-World Use Case:**
 
-Google Docs debounces its autosave — it waits 1–2 seconds after the last keystroke before persisting to the server, balancing data safety against API call frequency. GitHub's code search uses debounce on the search field to avoid firing API requests on every character. Twitter's (now X) infinite scroll uses throttle on the `scroll` event to check whether new tweets should be loaded, executing the check at most once per 200ms. Without these optimisations, a fast typist or a smooth-scrolling device would generate hundreds of redundant API calls or DOM operations per second.
+Google Docs debounces its autosave — it waits 1–2 seconds after the last keystroke before persisting to the server, balancing data safety against API call frequency. GitHub\'s code search uses debounce on the search field to avoid firing API requests on every character. Twitter\'s (now X) infinite scroll uses throttle on the `scroll` event to check whether new tweets should be loaded, executing the check at most once per 200ms. Without these optimisations, a fast typist or a smooth-scrolling device would generate hundreds of redundant API calls or DOM operations per second.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -13433,7 +13433,7 @@ useEffect(() => {
 
 **Real-World Use Case:**
 
-A production trading dashboard (live price updates via WebSocket) was leaking ~5 MB/minute because chart components registered `message` event listeners on the WebSocket instance but the cleanup function never deregistered them. After navigating away and back (SPA route change), each visit added another listener. After 20 minutes, the page consumed 100 MB extra and began janking at 15 fps. Adding `ws.removeEventListener('message', handler)` in the React `useEffect` cleanup eliminated the leak entirely — a pattern enforced by the team's custom ESLint rule that requires every `addEventListener` to be paired with a `removeEventListener`.
+A production trading dashboard (live price updates via WebSocket) was leaking ~5 MB/minute because chart components registered `message` event listeners on the WebSocket instance but the cleanup function never deregistered them. After navigating away and back (SPA route change), each visit added another listener. After 20 minutes, the page consumed 100 MB extra and began janking at 15 fps. Adding `ws.removeEventListener('message', handler)` in the React `useEffect` cleanup eliminated the leak entirely — a pattern enforced by the team\'s custom ESLint rule that requires every `addEventListener` to be paired with a `removeEventListener`.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -13521,7 +13521,7 @@ class OrderService {
 
 **Real-World Use Case:**
 
-Node.js's `require()` caches modules — every `require('./db')` returns the same module export, making the export a de-facto singleton. Mongoose uses this: the default `mongoose` instance is a module-level singleton that holds the active connection. When multiple files `require('mongoose')`, they all share one connection pool — intentional singleton behaviour. In contrast, NestJS encourages explicit dependency injection over singletons, making services testable with mock providers injected by the IoC container.
+Node.js\'s `require()` caches modules — every `require('./db')` returns the same module export, making the export a de-facto singleton. Mongoose uses this: the default `mongoose` instance is a module-level singleton that holds the active connection. When multiple files `require('mongoose')`, they all share one connection pool — intentional singleton behaviour. In contrast, NestJS encourages explicit dependency injection over singletons, making services testable with mock providers injected by the IoC container.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -13607,7 +13607,7 @@ console.log(renderPage(factory));
 
 **Real-World Use Case:**
 
-AWS SDK v3 uses the Factory pattern for client instantiation: `new S3Client({ region })`, `new DynamoDBClient({ region })`. Each client factory encapsulates endpoint resolution, credential loading, and retry configuration. The Abstract Factory pattern is used by testing libraries — Jest's `jest.mock()` mechanism replaces the real module factory with a mock factory, allowing entire subsystems (database layer, HTTP layer) to be substituted without any changes to application code, enabling true unit isolation.
+AWS SDK v3 uses the Factory pattern for client instantiation: `new S3Client({ region })`, `new DynamoDBClient({ region })`. Each client factory encapsulates endpoint resolution, credential loading, and retry configuration. The Abstract Factory pattern is used by testing libraries — Jest\'s `jest.mock()` mechanism replaces the real module factory with a mock factory, allowing entire subsystems (database layer, HTTP layer) to be substituted without any changes to application code, enabling true unit isolation.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -13719,7 +13719,7 @@ Redux is an application-level Pub-Sub: `dispatch(action)` publishes to the store
 
 ## Q. What is Cross-Site Scripting (XSS), how does it work, and how do you prevent it in a JavaScript application?
 
-**XSS** is an injection attack where an adversary causes a victim's browser to execute malicious JavaScript in the context of a trusted origin. Because the script runs with the victim's session cookies, tokens, and DOM access, the attacker can steal credentials, hijack sessions, deface pages, or exfiltrate sensitive data.
+**XSS** is an injection attack where an adversary causes a victim\'s browser to execute malicious JavaScript in the context of a trusted origin. Because the script runs with the victim\'s session cookies, tokens, and DOM access, the attacker can steal credentials, hijack sessions, deface pages, or exfiltrate sensitive data.
 
 **Three types:**
 
@@ -13769,13 +13769,13 @@ if (window.trustedTypes?.createPolicy) {
   element.innerHTML = policy.createHTML(userInput); // ✅ goes through sanitiser
 }
 
-// ── React's built-in XSS protection ──────────────────────────────────────────
-// React's JSX escapes all values before rendering — textContent equivalent
+// ── React\'s built-in XSS protection ──────────────────────────────────────────
+// React\'s JSX escapes all values before rendering — textContent equivalent
 function UserGreeting({ name }) {
   return <h1>Hello, {name}!</h1>; // ✅ safe — JSX escapes {name}
 }
 
-// ❌ DANGEROUS: dangerouslySetInnerHTML bypasses React's protection
+// ❌ DANGEROUS: dangerouslySetInnerHTML bypasses React\'s protection
 function RichContent({ html }) {
   return <div dangerouslySetInnerHTML={{ __html: html }} />; // ONLY safe with DOMPurify
 }
@@ -13805,7 +13805,7 @@ Content-Security-Policy:
 
 **Real-World Use Case:**
 
-GitHub's XSS history is instructive: despite extensive escaping, a DOM-based XSS was discovered in 2013 via a Markdown renderer that allowed crafted image URLs to execute scripts. GitHub's response was to tighten their CSP to disallow inline scripts entirely and implement strict `script-src` restrictions. Today, GitHub uses a nonce-based CSP on every page load, combined with Trusted Types, meaning even if a future XSS injection vector is discovered, the browser will refuse to execute injected scripts because they lack the server-generated nonce.
+GitHub\'s XSS history is instructive: despite extensive escaping, a DOM-based XSS was discovered in 2013 via a Markdown renderer that allowed crafted image URLs to execute scripts. GitHub\'s response was to tighten their CSP to disallow inline scripts entirely and implement strict `script-src` restrictions. Today, GitHub uses a nonce-based CSP on every page load, combined with Trusted Types, meaning even if a future XSS injection vector is discovered, the browser will refuse to execute injected scripts because they lack the server-generated nonce.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -13813,12 +13813,12 @@ GitHub's XSS history is instructive: despite extensive escaping, a DOM-based XSS
 
 ## Q. What is CSRF, how does it differ from XSS, and how do you prevent it?
 
-**CSRF (Cross-Site Request Forgery)** tricks a victim's browser into sending an authenticated request to a target site without the victim's knowledge. Unlike XSS (which executes code *on* the target site), CSRF abuses the browser's automatic cookie-sending behaviour — the browser attaches cookies to every request to the matching domain, regardless of which page initiated the request.
+**CSRF (Cross-Site Request Forgery)** tricks a victim\'s browser into sending an authenticated request to a target site without the victim\'s knowledge. Unlike XSS (which executes code *on* the target site), CSRF abuses the browser\'s automatic cookie-sending behaviour — the browser attaches cookies to every request to the matching domain, regardless of which page initiated the request.
 
 **Attack flow:**
 1. Victim is logged into `bank.example.com` (session cookie set).
 2. Victim visits `evil.com`, which contains `<img src="https://bank.example.com/transfer?to=attacker&amount=1000">`.
-3. Browser sends a GET request to `bank.example.com` with the victim's session cookie — the bank processes the transfer.
+3. Browser sends a GET request to `bank.example.com` with the victim\'s session cookie — the bank processes the transfer.
 
 **Prevention strategies:**
 
@@ -13892,7 +13892,7 @@ async function apiCall(endpoint, data) {
 
 **Real-World Use Case:**
 
-The Django framework generates a CSRF token per session and requires it (via `{% csrf_token %}` template tag) in every `POST`, `PUT`, `PATCH`, `DELETE` form. It also sets the `csrftoken` cookie with `SameSite=Lax` by default. Rails does the same with `protect_from_forgery`. Modern SPAs that use `Authorization: Bearer` headers for API calls are inherently CSRF-immune for those calls — which is one reason the JWT-in-memory + Authorization-header pattern is preferred over session cookies for SPA authentication in high-security applications.
+The Django framework generates a CSRF token per session and requires it (via `csrf_token` template tag) in every `POST`, `PUT`, `PATCH`, `DELETE` form. It also sets the `csrftoken` cookie with `SameSite=Lax` by default. Rails does the same with `protect_from_forgery`. Modern SPAs that use `Authorization: Bearer` headers for API calls are inherently CSRF-immune for those calls — which is one reason the JWT-in-memory + Authorization-header pattern is preferred over session cookies for SPA authentication in high-security applications.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -13980,7 +13980,7 @@ if (!validate(userInput)) throw new Error('Invalid input');
 
 **Real-World Use Case:**
 
-CVE-2019-10744 was a critical prototype pollution vulnerability in Lodash's `_.defaultsDeep`, `_.merge`, and `_.mergeWith` functions — affecting millions of npm packages that depended on Lodash. An attacker who could control the source of a merge call could inject `isAdmin`, `debug`, or even override `toString`/`valueOf` in ways that caused RCE in server-side template engines. The fix (Lodash 4.17.12) added explicit key blocklist checks for `__proto__`, `prototype`, and `constructor`. This vulnerability demonstrates why sanitising keys in all recursive object-processing functions is a security requirement, not just a defensive nicety.
+CVE-2019-10744 was a critical prototype pollution vulnerability in Lodash\'s `_.defaultsDeep`, `_.merge`, and `_.mergeWith` functions — affecting millions of npm packages that depended on Lodash. An attacker who could control the source of a merge call could inject `isAdmin`, `debug`, or even override `toString`/`valueOf` in ways that caused RCE in server-side template engines. The fix (Lodash 4.17.12) added explicit key blocklist checks for `__proto__`, `prototype`, and `constructor`. This vulnerability demonstrates why sanitising keys in all recursive object-processing functions is a security requirement, not just a defensive nicety.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -14007,7 +14007,7 @@ CSS parsing  → CSSOM Tree
            Compositing — GPU assembles layers in correct order
 ```
 
-**Reflow (Layout):** Recalculation of element geometry. Triggered by any change that affects the size or position of elements. It is expensive because it may cascade — changing one element's size can force recalculation of its entire subtree and ancestors.
+**Reflow (Layout):** Recalculation of element geometry. Triggered by any change that affects the size or position of elements. It is expensive because it may cascade — changing one element\'s size can force recalculation of its entire subtree and ancestors.
 
 **Repaint:** Redrawing pixels where geometry has not changed but visual appearance has (colour, opacity, visibility). Less expensive than reflow but still non-trivial.
 
@@ -14089,15 +14089,15 @@ fastdom.measure(() => {
 
 **Real-World Use Case:**
 
-Google Maps' JavaScript SDK moves map tiles using `transform: translate3d(x, y, 0)` instead of `top`/`left` positioning — this keeps tile movement on the GPU compositor thread, achieving smooth 60fps panning even while the CPU is busy parsing new tile data. Twitter's PWA team found a 50% reduction in jank by auditing all `offsetWidth`/`clientHeight` reads and batching them before DOM writes using `requestAnimationFrame` — measured via the "Layout" track in Chrome DevTools Performance panel.
+Google Maps' JavaScript SDK moves map tiles using `transform: translate3d(x, y, 0)` instead of `top`/`left` positioning — this keeps tile movement on the GPU compositor thread, achieving smooth 60fps panning even while the CPU is busy parsing new tile data. Twitter\'s PWA team found a 50% reduction in jank by auditing all `offsetWidth`/`clientHeight` reads and batching them before DOM writes using `requestAnimationFrame` — measured via the "Layout" track in Chrome DevTools Performance panel.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between the browser's main thread and compositor thread, and how do you offload work?
+## Q. What is the difference between the browser\'s main thread and compositor thread, and how do you offload work?
 
-The browser's **main thread** runs JavaScript, handles layout, style calculation, and paint preparation — it can only do one thing at a time. The **compositor thread** (and its raster threads) runs on a separate OS thread and handles compositing pre-painted layers into the final frame — it can run independently of JavaScript. When an animation only affects composited properties (`transform`, `opacity`), it runs entirely on the compositor thread and is immune to main-thread JavaScript jank.
+The browser\'s **main thread** runs JavaScript, handles layout, style calculation, and paint preparation — it can only do one thing at a time. The **compositor thread** (and its raster threads) runs on a separate OS thread and handles compositing pre-painted layers into the final frame — it can run independently of JavaScript. When an animation only affects composited properties (`transform`, `opacity`), it runs entirely on the compositor thread and is immune to main-thread JavaScript jank.
 
 **Offloading strategies:**
 
@@ -14178,7 +14178,7 @@ observer.observe({ entryTypes: ['longtask'] });
 
 **Real-World Use Case:**
 
-Figma's browser-based design tool compiles its rendering engine to WebAssembly and runs it in a Web Worker. All geometry calculations, bezier path operations, and viewport transformations execute off the main thread. The main thread handles only user input events and sends commands to the worker via `postMessage`. This architecture achieves 60fps canvas rendering even for documents with tens of thousands of vector objects — tasks that would be completely impossible on the main thread. Similarly, Google Sheets runs formula calculation in a Web Worker, keeping the spreadsheet UI responsive during long recalculations.
+Figma\'s browser-based design tool compiles its rendering engine to WebAssembly and runs it in a Web Worker. All geometry calculations, bezier path operations, and viewport transformations execute off the main thread. The main thread handles only user input events and sends commands to the worker via `postMessage`. This architecture achieves 60fps canvas rendering even for documents with tens of thousands of vector objects — tasks that would be completely impossible on the main thread. Similarly, Google Sheets runs formula calculation in a Web Worker, keeping the spreadsheet UI responsive during long recalculations.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
