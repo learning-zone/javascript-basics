@@ -2,7 +2,7 @@
 
 > *Click &#9733; if you like the project. Your contributions are heartily ♡ welcome.*
 
-<br/>
+<br>
 
 ## Related Topics
 
@@ -16,7 +16,7 @@
 * *[JavaScript Design Patterns](https://github.com/learning-zone/javascript-design-patterns)*
 * *[Data Structure in JavaScript](https://github.com/learning-zone/javascript-data-structure)*
 
-<br/>
+<br>
 
 ## Table of Contents
 
@@ -94,7 +94,7 @@ Focus: System-level design, scalability, security posture, micro-frontend, and c
 
 ## # 1. Introduction
 
-<br/>
+<br>
 
 ## Q. List out important features of JavaScript ES6?
 
@@ -457,7 +457,7 @@ console.log(iterateIt.next().value); //output: 6
 
 ## # 2. VARIABLES
 
-<br/>
+<br>
 
 ## Q. What are global variables?
 
@@ -632,139 +632,29 @@ console.log(b) // TypeError: Assignment to constant variable.
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is Hoisting in JavaScript?
-
-JavaScript **Hoisting** refers to the process whereby the interpreter appears to move the declaration of functions, variables or classes to the top of their scope, prior to execution of the code.
-
-Hoisting allows functions to be safely used in code before they are declared.
-
-**Example 01:** Function Hoisting
-
-One of the advantages of hoisting is that it lets you use a function before you declare it in your code.
-
-```js
-getName("Sadhika Sandal");
-
-function getName(name) {
-  console.log("Hello " + name);
-}
-```
-
-Output:
-
-```js
-Hello Sadhika Sandal
-```
-
-**Example 02:** Variable Hoisting  
-
-```js
-console.log(message); // output: undefined
-var message = "The variable Has been hoisted";
-```
-
-The above code looks like as below to the interpreter,
-
-```js
-var message;
-console.log(message);
-message = "The variable Has been hoisted";
-```
-
-**Example 03:** `let` and `const` hoisting
-
-All declarations (function, var, let, const and class) are hoisted in JavaScript, while the `var` declarations are initialized with `undefined`, but `let` and `const` declarations remain uninitialized.
-
-```js
-console.log(x);
-let x = 10;
-
-// Output: ReferenceError: x is not defined
-```
-
-They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can\'t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call **Temporal Dead Zone**, A time span between variable creation and its initialization where they can\'t be accessed.
-
-*Note: JavaScript only hoists declarations, not initialisation*
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-hoisting-l745nc?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. In which case the function definition is not hoisted in JavaScript?
-
-Let us take the following **function expression**
-
-```js
-var foo = function foo() {
-  return 12;
-}
-```
-
-In JavaScript `var`-declared variables and functions are `hoisted`. Let us take function `hoisting` first. Basically, the JavaScript interpreter looks ahead to find all the variable declaration and hoists them to the top of the function where It is declared. For example:
-
-```js
-foo(); // Here foo is still undefined
-var foo = function foo() {
-  return 12;
-};
-```
-
-The code above behind the scene look something like this:
-
-```js
-var foo = undefined;
-foo(); // Here foo is undefined
-foo = function foo() {
-  // Some code stuff
-}
-```
-
-```js
-var foo = undefined;
-foo = function foo() {
-  // Some code stuff
-}
-foo(); // Now foo is defined here
-```
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. What is the Temporal Dead Zone in ES6?
-
-In ES6, **let** bindings are not subject to "variable hoisting", which means that **let** declarations do not move to the top of the current execution context.
-
-Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the **undefined** value). The variable is in a "temporal dead zone" from the start of the block until the initialization is processed.
-
-```js
-console.log(aVar); // undefined
-console.log(aLet); // causes ReferenceError: aLet is not defined
-
-var aVar = 1;
-let aLet = 2;
-```
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
 ## Q. What is the purpose of double exclamation?
 
-The double exclamation or negation(!!) ensures the resulting type is a boolean. If it was falsey (e.g. `0`, `null`, `undefined`, etc.), it will be `false`, otherwise, `true`.
+The double exclamation mark (`!!`) in JavaScript forces any value into its corresponding strict boolean representation (`true` or `false`). The `!!` (double negation) operator converts any value to its boolean equivalent:
+
+* First `!` negates the value (converting it to a boolean)
+* Second `!` negates it again, giving the true boolean representation
+
+**Example**:
 
 ```js
-console.log(!!null);      // false
-console.log(!!undefined); // false
 console.log(!!0);         // false
 console.log(!!"");        // false
+console.log(!!null);      // false
+console.log(!!undefined); // false
+console.log(!!NaN);       // false
+
 console.log(!!1);         // true
 console.log(!!"text");    // true
+console.log(!!{});        // true
+console.log(!![]);        // true
 ```
 
-*Note: The expression !! is not an operator, but it is just twice of ! operator*.
+**Note**: It\'s commonly used to explicitly cast a value to boolean without using `Boolean(value)`.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -772,13 +662,17 @@ console.log(!!"text");    // true
 
 ## Q. In JavaScript, what is the difference between `var x = 1` and `x = 1`?
 
+The primary difference is that `var x = 1` explicitly declares a function-scoped or globally-scoped variable, whereas `x = 1` assigns a value to an identifier without declaring it, which can lead to global scope pollution or runtime errors depending on your code\'s strictness mode
+
 `var x = 1`:
 
 * Allowed in 'strict mode'.
 * The var statement declares a function-scoped or globally-scoped variable, optionally initializing it to a value.
-* Variables declared using var inside a { } block can be accessed from outside the block.
-* Variables defined using var inside a function are not accessible (visible) from outside the function.
-* Duplicate variable declarations using var will not trigger an error, even in strict mode, and the variable will not lose its value unless another assignment is performed.
+* Variables declared using `var` inside a `{ }` block can be accessed from outside the block.
+* Variables defined using `var` inside a function are not accessible (visible) from outside the function.
+* Duplicate variable declarations using `var` will not trigger an error, even in strict mode, and the variable will not lose its value unless another assignment is performed.
+
+**Example**:
 
 ```js
 var x = 1;
@@ -806,11 +700,13 @@ console.log(x); // 5
 `x = 1`:
 
 * Not allowed in 'strict mode'.
-* Undeclared Variables like: x = 1 is accessible in: (Block scope - Function scope - Global scope)
-* Outside of strict mode, however, if you assign a value to a name that has not been declared with let, const, or var, you\'ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
-* Global variables created in this accidental way are like global variables declared with var: they define properties of the global object.
-* Unlike the properties defined by proper var declarations, these properties can be deleted with the delete operator.
+* Undeclared Variables like: `x = 1` is accessible in: (Block scope - Function scope - Global scope)
+* Outside of strict mode, however, if you assign a value to a name that has not been declared with `let`, `const`, or `var`, you\'ll end up creating a new global variable. It will be global no matter how deeply nested within functions and blocks your code is, which is almost certainly not what you want, is bug-prone, and is one of the best reasons for using strict mode!
+* Global variables created in this accidental way are like global variables declared with `var` they define properties of the global object.
+* Unlike the properties defined by proper `var` declarations, these properties can be deleted with the delete operator.
 * Not recommended.
+
+**Example**:
 
 ```js
 var x = 5; // global
@@ -841,7 +737,7 @@ console.log(x) // 1
 }
 ```
 
-<br/>
+<br>
 
 |               | var x = 1 | x = 1 |
 |:---:          | :---:     | :---:|
@@ -858,15 +754,62 @@ console.log(x) // 1
 
 ## Q. How do you assign default values to variables?
 
-You can use the logical or operator `||` in an assignment expression to provide a default value.
+In JavaScript, you can assign default values to variables using several modern and legacy approaches, depending on the exact conditions you want to check.
 
-**Syntax:**
+**1. OR operator (`||`)**
 
 ```js
-var a = b || c;
+let name = userInput || "Default";
+// Uses "Default" if userInput is falsy (0, "", null, undefined, false)
 ```
 
-As per the above expression, variable 'a 'will get the value of 'c' only if 'b' is falsy (if is null, false, undefined, 0, empty string, or NaN), otherwise 'a' will get the value of 'b'.
+**2. Nullish coalescing (`??`)** *(preferred)*
+
+```js
+let name = userInput ?? "Default";
+// Uses "Default" only if userInput is null or undefined (not 0 or "")
+```
+
+**3. Destructuring defaults**
+
+```js
+const { name = "John", age = 25 } = user;
+const [first = 0, second = 0] = arr;
+```
+
+**4. Function parameter defaults**
+
+```js
+function greet(name = "World") {
+  return `Hello, ${name}!`;
+}
+greet();        // "Hello, World!"
+greet("Alice"); // "Hello, Alice!"
+```
+
+**5. Logical OR assignment (`||=`)**
+
+```js
+let x = null;
+x ||= "default"; // x = "default"
+```
+
+**6. Nullish assignment (`??=`)**
+
+```js
+let x = 0;
+x ??= "default"; // x stays 0 (not null/undefined)
+```
+
+**Key difference between `||` and `??`:**
+
+```js
+let count = 0;
+count || 10;  // 10  — 0 is falsy, so falls back
+count ?? 10;  // 0   — 0 is not null/undefined, so keeps it
+```
+
+**Note:** Use `??` when `0`, `""`, or `false` are valid values.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -874,23 +817,68 @@ As per the above expression, variable 'a 'will get the value of 'c' only if 'b' 
 
 ## Q. What is the precedence order between local and global variables?
 
-A local variable takes precedence over a global variable with the same name.
+**Local variables always take precedence over global variables** within their scope.
 
 ```js
-var msg = "Good morning";
+let x = "global";
 
-function greeting() {
-  msg = "Good Evening";
-  console.log(msg);
+function example() {
+  let x = "local";
+  console.log(x); // "local" — local shadows the global
 }
-greeting();
+
+example();
+console.log(x); // "global" — unchanged
 ```
 
-Output:
+**Scope chain** — JavaScript looks up variables from innermost to outermost:
 
 ```js
-Good Evening
+let x = "global";
+
+function outer() {
+  let x = "outer";
+
+  function inner() {
+    let x = "inner";
+    console.log(x); // "inner"
+  }
+
+  inner();
+  console.log(x); // "outer"
+}
+
+outer();
+console.log(x); // "global"
 ```
+
+**If no local variable exists, it walks up the chain:**
+
+```js
+let x = "global";
+
+function example() {
+  console.log(x); // "global" — no local x, found in outer scope
+}
+```
+
+**Shadowing pitfall:**
+
+```js
+let x = "global";
+
+function example() {
+  console.log(x); // ReferenceError (TDZ) — let/const are hoisted but not initialized
+  let x = "local";
+}
+```
+
+**Precedence order (innermost → outermost):**
+
+1. Local (block/function) scope
+2. Enclosing/closure scopes
+3. Module scope
+4. Global scope (`window` / `globalThis`)
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-precedence-n1ve75?file=/src/index.js)**
 
@@ -902,40 +890,74 @@ Good Evening
 
 Variable shadowing occurs when a variable declared within a certain scope (decision block, method, or inner class) has the same name as a variable declared in an outer scope. This outer variable is said to be shadowed.
 
-If there is a variable in the global scope, and you'd like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
+If there is a variable in the global scope, and you\'d like to create a variable with the same name in a function. The variable in the inner scope will temporarily shadow the variable in the outer scope.
 
 **Example:**
 
 ```js
-/**
- * Variable Shadowing
- */
-var val = 10;
+let x = "global";
 
-function Hoist(val) {
-  console.log(val);
+function example() {
+  let x = "local"; // shadows the global x
+  console.log(x);  // "local"
 }
-Hoist(20); // 20
+
+example();
+console.log(x); // "global" — outer x is unaffected
 ```
 
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-variable-shadowing-dvibcw?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. How do you swap variables using destructuring assignment?
+**Block-level shadowing (`let`/`const`):**
 
 ```js
-var x = 10, y = 20;
+let msg = "outside";
 
-[x, y] = [y, x];
+if (true) {
+  let msg = "inside"; // shadows outer msg
+  console.log(msg);   // "inside"
+}
 
-console.log(x); // 20
-console.log(y); // 10
+console.log(msg); // "outside"
 ```
 
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-destructuring-sv99cd?file=/src/index.js)**
+**`var` does NOT shadow at block level** (only at function level):
+
+```js
+var msg = "outside";
+
+if (true) {
+  var msg = "inside"; // overwrites, not shadows!
+  console.log(msg);   // "inside"
+}
+
+console.log(msg); // "inside" — original was overwritten!
+```
+
+**Nested function shadowing:**
+
+```js
+let value = 1;
+
+function outer() {
+  let value = 2;        // shadows global
+
+  function inner() {
+    let value = 3;      // shadows outer
+    console.log(value); // 3
+  }
+
+  inner();
+  console.log(value);   // 2
+}
+
+outer();
+console.log(value);     // 1
+```
+
+**Note:**
+
+- Shadowing does **not** modify the outer variable
+- `let`/`const` shadow at block level; `var` only at function level
+- Can cause bugs when unintentional — use distinct variable names to avoid confusion
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -943,7 +965,7 @@ console.log(y); // 10
 
 ## Q. What is scope chain in javascript?
 
-The scope chain in JavaScript refers to the chain of nested scopes that a JavaScript program uses to look up variable and function references. When a variable or function is referenced in JavaScript code, the interpreter first looks for it in the current scope. If it\'s not found there, it moves up the scope chain to the next outer scope and looks for it there. It continues doing this until the variable or function is found or until it reaches the global scope.
+The **scope chain** is the mechanism JavaScript uses to resolve variable references by searching through nested scopes from innermost to outermost until the variable is found (or a `ReferenceError` is thrown).
 
 **Example:**:
 
@@ -966,13 +988,19 @@ function outer() {
 outer();
 ```
 
+**Note:**
+
+* The chain is created at **function definition time** (lexical scoping), not at call time
+* It only goes **outward** — outer scopes cannot access inner variables
+* Closures work because inner functions retain a reference to their outer scope chain
+
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
 ## # 3. DATA TYPES
 
-<br/>
+<br>
 
 ## Q. What are data types in javascript?
 
@@ -1006,6 +1034,8 @@ const lastName = "Mittal";
 const result = `Name: ${firstName} ${lastName}`;
 
 console.log(result); // Name: Mukul Mittal
+
+console.log(typeof result); // string
 ```
 
 **Number:**
@@ -1019,13 +1049,16 @@ const number3 = 3e5; // 3 * 10^5
 
 const number4 = 3 / 0;
 console.log(number4); // Infinity
+console.log(typeof number4) // number
 
 const number5 = -3 / 0;
 console.log(number5); // -Infinity
+console.log(typeof number5); // number
 
 // strings can\'t be divided by numbers
 const number6 = "abc" / 3;
 console.log(number6); // NaN
+console.log(typeof number6); // number
 ```
 
 **BigInt:**
@@ -1043,10 +1076,12 @@ const num3 = 10;
 // Adding two big integers
 const result1 = num1 + num2;
 console.log(result1); // "1100000000000000000n"
+console.log(typeof result1); // bigint
 
 // Error! BitInt and number cannot be added
 const result2 = num1 + num2 + num3;
 console.log(result2); // Uncaught TypeError: Cannot mix BigInt and other types
+console.log(typeof result2); // Uncaught TypeError: Cannot mix BigInt and other types
 ```
 
 **Boolean:**
@@ -1178,6 +1213,8 @@ console.log(typeof test2); // undefined
 
 Type coercion is the automatic or implicit conversion of values from one data type to another (such as strings to numbers). Type conversion is similar to type coercion because they both convert values from one data type to another with one key difference — type coercion is implicit whereas type conversion can be either implicit or explicit.
 
+**Example:**
+
 ```js
 const value1 = '10';
 const value2 = 20;
@@ -1205,11 +1242,11 @@ console.log(sum);
 
 ## # 4. OPERATORS
 
-<br/>
+<br>
 
 ## Q. What are various operators supported by javascript?
 
-An operator is capable of manipulating(mathematical and logical computations) a certain value or operand. There are various operators supported by JavaScript as below,
+An operator is capable of manipulating (mathematical and logical computations) a certain value or operand. There are various operators supported by JavaScript as below,
 
 **Arithmetic Operators:**
 
@@ -1298,9 +1335,9 @@ Below are the list of bit-wise logical operators used in JavaScript
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. What is the difference between == and === operators?
+## Q. What is the difference between `==` and `===` operators?
 
-JavaScript provides both strict(===, !==) and type-converting(==, !=) equality comparison. The strict operators takes type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
+JavaScript provides both strict (`===`, `!==`) and type-converting (`==`, `!=`) equality comparison. The strict operators takes type of variable in consideration, while non-strict operators make type correction/conversion based upon values of variables. The strict operators follow the below conditions for different types,
 
 1. Two strings are strictly equal when they have the same sequence of characters, same length, and same characters in corresponding positions.
 2. Two numbers are strictly equal when they are numerically equal. i.e, Having the same number value.
@@ -1309,8 +1346,8 @@ JavaScript provides both strict(===, !==) and type-converting(==, !=) equality c
    2. Positive and negative zeros are equal to one another.
 3. Two Boolean operands are strictly equal if both are true or both are false.
 4. Two objects are strictly equal if they refer to the same Object.
-5. Null and Undefined types are not equal with ===, but equal with ==. i.e,
-    null===undefined --> false but null==undefined --> true
+5. Null and Undefined types are not equal with `===`, but equal with `==`. i.e,
+    `null === undefined` --> `false` but `null == undefined` --> `true`
 
 **Example:**
 
@@ -1405,11 +1442,13 @@ console.log(typeof a, typeof b, b); // string, number, NaN
 
 The delete keyword is used to delete the property as well as its value.
 
+**Example:**
+
 ```js
-var user = {name: "Sadhika Chaudhuri", age: 24};
+const user = { name: "Sadhika Chaudhuri", age: 24 };
 delete user.age;
 
-console.log(user); // {name: "Sadhika Chaudhuri"}
+console.log(user); // { name: "Sadhika Chaudhuri" }
 ```
 
 <div align="right">
@@ -1598,7 +1637,7 @@ console.log(f); // 0 (0 is not null/undefined)
 
 ## # 5. NUMBERS
 
-<br/>
+<br>
 
 ## Q. How do you generate random integers?
 
@@ -1619,6 +1658,16 @@ function getRandomNumber(max) {
 console.log(getRandomNumber(10)); // returns a random integer from 1 to 10
 ```
 
+**Random integer between min and max (inclusive):**
+
+```js
+function randomInt(min, max) {
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+console.log(randomInt(1, 6));   // simulates a dice roll: 1–6
+```
+
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-random-number-slllvd?file=/src/index.js)**
 
 <div align="right">
@@ -1628,6 +1677,8 @@ console.log(getRandomNumber(10)); // returns a random integer from 1 to 10
 ## Q. What is isNaN?
 
 The `isNaN()` function determines whether a value is NaN ( Not a Number ) or not. This function returns `true` if the value equates to NaN. The `isNaN()` method converts the value to a number before testing it.
+
+**Example:**
 
 ```js
 isNaN('Hello') // true
@@ -1706,7 +1757,7 @@ console.log(Number.NEGATIVE_INFINITY === -2 * Number.MAX_VALUE); // true
 
 ## # 6. STRING
 
-<br/>
+<br>
 
 ## Q. What is the difference between slice and splice?
 
@@ -1786,7 +1837,7 @@ str.indexOf('PHP') !== -1 // false
 str.indexOf('Node', 5) !== -1 // true
 ```
 
-**3. Using includes:**
+**3. Using includes: (Modern Standard)**
 
 The `includes()` is also case-sensitive and accepts an optional second parameter, an integer which indicates the position where to start searching for.
 
@@ -1796,6 +1847,30 @@ let str = "JavaScript, Node.js, Express.js, React.js, MongoDB";
 str.includes('MongoDB') // true
 str.includes('PHP') // false
 str.includes('Node', 5) //true
+```
+
+**Use Cases:**
+
+| Use Case | Method | Example |
+|---|---|---|
+| Simple readability check | `includes()` | Check if a product description contains a keyword |
+| Legacy browser support | `indexOf()` | Check if URL contains a query param |
+| Pattern-based search | RegEx `test()` | Check if input matches a specific format |
+
+```js
+// 1. Search bar — check if item name contains user query
+const query = "react";
+const items = ["React.js Tutorial", "Node.js Guide", "React Native Basics"];
+const results = items.filter(item => item.toLowerCase().includes(query.toLowerCase()));
+// ["React.js Tutorial", "React Native Basics"]
+
+// 2. URL parsing — check if a query param exists
+const url = "https://example.com/search?q=javascript&page=2";
+const hasQuery = url.indexOf('?q=') !== -1; // true
+
+// 3. Input validation — check if email contains '@' and '.'
+const email = "user@example.com";
+const isValidEmail = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email); // true
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-substring-su64zr?file=/src/index.js)**
@@ -1939,7 +2014,7 @@ console.log('42'.padEnd(5, '-'));   // '42---'
 
 ## # 7. ARRAY
 
-<br/>
+<br>
 
 ## Q. Explain arrays in JavaScript?
 
@@ -1962,20 +2037,42 @@ const numbers = new Array(10, 20, 30, 40, 50);
 
 // array of strings
 let fruits = ["Apple", "Orange", "Plum", "Mango"];
+
+// array of character
+const numbers = Array.from("abc"); // ["a", "b", "c"]
+
+// array of numbers
+const numbers = Array.of(10, 20, 30); // [10, 20, 30]
 ```
+
+**Common Methods**
+
+| Category | Methods |
+|----------|---------|
+| Add/Remove | `push`, `pop`, `shift`, `unshift`, `splice` |
+| Extract | `slice`, `flat`, `flatMap` |
+| Search | `find`, `findIndex`, `indexOf`, `includes` |
+| Iterate | `forEach`, `map`, `filter`, `reduce` |
+| Sort/Order | `sort`, `reverse` |
+| Combine | `concat`, `join` |
 
 **Example 02:** Accessing array elements
 
 ```js
-let fruits = ["Apple", "Orange", "Plum", "Mango"];
+const numbers = [10, 20, 30, 40, 50];
 
-fruits[0]; // Apple
-fruits[fruits.length - 1] // Mango
+// Transforming
+console.log(numbers.map(n => n * 2)); // [20, 40, 60, 80, 100]
 
-// Iterate array elements
-for (let i = 0; i < fruits.length; i++) {
-  console.log(fruits[i]);
-}
+// Filtering
+console.log(numbers.filter(n => n % 2 === 0)); // [10, 20, 30, 40, 50]
+
+// Reducing
+console.log(numbers.reduce((sum, n) => sum + n, 0)); // 150
+
+// Searching
+console.log(numbers.find(n => n > 30));  // 40
+console.log(numbers.includes(30));  // true
 ```
 
 **Example 03:** Adding new array elements
@@ -1994,6 +2091,8 @@ fruits.push("Grapes");  // Adds a new element (Grapes) to fruits
 
 ## Q. What are associative arrays in javascript?
 
+JavaScript does not have built-in associative arrays in the way languages like PHP or literal dictionary structures do. Instead, JavaScript uses regular Objects or Maps to handle key-value pairs (associative behavior).
+
 Associative arrays are basically objects in JavaScript where indexes are replaced by user-defined keys. They do not have a length property like a normal array and cannot be traversed using a normal for loop.
 
 **Syntax:**
@@ -2002,7 +2101,7 @@ Associative arrays are basically objects in JavaScript where indexes are replace
 const array_name = { key1: 'value1', key2: 'value2', key3: 'value3' }   
 ```
 
-**Example:**
+**Example:** Plain Object (most common)
 
 ```js
 const employee = {
@@ -2011,7 +2110,7 @@ const employee = {
   email: "sakshi.memon@email.com"
 };
 
-// Accesing employee elements
+// Accessing employee elements
 console.log(employee.id); // 12345
 console.log(employee.name); // Sakshi Memon
 
@@ -2029,13 +2128,26 @@ name = Sakshi Memon
 email = sakshi.memon@email.com 
 ```
 
+**Example:** `Map` (true associative structure)
+
+```js
+const map = new Map();
+map.set("name", "Alice");
+map.set(42, "answer");        // keys can be any type
+map.set({ id: 1 }, "object key");
+
+map.get("name");  // "Alice"
+map.has(42);      // true
+map.size;         // 3
+```
+
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-associative-arrays-vxc4qc?file=/src/index.js)**
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
 
-## Q. Calculate the length of the associative array?
+## Q. How to calculate the length of the associative array?
 
 **Method 1:** Using `Object.keys().length`
 
@@ -2046,7 +2158,7 @@ const employee = {
   email: "sakshi.memon@email.com"
 };
 
-console.log(Object.keys(employee).length); // Output 3
+console.log(Object.keys(employee).length); // 3
 ```
 
 **Method 2:** Using `Object.hasOwnProperty()`
@@ -2061,7 +2173,7 @@ function getLength(object) {
   return count;
 }
 
-console.log(getLength(employee)); // Output 3
+console.log(getLength(employee)); // 3
 ```
 
 **Method 3:** Using `Object.getOwnPropertyNames()`
@@ -2073,7 +2185,7 @@ const employee = {
   email: "sakshi.memon@email.com"
 };
 
-Object.getOwnPropertyNames(employee).length; // Output 3
+Object.getOwnPropertyNames(employee).length; // 3
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-associative-arrays-qye2t1?file=/src/index.js)**
@@ -2477,13 +2589,18 @@ Both `for..of` and `for..in` statements iterate over lists; the values iterated 
 // for..in
 const list = [10, 20, 30];
 
-for (let i in list) {
-  console.log(i); // "0", "1", "2",
+for (let key in list) {
+  console.log(key); // "0", "1", "2",
 }
 
 // for..of
-for (let i of list) {
-  console.log(i); // "10", "20", "30"
+for (let value of list) {
+  console.log(value); // "10", "20", "30"
+}
+
+// Works on any iterable: arrays, strings, Map, Set
+for (let char of "hello") {
+  console.log(char); // "h", "e", "l", "l", "o"
 }
 ```
 
@@ -2492,63 +2609,6 @@ for (let i of list) {
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
 </div>
-
-## Q. Can you give an example for destructuring an array?
-
-Destructuring is a JavaScript expression that makes it possible to unpack values from arrays, or properties from objects, into distinct variables. That is, we can extract data from arrays and objects and assign them to variables.
-
-```js
-// Variable assignment.
-const numbers = [10, 20, 30];
-const [one, two, three] = numbers;
-
-console.log(one); // 10
-console.log(two); // 20
-console.log(three); // 30
-```
-
-```js
-// Swapping variables
-let a = 100;
-let b = 200;
-
-[a, b] = [b, a];
-
-console.log(a); // 20
-console.log(b); // 10
-```
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-array-destructure-bg71je?file=/src/index.js)**
-
-<div align="right">
-    <b><a href="#table-of-contents">↥ back to top</a></b>
-</div>
-
-## Q. What are default values in destructuring assignment?
-
-A variable can be assigned a default value when the value unpacked from the array or object is undefined during destructuring assignment. It helps to avoid setting default values separately for each assignment.  
-
-**Array Destructuring:**
-
-```js
-const [x = 2, y = 4, z = 6] = [10];
-
-console.log("x: " + x); // 10
-console.log("y: " + y); // 4
-console.log("z: " + z); // 6
-```
-
-**Object Destructuring:**
-
-```js
-const { i = 2, j = 4, k = 6 } = { n: 10 };
-
-console.log("i: " + i); // 2
-console.log("j: " + j); // 4
-console.log("k: " + k); // 6
-```
-
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/ecstatic-drake-iq971p?file=/src/index.js)**
 
 ## Q. When to use reduce(), map(), foreach() and filter() in JavaScript?
 
@@ -2621,6 +2681,13 @@ let sum = numbers.reduce(function (sum, number) {
 
 console.log(sum); // Output: 60
 ```
+
+**Key Rules**
+* Need a new transformed array? → `map()`
+* Need a subset? → `filter()`
+* Need a single output (sum, object, string)? → `reduce()`
+* Need no return value (side effects)? → `forEach()`
+* Avoid `forEach()` when you need a result — use `map()/filter()/reduce()` instead
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-loop-m755cw?file=/src/index.js)**
 
@@ -3512,7 +3579,7 @@ In React, `&&` short-circuit is the idiomatic pattern for **conditional renderin
 
 ## # 9. FUNCTIONS
 
-<br/>
+<br>
 
 ## Q. What are the benefits of using arrow function over es5 function?
 
@@ -3579,6 +3646,8 @@ console.log(result); // 314
 ## Q. What is the benefit of using the arrow syntax for a method in a constructor?
 
 The main advantage of using an arrow function as a method inside a constructor is that the value of `this` gets set at the time of the function creation and can\'t change after that. So, when the constructor is used to create a new object, `this` will always refer to that object.
+
+**Example:**
 
 ```js
 const Person = function(firstName) {
@@ -3752,6 +3821,15 @@ const concat = (separator) => {
 ## Q. What is a first class function?
 
 In javaScript, functions can be stored as a variable inside an object or an array as well as it can be passed as an argument or be returned by another function. That makes function **first-class function** in JavaScript.
+
+A **first-class function** means functions are treated as values — they can be:
+
+- **Assigned to variables**: `const greet = function() { return "Hello"; }`
+- **Passed as arguments**: `arr.map(fn)`
+- **Returned from other functions**: `function outer() { return function inner() {} }`
+- **Stored in data structures**: `const obj = { fn: () => {} }`
+
+JavaScript fully supports first-class functions, which enables patterns like callbacks, higher-order functions, and closures.
 
 **Example 01:** Assign a function to a variable
 
@@ -4059,15 +4137,14 @@ console.log(fun2.length); // 2
 **Example:**
 
 ```js
-const employee1 = { firstName: "Sahima", lastName: "Mutti" };
-const employee2 = { firstName: "Aarush", lastName: "Krishna" };
+const person = { name: "Sahima Mutti" };
 
 function say(greeting) {
-  console.log(greeting + " " + this.firstName + " " + this.lastName);
+  return `${greeting}, ${this.name}`;
 }
 
-say.call(employee1, "Hi");    // Hi Sahima Mutti 
-say.call(employee2, "Hello"); // Hello Aarush Krishna 
+// call — invokes immediately, args passed individually
+say.call(person, "Hi");    // Hi Sahima Mutti 
 ```
 
 **2. Apply:** invokes the function and allows you to pass in arguments as an array.
@@ -4075,15 +4152,14 @@ say.call(employee2, "Hello"); // Hello Aarush Krishna
 **Example:**
 
 ```js
-const employee1 = { firstName: "Sahima", lastName: "Mutti" };
-const employee2 = { firstName: "Aarush", lastName: "Krishna" };
+const person = { name: "Sahima Mutti" };
 
 function say(greeting) {
-  console.log(greeting + " " + this.firstName + " " + this.lastName);
+  return `${greeting}, ${this.name}`;
 }
 
-say.apply(employee1, ["Hi"]);    // Hi Sahima Mutti 
-say.apply(employee2, ["Hello"]); // Hello Aarush Krishna 
+// apply — invokes immediately, args passed as array
+say.apply(person, ["Hi"]);    // Hi Sahima Mutti 
 ```
 
 **3. Bind:** returns a new function, allowing you to pass in a this array and any number of arguments.
@@ -4091,18 +4167,16 @@ say.apply(employee2, ["Hello"]); // Hello Aarush Krishna
 **Example:**
 
 ```js
-const employee1 = { firstName: "Sahima", lastName: "Mutti" };
-const employee2 = { firstName: "Aarush", lastName: "Krishna" };
+const person = { name: "Sahima Mutti"};
 
 function say(greeting) {
-  console.log(greeting + " " + this.firstName + " " + this.lastName);
+  return `${greeting}, ${this.name}`;
 }
 
-var sayEmployee1 = say.bind(employee1);
-var sayEmployee2 = say.bind(employee2);
+// bind — returns a NEW function, does not invoke immediately
+const sayPerson = say.bind(person, "Hello");
 
-sayEmployee1("Hi");    // Hi Sahima Mutti 
-sayEmployee2("Hello"); // Hello Aarush Krishna 
+sayPerson();    // Hi Sahima Mutti 
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-call-apply-bind-xwenyv?file=/src/index.js)**
@@ -4388,9 +4462,9 @@ A generator-function is defined like a normal function, but whenever it needs to
 
 ```js
 function* gen() {
-     yeild 1;
-     yeild 2;
-     ...
+     yield 1;
+     yield 2;
+     yield 3;
      ...
 }
 ```
@@ -4411,10 +4485,11 @@ function* fun() {
 }
 
 // Calling the Generate Function
-var gen = fun();
-gen.next().value; // 10
-gen.next().value; // 20
-gen.next().value; // 30
+var gen = fun(); // returns a Generator object (doesn\'t run yet)
+gen.next(); // { value: 10, done: false }
+gen.next(); // { value: 20, done: false }
+gen.next(); // { value: 30, done: false }
+gen.next(); // { value: undefined, done: true }
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-generate-function-si7ieh?file=/src/index.js)**
@@ -5084,9 +5159,9 @@ In large React/Node.js codebases, `var` inside `for` loops iterating over async 
 
 ## Q. What is the Temporal Dead Zone (TDZ)?
 
-The **Temporal Dead Zone** is the period between the start of a block scope and the point at which a `let` or `const` declaration is initialised. During the TDZ, the binding exists in the scope (the engine has registered it) but accessing it throws a `ReferenceError`. This is a deliberate design choice to catch use-before-declaration bugs that `var` silently swallows by returning `undefined`.
+In ES6, **let** bindings are not subject to "variable hoisting", which means that **let** declarations do not move to the top of the current execution context.
 
-V8 internally hoists `let`/`const` to the top of the block but marks them as **uninitialised**. Accessing an uninitialised binding causes the engine to throw.
+Referencing the variable in the block before the initialization results in a `ReferenceError` (contrary to a variable declared with var, which will just have the **undefined** value). The variable is in a "temporal dead zone" from the start of the block until the initialization is processed.
 
 ```js
 console.log(x); // ✅ undefined  — var is hoisted and initialised to undefined
@@ -5398,10 +5473,53 @@ React class components historically required `.bind(this)` in the constructor fo
 
 ## Q. What is hoisting in JavaScript, and what gets hoisted?
 
-**Hoisting** is the JavaScript engine\'s behaviour of moving declarations to the top of their containing scope before code execution. It is not a physical movement of code — it is an artifact of the two-phase compilation model that V8 and other engines use:
+Hoisting is a JavaScript mechanism where variable, function, class, and import declarations are conceptually moved to the top of their containing scope during the compilation phase, before the code executes. Hoisting allows functions to be safely used in code before they are declared.
 
-1. **Parse / compilation phase** — the engine scans the scope, registers all declarations (variable names, function bodies), and allocates memory.
-2. **Execution phase** — code runs line by line; assignments and expressions execute in order.
+**Example 01:** Variable Hoisting  
+
+```js
+console.log(message); // output: undefined
+var message = "The variable Has been hoisted";
+```
+
+The above code looks like as below to the interpreter,
+
+```js
+var message;
+console.log(message);
+message = "The variable Has been hoisted";
+```
+
+**Example 02:** `let` and `const` hoisting
+
+All declarations (function, var, let, const and class) are hoisted in JavaScript, while the `var` declarations are initialized with `undefined`, but `let` and `const` declarations remain uninitialized.
+
+```js
+console.log(x);
+let x = 10;
+
+// Output: ReferenceError: x is not defined
+```
+
+**Example 03:** Function Hoisting
+
+One of the advantages of hoisting is that it lets you use a function before you declare it in your code.
+
+```js
+getName("Sadhika Sandal");
+
+function getName(name) {
+  console.log("Hello " + name);
+}
+```
+
+Output:
+
+```js
+Hello Sadhika Sandal
+```
+
+They will only get initialized when their lexical binding (assignment) is evaluated during runtime by the JavaScript engine. This means we can\'t access the variable before the engine evaluates its value at the place it was declared in the source code. This is what we call **Temporal Dead Zone (TDZ)**, A time span between variable creation and its initialization where they can\'t be accessed.
 
 What gets hoisted and how:
 
@@ -5415,39 +5533,50 @@ What gets hoisted and how:
 | `class` declaration | ✅ Yes (TDZ) | uninitialised — `ReferenceError` if accessed before declaration |
 | `import` | ✅ Yes | Fully evaluated before module body runs |
 
-```js
-// --- var hoisting ---
-console.log(score); // undefined (declared but not yet assigned)
-var score = 100;
-console.log(score); // 100
-
-// Above behaves as if written:
-// var score;
-// console.log(score); // undefined
-// score = 100;
-// console.log(score); // 100
-
-// --- function declaration hoisting ---
-greet('Alice'); // ✅ Works — entire function body is hoisted
-
-function greet(name) {
-  console.log(`Hello, ${name}!`);
-}
-
-// --- function expression is NOT fully hoisted ---
-// sayBye('Bob'); // ❌ TypeError: sayBye is not a function
-var sayBye = function (name) {
-  console.log(`Bye, ${name}!`);
-};
-
-// --- let/const TDZ ---
-// console.log(limit); // ❌ ReferenceError: Cannot access 'limit' before initialization
-let limit = 50;
-```
-
 **Real-World Use Case:**
 
 Node.js module systems and build tools like Webpack rely on function-declaration hoisting to allow modules to call utility functions defined later in the same file — enabling a readable "public API at the top, implementation details below" code style. However, misunderstanding `var` hoisting is responsible for a large class of production bugs in legacy jQuery/Angular 1 codebases, which is why the Airbnb ESLint config bans `var` and mandates `let`/`const`.
+
+<div align="right">
+    <b><a href="#table-of-contents">↥ back to top</a></b>
+</div>
+
+## Q. In which case the function definition is not hoisted in JavaScript?
+
+Let us take the following **function expression**
+
+```js
+var foo = function foo() {
+  return 12;
+}
+```
+
+In JavaScript `var`-declared variables and functions are `hoisted`. Let us take function `hoisting` first. Basically, the JavaScript interpreter looks ahead to find all the variable declaration and hoists them to the top of the function where It is declared. For example:
+
+```js
+foo(); // Here foo is still undefined
+var foo = function foo() {
+  return 12;
+};
+```
+
+The code above behind the scene look something like this:
+
+```js
+var foo = undefined;
+foo(); // Here foo is undefined
+foo = function foo() {
+  // Some code stuff
+}
+```
+
+```js
+var foo = undefined;
+foo = function foo() {
+  // Some code stuff
+}
+foo(); // Now foo is defined here
+```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -6939,7 +7068,7 @@ function detectMobile() {
 
 ## # 15. ERROR HANDLING
 
-<br/>
+<br>
 
 ## Q. What is an error object?
 
@@ -11172,7 +11301,7 @@ The Web Cryptography API\'s `CryptoKey` objects use engine-level privacy to prev
 
 ## # 24. Collections
 
-<br/>
+<br>
 
 ## Q. What is the difference between ES6 Map and WeakMap?
 
@@ -11540,7 +11669,7 @@ function getExpensiveData(key) {
 
 ## # 25. MODULES
 
-<br/>
+<br>
 
 ## Q. What is modules in ES6?
 
@@ -11651,7 +11780,7 @@ console.log(messages.default.greeting);
 
 # # 12. WINDOW AND DOCUMENT OBJECT
 
-<br/>
+<br>
 
 ## Q. What is the difference between window and document object?
 
@@ -12553,7 +12682,7 @@ observer.observe(sentinel);
 
 # # 13. CLASSES
 
-<br/>
+<br>
 
 ## Q. Explain how prototypal inheritance works?
 
@@ -16430,7 +16559,7 @@ Facebook\'s Gatekeeper system (now Meta) manages over 10,000 active feature flag
 
 ## # 42. MISCELLANEOUS
 
-<br/>
+<br>
 
 ## Q. Describe the Revealing Module Pattern in javascript?
 
@@ -17105,7 +17234,7 @@ Service worker can\'t access the DOM directly. But it can communicate with the p
             .then(function(registration) {
                 console.log("Service worker registered, scope: " + registration.scope);
                 console.log("Refresh the page to talk to it.");
-                // If we want to, we might do `location.reload();` so that we'd be controlled by it
+                // If we want to, we might do `location.reload();` so that we\'d be controlled by it
             })
             .catch(function(error) {
                 console.log("Service worker registration failed: " + error.message);
