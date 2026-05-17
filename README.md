@@ -3652,8 +3652,8 @@ The main advantage of using an arrow function as a method inside a constructor i
 ```js
 const Person = function(firstName) {
   this.firstName = firstName;
-  this.sayName1 = function() { console.log(this.firstName); };
-  this.sayName2 = () => { console.log(this.firstName); };
+  this.sayName1 = function() { console.log(this.firstName); }; // regular function
+  this.sayName2 = () => { console.log(this.firstName); };      // arrow function
 };
 
 const john = new Person('John');
@@ -3662,21 +3662,16 @@ const dave = new Person('Dave');
 john.sayName1(); // John
 john.sayName2(); // John
 
-// The regular function can have its 'this' value changed, but the arrow function cannot
-john.sayName1.call(dave); // Dave (because "this" is now the dave object)
-john.sayName2.call(dave); // John
+// Regular function: 'this' can be changed with call/apply/bind
+john.sayName1.call(dave); // Dave
+john.sayName2.call(dave); // John — arrow function ignores call/apply/bind
 
-john.sayName1.apply(dave); // Dave (because 'this' is now the dave object)
-john.sayName2.apply(dave); // John
+// Detached from object: regular function loses 'this'
+const fn1 = john.sayName1;
+fn1(); // undefined
 
-john.sayName1.bind(dave)(); // Dave (because 'this' is now the dave object)
-john.sayName2.bind(dave)(); // John
-
-var sayNameFromWindow1 = john.sayName1;
-sayNameFromWindow1(); // undefined (because 'this' is now the window object)
-
-var sayNameFromWindow2 = john.sayName2;
-sayNameFromWindow2(); // John
+const fn2 = john.sayName2;
+fn2(); // John — arrow function retains original 'this'
 ```
 
 <div align="right">
@@ -4502,7 +4497,9 @@ gen.next(); // { value: undefined, done: true }
 
 **1. Generators/Yield:**
 
-Generators are objects created by generator functions — functions with an * (asterisk) next to their name. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator\'s caller. It can be thought of as a generator-based version of the return keyword.
+Generators are objects created by generator functions — functions with an `*` (asterisk) next to their name. The yield keyword pauses generator function execution and the value of the expression following the yield keyword is returned to the generator\'s caller. It can be thought of as a generator-based version of the return keyword.
+
+**Example:**
 
 ```js
 // Generator function
@@ -4532,6 +4529,8 @@ Await keyword is used to pause async function execution until a `Promise` is ful
 4. If a promise resolves normally, then await promisereturns the result. But in case of a rejection it throws the error, just if there were a throw statement at that line.
 5. Async function cannot wait for multiple promises at the same time.
 6. Performance issues can occur if using await after await as many times one statement doesn\'t depend on the previous one.
+
+**Example:**
 
 ```js
 // Async/Await
@@ -4577,17 +4576,18 @@ However, the equality operators `==`, `!=`, `===`, `!==` cannot be used to compa
 **Example:**
 
 ```js
-// Using getTime()
-let d1 = new Date();
-let d2 = new Date(d1);
+const date1 = new Date('2026-05-16T12:00:00');
+const date2 = new Date('2026-05-16T12:00:00');
 
-console.log(d1.getTime() === d2.getTime()); // true
+// Checking for equality
+if (date1.getTime() === date2.getTime()) {
+    console.log("Both dates are exactly equal");
+}
 
-// Using '<' and '>'
-let d3 = new Date(2022, 10, 31);
-let d4 = new Date(2022, 10, 30);
-
-console.log(d3 < d4); // true
+// Checking before or after
+if (date1.getTime() < date2.getTime()) {
+    console.log("date1 is before date2");
+}
 ```
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-date-comparison-lu76nj?file=/src/index.js)**
@@ -4602,11 +4602,11 @@ A closure is the combination of a function and the lexical environment within wh
 
 Closure is useful in hiding implementation detail in JavaScript. In other words, it can be useful to create private variables or functions.
 
-**1. Lexical Scope**:
+**Lexical Scope**:
 
-In lexical scoping free variables must belong to a parent scope.
+In lexical scoping, free variables must belong to a parent scope. JavaScript uses lexical scoping — a function's scope is determined by where it is **declared**, not where it is called.
 
-**Example:**
+**Example 01:**
 
 ```js
 /**
@@ -4621,44 +4621,46 @@ function init() {
   }
   return displayName;
 }
-init();
 
 var closure = init();
-closure();
+closure(); // Output: "JavaScript closures"
 ```
 
-As per the above code, the inner `function displayName()` has access to the variables in the outer `function init()`.
+As per the above code, the inner `function displayName()` has access to the variable `name` from the outer `function init()`, even after `init()` has returned. This is a closure.
 
 **&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-closures-u4p0pq?file=/src/index.js)**
 
-**2. Dynamic Scope**:
+**Example 02: Private Counter** 
 
-In dynamic scoping free variables must belong to the calling scope
-
-**Example:**
+A common use of closures is to create private state that cannot be accessed or modified directly from outside.
 
 ```js
 /**
- * Dynamic Scope
+ * Closure - Private Counter
  **/
 
-function fun1() {
-  console.log(a); // 10
+function makeCounter() {
+  let count = 0; // private variable
+
+  return {
+    increment() { count++; },
+    decrement() { count--; },
+    getCount()  { return count; }
+  };
 }
 
-function fun2() {
-  var a = 20;
-  fun1();
-}
+const counter = makeCounter();
+counter.increment();
+counter.increment();
+counter.increment();
+counter.decrement();
+console.log(counter.getCount()); // Output: 2
 
-var a = 10;
-fun2();
-
-// Output
-10
+// count is not directly accessible
+console.log(typeof count); // Output: "undefined"
 ```
 
-**&#9885; [Try this example on CodeSandbox](https://codesandbox.io/s/js-dynamic-scope-fzbitn?file=/src/index.js)**
+The variable `count` is encapsulated inside `makeCounter` and can only be modified through the returned methods.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -4668,22 +4670,31 @@ fun2();
 
 A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
 
+**Example:**
+
 ```js
-// callback() function
-
-function greeting(name) {
-  alert('Hello ' + name);
+/**
+ * Callback function
+ */
+function greet(name, callback) {
+  console.log('Hello, ' + name);
+  callback();
 }
 
-function processUserInput(callback) {
-  var name = prompt('Please enter your name:');
-  callback(name);
+function sayBye() {
+  console.log('Goodbye!');
 }
 
-processUserInput(greeting);
+greet('Alice', sayBye);
+// Hello, Alice
+// Goodbye!
 ```
 
-The above example is a synchronous callback, as it is executed immediately.
+**Key points:**
+
+* Callbacks can be named or anonymous functions
+* They enable **asynchronous** and **non-blocking** code
+* Overusing nested callbacks leads to "**callback hell**" — solved by `Promises` or `async/await`
 
 *Note: callbacks are often used to continue code execution after an asynchronous operation has completed — these are called asynchronous callbacks.*.
 
@@ -4695,30 +4706,69 @@ The above example is a synchronous callback, as it is executed immediately.
 
 ## Q. How to avoid callback hell in javascript?
 
-**Callback hell** is a phenomenon that afflicts a JavaScript developer when he tries to execute multiple asynchronous operations one after the other. Some people call it to be the **pyramid of doom**.  
+**Callback hell** occurs when asynchronous operations are deeply nested inside one another, creating an unreadable "Pyramid of Doom"  
 
 **Example:**
 
 ```js
-doSomething(param1, param2, function(err, paramx){
-    doMore(paramx, function(err, result){
-        insertRow(result, function(err){
-            yetAnotherOperation(someparameter, function(s){
-                somethingElse(function(x){
-                });
-            });
-        });
+// Callback hell
+getUser(id, function(user) {
+  getOrders(user, function(orders) {
+    getDetails(orders[0], function(details) {
+      process(details, function(result) {
+        console.log(result); // deeply nested
+      });
     });
+  });
 });
 ```
 
 **Techniques for avoiding callback hell:**  
 
-* Write comments
-* Split functions into smaller functions
-* Using Async.js
-* Using Promises
-* Using Async-Await
+**1. Promises** — chain `.then()` instead of nesting:
+
+```js
+getUser(id)
+  .then(user => getOrders(user))
+  .then(orders => getDetails(orders[0]))
+  .then(details => process(details))
+  .then(result => console.log(result))
+  .catch(err => console.error(err));
+```
+
+**2. async/await** — most readable, looks synchronous:
+
+```js
+async function run() {
+  try {
+    const user    = await getUser(id);
+    const orders  = await getOrders(user);
+    const details = await getDetails(orders[0]);
+    const result  = await process(details);
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+  }
+}
+```
+
+**3. Named functions** — extract callbacks into separate named functions:
+
+```js
+function onDetails(details) { process(details).then(console.log); }
+function onOrders(orders)   { getDetails(orders[0]).then(onDetails); }
+function onUser(user)       { getOrders(user).then(onOrders); }
+
+getUser(id).then(onUser);
+```
+
+**4. Promise.all** — run independent async operations in parallel:
+
+```js
+const [users, orders] = await Promise.all([getUsers(), getOrders()]);
+```
+
+**Note:** Recommended approach: Use `async/await` for sequential logic and `Promise.all` for parallel operations.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -4726,14 +4776,43 @@ doSomething(param1, param2, function(err, paramx){
 
 ## Q. How do you encode an URL?
 
-The encodeURI() function is used to encode complete URI which has special characters except (`,`, `/`, `?`, `:`, `@`, `&`, `=`, `+`, `$`, `#`) characters.
+JavaScript provides two built-in functions for URL encoding:
+
+**1. `encodeURIComponent()`** — encodes a single URI component (query param value, path segment):
+```js
+const param = 'hello world & name=John';
+encodeURIComponent(param); // 'hello%20world%20%26%20name%3DJohn'
+```
+
+**2. `encodeURI()`** — encodes a full URL, preserving special URL characters (`:`, `/`, `?`, `#`, `&`, `=`):
+```js
+const url = 'https://example.com/search?q=hello world&lang=en';
+encodeURI(url); // 'https://example.com/search?q=hello%20world&lang=en'
+```
+
+**Key difference:**
+
+| Function | Encodes | Preserves |
+|---|---|---|
+| `encodeURIComponent` | Everything except `A-Z a-z 0-9 - _ . ! ~ * ' ( )` | Nothing special |
+| `encodeURI` | Spaces and unsafe chars | `: / ? # & = @ ! $ ' ( ) * + , ; ~` |
+
+**When to use which:**
 
 ```js
-var uri = 'https://mozilla.org/?x=шеллы';
-var encoded = encodeURI(uri);
+const base  = 'https://example.com/search';
+const query = 'hello world & more';
 
-console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
+// Correct: encode only the param value
+const url = `${base}?q=${encodeURIComponent(query)}`;
+// https://example.com/search?q=hello%20world%20%26%20more
+
+// Wrong: encodeURI won't encode & in query values
+encodeURI(`${base}?q=${query}`);
+// https://example.com/search?q=hello%20world%20&%20more  ← & breaks the query
 ```
+
+**Rule of thumb:** Use `encodeURIComponent` for query parameter values; use `encodeURI` for a complete URL.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -4743,16 +4822,33 @@ console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
 
 The decodeURI() function is used to decode a Uniform Resource Identifier (URI) previously created by encodeURI().
 
-```js
-var uri = 'https://mozilla.org/?x=шеллы';
-var encoded = encodeURI(uri);
+**1. `decodeURIComponent()`** — decodes a single encoded URI component:
 
-console.log(encoded); // https://mozilla.org/?x=%D1%88%D0%B5%D0%BB%D0%BB%D1%8B
-try {
-  console.log(decodeURI(encoded)); // "https://mozilla.org/?x=шеллы"
-} catch(e) { // catches a malformed URI
-  console.error(e);
-}
+```js
+decodeURIComponent('hello%20world%20%26%20name%3DJohn');
+// 'hello world & name=John'
+```
+
+**2. `decodeURI()`** — decodes a fully encoded URL, leaving valid URL structure characters intact:
+```js
+decodeURI('https://example.com/search?q=hello%20world&lang=en');
+// 'https://example.com/search?q=hello world&lang=en'
+```
+
+**Example — reading query params:**
+
+```js
+const url = 'https://example.com/search?q=hello%20world%20%26%20more';
+const raw = url.split('?q=')[1];
+
+decodeURIComponent(raw); // 'hello world & more'
+```
+
+**Modern alternative** — use `URLSearchParams` which handles encoding/decoding automatically:
+
+```js
+const params = new URLSearchParams('q=hello%20world&lang=en');
+params.get('q'); // 'hello world'
 ```
 
 <div align="right">
@@ -4761,27 +4857,70 @@ try {
 
 ## Q. How function overloading works in JavaScript?
 
-Function overloading refers to the ability to define multiple functions with the same name but with different parameters. In many programming languages, the function to be executed is determined at compile time based on the parameters provided. However, in JavaScript, function overloading does not work in the same way because JavaScript functions can be called with any number and type of arguments.
+JavaScript **does not support traditional function overloading** (unlike `Java` or `C#`) where multiple functions can have the exact same name but different parameters. If you define two functions with the same name, the second definition will completely overwrite the first one.
 
-One way to achieve function overloading in JavaScript is by using conditional statements to determine the appropriate behavior based on the arguments passed to the function.
-
-**Example**
+**Example:**
 
 ```js
-function myFunction() {
-  if (arguments.length === 1) {
-    console.log("Hello " + arguments[0]);
-  } else if (arguments.length === 2) {
-    console.log("Hello " + arguments[0] + " and " + arguments[1]);
-  } else {
-    console.log("Hello world");
+function greet(name) { return `Hello, ${name}`; }
+function greet(name, title) { return `Hello, ${title} ${name}`; }
+
+greet('Alex'); // 'Hello, undefined Alex' — second definition always wins
+```
+
+**Ways to simulate overloading:**
+
+**1. Overloading by Argument Count (`arguments.length`):**
+
+```js
+function calculateArea(...args) {
+  if (args.length === 1) {
+    return Math.PI * args[0] * args[0]; // Circle area: 1 argument (radius)
+  }
+  if (args.length === 2) {
+    return args[0] * args[1];           // Rectangle area: 2 arguments (width, height)
   }
 }
 
-myFunction(); // output: "Hello world"
-myFunction("Alice"); // output: "Hello Alice"
-myFunction("Bob", "Charlie"); // output: "Hello Bob and Charlie"
+console.log(calculateArea(5));     // 78.54 (Circle)
+console.log(calculateArea(4, 5));  // 20 (Rectangle)
 ```
+
+**2. Overloading by Data Type (`typeof` / `instanceof`)**
+
+```js
+function add(a, b) {
+  if (typeof a === 'string') return a + b;       // string concat
+  if (typeof a === 'number') return a + b;       // numeric add
+}
+
+add(1, 2);       // 3
+add('foo', 'bar'); // 'foobar'
+```
+
+**3. Overloading using an Options Object**
+
+```js
+function createUser({ name, age = 18, role = 'user' } = {}) {
+  return { name, age, role };
+}
+
+createUser({ name: 'Alice', age: 20 });
+createUser({ name: 'Bob', age: 30, role: 'Admin' });
+```
+
+**4. Rest parameters for variable argument count:**
+
+```js
+function sum(...nums) {
+  return nums.reduce((acc, n) => acc + n, 0);
+}
+
+sum(1, 2);       // 3
+sum(1, 2, 3, 4); // 10
+```
+
+**Recommended approach:** Use the **options object pattern** for complex cases — it\'s readable, flexible, and self-documenting.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -4789,22 +4928,22 @@ myFunction("Bob", "Charlie"); // output: "Hello Bob and Charlie"
 
 ## Q. What is an IIFE (Immediately Invoked Function Expression)?
 
-An **IIFE** (Immediately Invoked Function Expression) is a JavaScript function that is defined and executed immediately after its creation. It creates a private scope so that variables inside it do not pollute the global scope.
+An **IIFE** (Immediately Invoked Function Expression) is a JavaScript function that is defined and executed immediately after its creation. It is a design pattern used to execute code immediately and isolate variables from the global scope.
 
 **Syntax:**
 
 ```js
 (function () {
-  // code here
+  console.log('Runs immediately');
 })();
 
-// Arrow function variant
+// Arrow function version
 (() => {
-  // code here
+  console.log('Also runs immediately');
 })();
 ```
 
-**Example:**
+**Example 01:**
 
 ```js
 const result = (function () {
@@ -4816,28 +4955,34 @@ console.log(result); // 'Hello from IIFE'
 console.log(typeof message); // 'undefined' — private to the IIFE
 ```
 
-**Use cases:**
-
-* **Avoid global namespace pollution** — keeps variables local
-* **Module pattern** — expose only what\'s needed through the return value
-* **Initialization code** — logic that runs once and doesn\'t need to be callable later
+**Example 02:** Create a private scope
 
 ```js
 // Counter using IIFE
 const counter = (function () {
-  let count = 0;
+  let count = 0; // private
   return {
-    increment() { return ++count; },
-    decrement() { return --count; },
+    increment() { return count++; },
     value()     { return count; }
   };
 })();
 
-console.log(counter.increment()); // 1
-console.log(counter.increment()); // 2
-console.log(counter.decrement()); // 1
+console.log(counter.increment()); // 0
 console.log(counter.value());     // 1
+//console.log(count);               // ReferenceError: count is not defined
 ```
+
+**Use cases:**
+
+* **Data Privacy**: Variables declared inside an IIFE cannot be accessed from the outside world. This protects your code from polluting the global scope.
+
+* **Avoiding Naming Collisions**: It prevents variables from accidentally overwriting other variables in third-party libraries or scripts.
+
+* **State Preservation**: Historically, it was used inside loops to lock in the current value of a variable during asynchronous operations.
+
+**Note:**
+
+With ES6 `let`/`const` and modules, IIFEs are less common today — block scoping and module scope solve the same problems. However, IIFEs are still useful for **one-time initialization logic and encapsulating setup code**.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -4855,7 +5000,7 @@ function factorial(n) {
   return n * factorial(n - 1); // recursive call
 }
 
-console.log(factorial(5)); // 120
+console.log(factorial(5)); // 120 (5 × 4 × 3 × 2 × 1)
 console.log(factorial(0)); // 1
 ```
 
@@ -4867,7 +5012,7 @@ function fibonacci(n) {
   return fibonacci(n - 1) + fibonacci(n - 2);
 }
 
-console.log(fibonacci(7)); // 13
+console.log(fibonacci(6)); // 8 (0, 1, 1, 2, 3, 5, 8)
 ```
 
 **Example 03:** Flatten a nested array
@@ -4881,6 +5026,11 @@ function flattenArray(arr) {
 
 console.log(flattenArray([1, [2, [3, [4]], 5]])); // [1, 2, 3, 4, 5]
 ```
+
+**Recursion vs Iteration**:
+
+* Recursion is more readable for **tree/graph traversal, nested structures, and divide-and-conquer** problems
+* Iteration is more performant for **simple loops** — use it when recursion depth could be large
 
 *Note: For deeply nested structures, iterative solutions with an explicit stack are preferred over recursion to avoid stack-overflow errors.*
 
@@ -5227,6 +5377,8 @@ The Redux store implementation (`createStore`) uses closures to encapsulate `cur
 
 The **Module Pattern** (and its IIFE variant) uses closures to create **private state** — something JavaScript classes did not natively support before ES2022 private fields (`#`). An IIFE runs once, defines private variables, and returns a public API. Only the returned methods can access the private variables via closure.
 
+**Example:**
+
 ```js
 // Classic Module Pattern (IIFE-based)
 const BankAccount = (() => {
@@ -5333,17 +5485,20 @@ In Single Page Applications (SPAs), route navigation causes component unmounting
 
 An **Immediately Invoked Function Expression (IIFE)** is a function that is defined and called in a single expression. Its primary purpose is to create an isolated scope, preventing variable declarations from leaking into the surrounding (often global) scope.
 
-```
+```js
 (function() { /* body */ })();
 // or with arrow functions:
 (() => { /* body */ })();
 ```
 
 **When to still use IIFEs over ES modules:**
+
 - **Browser script tags without a bundler** — when you cannot use `type="module"` and need scope isolation.
 - **Polyfill / library UMD bundles** — output format used by tools like Rollup/Webpack to expose libraries as `window.MyLib` while avoiding global pollution.
 - **Initialisation code that must run exactly once** and should not be importable.
 - **Micro-optimisation in hot paths** — in rare engine-specific scenarios, an IIFE can help the optimiser treat a block as a separate compilation unit.
+
+**Example:**
 
 ```js
 // UMD wrapper (simplified) — the output of many bundlers
@@ -5379,6 +5534,8 @@ V8 optimises this through:
 3. **Closure context allocation** — V8\'s Turbofan compiler performs **context allocation analysis**. Variables that are only used locally stay on the stack (fast). Variables that are closed over are promoted to a **heap-allocated context object** — slightly slower due to heap allocation and GC pressure.
 
 **Performance implication:** deeply nested closures that close over many large variables create long-lived heap contexts. Flattening the closure chain or copying only the needed values can improve GC throughput.
+
+**Example:**
 
 ```js
 // ❌ Unnecessarily deep scope chain — engine must walk up 3 levels on each access
@@ -5428,6 +5585,8 @@ These two concepts are frequently confused but are entirely independent mechanis
 | Applies to | All identifiers | Only the `this` keyword |
 
 Arrow functions are the intersection: they do **not** create their own `this` binding — they inherit `this` lexically from the enclosing scope at definition time. This makes them behave like closures for `this`.
+
+**Example:**
 
 ```js
 const timer = {
@@ -5588,6 +5747,8 @@ foo(); // Now foo is defined here
 - **Function expression** (`const foo = function() {}`): Only the variable declaration is hoisted (if `var`); the assignment — the function value itself — is not. Calling it before the line throws `TypeError` (not `ReferenceError`) because the variable exists but holds `undefined`.
 - **Arrow function** (`const foo = () => {}`): Same as function expression — it is always assigned to a variable, so the same rules apply.
 
+**Example:**
+
 ```js
 // 1. Function Declaration — fully hoisted ✅
 console.log(add(2, 3)); // 5
@@ -5627,6 +5788,8 @@ In large React component files, developers often define helper arrow functions (
 ## Q. How does hoisting interact with the class declaration?
 
 Class declarations are hoisted to the top of their block scope — like `let` and `const` — but they are **not initialised** until the declaration is evaluated. This means they sit in the **Temporal Dead Zone (TDZ)** and accessing a class before its declaration throws a `ReferenceError`, not a `TypeError`. This is a deliberate choice to prevent confusing inheritance hierarchies from being constructed before base classes are fully defined.
+
+**Example:**
 
 ```js
 // ❌ Class in TDZ — accessing before declaration throws ReferenceError
@@ -5677,6 +5840,8 @@ When splitting large Node.js services into files with circular `require()` refer
 ## Q. What is the hoisting behaviour inside `let`/`const` blocks, and how does it affect switch statements?
 
 `let` and `const` are block-scoped and hoisted within their block to the TDZ. A `switch` statement\'s `{}` is a **single block** — all `case` clauses share the same block scope. This causes a subtle bug: a `let` declared in one `case` is technically in scope (hoisted) for all other cases in the same switch block, causing a `SyntaxError` if another `case` attempts to declare the same name.
+
+**Example:**
 
 ```js
 // ❌ SyntaxError: Identifier 'result' has already been declared
@@ -5730,6 +5895,8 @@ When multiple `var` declarations or function declarations share the same identif
 1. **`var` declarations** are merged into one — only one `undefined` slot is allocated; whichever assignment executes last wins at runtime.
 2. **Function declarations** override `var` declarations of the same name during hoisting — the function body wins over `var`\'s `undefined`.
 3. **Multiple function declarations** with the same name: the **last** one in source order wins (it overwrites the earlier one during hoisting).
+
+**Example:**
 
 ```js
 // What does the programmer see:
@@ -6778,16 +6945,15 @@ The JavaScript `RegExp` class represents regular expressions, and both String an
 **Syntax:**
 
 ```js
-// Using literal notation 
+// Literal notation 
 let pattern = /pattern/attributes;
 
-// Using RegExp Object
+// RegExp constructor
 let pattern = new RegExp(pattern, attributes);
-
-
-// * pattern − A string that specifies the pattern of the regular expression or another regular expression.
-// * attributes − An optional string containing any of the "g", "i", and "m" attributes that specify global, case-insensitive, and multi-line matches, respectively.
 ```
+
+* `pattern` − A string that specifies the pattern of the regular expression or another regular expression.
+* `attributes` − An optional string containing any of the "g", "i", and "m" attributes that specify global, case-insensitive, and multi-line matches, respectively.
 
 **Example:**
 
@@ -6992,6 +7158,8 @@ re2.exec("How are you?"); // ["you"]
 
 The purpose of exec method is similar to test method but it returns a founded text as an object instead of returning true/false.
 
+**Example:**
+
 ```js
 // Using test() method
 var pattern = /you/;
@@ -7010,6 +7178,8 @@ console.log(pattern.exec("How are you?")); // ["you", index: 8, input: "How are 
 ## Q. How do you validate an email in javascript?
 
 The `test()` method returns `true` if there is a match in the string with the regex pattern. The regular expression (regex) describes a sequence of characters used for defining a search pattern
+
+**Example:**
 
 ```js
 // Program to validate the email address
@@ -7042,25 +7212,25 @@ validateEmail(email2); // Not Valid
 
 ## Q. How do you detect a mobile browser using regexp?
 
-You can detect mobile browser by simply running through a list of devices and checking if the useragent matches anything. This is an alternative solution for RegExp usage,
+You can detect mobile browser by simply running through a list of devices and checking if the `navigator.userAgent` matches anything. This is an alternative solution for RegExp usage,
+
+**Example:**
 
 ```js
 function detectMobile() {
-  if (
-    navigator.userAgent.match(/Android/i) ||
-    navigator.userAgent.match(/webOS/i) ||
-    navigator.userAgent.match(/iPhone/i) ||
-    navigator.userAgent.match(/iPad/i) ||
-    navigator.userAgent.match(/iPod/i) ||
-    navigator.userAgent.match(/BlackBerry/i) ||
-    navigator.userAgent.match(/Windows Phone/i)
-  ) {
-    return true;
-  } else {
-    return false;
-  }
+  return /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Windows Phone/i.test(
+    navigator.userAgent
+  );
 }
+
+console.log(detectMobile()); // true on mobile, false on desktop
 ```
+
+The `/i` flag makes the match case-insensitive. The `|` operator checks for any of the device strings in the user agent string.
+
+**Note:**
+
+User agent detection is considered unreliable for feature detection. Prefer feature detection APIs (e.g., `navigator.maxTouchPoints`, CSS media query `hover: none`) for deciding UI behavior, and reserve UA sniffing for analytics or logging.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -7361,6 +7531,8 @@ The **Web Storage API** provides two browser-side key-value stores that let web 
 
 Both storages are **origin-scoped** (`protocol + hostname + port`) — a page on `https://app.example.com` cannot access storage set by `https://api.example.com`.
 
+**Example:**
+
 ```js
 // ── localStorage ─────────────────────────────────────────────────────────────
 localStorage.setItem('theme', 'dark');
@@ -7395,53 +7567,39 @@ The Web Storage API stores all values as **plain strings**. Passing a non-string
 
 `JSON.stringify` has limitations: it drops `undefined` values, converts `Date` objects to ISO strings (losing the `Date` type), cannot serialise functions, and throws on circular references. A robust storage utility must handle these edge cases.
 
+**Example:**
+
 ```js
-// ❌ Naive — data corruption
+// ❌ Data corruption — objects are coerced to strings
 localStorage.setItem('user', { name: 'Alice' });
-console.log(localStorage.getItem('user')); // '[object Object]' — NOT what you want
+localStorage.getItem('user'); // '[object Object]'
 
-// ✅ Correct — JSON serialisation
-const user = { name: 'Alice', prefs: { theme: 'dark' }, createdAt: new Date() };
-localStorage.setItem('user', JSON.stringify(user));
-const stored = JSON.parse(localStorage.getItem('user'));
-console.log(stored.createdAt); // string — Date is NOT preserved as a Date object
+// ✅ Use JSON.stringify / JSON.parse
+localStorage.setItem('user', JSON.stringify({ name: 'Alice', age: 30 }));
+const user = JSON.parse(localStorage.getItem('user'));
+console.log(user.name); // 'Alice'
 
-// ── Safe storage utility with error handling ──────────────────────────────────
+// ✅ Safe helper with fallback
+function storageGet(key, fallback = null) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw === null ? fallback : JSON.parse(raw);
+  } catch {
+    return fallback;
+  }
+}
 
-const storage = {
-  set(key, value) {
-    try {
-      localStorage.setItem(key, JSON.stringify(value));
-    } catch (err) {
-      if (err instanceof DOMException && err.name === 'QuotaExceededError') {
-        console.warn('localStorage quota exceeded. Evicting stale entries.');
-        localStorage.clear(); // or implement LRU eviction
-        localStorage.setItem(key, JSON.stringify(value));
-      } else {
-        throw err;
-      }
-    }
-  },
+function storageSet(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    console.warn('localStorage write failed');
+  }
+}
 
-  get(key, fallback = null) {
-    try {
-      const raw = localStorage.getItem(key);
-      return raw === null ? fallback : JSON.parse(raw);
-    } catch {
-      return fallback; // JSON.parse failed — return safe fallback
-    }
-  },
-
-  remove(key) {
-    localStorage.removeItem(key);
-  },
-};
-
-storage.set('config', { lang: 'en', debug: true });
-const config = storage.get('config', { lang: 'en', debug: false });
-console.log(config); // { lang: 'en', debug: true }
-
-storage.get('missing', 42); // 42 — fallback returned
+storageSet('config', { lang: 'en', debug: true });
+storageGet('config');         // { lang: 'en', debug: true }
+storageGet('missing', 42);    // 42 — fallback returned
 ```
 
 **Real-World Use Case:**
@@ -7462,6 +7620,8 @@ The `StorageEvent` object provides:
 - `newValue` — new value (or `null` on `removeItem`)
 - `url` — the origin URL that triggered the change
 - `storageArea` — reference to the affected storage object
+
+**Example:**
 
 ```js
 // ── Tab A: writer ─────────────────────────────────────────────────────────────
@@ -7487,28 +7647,6 @@ window.addEventListener('storage', (event) => {
     window.location.replace('/login?reason=session_expired');
   }
 });
-
-// ── React hook: sync theme across tabs ───────────────────────────────────────
-function usePersistedTheme() {
-  const [theme, setTheme] = React.useState(
-    () => localStorage.getItem('theme') ?? 'light'
-  );
-
-  React.useEffect(() => {
-    const onStorage = (e) => {
-      if (e.key === 'theme' && e.newValue) setTheme(e.newValue);
-    };
-    window.addEventListener('storage', onStorage);
-    return () => window.removeEventListener('storage', onStorage);
-  }, []);
-
-  const updateTheme = (newTheme) => {
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme); // broadcasts to other tabs
-  };
-
-  return [theme, updateTheme];
-}
 ```
 
 **Real-World Use Case:**
@@ -8000,7 +8138,29 @@ fetch(userRequest)
 
 A Promise is **an interface** for asynchronous operations. They keep track of when asynchronous operations complete and what their results are and let you coordinate that completion and those results (including error conditions) with other code or other asynchronous operations. They aren\'t actually asynchronous operations in themselves. 
 
-An Ajax call is a specific asynchronous operation that can be used with with a traditional callback interface or wrapped in a promise interface. We can make an Ajax call either with a traditional callback using the `XMLHttpRequest()` interface or we can make an Ajax call (in modern browsers), using a promise with the `fetch()` interface.
+An Ajax (Asynchronous JavaScript and XML) call is a specific asynchronous operation that can be used with with a traditional callback interface or wrapped in a promise interface. We can make an Ajax call either with a traditional callback using the `XMLHttpRequest()` interface or we can make an Ajax call (in modern browsers), using a promise with the `fetch()` interface.
+
+**Example:**
+
+```js
+// AJAX with callbacks (XMLHttpRequest)
+const xhr = new XMLHttpRequest();
+xhr.onreadystatechange = function () {
+  if (this.readyState === 4 && this.status === 200) {
+    console.log(JSON.parse(this.responseText));
+  }
+};
+xhr.open('GET', '/api/data');
+xhr.send();
+
+// AJAX with Promises (fetch)
+fetch('/api/data')
+  .then(res => res.json())
+  .then(data => console.log(data))
+  .catch(err => console.error(err));
+```
+
+In short: a Promise is a tool for handling async results; AJAX is a use case that can be implemented using that tool.
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8010,54 +8170,59 @@ An Ajax call is a specific asynchronous operation that can be used with with a t
 
 `AbortController` is a browser API that allows you to cancel one or more `fetch` requests (or any operation that accepts a signal).
 
-**Basic usage:**
+**Example 01:** Setting an Automatic Request Timeout
 
 ```js
+// 1. Create the controller instance
 const controller = new AbortController();
-const signal = controller.signal;
+const { signal } = controller; // Extract the signal object
 
-// Start the request, pass the signal
-fetch('/api/data', { signal })
-  .then(res => res.json())
-  .then(data => console.log(data))
-  .catch(err => {
-    if (err.name === 'AbortError') {
-      console.log('Fetch was cancelled');
+async function downloadLargeFile() {
+  try {
+    // 2. Pass the signal into the fetch options
+    const response = await fetch("https://example.com", { signal });
+    const data = await response.json();
+    console.log("Download complete!", data);
+  } catch (error) {
+    // When a request is aborted, fetch immediately throws a DOMException named 'AbortError'
+    if (error.name === "AbortError") {
+      console.log("Success: Fetch request was successfully canceled!");
     } else {
-      throw err;
+      console.error("A real network error occurred:", error);
     }
-  });
+  }
+}
 
-// Cancel the request after 3 seconds
-setTimeout(() => controller.abort(), 3000);
+// Start the request
+downloadLargeFile();
+
+// 3. Cancel the request exactly 3 seconds later
+setTimeout(() => {
+  controller.abort(); 
+}, 3000);
 ```
 
-**Cancel on component unmount (React pattern):**
+**Example 02:** Cleaning Up in React (useEffect)
 
 ```js
 useEffect(() => {
   const controller = new AbortController();
 
-  fetch('/api/user', { signal: controller.signal })
-    .then(res => res.json())
-    .then(setUser)
-    .catch(err => {
-      if (err.name !== 'AbortError') console.error(err);
-    });
+  async function loadData() {
+    try {
+      const res = await fetch("/api/user", { signal: controller.signal });
+      const data = await res.json();
+      setUser(data);
+    } catch (err) {
+      if (err.name !== "AbortError") handleErrors(err);
+    }
+  }
 
-  return () => controller.abort(); // cleanup on unmount
+  loadData();
+
+  // Cleanup function: Triggers if the user navigates away mid-request
+  return () => controller.abort();
 }, []);
-```
-
-**Using `signal.aborted` and `signal.reason` (modern API):**
-
-```js
-const controller = new AbortController();
-
-controller.abort('User navigated away'); // pass a reason
-
-console.log(controller.signal.aborted); // true
-console.log(controller.signal.reason);  // 'User navigated away'
 ```
 
 *Note: `AbortController` also works with `addEventListener`, streams, and any custom async operation that accepts `AbortSignal`.*
@@ -8076,7 +8241,10 @@ The async attribute is used to indicate to the browser that the script file can 
 <script src="script.js" async></script>
 ```
 
-This attribute is only available for externally located script files. When an external script has this attribute, the file can be downloaded while the HTML document is still parsing. Once it has been downloaded, the parsing is paused for the script to be executed.
+* Script downloads in **parallel** with HTML parsing
+* Executes **immediately** when download completes (pauses HTML parsing)
+* **No guaranteed order** between multiple async scripts
+* Best for independent scripts (e.g., analytics, ads)
 
 **2. defer Attribute**  
 
@@ -8086,7 +8254,10 @@ The defer attribute tells the browser not to wait for the script. Instead, the b
 <script src="script.js" defer></script>
 ```
 
-Like an asynchronously loaded script, the file can be downloaded while the HTML document is still parsing. However, even if the file is fully downloaded long before the document is finished parsing, the script is not executed until the parsing is complete.
+* Script downloads in **parallel** with HTML parsing
+* Executes **after** the HTML is fully parsed (before `DOMContentLoaded`)
+* Maintains **execution order** if multiple deferred scripts exist
+* Best for scripts that depend on the DOM or each other
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8279,6 +8450,8 @@ Circular references are handled correctly because the cycle is unreachable from 
 | Closures retaining large objects | A closure captures a large array it no longer needs |
 | Unreleased event listeners | `addEventListener` without a matching `removeEventListener` |
 
+**Example:**
+
 ```js
 // Memory leak — timer retains reference to element
 const btn = document.getElementById('myBtn');
@@ -8336,6 +8509,8 @@ The `Promise.any()` method is used to handle multiple promises simultaneously, a
 
 The `Promise.any()` method takes an iterable of Promises as an input, and returns a new Promise. Here\'s an example:
 
+**Example:**
+
 ```javascript
 const promise1 = new Promise((resolve, reject) => setTimeout(reject, 1000, 'Promise 1 rejected'));
 const promise2 = new Promise((resolve, reject) => setTimeout(resolve, 500, 'Promise 2 resolved'));
@@ -8366,8 +8541,12 @@ Promise.any([promise1, promise2, promise3])
 
 This means `async`/`await` does **not** block the JavaScript thread — it is purely a more readable way to write `.then()` chains, implemented via generator-like coroutines by V8\'s Ignition interpreter.
 
+**Example:**
+
 ```js
-// ── Promise chain vs async/await — equivalent behaviour ──────────────────────
+/**
+ *  Promise chain vs async/await 
+ */
 
 // Promise chain
 function fetchUserChain(id) {
@@ -8422,8 +8601,13 @@ Errors in `async` functions are handled with standard `try`/`catch`/`finally` bl
 3. **`try/catch` around non-awaited Promises** — `try` only catches synchronous throws and awaited rejections, not fire-and-forget Promises inside the block.
 4. **Partial failure in loops** — `await` inside a `for` loop is sequential; one failure aborts all subsequent iterations unless each is individually caught.
 
+**Example:**
+
 ```js
-// ── Basic try/catch ───────────────────────────────────────────────────────────
+/**
+ *  Basic try/catch 
+ */
+
 async function loadProfile(userId) {
   try {
     const res  = await fetch(`/api/users/${userId}`);
@@ -8436,8 +8620,12 @@ async function loadProfile(userId) {
     console.log('loadProfile completed'); // always runs
   }
 }
+```
+```js
+/**
+ *  Pitfall 1: missing await — error NOT caught 
+ */
 
-// ── Pitfall 1: missing await — error NOT caught ───────────────────────────────
 async function badExample() {
   try {
     fetch('/api/broken'); // ❌ not awaited — rejection escapes try/catch
@@ -8445,52 +8633,23 @@ async function badExample() {
     console.error('This never runs');
   }
 }
+```
+```js
+/**
+ * Pitfall 2: parallel fire-and-forget loses errors 
+ */
 
-// ── Pitfall 2: parallel fire-and-forget loses errors ─────────────────────────
 async function riskyParallel() {
   const p1 = fetch('/api/a'); // ❌ rejection unhandled if not awaited
   const p2 = fetch('/api/b');
   // ... other work
   return [await p1, await p2]; // only caught here, but p1 rejection may fire earlier
 }
-
-// ✅ Correct: attach .catch() immediately or use Promise.allSettled
-async function safeParallel() {
-  const [r1, r2] = await Promise.allSettled([
-    fetch('/api/a'),
-    fetch('/api/b'),
-  ]);
-
-  if (r1.status === 'rejected') console.error('a failed:', r1.reason);
-  if (r2.status === 'rejected') console.error('b failed:', r2.reason);
-
-  return [r1.value, r2.value].filter(Boolean);
-}
-
-// ── Global unhandled rejection handler (Node.js) ──────────────────────────────
-process.on('unhandledRejection', (reason, promise) => {
-  console.error('Unhandled rejection:', reason);
-  // In production: log to Sentry/Datadog, then gracefully shut down
-  process.exit(1);
-});
 ```
 
 **Real-World Use Case:**
 
 Express.js does not natively catch errors thrown from `async` route handlers — the error must be passed to `next(err)` explicitly. A common production pattern is a wrapper utility that bridges `async`/`await` errors into Express\'s error middleware:
-
-```js
-// asyncHandler utility — used in every route in production Express apps
-const asyncHandler = (fn) => (req, res, next) =>
-  Promise.resolve(fn(req, res, next)).catch(next);
-
-router.get('/users/:id', asyncHandler(async (req, res) => {
-  const user = await db.users.findById(req.params.id);
-  if (!user) return res.status(404).json({ error: 'Not found' });
-  res.json(user);
-}));
-// Any thrown error or rejected promise is forwarded to Express error middleware
-```
 
 <div align="right">
     <b><a href="#table-of-contents">↥ back to top</a></b>
@@ -8502,8 +8661,13 @@ router.get('/users/:id', asyncHandler(async (req, res) => {
 
 The correct approach for independent async operations is to **start all Promises simultaneously** and `await` their collective resolution with `Promise.all` (fail-fast) or `Promise.allSettled` (wait for all, regardless of failures).
 
+**Example:**
+
 ```js
-// ── Sequential — slow (sum of durations) ─────────────────────────────────────
+/**
+ * Sequential — slow (sum of durations)
+ */
+
 async function loadSequential(userIds) {
   const users = [];
   for (const id of userIds) {
@@ -8513,14 +8677,22 @@ async function loadSequential(userIds) {
   return users;
   // 3 users × 200ms each = ~600ms total
 }
+```
+```js
+/**
+ * Parallel with Promise.all — fast (max of durations) 
+ */
 
-// ── Parallel with Promise.all — fast (max of durations) ──────────────────────
 async function loadParallel(userIds) {
   return Promise.all(userIds.map(id => fetchUser(id))); // all start immediately ✅
   // 3 users × 200ms each = ~200ms total (limited by slowest)
 }
+```
+```js
+/**
+ * Promise.allSettled — parallel, no fail-fast
+ */
 
-// ── Promise.allSettled — parallel, no fail-fast ───────────────────────────────
 async function loadWithPartialFailure(userIds) {
   const results = await Promise.allSettled(userIds.map(id => fetchUser(id)));
   return results.map((result, i) => ({
@@ -8529,8 +8701,12 @@ async function loadWithPartialFailure(userIds) {
     error: result.status === 'rejected'  ? result.reason.message : null,
   }));
 }
+```
+```js
+/**
+ * Controlled concurrency — avoid hammering APIs 
+ */
 
-// ── Controlled concurrency — avoid hammering APIs ─────────────────────────────
 async function loadWithConcurrencyLimit(userIds, concurrency = 3) {
   const results = [];
   for (let i = 0; i < userIds.length; i += concurrency) {
@@ -8540,8 +8716,12 @@ async function loadWithConcurrencyLimit(userIds, concurrency = 3) {
   }
   return results;
 }
+```
+```js
+/**
+ * Promise.race — first to settle wins (useful for timeouts) 
+ */
 
-// ── Promise.race — first to settle wins (useful for timeouts) ─────────────────
 function withTimeout(promise, ms) {
   const timeout = new Promise((_, reject) =>
     setTimeout(() => reject(new Error(`Timed out after ${ms}ms`)), ms)
@@ -8550,8 +8730,12 @@ function withTimeout(promise, ms) {
 }
 
 const user = await withTimeout(fetchUser(1), 3000); // throws if fetch takes > 3s
+```
+```js
+/**
+ * Promise.any — first to fulfil (ignore rejections) 
+ */
 
-// ── Promise.any — first to fulfil (ignore rejections) ─────────────────────────
 const fastest = await Promise.any([
   fetch('https://cdn1.example.com/data.json'),
   fetch('https://cdn2.example.com/data.json'),
@@ -8573,8 +8757,13 @@ An **async generator** (`async function*`) is a function that produces values as
 
 This pattern enables **lazy, backpressure-aware** pipelines: data is produced and consumed one chunk at a time rather than loading an entire dataset into memory.
 
+**Example:**
+
 ```js
-// ── Async generator: paginated API ───────────────────────────────────────────
+/**
+ * Async generator: paginated API 
+ */
+
 async function* fetchAllPages(baseUrl) {
   let page = 1;
   let hasMore = true;
@@ -8597,58 +8786,6 @@ async function processAllUsers() {
       await sendWelcomeEmail(user); // process each user
     }
   }
-}
-
-// ── Async generator: real-time stream from WebSocket ─────────────────────────
-async function* messages(socket) {
-  while (true) {
-    const message = await new Promise((resolve, reject) => {
-      socket.once('message', resolve);
-      socket.once('error',   reject);
-      socket.once('close',   () => resolve(null));
-    });
-    if (message === null) return; // socket closed — generator done
-    yield JSON.parse(message);
-  }
-}
-
-// Consumer
-for await (const msg of messages(ws)) {
-  console.log('Received:', msg);
-}
-
-// ── Composable async pipeline ─────────────────────────────────────────────────
-async function* map(iterable, fn) {
-  for await (const item of iterable) yield fn(item);
-}
-
-async function* filter(iterable, predicate) {
-  for await (const item of iterable) {
-    if (await predicate(item)) yield item;
-  }
-}
-
-async function* take(iterable, n) {
-  let count = 0;
-  for await (const item of iterable) {
-    if (count++ >= n) return;
-    yield item;
-  }
-}
-
-// Compose: fetch all users, keep admins, take first 10
-const adminPipeline = take(
-  filter(
-    map(fetchAllPages('/api/users'), pages => pages).flat ? // simplification
-      fetchAllPages('/api/users') :
-      fetchAllPages('/api/users'),
-    async user => user.role === 'admin'
-  ),
-  10
-);
-
-for await (const admin of adminPipeline) {
-  console.log(admin.name);
 }
 ```
 
